@@ -138,11 +138,14 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
   **Original assumption:** only -3 means missed the net. **Contradicted by the boxscores
   (checked 2026-10-20):** in all three fixture games, counting `shot` + `goal` events with
   `goalSection` **1 to 9** gives exactly the boxscore's per-team skater `SOG` sum
-  (`bdhvuc5tex` FHC 31 / LHC 29, `m01wkdm2u1` 24 / 40, `et9erhx0si` 16 / 23, shootout
-  excluded). The "-3 only" rule gives 40 / 43 for `bdhvuc5tex`. So 0 is most likely a
-  blocked shot (or similar non-SOG attempt), -3 missed, -1 unknown. The engine still uses
-  `MISSED_GOAL_SECTIONS = {-3}` until the user decides (Phase 1); `tools/analyze_recording.py`
-  reports both rules.
+  (`bdhvuc5tex` FHC 31 / LHC 29, `m01wkdm2u1` 24 / 40, `mtn5yq64mp` 44 / 14). The "-3 only"
+  rule gives 40 / 43 for `bdhvuc5tex`. So 0 is most likely a blocked shot (or similar
+  non-SOG attempt), -3 missed, -1 unknown. **Decided 2026-10-20:** the engine uses
+  `ON_GOAL_SECTIONS = 1..9`. All goals in the samples have a section 1 to 9.
+- Shootout and shots: in `et9erhx0si` the home skaters' `SOG` sum is 16, which **includes
+  the deciding shootout goal**; the away goalies' `SOGA` is 15, which does not. Regulation
+  and overtime shots (period an int) give 15 / 23. The engine leaves the shootout out of
+  shot and goal stats.
 - The earlier counter-example (event 120 in `bdhvuc5tex`, "FHC, P3 18:01, `goalSection` 5")
   is an **LHC** shot in the feed (Christoffer Ehn, revision 1), i.e. by the team that had
   pulled its goalie. Not a contradiction.
@@ -197,7 +200,17 @@ Offence codes seen and the Swedish text to show:
 | `SLASH` | Slashing |
 | `FIGHT` | Slagsmål |
 
-Unknown codes: show the code and log it. Extend the table as new codes appear.
+| `HOOK` | Hakning |
+| `DELAY` | Förhalning |
+| `TOO-M` | För många spelare på isen (team penalty: no `player`, variant `Bench`) |
+| `P-SHOT` | Straffslag (penalty shot awarded; empty `variant`, no minutes) |
+
+Unknown codes: show the code and log it. Extend the table as new codes appear. The table
+lives in `server/app/engine/offences.py`.
+
+Penalty minutes: the sum of all `variant.*Time` fields matches the boxscore `PIM` sums
+(`gMTime` is 20 for a game misconduct). Team (bench) penalties are not in the boxscore's
+player sums: `et9erhx0si` SKE has 2 PIM in the boxscore plus a 2 min bench minor.
 
 **goalkeeper**: `{"type": "goalkeeper", "isEntering": true|false}`. `false` mid-game means the
 goalie was pulled (or left); the game also ends with `isEntering: false` events at 20:00.

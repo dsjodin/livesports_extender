@@ -73,6 +73,8 @@ uv run --project server python tools/fetch_fixtures.py        # refresh test fix
 uv run --project server python tools/record_game.py <uuid>    # record a live game
 uv run --project server python tools/analyze_recording.py data/recordings/<uuid>
 uv run --project server python tools/synth_recording.py bdhvuc5tex   # fake recording
+cd server && uv run python -m app.cli replay bdhvuc5tex --instant     # event timeline + state
+cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --instant
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.

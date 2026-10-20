@@ -100,8 +100,9 @@ Tasks:
 
 1. **`ShlClient`** (`server/app/feed/client.py`): `filter()`, `schedule(season, series,
    game_type)`, `game_info(uuid)`, `play_by_play(uuid)`, `boxscore(uuid)`,
-   `standings(ssgt)`, `site_settings()`. Async httpx, 5 s timeout, User-Agent per
-   CLAUDE.md, typed errors. Raw responses stay plain dicts; parse defensively.
+   `standings(ssgt)`, `site_settings()`. Async httpx, 15 s timeout (raised from 5 s after
+   the 2026-10-20 timeouts), User-Agent per CLAUDE.md, typed errors, Age and
+   cf-cache-status returned with the data. Raw responses stay plain dicts; parse defensively.
 2. **Snapshot model**: `Snapshot(received_ms, game_info: dict | None, pbp: list | None)`.
 3. **Sources** (`server/app/feed/sources.py`), all async iterators of snapshots driven by
    the injectable `Clock`:
@@ -141,17 +142,20 @@ Tasks:
    by `eventId`; period objects have no `eventId`, key them `("period", n)`. Emit
    `added`, `updated` (revision or content changed) and `removed`. Stamp `first_seen_ms`
    on first appearance and keep it on updates. Map to normalized types: `goal`, `shot`,
-   `penalty`, `goalie_change`, `timeout`, `period_start`, `period_end`, `game_end`.
+   `penalty`, `goalie_change`, `timeout`, `period_start`, `period_end`, `game_end`, plus
+   `shootout_attempt` (raw `shootout-penalty-shot`) and `unknown` (logged once, shown raw).
    Compute `game_seconds = (period - 1) * 1200 + mm * 60 + ss` from `time`.
 5. **RawState reducer** (`engine/state.py`): score (from goal events' `homeGoals`/`awayGoals`,
    game-info score as fallback), period and whether it is running, latest game time seen,
    goalies on ice (including pulled goalie), penalties, shots per team and period split by
-   on goal / missed (`MISSED_GOAL_SECTIONS = {-3}` as a named constant, marked as an
-   assumption), penalty minutes, timeouts.
+   on goal / not on goal (`ON_GOAL_SECTIONS = 1..9` as a named constant, decided
+   2026-10-20 from four boxscores; goals always count as on goal), penalty minutes,
+   timeouts.
 6. **Power-play tracker** (`engine/powerplay.py`): from penalties and game time. Minor = 2
    min, double minor = two consecutive 2 min, major = 5 min. A minor ends early when the
    other team scores. A penalty is over when the latest known game time passes its end or
-   the period/game ends. Output: strength per team (5v5, 5v4, 5v3, 4v4) and which team is on
+   the game ends (penalties carry over between periods, as in hockey; see the module
+   docstring for coincidental penalties, waiting penalties and 3-on-3 overtime). Output: strength per team (5v5, 5v4, 5v3, 4v4) and which team is on
    the power play, plus each penalty's expiry in game seconds.
 7. **CLI**: `python -m app.cli replay <fixture-uuid> --speed 50` prints the event timeline and
    final state.
@@ -169,10 +173,11 @@ Acceptance (from `bdhvuc5tex`; verify these exact values in tests):
   ends that minor; FHC on the power play at P3 09:07 and the goal ends Myrenberg's minor
   early. FHC 1/3 and LHC 1/2 on the power play at the end.
 - LHC timeout and goalie #31 Jesper Myrenberg pulled at P3 17:13.
-- Shot counts under the current assumption (`goalSection == -3` = missed), goals included:
-  - on goal: FHC 16 / 15 / 10 (41), LHC 7 / 14 / 21 (42)
-  - all attempts: FHC 19 / 20 / 17 (56), LHC 10 / 21 / 31 (62)
-  If boxscore shots on goal differ, report it; do not silently change the rule.
+- Shot counts with `goalSection` 1–9 = on goal (decided 2026-10-20), goals included:
+  - on goal: FHC 15 / 11 / 5 (31), LHC 4 / 10 / 15 (29), equal to the boxscore
+  - all attempts: FHC 19 / 20 / 16 (55), LHC 10 / 21 / 32 (63)
+  (The original numbers, 41/42 on goal and 56/62 attempts, used the old "-3 only" rule and
+  counted event 120 for FHC; it is an LHC shot.)
 - Final state 2–1, game ended, three period start/end pairs.
 - Overtime and shootout fixtures replay to their known results (4–3 OT, 3–2 SO) and the
   shootout does not inflate goal or shot stats (report how the feed represents it).

@@ -39,7 +39,10 @@ The engine's internal event shape, also sent to clients inside `event` messages.
 ```
 
 `type` values: `goal`, `shot`, `penalty`, `goalie_change`, `timeout`, `period_start`,
-`period_end`, `game_end`, plus the correction `goal_disallowed`.
+`period_end`, `game_end`, `shootout_attempt`, `unknown` (an unrecognised raw type, logged
+once, `data.raw_type` holds it), plus the correction `goal_disallowed`. `raw_type` is the
+feed's type. Keys: `e<eventId>`, `period-<n>-start`, `period-<n>-end`, `game-end`.
+`period` is an int, or `"shootout"`.
 
 - `event_ms`: the on-ice moment from the feed (`realWorldTime`, or `startedAt` /
   `finishedAt` for periods), parsed as Europe/Stockholm. `null` if missing or implausible.
@@ -52,8 +55,10 @@ Type-specific `data`:
 
 | type | data |
 |---|---|
-| `shot` | `x_dm`, `y_dm`, `goal_section`, `on_goal` (bool, from the rule in `docs/SHL_API.md`) |
-| `penalty` | `offence_code`, `offence_text` (Swedish), `minutes`, `kind` (minor, double_minor, major, misconduct, …), `expires_game_seconds` |
+| `goal` | as in the example, plus `opponents_on_ice`, `shootout`, `x_dm`, `y_dm`, `goal_section` |
+| `shot` | `x_dm`, `y_dm`, `goal_section`, `on_goal` (bool, from the rule in `docs/SHL_API.md`), `penalty_shot` |
+| `penalty` | `offence_code`, `offence_text` (Swedish), `minutes` (PIM), `kind` (minor, bench_minor, double_minor, major, match, misconduct, game_misconduct, penalty_shot, joined with `+`), `segments_s` (shorthanded parts in order), `variant`, `description`, `penalty_shot_awarded`, `team_penalty`. Expiry is in the state, not the event. |
+| `shootout_attempt` | `scored`, `index`, `shootout_score`, `game_winning` |
 | `goalie_change` | `entering` (bool) |
 | `period_end` | `next_period_estimate_ms` (period end + 18 min, labelled as an estimate) |
 | `game_end` | `final` score, `overtime`, `shootout` |
