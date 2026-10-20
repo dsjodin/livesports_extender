@@ -1,0 +1,5255 @@
+[
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 126,
+    "eventUuid": "ec2a13cd-e9dd-5fcc-87db-daff6d2dd0f8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "05:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:49:40.289723",
+    "updatedTime": "2026-10-17T15:49:40.550131",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4835",
+      "firstName": "Strauss",
+      "familyName": "Mann",
+      "jerseyToday": "38"
+    },
+    "isEntering": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 125,
+    "eventUuid": "9fc3fc5a-7d4e-5145-92e9-894cd99d2398",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "05:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:49:42.241263",
+    "updatedTime": "2026-10-17T15:49:42.430873",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "6154",
+      "firstName": "Tobias",
+      "familyName": "Normann",
+      "jerseyToday": "30"
+    },
+    "isEntering": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 124,
+    "eventUuid": "6bfeb2c4-64c2-5f18-bf65-d99572ad250c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 8,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:48:08.868632",
+    "updatedTime": "2026-10-17T15:48:49.937877",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4050",
+      "firstName": "Filip",
+      "familyName": "Cederqvist",
+      "jerseyToday": "92",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "3"
+        }
+      ]
+    },
+    "locationX": 487,
+    "locationY": 21,
+    "homeGoals": 3,
+    "awayGoals": 2,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "4050",
+        "firstName": "Filip",
+        "familyName": "Cederqvist",
+        "jerseyToday": "92"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      }
+    ],
+    "assists": {},
+    "goalStatus": "EQ",
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 123,
+    "eventUuid": "4ba817f9-e202-5cc1-b5a1-3f69c0e8d617",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 5,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:48:08.868632",
+    "updatedTime": "2026-10-17T15:48:49.937877",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4050",
+      "firstName": "Filip",
+      "familyName": "Cederqvist",
+      "jerseyToday": "92"
+    },
+    "isPenaltyShot": true,
+    "locationX": 487,
+    "locationY": 21,
+    "goalSection": 2,
+    "isGameWinningGoal": true,
+    "isGoal": true,
+    "shootoutIndex": 8,
+    "shootoutScore": {
+      "homeGoals": 1,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 122,
+    "eventUuid": "91db21c6-daca-580f-b628-fe22cb8471e2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:47:50.516052",
+    "updatedTime": "2026-10-17T15:48:06.137023",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "isPenaltyShot": true,
+    "locationX": 26,
+    "locationY": 14,
+    "goalSection": 0,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 7,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 121,
+    "eventUuid": "8ad6cd8a-520a-5732-bbba-d669a8453ccd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:47:26.363631",
+    "updatedTime": "2026-10-17T15:47:45.332928",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3770",
+      "firstName": "Jacob",
+      "familyName": "Peterson",
+      "jerseyToday": "44"
+    },
+    "isPenaltyShot": true,
+    "locationX": 11,
+    "locationY": 14,
+    "goalSection": 2,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 6,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 120,
+    "eventUuid": "e4443e0e-f2d5-5b3d-8049-d8a25edf94cf",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:47:00.137863",
+    "updatedTime": "2026-10-17T15:47:20.054152",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "isPenaltyShot": true,
+    "locationX": 45,
+    "locationY": 3,
+    "goalSection": 2,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 5,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 119,
+    "eventUuid": "e817fa6a-d850-53aa-b341-f5c3a3490e55",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:46:47.849768",
+    "updatedTime": "2026-10-17T15:46:57.833328",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4042",
+      "firstName": "Samuel",
+      "familyName": "Johannesson",
+      "jerseyToday": "8"
+    },
+    "isPenaltyShot": true,
+    "locationX": 478,
+    "locationY": 16,
+    "goalSection": 2,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 4,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 118,
+    "eventUuid": "352879f0-2611-5000-b996-b1060c2f23c0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:46:14.483807",
+    "updatedTime": "2026-10-17T15:46:37.54432",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "isPenaltyShot": true,
+    "locationX": 14,
+    "locationY": 10,
+    "goalSection": 3,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 3,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 117,
+    "eventUuid": "83a5a8a7-8c36-58f7-9b0d-4c33030fa8fd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:45:57.404713",
+    "updatedTime": "2026-10-17T15:46:11.353757",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3815",
+      "firstName": "Samuel",
+      "familyName": "Fagemo",
+      "jerseyToday": "11"
+    },
+    "isPenaltyShot": true,
+    "locationX": 62,
+    "locationY": 0,
+    "goalSection": 4,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 2,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 116,
+    "eventUuid": "31e91f49-82a7-5514-a64d-65e221088a5e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:45:33.061431",
+    "updatedTime": "2026-10-17T15:46:46.041675",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "isPenaltyShot": true,
+    "locationX": 14,
+    "locationY": 21,
+    "goalSection": -1,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 1,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 115,
+    "eventUuid": "bf97bc23-6d53-5919-b671-03078f0e1bca",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "03:24",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:41:24.383",
+    "updatedTime": "2026-10-17T12:24:36.293422",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "7091",
+      "firstName": "Graeme",
+      "familyName": "Clarke",
+      "jerseyToday": "9"
+    },
+    "locationX": 25,
+    "locationY": -22,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 114,
+    "eventUuid": "e815247f-cc54-5e62-87ea-18b957bd8a69",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "04:19",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:42:53.14",
+    "updatedTime": "2026-10-17T12:24:36.291441",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3274",
+      "firstName": "Max",
+      "familyName": "Lindholm",
+      "jerseyToday": "77"
+    },
+    "locationX": 104,
+    "locationY": -50,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 113,
+    "eventUuid": "9e59d246-79c2-525e-9c7e-05f22fecd10d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "02:44",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:39:17.02",
+    "updatedTime": "2026-10-17T12:24:36.28658",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "6711",
+      "firstName": "Max",
+      "familyName": "Westergård",
+      "jerseyToday": "10"
+    },
+    "locationX": 4,
+    "locationY": -55,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 112,
+    "eventUuid": "bfa99876-c650-57e7-beac-3ba94bcb0d23",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "02:44",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:39:26.750625",
+    "updatedTime": "2026-10-17T15:43:52.530106",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "variant": {
+      "shortName": "Bench",
+      "minorTime": "0",
+      "doubleMinorTime": "0",
+      "benchTime": "2",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "Team Penalty 2 min"
+    },
+    "offence": "TOO-M",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 111,
+    "eventUuid": "908aff33-7300-5489-9248-27085c1a64f9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "01:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:37:39.72",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9"
+    },
+    "locationX": 62,
+    "locationY": 82,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 110,
+    "eventUuid": "d0f03d7f-0d7c-52e5-9e40-790fb5e61ab2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "00:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:35:46.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 9,
+    "locationY": -50,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 109,
+    "eventUuid": "82011413-9048-5e98-ab17-0f3978a6e5f1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:21:26.679",
+    "updatedTime": "2026-10-17T12:24:36.291441",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3274",
+      "firstName": "Max",
+      "familyName": "Lindholm",
+      "jerseyToday": "77"
+    },
+    "locationX": 7,
+    "locationY": 18,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 108,
+    "eventUuid": "270d18a6-e563-5459-84f7-7167074560ee",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:29:38.4",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3265",
+      "firstName": "Linus",
+      "familyName": "Högberg",
+      "jerseyToday": "33"
+    },
+    "locationX": 120,
+    "locationY": -142,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 107,
+    "eventUuid": "e8c57ccd-d5f1-5f77-af21-6e81a515a7d1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:54",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:24:41.84",
+    "updatedTime": "2026-10-17T15:28:38.606994",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 25,
+    "locationY": -72,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 106,
+    "eventUuid": "7e276f4f-6077-550b-9ad8-535f3ebaa15c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "14:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:27:55.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4092",
+      "firstName": "Isac",
+      "familyName": "Heens",
+      "jerseyToday": "26"
+    },
+    "locationX": 169,
+    "locationY": 131,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 105,
+    "eventUuid": "70f9274f-c758-58e7-ad1f-8871e7699011",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "14:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:26:49",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 79,
+    "locationY": -79,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 103,
+    "eventUuid": "8d863427-67e1-5299-bcd8-c1b3ef8be5e2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:57.86",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 166,
+    "locationY": 62,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 102,
+    "eventUuid": "8ade2143-d365-5b1f-abc0-79f49c836213",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:08",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:21:35.4",
+    "updatedTime": "2026-10-17T12:24:36.288271",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3815",
+      "firstName": "Samuel",
+      "familyName": "Fagemo",
+      "jerseyToday": "11"
+    },
+    "locationX": 116,
+    "locationY": 55,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 100,
+    "eventUuid": "c3073785-8075-5354-ba1c-7df699e6af23",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:22:01.9",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3648",
+      "firstName": "Viktor",
+      "familyName": "Grahn",
+      "jerseyToday": "3"
+    },
+    "locationX": 152,
+    "locationY": -4,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 97,
+    "eventUuid": "828dcffb-7677-5ba2-91c4-7a57a0387a88",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:48",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:21:15.06",
+    "updatedTime": "2026-10-17T12:24:36.295141",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "6957",
+      "firstName": "Bosse",
+      "familyName": "Meijer",
+      "jerseyToday": "16"
+    },
+    "locationX": 85,
+    "locationY": -46,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 96,
+    "eventUuid": "53916f5a-feaa-5f77-9363-5e7e0eab0143",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:24",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:20:51.38",
+    "updatedTime": "2026-10-17T12:24:36.291441",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3274",
+      "firstName": "Max",
+      "familyName": "Lindholm",
+      "jerseyToday": "77"
+    },
+    "locationX": 152,
+    "locationY": -137,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 95,
+    "eventUuid": "ef210cf0-7dcd-5dce-aca6-7193809e17d7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:20:25.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 130,
+    "locationY": -57,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 94,
+    "eventUuid": "9be31b98-5f71-59ea-b1c4-9c087242f98e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:20:18.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 14,
+    "locationY": -16,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 92,
+    "eventUuid": "e8ebb1a5-c296-5f91-ae8f-eab8e8d08a69",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "08:56",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:17:31.654414",
+    "updatedTime": "2026-10-17T15:20:26.540731",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "6711",
+      "firstName": "Max",
+      "familyName": "Westergård",
+      "jerseyToday": "10"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 91,
+    "eventUuid": "4a0210fb-02bc-5446-a55d-d1d630c49bb3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "06:16",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:14:45.92",
+    "updatedTime": "2026-10-17T15:15:10.510369",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 172,
+    "locationY": 143,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 89,
+    "eventUuid": "850c0d00-d300-5f5f-b858-5b2655d99ec4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:57",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:20.34",
+    "updatedTime": "2026-10-17T12:24:36.284647",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "1115",
+      "firstName": "Nicklas",
+      "familyName": "Lasu",
+      "jerseyToday": "31"
+    },
+    "locationX": 151,
+    "locationY": -141,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 88,
+    "eventUuid": "d225982e-eab3-50f8-81b6-79ab28d38b67",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:06:44.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4986",
+      "firstName": "Stefan",
+      "familyName": "Milosevic",
+      "jerseyToday": "3"
+    },
+    "locationX": 169,
+    "locationY": 120,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 87,
+    "eventUuid": "c0cb6577-4724-5163-b3fe-9b2e7731e515",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:06:42.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3265",
+      "firstName": "Linus",
+      "familyName": "Högberg",
+      "jerseyToday": "33"
+    },
+    "locationX": 132,
+    "locationY": -82,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 86,
+    "eventUuid": "52dfb671-1230-5cc6-8223-490559272d37",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:05:49.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6494",
+      "firstName": "Valter",
+      "familyName": "Lindberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 118,
+    "locationY": -59,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 85,
+    "eventUuid": "79500e15-31b6-51a3-8942-050aa51726a2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:04:44.16",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "1332",
+      "firstName": "Henrik",
+      "familyName": "Tömmernes",
+      "jerseyToday": "7"
+    },
+    "locationX": 186,
+    "locationY": -139,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 84,
+    "eventUuid": "6eedc74a-dd04-5d4c-9d10-e86e874850c1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "15:35",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:39:55.152",
+    "updatedTime": "2026-10-17T12:24:36.289757",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3770",
+      "firstName": "Jacob",
+      "familyName": "Peterson",
+      "jerseyToday": "44"
+    },
+    "locationX": 35,
+    "locationY": 12,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 83,
+    "eventUuid": "3c1bf260-1829-58e8-a792-75add2fd8b14",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:38:26.3",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3910",
+      "firstName": "Filip",
+      "familyName": "Hasa",
+      "jerseyToday": "6"
+    },
+    "locationX": 95,
+    "locationY": 102,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 82,
+    "eventUuid": "518733dc-e69c-5578-b72f-19c164528118",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:45:38.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 9,
+    "locationY": 24,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 81,
+    "eventUuid": "894e0517-1b2c-5705-8cf9-a4b87ab7a616",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:45:34.48",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 101,
+    "locationY": -90,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 80,
+    "eventUuid": "de94ed8e-612c-5ef0-9db0-1eae0a8ae9b0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:44:44.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 103,
+    "locationY": -13,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 79,
+    "eventUuid": "b792484e-b87d-5472-b0e0-ea73ac9049a9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:50.14",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 168,
+    "locationY": -132,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 78,
+    "eventUuid": "a3a392bf-ca07-5106-9e23-454494ccc4f7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:53",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:13.92",
+    "updatedTime": "2026-10-17T14:43:56.374291",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9"
+    },
+    "locationX": 40,
+    "locationY": -19,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 76,
+    "eventUuid": "bf5e431d-f327-57dd-a24f-fabe7260b045",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:11.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3648",
+      "firstName": "Viktor",
+      "familyName": "Grahn",
+      "jerseyToday": "3"
+    },
+    "locationX": 101,
+    "locationY": -137,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 75,
+    "eventUuid": "674ebac2-c6e2-52da-8d69-40536a1b0d92",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:00.64",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 68,
+    "locationY": -94,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 74,
+    "eventUuid": "e15f0bda-c51a-5f5f-bb43-1778b4c3020f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:41:57.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6494",
+      "firstName": "Valter",
+      "familyName": "Lindberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 82,
+    "locationY": 1,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 73,
+    "eventUuid": "db8b29f0-9683-5bc8-a786-de472bd51636",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:41:47.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 85,
+    "locationY": -106,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 72,
+    "eventUuid": "e836d4e2-baf3-5bc1-b067-a784476d39c4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "15:16",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:39:36.9",
+    "updatedTime": "2026-10-17T12:24:36.289757",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3770",
+      "firstName": "Jacob",
+      "familyName": "Peterson",
+      "jerseyToday": "44"
+    },
+    "locationX": 65,
+    "locationY": 3,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 69,
+    "eventUuid": "805bd1ed-32d1-5c15-8f08-ef609e16d21d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:38:00.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4092",
+      "firstName": "Isac",
+      "familyName": "Heens",
+      "jerseyToday": "26"
+    },
+    "locationX": 114,
+    "locationY": 83,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 68,
+    "eventUuid": "89a51d31-5156-5912-bd3b-12d177d188d5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:18",
+    "gameState": "GameEnded",
+    "revision": 5,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:36:53.524753",
+    "updatedTime": "2026-10-17T14:48:00.026291",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4042",
+      "firstName": "Samuel",
+      "familyName": "Johannesson",
+      "jerseyToday": "8",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 86,
+    "locationY": -112,
+    "homeGoals": 2,
+    "awayGoals": 2,
+    "goalSection": 7,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "1332",
+        "firstName": "Henrik",
+        "familyName": "Tömmernes",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "4042",
+        "firstName": "Samuel",
+        "familyName": "Johannesson",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "6154",
+        "firstName": "Tobias",
+        "familyName": "Normann",
+        "jerseyToday": "30"
+      },
+      {
+        "playerId": "4981",
+        "firstName": "Noah",
+        "familyName": "Hasa",
+        "jerseyToday": "40"
+      },
+      {
+        "playerId": "6735",
+        "firstName": "Mads",
+        "familyName": "Kongsbak Klyvö",
+        "jerseyToday": "64"
+      },
+      {
+        "playerId": "1639",
+        "firstName": "Erik",
+        "familyName": "Thorell",
+        "jerseyToday": "86"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "4681",
+        "firstName": "Måns",
+        "familyName": "Forsfjäll",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "2102",
+        "firstName": "Jonathan",
+        "familyName": "Johnson",
+        "jerseyToday": "22"
+      },
+      {
+        "playerId": "4535",
+        "firstName": "Pontus",
+        "familyName": "Johansson",
+        "jerseyToday": "25"
+      },
+      {
+        "playerId": "5617",
+        "firstName": "Zeb",
+        "familyName": "Forsfjäll",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "6493",
+        "firstName": "Viggo",
+        "familyName": "Nordlund",
+        "jerseyToday": "73"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4981",
+        "firstName": "Noah",
+        "familyName": "Hasa",
+        "jerseyToday": "40",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 66,
+    "eventUuid": "10189698-47b1-55a6-bdfa-f4fafd40b157",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:23",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:03.68",
+    "updatedTime": "2026-10-17T14:35:18.343856",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "locationX": 114,
+    "locationY": 101,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 65,
+    "eventUuid": "2f58f91e-1f92-5772-a510-8670b8f7fe85",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:16",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:32:56.26",
+    "updatedTime": "2026-10-17T14:34:39.258032",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 42,
+    "locationY": 70,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 64,
+    "eventUuid": "e44da4f8-9d87-5e1c-9102-e817a18a57c7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:32.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 169,
+    "locationY": 33,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 60,
+    "eventUuid": "e185fae2-b75e-502b-93ce-b5739b4021a7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:37",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:31:33.692109",
+    "updatedTime": "2026-10-17T14:32:20.361929",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "8"
+        }
+      ]
+    },
+    "locationX": 33,
+    "locationY": -9,
+    "homeGoals": 1,
+    "awayGoals": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "6494",
+        "firstName": "Valter",
+        "familyName": "Lindberg",
+        "jerseyToday": "12"
+      },
+      {
+        "playerId": "2388",
+        "firstName": "Andreas",
+        "familyName": "Johnson",
+        "jerseyToday": "14"
+      },
+      {
+        "playerId": "1674",
+        "firstName": "Pär",
+        "familyName": "Lindholm",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "7041",
+        "firstName": "Hudson",
+        "familyName": "Fasching",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "2217",
+        "firstName": "Arvid",
+        "familyName": "Lundberg",
+        "jerseyToday": "52"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "1332",
+        "firstName": "Henrik",
+        "familyName": "Tömmernes",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "2004",
+        "firstName": "Max",
+        "familyName": "Friberg",
+        "jerseyToday": "12"
+      },
+      {
+        "playerId": "4092",
+        "firstName": "Isac",
+        "familyName": "Heens",
+        "jerseyToday": "26"
+      },
+      {
+        "playerId": "6154",
+        "firstName": "Tobias",
+        "familyName": "Normann",
+        "jerseyToday": "30"
+      },
+      {
+        "playerId": "1115",
+        "firstName": "Nicklas",
+        "familyName": "Lasu",
+        "jerseyToday": "31"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "2217",
+        "firstName": "Arvid",
+        "familyName": "Lundberg",
+        "jerseyToday": "52",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "5"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6494",
+        "firstName": "Valter",
+        "familyName": "Lindberg",
+        "jerseyToday": "12",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 58,
+    "eventUuid": "f6a5f6f6-36c2-522a-9638-5cd214ef8066",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:30:34.38",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 115,
+    "locationY": 20,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 57,
+    "eventUuid": "74fba072-403a-5472-a9ae-facfcb35a180",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:29:27.92",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 27,
+    "locationY": -93,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 56,
+    "eventUuid": "71569ac5-5c30-5f74-be0c-410553c6d42f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:29:26.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 122,
+    "locationY": 48,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 55,
+    "eventUuid": "8f48db35-7684-5397-9b64-f889889a5e85",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:29:06.76",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 83,
+    "locationY": -76,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 54,
+    "eventUuid": "0d7a754c-4357-597c-82b3-cba3ed2f35af",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:37",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:27:49.28",
+    "updatedTime": "2026-10-17T14:29:07.169436",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 15,
+    "locationY": 19,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 53,
+    "eventUuid": "60d4d9aa-6312-5cf4-bf61-66922dfa03f3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:25:40.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4092",
+      "firstName": "Isac",
+      "familyName": "Heens",
+      "jerseyToday": "26"
+    },
+    "locationX": 162,
+    "locationY": 13,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 52,
+    "eventUuid": "0a5ca08d-561f-565e-b7c5-2d04a5d45e92",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:39",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:27:53.903814",
+    "updatedTime": "2026-10-17T14:31:45.602324",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4986",
+      "firstName": "Stefan",
+      "familyName": "Milosevic",
+      "jerseyToday": "3"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "TRIP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 50,
+    "eventUuid": "92d751a5-47c2-55c4-acb4-56d170eff3bb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:27:48.38",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 26,
+    "locationY": -6,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 49,
+    "eventUuid": "4ea84df9-c1b7-5f10-bf69-2f1f84e2b664",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:16",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:37.06",
+    "updatedTime": "2026-10-17T14:27:19.485814",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 167,
+    "locationY": 117,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 48,
+    "eventUuid": "03bee3be-a2b5-507f-a1aa-28333bb6db82",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:51.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 39,
+    "locationY": -58,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 46,
+    "eventUuid": "7d5dcae0-0935-5e02-ba73-3ed0ace1dc87",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:25:39.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4092",
+      "firstName": "Isac",
+      "familyName": "Heens",
+      "jerseyToday": "26"
+    },
+    "locationX": 166,
+    "locationY": 53,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 45,
+    "eventUuid": "ba5df597-10f2-57a4-8c5c-de0ed9969cb8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:45",
+    "gameState": "GameEnded",
+    "revision": 6,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:24:21.334011",
+    "updatedTime": "2026-10-17T15:01:18.18391",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "3"
+        }
+      ]
+    },
+    "locationX": 76,
+    "locationY": -14,
+    "homeGoals": 1,
+    "awayGoals": 1,
+    "goalSection": 9,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3648",
+        "firstName": "Viktor",
+        "familyName": "Grahn",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "6492",
+        "firstName": "Rasmus",
+        "familyName": "Bergqvist",
+        "jerseyToday": "4"
+      },
+      {
+        "playerId": "4542",
+        "firstName": "Victor",
+        "familyName": "Stjernborg",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "2388",
+        "firstName": "Andreas",
+        "familyName": "Johnson",
+        "jerseyToday": "14"
+      },
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "6202",
+        "firstName": "Oskar",
+        "familyName": "Vuollet",
+        "jerseyToday": "72"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "1332",
+        "firstName": "Henrik",
+        "familyName": "Tömmernes",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "4042",
+        "firstName": "Samuel",
+        "familyName": "Johannesson",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "7091",
+        "firstName": "Graeme",
+        "familyName": "Clarke",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "6154",
+        "firstName": "Tobias",
+        "familyName": "Normann",
+        "jerseyToday": "30"
+      },
+      {
+        "playerId": "3770",
+        "firstName": "Jacob",
+        "familyName": "Peterson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "3274",
+        "firstName": "Max",
+        "familyName": "Lindholm",
+        "jerseyToday": "77"
+      }
+    ],
+    "assists": {},
+    "goalStatus": "EQ",
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 43,
+    "eventUuid": "47816e7b-515d-5435-9bf6-cfbdc755ecc3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:39",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:22:30.32",
+    "updatedTime": "2026-10-17T12:24:36.284647",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "1115",
+      "firstName": "Nicklas",
+      "familyName": "Lasu",
+      "jerseyToday": "31"
+    },
+    "locationX": 17,
+    "locationY": 9,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 41,
+    "eventUuid": "1fb1a9f3-c5f7-55b1-bc9d-c4099fdb2f6f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:21:59.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 108,
+    "locationY": 81,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 40,
+    "eventUuid": "b6700e7f-b5be-578d-b132-3b34a8342d1e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "03:45",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:02.56",
+    "updatedTime": "2026-10-17T12:24:36.269867",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "2004",
+      "firstName": "Max",
+      "familyName": "Friberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 84,
+    "locationY": -89,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 39,
+    "eventUuid": "6115b12d-00c8-56da-b0a4-a04bce1849b8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:16.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9"
+    },
+    "locationX": 20,
+    "locationY": 22,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 38,
+    "eventUuid": "d69f2c87-19bc-58dd-ac0a-46ed8a619111",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:10",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:55.98",
+    "updatedTime": "2026-10-17T12:24:36.288271",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3815",
+      "firstName": "Samuel",
+      "familyName": "Fagemo",
+      "jerseyToday": "11"
+    },
+    "locationX": 130,
+    "locationY": 106,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 37,
+    "eventUuid": "abc67b0c-0de3-58f6-a008-5bdc06963d55",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:54:57.437",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 30,
+    "locationY": -29,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 35,
+    "eventUuid": "9af07fee-f859-518f-8239-0d97cabaa074",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:55:33.72",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5617",
+      "firstName": "Zeb",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "33"
+    },
+    "locationX": 113,
+    "locationY": -95,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 34,
+    "eventUuid": "ec7af6aa-c4c8-5995-bb0e-0c6ec9aca1be",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:16",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:55:23.48",
+    "updatedTime": "2026-10-17T12:24:36.291441",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3274",
+      "firstName": "Max",
+      "familyName": "Lindholm",
+      "jerseyToday": "77"
+    },
+    "locationX": 139,
+    "locationY": -24,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 33,
+    "eventUuid": "02b0578d-8e9a-5f47-a977-ff68f89cc08e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:54:02.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 72,
+    "locationY": -67,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 32,
+    "eventUuid": "eea3a39d-a8cc-5a78-9c48-af893a590468",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:53:55.66",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 41,
+    "locationY": 49,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 31,
+    "eventUuid": "dae411a3-d80f-531a-8d79-4ed90a28c772",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "17:15",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:52:11.9",
+    "updatedTime": "2026-10-17T12:24:36.291441",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3274",
+      "firstName": "Max",
+      "familyName": "Lindholm",
+      "jerseyToday": "77"
+    },
+    "locationX": 258,
+    "locationY": -12,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 29,
+    "eventUuid": "36ad993a-8edc-5b2f-a456-ebda7c953162",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:24",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:51:21.54",
+    "updatedTime": "2026-10-17T12:24:36.293422",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "7091",
+      "firstName": "Graeme",
+      "familyName": "Clarke",
+      "jerseyToday": "9"
+    },
+    "locationX": 102,
+    "locationY": 39,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 28,
+    "eventUuid": "96410a60-3aa8-5ba0-b0df-500cdeb8d830",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:09",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:48:54.671962",
+    "updatedTime": "2026-10-17T13:52:10.538028",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "SLASH",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 27,
+    "eventUuid": "0335b168-3d3e-5b04-be9d-f082bf3f2a7a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "12:23",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:43:27.84",
+    "updatedTime": "2026-10-17T13:45:31.034491",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4986",
+      "firstName": "Stefan",
+      "familyName": "Milosevic",
+      "jerseyToday": "3"
+    },
+    "locationX": 98,
+    "locationY": 20,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 26,
+    "eventUuid": "06ed0da9-6bcf-56ec-bc2c-8fbd12c9cb2d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "12:58",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:44:02.22",
+    "updatedTime": "2026-10-17T13:44:51.268701",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "4092",
+      "firstName": "Isac",
+      "familyName": "Heens",
+      "jerseyToday": "26"
+    },
+    "locationX": 117,
+    "locationY": -23,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 25,
+    "eventUuid": "535148ae-0486-544b-bcad-6f860fa6f8d9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:01",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:44:05.7",
+    "updatedTime": "2026-10-17T12:24:36.28658",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "6711",
+      "firstName": "Max",
+      "familyName": "Westergård",
+      "jerseyToday": "10"
+    },
+    "locationX": 4,
+    "locationY": 7,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 22,
+    "eventUuid": "af24b139-c970-52a6-b72e-a2e5d6661206",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:47.48",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5617",
+      "firstName": "Zeb",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "33"
+    },
+    "locationX": 50,
+    "locationY": 85,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 21,
+    "eventUuid": "f6947ba1-c65f-519b-841a-fd9b8176b755",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:38.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 69,
+    "locationY": -132,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 20,
+    "eventUuid": "d21f0d71-82d1-5a93-b49b-5800d631c2d1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:51",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:40:18.48",
+    "updatedTime": "2026-10-17T13:40:55.520801",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 163,
+    "locationY": 142,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 17,
+    "eventUuid": "a7ac5dfb-4cbd-5620-8a24-0e67d585de46",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:31",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:32.5",
+    "updatedTime": "2026-10-17T12:24:36.288271",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3815",
+      "firstName": "Samuel",
+      "familyName": "Fagemo",
+      "jerseyToday": "11"
+    },
+    "locationX": 113,
+    "locationY": 54,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 16,
+    "eventUuid": "850a2040-fe77-51f1-bc56-1019fd85dab9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:11",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:35:13.551783",
+    "updatedTime": "2026-10-17T13:35:32.878643",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "variant": {},
+    "offence": "P-SHOT",
+    "didRenderInPenaltyShot": true,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 15,
+    "eventUuid": "5d9d0640-e15f-5dcf-a1d1-32665efdbc5a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:11",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:34:17.335721",
+    "updatedTime": "2026-10-17T13:34:35.825078",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3815",
+      "firstName": "Samuel",
+      "familyName": "Fagemo",
+      "jerseyToday": "11",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "3"
+        }
+      ]
+    },
+    "locationX": 136,
+    "locationY": 14,
+    "homeGoals": 1,
+    "awayGoals": 0,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3815",
+        "firstName": "Samuel",
+        "familyName": "Fagemo",
+        "jerseyToday": "11"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      }
+    ],
+    "assists": {},
+    "goalStatus": "EQ",
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 13,
+    "eventUuid": "b7b7dc3e-d781-57f7-9b26-f099ecb30d80",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:36.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3265",
+      "firstName": "Linus",
+      "familyName": "Högberg",
+      "jerseyToday": "33"
+    },
+    "locationX": 163,
+    "locationY": -84,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 12,
+    "eventUuid": "c55fa2ee-a512-519d-a103-68617588d9cf",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:59",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:26.78",
+    "updatedTime": "2026-10-17T11:10:39.807243",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "1639",
+      "firstName": "Erik",
+      "familyName": "Thorell",
+      "jerseyToday": "86"
+    },
+    "locationX": 10,
+    "locationY": -25,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 11,
+    "eventUuid": "9e50e23b-7fbd-563b-985d-f287438e944e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:04.02",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "1332",
+      "firstName": "Henrik",
+      "familyName": "Tömmernes",
+      "jerseyToday": "7"
+    },
+    "locationX": 142,
+    "locationY": -24,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 10,
+    "eventUuid": "b0a8a252-3c64-5f9a-886b-729a9f2da9cd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "04:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:31:15.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 88,
+    "locationY": 134,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 9,
+    "eventUuid": "5d8f4309-14b6-5185-8f66-0cb317740d4b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:29:14.574",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7122",
+      "firstName": "Olle",
+      "familyName": "Lundström",
+      "jerseyToday": "40"
+    },
+    "locationX": 171,
+    "locationY": 34,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 8,
+    "eventUuid": "472744cd-6504-53cb-b38c-ccd5eaa7b11f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "04:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:30:30.9",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3265",
+      "firstName": "Linus",
+      "familyName": "Högberg",
+      "jerseyToday": "33"
+    },
+    "locationX": 167,
+    "locationY": 122,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 7,
+    "eventUuid": "9099b8cc-c12c-5d6f-bba6-84daf4dd6777",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:30:16",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "3265",
+      "firstName": "Linus",
+      "familyName": "Högberg",
+      "jerseyToday": "33"
+    },
+    "locationX": 144,
+    "locationY": -38,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 6,
+    "eventUuid": "25e41ccb-c2a1-5b65-9165-f62bd23082ba",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:14",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:29:06.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7122",
+      "firstName": "Olle",
+      "familyName": "Lundström",
+      "jerseyToday": "40"
+    },
+    "locationX": 156,
+    "locationY": -137,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 5,
+    "eventUuid": "99509a66-637b-5401-8c60-d4cb71d49c30",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:27:25.92",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 22,
+    "locationY": 2,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 4,
+    "eventUuid": "8a95182c-bb0e-5e13-8cb5-74bdfe548bc9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:27:24.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4681",
+      "firstName": "Måns",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "6"
+    },
+    "locationX": 88,
+    "locationY": -116,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 3,
+    "eventUuid": "2741343b-2fea-5402-a228-66ee24b778fa",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:38.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 183,
+    "locationY": 37,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 2,
+    "eventUuid": "56852ae1-cbe2-5da7-9823-06cafa7972ec",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:22:27.682687",
+    "updatedTime": "2026-10-17T15:49:40.550131",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4835",
+      "firstName": "Strauss",
+      "familyName": "Mann",
+      "jerseyToday": "38"
+    },
+    "isEntering": true,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "eventId": 1,
+    "eventUuid": "247080c0-1184-57d2-8b35-0d2d807167a0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Scandinavium",
+    "attendance": 12044,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:22:26.371102",
+    "updatedTime": "2026-10-17T15:49:42.430873",
+    "homeTeam": {
+      "teamId": "FHC",
+      "teamName": "Frölunda HC",
+      "teamCode": "FHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FHC",
+      "place": "home",
+      "teamCode": "FHC",
+      "teamName": "Frölunda HC"
+    },
+    "player": {
+      "playerId": "6154",
+      "firstName": "Tobias",
+      "familyName": "Normann",
+      "jerseyToday": "30"
+    },
+    "isEntering": true,
+    "gameUuid": "et9erhx0si"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-10-17T15:22:06.059Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T15:56:34.033Z",
+    "realWorldTime": "2026-10-17T15:56:34.338534",
+    "gameUuid": "et9erhx0si",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-10-17T16:14:14.082Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T16:46:12.091Z",
+    "realWorldTime": "2026-10-17T16:46:12.915166",
+    "gameUuid": "et9erhx0si",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-10-17T17:03:50.008Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:34:03.061Z",
+    "realWorldTime": "2026-10-17T17:34:03.610217",
+    "gameUuid": "et9erhx0si",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "period": 4,
+    "started": true,
+    "startedAt": "2026-10-17T17:38:16.011Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:44:41.064Z",
+    "realWorldTime": "2026-10-17T17:44:41.649943",
+    "gameUuid": "et9erhx0si",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "period": "shootout",
+    "started": true,
+    "startedAt": "2026-10-17T17:45:16.085Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:48:35.027Z",
+    "realWorldTime": "2026-10-17T17:48:35.278404",
+    "gameUuid": "et9erhx0si",
+    "type": "period"
+  }
+]

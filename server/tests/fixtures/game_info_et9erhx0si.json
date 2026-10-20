@@ -1,0 +1,61 @@
+{
+  "instanceContext": {
+    "siteTeamIsInGame": true,
+    "siteTeamIsHomeTeam": true,
+    "siteTeamIsAwayTeam": true
+  },
+  "gameInfo": {
+    "gameUuid": "et9erhx0si",
+    "extId": "23065",
+    "startDateTime": "2026-10-17T13:15:00.000Z",
+    "arenaName": "Scandinavium",
+    "state": "post_game",
+    "overtime": false,
+    "shootout": true,
+    "seriesCode": "SHL",
+    "seriesName": "SHL",
+    "roundNumber": 10,
+    "roundLabel": "",
+    "seriesDisplayName": "SHL"
+  },
+  "homeTeam": {
+    "names": {
+      "code": "FHC",
+      "short": "Frölunda ",
+      "long": "Frölunda HC",
+      "full": "Frölunda Hockey Club",
+      "codeSite": "FHC",
+      "shortSite": "Frölunda",
+      "fullSite": "Frölunda Hockey Club / Herr",
+      "longSite": "Frölunda HC"
+    },
+    "uuid": "087a-087aTQv9u",
+    "instanceId": "fhc1_fhc",
+    "foundedOn": "1944",
+    "address": "Frölunda HC\r\nFrölundaborgs Isstadion\r\nBox 12127\r\n402 42 Göteborg",
+    "email": "kontakt@frolundahockey.com",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+    "score": 3
+  },
+  "awayTeam": {
+    "names": {
+      "code": "SKE",
+      "short": "Skellefteå",
+      "long": "Skellefteå AIK",
+      "full": "Skellefteå AIK Hockey",
+      "codeSite": "SKE",
+      "shortSite": "Skellefteå",
+      "fullSite": "Skellefteå AIK Hockey",
+      "longSite": "Skellefteå AIK"
+    },
+    "uuid": "50e6-50e6DYeWM",
+    "instanceId": "saik1_saik",
+    "foundedOn": "1921",
+    "address": "Skellefteå AIK, Skellefteå Kraft Arena, Mossgatan 27, Box 185, 931 22 Skellefteå",
+    "email": "info@skellefteaaik.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+    "score": 2
+  },
+  "ssgtUuid": "qa98unlbd6",
+  "seriesUuid": "qQ9-bb0bzEWUk"
+}

@@ -70,6 +70,7 @@ Never hard-code the season: read it from the filter endpoint's `defaultSsgtFilte
 - `rawStartDateTime` is real UTC. `startDateTime` is local Swedish time without zone.
 - `state` seen: `pre-game`, `post-game`. Live value **unknown**.
 - `score` is an integer after the game and the **string** `"N/A"` before it.
+  (game-info differs: there a pre-game `score` is the empty string `""`, verified 2026-10-20.)
 - `status` is `WIN`, `LOSE` or `N/A`.
 - `roundNumber` is not reliable for ordering (rescheduled games keep odd round numbers).
 
@@ -133,10 +134,18 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
 {"type": "shot", "locationX": 165, "locationY": -135, "goalSection": -3, "isPenaltyShot": false}
 ```
 
-- `goalSection` values seen: -3 and 0 to 9. **Assumption:** -3 means missed the net, 0 to 9
-  is a zone of the goal for shots on goal. Counter-example to check: event 120 in
-  `bdhvuc5tex` (FHC, P3 18:01, `goalSection` 5) came after Linköping pulled their goalie at
-  P3 17:13 and was not a goal. Compare per-team counts with the boxscore.
+- `goalSection` values seen: -3, -1 and 0 to 9 (-1 once: `bdhvuc5tex` event 131, LHC, P3 19:58).
+  **Original assumption:** only -3 means missed the net. **Contradicted by the boxscores
+  (checked 2026-10-20):** in all three fixture games, counting `shot` + `goal` events with
+  `goalSection` **1 to 9** gives exactly the boxscore's per-team skater `SOG` sum
+  (`bdhvuc5tex` FHC 31 / LHC 29, `m01wkdm2u1` 24 / 40, `et9erhx0si` 16 / 23, shootout
+  excluded). The "-3 only" rule gives 40 / 43 for `bdhvuc5tex`. So 0 is most likely a
+  blocked shot (or similar non-SOG attempt), -3 missed, -1 unknown. The engine still uses
+  `MISSED_GOAL_SECTIONS = {-3}` until the user decides (Phase 1); `tools/analyze_recording.py`
+  reports both rules.
+- The earlier counter-example (event 120 in `bdhvuc5tex`, "FHC, P3 18:01, `goalSection` 5")
+  is an **LHC** shot in the feed (Christoffer Ehn, revision 1), i.e. by the team that had
+  pulled its goalie. Not a contradiction.
 - `locationX` / `locationY`: **assumption** decimetres, X = distance out from the goal line
   being attacked (goals in the sample come from X 29 to 57; most shots are below 180, about
   the blue line), Y = lateral position (about -140 to +130). Outliers exist (X 481, X -29):
@@ -201,14 +210,59 @@ goalie was pulled (or left); the game also ends with `isEntering: false` events 
  "realWorldTime": "2025-09-13T15:46:48.275351", "gameUuid": "bdhvuc5tex"}
 ```
 
-### Boxscore (endpoint from SportsDataverse docs, shape not yet inspected)
+### Shootout (verified from `et9erhx0si`)
 
-`GET /api/gameday/boxscore/<game_uuid>`: skater and goalie box score per team (2023/24 on).
-Fetch in Phase 0 and document the shape here.
+- A `period` object with `"period": "shootout"` (a **string**, not an int) follows period 4.
+- Each attempt is an event of type `shootout-penalty-shot` with `period: "shootout"`,
+  `time: "00:00"`, `isPenaltyShot: true`, `isGoal`, `isGameWinningGoal`, `shootoutIndex`
+  (1, 2, ... in order) and `shootoutScore: {"homeGoals", "awayGoals"}` (the shootout tally).
+- The deciding attempt is **also** a normal `goal` event with `period: "shootout"`,
+  `time: "00:00"`, `goalStatus: "EQ"` and `homeGoals`/`awayGoals` set to the final score
+  (3–2). Stats code must skip `period == "shootout"` or it counts an extra goal and shot.
+- game-info: `shootout: true`, final score includes the shootout goal.
+- Overtime (`m01wkdm2u1`): period 4 is an ordinary int period; game-info `overtime: true`.
 
-### Standings (endpoint from SportsDataverse docs, shape not yet inspected)
+### Boxscore (verified 2026-10-20)
 
-`GET /api/gameday/team-standings/<ssgt_uuid>`. Fetch in Phase 0 and document the shape here.
+`GET /api/gameday/boxscore/<game_uuid>`. Returns 200 even for a pre-game game.
+
+```json
+{
+  "dataColumns": [{"name": "NR", "type": "string", "highlighted": false, "group": ""}, "..."],
+  "players":     {"homeTeamValue": {"<playerId>": {"fullName", "firstName", "lastName", "extIds"}}, "awayTeamValue": {}},
+  "stats":       {"homeTeamValue": [{"NR": 7, "POS": "LD", "LINE": 1, "G": 0, "A": 0, "PPG": 0, "SW": 2,
+                                     "PIM": 0, "SOG": 2, "PPSOG": 0, "+/-": 0, "TOI": "22:21", "Hits": 0,
+                                     "FOW": 0, "FOL": 0, "FOPerc": 0,
+                                     "info": {"period": 0, "playerId": 1332, "teamId": "FHC", "team": "home"}}],
+                  "awayTeamValue": []},
+  "gkDataColumns": ["..."],
+  "gkStats":     {"homeTeamValue": [{"NR": 1, "POS": "GK", "GA": 1, "SOGA": 29, "SPGA": 14, "SVS": 28,
+                                     "SVS%": "0.9655...", "info": {"...": "..."}}], "awayTeamValue": []},
+  "goalkeepers": {"homeTeamValue": {"<playerId>": {"...": "..."}}, "awayTeamValue": {}},
+  "provider": "statnet"
+}
+```
+
+- `playerId` is an **int** here (a string in play-by-play).
+- `SVS%` is a string. `info.period` 0 = whole game.
+- Team shots on goal: sum of skater `SOG`. The opposing goalies' `SOGA` sum agrees in 5 of 6
+  team-games; `et9erhx0si` home has SOG 16 vs SOGA 15.
+
+### Standings (verified 2026-10-20)
+
+`GET /api/gameday/team-standings/<ssgt_uuid>`
+
+```json
+{"ssgtUuid": "qa98unlbd6", "season": 2026, "gameType": "SHL", "provider": "statnet",
+ "leagueStandings": [{"id": "FBK", "rank": 1, "rankDiff": 0, "GP": 10, "W": 8, "T": 2, "L": 0,
+                      "OTW": 1, "OTL": 1, "P": 27, "GF": 40, "GA": 11, "Diff": 29,
+                      "info": {"code": "Färjestad", "teamId": "FBK",
+                               "teamInfo": {"teamUuid": "752c-752c12zB7Z", "teamMedia": "...svg",
+                                            "teamNames": {"code", "short", "long", "full", "...": "..."}}}}],
+ "groupings": [{"description": "Playoff", "first": 1, "last": 6}, "..."]}
+```
+
+- 14 teams. Identify teams by `info.teamInfo.teamUuid`; `id` is a code.
 
 ### Site settings (verified, large)
 
@@ -242,8 +296,10 @@ being logged by the scorers. How long after the actual on-ice moment they are lo
 ## Open questions for the Phase 0 recording
 
 1. Game state value(s) while a game is live, in both endpoints.
-2. What `goalSection` means (is -3 the only "missed" value?), checked against boxscore shots on goal.
-3. How shootouts appear in play-by-play and in the score.
+2. ~~What `goalSection` means~~: fixtures say 1 to 9 = on goal (see **shot**). Confirm on a
+   live recording, and decide what -1 is.
+3. ~~How shootouts appear~~: answered from the fixtures (see **Shootout**). A live recording
+   would show whether attempts arrive one by one.
 4. How a disallowed goal appears (removed event, revision, or a new event type).
 5. Other `goalStatus` and `offence` values.
 6. Delay from `realWorldTime` / `updatedTime` to our first sight of each event type.
