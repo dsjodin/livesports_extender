@@ -286,6 +286,37 @@ In `bdhvuc5tex` the game starts 13:15 UTC, and period 1 `startedAt` is `15:14:26
 15:14 local time, not UTC. Rule: never use feed timestamps for timing decisions; use our own
 `first_seen_ms`. For display and replay, parse each field with the zone in the table.
 
+## Caching (observed 2026-10-20, live game `mtn5yq64mp`)
+
+```
+client ──► Cloudflare ──► Varnish ──► Varnish ──► Express (origin)
+```
+
+- Responses carry `server: cloudflare`, `cf-cache-status`, `age`, two `x-varnish` headers,
+  `via: 1.1 site-service-cached-1 (Varnish/7.3), 1.1 site-service-cached-0 (Varnish/7.3)`
+  and `x-powered-by: Express`. No `cache-control` header was seen.
+- Play-by-play is cached by Cloudflare for **10 s**: polled once a second, `age` counts
+  0 to 9 and resets. Different Cloudflare servers can hold copies of different ages
+  (9 followed by 7).
+- A cache hit answers in about 50 ms. A refresh from the origin took up to 8.6 s on game
+  night, which made the recorder's 5 s timeout fail repeatedly (`ReadTimeout`). DNS and
+  connect times were a few ms, so it is not the client's network.
+- Consequences: new events become visible in 10 s steps, so receive time alone jitters
+  by up to 10 s. Use `received_ms − age × 1000` as the availability time (see CLAUDE.md
+  rule 2). Polling every 2 s stays right: almost all polls are cheap cache hits, and
+  faster polling gains nothing. Use a 15 s timeout.
+
+## Live behaviour (observed 2026-10-20, `mtn5yq64mp`)
+
+- **game-info is not updated during the game.** In period 3 it still said
+  `state: "pre_game"` with `score: ""` for both teams, while play-by-play had the score
+  4–1. Take live state and score from play-by-play.
+- Play-by-play `gameState` while live: **`Ongoing`** (`GameEnded` after the game).
+- Period objects: during period 3, periods 1 and 2 had `finished: true` and period 3
+  `started: true, finished: false`.
+- The number of events sometimes went **down** by one live (7→6, 19→18, 47→46, ...):
+  events are deleted during the game. Details are in the recording report.
+
 ## Observed latency
 
 In `bdhvuc5tex`, `updatedTime` (UTC) of first revisions is typically 1 to 2 s after
@@ -295,12 +326,14 @@ being logged by the scorers. How long after the actual on-ice moment they are lo
 
 ## Open questions for the Phase 0 recording
 
-1. Game state value(s) while a game is live, in both endpoints.
+1. ~~Game state while live~~: play-by-play `Ongoing`; game-info stays `pre_game`
+   (see Live behaviour). Still to check: when game-info turns `post_game`.
 2. ~~What `goalSection` means~~: fixtures say 1 to 9 = on goal (see **shot**). Confirm on a
    live recording, and decide what -1 is.
 3. ~~How shootouts appear~~: answered from the fixtures (see **Shootout**). A live recording
    would show whether attempts arrive one by one.
-4. How a disallowed goal appears (removed event, revision, or a new event type).
+4. How a disallowed goal appears (removed event, revision, or a new event type). Events
+   are deleted live (see Live behaviour); whether goals are, needs the report.
 5. Other `goalStatus` and `offence` values.
 6. Delay from `realWorldTime` / `updatedTime` to our first sight of each event type.
 7. Whether period objects appear the moment a period starts.

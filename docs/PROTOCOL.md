@@ -31,6 +31,7 @@ The engine's internal event shape, also sent to clients inside `event` messages.
   },
   "revision": 3,
   "first_seen_ms": 1757776222536,
+  "received_ms": 1757776227536,
   "test": false
 }
 ```

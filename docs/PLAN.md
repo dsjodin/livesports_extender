@@ -13,6 +13,7 @@ games, without the real screens and without a live game.
 |---|---|
 | Data | shl.se's own JSON API (unofficial, undocumented). See `docs/SHL_API.md`. |
 | Sync to TV | Fixed offset per TV profile, default 30 s, calibrated with a button in the phone app. |
+| Event timing | `first_seen_ms = received_ms − Age header × 1000` of the first poll containing the event (fallback `received_ms`). Cancels Cloudflare's 10 s cache jitter. Decided 2026-10-20. |
 | Server | One Python 3.12 FastAPI service, run with Docker Compose on the home Docker host. |
 | Clients | Screens, simulator and phone app are static pages from the same service. Plain HTML/CSS/ES modules + GSAP. No bundler. |
 | Transport | WebSocket to all clients. No MQTT. |
@@ -104,6 +105,18 @@ Tasks:
      period start or to N seconds before a given goal.
    - `RecordingSource(polls.jsonl, speed)`: replays recorded polls with their original spacing.
    - `LiveSource` is Phase 5; define the interface now.
+0. **Carry-over from the first live recording (2026-10-20, see `docs/SHL_API.md`).**
+   - `tools/record_game.py`: store the response's `age` and `cf-cache-status` on every
+     row; timeout 15 s; take state and score from play-by-play (`gameState`, latest goal),
+     not game-info, which stayed `pre_game` with an empty score during the live game;
+     stop 5 min after play-by-play `GameEnded` (or game-info `post-game`, whichever first).
+   - `tools/analyze_recording.py`: report delays from `received_ms − age` when `age` is
+     present; report error/timeout counts.
+   - The snapshot carries `available_ms` (= `received_ms − age`), and the normalizer stamps
+     `first_seen_ms` from it (see the Event timing decision).
+   - `ReplaySource` synthesises the play-by-play `gameState` (`Ongoing` while live) and
+     leaves game-info alone; state comes from play-by-play everywhere.
+   - Period keys can be strings (`("period", "shootout")`).
 4. **Normalizer** (`server/app/engine/normalizer.py`): diff successive pbp lists. Key events
    by `eventId`; period objects have no `eventId`, key them `("period", n)`. Emit
    `added`, `updated` (revision or content changed) and `removed`. Stamp `first_seen_ms`
