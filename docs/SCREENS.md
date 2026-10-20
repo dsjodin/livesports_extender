@@ -268,7 +268,7 @@ A developer tool; its control panel may be in English.
   - Replay: play/pause, speed 1/2/5/20/50, "next period", "10 s before next goal", progress
     readout (period, game time, real time).
   - System offset (TV profile) and **fake TV delay** (separate slider).
-  - **Fake TV pane**: shows raw events as text at `first_seen + fake TV delay`, with a large
+  - **Fake TV pane**: shows raw events as text at `event_ms + fake TV delay`, with a large
     "TV-klocka" (period and game time), so the calibration button can be tested.
   - Webhook log: each call with time, event, status.
   - Toggles: debug overlay on all screens, show raw events.
@@ -285,10 +285,17 @@ Tab bar: **Matcher**, **Live**, **Inställningar**.
     For finished games: "Spela upp som repris" with speed choice.
 - **Live**
   - Delayed score as on the bar, period and status.
-  - Offset row: "Fördröjning 30,0 s" with "−0,5" and "+0,5", TV profile chip ("IPTV").
-  - Calibration: large "Nu!" button with a segmented control [Nedsläpp | Mål]. Text:
-    "Tryck när du ser nedsläppet/målet på TV:n." After presses:
-    "Förslag: 27,1 s (3 mätningar)" with buttons "Använd" and "Rensa".
+  - Two large **MÅL!** buttons, one per team (my team first, in team colour). Text under:
+    "Tryck när målet syns på TV:n." After a press: "Mål registrerat – väntar på data" until
+    the feed goal links, then the scorer; "Inget mål kom från SHL" after 180 s.
+  - Offset row: "TV-fördröjning 40,0 s" with "−0,5" and "+0,5", TV profile chip ("IPTV").
+  - Sync: large "Synka" button with a picker [Nedsläpp | Mål | Utvisning | Timeout |
+    Skott på mål] and optional [Hemma | Borta]. Text: "Tryck när du ser händelsen på
+    TV:n." Each press is listed as "Väntar…", "41,3 s", "Hittade ingen händelse" or
+    "Flera möjliga – välj lag". Then "Förslag: 41,3 s (3 mätningar)" with "Använd" and
+    "Rensa"; each sample can be swiped away.
+  - A note when events arrive late: "3 mål kom efter TV:n i kväll – överväg att pausa
+    TV:n vid nedsläpp." 
   - Scene buttons: "Auto", "Tabell", "Skottkarta", "Periodstatistik", "Mål igen".
   - "Testa mål" (synthetic goal for my team, triggers lights).
   - Replay controls when the source is a replay.

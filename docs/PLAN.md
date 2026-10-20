@@ -12,8 +12,9 @@ games, without the real screens and without a live game.
 | Area | Decision |
 |---|---|
 | Data | shl.se's own JSON API (unofficial, undocumented). See `docs/SHL_API.md`. |
-| Sync to TV | Fixed offset per TV profile, default 30 s, calibrated with a button in the phone app. |
-| Event timing | `first_seen_ms = received_ms − Age header × 1000` of the first poll containing the event (fallback `received_ms`). Cancels Cloudflare's 10 s cache jitter. Decided 2026-10-20. |
+| Sync to TV | `play_at = event_ms + offset`, where `event_ms` is the feed's on-ice time (`realWorldTime` / `startedAt` / `finishedAt`, Europe/Stockholm) and `offset` is the TV's delay behind the arena, per TV profile, calibrated with a sync button in the phone app. Never before `first_seen_ms`; late events play at once, marked `late`. Decided 2026-10-20 (see CLAUDE.md rule 2). |
+| Receive time | `first_seen_ms = received_ms − Age header × 1000` of the first poll containing the event (fallback `received_ms`). Used for the never-early bound, analysis and as fallback anchor. Decided 2026-10-20. |
+| Goal button | A manual "MÅL!" button in the phone app fires the celebration and Home Assistant at once; the feed's goal is linked to it later and does not fire twice. Complements the automatic sync for goals that arrive after the TV shows them. Decided 2026-10-20. |
 | Server | One Python 3.12 FastAPI service, run with Docker Compose on the home Docker host. |
 | Clients | Screens, simulator and phone app are static pages from the same service. Plain HTML/CSS/ES modules + GSAP. No bundler. |
 | Transport | WebSocket to all clients. No MQTT. |
@@ -23,16 +24,13 @@ games, without the real screens and without a live game.
 
 ## Open questions (ask the user when the phase needs the answer)
 
-- **Feed latency vs TV delay (blocks Phase 2 tuning, found 2026-10-20).** Goals reached us
-  19–78 s (median 48 s) after `realWorldTime`; the TV was assumed ~30 s behind the arena.
-  If that holds, most goals arrive after the TV has shown them and no positive offset can
-  fix it. Next step: measure the real TV delay (note the wall-clock time of a puck drop or
-  goal on TV and compare with `startedAt` / `realWorldTime`). Options if the feed is
-  slower: extra TV delay (IPTV pause/timeshift at puck drop), a manual "Mål!" button in the
-  phone app that fires lights instantly, or both.
-  The TV is a linear channel on a Telia IPTV box (UDP multicast), which usually lags the
-  arena less than OTT streaming, so the real TV delay may be well under 30 s. Whether the
-  Telia box can pause/timeshift the SHL channel is still to be tested.
+- **Feed latency vs TV delay (found 2026-10-20).** Goals reach us 19–78 s (median 48 s)
+  after the on-ice moment. The TV (Telia IPTV box, linear channel over UDP multicast) was
+  measured at about 40 s behind the arena (one rough measurement: puck drop reported from
+  the arena by phone). So roughly a third of goals arrive before the TV shows them. The
+  design handles both cases (sync on `event_ms`, late events at once, the MÅL! button).
+  Still open: whether the Telia box can pause the SHL channel; pausing ~40 s at puck drop
+  would put almost every goal in time. Verify with the sync button once Phase 4 exists.
 - Physical layout: the bar's vertical position relative to the 24" screens and the gaps
   between screens. `config/wall.json` has assumed values (bar vertically centred, 40 mm gaps).
 - Default "my team" (whose goals trigger the celebration and lights).
@@ -126,6 +124,12 @@ Tasks:
      `first_seen_ms` from it (see the Event timing decision).
    - `ReplaySource` synthesises the play-by-play `gameState` (`Ongoing` while live) and
      leaves game-info alone; state comes from play-by-play everywhere.
+   - Normalized events carry `event_ms` (see CLAUDE.md rule 2) next to `first_seen_ms`.
+   - `ReplaySource` reveals each event at its `realWorldTime` **plus a simulated feed lag**
+     (per type, default from the recording: goal 48 s, shot 35 s, penalty 42 s, period
+     25 s; configurable, 0 allowed). Replay and recording sources shift the feed's
+     timestamps (`realWorldTime`, `startedAt`, `finishedAt`, `updatedTime`) onto the replay
+     timeline, scaled by speed, so `event_ms` stays consistent with the clock.
    - Period keys can be strings (`("period", "shootout")`).
    - The normalizer and `analyze_recording.py` ignore `gameState`, `attendance` and
      `updatedTime` when comparing event content (they change on every event at each
@@ -184,11 +188,15 @@ Tasks:
 
 1. **Clock**: `RealClock` and `FakeClock(advance)`. Everything time-based takes a clock.
 2. **DelayQueue** (`engine/delay.py`): each normalized event gets
-   `play_at = first_seen_ms + offset_ms`. Broadcast at `play_at - lead_ms` (lead 1500 ms) so
-   clients can preload and schedule. Updates before release replace the payload and keep
-   `play_at`. Removals before release drop the item. Removal of an already released goal
-   emits a correction event `goal_disallowed`. Changing the offset re-plans everything not
-   yet released; released events stay.
+   `play_at = max(event_ms + offset_ms, first_seen_ms + lead_ms)`; when the second term
+   wins the event is marked `late: true` (and `late_by_ms`). Without a plausible
+   `event_ms` (CLAUDE.md rule 2) it is `first_seen_ms + lead_ms`, also `late`, logged once
+   at WARNING. Broadcast at `play_at - lead_ms` (lead 1500 ms) so clients can preload and
+   schedule. Updates before release replace the payload and keep `play_at`. Updates after
+   release (a goal's scorer or assists corrected) go out as `event_update` at once.
+   Removals before release drop the item. Removal of an already released goal emits a
+   correction event `goal_disallowed`. Changing the offset re-plans everything not yet
+   released; released events stay.
 3. **TvState** (`engine/tvstate.py`): reducer over released events only: score, period,
    strength, stats, recent events, current scene, monotonic `rev`.
 4. **SceneDirector** (`engine/director.py`): rules in `docs/SCREENS.md` (Scenes) plus a
@@ -200,18 +208,24 @@ Tasks:
    `POST /api/replay`, `POST /api/offset`, `POST /api/offset/nudge` (see `docs/PROTOCOL.md`).
 7. **Persistence**: runtime state in `data/state.json` (selected game, my team, TV profile and
    offsets, calibration samples, webhook settings), loaded at start.
-8. **`/debug` page**: two text columns, raw events (with `first_seen`) and released events
-   (with `play_at`), to eyeball the delay.
+8. **`/debug` page**: two text columns, raw events (with `event_ms` and `first_seen`) and
+   released events (with `play_at` and `late`), to eyeball the delay.
 
 Acceptance (fake-clock tests unless noted):
 
-- No broadcast `event` has `play_at < first_seen_ms + offset_ms`.
-- A goal removed 10 s after first seen (offset 30 s) is never broadcast.
+- Every broadcast `event` has `play_at == max(event_ms + offset_ms, first_seen_ms + lead_ms)`
+  and is never broadcast before `first_seen_ms`; `late` is set exactly when the second
+  term wins.
+- With offset 80 s, a goal first seen 48 s after its `event_ms` plays at `event_ms + 80 s`;
+  with offset 40 s it plays at `first_seen + lead` and is `late`.
+- A goal removed before its `play_at` is never broadcast.
+- A scorer correction after release produces one `event_update`; the TV state shows the
+  corrected scorer.
 - A goal removed after release produces exactly one `goal_disallowed` and the TV score goes back.
 - Changing the offset re-plans pending events; released ones are untouched.
 - WebSocket integration test: `hello`, then `state`, then events in order.
-- Manual: replay `bdhvuc5tex` at 5× with offset 5 s and watch `/debug`: released events
-  trail raw events by about 5 s.
+- Manual: replay `bdhvuc5tex` at 5× with offset 60 s and watch `/debug`: released events
+  sit 60 s after their `event_ms`, goals with a simulated lag over 60 s are `late`.
 
 ---
 
@@ -242,8 +256,8 @@ Tasks:
    play/pause, speed, seek (next period, 10 s before next goal), system offset, fake TV
    delay (independent), webhook log, debug toggle (`?debug=1` on the screens shows event
    ids and `play_at` countdowns). **Fake TV pane**: shows raw events as text at
-   `first_seen + fake_tv_delay`, with a large period/time readout, so calibration can be
-   practised.
+   `event_ms + fake_tv_delay` (the simulated TV's lag behind the arena), with a large
+   period/time readout, so the sync and MÅL! buttons can be practised.
 5. **`tools/snapshot.py`** (Playwright): opens `/sim`, seeks the `bdhvuc5tex` replay to fixed
    moments and saves each screen at native size to `artifacts/snapshots/`:
    pregame, live at P3 08:20 (FHC power play), goal at P3 09:07 + 2 s, intermission after P2.
@@ -265,20 +279,39 @@ Tasks:
 
 1. **`/app`** PWA (manifest, simple icon, installable): views Matcher, Live and
    Inställningar as in `docs/SCREENS.md` (Phone app). Swedish UI. Large touch targets.
-2. **Calibration** (`engine/calibration.py`, endpoints in `docs/PROTOCOL.md`): a press of
-   "Nu!" with kind `faceoff` or `goal` is matched to the most recent raw event of that kind
-   first seen 5–120 s before the press. Sample = press time − `first_seen_ms` − reaction
-   time (300 ms). Proposal = median of the last 5 samples in this session. The user accepts
-   it explicitly; it is stored per TV profile.
-3. **Scene override** and **test goal** (a synthetic goal for "my team" with offset 0, marked
+2. **Sync button** (`engine/calibration.py`, endpoints in `docs/PROTOCOL.md`): the user
+   presses "Synka" when an event is seen on TV and picks its kind: `period_start`
+   (Nedsläpp), `goal` (Mål), `penalty` (Utvisning), `timeout` (Timeout) or
+   `shot_on_goal` (Skott på mål), optionally with the side. The feed has no offside or
+   icing events, so those kinds do not exist. A press is matched to the raw event of that
+   kind (and side, if given) whose `event_ms` lies 5–150 s before the press. Because the
+   feed can be slower than the TV, a press with no match yet stays **pending for up to
+   150 s** and is matched when the event arrives. If more than one event matches (common
+   for shots) the sample is rejected as ambiguous. Sample = press time − `event_ms` −
+   reaction time (300 ms). Proposal = median of the last 5 samples in this session; each
+   sample is listed with its kind and can be removed. The user accepts the proposal
+   explicitly; it is stored per TV profile.
+3. **MÅL! button**: one large button per team (my team first). A press fires the goal
+   scene with team only ("MÅL!" without scorer) and the `shl_goal` webhook at once, with
+   `source: "manual"`. The next feed goal for that side whose `event_ms` lies at most 150 s
+   before the press is **linked** to it: no second celebration or webhook; the scorer,
+   assists and score fill in when it plays (or at once if it is late). If no goal arrives
+   within 180 s the press is marked unconfirmed in the app and nothing else happens. A
+   linked press also counts as a `goal` sync sample if "Använd målknapp för synk" is on.
+4. **Scene override** and **test goal** (a synthetic goal for "my team" with offset 0, marked
    `test: true`, so lights can be tested without a game).
-4. **My team**: chosen per game in Matcher; decides `is_my_team` in webhooks and which side
+5. **My team**: chosen per game in Matcher; decides `is_my_team` in webhooks and which side
    celebrates.
 
 Acceptance:
 
-- In `/sim` with fake TV delay 27 s and system offset 20 s, three presses at the fake TV's
-  period start propose 27 ± 0.5 s; after accepting, the screens line up with the fake TV.
+- In `/sim` with fake TV delay 75 s and system offset 60 s, three sync presses at the fake
+  TV's period starts propose 75 ± 0.5 s; after accepting, the screens line up with the fake
+  TV.
+- A sync press for a goal made before the goal reaches the feed is matched once it arrives.
+- With fake TV delay 40 s, pressing MÅL! when the fake TV shows a late goal celebrates at
+  once, and the feed goal arriving afterwards links to it without a second celebration or
+  webhook.
 - The app works from a phone browser on the LAN; every action is reflected in `/sim`.
 
 ---

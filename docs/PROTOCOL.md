@@ -30,14 +30,23 @@ The engine's internal event shape, also sent to clients inside `event` messages.
     "scorer_game_goals": 1
   },
   "revision": 3,
-  "first_seen_ms": 1757776222536,
-  "received_ms": 1757776227536,
+  "event_ms": 1757776222536,
+  "first_seen_ms": 1757776270100,
+  "received_ms": 1757776275100,
+  "late": false,
   "test": false
 }
 ```
 
 `type` values: `goal`, `shot`, `penalty`, `goalie_change`, `timeout`, `period_start`,
 `period_end`, `game_end`, plus the correction `goal_disallowed`.
+
+- `event_ms`: the on-ice moment from the feed (`realWorldTime`, or `startedAt` /
+  `finishedAt` for periods), parsed as Europe/Stockholm. `null` if missing or implausible.
+- `first_seen_ms`: `received_ms − Age × 1000` of the first poll containing the event.
+- `late`: the event arrived too late to play at `event_ms + offset` (see CLAUDE.md rule 2);
+  `late_by_ms` says by how much.
+- A goal linked to a MÅL! press carries `"manual_key": "m3"`.
 
 Type-specific `data`:
 
@@ -98,7 +107,7 @@ Endpoint: `/ws?role=screen|sim|phone&id=<screen id or client name>`
 
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
- "config": {"offset_ms": 30000, "lead_ms": 1500, "profile": "iptv", "debug": false}}
+ "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "debug": false}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -106,6 +115,8 @@ Endpoint: `/ws?role=screen|sim|phone&id=<screen id or client name>`
  "patch": {"score": {"home": 2, "away": 1}, "strength": {"home": 5, "away": 5, "pp_side": null}}}
 
 {"t": "event", "play_at_ms": 1760000031500, "event": { "... normalized event ..." }}
+
+{"t": "event_update", "play_at_ms": 1760000033000, "event": { "... corrected event ..." }}
 
 {"t": "scene", "play_at_ms": 1760000031500,
  "scene": {"name": "goal", "hold_ms": 20000, "data": {"event_key": "e96", "side": "home"}}}
@@ -116,6 +127,10 @@ Endpoint: `/ws?role=screen|sim|phone&id=<screen id or client name>`
 ```
 
 - Every visible change carries `play_at_ms`. Clients apply it at that moment, never on receipt.
+- `config.offset_ms` is the TV's delay behind the arena (the on-ice moment), not behind
+  our receive time.
+- `event_update` corrects an event that has already played (for example a goal's scorer);
+  clients update the visible text without replaying the animation.
 - Messages are sent `lead_ms` before `play_at_ms` (default 1500 ms) so clients can preload.
 - Phone clients additionally get `{"t": "status", ...}` with source mode, replay position,
   calibration samples and, only when debug is on, raw (undelayed) events.
@@ -144,13 +159,15 @@ auth in front if it is ever exposed).
 | `POST /api/game` | `{"uuid", "my_side": "home"\|"away"\|null}` | Select a game to follow |
 | `POST /api/source` | `{"mode": "live"\|"replay"\|"recording", "uuid"?, "path"?, "speed"?}` | Choose the data source |
 | `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"}` | Replay control |
-| `POST /api/offset` | `{"profile": "iptv", "seconds": 30.0}` | Set the offset for a TV profile |
+| `POST /api/offset` | `{"profile": "iptv", "seconds": 40.0}` | Set a TV profile's delay behind the arena |
 | `POST /api/offset/nudge` | `{"delta": 0.5}` | Adjust the active profile's offset |
 | `POST /api/profile` | `{"profile": "iptv"\|"tv4play"}` | Switch TV profile |
-| `POST /api/calibrate` | `{"kind": "faceoff"\|"goal"}` | Register a "Nu!" press (server stamps the time) |
+| `POST /api/calibrate` | `{"kind": "period_start"\|"goal"\|"penalty"\|"timeout"\|"shot_on_goal", "side"?: "home"\|"away"}` | Register a "Synka" press (server stamps the time) |
 | `GET /api/calibrate` | | Samples and current proposal |
 | `POST /api/calibrate/accept` | | Store the proposal as the active profile's offset |
 | `DELETE /api/calibrate` | | Clear samples |
+| `DELETE /api/calibrate/{id}` | | Remove one sample |
+| `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate and fire the webhook now |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
 | `POST /api/test/goal` | `{"side": "home"\|"away"}` | Synthetic goal, offset 0, `test: true` |
@@ -161,14 +178,18 @@ auth in front if it is ever exposed).
 ### Calibration response
 
 ```json
-{"profile": "iptv", "current_offset_s": 20.0,
- "samples": [{"kind": "faceoff", "pressed_ms": 1760000050000, "event_key": "period-3-start",
-              "sample_s": 27.1}],
- "proposal_s": 27.1, "reaction_ms": 300}
+{"profile": "iptv", "current_offset_s": 40.0,
+ "samples": [{"id": "s1", "kind": "period_start", "pressed_ms": 1760000050000,
+              "event_key": "period-3-start", "sample_s": 41.3, "status": "matched"},
+             {"id": "s2", "kind": "goal", "side": "home", "pressed_ms": 1760000950000,
+              "status": "pending"}],
+ "proposal_s": 41.3, "reaction_ms": 300}
 ```
 
-A press matches the most recent raw event of that kind first seen 5 to 120 s before the
-press. If none matches, the response says so and no sample is stored.
+A press matches the raw event of that kind (and side) whose `event_ms` lies 5 to 150 s
+before the press. A press without a match stays `pending` for up to 150 s, because the
+feed can be slower than the TV, then becomes `unmatched`. Two or more candidates make it
+`ambiguous`. Only `matched` samples count towards the proposal.
 
 ## Webhooks to Home Assistant
 
@@ -184,6 +205,10 @@ One URL (an HA webhook trigger), POST with JSON, sent at `play_at_ms`. Every pay
  "score_home": 2, "score_away": 1, "period": 3, "time": "09:07",
  "tts_sv": "Mål för Frölunda! Nummer 25, Arttu Ruotsalainen, i powerplay. Två–ett."}
 ```
+
+`source` is `"feed"` or `"manual"` (MÅL! button). A manual goal has `side`,
+`is_my_team`, team fields and `score_*` as known at the press (+1 for that side); scorer
+fields are empty. The feed goal linked to it sends no second `shl_goal`.
 
 Other events and their extra fields:
 

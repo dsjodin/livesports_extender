@@ -3,7 +3,7 @@
 A home "arena" for Swedish Hockey League (SHL) games. A stretched LCD bar (1920×360)
 sits between two portrait 24" screens (1080×1920 each). The system follows a chosen
 game using shl.se's own JSON API, delays everything to match the TV broadcast
-(about 30 s behind the arena on our IPTV feed), drives broadcast-style graphics on
+(about 40 s behind the arena on our Telia IPTV feed, measured roughly), drives broadcast-style graphics on
 the three screens and fires goal lights and horns in Home Assistant via webhook.
 
 Read these before working on a phase:
@@ -21,12 +21,12 @@ shl.se JSON API ──poll 2 s──► FeedSource (live | replay | recording)
                                    │ raw snapshots (play-by-play + game-info)
                                    ▼
                          Normalizer (diff by event id + revision)
-                                   │ normalized events, first_seen_ms
+                                   │ normalized events, event_ms + first_seen_ms
                                    ▼
                     RawState + DerivedStats (shots, PP, saves, penalties)
                                    │
                                    ▼
-               DelayQueue (release at first_seen + offset, minus lead)
+               DelayQueue (play_at = event_ms + TV delay, never before first_seen)
                                    │ events with play_at
                                    ▼
                   TvState reducer + SceneDirector (pregame/live/goal/…)
@@ -83,13 +83,20 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
    Every derived number (score, shots, shot-map dots, standings) goes through the
    DelayQueue. A raw value leaking early spoils a goal 30 s before the TV shows it.
    Raw data may only appear in the phone app's debug view, behind an explicit toggle.
-2. **Time comes from our own clock.** Use `first_seen_ms` for all timing. It is our
-   estimate of when the data became available, on our clock: `received_ms − age × 1000`
-   of the first poll that contained the event, where `age` is the HTTP `Age` header from
-   Cloudflare (0–9 s, see `docs/SHL_API.md`, Caching). Without a usable `Age` header it
-   falls back to `received_ms`. Decided 2026-10-20: this removes up to 10 s of cache
-   jitter from the TV sync. Feed timestamps are inconsistent about time zones (see `docs/SHL_API.md`)
-   and are only used for display and for ordering within a period.
+2. **Sync is anchored to the on-ice moment; scheduling uses our clock.** Each event's
+   `event_ms` is the moment it happened on the ice: `realWorldTime` (events),
+   `startedAt` (period start) or `finishedAt` (period end), all parsed as
+   Europe/Stockholm local time. `play_at = max(event_ms + offset, first_seen_ms + lead)`,
+   where `offset` is how far the TV lags the arena (calibrated). An event that arrives
+   too late for that is played at once and marked `late`. `first_seen_ms` is
+   `received_ms − Age header × 1000` (fallback `received_ms`) and is used for the
+   "never early" bound, for analysis and as the anchor when `event_ms` is missing or
+   implausible (more than 5 s ahead of `first_seen_ms`, or more than 10 min behind).
+   The server clock must be NTP-synced; a constant error in shl.se's clock is absorbed
+   by calibration. Decided 2026-10-20 after the first live recording: feed lag varies
+   19–78 s per goal, so a fixed offset from receive time cannot line up with the TV.
+   All other feed timestamps are for display and ordering only (time zones are
+   inconsistent, see `docs/SHL_API.md`).
 3. **All timing code takes an injectable `Clock`.** Tests use a fake clock and run
    instantly. No `time.sleep` or `asyncio.sleep` on the real clock in engine code.
 4. **Engine tests use fixtures; live API tests call shl.se by default.** Engine logic is

@@ -353,8 +353,12 @@ reappeared 1 min later.
 | penalty (17) | 25–79 s, median 42 s (one fight major 330 s) | median 21 s |
 | period start (3) | 22–31 s after `startedAt` | |
 
-`realWorldTime` looks like the moment the scorer logged the event; the on-ice moment is
-the same or earlier. **Goals reach us on average ~48 s after they happen, longer than the
+**`realWorldTime` is the on-ice moment, not the logging time.** Across all 123 pairs of
+consecutive events in a period, `realWorldTime` never advanced less than the game clock
+(it would, often, if it were the variable logging time), and each goal's `realWorldTime`
+is within 3 s of its precursor shot's. The lag is in the logging and delivery: about 34 s
+median from `realWorldTime` to the goal's `updatedTime`, then about 11 s to us. Hence the
+sync anchor in CLAUDE.md rule 2. The TV was measured at about 40 s behind the arena. **Goals reach us on average ~48 s after they happen, longer than the
 ~30 s the TV is assumed to lag the arena.** See the open question in `docs/PLAN.md`.
 
 Also seen: penalty variants `Major` and `Minor + Major + GM` (event 128 changed from
