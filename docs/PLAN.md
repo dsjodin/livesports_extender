@@ -30,6 +30,9 @@ games, without the real screens and without a live game.
   goal on TV and compare with `startedAt` / `realWorldTime`). Options if the feed is
   slower: extra TV delay (IPTV pause/timeshift at puck drop), a manual "Mål!" button in the
   phone app that fires lights instantly, or both.
+  The TV is a linear channel on a Telia IPTV box (UDP multicast), which usually lags the
+  arena less than OTT streaming, so the real TV delay may be well under 30 s. Whether the
+  Telia box can pause/timeshift the SHL channel is still to be tested.
 - Physical layout: the bar's vertical position relative to the 24" screens and the gaps
   between screens. `config/wall.json` has assumed values (bar vertically centred, 40 mm gaps).
 - Default "my team" (whose goals trigger the celebration and lights).
