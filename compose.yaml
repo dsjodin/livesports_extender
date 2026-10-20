@@ -1,0 +1,10 @@
+services:
+  arena:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    env_file:
+      - path: .env
+        required: false

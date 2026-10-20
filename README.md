@@ -7,9 +7,35 @@ Home Assistant.
 
 ## Status
 
-Planning done, nothing built yet. The build is split into phases in
-[`docs/PLAN.md`](docs/PLAN.md), designed to be implemented by Claude Code one
-phase at a time.
+Phase 0 done: an empty service (`/api/health`, page index), test fixtures from
+shl.se, and the game recorder and recording analyzer. The build is split into
+phases in [`docs/PLAN.md`](docs/PLAN.md), designed to be implemented by Claude
+Code one phase at a time.
+
+## Recording a live game
+
+Later phases need a real recording (and it answers the open questions in
+`docs/SHL_API.md`). Find the game uuid in the schedule
+(`server/tests/fixtures/schedule_2026.json`, or the shl.se game page URL), then
+start the recorder any time before puck drop and leave it running:
+
+```
+# with uv, from the repo root
+uv run --project server python tools/record_game.py <game_uuid>
+
+# or with Docker, writes to ./data like the service
+docker compose run --rm arena python /srv/tools/record_game.py <game_uuid>
+```
+
+It polls game-info once a minute until 15 min before the start, then game-info
+and play-by-play every 2 s, and stops by itself 5 min after the game ends
+(Ctrl-C stops it earlier; a restart appends to the same file). Then:
+
+```
+uv run --project server python tools/analyze_recording.py data/recordings/<game_uuid>
+```
+
+writes `data/recordings/<game_uuid>/report.md`. Keep `polls.jsonl` for later phases.
 
 ## Building it with Claude Code
 

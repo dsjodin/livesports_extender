@@ -1,0 +1,61 @@
+{
+  "instanceContext": {
+    "siteTeamIsInGame": true,
+    "siteTeamIsHomeTeam": true,
+    "siteTeamIsAwayTeam": true
+  },
+  "gameInfo": {
+    "gameUuid": "m01wkdm2u1",
+    "extId": "23015",
+    "startDateTime": "2026-09-24T17:00:00.000Z",
+    "arenaName": "Husqvarna Garden",
+    "state": "post_game",
+    "overtime": true,
+    "shootout": false,
+    "seriesCode": "SHL",
+    "seriesName": "SHL",
+    "roundNumber": 3,
+    "roundLabel": "",
+    "seriesDisplayName": "SHL"
+  },
+  "homeTeam": {
+    "names": {
+      "code": "HV71",
+      "short": "HV71",
+      "long": "HV71",
+      "full": "HV71",
+      "codeSite": "HV71",
+      "shortSite": "HV71",
+      "fullSite": "HV71",
+      "longSite": "HV71"
+    },
+    "uuid": "3db0-3db09jXTE",
+    "instanceId": "hv711_hv71",
+    "foundedOn": "1971",
+    "address": "Husqvarna Garden 554 54 Jönköping",
+    "email": "info@hv71.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/hv711_hv71.svg",
+    "score": 4
+  },
+  "awayTeam": {
+    "names": {
+      "code": "SKE",
+      "short": "Skellefteå",
+      "long": "Skellefteå AIK",
+      "full": "Skellefteå AIK Hockey",
+      "codeSite": "SKE",
+      "shortSite": "Skellefteå",
+      "fullSite": "Skellefteå AIK Hockey",
+      "longSite": "Skellefteå AIK"
+    },
+    "uuid": "50e6-50e6DYeWM",
+    "instanceId": "saik1_saik",
+    "foundedOn": "1921",
+    "address": "Skellefteå AIK, Skellefteå Kraft Arena, Mossgatan 27, Box 185, 931 22 Skellefteå",
+    "email": "info@skellefteaaik.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+    "score": 3
+  },
+  "ssgtUuid": "qa98unlbd6",
+  "seriesUuid": "qQ9-bb0bzEWUk"
+}

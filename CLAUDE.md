@@ -56,7 +56,8 @@ web/sim/               simulator page
 web/app/               phone web app (PWA)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
 config/wall.json       screen geometry
-tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py, snapshot.py
+tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
+                       synth_recording.py, snapshot.py (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
 ```
@@ -66,9 +67,12 @@ docs/                  plan and specs
 ```
 docker compose up --build            # service on http://localhost:8080
 cd server && uv run pytest           # tests (use uv; fall back to pip + venv if missing)
-cd server && uv run ruff check .     # lint
-python tools/fetch_fixtures.py       # refresh test fixtures from shl.se
-python tools/record_game.py <uuid>   # record a live game (phase 0 logger)
+cd server && uv run pytest -m "not live"      # offline tests only
+cd server && uv run ruff check . ../tools     # lint (server and tools)
+uv run --project server python tools/fetch_fixtures.py        # refresh test fixtures
+uv run --project server python tools/record_game.py <uuid>    # record a live game
+uv run --project server python tools/analyze_recording.py data/recordings/<uuid>
+uv run --project server python tools/synth_recording.py bdhvuc5tex   # fake recording
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.
@@ -84,8 +88,11 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
    and are only used for display and for ordering within a period.
 3. **All timing code takes an injectable `Clock`.** Tests use a fake clock and run
    instantly. No `time.sleep` or `asyncio.sleep` on the real clock in engine code.
-4. **Tests never call shl.se.** Use the fixtures in `server/tests/fixtures/`. Only
-   `tools/` scripts and `LiveSource` touch the network.
+4. **Engine tests use fixtures; live API tests call shl.se by default.** Engine logic is
+   tested against the fixtures in `server/tests/fixtures/`. Tests marked `live` (decided
+   2026-10-20) call the real shl.se in the default `pytest` run to catch API changes; run
+   offline with `pytest -m "not live"`. Live tests fetch each URL at most once per session.
+   Outside tests, only `tools/` scripts and `LiveSource` touch the network.
 5. **Be polite to shl.se.** Poll only the selected game: `game-info` every 60 s until
    15 min before puck drop, then `game-info` and `play-by-play` every 2 s until the game is
    over. Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a

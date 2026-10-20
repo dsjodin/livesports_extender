@@ -1,0 +1,558 @@
+{
+  "ssgtUuid": "qa98unlbd6",
+  "season": 2026,
+  "gameType": "SHL",
+  "leagueStandings": [
+    {
+      "id": "FBK",
+      "rank": 1,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 8,
+      "T": 2,
+      "L": 0,
+      "OTW": 1,
+      "OTL": 1,
+      "P": 27,
+      "GF": 40,
+      "GA": 11,
+      "Diff": 29,
+      "info": {
+        "code": "Färjestad",
+        "teamId": "FBK",
+        "teamInfo": {
+          "teamId": "FBK",
+          "teamOwnerInstanceId": "fbk1_fbk",
+          "teamUuid": "752c-752c12zB7Z",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/fbk1_fbk.svg",
+          "teamNames": {
+            "code": "FBK",
+            "short": "Färjestad",
+            "long": "Färjestad BK",
+            "full": "Färjestad Bollklubb",
+            "code_site": "FBK",
+            "short_site": "Färjestad Herr",
+            "full_site": "Färjestad Bollklubb Herr",
+            "long_site": "Färjestad BK"
+          },
+          "siteTeamDisplayName": "Färjestad BK",
+          "siteTeamDisplayCode": "Färjestad",
+          "clubPageLink": "http://www.farjestadbk.se/"
+        }
+      }
+    },
+    {
+      "id": "FHC",
+      "rank": 2,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 6,
+      "T": 2,
+      "L": 2,
+      "OTW": 2,
+      "OTL": 0,
+      "P": 22,
+      "GF": 32,
+      "GA": 22,
+      "Diff": 10,
+      "info": {
+        "code": "Frölunda ",
+        "teamId": "FHC",
+        "teamInfo": {
+          "teamId": "FHC",
+          "teamOwnerInstanceId": "fhc1_fhc",
+          "teamUuid": "087a-087aTQv9u",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+          "teamNames": {
+            "code": "FHC",
+            "short": "Frölunda ",
+            "long": "Frölunda HC",
+            "full": "Frölunda Hockey Club",
+            "code_site": "FHC",
+            "short_site": "Frölunda",
+            "full_site": "Frölunda Hockey Club / Herr",
+            "long_site": "Frölunda HC"
+          },
+          "siteTeamDisplayName": "Frölunda HC",
+          "siteTeamDisplayCode": "Frölunda ",
+          "clubPageLink": "http://www.frolundahockey.com/"
+        }
+      }
+    },
+    {
+      "id": "SAIK",
+      "rank": 3,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 5,
+      "T": 3,
+      "L": 2,
+      "OTW": 1,
+      "OTL": 2,
+      "P": 19,
+      "GF": 32,
+      "GA": 25,
+      "Diff": 7,
+      "info": {
+        "code": "Skellefteå",
+        "teamId": "SAIK",
+        "teamInfo": {
+          "teamId": "SAIK",
+          "teamOwnerInstanceId": "saik1_saik",
+          "teamUuid": "50e6-50e6DYeWM",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+          "teamNames": {
+            "code": "SKE",
+            "short": "Skellefteå",
+            "long": "Skellefteå AIK",
+            "full": "Skellefteå AIK Hockey",
+            "code_site": "SKE",
+            "short_site": "Skellefteå",
+            "full_site": "Skellefteå AIK Hockey",
+            "long_site": "Skellefteå AIK"
+          },
+          "siteTeamDisplayName": "Skellefteå AIK",
+          "siteTeamDisplayCode": "Skellefteå",
+          "clubPageLink": "http://www.skellefteaaik.se/"
+        }
+      }
+    },
+    {
+      "id": "IFB",
+      "rank": 4,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 5,
+      "T": 1,
+      "L": 4,
+      "OTW": 1,
+      "OTL": 0,
+      "P": 17,
+      "GF": 23,
+      "GA": 25,
+      "Diff": -2,
+      "info": {
+        "code": "Björklöven",
+        "teamId": "IFB",
+        "teamInfo": {
+          "teamId": "IFB",
+          "teamOwnerInstanceId": "ifb1_ifb",
+          "teamUuid": "4519-4519Rdei6",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/ifb1_ifb.svg",
+          "teamNames": {
+            "code": "IFB",
+            "short": "Björklöven",
+            "long": "Björklöven",
+            "full": "Idrottsföreningen Björklöven",
+            "codeSite": "IFB Herr",
+            "shortSite": "Björklöven Herr",
+            "fullSite": "Idrottsföreningen Björklöven Herr",
+            "longSite": "Björklöven"
+          },
+          "siteTeamDisplayName": "Björklöven",
+          "siteTeamDisplayCode": "Björklöven",
+          "clubPageLink": "http://www.bjorkloven.com/"
+        }
+      }
+    },
+    {
+      "id": "BIF",
+      "rank": 5,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 4,
+      "T": 1,
+      "L": 5,
+      "OTW": 1,
+      "OTL": 0,
+      "P": 14,
+      "GF": 28,
+      "GA": 23,
+      "Diff": 5,
+      "info": {
+        "code": "Brynäs",
+        "teamId": "BIF",
+        "teamInfo": {
+          "teamId": "BIF",
+          "teamOwnerInstanceId": "bif1_bif",
+          "teamUuid": "1ab8-1ab8bfj7N",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/bif1_bif.svg",
+          "teamNames": {
+            "code": "BIF",
+            "short": "Brynäs",
+            "long": "Brynäs IF",
+            "full": "Brynäs Idrottsförening",
+            "code_site": "BIF",
+            "short_site": "Brynäs",
+            "full_site": "Brynäs Idrottsförening",
+            "long_site": "Brynäs IF"
+          },
+          "siteTeamDisplayName": "Brynäs IF",
+          "siteTeamDisplayCode": "Brynäs",
+          "clubPageLink": "http://www.brynas.se/"
+        }
+      }
+    },
+    {
+      "id": "RBK",
+      "rank": 6,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 4,
+      "T": 1,
+      "L": 5,
+      "OTW": 1,
+      "OTL": 0,
+      "P": 14,
+      "GF": 23,
+      "GA": 21,
+      "Diff": 2,
+      "info": {
+        "code": "Rögle",
+        "teamId": "RBK",
+        "teamInfo": {
+          "teamId": "RBK",
+          "teamOwnerInstanceId": "rbk1_rbk",
+          "teamUuid": "ee93-ee93uy4oW",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/rbk1_rbk.svg",
+          "teamNames": {
+            "code": "RBK",
+            "short": "Rögle",
+            "long": "Rögle BK",
+            "full": "Rögle Bandyklubb",
+            "codeSite": "RBK",
+            "shortSite": "Rögle",
+            "fullSite": "Rögle Bandyklubb",
+            "longSite": "Rögle BK"
+          },
+          "siteTeamDisplayName": "Rögle BK",
+          "siteTeamDisplayCode": "Rögle",
+          "clubPageLink": "http://www.roglebk.se/"
+        }
+      }
+    },
+    {
+      "id": "MIF",
+      "rank": 7,
+      "rankDiff": 0,
+      "GP": 9,
+      "W": 3,
+      "T": 4,
+      "L": 2,
+      "OTW": 1,
+      "OTL": 3,
+      "P": 14,
+      "GF": 26,
+      "GA": 25,
+      "Diff": 1,
+      "info": {
+        "code": "Malmö",
+        "teamId": "MIF",
+        "teamInfo": {
+          "teamId": "MIF",
+          "teamOwnerInstanceId": "mif1_mif",
+          "teamUuid": "8e6f-8e6fUXJvi",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/mif1_mif.svg",
+          "teamNames": {
+            "code": "MIF",
+            "short": "Malmö",
+            "long": "Malmö Redhawks",
+            "full": "Malmö Redhawks",
+            "codeSite": "MIF",
+            "shortSite": "Redhawks",
+            "fullSite": "Malmö Redhawks",
+            "longSite": "Malmö Redhawks"
+          },
+          "siteTeamDisplayName": "Malmö Redhawks",
+          "siteTeamDisplayCode": "Malmö",
+          "clubPageLink": "http://www.malmoredhawks.com/"
+        }
+      }
+    },
+    {
+      "id": "LHF",
+      "rank": 8,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 4,
+      "T": 2,
+      "L": 4,
+      "OTW": 0,
+      "OTL": 2,
+      "P": 14,
+      "GF": 26,
+      "GA": 30,
+      "Diff": -4,
+      "info": {
+        "code": "Luleå",
+        "teamId": "LHF",
+        "teamInfo": {
+          "teamId": "LHF",
+          "teamOwnerInstanceId": "lhf1_lhf",
+          "teamUuid": "1a71-1a71gTHKh",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/lhf1_lhf.svg",
+          "teamNames": {
+            "code": "LHF",
+            "short": "Luleå",
+            "long": "Luleå Hockey",
+            "full": "Luleå Hockey",
+            "codeSite": "LHF",
+            "shortSite": "Luleå",
+            "fullSite": "Luleå Hockey",
+            "longSite": "Luleå Hockey"
+          },
+          "siteTeamDisplayName": "Luleå Hockey",
+          "siteTeamDisplayCode": "Luleå",
+          "clubPageLink": "http://www.luleahockey.se/"
+        }
+      }
+    },
+    {
+      "id": "OHK",
+      "rank": 9,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 4,
+      "T": 2,
+      "L": 4,
+      "OTW": 0,
+      "OTL": 2,
+      "P": 14,
+      "GF": 20,
+      "GA": 29,
+      "Diff": -9,
+      "info": {
+        "code": "Örebro",
+        "teamId": "OHK",
+        "teamInfo": {
+          "teamId": "OHK",
+          "teamOwnerInstanceId": "ohk1_ohk",
+          "teamUuid": "82eb-82ebmgaJ8",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/ohk1_ohk.svg",
+          "teamNames": {
+            "code": "ÖRE",
+            "short": "Örebro",
+            "long": "Örebro Hockey",
+            "full": "Örebro Hockey"
+          },
+          "siteTeamDisplayName": "Örebro Hockey",
+          "siteTeamDisplayCode": "Örebro",
+          "clubPageLink": "http://www.orebrohockey.se/"
+        }
+      }
+    },
+    {
+      "id": "TIK",
+      "rank": 10,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 2,
+      "T": 3,
+      "L": 5,
+      "OTW": 3,
+      "OTL": 0,
+      "P": 12,
+      "GF": 20,
+      "GA": 23,
+      "Diff": -3,
+      "info": {
+        "code": "Timrå",
+        "teamId": "TIK",
+        "teamInfo": {
+          "teamId": "TIK",
+          "teamOwnerInstanceId": "tik1_tik",
+          "teamUuid": "31d1-31d1NbSlR",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/tik1_tik.svg",
+          "teamNames": {
+            "code": "TIK",
+            "short": "Timrå",
+            "long": "Timrå IK",
+            "full": "Timrå Idrottsklubb",
+            "codeSite": "TIK",
+            "shortSite": "Timrå",
+            "fullSite": "Timrå Idrottsklubb",
+            "longSite": "Timrå IK"
+          },
+          "siteTeamDisplayName": "Timrå IK",
+          "siteTeamDisplayCode": "Timrå",
+          "clubPageLink": "http://www.timraik.se/"
+        }
+      }
+    },
+    {
+      "id": "VLH",
+      "rank": 11,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 3,
+      "T": 2,
+      "L": 5,
+      "OTW": 1,
+      "OTL": 1,
+      "P": 12,
+      "GF": 29,
+      "GA": 34,
+      "Diff": -5,
+      "info": {
+        "code": "Växjö",
+        "teamId": "VLH",
+        "teamInfo": {
+          "teamId": "VLH",
+          "teamOwnerInstanceId": "vlh1_vlh",
+          "teamUuid": "fe02-fe02mf1FN",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/vlh1_vlh.svg",
+          "teamNames": {
+            "code": "VLH",
+            "short": "Växjö",
+            "long": "Växjö Lakers",
+            "full": "Växjö Lakers",
+            "code_site": "VLH",
+            "short_site": "Växjö Lakers",
+            "full_site": "Växjö Lakers",
+            "long_site": "Växjö Lakers"
+          },
+          "siteTeamDisplayName": "Växjö Lakers",
+          "siteTeamDisplayCode": "Växjö",
+          "clubPageLink": "http://www.vaxjolakers.se/"
+        }
+      }
+    },
+    {
+      "id": "DIF",
+      "rank": 12,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 2,
+      "T": 4,
+      "L": 4,
+      "OTW": 2,
+      "OTL": 2,
+      "P": 12,
+      "GF": 21,
+      "GA": 27,
+      "Diff": -6,
+      "info": {
+        "code": "Djurgården",
+        "teamId": "DIF",
+        "teamInfo": {
+          "teamId": "DIF",
+          "teamOwnerInstanceId": "dif1_dif",
+          "teamUuid": "2459-2459QTs1f",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/dif1_dif.svg",
+          "teamNames": {
+            "code": "DIF",
+            "short": "Djurgården",
+            "long": "Djurgårdens IF",
+            "full": "Djurgården Hockey",
+            "codeSite": "DIF Herr",
+            "shortSite": "Djurgården Herr",
+            "fullSite": "Djurgården Hockey Herr",
+            "longSite": "Djurgården Hockey Herr"
+          },
+          "siteTeamDisplayName": "Djurgårdens IF",
+          "siteTeamDisplayCode": "Djurgården",
+          "clubPageLink": "http://www.difhockey.se/"
+        }
+      }
+    },
+    {
+      "id": "HV71",
+      "rank": 13,
+      "rankDiff": 0,
+      "GP": 10,
+      "W": 1,
+      "T": 4,
+      "L": 5,
+      "OTW": 2,
+      "OTL": 2,
+      "P": 9,
+      "GF": 27,
+      "GA": 36,
+      "Diff": -9,
+      "info": {
+        "code": "HV71",
+        "teamId": "HV71",
+        "teamInfo": {
+          "teamId": "HV71",
+          "teamOwnerInstanceId": "hv711_hv71",
+          "teamUuid": "3db0-3db09jXTE",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/hv711_hv71.svg",
+          "teamNames": {
+            "code": "HV71",
+            "short": "HV71",
+            "long": "HV71",
+            "full": "HV71",
+            "code_site": "HV71",
+            "short_site": "HV71",
+            "full_site": "HV71",
+            "long_site": "HV71"
+          },
+          "siteTeamDisplayName": "HV71",
+          "siteTeamDisplayCode": "HV71",
+          "clubPageLink": "http://www.hv71.se/"
+        }
+      }
+    },
+    {
+      "id": "LHC",
+      "rank": 14,
+      "rankDiff": 0,
+      "GP": 9,
+      "W": 2,
+      "T": 1,
+      "L": 6,
+      "OTW": 0,
+      "OTL": 1,
+      "P": 7,
+      "GF": 14,
+      "GA": 30,
+      "Diff": -16,
+      "info": {
+        "code": "Linköping",
+        "teamId": "LHC",
+        "teamInfo": {
+          "teamId": "LHC",
+          "teamOwnerInstanceId": "lhc1_lhc",
+          "teamUuid": "41c4-41c4BiYZU",
+          "teamMedia": "https://sportality.cdn.s8y.se/team-logos/lhc1_lhc.svg",
+          "teamNames": {
+            "code": "LHC",
+            "short": "Linköping",
+            "long": "Linköping HC",
+            "full": "Linköping Hockey Club",
+            "codeSite": "LHC",
+            "shortSite": "Linköping",
+            "fullSite": "Linköping Hockey Club",
+            "longSite": "Linköping HC"
+          },
+          "siteTeamDisplayName": "Linköping HC",
+          "siteTeamDisplayCode": "Linköping",
+          "clubPageLink": "http://www.lhc.eu/"
+        }
+      }
+    }
+  ],
+  "provider": "statnet",
+  "groupings": [
+    {
+      "description": "Playoff",
+      "first": 1,
+      "last": 6
+    },
+    {
+      "description": "Playin",
+      "first": 7,
+      "last": 10
+    },
+    {
+      "description": "MissedPlayoff",
+      "first": 11,
+      "last": 12
+    },
+    {
+      "description": "QualificationDown",
+      "first": 13,
+      "last": 14
+    }
+  ]
+}

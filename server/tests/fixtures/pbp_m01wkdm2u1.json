@@ -1,0 +1,7134 @@
+[
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 140,
+    "eventUuid": "83c813c1-2b84-55ec-aa47-39990e6fbc67",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "19:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:12:16.488",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 137,
+    "locationY": -23,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 139,
+    "eventUuid": "3fe13489-2fdf-5520-9c72-3f47d6335a2a",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "19:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:12:08.49",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 78,
+    "locationY": 90,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 138,
+    "eventUuid": "1b718250-6dd4-54b4-bbde-ec9c7e4d71f5",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "19:05",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:11:40.485",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3648",
+      "firstName": "Viktor",
+      "familyName": "Grahn",
+      "jerseyToday": "3"
+    },
+    "locationX": 146,
+    "locationY": 20,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 137,
+    "eventUuid": "5404aa91-3e47-5c2b-91b0-83a129ca98e8",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "18:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:11:07.49",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6494",
+      "firstName": "Valter",
+      "familyName": "Lindberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 40,
+    "locationY": 42,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 136,
+    "eventUuid": "8dd26034-9c56-56ca-b8af-40f835b68e42",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "18:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:10:47.49",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 170,
+    "locationY": -90,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 135,
+    "eventUuid": "21c96ff9-4c10-5eb3-b368-5a4be3a56ab5",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "18:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:10:39.49",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 90,
+    "locationY": -83,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 134,
+    "eventUuid": "66d5dc69-2e51-5d32-adc4-8a1b5c7d8c5b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "18:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:10:36.491",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 85,
+    "locationY": -52,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 133,
+    "eventUuid": "7af16bd1-b8be-54a5-b570-1fc041328a7e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "17:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:10:04.487",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3321",
+      "firstName": "Linus",
+      "familyName": "Lindström",
+      "jerseyToday": "16"
+    },
+    "locationX": 82,
+    "locationY": 77,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 132,
+    "eventUuid": "7c5f9e27-5e47-56e6-b96a-094ee4023d6a",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "17:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:09:50.489",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 43,
+    "locationY": 42,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 131,
+    "eventUuid": "a9fbe390-b794-579c-a9f3-8fed8f8f5ca7",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "17:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:09:45.489",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 112,
+    "locationY": -3,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 130,
+    "eventUuid": "b56a8a01-39e9-5f6c-ae81-b4721b181ea2",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "15:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:05:48.889",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 70,
+    "locationY": -78,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 129,
+    "eventUuid": "00aa06f8-9a57-5a3e-af78-767e8ef26e4e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "14:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:03:18.092",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "locationX": 100,
+    "locationY": 48,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 128,
+    "eventUuid": "c3ba2a4e-1d85-597a-8fb3-782f839962b0",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "13:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:03:08.094",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 143,
+    "locationY": -108,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 127,
+    "eventUuid": "3841138c-3168-5573-8f2a-fc33b38dbb40",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "02:23",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:47:14.002",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 16,
+    "locationY": -12,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 126,
+    "eventUuid": "b03f478e-7e60-50f9-a392-73f978e7d92e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "02:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:46:58.002",
+    "updatedTime": "2026-09-28T10:45:40.403527",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 407,
+    "locationY": 29,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 125,
+    "eventUuid": "26c2d52b-f692-5fa9-bc7d-32e813740691",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "00:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:45:27",
+    "updatedTime": "2026-09-24T19:24:19.495665",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2340",
+      "firstName": "Andreas",
+      "familyName": "Borgman",
+      "jerseyToday": "55"
+    },
+    "locationX": 176,
+    "locationY": -134,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 124,
+    "eventUuid": "c36aef11-d237-5cbe-85b6-44b1a08bbb66",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 4,
+    "time": "01:16",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-24T21:20:06.479236",
+    "updatedTime": "2026-09-24T19:20:06.1165",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6266",
+      "firstName": "Herman",
+      "familyName": "Liv",
+      "jerseyToday": "80"
+    },
+    "isEntering": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 123,
+    "eventUuid": "cce386dc-cec6-5d82-8458-17ec4b6b9d2f",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 4,
+    "time": "01:16",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-24T21:20:04.430098",
+    "updatedTime": "2026-09-24T19:20:04.061882",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6607",
+      "firstName": "Jani",
+      "familyName": "Lampinen",
+      "jerseyToday": "31"
+    },
+    "isEntering": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 122,
+    "eventUuid": "140842f4-e97a-5398-b46e-21231e04740a",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 4,
+    "time": "01:16",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T21:17:52.695066",
+    "updatedTime": "2026-09-24T19:19:26.014065",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3894",
+      "firstName": "Nikola",
+      "familyName": "Pasic",
+      "jerseyToday": "96",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 106,
+    "locationY": 16,
+    "homeGoals": 4,
+    "awayGoals": 3,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "3894",
+        "firstName": "Nikola",
+        "familyName": "Pasic",
+        "jerseyToday": "96"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "4535",
+        "firstName": "Pontus",
+        "familyName": "Johansson",
+        "jerseyToday": "25"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "3296",
+        "firstName": "Rickard",
+        "familyName": "Hugg",
+        "jerseyToday": "96"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 120,
+    "eventUuid": "aeda5392-03e8-5d55-8c39-3b0f4b6165d0",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 4,
+    "time": "00:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:17:00.4",
+    "updatedTime": "2026-09-24T19:17:10.796665",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2340",
+      "firstName": "Andreas",
+      "familyName": "Borgman",
+      "jerseyToday": "55"
+    },
+    "locationX": 106,
+    "locationY": -23,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 119,
+    "eventUuid": "9ed4b958-b6eb-52f6-a3b3-4e45a9b5c442",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 4,
+    "time": "00:23",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:16:52.08",
+    "updatedTime": "2026-09-24T19:17:00.747658",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 86,
+    "locationY": -40,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 118,
+    "eventUuid": "6ae9cfc9-a3d0-5511-941e-fde486067ae6",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "19:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:13:43.98",
+    "updatedTime": "2026-09-24T19:13:57.798873",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2340",
+      "firstName": "Andreas",
+      "familyName": "Borgman",
+      "jerseyToday": "55"
+    },
+    "locationX": 270,
+    "locationY": 37,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 117,
+    "eventUuid": "b3ef431b-30fd-510b-a85b-17f368c6910a",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "11:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:00:08.295",
+    "updatedTime": "2026-09-24T19:04:11.981755",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4547",
+      "firstName": "Aleksi",
+      "familyName": "Heponiemi",
+      "jerseyToday": "91"
+    },
+    "locationX": 25,
+    "locationY": 8,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 116,
+    "eventUuid": "b986a7a2-8950-51e2-897c-92dcaec16990",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "11:55",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:00:06.98",
+    "updatedTime": "2026-09-24T19:02:47.784071",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 166,
+    "locationY": -73,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 115,
+    "eventUuid": "c0c88083-5f53-5e80-a05e-bd45c937c899",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "13:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:01:45.32",
+    "updatedTime": "2026-09-24T19:01:56.890677",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 157,
+    "locationY": 14,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 114,
+    "eventUuid": "7ec21efa-ece0-5a1a-9fb6-80bd565e9ddf",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "13:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:01:35.52",
+    "updatedTime": "2026-09-24T19:01:46.597603",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 139,
+    "locationY": 64,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 113,
+    "eventUuid": "2f8b8b11-d743-5fea-8269-ac36ed7dfc11",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "13:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:01:27.68",
+    "updatedTime": "2026-09-24T19:01:46.597603",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 126,
+    "locationY": 102,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 112,
+    "eventUuid": "ef22948c-05cb-545a-a749-e4056d089d97",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "13:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:01:19.48",
+    "updatedTime": "2026-09-24T19:01:36.323773",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 81,
+    "locationY": -77,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 111,
+    "eventUuid": "b4bdc1c6-3f5a-5e04-a863-ec1a13c35b75",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "12:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T21:00:50.9",
+    "updatedTime": "2026-09-24T19:01:06.038701",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2340",
+      "firstName": "Andreas",
+      "familyName": "Borgman",
+      "jerseyToday": "55"
+    },
+    "locationX": 171,
+    "locationY": -132,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 109,
+    "eventUuid": "450ae2e7-3e6f-5384-94dc-83463849bbcf",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "11:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:59:25.16",
+    "updatedTime": "2026-09-24T18:59:43.937874",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 69,
+    "locationY": 22,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 108,
+    "eventUuid": "0c87e164-e1b3-560d-89c7-815e5d0bea46",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "10:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:58:54.78",
+    "updatedTime": "2026-09-24T18:59:12.99746",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 91,
+    "locationY": -69,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 107,
+    "eventUuid": "0ec8e19b-8736-5ca8-ae3d-119766531b8b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "10:20",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-24T20:56:46.083487",
+    "updatedTime": "2026-09-24T19:00:39.865019",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "INTRF",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 106,
+    "eventUuid": "84437d34-b8d4-5bba-9104-1197dd305720",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "09:19",
+    "gameState": "GameEnded",
+    "revision": 5,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T20:54:51.420847",
+    "updatedTime": "2026-09-24T18:58:34.975243",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7034",
+      "firstName": "Jan",
+      "familyName": "Mysak",
+      "jerseyToday": "81",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 97,
+    "locationY": 44,
+    "homeGoals": 3,
+    "awayGoals": 3,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "6621",
+        "firstName": "Jonathan",
+        "familyName": "Ang",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "7034",
+        "firstName": "Jan",
+        "familyName": "Mysak",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "6737",
+        "firstName": "Santeri",
+        "familyName": "Hatakka",
+        "jerseyToday": "82"
+      },
+      {
+        "playerId": "7107",
+        "firstName": "Pavol",
+        "familyName": "Regenda",
+        "jerseyToday": "84"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3648",
+        "firstName": "Viktor",
+        "familyName": "Grahn",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "5873",
+        "firstName": "Frans",
+        "familyName": "Haara",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "2102",
+        "firstName": "Jonathan",
+        "familyName": "Johnson",
+        "jerseyToday": "22"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "5617",
+        "firstName": "Zeb",
+        "familyName": "Forsfjäll",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "6493",
+        "firstName": "Viggo",
+        "familyName": "Nordlund",
+        "jerseyToday": "73"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "7107",
+        "firstName": "Pavol",
+        "familyName": "Regenda",
+        "jerseyToday": "84",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6621",
+        "firstName": "Jonathan",
+        "familyName": "Ang",
+        "jerseyToday": "27",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "2"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 104,
+    "eventUuid": "5cf71b82-442e-5eab-af57-cd8efb1b75f6",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "09:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:54:25.9",
+    "updatedTime": "2026-09-24T18:54:36.258635",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 171,
+    "locationY": 13,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 103,
+    "eventUuid": "e56e13dd-9272-540c-bbc2-a70e7688b091",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "07:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:53:13.9",
+    "updatedTime": "2026-09-24T18:53:31.153096",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2828",
+      "firstName": "Hampus",
+      "familyName": "Eriksson",
+      "jerseyToday": "24"
+    },
+    "locationX": 168,
+    "locationY": -78,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 102,
+    "eventUuid": "b9426c0a-4011-5815-a324-b9d39da515b1",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "06:45",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:52:09.38",
+    "updatedTime": "2026-09-24T18:53:31.153096",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 141,
+    "locationY": 45,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 101,
+    "eventUuid": "376f1666-1bf8-5cea-9377-31a71f31da88",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "07:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:52:45.34",
+    "updatedTime": "2026-09-24T18:52:59.185816",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 182,
+    "locationY": 78,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 100,
+    "eventUuid": "b9f1c2c0-32b6-5815-a5ee-56626fe43230",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "07:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:52:31.4",
+    "updatedTime": "2026-09-24T18:52:48.965376",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 260,
+    "locationY": -139,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 98,
+    "eventUuid": "2e038b50-5d5c-54aa-8cd1-e80ef11f1547",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "06:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:52:01.88",
+    "updatedTime": "2026-09-24T18:52:18.214756",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 61,
+    "locationY": -34,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 97,
+    "eventUuid": "581c9df2-b72d-5223-a38c-933d23a678ee",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "05:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:50:08.38",
+    "updatedTime": "2026-09-24T18:50:24.160585",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 185,
+    "locationY": -143,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 96,
+    "eventUuid": "f56ca959-1696-5136-942a-b54392facdb3",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "04:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:49:17.74",
+    "updatedTime": "2026-09-24T18:49:31.268011",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 78,
+    "locationY": -66,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 95,
+    "eventUuid": "42ab4f2d-ec73-50a8-825c-c42499ca2cf1",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "03:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:48:28.96",
+    "updatedTime": "2026-09-24T18:48:49.251214",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 476,
+    "locationY": -89,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 94,
+    "eventUuid": "dc47514a-b44d-55be-8938-77a41dd913ba",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "03:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:48:19.9",
+    "updatedTime": "2026-09-24T18:48:38.178297",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 136,
+    "locationY": -106,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 93,
+    "eventUuid": "12062124-f2d3-542a-92cd-240cd9fc79c2",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 3,
+    "time": "02:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:47:46.42",
+    "updatedTime": "2026-09-24T18:48:06.393064",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7034",
+      "firstName": "Jan",
+      "familyName": "Mysak",
+      "jerseyToday": "81"
+    },
+    "locationX": 98,
+    "locationY": 119,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 92,
+    "eventUuid": "4a412550-bc09-52fd-b670-5b74145cdb4d",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "19:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:25:23.36",
+    "updatedTime": "2026-09-24T18:25:32.671996",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 47,
+    "locationY": -69,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 90,
+    "eventUuid": "588abb2d-4d37-5248-a4d0-b556ee572cf9",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "18:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:24:06.24",
+    "updatedTime": "2026-09-24T18:24:21.961227",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 138,
+    "locationY": -93,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 89,
+    "eventUuid": "e4fe7258-1f3a-5cd3-a9a9-e4d2a8b149c0",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "18:28",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-24T20:23:02.615209",
+    "updatedTime": "2026-09-24T18:45:25.136539",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6493",
+      "firstName": "Viggo",
+      "familyName": "Nordlund",
+      "jerseyToday": "73"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 88,
+    "eventUuid": "1d94c0c3-46b5-5d95-b928-96a43a190e03",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "18:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:22:48.96",
+    "updatedTime": "2026-09-24T18:23:06.057956",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 144,
+    "locationY": -13,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 87,
+    "eventUuid": "c8dc08c2-f59a-5303-b1d4-6c1a6b1a6b1e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "18:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:22:29.88",
+    "updatedTime": "2026-09-24T18:22:46.22643",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6621",
+      "firstName": "Jonathan",
+      "familyName": "Ang",
+      "jerseyToday": "27"
+    },
+    "locationX": 137,
+    "locationY": -17,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 86,
+    "eventUuid": "40422b0e-c735-5f30-acd6-5dc433e20c13",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "17:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:22:21.9",
+    "updatedTime": "2026-09-24T18:22:36.092528",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 143,
+    "locationY": -46,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 85,
+    "eventUuid": "efa2983c-822d-58b7-8f42-dff72c919beb",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "17:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:21:36.74",
+    "updatedTime": "2026-09-24T18:21:54.91125",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6493",
+      "firstName": "Viggo",
+      "familyName": "Nordlund",
+      "jerseyToday": "73"
+    },
+    "locationX": 102,
+    "locationY": 58,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 84,
+    "eventUuid": "dffed3c5-ff9e-5e9d-8b1f-5326f7f02b00",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "16:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:20:35.32",
+    "updatedTime": "2026-09-24T18:20:54.175641",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 54,
+    "locationY": 87,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 83,
+    "eventUuid": "e2c2a0c9-f888-5c96-9cfd-95c19d1cfa9f",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "16:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:19:55.62",
+    "updatedTime": "2026-09-24T18:20:13.624292",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 86,
+    "locationY": 35,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 82,
+    "eventUuid": "83a3e755-719d-5b3c-8e07-55cf800996f4",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "15:36",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T20:18:33.955291",
+    "updatedTime": "2026-09-24T18:40:32.828591",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 18,
+    "locationY": -10,
+    "homeGoals": 2,
+    "awayGoals": 3,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "4542",
+        "firstName": "Victor",
+        "familyName": "Stjernborg",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "2388",
+        "firstName": "Andreas",
+        "familyName": "Johnson",
+        "jerseyToday": "14"
+      },
+      {
+        "playerId": "2102",
+        "firstName": "Jonathan",
+        "familyName": "Johnson",
+        "jerseyToday": "22"
+      },
+      {
+        "playerId": "4535",
+        "firstName": "Pontus",
+        "familyName": "Johansson",
+        "jerseyToday": "25"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "2217",
+        "firstName": "Arvid",
+        "familyName": "Lundberg",
+        "jerseyToday": "52"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6621",
+        "firstName": "Jonathan",
+        "familyName": "Ang",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "6909",
+        "firstName": "Malte",
+        "familyName": "Gustafsson",
+        "jerseyToday": "78"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "7034",
+        "firstName": "Jan",
+        "familyName": "Mysak",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "6737",
+        "firstName": "Santeri",
+        "familyName": "Hatakka",
+        "jerseyToday": "82"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4542",
+        "firstName": "Victor",
+        "familyName": "Stjernborg",
+        "jerseyToday": "9",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "4535",
+        "firstName": "Pontus",
+        "familyName": "Johansson",
+        "jerseyToday": "25",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 80,
+    "eventUuid": "75587dd9-0654-5032-ba0e-3bc52fbbf5ac",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "15:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:17:57.9",
+    "updatedTime": "2026-09-24T18:18:20.034368",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 126,
+    "locationY": 120,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 79,
+    "eventUuid": "c58b948c-53ad-5e25-8bdc-977cc38b9f04",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "13:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:15:25.98",
+    "updatedTime": "2026-09-24T18:15:44.220241",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 125,
+    "locationY": 21,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 78,
+    "eventUuid": "51b475c7-3d52-5a39-9f01-71c71bbe8c35",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "12:05",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:12:52.32",
+    "updatedTime": "2026-09-24T18:13:09.759305",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6493",
+      "firstName": "Viggo",
+      "familyName": "Nordlund",
+      "jerseyToday": "73"
+    },
+    "locationX": 30,
+    "locationY": -19,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 77,
+    "eventUuid": "e9341440-7c48-5486-b9c6-d2f008d172f5",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "11:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:12:11.82",
+    "updatedTime": "2026-09-24T18:12:27.534323",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 174,
+    "locationY": -64,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 76,
+    "eventUuid": "09f1b870-c5c5-59ef-b2f5-71905eaab324",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "04:05",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:56:48.336",
+    "updatedTime": "2026-09-24T18:12:15.82298",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 480,
+    "locationY": -43,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 75,
+    "eventUuid": "acab2b28-4fae-5d47-aaee-b4ade9308b96",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "11:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:10:34.42",
+    "updatedTime": "2026-09-24T18:10:55.138788",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 13,
+    "locationY": -18,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 74,
+    "eventUuid": "713396d6-023d-533e-9cea-93b2fceb8602",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "11:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:10:33.54",
+    "updatedTime": "2026-09-24T18:10:55.138788",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6494",
+      "firstName": "Valter",
+      "familyName": "Lindberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 72,
+    "locationY": -51,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 73,
+    "eventUuid": "a43ec89d-c365-598a-b0dc-f4486a1337ef",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "11:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:10:17.48",
+    "updatedTime": "2026-09-24T18:10:35.029159",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 172,
+    "locationY": 66,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 72,
+    "eventUuid": "3882857d-a377-5200-b7e0-ce33084b36f7",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "10:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:10:08.72",
+    "updatedTime": "2026-09-24T18:10:23.476301",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 166,
+    "locationY": 144,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 71,
+    "eventUuid": "0f340d77-6190-5e51-8b10-a23b87f85182",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "10:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:08:47.7",
+    "updatedTime": "2026-09-24T18:09:01.801314",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 160,
+    "locationY": 66,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 70,
+    "eventUuid": "e9c2b61d-f798-5dc2-a5da-ce4f700f0784",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "09:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:08:35",
+    "updatedTime": "2026-09-24T18:08:49.967245",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 120,
+    "locationY": 37,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 69,
+    "eventUuid": "541e9e7e-2a64-5d83-9e55-7a4c83c0df44",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "09:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:08:20.88",
+    "updatedTime": "2026-09-24T18:08:39.475696",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 116,
+    "locationY": 54,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 68,
+    "eventUuid": "ec2d5448-8095-5b8f-9b53-19987932369e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "09:23",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:07:28.58",
+    "updatedTime": "2026-09-24T18:07:47.566479",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 99,
+    "locationY": -70,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 67,
+    "eventUuid": "41a408f3-247a-52a0-8b55-db03ac12be00",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "09:18",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-24T20:06:21.077175",
+    "updatedTime": "2026-09-24T18:10:36.796287",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "DELAY",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 66,
+    "eventUuid": "943a22e7-eb7f-51c1-98df-e957d39bf225",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "08:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:03:31.1",
+    "updatedTime": "2026-09-24T18:03:39.899278",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 1,
+    "locationY": -18,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 65,
+    "eventUuid": "f67b1b71-875a-52a3-aabe-60cdb0da36ad",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "07:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:03:16.42",
+    "updatedTime": "2026-09-24T18:03:29.682921",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 161,
+    "locationY": 33,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 64,
+    "eventUuid": "f1fbfcf7-dd81-5414-9770-66e40dde093e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "06:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T20:01:22.26",
+    "updatedTime": "2026-09-24T18:01:43.637507",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4925",
+      "firstName": "Riley",
+      "familyName": "Woods",
+      "jerseyToday": "41"
+    },
+    "locationX": 37,
+    "locationY": -50,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 63,
+    "eventUuid": "b5ef288e-176b-5126-a9f1-40381ecedee6",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "05:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:59:35.9",
+    "updatedTime": "2026-09-24T17:59:51.951084",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4547",
+      "firstName": "Aleksi",
+      "familyName": "Heponiemi",
+      "jerseyToday": "91"
+    },
+    "locationX": 26,
+    "locationY": -28,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 62,
+    "eventUuid": "051fd64b-b642-5948-807a-396ba804b521",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "05:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:59:33.24",
+    "updatedTime": "2026-09-24T17:59:51.951084",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 151,
+    "locationY": -76,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 61,
+    "eventUuid": "802a0443-ae28-5512-b35a-69ead6c39dea",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "04:08",
+    "gameState": "GameEnded",
+    "revision": 7,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T19:56:57.029933",
+    "updatedTime": "2026-09-24T18:10:14.622927",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4925",
+      "firstName": "Riley",
+      "familyName": "Woods",
+      "jerseyToday": "41",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 24,
+    "locationY": 8,
+    "homeGoals": 2,
+    "awayGoals": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16"
+      },
+      {
+        "playerId": "3059",
+        "firstName": "Olle",
+        "familyName": "Alsing",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "4925",
+        "firstName": "Riley",
+        "familyName": "Woods",
+        "jerseyToday": "41"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "3894",
+        "firstName": "Nikola",
+        "familyName": "Pasic",
+        "jerseyToday": "96"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6492",
+        "firstName": "Rasmus",
+        "familyName": "Bergqvist",
+        "jerseyToday": "4"
+      },
+      {
+        "playerId": "5873",
+        "firstName": "Frans",
+        "familyName": "Haara",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "4548",
+        "firstName": "Mikkel",
+        "familyName": "Aagaard",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "3296",
+        "firstName": "Rickard",
+        "familyName": "Hugg",
+        "jerseyToday": "96"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 59,
+    "eventUuid": "e897b8f8-535a-54be-8fb7-3f990e7fadda",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "02:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:55:10.72",
+    "updatedTime": "2026-09-24T17:55:26.917488",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4194",
+      "firstName": "William",
+      "familyName": "Ignberg Nilsson",
+      "jerseyToday": "71"
+    },
+    "locationX": 117,
+    "locationY": -66,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 58,
+    "eventUuid": "ababee4a-0139-5170-b6f0-9a64a670b820",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "02:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:54:56.88",
+    "updatedTime": "2026-09-24T17:55:16.766766",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 159,
+    "locationY": -110,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 57,
+    "eventUuid": "a75f6e26-c822-51ab-bae5-2b7921a7c235",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "02:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:53:59.98",
+    "updatedTime": "2026-09-24T17:54:16.404254",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2340",
+      "firstName": "Andreas",
+      "familyName": "Borgman",
+      "jerseyToday": "55"
+    },
+    "locationX": 181,
+    "locationY": -145,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 56,
+    "eventUuid": "39c9f74d-5b20-59e3-b8cf-139cf2273ccc",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "01:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:53:32.98",
+    "updatedTime": "2026-09-24T17:53:45.920701",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6736",
+      "firstName": "Lukas",
+      "familyName": "Rousek",
+      "jerseyToday": "70"
+    },
+    "locationX": 187,
+    "locationY": 13,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 55,
+    "eventUuid": "a256c6fe-3af2-51c6-8af6-bf2f84fe3654",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 2,
+    "time": "00:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:52:06.24",
+    "updatedTime": "2026-09-24T17:52:23.489149",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 154,
+    "locationY": -16,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 54,
+    "eventUuid": "b9fabd8c-5722-5963-9656-d93914affe33",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "19:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:31:21.64",
+    "updatedTime": "2026-09-24T17:31:36.017518",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 68,
+    "locationY": 41,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 53,
+    "eventUuid": "f039eda9-79fd-5c27-a067-e11e3e42f65b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "19:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:31:20.18",
+    "updatedTime": "2026-09-24T17:31:36.017518",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 85,
+    "locationY": 18,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 52,
+    "eventUuid": "aa29182c-5496-5807-8b40-4d91e3307f85",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "19:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:31:18.14",
+    "updatedTime": "2026-09-24T17:31:36.017518",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 31,
+    "locationY": -14,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 51,
+    "eventUuid": "645a83de-8b9d-522b-9af8-45eeb2298a42",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "19:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:31:13.7",
+    "updatedTime": "2026-09-24T17:31:23.399336",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 169,
+    "locationY": -141,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 50,
+    "eventUuid": "097d3fdd-04a9-5d9e-b29d-27f3119e35c9",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "18:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:30:45.24",
+    "updatedTime": "2026-09-24T17:31:03.598713",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 174,
+    "locationY": 112,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 49,
+    "eventUuid": "63297fcb-e5d3-5142-bd02-256002e1824d",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "18:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:30:28.7",
+    "updatedTime": "2026-09-24T17:30:43.751038",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 99,
+    "locationY": 69,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 48,
+    "eventUuid": "0e8069c4-38ff-5f20-a009-d2a6ec9308e0",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "17:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:29:45.38",
+    "updatedTime": "2026-09-24T17:30:03.865788",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 112,
+    "locationY": 140,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 47,
+    "eventUuid": "847aeaa3-772e-521f-94d8-958ae67bc474",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "17:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:29:22.38",
+    "updatedTime": "2026-09-24T17:29:42.803221",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 157,
+    "locationY": -9,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 46,
+    "eventUuid": "7ef854e7-4b04-5fda-89bf-0e9ffe0ae469",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "16:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:28:59.72",
+    "updatedTime": "2026-09-24T17:29:12.289631",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 115,
+    "locationY": 96,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 45,
+    "eventUuid": "ea5d1ffe-e619-5ad6-ba2d-7b3cb1ab40e4",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "15:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:27:09.52",
+    "updatedTime": "2026-09-24T17:27:29.347156",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 229,
+    "locationY": -67,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 44,
+    "eventUuid": "05425db0-d176-56d0-83dc-f77f17d518ac",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "15:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:26:57.8",
+    "updatedTime": "2026-09-24T17:27:09.112698",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 22,
+    "locationY": -55,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 43,
+    "eventUuid": "6207367f-dc43-5b64-ad6e-2c05f1d1c0ee",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "15:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:26:04.94",
+    "updatedTime": "2026-09-24T17:26:19.906493",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5617",
+      "firstName": "Zeb",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "33"
+    },
+    "locationX": 4,
+    "locationY": 16,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 42,
+    "eventUuid": "70930cbf-4255-5ce3-98cd-dafbb8f9d9d4",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "15:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:26:03.74",
+    "updatedTime": "2026-09-24T17:26:19.906493",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 177,
+    "locationY": 102,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 41,
+    "eventUuid": "d41e73aa-cac7-51a3-93ef-4288d994d37e",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "15:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:25:53.7",
+    "updatedTime": "2026-09-24T17:26:09.794308",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 135,
+    "locationY": 33,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 40,
+    "eventUuid": "7dc2c733-a6f8-5523-9f5c-9eabea228395",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "14:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:25:38.36",
+    "updatedTime": "2026-09-24T17:25:49.828588",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5617",
+      "firstName": "Zeb",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "33"
+    },
+    "locationX": 152,
+    "locationY": -144,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 39,
+    "eventUuid": "934073ba-25c5-5441-8eab-7fe6dcd22be5",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "14:33",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T19:23:58.025897",
+    "updatedTime": "2026-10-01T12:11:24.475884",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "2"
+        }
+      ]
+    },
+    "locationX": 36,
+    "locationY": -10,
+    "homeGoals": 1,
+    "awayGoals": 2,
+    "goalSection": 6,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "2102",
+        "firstName": "Jonathan",
+        "familyName": "Johnson",
+        "jerseyToday": "22"
+      },
+      {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "4548",
+        "firstName": "Mikkel",
+        "familyName": "Aagaard",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "2337",
+        "firstName": "Jonathan",
+        "familyName": "Pudas",
+        "jerseyToday": "64"
+      },
+      {
+        "playerId": "3296",
+        "firstName": "Rickard",
+        "familyName": "Hugg",
+        "jerseyToday": "96"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16"
+      },
+      {
+        "playerId": "3368",
+        "firstName": "Victor",
+        "familyName": "Laz",
+        "jerseyToday": "23"
+      },
+      {
+        "playerId": "3059",
+        "firstName": "Olle",
+        "familyName": "Alsing",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "6737",
+        "firstName": "Santeri",
+        "familyName": "Hatakka",
+        "jerseyToday": "82"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4548",
+        "firstName": "Mikkel",
+        "familyName": "Aagaard",
+        "jerseyToday": "29",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 38,
+    "eventUuid": "b2c2c4e4-4366-50bd-8434-9ae406d8d481",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "14:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:23:48.06",
+    "updatedTime": "2026-09-24T17:23:59.280213",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 104,
+    "locationY": -52,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 37,
+    "eventUuid": "fb40f2e2-b507-58a3-b143-2311f9a1ccc7",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "13:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:22:41.42",
+    "updatedTime": "2026-09-24T17:22:59.417989",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "locationX": 78,
+    "locationY": 43,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 36,
+    "eventUuid": "5cdc516a-95f9-5a6c-be87-ac1f369bbb6b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "13:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:22:39.32",
+    "updatedTime": "2026-09-24T17:22:49.47711",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 164,
+    "locationY": 42,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 35,
+    "eventUuid": "ea2b22e9-1423-5b4b-aa23-7b3671605743",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "13:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:22:33.68",
+    "updatedTime": "2026-09-24T17:22:49.47711",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "locationX": 56,
+    "locationY": 52,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 34,
+    "eventUuid": "985a007c-aa44-5692-a5d4-d1178c271f62",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "13:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:22:24.38",
+    "updatedTime": "2026-09-24T17:22:39.27228",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "locationX": 26,
+    "locationY": 37,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 33,
+    "eventUuid": "e03fefce-467d-518d-9560-85d9c9eea552",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "13:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:22:11.26",
+    "updatedTime": "2026-09-24T17:22:28.908695",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 142,
+    "locationY": 52,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 32,
+    "eventUuid": "7e79de9e-7ca9-5fe2-856b-42a35889c1d1",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "12:27",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-24T19:19:22.867635",
+    "updatedTime": "2026-09-24T17:23:54.875926",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 31,
+    "eventUuid": "c43ef46c-6b50-55d0-87b5-83a273e5d396",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "12:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:19:07.6",
+    "updatedTime": "2026-09-24T17:19:24.600517",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 172,
+    "locationY": -33,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 30,
+    "eventUuid": "e7631d78-35ef-5427-aece-07708774467a",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "12:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:18:54.64",
+    "updatedTime": "2026-09-24T17:19:14.290957",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 166,
+    "locationY": -107,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 29,
+    "eventUuid": "915f328b-aab3-57a0-8feb-7bc233b994dc",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "11:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:18:00.98",
+    "updatedTime": "2026-09-24T17:18:14.731456",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3038",
+      "firstName": "Jonathan",
+      "familyName": "Davidsson",
+      "jerseyToday": "71"
+    },
+    "locationX": 11,
+    "locationY": 11,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 28,
+    "eventUuid": "98be1993-793f-508c-b9bc-b7cbe88ea88c",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "11:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:17:59.74",
+    "updatedTime": "2026-09-24T17:18:14.731456",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 147,
+    "locationY": 134,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 27,
+    "eventUuid": "91969e7c-7748-5cb9-8bd6-354dec010985",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "10:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:17:37.18",
+    "updatedTime": "2026-09-24T17:17:54.567444",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 113,
+    "locationY": 145,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 26,
+    "eventUuid": "93dc5b8e-1126-5e38-9805-577f7dd525bb",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "10:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:17:33.84",
+    "updatedTime": "2026-09-24T17:17:54.567444",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6493",
+      "firstName": "Viggo",
+      "familyName": "Nordlund",
+      "jerseyToday": "73"
+    },
+    "locationX": 93,
+    "locationY": -45,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 25,
+    "eventUuid": "9f635367-77e6-5cba-b406-393d9172e995",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "10:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:16:54.9",
+    "updatedTime": "2026-09-24T17:17:12.824008",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 120,
+    "locationY": -52,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 24,
+    "eventUuid": "da3f7537-e0ad-563d-b8c0-552819e077b6",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "08:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:15:17.78",
+    "updatedTime": "2026-09-24T17:15:30.162445",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 97,
+    "locationY": -60,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 23,
+    "eventUuid": "f2be2511-f1d2-5d33-803a-8c9ad09329c7",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "08:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:14:57.24",
+    "updatedTime": "2026-09-24T17:15:09.636304",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 118,
+    "locationY": 37,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 22,
+    "eventUuid": "c242a2d0-3d1f-5c06-b586-8cf8db6ecc90",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "08:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:14:28.42",
+    "updatedTime": "2026-09-24T17:14:49.176015",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 119,
+    "locationY": 39,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 21,
+    "eventUuid": "e6fe2fb5-a767-5702-b58b-95759be08bac",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "07:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:14:01.98",
+    "updatedTime": "2026-09-24T17:14:17.985546",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 177,
+    "locationY": 103,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 20,
+    "eventUuid": "66bb8016-6da9-523f-b7ee-735311f2a5fd",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "06:29",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-24T19:11:41.659251",
+    "updatedTime": "2026-09-24T17:14:57.109139",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "DELAY",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 19,
+    "eventUuid": "64a9b7ad-d629-5311-91b4-12f5e67600f4",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "06:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:11:30.04",
+    "updatedTime": "2026-09-24T17:11:44.730636",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 65,
+    "locationY": 134,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 18,
+    "eventUuid": "608f59dc-0e6b-5a8a-ace7-be16d97bad30",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "05:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:10:33.96",
+    "updatedTime": "2026-09-24T17:10:53.371117",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 81,
+    "locationY": -108,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 17,
+    "eventUuid": "a3e4612a-5244-596d-a2af-03b848529c5f",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:10:03.7",
+    "updatedTime": "2026-09-24T17:10:22.97306",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 463,
+    "locationY": 122,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 16,
+    "eventUuid": "438d90e2-829e-52b3-b8b4-9b460076a221",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:09:21.46",
+    "updatedTime": "2026-09-24T17:09:42.113399",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7092",
+      "firstName": "Markuss",
+      "familyName": "Kolums",
+      "jerseyToday": "6"
+    },
+    "locationX": 101,
+    "locationY": 143,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 15,
+    "eventUuid": "72135f67-29b3-5c07-b9fa-91f1d8eaf977",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:09:00.66",
+    "updatedTime": "2026-09-24T17:09:11.229302",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 185,
+    "locationY": -88,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 14,
+    "eventUuid": "f0a8f704-f653-56b9-82f2-3de12f656fbc",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:08:53.44",
+    "updatedTime": "2026-09-24T17:09:11.229302",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 130,
+    "locationY": -139,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 13,
+    "eventUuid": "4e7f4272-6082-5415-af08-1e35edd7d0eb",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:08:50.3",
+    "updatedTime": "2026-09-24T17:09:01.056377",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 161,
+    "locationY": -31,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 12,
+    "eventUuid": "d778899c-39f2-578c-91aa-851fd73d748a",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:08:43.74",
+    "updatedTime": "2026-09-24T17:09:01.056377",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 61,
+    "locationY": -77,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 11,
+    "eventUuid": "1f226cd5-8e50-5b7a-b042-6f1d1e747fbb",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "04:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:08:39.88",
+    "updatedTime": "2026-09-24T17:08:50.644007",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 174,
+    "locationY": 134,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 10,
+    "eventUuid": "03eb2712-6adc-5258-931a-bfe6f99e222f",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "03:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:07:54.74",
+    "updatedTime": "2026-09-24T17:08:09.965972",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "5517",
+      "firstName": "Lucas",
+      "familyName": "Lagerberg",
+      "jerseyToday": "8"
+    },
+    "locationX": 167,
+    "locationY": -13,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 9,
+    "eventUuid": "7237e1ef-841c-52d8-b0d3-54ef6d0b8dce",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "02:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:06:24.72",
+    "updatedTime": "2026-09-24T17:06:39.527386",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 183,
+    "locationY": -95,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 8,
+    "eventUuid": "d55c13a3-4413-555c-8048-45a9fd89e395",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "02:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:06:06.2",
+    "updatedTime": "2026-09-24T17:06:19.231463",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 100,
+    "locationY": 45,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 7,
+    "eventUuid": "a6390370-15c3-5791-9ad8-0469b12ab16b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "01:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-24T19:05:58.04",
+    "updatedTime": "2026-09-24T17:06:07.762199",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 178,
+    "locationY": -134,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 6,
+    "eventUuid": "6e937d4b-a3b5-552d-83b0-175783512c69",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "01:44",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T19:05:08.760363",
+    "updatedTime": "2026-09-24T17:15:32.010645",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 91,
+    "locationY": 75,
+    "homeGoals": 1,
+    "awayGoals": 1,
+    "goalSection": 6,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "2102",
+        "firstName": "Jonathan",
+        "familyName": "Johnson",
+        "jerseyToday": "22"
+      },
+      {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "4548",
+        "firstName": "Mikkel",
+        "familyName": "Aagaard",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "2337",
+        "firstName": "Jonathan",
+        "familyName": "Pudas",
+        "jerseyToday": "64"
+      },
+      {
+        "playerId": "3296",
+        "firstName": "Rickard",
+        "familyName": "Hugg",
+        "jerseyToday": "96"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "4821",
+        "firstName": "Justin",
+        "familyName": "Kloos",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "2340",
+        "firstName": "Andreas",
+        "familyName": "Borgman",
+        "jerseyToday": "55"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "7034",
+        "firstName": "Jan",
+        "familyName": "Mysak",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "6737",
+        "firstName": "Santeri",
+        "familyName": "Hatakka",
+        "jerseyToday": "82"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "2337",
+        "firstName": "Jonathan",
+        "familyName": "Pudas",
+        "jerseyToday": "64",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 4,
+    "eventUuid": "c0101c7f-6e60-589f-bdfc-200f42c91760",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "01:35",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-24T19:04:14.935285",
+    "updatedTime": "2026-09-24T17:06:05.94506",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3368",
+      "firstName": "Victor",
+      "familyName": "Laz",
+      "jerseyToday": "23"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "DELAY",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 3,
+    "eventUuid": "37360325-c7fd-53d9-a804-b5b8759df37b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "01:36",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-09-24T19:03:06.167634",
+    "updatedTime": "2026-09-24T17:03:59.741799",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6621",
+      "firstName": "Jonathan",
+      "familyName": "Ang",
+      "jerseyToday": "27",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 33,
+    "locationY": 26,
+    "homeGoals": 1,
+    "awayGoals": 0,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "6621",
+        "firstName": "Jonathan",
+        "familyName": "Ang",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "6909",
+        "firstName": "Malte",
+        "familyName": "Gustafsson",
+        "jerseyToday": "78"
+      },
+      {
+        "playerId": "6266",
+        "firstName": "Herman",
+        "familyName": "Liv",
+        "jerseyToday": "80"
+      },
+      {
+        "playerId": "7034",
+        "firstName": "Jan",
+        "familyName": "Mysak",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "6737",
+        "firstName": "Santeri",
+        "familyName": "Hatakka",
+        "jerseyToday": "82"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6492",
+        "firstName": "Rasmus",
+        "familyName": "Bergqvist",
+        "jerseyToday": "4"
+      },
+      {
+        "playerId": "5873",
+        "firstName": "Frans",
+        "familyName": "Haara",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "4542",
+        "firstName": "Victor",
+        "familyName": "Stjernborg",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "2388",
+        "firstName": "Andreas",
+        "familyName": "Johnson",
+        "jerseyToday": "14"
+      },
+      {
+        "playerId": "6607",
+        "firstName": "Jani",
+        "familyName": "Lampinen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "6202",
+        "firstName": "Oskar",
+        "familyName": "Vuollet",
+        "jerseyToday": "72"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6909",
+        "firstName": "Malte",
+        "familyName": "Gustafsson",
+        "jerseyToday": "78",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 2,
+    "eventUuid": "75a7000f-8391-5061-9223-1f16e8cfd97b",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-24T18:25:33.640873",
+    "updatedTime": "2026-09-24T19:20:06.1165",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "home",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6266",
+      "firstName": "Herman",
+      "familyName": "Liv",
+      "jerseyToday": "80"
+    },
+    "isEntering": true,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "eventId": 1,
+    "eventUuid": "17558e6d-eb27-5363-af4d-b00ce1513141",
+    "round": 3,
+    "gameType": "Elitserien",
+    "arena": "Husqvarna Garden",
+    "attendance": 6800,
+    "startDateAndTime": "2026-09-24T19:00:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-24T18:25:31.141435",
+    "updatedTime": "2026-09-24T19:20:04.061882",
+    "homeTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6607",
+      "firstName": "Jani",
+      "familyName": "Lampinen",
+      "jerseyToday": "31"
+    },
+    "isEntering": true,
+    "gameUuid": "m01wkdm2u1"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-09-24T19:01:28.002Z",
+    "finished": true,
+    "finishedAt": "2026-09-24T19:32:54.099Z",
+    "realWorldTime": "2026-09-24T19:32:54.995225",
+    "gameUuid": "m01wkdm2u1",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-09-24T19:51:18.077Z",
+    "finished": true,
+    "finishedAt": "2026-09-24T20:26:34.072Z",
+    "realWorldTime": "2026-09-24T20:26:34.722008",
+    "gameUuid": "m01wkdm2u1",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-09-24T20:44:52.046Z",
+    "finished": true,
+    "finishedAt": "2026-09-24T21:14:30.005Z",
+    "realWorldTime": "2026-09-24T21:14:30.50235",
+    "gameUuid": "m01wkdm2u1",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20260924-HV71-SAIK",
+    "gameId": 23015,
+    "period": 4,
+    "started": true,
+    "startedAt": "2026-09-24T21:16:31.060Z",
+    "finished": true,
+    "finishedAt": "2026-09-24T21:19:20.013Z",
+    "realWorldTime": "2026-09-24T21:19:20.132292",
+    "gameUuid": "m01wkdm2u1",
+    "type": "period"
+  }
+]

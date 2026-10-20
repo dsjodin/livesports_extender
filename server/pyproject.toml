@@ -1,0 +1,44 @@
+[project]
+name = "shl-arena"
+version = "0.1.0"
+description = "Broadcast-style SHL graphics for a home wall, synced to the TV picture"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "tzdata>=2024.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "../tools"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]
+markers = [
+    "live: calls the real shl.se API (runs by default; deselect with -m 'not live')",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = [".", "../tools"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "ASYNC", "RUF"]
+# The en dash is the project's score/range separator (see CLAUDE.md).
+ignore = ["RUF001", "RUF002", "RUF003"]
