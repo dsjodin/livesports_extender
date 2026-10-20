@@ -21,7 +21,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 FIXTURES_DIR = REPO_ROOT / "server" / "tests" / "fixtures"
 
 BASE_URL = "https://www.shl.se/api"
-TIMEOUT_S = 5.0
+TIMEOUT_S = 15.0  # origin refreshes behind Cloudflare took up to 8.6 s on game night
 BACKOFF_START_S = 2.0
 BACKOFF_MAX_S = 30.0
 
@@ -95,6 +95,8 @@ class Fetched:
     status: int | None
     text: str
     error: str | None = None
+    age_s: int | None = None  # Cloudflare's Age header: seconds the cached copy had been held
+    cache: str | None = None  # cf-cache-status (HIT, MISS, EXPIRED, ...)
 
     @property
     def ok(self) -> bool:
@@ -113,8 +115,23 @@ async def fetch(client: httpx.AsyncClient, url: str) -> Fetched:
     try:
         response = await client.get(url)
     except httpx.HTTPError as exc:
-        return Fetched(status=None, text="", error=f"{type(exc).__name__}: {exc}")
-    return Fetched(status=response.status_code, text=response.text)
+        detail = f": {exc}" if str(exc) else ""
+        return Fetched(status=None, text="", error=f"{type(exc).__name__}{detail}")
+    return Fetched(
+        status=response.status_code,
+        text=response.text,
+        age_s=parse_age(response.headers.get("age")),
+        cache=response.headers.get("cf-cache-status"),
+    )
+
+
+def parse_age(value: str | None) -> int | None:
+    """The HTTP Age header as whole seconds, or None if missing or malformed."""
+    try:
+        age = int(value) if value is not None else None
+    except ValueError:
+        return None
+    return age if age is not None and age >= 0 else None
 
 
 async def fetch_json(

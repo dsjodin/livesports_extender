@@ -15,7 +15,9 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 STOCKHOLM = ZoneInfo("Europe/Stockholm")
-MISSED_GOAL_SECTIONS = {-3}  # assumption, see docs/SHL_API.md
+MISSED_GOAL_SECTIONS = {-3}  # the original assumption ("rule A"), see docs/SHL_API.md
+# Copied onto every event and changed at each period boundary; not a content change.
+IGNORED_FIELDS = {"gameState", "attendance", "updatedTime"}
 
 Key = tuple[str, Any]
 
@@ -72,6 +74,10 @@ def diff_paths(old: Any, new: Any, prefix: str = "") -> list[str]:
     return [] if old == new else [prefix.rstrip(".") or "(value)"]
 
 
+def content(item: dict[str, Any]) -> dict[str, Any]:
+    return {k: v for k, v in item.items() if k not in IGNORED_FIELDS}
+
+
 def iter_rows(path: Path) -> Iterator[dict[str, Any]]:
     with path.open(encoding="utf-8") as f:
         for line in f:
@@ -82,6 +88,7 @@ def iter_rows(path: Path) -> Iterator[dict[str, Any]]:
 @dataclass
 class Tracked:
     first_seen_ms: int
+    first_available_ms: int  # received_ms − Age, or received_ms without an Age header
     first: dict[str, Any]
     last: dict[str, Any]
     changes: list[tuple[int, Any, list[str]]] = field(default_factory=list)
@@ -96,6 +103,8 @@ class Analysis:
     last_ms: int | None = None
     requests: Counter[str] = field(default_factory=Counter)
     statuses: Counter[tuple[str, Any]] = field(default_factory=Counter)
+    errors: Counter[tuple[str, str]] = field(default_factory=Counter)
+    ages: list[int] = field(default_factory=list)
     info_states: dict[str, int] = field(default_factory=dict)
     pbp_states: dict[str, int] = field(default_factory=dict)
     events: dict[Key, Tracked] = field(default_factory=dict)
@@ -118,6 +127,12 @@ def analyse(rows: Iterable[dict[str, Any]]) -> Analysis:
         endpoint = row["endpoint"]
         a.requests[endpoint] += 1
         a.statuses[(endpoint, row.get("status"))] += 1
+        if row.get("error"):
+            a.errors[(endpoint, str(row["error"]).split(":")[0])] += 1
+        age = row.get("age")
+        if endpoint == "play-by-play" and isinstance(age, int):
+            a.ages.append(age)
+        available = ms - age * 1000 if isinstance(age, int) else ms
         body = row.get("body")
         if row.get("status") != 200 or body is None:
             if endpoint == "play-by-play" and row.get("status") == 200:
@@ -144,11 +159,11 @@ def analyse(rows: Iterable[dict[str, Any]]) -> Analysis:
                     a.pbp_states.setdefault(state, ms)
                 tracked = a.events.get(key)
                 if tracked is None:
-                    tracked = a.events[key] = Tracked(ms, item, item)
-                elif item != tracked.last:
-                    tracked.changes.append(
-                        (ms, item.get("revision"), diff_paths(tracked.last, item))
-                    )
+                    tracked = a.events[key] = Tracked(ms, available, item, item)
+                else:
+                    paths = diff_paths(content(tracked.last), content(item))
+                    if paths:
+                        tracked.changes.append((ms, item.get("revision"), paths))
                     tracked.last = item
                 if item.get("type") == "period":
                     if item.get("started") and tracked.started_seen_ms is None:
@@ -204,6 +219,15 @@ def render(a: Analysis, name: str, synthetic: bool) -> str:
         "- Requests: " + ", ".join(f"{k} {v}" for k, v in sorted(a.requests.items())),
         "- Statuses: "
         + ", ".join(f"{e} {s}: {n}" for (e, s), n in sorted(a.statuses.items(), key=str)),
+        "- Errors: "
+        + (", ".join(f"{e} {kind}: {n}" for (e, kind), n in sorted(a.errors.items())) or "none"),
+        "- Age header on play-by-play: "
+        + (
+            f"{len(a.ages)} polls, min {min(a.ages)} / median {statistics.median(a.ages):g}"
+            f" / max {max(a.ages)} s"
+            if a.ages
+            else "not recorded"
+        ),
         "",
         "## Game states",
         "",
@@ -215,29 +239,9 @@ def render(a: Analysis, name: str, synthetic: bool) -> str:
     ]
     out += [f"| play-by-play `gameState` | `{v}` | {fmt_ms(t)} |" for v, t in a.pbp_states.items()]
 
-    by_type: dict[str, tuple[list[int], list[int]]] = defaultdict(lambda: ([], []))
-    for key, t in a.events.items():
-        if key[0] != "e":
-            continue
-        rwt = parse_local_ms(t.first.get("realWorldTime"))
-        upd = parse_naive_utc_ms(t.first.get("updatedTime"))
-        delays = by_type[str(t.first.get("type"))]
-        if rwt is not None:
-            delays[0].append(t.first_seen_ms - rwt)
-        if upd is not None:
-            delays[1].append(t.first_seen_ms - upd)
-    out += [
-        "",
-        "## Delay to first sight, per event type",
-        "",
-        "Seconds from the event's first-seen `realWorldTime` (parsed as Europe/Stockholm) and",
-        "`updatedTime` (parsed as UTC) to our `received_ms`.",
-        "",
-        "| Type | n | realWorldTime min | median | max | updatedTime min | median | max |",
-        "|---|---|---|---|---|---|---|---|",
-    ]
-    for typ, (rw, up) in sorted(by_type.items()):
-        out.append(f"| {typ} | {max(len(rw), len(up))} | {summary(rw)} | {summary(up)} |")
+    out += _delay_section(a, "received_ms", lambda t: t.first_seen_ms)
+    if a.ages:
+        out += _delay_section(a, "received_ms − Age", lambda t: t.first_available_ms)
 
     out += ["", "## Revisions and changes", ""]
     changed = [(k, t) for k, t in a.events.items() if t.changes]
@@ -289,6 +293,33 @@ def render(a: Analysis, name: str, synthetic: bool) -> str:
     out += _shots_section(final, a.boxscore)
     out += _periods_section(a)
     return "\n".join(out) + "\n"
+
+
+def _delay_section(a: Analysis, label: str, seen: Any) -> list[str]:
+    by_type: dict[str, tuple[list[int], list[int]]] = defaultdict(lambda: ([], []))
+    for key, t in a.events.items():
+        if key[0] != "e":
+            continue
+        rwt = parse_local_ms(t.first.get("realWorldTime"))
+        upd = parse_naive_utc_ms(t.first.get("updatedTime"))
+        delays = by_type[str(t.first.get("type"))]
+        if rwt is not None:
+            delays[0].append(seen(t) - rwt)
+        if upd is not None:
+            delays[1].append(seen(t) - upd)
+    out = [
+        "",
+        f"## Delay to first sight, per event type (to `{label}`)",
+        "",
+        "Seconds from the event's first-seen `realWorldTime` (parsed as Europe/Stockholm) and",
+        f"`updatedTime` (parsed as UTC) to `{label}` of the first poll that contained it.",
+        "",
+        "| Type | n | realWorldTime min | median | max | updatedTime min | median | max |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for typ, (rw, up) in sorted(by_type.items()):
+        out.append(f"| {typ} | {max(len(rw), len(up))} | {summary(rw)} | {summary(up)} |")
+    return out
 
 
 def _on_goal_1_to_9(section: object) -> bool:
