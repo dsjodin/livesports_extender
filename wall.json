@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "units": "mm",
+  "note": "Active display areas, origin at the top-left of the left screen's active area. Gaps (40 mm) and the bar's vertical position (centred) are assumptions: measure the real wall and update.",
+  "screens": [
+    {
+      "id": "left",
+      "page": "/screens/left.html",
+      "resolution": [1080, 1920],
+      "physical_mm": [299, 531],
+      "position_mm": [0, 0],
+      "bezel_mm": 10,
+      "output_hint": "DisplayPort, rotated to portrait"
+    },
+    {
+      "id": "bar",
+      "page": "/screens/bar.html",
+      "resolution": [1920, 360],
+      "physical_mm": [700, 132],
+      "position_mm": [339, 199.5],
+      "bezel_mm": 10,
+      "output_hint": "HDMI, custom mode 1920x360@60 if the EDID is wrong"
+    },
+    {
+      "id": "right",
+      "page": "/screens/right.html",
+      "resolution": [1080, 1920],
+      "physical_mm": [299, 531],
+      "position_mm": [1079, 0],
+      "bezel_mm": 10,
+      "output_hint": "USB-C (DisplayPort alt mode), rotated to portrait"
+    }
+  ]
+}
