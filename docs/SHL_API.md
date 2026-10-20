@@ -193,6 +193,9 @@ Offence codes seen and the Swedish text to show:
 | `CROSS` | Crosscheck |
 | `INTRF` | Obstruktion |
 | `BOARD` | Knuff mot sarg |
+| `ROUGH` | Ruffighet |
+| `SLASH` | Slashing |
+| `FIGHT` | Slagsmål |
 
 Unknown codes: show the code and log it. Extend the table as new codes appear.
 
@@ -311,11 +314,53 @@ client ──► Cloudflare ──► Varnish ──► Varnish ──► Expres
 - **game-info is not updated during the game.** In period 3 it still said
   `state: "pre_game"` with `score: ""` for both teams, while play-by-play had the score
   4–1. Take live state and score from play-by-play.
-- Play-by-play `gameState` while live: **`Ongoing`** (`GameEnded` after the game).
-- Period objects: during period 3, periods 1 and 2 had `finished: true` and period 3
-  `started: true, finished: false`.
-- The number of events sometimes went **down** by one live (7→6, 19→18, 47→46, ...):
-  events are deleted during the game. Details are in the recording report.
+  It was still `pre_game` at 21:36, nine minutes after play-by-play said `GameEnded`.
+- Play-by-play `gameState` values: **`Ongoing`** (period running), **`Intermission`**,
+  `GameEnded`. The value is copied onto **every** event, so at each period start/end every
+  event in the list changes (also `attendance` once, and `updatedTime`). The normalizer
+  must ignore `gameState`, `attendance` and `updatedTime` when deciding whether an event
+  was updated, or each intermission produces ~100 `updated` events.
+- Period objects appear when the period starts (`started: true, finished: false`) and get
+  `finished: true` when it ends. Seen 22–31 s after `startedAt`, 14–26 s after `finishedAt`.
+
+Recording in the repo: `data/recordings/mtn5yq64mp/` (FHC–DIF 6–2, `polls.jsonl` and
+`report.md`; no `age` header recorded yet).
+
+### How a goal arrives
+
+Every goal followed the same pattern:
+
+1. A **`shot`** by the scorer appears first (revision 1), about 20 s before the goal.
+2. A new **`goal`** event appears with a new `eventId`, already at **revision 2**, with
+   scorer, assists, `homeGoals`/`awayGoals` and `goalStatus`, but no `pop`/`nep`.
+3. The shot from step 1 is **deleted** (same player and game time as the goal).
+4. 20–80 s later, revision 3 adds `pop`/`nep` (players on ice).
+5. Corrections can come much later. Goal 66 (P2 10:50) first said scorer Hasa, assists
+   Johannesson and Tömmernes; 81 s later revision 3 changed it to scorer Fagemo, assists
+   Hasa and Johannesson. With a 30 s offset the wrong scorer would already be on screen,
+   so goal graphics must accept updates after release.
+
+No goal was deleted (no disallowed goal this game). 27 shots were deleted in total: the
+goal precursors above, and other shots, probably duplicates. Event 46 was deleted and
+reappeared 1 min later.
+
+### Feed latency (this recording, without `age` correction)
+
+| Event | `realWorldTime` → first seen | `updatedTime` → first seen |
+|---|---|---|
+| goal (8) | min 19 s, median 48 s, max 78 s | 7–28 s, median 11 s |
+| shot (122) | median 35 s | median 18 s |
+| penalty (17) | 25–79 s, median 42 s (one fight major 330 s) | median 21 s |
+| period start (3) | 22–31 s after `startedAt` | |
+
+`realWorldTime` looks like the moment the scorer logged the event; the on-ice moment is
+the same or earlier. **Goals reach us on average ~48 s after they happen, longer than the
+~30 s the TV is assumed to lag the arena.** See the open question in `docs/PLAN.md`.
+
+Also seen: penalty variants `Major` and `Minor + Major + GM` (event 128 changed from
+`Major` to `Minor + Major + GM` minutes later); a fight produced ten penalties at P3 10:26.
+`goalSection` 1 to 9 matched the boxscore shots on goal again (FHC 44, DIF 14; the
+"-3 only" rule gives 56 and 30). 83 of 4465 play-by-play polls (1.9 %) timed out.
 
 ## Observed latency
 

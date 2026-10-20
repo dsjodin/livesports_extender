@@ -23,6 +23,13 @@ games, without the real screens and without a live game.
 
 ## Open questions (ask the user when the phase needs the answer)
 
+- **Feed latency vs TV delay (blocks Phase 2 tuning, found 2026-10-20).** Goals reached us
+  19–78 s (median 48 s) after `realWorldTime`; the TV was assumed ~30 s behind the arena.
+  If that holds, most goals arrive after the TV has shown them and no positive offset can
+  fix it. Next step: measure the real TV delay (note the wall-clock time of a puck drop or
+  goal on TV and compare with `startedAt` / `realWorldTime`). Options if the feed is
+  slower: extra TV delay (IPTV pause/timeshift at puck drop), a manual "Mål!" button in the
+  phone app that fires lights instantly, or both.
 - Physical layout: the bar's vertical position relative to the 24" screens and the gaps
   between screens. `config/wall.json` has assumed values (bar vertically centred, 40 mm gaps).
 - Default "my team" (whose goals trigger the celebration and lights).
@@ -117,6 +124,12 @@ Tasks:
    - `ReplaySource` synthesises the play-by-play `gameState` (`Ongoing` while live) and
      leaves game-info alone; state comes from play-by-play everywhere.
    - Period keys can be strings (`("period", "shootout")`).
+   - The normalizer and `analyze_recording.py` ignore `gameState`, `attendance` and
+     `updatedTime` when comparing event content (they change on every event at each
+     period boundary).
+   - A goal arrives as a shot that is then deleted and replaced by a new `goal` event at
+     revision 2, and can be corrected later (scorer and assists). Treat the deleted
+     precursor shot as a normal removal; never derive a goal from a shot.
 4. **Normalizer** (`server/app/engine/normalizer.py`): diff successive pbp lists. Key events
    by `eventId`; period objects have no `eventId`, key them `("period", n)`. Emit
    `added`, `updated` (revision or content changed) and `removed`. Stamp `first_seen_ms`
