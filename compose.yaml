@@ -1,10 +1,8 @@
 services:
   arena:
     build: .
+    restart: unless-stopped
     ports:
       - "8010:8010"
     volumes:
       - ./data:/data
-    env_file:
-      - path: .env
-        required: false
