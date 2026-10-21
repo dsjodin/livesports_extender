@@ -1,8 +1,8 @@
 // live (mockup scene 2), with the penalty, timeout and disallowed-goal overlays as
 // data.overlay (docs/SCREENS.md, Scenes).
-import { goalieCard, shotLegend, shotMap, tile } from "../../shared/components.js";
+import { shotLegend, shotMap, tile } from "../../shared/components.js";
 import { caps, html, periodName, raw, score } from "../../shared/format.js";
-import { barPage, other, periodLabel, play, shortName, statsLine, stopTimers, team, teamHead, venueLine, who } from "./common.js";
+import { barPage, fitText, other, periodLabel, play, shortName, statsLine, stopTimers, team, teamHead, venueLine, who } from "./common.js";
 import { ticker } from "./ticker.js";
 
 export function enter(ctx, data, at) {
@@ -30,6 +30,7 @@ export function exit(ctx) {
 function render(ctx) {
   const tv = ctx.tv;
   ctx.root.innerHTML = ctx.kind === "bar" ? bar(tv, ctx.overlay) : portrait(tv, ctx.side, ctx.overlay);
+  fitText(ctx.root);
   if (ctx.kind === "bar") {
     stopTimers(ctx);
     const overlay = ctx.overlay?.overlay;
@@ -86,12 +87,14 @@ function bar(tv, ov) {
 // --- portrait -------------------------------------------------------------------------
 
 function portrait(tv, side, ov) {
+  // Sized for 3 m (docs/SCREENS.md, Type): the goalie and save % are in the intermission;
+  // an empty net still shows, as it changes the game
   const s = tv.stats?.[side] ?? {};
-  return html`<div class="portrait-page">${raw(teamHead(tv, side))}
+  const pulled = s.goalie?.pulled ? html`<div class="card pulled-card"><div class="label">TOM BUR</div><div class="latest-text">Målvakten utbytt</div></div>` : "";
+  return html`<div class="portrait-page">${raw(teamHead(tv, side, "", { compact: true }))}
     <div class="tiles">${raw(tile("SKOTT", s.shots_on_goal ?? 0))}${raw(tile("MÅL", tv.score?.[side] ?? 0))}${raw(tile("UTV.MIN", s.pim ?? 0))}</div>
-    ${raw(goalieCard(s.goalie))}
-    <div class="map-block"><div class="map-head"><div class="label">SKOTTKARTA</div>${raw(shotLegend(side))}</div>
-    ${raw(shotMap(tv.shots?.[side], side))}</div>
+    ${raw(pulled)}
+    <div class="map-block">${raw(shotMap(tv.shots?.[side], side))}${raw(shotLegend(side))}</div>
     <div class="bottom-slot">${raw(bottom(tv, side, ov))}</div></div>
     ${raw(ov?.overlay === "goal_disallowed" ? `<div class="banner-overlay">MÅLET UNDERKÄNT</div>` : "")}`;
 }
@@ -105,7 +108,7 @@ function bottom(tv, side, ov) {
     const p = theirs[0];
     const count = st.home - st.away === 2 || st.away - st.home === 2 ? ` · ${st[side]} MOT ${st[other(side)]}` : "";
     return html`<div class="pp-banner"><div class="pp-title"><span class="dot"></span>POWERPLAY${count}</div>
-      <div class="pp-detail">${shortName(tv, other(side))} ${p.number ? `#${p.number} ${p.name ?? ""}` : "Lagstraff"} · ${p.offence_text ?? ""} ${p.minutes} min · ${p.started}</div></div>`;
+      <div class="pp-detail">${p.number ? `#${p.number} ${lastName(p.name)}` : "Lagstraff"} · ${p.offence_text ?? ""} ${p.minutes} min</div></div>`;
   }
   if (mine.length) {
     const emphKey = ov?.overlay === "penalty" ? ov.event_key : null;
@@ -118,6 +121,8 @@ function bottom(tv, side, ov) {
   }
   return latest(tv);
 }
+
+const lastName = (name) => (name ?? "").split(" ").slice(-1)[0];
 
 /** The "SENASTE" card: the newest released event, in Swedish. */
 function latest(tv) {

@@ -137,7 +137,9 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
 ## Conventions
 
 - Code, comments, logs and docs in English. **All text on screens and in the phone app
-  is Swedish.** Use the en dash (–) for scores and ranges ("2–1", "19:00–21:30");
+  is Swedish**, except hockey terms that Swedish hockey uses in English (decided by the
+  user 2026-10-21): offence names (Hooking, Tripping), goal strengths EQ/PP/SH,
+  "special teams", "powerplay". Use the en dash (–) for scores and ranges ("2–1", "19:00–21:30");
   never use the em dash (—) in Swedish copy.
 - Python: type hints everywhere, pydantic v2 models for API payloads, `httpx.AsyncClient`
   for HTTP, `ruff` clean, small modules. Engine code is pure and synchronous where it can

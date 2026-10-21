@@ -6,29 +6,62 @@
     {
       "id": "left",
       "page": "/screens/left.html",
-      "resolution": [1080, 1920],
-      "physical_mm": [299, 531],
-      "position_mm": [0, 0],
+      "resolution": [
+        1080,
+        1920
+      ],
+      "physical_mm": [
+        299,
+        531
+      ],
+      "position_mm": [
+        0,
+        0
+      ],
       "bezel_mm": 10,
       "output_hint": "DisplayPort, rotated to portrait"
     },
     {
       "id": "bar",
       "page": "/screens/bar.html",
-      "resolution": [1920, 360],
-      "physical_mm": [700, 132],
-      "position_mm": [339, 199.5],
+      "resolution": [
+        1920,
+        360
+      ],
+      "physical_mm": [
+        700,
+        132
+      ],
+      "position_mm": [
+        339,
+        199.5
+      ],
       "bezel_mm": 10,
       "output_hint": "HDMI, custom mode 1920x360@60 if the EDID is wrong"
     },
     {
       "id": "right",
       "page": "/screens/right.html",
-      "resolution": [1080, 1920],
-      "physical_mm": [299, 531],
-      "position_mm": [1079, 0],
+      "resolution": [
+        1080,
+        1920
+      ],
+      "physical_mm": [
+        299,
+        531
+      ],
+      "position_mm": [
+        1079,
+        0
+      ],
       "bezel_mm": 10,
       "output_hint": "USB-C (DisplayPort alt mode), rotated to portrait"
     }
-  ]
+  ],
+  "viewing": {
+    "note": "Text sizes follow from the viewing distance (decided 2026-10-21: 3 m, the far end of the sofa). Cap heights: floor 3.67 mm per metre (11 mm at 3 m) for the smallest text (labels, times), text 6 mm per metre (18 mm) for names and rows. Nothing is smaller than the floor; tools/legibility.py checks it.",
+    "distance_m": 3,
+    "floor_mm_per_m": 3.67,
+    "text_mm_per_m": 6
+  }
 }

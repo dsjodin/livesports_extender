@@ -75,6 +75,7 @@ export function formRow(row) {
 
 // --- shot map (docs/SCREENS.md, Shot map), in decimetres -------------------------------
 const W = 300;
+const MARK = 1.4; // shot symbols, scaled up for 3 m (about 10 mm on the wall)
 const GOAL_LINE = 40;
 const BLUE = GOAL_LINE + 180;
 const H = BLUE + 14;
@@ -96,10 +97,11 @@ export function shotMap(shots, side) {
     .map((s) => {
       const x = W / 2 + s.y_dm;
       const y = GOAL_LINE + s.x_dm;
-      if (s.goal) return star(x, y, 7.2);
-      if (s.result === "blocked") return `<rect class="shot" x="${x - 3.4}" y="${y - 3.4}" width="6.8" height="6.8" style="fill:${c}"/>`;
-      if (s.result === "wide") return `<path class="shot-wide" d="M${x - 3.6} ${y - 3.6}L${x + 3.6} ${y + 3.6}M${x + 3.6} ${y - 3.6}L${x - 3.6} ${y + 3.6}" style="stroke:${c}"/>`;
-      return `<circle class="shot" cx="${x}" cy="${y}" r="3.9" style="fill:${c}"/>`;
+      const k = MARK;
+      if (s.goal) return star(x, y, 7.2 * k);
+      if (s.result === "blocked") return `<rect class="shot" x="${x - 3.4 * k}" y="${y - 3.4 * k}" width="${6.8 * k}" height="${6.8 * k}" style="fill:${c}"/>`;
+      if (s.result === "wide") return `<path class="shot-wide" d="M${x - 3.6 * k} ${y - 3.6 * k}L${x + 3.6 * k} ${y + 3.6 * k}M${x + 3.6 * k} ${y - 3.6 * k}L${x - 3.6 * k} ${y + 3.6 * k}" style="stroke:${c}"/>`;
+      return `<circle class="shot" cx="${x}" cy="${y}" r="${3.9 * k}" style="fill:${c}"/>`;
     })
     .join("");
   const r = 85;

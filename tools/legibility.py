@@ -72,6 +72,7 @@ async def main() -> int:
     parser.add_argument("--distance", type=float, default=3.0, help="viewing distance, m")
     parser.add_argument("--out", type=Path, default=REPO_ROOT / "artifacts" / "legibility.md")
     parser.add_argument("--chromium", help="Chromium executable (default: Playwright's)")
+    parser.add_argument("--scene", action="append", choices=SCENES, help="only these scenes")
     args = parser.parse_args()
 
     wall = json.loads((REPO_ROOT / "config" / "wall.json").read_text(encoding="utf-8"))
@@ -95,7 +96,7 @@ async def main() -> int:
                 await page.goto(f"{args.base}{s['page']}")
                 pages[sid] = page
             await asyncio.sleep(2)
-            for scene in SCENES:
+            for scene in args.scene or SCENES:
                 await api.post("scene", json={"name": scene, "hold_s": 60})
                 await asyncio.sleep(3.5)  # lead, cross-fade, entry animations
                 for sid, page in pages.items():

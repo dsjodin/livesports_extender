@@ -153,7 +153,7 @@ function ourSlides(tv, n) {
     html`${raw(head(after(n), "PERIODSTATISTIK"))}${raw(duo(tv))}<div class="list cmp-list">${raw(comparison(tv))}</div>`,
     html`${raw(head(after(n), "SKOTTKARTOR"))}${raw(maps)}`,
     html`${raw(head(after(n), "MÅL OCH UTVISNINGAR"))}${raw(goalsAndPenalties(tv))}`,
-    html`${raw(head(after(n), "MÅLVAKTER OCH SPECIALLAG"))}${raw(goalies)}
+    html`${raw(head(after(n), "MÅLVAKTER OCH SPECIAL TEAMS"))}${raw(goalies)}
       <div class="list cmp-list">${raw(compareRow("POWERPLAYMÅL", h.pp?.goals ?? 0, a.pp?.goals ?? 0))}${raw(compareRow("POWERPLAYCHANSER", h.pp?.chances ?? 0, a.pp?.chances ?? 0))}${raw(compareRow("UTVISNINGSMINUTER", h.pim ?? 0, a.pim ?? 0))}</div>`,
   ];
 }

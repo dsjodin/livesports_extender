@@ -94,7 +94,27 @@ use a neutral grey and show the team code.
 - All numbers use `font-variant-numeric: tabular-nums`.
 - Labels: uppercase, Barlow Condensed 600, letter-spacing 0.16–0.2em, `--text-muted`.
 
-Native sizes, portrait screens (1080 wide):
+**Sized for 3 m** (decided 2026-10-21, after the user found text hard to read at 2–3 m;
+`tools/legibility.py` measured 216 of 293 texts on the left screen under 10 mm cap
+height). Rules:
+
+- Sizes are cap heights on the glass, from the viewing distance in `config/wall.json`
+  (`viewing`): **floor** 11 mm at 3 m (labels, times, legends), **text** 18 mm (names,
+  rows, card text), large numbers 30 mm and up. `stage.applyType` turns them into
+  `--fs-floor` and `--fs-text` in CSS pixels for each screen (portrait 55 / 90 px, bar
+  42 / 68 px).
+- Nothing goes below the floor: text that does not fit is cut or moved to an
+  intermission slide, never shrunk. Long team names shrink (`data-fit`) but stay large.
+- Fewer things per screen rather than smaller ones. Save % and the goalie are in the
+  intermission only (the user's call, 2026-10-21); the live portraits have no rotation.
+- Logos without the white badge circle where there is room: large and toned down
+  (30 %) behind the team name on the portraits, free-standing on the bar (the user's
+  call, 2026-10-21). Badges stay in lists.
+- `tools/legibility.py` (service running) measures every text of every scene; a scene
+  is done when nothing is under the floor. Done so far: `live` and the bar in every
+  scene. Still to do: pregame, goal, intermission, postgame and idle portraits.
+
+Native sizes before the 3 m pass (the scenes not yet redone), portrait screens (1080 wide):
 
 | Element | Size |
 |---|---|
@@ -117,14 +137,14 @@ Bar (1920×360), native:
 
 | Element | Size |
 |---|---|
-| Layout | main row 284 px + bottom strip 76 px |
+| Layout | main row 262 px + bottom strip 98 px (3 m) |
 | Columns | home 800 px · centre 320 px · away 800 px |
 | Team colour edge | 16 px at the outer ends |
-| Badge | 130 px circle |
+| Logo | 150 px, no circle (code badge when there is no logo) |
 | Team name | 80 px, 800 |
 | Score box | 200 px wide, digits 220 px, 800, `--panel` background |
-| Centre: period digit / label / pill | 130 px / 26 px / 30 px |
-| Strip text | 30 px, 600, letter-spacing 0.12em, `--text-secondary` on `--strip` |
+| Centre: period digit / label / pill | 130 px / `--fs-floor` / `--fs-floor` |
+| Strip text | `--fs-floor` (42 px), 700, letter-spacing 0.06em, `--text-secondary` on `--strip` |
 
 ### Components
 
@@ -213,10 +233,12 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 - Bar: badges, short names in capitals, score boxes; centre "PERIOD" + period digit and a
   strength pill ("PP FRÖLUNDA" in gold with a pulsing dot; "5 MOT 3" when relevant; nothing at
   5v5); strip "SKOTT 36–26 • UTV.MIN 2–6 • SCANDINAVIUM · 12 044 ÅSKÅDARE".
-- Left (home) and right (away): header; tiles SKOTT (on goal), MÅL, UTV.MIN; goalie card;
-  "SKOTTKARTA" with legend and the shot map; bottom: power-play banner for the team on the
-  power play, penalty card for the penalised team, otherwise a "SENASTE" card with the last
-  event.
+- Left (home) and right (away), sized for 3 m: header with the short name in capitals
+  (170 px) over the team's logo, large and toned down; tiles SKOTT (on goal), MÅL,
+  UTV.MIN (values 200 px); the shot map with its legend under it (symbols about 10 mm);
+  a "TOM BUR" card while the goalie is pulled; bottom: power-play banner for the team on
+  the power play ("#4 Bergqvist · Slashing 2 min"), penalty card for the penalised team,
+  otherwise a "SENASTE" card with the last event. No goalie card (intermission only).
 
 ### goal (mockup scene 3)
 
@@ -261,7 +283,7 @@ divided by the replay speed (`config.speed`). Before overtime the break is taken
 - Left: our game. "EFTER n PERIODER" over: PERIODSTATISTIK (both teams, comparison rows:
   shots per period, shots on goal, shot attempts, power play goals/chances, penalty
   minutes, save %); SKOTTKARTOR (both teams' maps); MÅL OCH UTVISNINGAR; MÅLVAKTER OCH
-  SPECIALLAG (goalie cards, power play and penalty kill).
+  SPECIAL TEAMS (goalie cards, power play and penalty kill).
 - Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (one card per other game: badges, score,
   status, shots, penalty minutes); the live table "OM MATCHERNA SLUTADE NU" (or plain
   TABELL when no other game has started, see `docs/PROTOCOL.md`, live table) with a

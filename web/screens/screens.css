@@ -59,7 +59,7 @@ body.bar #app { width: 1920px; height: 360px; }
 .shotmap .faceoff { fill: none; stroke: var(--rink-red); stroke-width: 0.9; opacity: 0.8; }
 .shotmap .faceoff-dot { fill: var(--rink-red); }
 .shotmap .shot { stroke: rgba(0, 0, 0, 0.65); stroke-width: 0.7; }
-.shotmap .shot-wide { stroke-width: 1.5; fill: none; }
+.shotmap .shot-wide { stroke-width: 2.2; fill: none; }
 .shot-goal { fill: var(--gold); stroke: var(--on-gold); stroke-width: 0.8; }
 .bottom-slot { margin-top: auto; display: flex; flex-direction: column; gap: 18px; }
 .pp-banner { background: var(--gold); color: var(--on-gold); border-radius: 21px; padding: 24px 32px; }
@@ -241,3 +241,47 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 /* team videos (Phase 8): over the scene, under the goal band */
 .team-video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 40; opacity: 0; pointer-events: none; }
 body.bar .team-video { width: 1920px; height: 360px; }
+
+/* ===================== 3 m sizes (docs/SCREENS.md, Type) =====================
+   --fs-floor is the smallest text allowed (11 mm cap at 3 m), --fs-text the size for
+   names and rows (18 mm); both set per screen from wall.json. Scenes move over to these
+   one at a time: live and the bar first. */
+.scene-live .portrait-page { padding: 50px 60px 56px; gap: 40px; }
+.team-head.compact { position: relative; height: 300px; flex: none; display: flex; align-items: center; margin-top: -10px; }
+.team-head.compact .head-logo { position: absolute; left: -30px; top: 50%; width: 360px; height: 320px; transform: translateY(-50%);
+  object-fit: contain; object-position: left center; opacity: 0.3; z-index: 0; pointer-events: none; }
+.team-head.compact .team-name { position: relative; z-index: 1; flex: 1; min-width: 0; padding-left: 40px; font-size: 170px; line-height: 0.9; overflow: hidden;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.55); }
+.scene-live .portrait-page { overflow: hidden; }
+.plain-logo { object-fit: contain; flex: none; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5)); }
+.plain-md { width: 150px; height: 150px; }
+.scene-live .label { font-size: var(--fs-floor); font-weight: 700; letter-spacing: 0.08em; }
+.scene-live .tile { padding: 28px 30px 16px; border-radius: 24px; }
+.scene-live .tile .value { font-size: 200px; margin-top: 0; }
+.scene-live .map-block { gap: 20px; }
+.scene-live .shotmap { width: 880px; align-self: center; }
+.scene-live .tiles, .scene-live .map-block { flex: none; }
+.scene-live .legend { font-size: var(--fs-floor); gap: 14px 36px; flex-wrap: wrap; justify-content: center; color: var(--text-secondary); font-weight: 700; }
+.scene-live .legend svg { width: 48px; height: 48px; }
+.scene-live .legend span { gap: 12px; }
+.scene-live .card, .scene-live .pen-card, .scene-live .pp-banner { border-radius: 24px; padding: 28px 36px; }
+.scene-live .latest-text, .scene-live .pen-card .pen-name { font-size: var(--fs-text); line-height: 1.05; margin-top: 8px; }
+.scene-live .pen-card .pen-detail, .scene-live .pp-banner .pp-detail { font-size: var(--fs-floor); font-family: var(--font-condensed); font-weight: 600; line-height: 1.1; margin-top: 8px; }
+.scene-live .pp-banner .pp-title { font-size: var(--fs-text); }
+.scene-live .pp-banner .dot { width: 40px; height: 40px; }
+.scene-live .pulled-card { background: var(--panel-raised); box-shadow: inset 0 0 0 6px var(--gold); }
+.scene-live .pulled-card .label { color: var(--gold); }
+
+/* bar: taller strip, labels and pills at the floor size */
+.bar-page { grid-template-rows: 262px 98px; }
+.strip { font-size: var(--fs-floor); letter-spacing: 0.06em; font-weight: 700; }
+.strip .tk-sep { margin: 0 34px; }
+.bar-centre .label, .bar-centre .small, .score-box .sub { font-size: var(--fs-floor); letter-spacing: 0.08em; }
+.bar-centre .label { font-weight: 700; }
+.bar-centre .mid { font-size: 52px; }
+.pill { font-size: var(--fs-floor); padding: 4px 20px; }
+.pill .dot { width: 22px; height: 22px; }
+.score-box .sub { bottom: 8px; }
+body.bar .banner-overlay { bottom: 98px; }
+.scene-live .portrait-page > :not(.team-head):not(.rule) { position: relative; z-index: 1; }
+.scene-live .card .secondary { font-size: var(--fs-floor); font-family: var(--font-condensed); font-weight: 600; margin-top: 8px; }

@@ -29,3 +29,20 @@ export function bounds() {
 export function all() {
   return wall.screens;
 }
+
+// Cap height of Barlow / Barlow Condensed per em (measured in the page: 0.72).
+const CAP_PER_EM = 0.72;
+
+/**
+ * Text sizes on this screen from the viewing distance in wall.json (docs/SCREENS.md, Type):
+ * sets --fs-floor (the smallest text allowed: labels, times) and --fs-text (names, rows)
+ * on the root as CSS pixels, so the same cap height in mm on every screen.
+ */
+export function applyType(id, root = document.documentElement) {
+  const s = screen(id);
+  const v = wall.viewing ?? { distance_m: 3, floor_mm_per_m: 3.67, text_mm_per_m: 6 };
+  const pxPerMmY = s.resolution[1] / s.physical_mm[1];
+  const font = (mmPerM) => `${Math.round((mmPerM * v.distance_m * pxPerMmY) / CAP_PER_EM)}px`;
+  root.style.setProperty("--fs-floor", font(v.floor_mm_per_m));
+  root.style.setProperty("--fs-text", font(v.text_mm_per_m));
+}

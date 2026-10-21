@@ -14,6 +14,7 @@ import * as live from "./scenes/live.js";
 import * as goal from "./scenes/goal.js";
 import * as intermission from "./scenes/intermission.js";
 import * as postgame from "./scenes/postgame.js";
+import { fitText } from "./scenes/common.js";
 
 const SCENES = { idle, pregame, live, goal, intermission, postgame };
 const FADE_OUT_S = 0.4;
@@ -127,6 +128,7 @@ function show(scene, at, animate) {
   ctx.previous = old?.name ?? null;
   current = { name, mod, root, ctx };
   mod.enter(ctx, scene?.data ?? {}, at);
+  fitText(root); // long team names shrink to their box (data-fit)
   if (old) {
     old.mod.exit?.(old.ctx, at);
     if (animate) {
@@ -150,6 +152,7 @@ store.on("patch", (patch, playAt) => {
   if (patch.teams || patch.game) decorate(store.tv);
   if (patch.strength) powerPlay(store.tv, playAt);
   current?.mod.update?.(current.ctx, store.tv, patch);
+  if (current) fitText(current.root);
 });
 store.on("scene", (scene, playAt) => show(scene, playAt, true));
 store.on("event", (event, playAt, late) => {
@@ -198,6 +201,7 @@ function debugOverlay() {
 
 async function main() {
   await stage.load();
+  stage.applyType(screenId);
   await document.fonts.ready;
   if (debug) debugOverlay();
   connect({
