@@ -28,6 +28,7 @@ from app.engine.normalizer import Normalizer
 from app.feed.client import ShlClient
 from app.feed.snapshot import Snapshot
 from app.feed.sources import FeedSource, RecordingSource, ReplaySource
+from app.teams import TeamColors
 
 log = logging.getLogger(__name__)
 
@@ -87,6 +88,7 @@ class Runtime:
         self._last_status_ms = 0
         self.raw_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
         self.release_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
+        self.colors = TeamColors(settings.config_dir / "teams.json", store.config.team_colors)
         self._reset_engine()
 
     # --- engine state ---------------------------------------------------------------
@@ -173,9 +175,7 @@ class Runtime:
                 self._attendance = item["attendance"]
                 break
         changes = self.normalizer.apply(snapshot)
-        meta = tvstate.GameMeta.from_game_info(
-            self.normalizer.game_info, self._attendance, self.config.my_side
-        )
+        meta = self._meta()
         if meta != self.meta:
             self.meta = meta
             self._patch(now + self.lead_ms)
@@ -184,6 +184,35 @@ class Runtime:
         for out in self.queue.apply(changes, now):
             self._correction(out, now)
         self.pump(now)
+
+    def _meta(self) -> tvstate.GameMeta:
+        meta = tvstate.GameMeta.from_game_info(
+            self.normalizer.game_info, self._attendance, self.config.my_side, self.colors
+        )
+        if meta.uuid is None:
+            meta.uuid = self.config.game_uuid
+        return meta
+
+    def set_team_colors(self, uuid: str, home: str | None, away: str | None) -> None:
+        """Override a team's jersey colours (a palette name or #rrggbb); None keeps it."""
+        for value in (home, away):
+            if value is not None and not self.colors.valid(value):
+                raise SourceError(f"unknown colour {value!r}")
+        current = dict(self.config.team_colors.get(uuid, {}))
+        if home is not None:
+            current["home"] = home
+        if away is not None:
+            current["away"] = away
+        self.config.team_colors[uuid] = current
+        self.store.save()
+        self.meta = self._meta()
+        self._patch(self.clock.now_ms() + self.lead_ms)
+
+    def reset_team_colors(self, uuid: str) -> None:
+        self.config.team_colors.pop(uuid, None)
+        self.store.save()
+        self.meta = self._meta()
+        self._patch(self.clock.now_ms() + self.lead_ms)
 
     def _log_raw(self, change: Change) -> None:
         event = change.event

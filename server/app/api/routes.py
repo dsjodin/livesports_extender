@@ -44,6 +44,11 @@ class ProfileIn(BaseModel):
     profile: str
 
 
+class TeamColorsIn(BaseModel):
+    home: str | None = None
+    away: str | None = None
+
+
 class SceneIn(BaseModel):
     name: str
     hold_s: float | None = None
@@ -162,6 +167,31 @@ async def clear_scene(request: Request) -> dict[str, Any]:
     rt = runtime(request)
     rt.clear_scene()
     return ok(rt)
+
+
+@router.get("/teams")
+async def teams(request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    return {"colors": rt.colors.palette, "teams": rt.colors.listing()}
+
+
+@router.put("/teams/{uuid}")
+async def set_team_colors(uuid: str, body: TeamColorsIn, request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    if uuid not in rt.colors.teams:
+        raise HTTPException(404, f"unknown team {uuid!r}")
+    try:
+        rt.set_team_colors(uuid, body.home, body.away)
+    except SourceError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    return {"team": next(t for t in rt.colors.listing() if t["uuid"] == uuid)}
+
+
+@router.delete("/teams/{uuid}")
+async def reset_team_colors(uuid: str, request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    rt.reset_team_colors(uuid)
+    return {"team": next((t for t in rt.colors.listing() if t["uuid"] == uuid), None)}
 
 
 @router.get("/wall")

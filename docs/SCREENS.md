@@ -44,6 +44,16 @@ exports may be in `docs/mockups/`. The mockup drew the 24" screens at 820 px wid
 its portrait sizes by **1.317** to get native 1080-wide values (already done below). Its bar
 was drawn at native size.
 
+### Team colours
+
+The team colour is the jersey the team wears in this game: the home team's home colour,
+the away team's away colour (`teams.<side>.color` and `.jersey` in the TV state). Defaults
+per team uuid are in `config/teams.json` (set by the user 2026-10-21; Malmö Redhawks not
+given yet), overrides from the phone app win. Many teams play in white (vit) away and
+some in black (svart): on the dark wall, team-coloured fills need a thin contrasting
+outline, and text on a team colour picks black or white by contrast. Unknown colour:
+use a neutral grey and show the team code.
+
 ### Tokens (`web/shared/tokens.css`)
 
 ```css
@@ -308,6 +318,7 @@ Tab bar: **Matcher**, **Live**, **Inställningar**.
 - **Inställningar**
   - TV-profil (IPTV, TV4 Play) with each offset.
   - Home Assistant: webhook URL, on/off, which events.
-  - Lagfärger: colour per team.
+  - Lagfärger: home and away jersey colour per team (`GET/PUT /api/teams`), chosen from
+    the palette (blå, gul, vit, röd, grön, svart) or any colour.
   - Debug: "Visa råa händelser" with the warning "Kan avslöja mål innan de syns på TV."
   - Om: version, source status, last poll, clock offset.

@@ -75,9 +75,11 @@ The delayed state every client renders. Sent in full on connect, then as patches
            "start_ms": 1757769300000, "my_side": "home"},
   "teams": {
     "home": {"uuid": "087a-087aTQv9u", "code": "FHC", "short": "Frölunda", "long": "Frölunda HC",
-             "color": "#34D399", "icon": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg"},
+             "jersey": "röd", "color": "#c8102e",
+             "icon": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg"},
     "away": {"uuid": "41c4-41c4BiYZU", "code": "LHC", "short": "Linköping", "long": "Linköping HC",
-             "color": "#5B8CFF", "icon": "https://sportality.cdn.s8y.se/team-logos/lhc1_lhc.svg"}
+             "jersey": "vit", "color": "#f4f6f8",
+             "icon": "https://sportality.cdn.s8y.se/team-logos/lhc1_lhc.svg"}
   },
   "phase": "live",
   "period": 3,
@@ -204,6 +206,9 @@ auth in front if it is ever exposed).
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
 | `GET /api/wall` | | Contents of `config/wall.json` |
+| `GET /api/teams` | | Palette and every team's home/away jersey colour (`config/teams.json` plus overrides) |
+| `PUT /api/teams/{uuid}` | `{"home"?: "röd"\|"#rrggbb", "away"?: ...}` | Override a team's colours (saved in `data/state.json`) |
+| `DELETE /api/teams/{uuid}` | | Back to the defaults from `config/teams.json` |
 
 ### Calibration response
 

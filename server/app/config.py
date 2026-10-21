@@ -74,6 +74,9 @@ class RuntimeConfig(BaseModel):
     active_profile: str = "iptv"
     calibration_samples: list[dict[str, object]] = []
     webhooks: WebhookSettings = WebhookSettings()
+    # Jersey colour overrides per team uuid: {"home": "röd" | "#rrggbb", "away": ...}.
+    # Defaults are in config/teams.json.
+    team_colors: dict[str, dict[str, str]] = {}
 
     @property
     def offset_s(self) -> float:

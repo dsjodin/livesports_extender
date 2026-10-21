@@ -11,6 +11,7 @@ from typing import Any
 from app.engine.events import NormalizedEvent, Side
 from app.engine.state import compute_state
 from app.feedtime import parse_utc_ms
+from app.teams import TeamColors
 
 SHOT_MAP_MAX_X_DM = 300  # skip outliers (docs/SHL_API.md)
 RECENT = 10
@@ -29,7 +30,11 @@ class GameMeta:
 
     @classmethod
     def from_game_info(
-        cls, info: dict[str, Any] | None, attendance: int | None, my_side: Side | None
+        cls,
+        info: dict[str, Any] | None,
+        attendance: int | None,
+        my_side: Side | None,
+        colors: TeamColors | None = None,
     ) -> "GameMeta":
         if not info:
             return cls(attendance=attendance, my_side=my_side)
@@ -38,12 +43,15 @@ class GameMeta:
         for side, key in (("home", "homeTeam"), ("away", "awayTeam")):
             team = info.get(key) or {}
             names = team.get("names") or {}
+            # The home team wears its home jersey, the away team its away jersey.
+            jersey = colors.jersey(team.get("uuid"), side) if colors else None
             teams[side] = {
                 "uuid": team.get("uuid"),
                 "code": names.get("code"),
                 "short": (names.get("short") or "").strip() or None,
                 "long": names.get("long"),
-                "color": None,  # team colours are a Phase 3/4 setting
+                "jersey": jersey,
+                "color": colors.hex(jersey) if colors else None,
                 "icon": team.get("icon"),
             }
         return cls(
