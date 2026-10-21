@@ -301,6 +301,13 @@ goalie was pulled (or left); the game also ends with `isEntering: false` events 
 ```
 
 - `playerId` is an **int** here (a string in play-by-play).
+- **Faceoffs exist only here** (`FOW` / `FOL` per skater); play-by-play has no faceoff
+  events. `mtn5yq64mp`: FHC 25, DIF 28 won, equal to shl.se's "Vunna tekningar". The
+  pre-game boxscore had all zeros.
+- shl.se's final stats for `mtn5yq64mp` ("Skott på mål" 45–14, "Räddningsprocent"
+  85.71–86.67, "Publik" 11361) all follow from play-by-play: shots on goal by the 1–9 rule
+  plus goals, save % = (opponent shots on goal − goals against) / opponent shots on goal,
+  attendance from the `attendance` field on every event.
 - `SVS%` is a string. `info.period` 0 = whole game.
 - Team shots on goal: sum of skater `SOG`. The opposing goalies' `SOGA` sum agrees in 5 of 6
   team-games; `et9erhx0si` home has SOG 16 vs SOGA 15.

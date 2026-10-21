@@ -36,6 +36,9 @@ games, without the real screens and without a live game.
 - Default "my team" (whose goals trigger the celebration and lights).
 - Team logos: use the `icon` URLs from the feed (cached locally) or keep code badges.
 - Sound for video stingers: local speaker on the mini PC or none (Phase 8).
+- Faceoffs (found 2026-10-21): only in the boxscore, without timestamps. Options: poll the
+  boxscore every 60 s during the game and show faceoffs in intermissions and after the game
+  (recommended), or not at all. Needed by Phase 3 (intermission scene).
 
 ---
 
