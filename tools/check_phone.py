@@ -117,11 +117,10 @@ async def goal_button(
     await post(client, "replay", {"action": "seek", "to": "period:3"})
     await post(client, "replay", {"action": "seek", "to": "before_next_goal"})
     seek_at = time.monotonic()  # the goal is 10 s ahead on the ice
-    await asyncio.sleep(1.0)
-    state = (await client.get("/api/state")).json()["tv"]
     side = "home"  # FHC's 09:07 goal in bdhvuc5tex
     log.clear()
     await asyncio.sleep(max(0.0, seek_at + 10 + LATE_OFFSET_S - time.monotonic()))
+    state = (await client.get("/api/state")).json()["tv"]
     await app.click(f"[data-act=goal][data-side={side}]")
     pressed = time.monotonic()
 
