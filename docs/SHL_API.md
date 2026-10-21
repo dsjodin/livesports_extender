@@ -166,9 +166,14 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
     | P2 10:50 Fagemo | 3 | middle, along the ice |
     | P3 07:20 Lindholm | 4 | left post, high |
 
-    The side roughly fits (1–2 goalie's right, 3 middle, 4 and 6 goalie's left); the
-    height does not. Do not build a goal-zone graphic on it until more goals are checked.
-    Prediction to test: P3 09:21 Westergård (3) middle, P3 17:09 Hudon (2) goalie's right. **Decided 2026-10-20:** the engine uses
+    | P3 09:21 Westergård | 3 | along the ice, a little towards the left post |
+    | P3 17:09 Hudon | 2 | middle, along the ice (deflection) |
+
+    Both predictions from the first six (3 = middle, 2 = goalie's right) were off.
+    **Conclusion (2026-10-21):** at most a rough side tendency (low numbers towards the
+    goalie's right), no reliable height; the scorers' manual entry and slow-motion
+    judgement both add noise. Decided: use 1 to 9 only as "on goal"; no goal-zone
+    graphic. Shot graphics use `locationX` / `locationY` (where the shot was taken from). **Decided 2026-10-20:** the engine uses
   `ON_GOAL_SECTIONS = 1..9`. All goals in the samples have a section 1 to 9.
 - Shootout and shots: in `et9erhx0si` the home skaters' `SOG` sum is 16, which **includes
   the deciding shootout goal**; the away goalies' `SOGA` is 15, which does not. Regulation
