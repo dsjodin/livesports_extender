@@ -372,3 +372,8 @@ body.bar .banner-overlay { bottom: 98px; }
 .scene-pregame .latest-text { font-size: var(--fs-text); line-height: 1.05; margin-top: 8px; }
 .drop-card { display: flex; justify-content: space-between; align-items: center; }
 .drop-time { font-family: var(--font-condensed); font-weight: 800; font-size: 140px; line-height: 1; }
+
+/* Text boxes that clip (overflow: hidden, for long names) get room above and below the
+   line, so Å, Ä, Ö and descenders are not cut; the negative margin keeps the layout. */
+.team-head.compact .team-name, .bar-name, .r3-name, .t3-team, .og3-who, .r3-meta {
+  padding-top: 0.2em; padding-bottom: 0.12em; margin-top: -0.2em; margin-bottom: -0.12em; }
