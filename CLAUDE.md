@@ -14,6 +14,7 @@ Read these before working on a phase:
 - `docs/HA.md`: Home Assistant setup and example automations.
 - `docs/DEPLOY.md`: Docker host and display box installation.
 - `docs/SCREENS.md`: wall geometry, design tokens, scenes per screen, simulator and phone app.
+- `docs/VIDEOS.md`: team videos (goal, intro, power play): format and how to make your own.
 - `config/wall.json`: physical screen layout (single source of truth for geometry).
 
 ## Architecture

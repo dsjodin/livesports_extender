@@ -45,6 +45,7 @@ def test_route(tmp_path: Path) -> None:
         r = client.get(f"/media/intro/{UUID}.webm")
         assert r.status_code == 200
         assert r.headers["content-type"] == "video/webm"
+        assert r.headers["cache-control"] == "no-cache"  # a replaced file shows on reload
         assert r.content == b"webm"
         assert client.get(f"/media/goal/{UUID}.webm").status_code == 404
 

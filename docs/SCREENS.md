@@ -332,6 +332,7 @@ service ships a generated default per team, and your own replace them.
   blobs, so playback never waits on the network. A screen that is late starts the video
   that far in; a team without a video shows none. A fresh state (seek, reconnect) stops a
   running video. Each start logs `[sync] video/<kind> screen=… delta=…ms`.
+- Making your own: sizes, format, encoding and installing are in `docs/VIDEOS.md`.
 - Files: `GET /media/<goal|intro|pp>/<team uuid>.webm` serves `data/media/<kind>/<uuid>.webm`
   if it exists, else the default in `web/media/`. Your own: WebM VP9 with alpha
   (`yuva420p`), 1080×1920 (`pp`: 1920×360), short, ending transparent; e.g.

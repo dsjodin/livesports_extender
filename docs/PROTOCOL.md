@@ -407,7 +407,7 @@ with `Cache-Control: max-age=86400`; 404 when the feed has none.
 | `GET /assets/teams/<team uuid>.svg` | the team's `icon` URL from game-info or the schedule |
 | `GET /assets/players/<isa id>.png` | the portrait in `athletes/by-team-uuid` (team roster cached 24 h), matched by name, then jersey number; the smallest signed `srcset` entry at least 480 px wide |
 
-| `GET /media/<goal\|intro\|pp>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); see `docs/SCREENS.md`, Team videos |
+| `GET /media/<goal\|intro\|pp>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); `Cache-Control: no-cache`; see `docs/VIDEOS.md` |
 
 A player is known once an event names them (scorer, assists, players on the ice). A
 player who has left the team since the game (old fixtures) has no portrait.

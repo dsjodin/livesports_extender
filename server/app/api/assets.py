@@ -35,6 +35,8 @@ async def player_portrait(player_id: str, request: Request) -> FileResponse:
 media_router = APIRouter(prefix="/media")
 
 MEDIA_KINDS = ("goal", "intro", "pp")
+# revalidated on every page load, so a replaced video shows after a reload (docs/VIDEOS.md)
+MEDIA_HEADERS = {"Cache-Control": "no-cache"}
 
 
 @media_router.get("/{kind}/{uuid}.webm")
@@ -45,7 +47,7 @@ async def team_video(kind: str, uuid: str, request: Request) -> FileResponse:
     path = media_path(settings.data_dir, settings.web_dir, kind, uuid)
     if path is None:
         raise HTTPException(404, "no video")
-    return FileResponse(path, media_type="video/webm", headers=CACHE_HEADERS)
+    return FileResponse(path, media_type="video/webm", headers=MEDIA_HEADERS)
 
 
 def media_path(data_dir: Path, web_dir: Path, kind: str, uuid: str) -> Path | None:
