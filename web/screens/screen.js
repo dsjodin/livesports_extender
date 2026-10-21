@@ -176,7 +176,24 @@ store.on("video", (m) => {
   const uuid = side ? store.tv?.teams?.[side]?.uuid : null;
   if (uuid && (!m.side || m.side === side)) at(m.play_at_ms, () => media.play(m.kind, uuid, m.play_at_ms, log));
 });
-store.on("config", () => current?.mod.update?.(current.ctx, store.tv, {}));
+store.on("config", () => {
+  current?.mod.update?.(current.ctx, store.tv, {});
+  feedDot();
+});
+
+/** The bar's red dot: no contact with shl.se (the service says so), or none with the
+ * service itself. Nothing while all is well (docs/SCREENS.md, Feed warning). */
+let dot = null;
+function feedDot() {
+  if (screenId !== "bar") return;
+  if (!dot) {
+    dot = document.createElement("div");
+    dot.id = "feed-dot";
+    document.body.appendChild(dot);
+  }
+  const lost = connection !== "open" || store.config.feed_ok === false;
+  dot.classList.toggle("on", lost);
+}
 
 function debugOverlay() {
   const el = document.createElement("div");
@@ -204,12 +221,15 @@ async function main() {
   stage.applyType(screenId);
   await document.fonts.ready;
   if (debug) debugOverlay();
+  // the service may not answer at all: show the dot after a grace period, not at once
+  setTimeout(feedDot, 5000);
   connect({
     role: "screen",
     id: screenId,
     onMessage: (m) => store.handle(m),
     onStatus: (s) => {
       connection = s;
+      feedDot();
     },
   });
 }

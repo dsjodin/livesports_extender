@@ -191,7 +191,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
- "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false}}
+ "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false,
+            "feed_ok": true}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -227,6 +228,11 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 - `{"t": "config", "config": {...}}` when the offset, TV profile, source or replay speed
   changes. `speed` is the replay speed (1 for live); the intermission countdown divides
   the break by it.
+- `feed_ok` is false while a live game has lost contact with shl.se: three failed
+  requests in a row, or no good one for three poll intervals (at least 20 s; before the
+  game, with a poll a minute, 3 min). Replays and recordings are always true. It is
+  sent at once, not at a `play_at` (it is about the connection, not the game), and is
+  also in `status`. The bar shows it as a red dot (`docs/SCREENS.md`, Feed warning).
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
   selected game, my side (`my_side`, and `my_side_choice` as set), profile, offset,

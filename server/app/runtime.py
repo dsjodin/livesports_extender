@@ -113,6 +113,7 @@ class Runtime:
         self.source: FeedSource | None = None
         self.source_error: str | None = None
         self._source_task: asyncio.Task[None] | None = None
+        self.feed_ok = True  # contact with shl.se (feed_health), shown as a red dot on the bar
         self._scheduler_task: asyncio.Task[None] | None = None
         self._last_status_ms = 0
         self.raw_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
@@ -196,6 +197,7 @@ class Runtime:
             "profile": self.config.active_profile,
             "speed": self.config.source.speed if self.config.source.mode != "none" else 1.0,
             "debug": False,
+            "feed_ok": self.feed_ok,
         }
 
     # --- messages -------------------------------------------------------------------
@@ -557,9 +559,30 @@ class Runtime:
         present = [t for t in times if t is not None]
         return min(present) if present else None
 
+    def feed_health(self) -> bool:
+        """Is the live feed in contact with shl.se? Always true for replays, recordings
+        and a live game that has been followed to its end."""
+        source = self.source
+        if not isinstance(source, LiveSource):
+            return True
+        if self._source_task is None or self._source_task.done():
+            return self.source_error is None
+        return source.healthy()
+
+    def _check_feed(self) -> None:
+        ok = self.feed_health()
+        if ok != self.feed_ok:
+            self.feed_ok = ok
+            if ok:
+                log.info("contact with shl.se is back")
+            else:
+                log.warning("contact with shl.se lost")
+            self.out.broadcast({"t": "config", "config": self.config_message()})
+
     async def _scheduler(self) -> None:
         while True:
             now = self.clock.now_ms()
+            self._check_feed()
             self.pump(now)
             wake = self.next_wake_ms()
             delay = TICK_S if wake is None else min(TICK_S, max(0.01, (wake - now) / 1000))
@@ -1033,6 +1056,7 @@ class Runtime:
             "pending_messages": len(self.pending),
             "others": self.others.status(),
             "last_snapshot_ms": self.last_snapshot_ms,
+            "feed_ok": self.feed_ok,
             "late_goals": self.late_goals,
             "manual": self.manual_status(),
             "calibration": self.calibration(),

@@ -377,3 +377,10 @@ body.bar .banner-overlay { bottom: 98px; }
    line, so Å, Ä, Ö and descenders are not cut; the negative margin keeps the layout. */
 .team-head.compact .team-name, .bar-name, .r3-name, .t3-team, .og3-who, .r3-meta {
   padding-top: 0.2em; padding-bottom: 0.12em; margin-top: -0.2em; margin-bottom: -0.12em; }
+
+/* no contact with shl.se or the service (screen.js feedDot): a pulsing red dot at the
+   top of the bar's centre, about 12 mm; nothing while all is well */
+#feed-dot { position: absolute; left: 50%; top: 16px; width: 34px; height: 34px; margin-left: -17px; border-radius: 50%;
+  background: #ff2d3a; box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); z-index: 60; opacity: 0; pointer-events: none; }
+#feed-dot.on { animation: feed-pulse 1.4s ease-in-out infinite; }
+@keyframes feed-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }

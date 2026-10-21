@@ -297,6 +297,15 @@ divided by the replay speed (`config.speed`). Before overtime the break is taken
   and penalties.
 - Bottom of both: the slide dots and "PERIOD n OM" with the countdown.
 
+### Feed warning (asked for by the user 2026-10-21)
+
+A red dot (34 px, about 12 mm) pulses at the top of the bar's centre while there is no
+contact: the service has lost shl.se during a live game (`config.feed_ok` false, see
+`docs/PROTOCOL.md`), or the bar has lost the service itself (its WebSocket is not open,
+shown after a 5 s grace period at page load). Nothing shows while all is well, and it
+goes out by itself when contact is back. The phone app says "Kontakt med shl.se: OK /
+Borta, försöker igen" in its status, `/sim` "NO CONTACT WITH SHL.SE" in its readout.
+
 ### Bar ticker (Phase 8)
 
 The bar's bottom strip in `live` and `intermission` pages through our own line (shots,

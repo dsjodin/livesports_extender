@@ -412,3 +412,28 @@ async def test_a_recording_can_be_paused_and_seeked(setup: Any, tmp_path: Path) 
     await rt.set_source("none")
     with pytest.raises(SourceError, match="only a replay or a recording"):
         rt.replay_control("seek", to="end")
+
+
+async def test_lost_contact_goes_out_as_feed_ok(setup: Any) -> None:
+    from app.feed.client import ShlClient
+    from app.feed.sources import LiveSource
+
+    rt, hub, clock = setup
+    source = LiveSource(lambda: ShlClient(), "bdhvuc5tex", clock)
+    rt.source = source
+    rt._source_task = asyncio.get_running_loop().create_task(asyncio.Event().wait())
+    try:
+        rt._check_feed()
+        assert rt.feed_ok and not hub.of("config")
+        source.errors = 3
+        rt._check_feed()
+        assert not rt.feed_ok and hub.of("config")[-1]["config"]["feed_ok"] is False
+        assert rt.status()["feed_ok"] is False
+        source.errors = 0
+        rt._check_feed()
+        assert hub.of("config")[-1]["config"]["feed_ok"] is True
+    finally:
+        rt._source_task.cancel()
+    rt.source = None
+    rt._check_feed()
+    assert rt.feed_ok  # a replay or no source: never lost

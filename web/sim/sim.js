@@ -187,7 +187,7 @@ function showStatus() {
   for (const b of $("speeds").children) b.classList.toggle("on", Number(b.dataset.speed) === src.speed);
   const tv = store.tv ?? {};
   const lines = [
-    `source  ${src.mode} ${src.uuid ?? src.path ?? ""} ${status.running ? "running" : "stopped"}${status.error ? ` – ${status.error}` : ""}`,
+    `source  ${src.mode} ${src.uuid ?? src.path ?? ""} ${status.running ? "running" : "stopped"}${status.error ? ` – ${status.error}` : ""}${status.feed_ok === false ? " – NO CONTACT WITH SHL.SE" : ""}`,
     `arena   ${status.feed_ms ? new Date(status.feed_ms).toLocaleTimeString("sv-SE") : "–"} (replay feed time)`,
     `screens ${tv.phase ?? "–"} · P${tv.period ?? "–"} ${tv.last_game_time ?? ""} · ${tv.score ? `${tv.score.home}–${tv.score.away}` : ""} · scene ${tv.scene?.name ?? "–"}`,
     `real    ${hhmm(clock.now())} · events ${status.released_events}/${status.raw_events} released`,

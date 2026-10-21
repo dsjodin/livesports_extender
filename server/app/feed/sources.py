@@ -496,6 +496,10 @@ LIVE_FINAL_TRIES = 3
 BACKOFF_START_S = 2.0
 BACKOFF_MAX_S = 30.0
 KNOWN_INFO_STATES = {"pre-game", "post-game"}
+# Contact with shl.se counts as lost after this many failed requests in a row, or when the
+# last good one is older than 3 polls (at least FEED_LOST_MIN_S); the bar shows a red dot.
+FEED_LOST_ERRORS = 3
+FEED_LOST_MIN_S = 20.0
 
 
 class LiveSource:
@@ -530,6 +534,10 @@ class LiveSource:
         self.final_refresh_s = final_refresh_s
         self.poll_log = poll_log
         self.polls = 0
+        self.errors = 0  # failed requests in a row
+        self.last_ok_ms: int | None = None
+        self.interval_s = LIVE_SLOW_S  # the poll interval now
+        self.waiting = False  # nothing is expected now (the wait for the final refresh)
         self._warned: set[str] = set()
 
     def __aiter__(self) -> AsyncIterator[Snapshot]:
@@ -546,18 +554,35 @@ class LiveSource:
         try:
             response = await calls[endpoint](self.game_uuid)
         except ShlError as exc:
+            self.errors += 1
             if self.poll_log is not None:
                 self.poll_log.error(endpoint, exc)
             raise
+        self.errors = 0
+        self.last_ok_ms = self.clock.now_ms()
         if self.poll_log is not None:
             self.poll_log.ok(endpoint, response.data, response.age_s, response.cache)
         return response
+
+    def healthy(self) -> bool:
+        """False when contact with shl.se looks lost (FEED_LOST_ERRORS, FEED_LOST_MIN_S)."""
+        if self.waiting:
+            return True
+        if self.errors >= FEED_LOST_ERRORS:
+            return False
+        if self.last_ok_ms is None:
+            return True
+        limit_ms = max(FEED_LOST_MIN_S, 3 * self.interval_s) * 1000
+        return self.clock.now_ms() - self.last_ok_ms <= limit_ms
 
     async def _final_refresh(self, client: ShlClient, over_since: int) -> Snapshot | None:
         assert self.final_refresh_s is not None
         wait_ms = over_since + round(self.final_refresh_s * 1000) - self.clock.now_ms()
         if wait_ms > 0:
+            self.waiting = True
             await self.clock.sleep(wait_ms / 1000)
+            self.waiting = False
+            self.last_ok_ms = self.clock.now_ms()  # the wait itself is not a silence
         backoff = BACKOFF_START_S
         for _ in range(LIVE_FINAL_TRIES):
             self.polls += 1
@@ -609,6 +634,7 @@ class LiveSource:
                     fast = state != "pre-game" or (
                         start is not None and now >= start - LIVE_FAST_BEFORE_S * 1000
                     )
+                    self.interval_s = LIVE_FAST_S if fast else LIVE_SLOW_S
                     pbp: list[dict[str, Any]] | None = None
                     age: int | None = None
                     if fast:

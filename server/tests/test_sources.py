@@ -464,3 +464,38 @@ async def test_recording_pauses_and_seeks(tmp_path: Path) -> None:
     assert source.seek_end()
     snap = await anext(it)
     assert snap.epoch == 3 and snap.pbp and snap.pbp[0]["gameState"] == "GameEnded"
+
+
+async def test_live_health_reports_lost_contact_and_recovery() -> None:
+    clock = FakeClock()
+    shl = FakeShl(clock.now_ms() - 3600_000, [with_state("Ongoing")], fail=4)
+    shl.clock = clock
+    seen: list[bool] = []
+
+    def watching(request: httpx.Request) -> httpx.Response:
+        seen.append(source.healthy())  # before this request, from the earlier ones
+        return shl.handler(request)
+
+    source = LiveSource(lambda: ShlClient(transport=httpx.MockTransport(watching)), GAME, clock)
+    first = await collect(source, limit=1)
+    assert first and first[0].pbp
+    # three failures in a row count as lost; the first success brings it back
+    assert seen[:5] == [True, True, True, False, False]
+    assert source.healthy() and source.errors == 0
+
+
+async def test_live_health_after_a_long_silence() -> None:
+    clock = FakeClock(auto_advance=False)
+    source = LiveSource(lambda: ShlClient(), GAME, clock)
+    assert source.healthy()  # nothing tried yet
+    source.last_ok_ms = clock.now_ms()
+    source.interval_s = 2.0
+    await clock.advance(19_000)
+    assert source.healthy()  # under the 20 s floor
+    await clock.advance(2_000)
+    assert not source.healthy()
+    source.interval_s = 60.0  # before the game: one poll a minute, so 3 min of silence
+    assert source.healthy()
+    source.waiting = True  # the wait for the final refresh is not a silence
+    await clock.advance(3600_000)
+    assert source.healthy()

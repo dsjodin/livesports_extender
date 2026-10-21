@@ -53,6 +53,7 @@ def test_websocket_hello_state_then_events_in_order(client: TestClient) -> None:
             "profile": "iptv",
             "speed": 1.0,
             "debug": False,
+            "feed_ok": True,
         }
         state = ws.receive_json()
         assert state["t"] == "state" and state["state"]["score"] == {"home": 0, "away": 0}
