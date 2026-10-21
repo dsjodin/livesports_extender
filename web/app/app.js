@@ -439,6 +439,7 @@ function renderAbout() {
     el,
     html`<dt>Version</dt><dd>${ui.version ?? "–"}</dd>
       <dt>Källa</dt><dd>${mode}${src.uuid ? ` ${src.uuid}` : ""}${st.running ? " · igång" : ""}${st.error ? ` · ${st.error}` : ""}</dd>
+      <dt>Kontakt med shl.se</dt><dd>${st.feed_ok === false ? "Borta, försöker igen" : "OK"}</dd>
       <dt>Senaste hämtning</dt><dd>${st.last_snapshot_ms ? new Date(st.last_snapshot_ms).toLocaleTimeString("sv-SE") : "–"}</dd>
       <dt>Klocka</dt><dd>${c.offset} ms mot servern (rtt ${c.rtt ?? "–"} ms)</dd>`,
   );

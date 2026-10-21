@@ -66,8 +66,7 @@ function bar(ctx, tv, goal, side, at) {
   for (const s of ["home", "away"]) {
     teams[s] = barTeam(tv, s, before[s], { flash: s === side, id: s === side ? "goal-box" : "" });
   }
-  const strength = goal?.data?.strength;
-  const tag = goal?.data?.empty_net ? "TOM BUR" : strength?.startsWith("PP") ? "PP" : strength?.startsWith("SH") ? "BOXPLAY" : null;
+  const tag = strengthChip(goal?.data?.strength, goal?.data?.empty_net);
   const when = goal?.time ? `P${goal.period} ${goal.time}` : "";
   const centre = html`<div class="big-word gold" id="goal-word">MÅL</div><div class="mid">${[tag, when].filter(Boolean).join(" · ")}</div>`;
   const assists = (goal?.data?.assists ?? []).map((a) => `#${a.number} ${caps(a.last)}`).join(", ");
@@ -110,7 +109,7 @@ function scorer(ctx, tv, goal, side, at) {
     <div class="goal-body">
       ${raw(p.number ? html`<div class="outline-number">${p.number}</div>` : "")}${raw(portrait)}
       ${raw(goal?.player ? html`<div class="scorer"><div class="label">MÅLSKYTT</div><div class="first">${p.first ?? ""}</div><div class="last">${caps(p.last ?? "")}</div></div>` : html`<div class="scorer"><div class="label">MÅLSKYTT</div><div class="first secondary">${d.manual ? "Väntar på SHL" : ""}</div></div>`)}
-      <div class="chips">${raw(chips.map((c) => html`<span class="chip ${c === "POWERPLAY" ? "gold" : ""}">${c}</span>`).join(""))}</div>
+      <div class="chips">${raw(chips.map((c) => html`<span class="chip ${c === "PP" ? "gold" : ""}">${c}</span>`).join(""))}</div>
       <div class="card assist-card ${d.manual ? "hidden" : ""}"><div class="label">ASSIST</div>
         ${raw(assists.length ? assists.map((a) => html`<div class="assist-name">#${a.number} ${a.first} ${a.last}</div>`).join("") : `<div class="assist-name secondary">Utan assist</div>`)}</div>
       <div class="score-row">${raw(badge(team(tv, "home"), "home", "md"))}<div class="big">${score(sc.home, sc.away)}</div>${raw(badge(team(tv, "away"), "away", "md"))}</div>

@@ -37,7 +37,7 @@ from app.feed.league import LeagueService
 from app.feed.polllog import PollLog
 from app.feed.schedule import ScheduleService
 from app.feed.snapshot import Snapshot
-from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
+from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource, Timeline
 from app.others import OtherGames
 from app.teams import TeamColors
 
@@ -113,6 +113,7 @@ class Runtime:
         self.source: FeedSource | None = None
         self.source_error: str | None = None
         self._source_task: asyncio.Task[None] | None = None
+        self.feed_ok = True  # contact with shl.se (feed_health), shown as a red dot on the bar
         self._scheduler_task: asyncio.Task[None] | None = None
         self._last_status_ms = 0
         self.raw_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
@@ -196,6 +197,7 @@ class Runtime:
             "profile": self.config.active_profile,
             "speed": self.config.source.speed if self.config.source.mode != "none" else 1.0,
             "debug": False,
+            "feed_ok": self.feed_ok,
         }
 
     # --- messages -------------------------------------------------------------------
@@ -557,9 +559,30 @@ class Runtime:
         present = [t for t in times if t is not None]
         return min(present) if present else None
 
+    def feed_health(self) -> bool:
+        """Is the live feed in contact with shl.se? Always true for replays, recordings
+        and a live game that has been followed to its end."""
+        source = self.source
+        if not isinstance(source, LiveSource):
+            return True
+        if self._source_task is None or self._source_task.done():
+            return self.source_error is None
+        return source.healthy()
+
+    def _check_feed(self) -> None:
+        ok = self.feed_health()
+        if ok != self.feed_ok:
+            self.feed_ok = ok
+            if ok:
+                log.info("contact with shl.se is back")
+            else:
+                log.warning("contact with shl.se lost")
+            self.out.broadcast({"t": "config", "config": self.config_message()})
+
     async def _scheduler(self) -> None:
         while True:
             now = self.clock.now_ms()
+            self._check_feed()
             self.pump(now)
             wake = self.next_wake_ms()
             delay = TICK_S if wake is None else min(TICK_S, max(0.01, (wake - now) / 1000))
@@ -771,8 +794,9 @@ class Runtime:
         self, action: str, speed: float | None = None, to: str | None = None
     ) -> None:
         source = self.source
-        if not isinstance(source, ReplaySource):
-            raise SourceError("no replay is running")
+        if not isinstance(source, Timeline):
+            # live: shl.se is the clock, nothing to pause or seek
+            raise SourceError("only a replay or a recording can be paused or seeked")
         if action == "play":
             source.play()
         elif action == "pause":
@@ -805,6 +829,9 @@ class Runtime:
                 raise SourceError(f"unknown seek target {to!r}")
             if not ok:
                 raise SourceError(f"nothing to seek to for {to!r}")
+            if self._source_task is not None and self._source_task.done():
+                # it had played to the end: read on from the new position
+                self._source_task = asyncio.get_running_loop().create_task(self._run_source(source))
         else:
             raise SourceError(f"unknown replay action {action!r}")
         self.others.follow_main()
@@ -844,6 +871,15 @@ class Runtime:
         self._scenes(self.director.set_override(name, hold, at, data))
 
     # --- MÅL! button and test goal --------------------------------------------------
+
+    def test_video(
+        self, kind: Literal["goal", "intro"], side: Literal["home", "away"] | None
+    ) -> int:
+        """Play a team video now on the portrait screens (one side, or both), to check the
+        files. Only the video: no scene, no state, no webhook. Returns its play_at."""
+        at = self.clock.now_ms() + MANUAL_LEAD_MS
+        self.out.broadcast({"t": "video", "kind": kind, "side": side, "play_at_ms": at})
+        return at
 
     def manual_goal(self, side: Literal["home", "away"], *, test: bool = False) -> dict[str, Any]:
         """Celebrate now: the goal scene with the team only. A real press waits for the
@@ -1001,7 +1037,7 @@ class Runtime:
         self._scenes(self.director.clear_override(self.clock.now_ms() + self.lead_ms))
 
     def status(self) -> dict[str, Any]:
-        source = self.source if isinstance(self.source, ReplaySource) else None
+        source = self.source if isinstance(self.source, Timeline) else None
         return {
             "source": self.config.source.model_dump(),
             "running": self._source_task is not None and not self._source_task.done(),
@@ -1020,6 +1056,7 @@ class Runtime:
             "pending_messages": len(self.pending),
             "others": self.others.status(),
             "last_snapshot_ms": self.last_snapshot_ms,
+            "feed_ok": self.feed_ok,
             "late_goals": self.late_goals,
             "manual": self.manual_status(),
             "calibration": self.calibration(),

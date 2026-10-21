@@ -135,6 +135,13 @@ function bindControls() {
   $("playpause").onclick = () => api("replay", { action: status?.paused ? "play" : "pause" });
   $("next-period").onclick = () => api("replay", { action: "seek", to: "next_period" });
   $("end").onclick = () => api("replay", { action: "seek", to: "end" });
+  $("video-intro").onclick = () => api("test/video", { kind: "intro" });
+  $("video-goal-home").onclick = () => api("test/video", { kind: "goal", side: "home" });
+  $("video-goal-away").onclick = () => api("test/video", { kind: "goal", side: "away" });
+  $("my-side").onchange = () => status?.game_uuid && api("game", { uuid: status.game_uuid, my_side: $("my-side").value || null });
+  $("video-pp").onclick = () => api("test/video", { kind: "pp" });
+  $("test-goal-home").onclick = () => api("test/goal", { side: "home" });
+  $("test-goal-away").onclick = () => api("test/goal", { side: "away" });
   $("next-goal").onclick = () => api("replay", { action: "seek", to: "before_next_goal" });
   for (const speed of SPEEDS) {
     const b = document.createElement("button");
@@ -171,10 +178,16 @@ function showStatus() {
   $("webhook-state").textContent = hooks.enabled ? `on${hooks.pending ? `, ${hooks.pending} waiting` : ""}` : hooks.url_set ? "off" : "no URL set";
   const src = status.source ?? {};
   $("playpause").textContent = status.paused ? "Play" : "Pause";
+  if (document.activeElement !== $("my-side")) $("my-side").value = status.my_side_choice ?? "";
+  // replays and recordings can be paused and seeked; live and none cannot
+  const seekable = src.mode === "replay" || src.mode === "recording";
+  for (const id of ["playpause", "next-period", "next-goal", "end"]) $(id).disabled = !seekable;
+  for (const b of $("speeds").children) b.disabled = !seekable;
+  $("replay-note").textContent = seekable ? "" : src.mode === "live" ? "Following live: shl.se sets the pace, nothing to pause or seek." : "Start a replay or a recording to use these.";
   for (const b of $("speeds").children) b.classList.toggle("on", Number(b.dataset.speed) === src.speed);
   const tv = store.tv ?? {};
   const lines = [
-    `source  ${src.mode} ${src.uuid ?? src.path ?? ""} ${status.running ? "running" : "stopped"}${status.error ? ` – ${status.error}` : ""}`,
+    `source  ${src.mode} ${src.uuid ?? src.path ?? ""} ${status.running ? "running" : "stopped"}${status.error ? ` – ${status.error}` : ""}${status.feed_ok === false ? " – NO CONTACT WITH SHL.SE" : ""}`,
     `arena   ${status.feed_ms ? new Date(status.feed_ms).toLocaleTimeString("sv-SE") : "–"} (replay feed time)`,
     `screens ${tv.phase ?? "–"} · P${tv.period ?? "–"} ${tv.last_game_time ?? ""} · ${tv.score ? `${tv.score.home}–${tv.score.away}` : ""} · scene ${tv.scene?.name ?? "–"}`,
     `real    ${hhmm(clock.now())} · events ${status.released_events}/${status.raw_events} released`,

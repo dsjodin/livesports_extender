@@ -28,16 +28,44 @@ export function stopTimers(ctx) {
 }
 
 /** Portrait header: team-colour rule, badge, "HEMMA"/"BORTA", long name. */
-export function teamHead(tv, side, extraClass = "") {
-  return html`<div class="rule" style="--c: var(--${side}); --ol: var(--${side}-outline)"></div>
-    <div class="team-head ${extraClass}">${raw(badge(team(tv, side), side, "lg"))}
+export function teamHead(tv, side, extraClass = "", { compact = false } = {}) {
+  const rule = html`<div class="rule" style="--c: var(--${side}); --ol: var(--${side}-outline)"></div>`;
+  if (compact) {
+    // 3 m (live): the logo large and toned down behind the short name, no badge circle,
+    // no HEMMA/BORTA label (the screen's place says it); asked for by the user 2026-10-21
+    const logo = team(tv, side).logo;
+    const img = logo ? html`<img class="head-logo" src="${logo}" alt="" onerror="this.remove()">` : "";
+    return html`${raw(rule)}<div class="team-head compact ${extraClass}">${raw(img)}
+      <div class="team-name" data-fit>${caps(shortName(tv, side))}</div></div>`;
+  }
+  return html`${raw(rule)}<div class="team-head ${extraClass}">${raw(badge(team(tv, side), side, "lg"))}
     <div><div class="label">${side === "home" ? "HEMMA" : "BORTA"}</div><div class="team-name">${longName(tv, side)}</div></div></div>`;
+}
+
+/** The team's logo on its own (the bar, 3 m); the code badge when there is none. */
+export function plainLogo(tv, side, size = "md") {
+  const t = team(tv, side);
+  return t.logo ? html`<img class="plain-logo plain-${size}" src="${t.logo}" alt="">` : badge(t, side, size);
+}
+
+/** Shrink text marked data-fit until it fits its box on one line (long team names). */
+export function fitText(root, min = 0.6) {
+  for (const el of root.querySelectorAll("[data-fit]")) {
+    el.style.fontSize = "";
+    const base = parseFloat(getComputedStyle(el).fontSize);
+    let size = base;
+    el.style.whiteSpace = "nowrap";
+    while (el.scrollWidth > el.clientWidth && size > base * min) {
+      size -= 4;
+      el.style.fontSize = `${size}px`;
+    }
+  }
 }
 
 /** One half of the bar's main row. `value` goes in the score box, `sub` under it. */
 export function barTeam(tv, side, value, { sub = "", flash = false, id = "" } = {}) {
   return html`<div class="bar-team ${side}" style="--c: var(--${side})"><div class="edge"></div>
-    ${raw(badge(team(tv, side), side, "md"))}<div class="bar-name">${caps(shortName(tv, side))}</div>
+    ${raw(plainLogo(tv, side))}<div class="bar-name" data-fit>${caps(shortName(tv, side))}</div>
     <div class="score-box ${flash ? "flash" : ""}" ${raw(id ? `id="${id}"` : "")}><div class="digits ${String(value).length > 1 ? "narrow" : ""}">${value}</div>${raw(sub ? `<div class="sub label">${sub}</div>` : "")}</div></div>`;
 }
 

@@ -14,6 +14,7 @@ Read these before working on a phase:
 - `docs/HA.md`: Home Assistant setup and example automations.
 - `docs/DEPLOY.md`: Docker host and display box installation.
 - `docs/SCREENS.md`: wall geometry, design tokens, scenes per screen, simulator and phone app.
+- `docs/VIDEOS.md`: team videos (goal, intro, power play): format and how to make your own.
 - `config/wall.json`: physical screen layout (single source of truth for geometry).
 
 ## Architecture
@@ -60,7 +61,8 @@ web/vendor/            gsap, fonts (vendored, no CDN at runtime)
 web/media/             default team videos (goal/, intro/; own ones go in data/media/)
 config/wall.json       screen geometry
 tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
-                       synth_recording.py, snapshot.py, check_phone.py, make_stingers.py
+                       synth_recording.py, snapshot.py, check_phone.py, make_stingers.py,
+                       legibility.py
                        (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
@@ -83,7 +85,8 @@ cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --
 uv run --project server python tools/snapshot.py           # screen snapshots (service running)
 uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
 uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
-uv run --project server python tools/make_stingers.py      # default goal/intro videos per team
+uv run --project server python tools/make_stingers.py      # default goal/intro/pp videos per team
+uv run --project server python tools/legibility.py         # text sizes in mm on the wall (service running)
 shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 
@@ -135,7 +138,9 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
 ## Conventions
 
 - Code, comments, logs and docs in English. **All text on screens and in the phone app
-  is Swedish.** Use the en dash (–) for scores and ranges ("2–1", "19:00–21:30");
+  is Swedish**, except hockey terms that Swedish hockey uses in English (decided by the
+  user 2026-10-21): offence names (Hooking, Tripping), goal strengths EQ/PP/SH,
+  "special teams", "powerplay". Use the en dash (–) for scores and ranges ("2–1", "19:00–21:30");
   never use the em dash (—) in Swedish copy.
 - Python: type hints everywhere, pydantic v2 models for API payloads, `httpx.AsyncClient`
   for HTTP, `ruff` clean, small modules. Engine code is pure and synchronous where it can

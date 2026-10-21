@@ -388,3 +388,114 @@ async def test_other_live_source_polls_every_30_s_from_15_min_before() -> None:
     assert {b - a for a, b in itertools.pairwise(times[:6])} == {30_000}
     ended = [s for s in snaps if s.pbp and s.pbp[0]["gameState"] == "GameEnded"]
     assert ended[-1].received_ms - ended[0].received_ms >= 120_000  # stops 2 min after the end
+
+
+def write_long_recording(path: Path, start: int) -> int:
+    """Ten minutes of play-by-play every 2 s: a period from ``start``, a goal on the ice at
+    +300 s that reaches the feed 40 s later, the game over at +600 s. Returns the goal's
+    on-ice time."""
+    goal_at = start + 300_000
+    period = {"type": "period", "period": 1, "startedAt": format_local(start)}
+    goal = {
+        "eventId": 7,
+        "type": "goal",
+        "period": 1,
+        "time": "05:00",
+        "realWorldTime": format_local(goal_at),
+        "gameState": "Ongoing",
+    }
+    rows = []
+    body: list[dict[str, Any]] | None = None
+    for t in range(0, 620_000, 2000):
+        received = start + 5000 + t
+        now_body = [period] + ([goal] if received >= goal_at + 40_000 else [])
+        if received >= start + 600_000:
+            ended = {**period, "finishedAt": format_local(start + 600_000)}
+            now_body = [{**goal, "gameState": "GameEnded"}, ended]
+        changed = now_body != body
+        body = now_body
+        rows.append(
+            {
+                "received_ms": received,
+                "endpoint": "play-by-play",
+                "status": 200,
+                "age": 0,
+                "body": now_body if changed else None,
+            }
+        )
+    path.write_text("\n".join(json.dumps(r) for r in rows) + "\n")
+    return goal_at
+
+
+async def test_recording_pauses_and_seeks(tmp_path: Path) -> None:
+    start = 1_760_000_000_000
+    path = tmp_path / "polls.jsonl"
+    goal_at = write_long_recording(path, start)
+    clock = FakeClock(0)
+    source = RecordingSource(path, clock, speed=10)
+    it = source.__aiter__()
+    first = await anext(it)
+    assert first.epoch == 0 and raw(first.pbp, 7) is None
+
+    assert source.seek_before_next_goal()  # 10 s before the goal's on-ice moment
+    snap = await anext(it)
+    assert snap.epoch == 1
+    assert snap.feed_ms == goal_at - 10_000
+    assert raw(snap.pbp, 7) is None  # not received yet at that point
+    while raw(snap.pbp, 7) is None:
+        snap = await anext(it)
+    assert snap.feed_ms == goal_at + 41_000  # the first poll after it reached the feed
+    # moved onto our clock: on the ice 41 s of feed (4.1 s at 10x) before it arrived
+    goal = raw(snap.pbp, 7) or {}
+    assert snap.received_ms - (parse_local_ms(goal["realWorldTime"]) or 0) == 4100
+
+    source.pause()
+    position = source.feed_now()
+    await clock.advance(60_000)
+    assert source.feed_now() == position  # paused: the feed stands still
+    source.play()
+    assert not source.seek_before_next_goal()  # no later goal
+    assert source.seek_period(1)
+    snap = await anext(it)
+    # 10 s before the puck drop is before the recording began: it starts at its first poll
+    assert snap.epoch == 2 and snap.feed_ms == start + 5000
+    assert raw(snap.pbp, 7) is None
+
+    assert source.seek_end()
+    snap = await anext(it)
+    assert snap.epoch == 3 and snap.pbp and snap.pbp[0]["gameState"] == "GameEnded"
+
+
+async def test_live_health_reports_lost_contact_and_recovery() -> None:
+    clock = FakeClock()
+    shl = FakeShl(clock.now_ms() - 3600_000, [with_state("Ongoing")], fail=4)
+    shl.clock = clock
+    seen: list[bool] = []
+
+    def watching(request: httpx.Request) -> httpx.Response:
+        seen.append(source.healthy())  # before this request, from the earlier ones
+        return shl.handler(request)
+
+    source = LiveSource(lambda: ShlClient(transport=httpx.MockTransport(watching)), GAME, clock)
+    first = await collect(source, limit=1)
+    assert first and first[0].pbp
+    # three failures in a row count as lost; the first success brings it back
+    assert seen[:5] == [True, True, True, False, False]
+    assert source.healthy() and source.errors == 0
+
+
+async def test_live_health_after_a_long_silence() -> None:
+    clock = FakeClock(auto_advance=False)
+    source = LiveSource(lambda: ShlClient(), GAME, clock)
+    assert source.healthy()  # nothing tried yet
+    source.last_ok_ms = clock.now_ms()
+    source.interval_s = 2.0
+    await clock.advance(19_000)
+    assert source.healthy()  # under the 20 s floor
+    await clock.advance(2_000)
+    assert not source.healthy()
+    source.interval_s = 60.0  # before the game: one poll a minute, so 3 min of silence
+    assert source.healthy()
+    source.waiting = True  # the wait for the final refresh is not a silence
+    await clock.advance(3600_000)
+    assert source.healthy()

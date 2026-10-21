@@ -2,6 +2,7 @@
 // left = home team, right = away team, bar = both (docs/SCREENS.md).
 import * as clock from "../shared/clock.js";
 import * as media from "../shared/media.js";
+import { at } from "../shared/scheduler.js";
 import { needsOutline, onColor } from "../shared/format.js";
 import { teamVars } from "../shared/components.js";
 import * as stage from "../shared/stage.js";
@@ -13,6 +14,7 @@ import * as live from "./scenes/live.js";
 import * as goal from "./scenes/goal.js";
 import * as intermission from "./scenes/intermission.js";
 import * as postgame from "./scenes/postgame.js";
+import { fitText } from "./scenes/common.js";
 
 const SCENES = { idle, pregame, live, goal, intermission, postgame };
 const FADE_OUT_S = 0.4;
@@ -27,6 +29,7 @@ const syncLog = [];
 let connection = "connecting";
 let current = null; // {name, mod, root, ctx}
 const goalEvents = new Map(); // goals seen as events at play_at, MÅL! presses included
+const introsPlayed = new Set(); // game uuids whose intro has run here (once per game)
 
 gsap.ticker.lagSmoothing(0); // keep GSAP time equal to wall time, so timelines stay in sync
 gsap.config({ nullTargetWarn: false }); // scenes animate ".anim" lists that may be empty
@@ -45,8 +48,27 @@ function decorate(tv) {
     t.outline = needsOutline(t.color);
   }
   teamVars(document.documentElement, tv.teams);
-  // each portrait screen shows its own team's goal stinger and intro
-  if (screenId !== "bar") media.preload(tv.teams?.[screenId === "left" ? "home" : "away"]?.uuid);
+  // each portrait screen shows its own team's goal stinger and intro; the bar my team's
+  // power-play video
+  if (screenId === "bar") media.preload(myTeam(tv)?.uuid, ["pp"]);
+  else media.preload(tv.teams?.[screenId === "left" ? "home" : "away"]?.uuid, ["goal", "intro"]);
+}
+
+function myTeam(tv) {
+  const side = tv?.game?.my_side;
+  return side ? tv.teams?.[side] : null;
+}
+
+/** My team's power play has just begun (at this patch's play_at): play the bar's video.
+ * Not again when it grows to 5 on 3, nothing for the other team's (docs/SCREENS.md). */
+let ppSide = null;
+function powerPlay(tv, playAt) {
+  const side = tv?.strength?.pp_side ?? null;
+  const started = side && side !== ppSide;
+  ppSide = side;
+  if (!started || screenId !== "bar" || side !== tv.game?.my_side) return;
+  if (!["live", "goal"].includes(current?.name)) return;
+  media.play("pp", myTeam(tv)?.uuid, playAt, log);
 }
 
 function makeCtx(root) {
@@ -67,7 +89,14 @@ function makeCtx(root) {
     video(kind, playAt, later = false) {
       const uuid = this.side ? store.tv.teams?.[this.side]?.uuid : null;
       if (!uuid) return false;
-      return later ? media.playLater(kind, uuid, playAt, log) : media.play(kind, uuid, playAt, log);
+      if (kind !== "intro") return later ? media.playLater(kind, uuid, playAt, log) : media.play(kind, uuid, playAt, log);
+      // the intro runs once per game: at the scheduled start on TV time, or at puck drop
+      const game = store.tv.game?.uuid;
+      const go = () => !introsPlayed.has(game) && media.play(kind, uuid, playAt, log) && introsPlayed.add(game);
+      if (introsPlayed.has(game)) return false;
+      if (later) return at(playAt, go);
+      go();
+      return true;
     },
     now: clock.now,
     log,
@@ -96,8 +125,10 @@ function show(scene, at, animate) {
   const ctx = makeCtx(root);
   ctx.animate = animate;
   const mod = SCENES[name];
+  ctx.previous = old?.name ?? null;
   current = { name, mod, root, ctx };
   mod.enter(ctx, scene?.data ?? {}, at);
+  fitText(root); // long team names shrink to their box (data-fit)
   if (old) {
     old.mod.exit?.(old.ctx, at);
     if (animate) {
@@ -112,12 +143,16 @@ function show(scene, at, animate) {
 
 store.on("state", (tv) => {
   media.hide(); // a seek or a reconnect: whatever was playing is no longer due
+  introsPlayed.clear();
+  ppSide = tv.strength?.pp_side ?? null; // a power play already on is not announced
   decorate(tv);
   show(tv.scene, clock.now(), false);
 });
-store.on("patch", (patch) => {
-  if (patch.teams) decorate(store.tv);
+store.on("patch", (patch, playAt) => {
+  if (patch.teams || patch.game) decorate(store.tv);
+  if (patch.strength) powerPlay(store.tv, playAt);
   current?.mod.update?.(current.ctx, store.tv, patch);
+  if (current) fitText(current.root);
 });
 store.on("scene", (scene, playAt) => show(scene, playAt, true));
 store.on("event", (event, playAt, late) => {
@@ -129,7 +164,36 @@ store.on("preload", (event) => {
   // Fetch the scorer's portrait before play_at so the goal scene has it at once.
   if (event.type === "goal" && event.player?.id) new Image().src = `/assets/players/${event.player.id}.png`;
 });
-store.on("config", () => current?.mod.update?.(current.ctx, store.tv, {}));
+store.on("video", (m) => {
+  // a test from /sim or the phone: only the video, on one side or both
+  if (m.kind === "pp") {
+    // the bar holds my team's video only
+    const uuid = myTeam(store.tv)?.uuid;
+    if (screenId === "bar" && uuid) at(m.play_at_ms, () => media.play("pp", uuid, m.play_at_ms, log));
+    return;
+  }
+  const side = screenId === "left" ? "home" : screenId === "right" ? "away" : null;
+  const uuid = side ? store.tv?.teams?.[side]?.uuid : null;
+  if (uuid && (!m.side || m.side === side)) at(m.play_at_ms, () => media.play(m.kind, uuid, m.play_at_ms, log));
+});
+store.on("config", () => {
+  current?.mod.update?.(current.ctx, store.tv, {});
+  feedDot();
+});
+
+/** The bar's red dot: no contact with shl.se (the service says so), or none with the
+ * service itself. Nothing while all is well (docs/SCREENS.md, Feed warning). */
+let dot = null;
+function feedDot() {
+  if (screenId !== "bar") return;
+  if (!dot) {
+    dot = document.createElement("div");
+    dot.id = "feed-dot";
+    document.body.appendChild(dot);
+  }
+  const lost = connection !== "open" || store.config.feed_ok === false;
+  dot.classList.toggle("on", lost);
+}
 
 function debugOverlay() {
   const el = document.createElement("div");
@@ -145,6 +209,7 @@ function debugOverlay() {
     el.textContent = [
       `${screenId}  ws ${connection}  offset ${c.offset} ms  rtt ${c.rtt ?? "-"} ms`,
       `rev ${store.tv?.rev ?? "-"}  scene ${current?.name ?? "-"}  tv offset ${(store.config.offset_ms ?? 0) / 1000} s`,
+      ...(screenId === "bar" ? [] : [`video ${media.status()}`]),
       ...upcoming,
       ...syncLog,
     ].join("\n");
@@ -153,14 +218,18 @@ function debugOverlay() {
 
 async function main() {
   await stage.load();
+  stage.applyType(screenId);
   await document.fonts.ready;
   if (debug) debugOverlay();
+  // the service may not answer at all: show the dot after a grace period, not at once
+  setTimeout(feedDot, 5000);
   connect({
     role: "screen",
     id: screenId,
     onMessage: (m) => store.handle(m),
     onStatus: (s) => {
       connection = s;
+      feedDot();
     },
   });
 }

@@ -92,6 +92,28 @@ def stat(raw: object, key: str) -> int | None:
     return None
 
 
+def scorer_game_goals(pbp: list[Any]) -> dict[Any, int]:
+    """eventId -> the scorer's goals in this game up to and including this one (regulation
+    and overtime; shootout goals do not count)."""
+    goals = [
+        e
+        for e in pbp
+        if isinstance(e, dict) and e.get("type") == "goal" and isinstance(e.get("period"), int)
+    ]
+    goals.sort(
+        key=lambda e: (game_seconds(e.get("period"), e.get("time")) or 0, e.get("eventId", 0))
+    )
+    counts: dict[Any, int] = {}
+    out: dict[Any, int] = {}
+    for e in goals:
+        who = (e.get("player") or {}).get("playerId")
+        if who is None:
+            continue
+        counts[who] = counts.get(who, 0) + 1
+        out[e.get("eventId")] = counts[who]
+    return out
+
+
 def content(item: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in item.items() if k not in IGNORED_FIELDS}
 
@@ -113,6 +135,7 @@ class Normalizer:
         self._content: dict[str, Any] = {}
         self._last_pbp: list[dict[str, Any]] | None = None
         self._epoch: int | None = None
+        self._game_goals: dict[Any, int] = {}
 
     def reset(self) -> None:
         self.events.clear()
@@ -141,6 +164,7 @@ class Normalizer:
         if self.game_state is not None and self.game_state not in KNOWN_GAME_STATES:
             warn_once("gameState", self.game_state)
 
+        self._game_goals = scorer_game_goals(pbp)
         current: dict[str, tuple[Any, Callable[[int, int | None], NormalizedEvent]]] = {}
         for item in pbp:
             if isinstance(item, dict):
@@ -241,7 +265,10 @@ class Normalizer:
                 ],
                 "on_ice": players(item.get("pop")),
                 "opponents_on_ice": players(item.get("nep")),
-                "scorer_game_goals": stat(item.get("player"), "G"),
+                "scorer_game_goals": self._game_goals.get(item.get("eventId")),
+                # player.statistics G is the season's goals after this one, not the game's
+                # (checked 2026-10-21 against the 2026-10-20 recording)
+                "scorer_season_goals": stat(item.get("player"), "G"),
                 "x_dm": item.get("locationX"),
                 "y_dm": item.get("locationY"),
                 "goal_section": item.get("goalSection"),

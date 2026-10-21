@@ -27,7 +27,7 @@ The engine's internal event shape, also sent to clients inside `event` messages.
     "assists": [{"number": "46", "first": "Dominik", "last": "Egli"},
                 {"number": "41", "first": "Ivar", "last": "Stenberg"}],
     "on_ice": [{"number": "1", "first": "Lars", "last": "Johansson"}, "..."],
-    "scorer_game_goals": 1
+    "scorer_game_goals": 1, "scorer_season_goals": 4
   },
   "revision": 3,
   "event_ms": 1757776222536,
@@ -89,7 +89,7 @@ The delayed state every client renders. Sent in full on connect, then as patches
   "score": {"home": 1, "away": 1},
   "strength": {"home": 5, "away": 4, "pp_side": "home"},
   "penalties_active": [{"key": "e94", "side": "away", "number": "8", "name": "Jonathan Myrenberg",
-                        "offence_text": "Fasthållning", "minutes": 2, "started": "P3 07:39",
+                        "offence_text": "Holding", "minutes": 2, "started": "P3 07:39",
                         "expires_game_seconds": 2979}],
   "stats": {
     "home": {"shots_on_goal": 36, "shots_wide": 5, "shots_blocked": 7, "shot_attempts": 48, "shots_by_period": [16, 15, 5], "pim": 2,
@@ -191,7 +191,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
- "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false}}
+ "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false,
+            "feed_ok": true}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -227,6 +228,11 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 - `{"t": "config", "config": {...}}` when the offset, TV profile, source or replay speed
   changes. `speed` is the replay speed (1 for live); the intermission countdown divides
   the break by it.
+- `feed_ok` is false while a live game has lost contact with shl.se: three failed
+  requests in a row, or no good one for three poll intervals (at least 20 s; before the
+  game, with a poll a minute, 3 min). Replays and recordings are always true. It is
+  sent at once, not at a `play_at` (it is about the connection, not the game), and is
+  also in `status`. The bar shows it as a red dot (`docs/SCREENS.md`, Feed warning).
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
   selected game, my side (`my_side`, and `my_side_choice` as set), profile, offset,
@@ -263,7 +269,7 @@ auth in front if it is ever exposed).
 | `GET /api/schedule/recent?days=30` | | Finished games (for replay selection) |
 | `POST /api/game` | `{"uuid", "my_side": "home"\|"away"\|"none"\|null}` | Select a game to follow; `"none"`: no side is mine, `null`: my side follows my team |
 | `POST /api/source` | `{"mode": "live"\|"replay"\|"recording"\|"none", "uuid"?, "path"?, "speed"?}` | Choose the data source. `live` needs `uuid` and polls shl.se for that game (CLAUDE.md rule 5); a game that is already over is read once. Every live poll is also saved to `data/recordings/<uuid>/polls.jsonl` (the `tools/record_game.py` format, plus boxscore and team-stats at the final refresh), so it can be replayed as `recording` and analysed |
-| `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"\|"end"}` | Replay control |
+| `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"\|"end"}` | Replay and recording control (live: 400, nothing to pause or seek). A recording seeks to the on-ice times in its last play-by-play and shows what had been received by then; a seek after the end reads on from the new position |
 | `POST /api/offset` | `{"profile": "iptv", "seconds": 40.0}` | Set a TV profile's delay behind the arena |
 | `POST /api/offset/nudge` | `{"delta": 0.5}` | Adjust the active profile's offset |
 | `POST /api/profile` | `{"profile": "iptv"\|"tv4play"}` | Switch TV profile |
@@ -278,6 +284,7 @@ auth in front if it is ever exposed).
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
 | `POST /api/test/goal` | `{"side"?: "home"\|"away"}` | Synthetic goal (default my side), offset 0, `test: true` |
+| `POST /api/test/video` | `{"kind": "goal"\|"intro"\|"pp", "side"?: "home"\|"away"}` | Plays a team video now on the portrait screens (both without `side`; `pp`: my team's, on the bar): broadcasts `{"t": "video", "kind", "side", "play_at_ms"}`, no scene, state or webhook |
 | `GET /api/webhooks` | | `{"settings": {"url", "enabled", "events"}, "events": [all event names]}` |
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
@@ -406,7 +413,7 @@ with `Cache-Control: max-age=86400`; 404 when the feed has none.
 | `GET /assets/teams/<team uuid>.svg` | the team's `icon` URL from game-info or the schedule |
 | `GET /assets/players/<isa id>.png` | the portrait in `athletes/by-team-uuid` (team roster cached 24 h), matched by name, then jersey number; the smallest signed `srcset` entry at least 480 px wide |
 
-| `GET /media/<goal\|intro>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); see `docs/SCREENS.md`, Team videos |
+| `GET /media/<goal\|intro\|pp>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); `Cache-Control: no-cache`; see `docs/VIDEOS.md` |
 
 A player is known once an event names them (scorer, assists, players on the ice). A
 player who has left the team since the game (old fixtures) has no portrait.

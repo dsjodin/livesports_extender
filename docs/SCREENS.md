@@ -94,7 +94,27 @@ use a neutral grey and show the team code.
 - All numbers use `font-variant-numeric: tabular-nums`.
 - Labels: uppercase, Barlow Condensed 600, letter-spacing 0.16–0.2em, `--text-muted`.
 
-Native sizes, portrait screens (1080 wide):
+**Sized for 3 m** (decided 2026-10-21, after the user found text hard to read at 2–3 m;
+`tools/legibility.py` measured 216 of 293 texts on the left screen under 10 mm cap
+height). Rules:
+
+- Sizes are cap heights on the glass, from the viewing distance in `config/wall.json`
+  (`viewing`): **floor** 11 mm at 3 m (labels, times, legends), **text** 18 mm (names,
+  rows, card text), large numbers 30 mm and up. `stage.applyType` turns them into
+  `--fs-floor` and `--fs-text` in CSS pixels for each screen (portrait 55 / 90 px, bar
+  42 / 68 px).
+- Nothing goes below the floor: text that does not fit is cut or moved to an
+  intermission slide, never shrunk. Long team names shrink (`data-fit`) but stay large.
+- Fewer things per screen rather than smaller ones. Save % and the goalie are in the
+  intermission only (the user's call, 2026-10-21); the live portraits have no rotation.
+- Logos without the white badge circle where there is room: large and toned down
+  (30 %) behind the team name on the portraits, free-standing on the bar (the user's
+  call, 2026-10-21). Badges stay in lists.
+- `tools/legibility.py` (service running) measures every text of every scene; a scene
+  is done when nothing is under the floor. Done so far: `live`, `intermission`, `pregame`
+  and the bar in every scene. Still to do: goal, postgame and idle portraits.
+
+Native sizes before the 3 m pass (the scenes not yet redone), portrait screens (1080 wide):
 
 | Element | Size |
 |---|---|
@@ -117,14 +137,14 @@ Bar (1920×360), native:
 
 | Element | Size |
 |---|---|
-| Layout | main row 284 px + bottom strip 76 px |
+| Layout | main row 262 px + bottom strip 98 px (3 m) |
 | Columns | home 800 px · centre 320 px · away 800 px |
 | Team colour edge | 16 px at the outer ends |
-| Badge | 130 px circle |
+| Logo | 150 px, no circle (code badge when there is no logo) |
 | Team name | 80 px, 800 |
 | Score box | 200 px wide, digits 220 px, 800, `--panel` background |
-| Centre: period digit / label / pill | 130 px / 26 px / 30 px |
-| Strip text | 30 px, 600, letter-spacing 0.12em, `--text-secondary` on `--strip` |
+| Centre: period digit / label / pill | 130 px / `--fs-floor` / `--fs-floor` |
+| Strip text | `--fs-floor` (42 px), 700, letter-spacing 0.06em, `--text-secondary` on `--strip` |
 
 ### Components
 
@@ -200,11 +220,13 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 - Bar: home and away name with badge; score boxes show league **points** with the label
   "POÄNG"; centre "IKVÄLL" / start time / arena; strip "ÄVEN IKVÄLL: …" other games tonight.
   Less than 60 min to start: centre shows a countdown "NEDSLÄPP OM 42:10".
-- Left (home) and right (away): header (badge, "HEMMA"/"BORTA", long name); tiles MATCHER,
-  POÄNG, MÅLSKILLNAD; "FORM, SENASTE 5" with five form rows, newest first; tiles
-  "GJORDA MÅL / MATCH" and "INSLÄPPTA / MATCH" (one decimal, comma).
-  Bottom card left: "SENASTE MÖTET · <datum>" with result and arena. Bottom card right:
-  "NEDSLÄPP" with arena and start time.
+- Left (home) and right (away), sized for 3 m: the header as in `live` (short name over
+  the toned-down logo); tiles PLATS ("2:A"), POÄNG, MÅL +/−; "FORM, SENASTE 5" with five
+  rows, newest first: V/F, HEMMA/BORTA, the opponent's logo and code, the score (plus ÖT
+  or STR); a "MÅL PER MATCH" card with GJORDA and INSLÄPPTA (one decimal, comma).
+  Bottom card left: "SENASTE MÖTET" with the result, the date and ÖT/STR. Bottom card
+  right: "NEDSLÄPP" with the start time and arena. Games played and the arena of the
+  last meeting are left out.
 - Data: schedule (results, points: 3 for a regulation win, 2 for an overtime or shootout win,
   1 for an overtime or shootout loss), standings.
 
@@ -213,17 +235,19 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 - Bar: badges, short names in capitals, score boxes; centre "PERIOD" + period digit and a
   strength pill ("PP FRÖLUNDA" in gold with a pulsing dot; "5 MOT 3" when relevant; nothing at
   5v5); strip "SKOTT 36–26 • UTV.MIN 2–6 • SCANDINAVIUM · 12 044 ÅSKÅDARE".
-- Left (home) and right (away): header; tiles SKOTT (on goal), MÅL, UTV.MIN; goalie card;
-  "SKOTTKARTA" with legend and the shot map; bottom: power-play banner for the team on the
-  power play, penalty card for the penalised team, otherwise a "SENASTE" card with the last
-  event.
+- Left (home) and right (away), sized for 3 m: header with the short name in capitals
+  (170 px) over the team's logo, large and toned down; tiles SKOTT (on goal), MÅL,
+  UTV.MIN (values 200 px); the shot map with its legend under it (symbols about 10 mm);
+  a "TOM BUR" card while the goalie is pulled; bottom: power-play banner for the team on
+  the power play ("#4 Bergqvist · Slashing 2 min"), penalty card for the penalised team,
+  otherwise a "SENASTE" card with the last event. No goalie card (intermission only).
 
 ### goal (mockup scene 3)
 
 - Scoring side's screen: gold header flashing between `--gold` and `--gold-flash` (0.9 s
   cycle) with "MÅL!" and the team name; decorative outline jersey number behind the content;
-  "MÅLSKYTT", first name, LAST NAME; chips "#25", strength ("POWERPLAY", "FULLT LAG",
-  "BOXPLAY", "TOM BUR"), "3:E PERIODEN 09:07"; card "ASSIST" with up to two "#nr Namn";
+  "MÅLSKYTT", first name, LAST NAME; chips "#25", strength ("EQ" full strength, "PP"
+  power play, "SH" short-handed, "TOM BUR"; decided 2026-10-21), "3:E PERIODEN 09:07"; card "ASSIST" with up to two "#nr Namn";
   score row with both badges and "2–1"; "PÅ ISEN" grid with the six players from `on_ice`.
 - Other screen: dimmed header (60% opacity); "<LEDANDE LAG> LEDER" or "KVITTERING" with the
   score; "SKOTT a–b"; "MÅLEN" list with the new goal highlighted.
@@ -258,15 +282,29 @@ divided by the replay speed (`config.speed`). Before overtime the break is taken
   `floor((now − since_ms) / 12 s) mod n` on the synced clock, so all screens agree and a
   reload lands on the same slide; the change is a 0.5 s cross-fade. Dots at the bottom show
   where in the cycle it is, and the countdown card "<N>:E PERIODEN STARTAR OM" stays.
-- Left: our game. "EFTER n PERIODER" over: PERIODSTATISTIK (both teams, comparison rows:
-  shots per period, shots on goal, shot attempts, power play goals/chances, penalty
-  minutes, save %); SKOTTKARTOR (both teams' maps); MÅL OCH UTVISNINGAR; MÅLVAKTER OCH
-  SPECIALLAG (goalie cards, power play and penalty kill).
-- Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (one card per other game: badges, score,
-  status, shots, penalty minutes); the live table "OM MATCHERNA SLUTADE NU" (or plain
-  TABELL when no other game has started, see `docs/PROTOCOL.md`, live table) with a
-  movement arrow per team; MÅLSKYTTAR (goals per other game). With no other games the
-  right screen shows our goals and penalties.
+- Left: our game, five slides under "EFTER n PERIODER" (sized for 3 m, 2026-10-21):
+  SKOTT (both teams, comparison rows: shots per period, on goal, attempts); SKOTTKARTOR
+  (both maps, shots on goal per team); MÅLEN (the last six: "#11 FAGEMO 1–0", under it
+  "P1 07:11 · FHC · EQ"); UTVISNINGAR (the last six: "#4 BERGQVIST 2 MIN", "P1 15:09 ·
+  SKE · Slashing"; a penalty shot reads STRAFFSLAG); MÅLVAKTER OCH SPECIAL TEAMS (goalie
+  per team with save % and saves, power play goals/chances, penalty minutes). Assists
+  are left out of the lists (the goal scene has them).
+- Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (up to six games: logos, codes, score,
+  status); the live table "OM MATCHERNA SLUTADE NU" (or plain TABELL when no other game
+  has started, see `docs/PROTOCOL.md`, live table): rank, movement arrow, logo, team,
+  tonight's score, points; MÅLSKYTTAR (three games a slide, the last four goals each:
+  "P2 14:17 LHF JUUSTOVAARA 3–2"). With no other games the right screen shows our goals
+  and penalties.
+- Bottom of both: the slide dots and "PERIOD n OM" with the countdown.
+
+### Feed warning (asked for by the user 2026-10-21)
+
+A red dot (34 px, about 12 mm) pulses at the top of the bar's centre while there is no
+contact: the service has lost shl.se during a live game (`config.feed_ok` false, see
+`docs/PROTOCOL.md`), or the bar has lost the service itself (its WebSocket is not open,
+shown after a 5 s grace period at page load). Nothing shows while all is well, and it
+goes out by itself when contact is back. The phone app says "Kontakt med shl.se: OK /
+Borta, försöker igen" in its status, `/sim` "NO CONTACT WITH SHL.SE" in its readout.
 
 ### Bar ticker (Phase 8)
 
@@ -285,16 +323,30 @@ service ships a generated default per team, and your own replace them.
   `goal` video plays over the scene from `play_at` (2.2 s; bands in the team colours and
   gold, the logo, "MÅL!", the team name; it ends transparent) and the goal graphics build
   behind it. The gold band (`#fx`) still sweeps above it. The other screens show no video.
-- Intro: in `pregame`, at puck drop on TV time (`start_ms + offset_ms`), the left and right
-  screens play their team's `intro` video (4.5 s: the team colour, logo, "MATCHSTART", the
-  team name, ending transparent). A game that starts before that time shows none.
-- Each portrait screen fetches its own team's two videos when the teams are known, as
+- Intro: the left and right screens play their team's `intro` video (4.5 s: the team
+  colour, logo, "MATCHSTART", the team name, ending transparent) once per game: in
+  `pregame` at the scheduled start on TV time (`start_ms + offset_ms`), or, if that time
+  had passed (a replay, or a page opened late), at puck drop, when `live` follows
+  `pregame`, over the first seconds of the live scene.
+- Power play (asked for by the user 2026-10-21): when **my team's** power play begins
+  (`strength.pp_side` turns to my side in a patch, at its `play_at`), the bar plays my
+  team's `pp` video over the whole bar (4 s, 1920×360: slashes, the team colour, logo,
+  "POWERPLAY" letter by letter, the team name, a light sweep and pulsing arrows, ending
+  transparent, so the "PP <LAG>" pill shows after it). Not again when it grows to 5 on 3
+  within the same power play, nothing for the other team's power play, nothing without a
+  my side for the game, and not for a power play already on when a screen (re)loads.
+  Only in `live` and `goal`.
+- Testing: `/sim` has "Intro (both)", "Goal video home/away", "PP video (my team)"
+  (`POST /api/test/video`, the video alone), a "My team" side for the game and "Test goal home/away" (the whole goal sequence). The debug overlay
+  (`?debug=1`) shows whether a screen holds its videos ("video goal ready · intro ready").
+- Each portrait screen fetches its own team's two videos (the bar: my team's `pp`) when the teams are known, as
   blobs, so playback never waits on the network. A screen that is late starts the video
   that far in; a team without a video shows none. A fresh state (seek, reconnect) stops a
   running video. Each start logs `[sync] video/<kind> screen=… delta=…ms`.
-- Files: `GET /media/<goal|intro>/<team uuid>.webm` serves `data/media/<kind>/<uuid>.webm`
+- Making your own: sizes, format, encoding and installing are in `docs/VIDEOS.md`.
+- Files: `GET /media/<goal|intro|pp>/<team uuid>.webm` serves `data/media/<kind>/<uuid>.webm`
   if it exists, else the default in `web/media/`. Your own: WebM VP9 with alpha
-  (`yuva420p`), 1080×1920, short, ending transparent; e.g.
+  (`yuva420p`), 1080×1920 (`pp`: 1920×360), short, ending transparent; e.g.
   `ffmpeg -i in.mov -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 0 -crf 32 -an out.webm`.
 - Defaults: `tools/make_stingers.py` draws every frame in Chromium on a transparent page
   (colours from `config/teams.json`, logos from the logo cache) and encodes them with

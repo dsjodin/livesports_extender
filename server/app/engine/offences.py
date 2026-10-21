@@ -6,20 +6,21 @@ from typing import Any
 
 log = logging.getLogger(__name__)
 
-# Swedish text shown on screen. Unknown codes are shown raw and logged once.
+# Text shown on screen: the English names, as Swedish hockey uses them (hooking,
+# tripping; decided by the user 2026-10-21). Unknown codes are shown raw and logged once.
 OFFENCE_TEXT: dict[str, str] = {
-    "TRIP": "Fällning",
-    "HOLD": "Fasthållning",
-    "CROSS": "Crosscheck",
-    "INTRF": "Obstruktion",
-    "BOARD": "Knuff mot sarg",
-    "ROUGH": "Ruffighet",
+    "TRIP": "Tripping",
+    "HOLD": "Holding",
+    "CROSS": "Cross-checking",
+    "INTRF": "Interference",
+    "BOARD": "Boarding",
+    "ROUGH": "Roughing",
     "SLASH": "Slashing",
-    "FIGHT": "Slagsmål",
-    "HOOK": "Hakning",
-    "DELAY": "Förhalning",
-    "TOO-M": "För många spelare på isen",
-    "P-SHOT": "Straffslag",
+    "FIGHT": "Fighting",
+    "HOOK": "Hooking",
+    "DELAY": "Delay of game",
+    "TOO-M": "Too many men",
+    "P-SHOT": "Penalty shot",
 }
 
 MINOR_S = 120

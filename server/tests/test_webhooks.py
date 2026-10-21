@@ -81,11 +81,11 @@ def test_goal_payload_as_documented() -> None:
 def test_other_payloads() -> None:
     score = {"home": 2, "away": 1}
     pen = ev("penalty", "away", player=Player(number="8", first="Jonathan", last="Myrenberg"),
-             data={"offence_text": "Fasthållning", "minutes": 2})  # fmt: skip
+             data={"offence_text": "Holding", "minutes": 2})  # fmt: skip
     assert payload(pen, TEAMS, "home", score) == {
         "event": "shl_penalty", "game_uuid": "bdhvuc5tex", "test": False, "side": "away",
         "is_my_team": False, "player": "Jonathan Myrenberg", "number": "8",
-        "offence_text": "Fasthållning", "minutes": 2,
+        "offence_text": "Holding", "minutes": 2,
     }  # fmt: skip
     end = payload(ev("game_end", None, data={"final": score, "overtime": False, "shootout": False}),
                   TEAMS, "away", score)  # fmt: skip

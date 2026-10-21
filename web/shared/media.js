@@ -1,5 +1,5 @@
 // Team videos (docs/SCREENS.md, Team videos): a goal stinger over the scoring side's
-// screen and an intro before puck drop. Silent WebM VP9 with alpha from
+// screen, an intro before puck drop, and on the bar a power-play video for my team. Silent WebM VP9 with alpha from
 // /media/<kind>/<team uuid>.webm; Home Assistant plays the sound. Each portrait screen
 // fetches its own team's videos ahead of time (as blobs, so playback never waits on the
 // network) and starts one at its play_at on the synced clock; a screen that is late
@@ -7,7 +7,7 @@
 import { now } from "./clock.js";
 import { at } from "./scheduler.js";
 
-const KINDS = ["goal", "intro"];
+const KINDS = ["goal", "intro", "pp"];
 const fetched = new Set(); // "kind/uuid" asked for
 const videos = {}; // kind -> <video>, holding the screen's own team's video
 let current = null;
@@ -27,10 +27,10 @@ function element(kind) {
   return videos[kind];
 }
 
-/** Fetch a team's goal and intro videos and load them, ready to play. */
-export function preload(uuid) {
+/** Fetch a team's videos of ``kinds`` and load them, ready to play. */
+export function preload(uuid, kinds) {
   if (!uuid) return;
-  for (const kind of KINDS) {
+  for (const kind of kinds) {
     const key = `${kind}/${uuid}`;
     if (fetched.has(key)) continue;
     fetched.add(key);
@@ -80,4 +80,10 @@ export function hide(video) {
     v.style.opacity = "0";
   }
   if (!video) current = null;
+}
+
+/** For the debug overlay: which videos this screen holds. */
+export function status() {
+  const ready = (v) => (v.readyState >= 2 ? "ready" : "loading");
+  return KINDS.map((k) => `${k} ${videos[k] ? ready(videos[k]) : "none"}`).join(" · ");
 }

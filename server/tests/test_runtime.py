@@ -11,7 +11,7 @@ from app.clock import FakeClock
 from app.config import Settings, StateStore
 from app.feed.snapshot import Snapshot
 from app.feedtime import format_local, format_local_z
-from app.runtime import Runtime
+from app.runtime import Runtime, SourceError
 
 T = 1_800_000_000_000
 S = 1000
@@ -393,3 +393,47 @@ async def test_follow_my_team(tmp_path: Path) -> None:
     rt._source_task = None
     rt.config.source.mode = "none"  # type: ignore[assignment]
     assert await rt.follow_my_team() is None  # my team's game is over
+
+
+async def test_a_recording_can_be_paused_and_seeked(setup: Any, tmp_path: Path) -> None:
+    from test_sources import write_long_recording
+
+    rt, _, clock = setup
+    path = tmp_path / "recordings" / "rec1" / "polls.jsonl"
+    path.parent.mkdir(parents=True)
+    write_long_recording(path, clock.now_ms() - 3600_000)
+    await rt.set_source("recording", path="rec1", speed=50)
+    rt.replay_control("pause")
+    assert rt.status()["paused"]
+    rt.replay_control("seek", to="before_next_goal")
+    rt.replay_control("play")
+    rt.replay_control("speed", speed=20)
+    assert not rt.status()["paused"]
+    await rt.set_source("none")
+    with pytest.raises(SourceError, match="only a replay or a recording"):
+        rt.replay_control("seek", to="end")
+
+
+async def test_lost_contact_goes_out_as_feed_ok(setup: Any) -> None:
+    from app.feed.client import ShlClient
+    from app.feed.sources import LiveSource
+
+    rt, hub, clock = setup
+    source = LiveSource(lambda: ShlClient(), "bdhvuc5tex", clock)
+    rt.source = source
+    rt._source_task = asyncio.get_running_loop().create_task(asyncio.Event().wait())
+    try:
+        rt._check_feed()
+        assert rt.feed_ok and not hub.of("config")
+        source.errors = 3
+        rt._check_feed()
+        assert not rt.feed_ok and hub.of("config")[-1]["config"]["feed_ok"] is False
+        assert rt.status()["feed_ok"] is False
+        source.errors = 0
+        rt._check_feed()
+        assert hub.of("config")[-1]["config"]["feed_ok"] is True
+    finally:
+        rt._source_task.cancel()
+    rt.source = None
+    rt._check_feed()
+    assert rt.feed_ok  # a replay or no source: never lost

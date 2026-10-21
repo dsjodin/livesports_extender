@@ -3,9 +3,9 @@
 // from the synced clock and the scene start, so both screens and any reload agree. The
 // countdown is an estimate: the period's end on TV (the scene's play_at) plus the break,
 // scaled by the replay speed.
-import { badge, compareRow, goalieCard, goalRow, penaltyRow, shotMap } from "../../shared/components.js";
-import { caps, countdown, esc, html, percent, periodWord, raw, score } from "../../shared/format.js";
-import { barPage, every, ordinal, play, statsLine, stopTimers, team } from "./common.js";
+import { compareRow, shotMap } from "../../shared/components.js";
+import { caps, countdown, esc, html, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
+import { barPage, every, plainLogo, play, shortName, statsLine, stopTimers } from "./common.js";
 import { gameStatus, ticker } from "./ticker.js";
 
 const BREAK_MS = 18 * 60_000;
@@ -55,7 +55,7 @@ function render(ctx) {
     ctx.root.innerHTML = html`<div class="portrait-page inter-page"><div class="rule" style="--c: var(--${ctx.side})"></div>
       <div class="slides">${raw(slides.map((s, i) => `<section class="slide" data-i="${i}">${s}</section>`).join(""))}</div>
       <div class="inter-foot anim"><div class="dots">${raw(slides.map((_, i) => `<span data-dot="${i}"></span>`).join(""))}</div>
-        <div class="card alt countdown-card"><div class="label">${n >= 3 ? "FÖRLÄNGNING" : `${caps(ordinal(n + 1))} PERIODEN`} STARTAR OM</div>
+        <div class="card alt countdown-card"><div class="label">${nextName(n)} OM</div>
         <div class="big-line gold" data-countdown></div></div></div></div>`;
     rotate(ctx, slides.length);
   }
@@ -93,26 +93,18 @@ function rotate(ctx, count) {
 }
 
 // --- our game -------------------------------------------------------------------------
-
-function duo(tv) {
-  return html`<div class="duo"><div class="team">${raw(badge(team(tv, "home"), "home", "sm"))}${team(tv, "home").short ?? ""}</div>
-    <div class="team">${team(tv, "away").short ?? ""}${raw(badge(team(tv, "away"), "away", "sm"))}</div></div>`;
-}
+// Sized for 3 m (docs/SCREENS.md, Type): one subject a slide, nothing under --fs-floor.
 
 export function savePct(g) {
   return g?.shots_against ? g.saves / g.shots_against : null;
 }
 
+/** Final statistics rows (postgame): shots, power play, penalty minutes, save %. */
 export function comparison(tv, { perPeriod = true } = {}) {
   const h = tv.stats?.home ?? {};
   const a = tv.stats?.away ?? {};
   const rows = [];
-  if (perPeriod) {
-    const periods = Math.max(h.shots_by_period?.length ?? 0, a.shots_by_period?.length ?? 0);
-    for (let i = 0; i < periods; i++) {
-      rows.push(compareRow(`SKOTT P${i + 1}`, h.shots_by_period?.[i] ?? 0, a.shots_by_period?.[i] ?? 0));
-    }
-  }
+  if (perPeriod) rows.push(...shotRows(tv));
   rows.push(compareRow("SKOTT PÅ MÅL", h.shots_on_goal ?? 0, a.shots_on_goal ?? 0));
   rows.push(compareRow("SKOTTFÖRSÖK", h.shot_attempts ?? 0, a.shot_attempts ?? 0));
   rows.push(compareRow("POWERPLAY", h.pp?.goals ?? 0, a.pp?.goals ?? 0, `${h.pp?.goals ?? 0}/${h.pp?.chances ?? 0}`, `${a.pp?.goals ?? 0}/${a.pp?.chances ?? 0}`));
@@ -123,95 +115,142 @@ export function comparison(tv, { perPeriod = true } = {}) {
   return rows.join("");
 }
 
-function head(label, title) {
-  return html`<div><div class="label">${label}</div><div class="section-title">${title}</div></div>`;
+function shotRows(tv) {
+  const h = tv.stats?.home ?? {};
+  const a = tv.stats?.away ?? {};
+  const periods = Math.max(h.shots_by_period?.length ?? 0, a.shots_by_period?.length ?? 0);
+  const rows = [];
+  for (let i = 0; i < periods; i++) {
+    rows.push(compareRow(i < 3 ? `SKOTT P${i + 1}` : "SKOTT ÖT", h.shots_by_period?.[i] ?? 0, a.shots_by_period?.[i] ?? 0));
+  }
+  return rows;
 }
 
-function goalsAndPenalties(tv) {
-  const goals = (tv.goals ?? []).slice(-5);
-  const pens = (tv.penalties ?? []).slice(-7);
-  return html`<div class="list">${raw(goals.length ? goals.map((g) => goalRow(g)).join("") : `<div class="secondary body-text">Inga mål ännu</div>`)}</div>
-    <div class="list"><div class="label">UTVISNINGAR</div>${raw(pens.length ? pens.map((p) => penaltyRow(p)).join("") : `<div class="secondary body-text">Inga utvisningar</div>`)}</div>`;
+function head(label, title) {
+  return html`<div class="slide-head"><div class="label">${label}</div><div class="slide-title">${title}</div></div>`;
+}
+
+function teamLine(tv, side, right = "") {
+  return html`<div class="team-line">${raw(plainLogo(tv, side, "sm"))}<span class="tl-name">${caps(shortName(tv, side))}</span>${raw(right ? html`<span class="tl-right">${right}</span>` : "")}</div>`;
+}
+
+function duo(tv) {
+  return html`<div class="duo3">${raw(teamLine(tv, "home"))}${raw(teamLine(tv, "away"))}</div>`;
+}
+
+const lastName = (p) => caps(p?.last ?? "");
+
+function goalLine(tv, g) {
+  const p = g.player;
+  const chip = strengthChip(g.data?.strength, g.data?.empty_net);
+  const who = p ? `#${p.number ?? ""} ${lastName(p)}` : "MÅL";
+  const sc = g.data?.score ?? {};
+  return html`<div class="row3" style="--c: var(--${g.side})"><div class="r3-main"><span class="r3-name">${who}</span><span class="r3-score">${score(sc.home, sc.away)}</span></div>
+    <div class="r3-meta">P${g.period} ${g.time ?? ""} · ${g.team_code ?? ""}${chip ? ` · ${chip}` : ""}</div></div>`;
+}
+
+function penaltyLine(pen) {
+  const p = pen.player;
+  const shot = pen.data?.offence_code === "P-SHOT"; // a penalty shot awarded, no minutes
+  const who = shot ? "STRAFFSLAG" : p ? `#${p.number ?? ""} ${lastName(p)}` : "LAGSTRAFF";
+  const minutes = pen.data?.minutes ? `${pen.data.minutes} MIN` : "";
+  const what = shot ? "" : ` · ${pen.data?.offence_text ?? ""}`;
+  return html`<div class="row3" style="--c: var(--${pen.side})"><div class="r3-main"><span class="r3-name">${who}</span><span class="r3-score">${minutes}</span></div>
+    <div class="r3-meta">P${pen.period} ${pen.time ?? ""} · ${pen.team_code ?? ""}${what}</div></div>`;
+}
+
+function goalsSlide(tv, label) {
+  const goals = (tv.goals ?? []).filter((g) => !g.data?.shootout).slice(-6);
+  return html`${raw(head(label, "MÅLEN"))}<div class="list3">${raw(goals.length ? goals.map((g) => goalLine(tv, g)).join("") : `<div class="empty3">Inga mål ännu</div>`)}</div>`;
+}
+
+function penaltiesSlide(tv, label) {
+  const pens = (tv.penalties ?? []).slice(-6);
+  return html`${raw(head(label, "UTVISNINGAR"))}<div class="list3">${raw(pens.length ? pens.map(penaltyLine).join("") : `<div class="empty3">Inga utvisningar</div>`)}</div>`;
+}
+
+function goalieBlock(tv, side) {
+  const g = tv.stats?.[side]?.goalie;
+  const pct = savePct(g);
+  const name = g?.name ? `#${g.number ?? ""} ${caps((g.name ?? "").split(" ").slice(-1)[0])}` : "–";
+  return html`<div class="goalie3">${raw(teamLine(tv, side))}<div class="g3-body"><div><div class="g3-name">${name}</div>
+    <div class="r3-meta">${g?.saves ?? 0} räddningar</div></div><div class="g3-pct">${percent(pct)}</div></div></div>`;
 }
 
 function ourSlides(tv, n) {
   const h = tv.stats?.home ?? {};
   const a = tv.stats?.away ?? {};
+  const label = after(n);
   const maps = ["home", "away"]
-    .map(
-      (side) => html`<div class="map-pair"><div class="map-title">${raw(badge(team(tv, side), side, "sm"))}<span>${team(tv, side).short ?? ""}</span>
-        <span class="muted">${tv.stats?.[side]?.shots_on_goal ?? 0} skott på mål</span></div>${raw(shotMap(tv.shots?.[side], side))}</div>`,
-    )
-    .join("");
-  const goalies = ["home", "away"]
-    .map(
-      (side) => html`<div class="goalie-pair"><div class="map-title">${raw(badge(team(tv, side), side, "sm"))}<span>${team(tv, side).short ?? ""}</span></div>
-        ${raw(goalieCard(tv.stats?.[side]?.goalie))}</div>`,
-    )
+    .map((side) => html`<div class="map3">${raw(teamLine(tv, side, `${tv.stats?.[side]?.shots_on_goal ?? 0} SKOTT`))}${raw(shotMap(tv.shots?.[side], side))}</div>`)
     .join("");
   return [
-    html`${raw(head(after(n), "PERIODSTATISTIK"))}${raw(duo(tv))}<div class="list cmp-list">${raw(comparison(tv))}</div>`,
-    html`${raw(head(after(n), "SKOTTKARTOR"))}${raw(maps)}`,
-    html`${raw(head(after(n), "MÅL OCH UTVISNINGAR"))}${raw(goalsAndPenalties(tv))}`,
-    html`${raw(head(after(n), "MÅLVAKTER OCH SPECIALLAG"))}${raw(goalies)}
-      <div class="list cmp-list">${raw(compareRow("POWERPLAYMÅL", h.pp?.goals ?? 0, a.pp?.goals ?? 0))}${raw(compareRow("POWERPLAYCHANSER", h.pp?.chances ?? 0, a.pp?.chances ?? 0))}${raw(compareRow("UTVISNINGSMINUTER", h.pim ?? 0, a.pim ?? 0))}</div>`,
+    html`${raw(head(label, "SKOTT"))}${raw(duo(tv))}<div class="cmp-list3">${raw(shotRows(tv).join(""))}
+      ${raw(compareRow("PÅ MÅL", h.shots_on_goal ?? 0, a.shots_on_goal ?? 0))}${raw(compareRow("FÖRSÖK", h.shot_attempts ?? 0, a.shot_attempts ?? 0))}</div>`,
+    html`${raw(head(label, "SKOTTKARTOR"))}${raw(maps)}`,
+    goalsSlide(tv, label),
+    penaltiesSlide(tv, label),
+    html`${raw(head(label, "MÅLVAKTER OCH SPECIAL TEAMS"))}${raw(goalieBlock(tv, "home"))}${raw(goalieBlock(tv, "away"))}
+      <div class="cmp-list3">${raw(compareRow("POWERPLAY", h.pp?.goals ?? 0, a.pp?.goals ?? 0, `${h.pp?.goals ?? 0}/${h.pp?.chances ?? 0}`, `${a.pp?.goals ?? 0}/${a.pp?.chances ?? 0}`))}${raw(compareRow("UTV.MIN", h.pim ?? 0, a.pim ?? 0))}</div>`,
   ];
 }
 
 // --- the other games ------------------------------------------------------------------
 
 function logo(t) {
-  return t?.logo ? `<img class="logo-xs" src="${esc(t.logo)}" alt="" onerror="this.remove()">` : `<span class="logo-xs"></span>`;
+  return t?.logo ? `<img class="logo3" src="${esc(t.logo)}" alt="" onerror="this.remove()">` : `<span class="logo3"></span>`;
 }
 
 function otherCard(o) {
   const live = !o.ended && o.phase !== "pregame";
-  const sh = o.stats?.home?.shots_on_goal ?? 0;
-  const sa = o.stats?.away?.shots_on_goal ?? 0;
-  return html`<div class="other-game ${live ? "live" : ""}">
-    <div class="og-team">${raw(logo(o.teams.home))}<span>${o.teams.home.short ?? o.teams.home.code}</span></div>
-    <div class="og-score">${o.phase === "pregame" ? "–" : score(o.score.home, o.score.away)}</div>
-    <div class="og-team away"><span>${o.teams.away.short ?? o.teams.away.code}</span>${raw(logo(o.teams.away))}</div>
-    <div class="og-meta"><span class="og-status">${gameStatus(o)}${o.last_game_time && live ? ` ${o.last_game_time}` : ""}</span>${raw(o.phase === "pregame" ? "" : html`<span class="muted">Skott ${score(sh, sa)}</span>`)}</div></div>`;
+  const status = `${gameStatus(o)}${o.last_game_time && live && o.phase !== "intermission" ? ` ${o.last_game_time}` : ""}`;
+  return html`<div class="og3 ${live ? "live" : ""}">
+    <div class="og3-team">${raw(logo(o.teams.home))}<span>${o.teams.home.code ?? ""}</span></div>
+    <div class="og3-score">${o.phase === "pregame" ? "–" : score(o.score.home, o.score.away)}</div>
+    <div class="og3-team away"><span>${o.teams.away.code ?? ""}</span>${raw(logo(o.teams.away))}</div>
+    <div class="og3-status">${status}</div></div>`;
 }
 
 function tableSlide(rows, title) {
   const body = rows
     .map((r) => {
-      const move = r.move > 0 ? `<span class="mv up">▲${r.move}</span>` : r.move < 0 ? `<span class="mv down">▼${-r.move}</span>` : `<span class="mv"></span>`;
-      const tonight = r.live ? `${r.live.for}–${r.live.against}${r.live.ended ? "" : " •"}` : "";
-      return html`<div class="table-row ${r.live ? "playing" : ""}"><span class="num">${r.rank}</span>${raw(move)}${raw(logo({ logo: r.logo }))}
-        <span class="team-cell">${r.short ?? r.code}</span><span class="num live-score">${tonight}</span><span class="num">${r.gp}</span><span class="num strong">${r.points}</span></div>`;
+      const move = r.move > 0 ? `<span class="mv up">▲</span>` : r.move < 0 ? `<span class="mv down">▼</span>` : `<span class="mv"></span>`;
+      const tonight = r.live ? `${r.live.for}–${r.live.against}` : "";
+      return html`<div class="t3-row ${r.live ? "playing" : ""}"><span class="num">${r.rank}</span>${raw(move)}${raw(logo({ logo: r.logo }))}
+        <span class="t3-team">${r.short ?? r.code}</span><span class="num t3-live">${tonight}</span><span class="num t3-pts">${r.points}</span></div>`;
     })
     .join("");
-  return html`${raw(head("SHL", title))}<div class="list table-live"><div class="table-row head label"><span class="num">#</span><span></span><span></span><span>LAG</span><span class="num">IKVÄLL</span><span class="num">M</span><span class="num">P</span></div>${raw(body)}</div>`;
+  return html`${raw(head("SHL", title))}<div class="table3"><div class="t3-row t3-head label"><span class="num">#</span><span></span><span></span><span>LAG</span><span class="num">IKVÄLL</span><span class="num">P</span></div>${raw(body)}</div>`;
 }
 
+/** Goals in the other games, three games a slide, the last four goals each. */
 function goalsElsewhere(others) {
   const played = others.filter((o) => o.goals?.length);
-  if (!played.length) return "";
-  const cards = played
-    .slice(0, 4)
-    .map(
-      (o) => html`<div class="og-goals"><div class="og-goals-head">${o.teams.home.code} ${score(o.score.home, o.score.away)} ${o.teams.away.code}</div>
-        ${raw(o.goals.slice(-4).map((g) => html`<div class="og-goal"><span class="muted">P${g.period} ${g.time ?? ""}</span><b>${o.teams[g.side]?.code ?? ""}</b><span>${g.number ? `#${g.number} ` : ""}${g.last ?? ""}</span><span class="og-goal-score">${score(g.score?.home, g.score?.away)}</span></div>`).join(""))}</div>`,
-    )
-    .join("");
-  return html`${raw(head("KVÄLLENS ANDRA MATCHER", "MÅLSKYTTAR"))}${raw(cards)}`;
+  const slides = [];
+  for (let i = 0; i < played.length; i += 3) {
+    const cards = played
+      .slice(i, i + 3)
+      .map(
+        (o) => html`<div class="og3-goals"><div class="og3-goals-head">${o.teams.home.code} ${score(o.score.home, o.score.away)} ${o.teams.away.code}</div>
+          ${raw(o.goals.slice(-4).map((g) => html`<div class="og3-goal"><span>${typeof g.period === "number" ? `P${g.period} ` : ""}${g.time ?? ""}</span><b>${o.teams[g.side]?.code ?? ""}</b><span class="og3-who">${caps(g.last ?? "")}</span><span class="num">${score(g.score?.home, g.score?.away)}</span></div>`).join(""))}</div>`,
+      )
+      .join("");
+    slides.push(html`${raw(head("KVÄLLENS ANDRA MATCHER", "MÅLSKYTTAR"))}${raw(cards)}`);
+  }
+  return slides;
 }
 
 function otherSlides(tv) {
   const others = tv.others ?? [];
   const slides = [];
   if (others.length) {
-    slides.push(html`${raw(head("KVÄLLENS ANDRA MATCHER", "RESULTAT"))}<div class="list">${raw(others.map(otherCard).join(""))}</div>`);
+    slides.push(html`${raw(head("KVÄLLENS ANDRA MATCHER", "RESULTAT"))}<div class="list3">${raw(others.slice(0, 6).map(otherCard).join(""))}</div>`);
   } else {
     // nobody else plays tonight: our goals and penalties instead
-    slides.push(html`${raw(head("MATCHEN", "MÅL OCH UTVISNINGAR"))}${raw(goalsAndPenalties(tv))}`);
+    slides.push(goalsSlide(tv, "MATCHEN"), penaltiesSlide(tv, "MATCHEN"));
   }
   if (tv.live_table) slides.push(tableSlide(tv.live_table, "OM MATCHERNA SLUTADE NU"));
   else if (tv.league?.standings?.length) slides.push(tableSlide(tv.league.standings, "TABELL"));
-  const scorers = goalsElsewhere(others);
-  if (scorers) slides.push(scorers);
+  slides.push(...goalsElsewhere(others));
   return slides;
 }

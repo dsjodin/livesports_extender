@@ -59,7 +59,7 @@ body.bar #app { width: 1920px; height: 360px; }
 .shotmap .faceoff { fill: none; stroke: var(--rink-red); stroke-width: 0.9; opacity: 0.8; }
 .shotmap .faceoff-dot { fill: var(--rink-red); }
 .shotmap .shot { stroke: rgba(0, 0, 0, 0.65); stroke-width: 0.7; }
-.shotmap .shot-wide { stroke-width: 1.5; fill: none; }
+.shotmap .shot-wide { stroke-width: 2.2; fill: none; }
 .shot-goal { fill: var(--gold); stroke: var(--on-gold); stroke-width: 0.8; }
 .bottom-slot { margin-top: auto; display: flex; flex-direction: column; gap: 18px; }
 .pp-banner { background: var(--gold); color: var(--on-gold); border-radius: 21px; padding: 24px 32px; }
@@ -240,3 +240,147 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 
 /* team videos (Phase 8): over the scene, under the goal band */
 .team-video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 40; opacity: 0; pointer-events: none; }
+body.bar .team-video { width: 1920px; height: 360px; }
+
+/* ===================== 3 m sizes (docs/SCREENS.md, Type) =====================
+   --fs-floor is the smallest text allowed (11 mm cap at 3 m), --fs-text the size for
+   names and rows (18 mm); both set per screen from wall.json. Scenes move over to these
+   one at a time: live and the bar first. */
+.scene-live .portrait-page { padding: 50px 60px 56px; gap: 40px; }
+.team-head.compact { position: relative; height: 300px; flex: none; display: flex; align-items: center; margin-top: -10px; }
+.team-head.compact .head-logo { position: absolute; left: -30px; top: 50%; width: 360px; height: 320px; transform: translateY(-50%);
+  object-fit: contain; object-position: left center; opacity: 0.3; z-index: 0; pointer-events: none; }
+.team-head.compact .team-name { position: relative; z-index: 1; flex: 1; min-width: 0; padding-left: 40px; font-size: 170px; line-height: 0.9; overflow: hidden;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.55); }
+.scene-live .portrait-page { overflow: hidden; }
+.plain-logo { object-fit: contain; flex: none; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5)); }
+.plain-md { width: 150px; height: 150px; }
+.scene-live .label { font-size: var(--fs-floor); font-weight: 700; letter-spacing: 0.08em; }
+.scene-live .tile { padding: 28px 30px 16px; border-radius: 24px; }
+.scene-live .tile .value { font-size: 200px; margin-top: 0; }
+.scene-live .map-block { gap: 20px; }
+.scene-live .shotmap { width: 880px; align-self: center; }
+.scene-live .tiles, .scene-live .map-block { flex: none; }
+.scene-live .legend { font-size: var(--fs-floor); gap: 14px 36px; flex-wrap: wrap; justify-content: center; color: var(--text-secondary); font-weight: 700; }
+.scene-live .legend svg { width: 48px; height: 48px; }
+.scene-live .legend span { gap: 12px; }
+.scene-live .card, .scene-live .pen-card, .scene-live .pp-banner { border-radius: 24px; padding: 28px 36px; }
+.scene-live .latest-text, .scene-live .pen-card .pen-name { font-size: var(--fs-text); line-height: 1.05; margin-top: 8px; }
+.scene-live .pen-card .pen-detail, .scene-live .pp-banner .pp-detail { font-size: var(--fs-floor); font-family: var(--font-condensed); font-weight: 600; line-height: 1.1; margin-top: 8px; }
+.scene-live .pp-banner .pp-title { font-size: var(--fs-text); }
+.scene-live .pp-banner .dot { width: 40px; height: 40px; }
+.scene-live .pulled-card { background: var(--panel-raised); box-shadow: inset 0 0 0 6px var(--gold); }
+.scene-live .pulled-card .label { color: var(--gold); }
+
+/* bar: taller strip, labels and pills at the floor size */
+.bar-page { grid-template-rows: 262px 98px; }
+.strip { font-size: var(--fs-floor); letter-spacing: 0.06em; font-weight: 700; }
+.strip .tk-sep { margin: 0 34px; }
+.bar-centre .label, .bar-centre .small, .score-box .sub { font-size: var(--fs-floor); letter-spacing: 0.08em; }
+.bar-centre .label { font-weight: 700; }
+.bar-centre .mid { font-size: 52px; }
+.pill { font-size: var(--fs-floor); padding: 4px 20px; }
+.pill .dot { width: 22px; height: 22px; }
+.score-box .sub { bottom: 8px; }
+body.bar .banner-overlay { bottom: 98px; }
+.scene-live .portrait-page > :not(.team-head):not(.rule) { position: relative; z-index: 1; }
+.scene-live .card .secondary { font-size: var(--fs-floor); font-family: var(--font-condensed); font-weight: 600; margin-top: 8px; }
+
+/* intermission at 3 m: one subject a slide (scenes/intermission.js) */
+.scene-intermission .portrait-page { padding: 56px 60px 50px; gap: 30px; }
+.scene-intermission .label { font-size: var(--fs-floor); font-weight: 700; letter-spacing: 0.08em; }
+.scene-intermission .slide { gap: 40px; }
+.slide-head .slide-title { font-family: var(--font-condensed); font-weight: 800; font-size: 120px; line-height: 0.95; margin-top: 4px; }
+.team-line { display: flex; align-items: center; gap: 24px; font-family: var(--font-condensed); font-weight: 800; font-size: var(--fs-text); line-height: 1; }
+.team-line .tl-right { margin-left: auto; font-size: var(--fs-floor); font-weight: 700; color: var(--text-secondary); letter-spacing: 0.06em; }
+.plain-sm { width: 96px; height: 96px; }
+.duo3 { display: flex; justify-content: space-between; }
+.duo3 .team-line:last-child { flex-direction: row-reverse; }
+.scene-intermission .duo3 .team-line { font-size: 70px; }
+.scene-intermission .duo3 .plain-sm { width: 80px; height: 80px; }
+.cmp-list3 { display: flex; flex-direction: column; gap: 34px; }
+.scene-intermission .cmp-home, .scene-intermission .cmp-away { font-size: 120px; }
+.scene-intermission .cmp-bar { height: 18px; border-radius: 9px; gap: 6px; margin-top: 6px; }
+.list3 { display: flex; flex-direction: column; gap: 20px; }
+.row3 { position: relative; background: var(--panel); border-radius: 22px; padding: 22px 34px 22px 50px; }
+.row3::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 16px; border-radius: 22px 0 0 22px; background: var(--c); }
+.r3-main { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; font-family: var(--font-condensed); font-weight: 800; line-height: 1; }
+.r3-name { font-size: 84px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.r3-score { font-size: 84px; flex: none; }
+.r3-meta { font-family: var(--font-condensed); font-weight: 600; font-size: var(--fs-floor); color: var(--text-secondary); margin-top: 8px; white-space: nowrap; overflow: hidden; }
+.empty3 { font-family: var(--font-condensed); font-weight: 700; font-size: var(--fs-text); color: var(--text-secondary); }
+.map3 { display: flex; flex-direction: column; gap: 16px; }
+.map3 .team-line { font-size: 70px; }
+.map3 .plain-sm { width: 80px; height: 80px; }
+.map3 .shotmap { width: 620px; align-self: center; }
+.goalie3 { display: flex; flex-direction: column; gap: 16px; }
+.goalie3 .team-line { font-size: 70px; }
+.goalie3 .plain-sm { width: 80px; height: 80px; }
+.g3-body { background: var(--panel); border-radius: 22px; padding: 26px 34px; display: flex; justify-content: space-between; align-items: center; }
+.g3-name { font-family: var(--font-condensed); font-weight: 800; font-size: 84px; line-height: 1; }
+.g3-pct { font-family: var(--font-condensed); font-weight: 800; font-size: 140px; line-height: 1; }
+.logo3 { width: 80px; height: 80px; object-fit: contain; display: inline-block; flex: none; }
+.og3 { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px 20px; background: var(--panel); border-radius: 22px; padding: 18px 30px; }
+.og3.live { box-shadow: inset 0 0 0 5px rgba(245, 197, 66, 0.6); }
+.og3-team { display: flex; align-items: center; gap: 18px; font-family: var(--font-condensed); font-weight: 800; font-size: 76px; line-height: 1; }
+.og3-team.away { justify-content: flex-end; }
+.og3-score { font-family: var(--font-condensed); font-weight: 800; font-size: 100px; line-height: 1; }
+.og3-status { grid-column: 1 / -1; text-align: center; font-family: var(--font-condensed); font-weight: 700; font-size: var(--fs-floor); letter-spacing: 0.06em; color: var(--text-secondary); line-height: 1; }
+.og3.live .og3-status { color: var(--gold); }
+.table3 { display: flex; flex-direction: column; }
+.t3-row { display: grid; grid-template-columns: 70px 50px 76px 1fr 170px 100px; align-items: center; gap: 16px; padding: 5px 10px;
+  font-family: var(--font-condensed); font-weight: 700; font-size: 62px; line-height: 1.12; border-bottom: 2px solid var(--divider); }
+.t3-row .logo3 { width: 64px; height: 64px; }
+.t3-row.t3-head { font-size: var(--fs-floor); border-bottom-width: 3px; }
+.t3-row.playing { background: var(--panel-raised); border-radius: 12px; }
+.t3-row .num { text-align: right; }
+.t3-team { white-space: nowrap; overflow: hidden; }
+.t3-live { color: var(--gold); }
+.t3-pts { font-weight: 800; }
+.t3-row .mv { font-size: 44px; text-align: center; }
+.og3-goals { background: var(--panel); border-radius: 22px; padding: 22px 30px; display: flex; flex-direction: column; gap: 8px; }
+.og3-goals-head { font-family: var(--font-condensed); font-weight: 800; font-size: 76px; line-height: 1; margin-bottom: 6px; }
+.og3-goal { display: grid; grid-template-columns: 220px 130px 1fr 110px; gap: 14px; align-items: baseline; font-family: var(--font-condensed); font-weight: 600; font-size: var(--fs-floor); line-height: 1.1; }
+.og3-goal b { font-weight: 800; }
+.og3-who { white-space: nowrap; overflow: hidden; }
+.og3-goal .num { text-align: right; font-weight: 800; }
+.scene-intermission .dots { gap: 20px; }
+.scene-intermission .dots span { width: 26px; height: 26px; }
+.scene-intermission .countdown-card { padding: 24px 36px; border-radius: 22px; }
+.scene-intermission .countdown-card .label { line-height: 1.05; }
+.scene-intermission .countdown-card .big-line { font-size: 120px; }
+
+/* pregame at 3 m */
+.scene-pregame .portrait-page { padding: 50px 60px 50px; gap: 28px; }
+.scene-pregame .portrait-page > :not(.team-head):not(.rule) { position: relative; z-index: 1; }
+.scene-pregame .label { font-size: var(--fs-floor); font-weight: 700; letter-spacing: 0.08em; }
+.scene-pregame .tile { padding: 26px 30px 16px; border-radius: 24px; }
+.scene-pregame .tile .value { font-size: 140px; margin-top: 0; }
+.form3 { display: flex; flex-direction: column; gap: 6px; }
+.fl3 { display: grid; grid-template-columns: 80px 190px 72px 1fr auto; align-items: center; gap: 18px; padding: 7px 0;
+  border-bottom: 2px solid var(--divider); font-family: var(--font-condensed); font-weight: 700; font-size: 64px; line-height: 1; }
+.fl3 .logo3 { width: 68px; height: 68px; }
+.fl3 .form-chip { width: 76px; height: 76px; border-radius: 14px; font-size: 56px; }
+.fl3 .form-chip.lost { box-shadow: inset 0 0 0 5px var(--text-muted); }
+.fl3-ha { font-size: var(--fs-floor); color: var(--text-secondary); letter-spacing: 0.06em; }
+.fl3-score { font-weight: 800; text-align: right; }
+.fl3-score small { font-size: var(--fs-floor); color: var(--text-secondary); font-weight: 700; }
+.scene-pregame .card { border-radius: 24px; padding: 22px 36px; }
+.per-game .pg-values { display: grid; grid-template-columns: 1fr 1fr; margin-top: 6px; }
+.pg-value { font-family: var(--font-condensed); font-weight: 800; font-size: 110px; line-height: 1; }
+.scene-pregame .card .secondary { font-size: var(--fs-floor); font-family: var(--font-condensed); font-weight: 700; letter-spacing: 0.04em; margin-top: 6px; }
+.scene-pregame .latest-text { font-size: var(--fs-text); line-height: 1.05; margin-top: 8px; }
+.drop-card { display: flex; justify-content: space-between; align-items: center; }
+.drop-time { font-family: var(--font-condensed); font-weight: 800; font-size: 140px; line-height: 1; }
+
+/* Text boxes that clip (overflow: hidden, for long names) get room above and below the
+   line, so Å, Ä, Ö and descenders are not cut; the negative margin keeps the layout. */
+.team-head.compact .team-name, .bar-name, .r3-name, .t3-team, .og3-who, .r3-meta {
+  padding-top: 0.2em; padding-bottom: 0.12em; margin-top: -0.2em; margin-bottom: -0.12em; }
+
+/* no contact with shl.se or the service (screen.js feedDot): a pulsing red dot at the
+   top of the bar's centre, about 12 mm; nothing while all is well */
+#feed-dot { position: absolute; left: 50%; top: 16px; width: 34px; height: 34px; margin-left: -17px; border-radius: 50%;
+  background: #ff2d3a; box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); z-index: 60; opacity: 0; pointer-events: none; }
+#feed-dot.on { animation: feed-pulse 1.4s ease-in-out infinite; }
+@keyframes feed-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
