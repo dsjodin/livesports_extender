@@ -240,3 +240,4 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 
 /* team videos (Phase 8): over the scene, under the goal band */
 .team-video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 40; opacity: 0; pointer-events: none; }
+body.bar .team-video { width: 1920px; height: 360px; }

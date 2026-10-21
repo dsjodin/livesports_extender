@@ -488,7 +488,8 @@ Built first (the user's priorities, 2026-10-21):
 2. **Bar ticker** (8.2): `web/screens/scenes/ticker.js`, see `docs/SCREENS.md`.
 3. **Intermission slides** (8.3): both portrait screens change picture every 12 s: our
    game on the left, the other games and the live table on the right.
-4. **Team videos** (8.4): goal stingers and intros, `tools/make_stingers.py`,
+4. **Team videos** (8.4): goal stingers and intros, and a power-play video on the bar for
+   my team (asked for 2026-10-21), `tools/make_stingers.py`,
    `/media/<kind>/<uuid>.webm`, `web/shared/media.js`.
 
 Verified: other games and the live table by tests (a replay of 2026-10-17 with all four

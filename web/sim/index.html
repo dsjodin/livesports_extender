@@ -24,6 +24,9 @@
         <select id="live-game"><option value="">Today's games…</option></select>
         <button id="follow-live">Follow live</button>
       </div>
+      <div class="row">
+        <label>My team <select id="my-side"><option value="">follows my team</option><option value="home">home</option><option value="away">away</option><option value="none">neither</option></select></label>
+      </div>
       <div class="row muted">Live polls shl.se for the chosen game (or the uuid typed above). Pause and seek apply to replays and recordings only.</div>
     </section>
     <section>
@@ -46,12 +49,13 @@
         <button id="video-intro">Intro (both)</button>
         <button id="video-goal-home">Goal video home</button>
         <button id="video-goal-away">Goal video away</button>
+        <button id="video-pp">PP video (my team)</button>
       </div>
       <div class="row">
         <button id="test-goal-home">Test goal home</button>
         <button id="test-goal-away">Test goal away</button>
       </div>
-      <div class="row muted">Videos play on the portrait screens only: the goal video on the scoring side when its goal scene starts, the intro at the scheduled start on TV time or else at puck drop. The buttons play the video alone; a test goal runs the whole goal sequence.</div>
+      <div class="row muted">Videos play on the portrait screens only: the goal video on the scoring side when its goal scene starts, the intro at the scheduled start on TV time or else at puck drop. The bar plays the power-play video when my team's power play begins (set my team or a side for the game first). The buttons play the video alone; a test goal runs the whole goal sequence.</div>
     </section>
     <section>
       <h2>Timing</h2>

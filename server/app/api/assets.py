@@ -34,13 +34,13 @@ async def player_portrait(player_id: str, request: Request) -> FileResponse:
 
 media_router = APIRouter(prefix="/media")
 
-MEDIA_KINDS = ("goal", "intro")
+MEDIA_KINDS = ("goal", "intro", "pp")
 
 
 @media_router.get("/{kind}/{uuid}.webm")
 async def team_video(kind: str, uuid: str, request: Request) -> FileResponse:
-    """A team's goal stinger or intro: ``data/media`` (your own) first, then the defaults
-    in ``web/media`` made by tools/make_stingers.py."""
+    """A team's goal stinger, intro or power-play video: ``data/media`` (your own) first,
+    then the defaults in ``web/media`` made by tools/make_stingers.py."""
     settings = request.app.state.settings
     path = media_path(settings.data_dir, settings.web_dir, kind, uuid)
     if path is None:

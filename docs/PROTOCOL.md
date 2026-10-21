@@ -278,7 +278,7 @@ auth in front if it is ever exposed).
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
 | `POST /api/test/goal` | `{"side"?: "home"\|"away"}` | Synthetic goal (default my side), offset 0, `test: true` |
-| `POST /api/test/video` | `{"kind": "goal"\|"intro", "side"?: "home"\|"away"}` | Plays a team video now on the portrait screens (both without `side`): broadcasts `{"t": "video", "kind", "side", "play_at_ms"}`, no scene, state or webhook |
+| `POST /api/test/video` | `{"kind": "goal"\|"intro"\|"pp", "side"?: "home"\|"away"}` | Plays a team video now on the portrait screens (both without `side`; `pp`: my team's, on the bar): broadcasts `{"t": "video", "kind", "side", "play_at_ms"}`, no scene, state or webhook |
 | `GET /api/webhooks` | | `{"settings": {"url", "enabled", "events"}, "events": [all event names]}` |
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
@@ -407,7 +407,7 @@ with `Cache-Control: max-age=86400`; 404 when the feed has none.
 | `GET /assets/teams/<team uuid>.svg` | the team's `icon` URL from game-info or the schedule |
 | `GET /assets/players/<isa id>.png` | the portrait in `athletes/by-team-uuid` (team roster cached 24 h), matched by name, then jersey number; the smallest signed `srcset` entry at least 480 px wide |
 
-| `GET /media/<goal\|intro>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); see `docs/SCREENS.md`, Team videos |
+| `GET /media/<goal\|intro\|pp>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); see `docs/SCREENS.md`, Team videos |
 
 A player is known once an event names them (scorer, assists, players on the ice). A
 player who has left the team since the game (old fixtures) has no portrait.

@@ -290,16 +290,24 @@ service ships a generated default per team, and your own replace them.
   `pregame` at the scheduled start on TV time (`start_ms + offset_ms`), or, if that time
   had passed (a replay, or a page opened late), at puck drop, when `live` follows
   `pregame`, over the first seconds of the live scene.
-- Testing: `/sim` has "Intro (both)", "Goal video home/away" (`POST /api/test/video`, the
-  video alone) and "Test goal home/away" (the whole goal sequence). The debug overlay
+- Power play (asked for by the user 2026-10-21): when **my team's** power play begins
+  (`strength.pp_side` turns to my side in a patch, at its `play_at`), the bar plays my
+  team's `pp` video over the whole bar (4 s, 1920×360: slashes, the team colour, logo,
+  "POWERPLAY" letter by letter, the team name, a light sweep and pulsing arrows, ending
+  transparent, so the "PP <LAG>" pill shows after it). Not again when it grows to 5 on 3
+  within the same power play, nothing for the other team's power play, nothing without a
+  my side for the game, and not for a power play already on when a screen (re)loads.
+  Only in `live` and `goal`.
+- Testing: `/sim` has "Intro (both)", "Goal video home/away", "PP video (my team)"
+  (`POST /api/test/video`, the video alone), a "My team" side for the game and "Test goal home/away" (the whole goal sequence). The debug overlay
   (`?debug=1`) shows whether a screen holds its videos ("video goal ready · intro ready").
-- Each portrait screen fetches its own team's two videos when the teams are known, as
+- Each portrait screen fetches its own team's two videos (the bar: my team's `pp`) when the teams are known, as
   blobs, so playback never waits on the network. A screen that is late starts the video
   that far in; a team without a video shows none. A fresh state (seek, reconnect) stops a
   running video. Each start logs `[sync] video/<kind> screen=… delta=…ms`.
-- Files: `GET /media/<goal|intro>/<team uuid>.webm` serves `data/media/<kind>/<uuid>.webm`
+- Files: `GET /media/<goal|intro|pp>/<team uuid>.webm` serves `data/media/<kind>/<uuid>.webm`
   if it exists, else the default in `web/media/`. Your own: WebM VP9 with alpha
-  (`yuva420p`), 1080×1920, short, ending transparent; e.g.
+  (`yuva420p`), 1080×1920 (`pp`: 1920×360), short, ending transparent; e.g.
   `ffmpeg -i in.mov -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 0 -crf 32 -an out.webm`.
 - Defaults: `tools/make_stingers.py` draws every frame in Chromium on a transparent page
   (colours from `config/teams.json`, logos from the logo cache) and encodes them with

@@ -17,6 +17,9 @@ decided 2026-10-21):
   last frame is fully transparent, so the goal scene underneath shows through.
 - ``web/media/intro/<team uuid>.webm``: 4.5 s, 1080×1920, before puck drop: the team's
   colour, logo, name and "MATCHSTART", ending transparent.
+- ``web/media/pp/<team uuid>.webm``: 4 s, 1920×360, for the bar when my team gets a power
+  play: slashes sweep across, the team colour wipes in, logo, "POWERPLAY" letter by
+  letter, the team name, a light sweep and pulsing arrows, then out to the right.
 
 Colours come from ``config/teams.json`` (home jersey first, away jersey as the accent),
 logos from ``data/cache/teams/<uuid>.svg`` (the service's logo cache; a team without one
@@ -38,8 +41,9 @@ from playwright.async_api import Browser, async_playwright
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FPS = 30
-SIZE = (1080, 1920)
-DURATION_S = {"goal": 2.2, "intro": 4.5}
+KINDS = ("goal", "intro", "pp")
+SIZE = {"goal": (1080, 1920), "intro": (1080, 1920), "pp": (1920, 360)}
+DURATION_S = {"goal": 2.2, "intro": 4.5, "pp": 4.0}
 GOLD = "#F5C542"
 
 PAGE = Path(__file__).with_name("stinger.html")  # the animation, filled in per team
@@ -107,7 +111,8 @@ def page_html(kind: str, team: dict[str, Any]) -> str:
 
 async def render(browser: Browser, kind: str, team: dict[str, Any], out: Path, crf: int) -> None:
     # a fresh page per video: set_content writes into the same document otherwise
-    page = await browser.new_page(viewport={"width": SIZE[0], "height": SIZE[1]})
+    width, height = SIZE[kind]
+    page = await browser.new_page(viewport={"width": width, "height": height})
     page.on("pageerror", lambda e: print(f"page error: {e}", file=sys.stderr))
     await page.set_content(page_html(kind, team))
     # fonts and the logo are data URIs: wait until both are decoded
@@ -134,7 +139,7 @@ async def render(browser: Browser, kind: str, team: dict[str, Any], out: Path, c
 async def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--team", action="append", help="team uuid (default: all in teams.json)")
-    parser.add_argument("--kind", choices=["goal", "intro"], action="append")
+    parser.add_argument("--kind", choices=KINDS, action="append")
     parser.add_argument("--teams-file", type=Path, default=REPO_ROOT / "config" / "teams.json")
     parser.add_argument("--logos", type=Path, default=REPO_ROOT / "data" / "cache" / "teams")
     parser.add_argument("--out", type=Path, default=REPO_ROOT / "web" / "media")
@@ -146,7 +151,7 @@ async def main() -> int:
         return 1
     teams = load_teams(args.teams_file)
     uuids = args.team or list(teams)
-    kinds = args.kind or ["goal", "intro"]
+    kinds = args.kind or list(KINDS)
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(executable_path=args.chromium)
         for uuid in uuids:

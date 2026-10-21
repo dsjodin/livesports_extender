@@ -2,7 +2,7 @@
 <html><head><meta charset="utf-8"><style>
 @font-face { font-family: "Barlow Condensed"; font-weight: 800; src: url(data:font/woff2;base64,@@c800@@); }
 @font-face { font-family: "Barlow Condensed"; font-weight: 700; src: url(data:font/woff2;base64,@@c700@@); }
-html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: transparent; }
+html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; background: transparent; }
 #stage { position: absolute; inset: 0; overflow: hidden; }
 .band { position: absolute; left: -60%; width: 220%; height: 760px; transform-origin: 50% 50%; }
 .panel { position: absolute; inset: 0; }
@@ -15,6 +15,20 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
 .kicker { top: 1180px; font-size: 92px; font-weight: 700; letter-spacing: .12em; }
 .big-name { top: 1330px; font-size: 150px; }
 .line { position: absolute; left: 140px; right: 140px; height: 10px; top: 1300px; transform-origin: 50% 50%; }
+/* the bar's power-play video, 1920x360 */
+.slash { position: absolute; top: -80px; height: 520px; width: 260px; }
+.pp-logo { position: absolute; left: 70px; top: 50px; width: 260px; height: 260px; object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .45)); }
+.pp-word { position: absolute; left: 380px; top: 36px; font-family: "Barlow Condensed"; font-weight: 800;
+  font-size: 236px; line-height: 1; letter-spacing: .02em; white-space: nowrap; }
+.pp-word span { display: inline-block; }
+.pp-name { position: absolute; left: 388px; top: 282px; font-family: "Barlow Condensed"; font-weight: 700;
+  font-size: 46px; letter-spacing: .3em; white-space: nowrap; }
+.pp-rule { position: absolute; left: 384px; top: 268px; width: 1060px; height: 6px; transform-origin: 0 50%; }
+.shine { position: absolute; top: -40px; width: 160px; height: 440px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); }
+.chev { position: absolute; top: 90px; width: 120px; height: 180px;
+  clip-path: polygon(0 0, 45% 0, 100% 50%, 45% 100%, 0 100%, 55% 50%); }
 </style></head><body><div id="stage"></div>
 <script>@@gsap@@</script>
 <script>
@@ -72,6 +86,35 @@ function intro() {
   tl.to(fill, { clipPath: "inset(0 0 100% 0)", duration: 0.45, ease: "power3.in" }, 3.85);
   return tl;
 }
-window.tl = (T.kind === "goal" ? goal : intro)();
+function pp() {
+  const tl = gsap.timeline({ paused: true });
+  const slashes = [T.gold, T.color, T.accent, T.gold].map((c, i) => el("slash", { left: `${-400 - i * 170}px`, background: c }));
+  const fill = el("panel", { background: T.color });
+  const chevs = [0, 1, 2].map((i) => el("chev", { left: `${1530 + i * 110}px`, background: T.gold }));
+  const logo = T.logo ? el("pp-logo", {}, "img") : null;
+  const word = el("pp-word", { color: T.on });
+  word.innerHTML = [..."POWERPLAY"].map((c) => `<span>${c}</span>`).join("");
+  const letters = [...word.children];
+  const rule = el("pp-rule", { background: T.gold });
+  const name = el("pp-name", { color: T.on }, T.name.toUpperCase());
+  const shine = el("shine", { left: "-200px" });
+  gsap.set(slashes, { skewX: -24 });
+  slashes.forEach((b, i) => tl.to(b, { x: 2900, duration: 0.55, ease: "power2.in" }, i * 0.06));
+  tl.fromTo(fill, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.4, ease: "power3.out" }, 0.18);
+  if (logo) tl.fromTo(logo, { scale: 0.2, rotation: -25, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: "back.out(2.2)" }, 0.4);
+  tl.fromTo(letters, { yPercent: -120, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.32, ease: "back.out(2.4)", stagger: 0.045 }, 0.45);
+  tl.fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 0.85);
+  tl.fromTo(name, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.95);
+  tl.fromTo(shine, { x: 0 }, { x: 2300, duration: 0.7, ease: "power1.inOut" }, 1.35);
+  tl.fromTo(shine, { x: 0 }, { x: 2300, duration: 0.7, ease: "power1.inOut" }, 2.5);
+  gsap.set(chevs, { opacity: 0 });
+  chevs.forEach((c, i) => tl.fromTo(c, { opacity: 0.15 }, { opacity: 1, duration: 0.18, repeat: 7, yoyo: true, ease: "none", immediateRender: false }, 0.9 + i * 0.12));
+  if (logo) tl.to(logo, { scale: 1.06, duration: 2.0, ease: "none" }, 0.95);
+  // out: everything leaves to the right; the last frame is empty
+  tl.to([logo, ...letters, rule, name, ...chevs].filter(Boolean), { x: 300, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.015 }, 3.3);
+  tl.to(fill, { clipPath: "inset(0 0 0 100%)", duration: 0.4, ease: "power3.in" }, 3.5);
+  return tl;
+}
+window.tl = ({ goal, intro, pp })[T.kind]();
 window.seek = (t) => { window.tl.seek(t, false); };
 </script></body></html>

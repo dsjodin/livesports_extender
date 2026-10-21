@@ -47,8 +47,27 @@ function decorate(tv) {
     t.outline = needsOutline(t.color);
   }
   teamVars(document.documentElement, tv.teams);
-  // each portrait screen shows its own team's goal stinger and intro
-  if (screenId !== "bar") media.preload(tv.teams?.[screenId === "left" ? "home" : "away"]?.uuid);
+  // each portrait screen shows its own team's goal stinger and intro; the bar my team's
+  // power-play video
+  if (screenId === "bar") media.preload(myTeam(tv)?.uuid, ["pp"]);
+  else media.preload(tv.teams?.[screenId === "left" ? "home" : "away"]?.uuid, ["goal", "intro"]);
+}
+
+function myTeam(tv) {
+  const side = tv?.game?.my_side;
+  return side ? tv.teams?.[side] : null;
+}
+
+/** My team's power play has just begun (at this patch's play_at): play the bar's video.
+ * Not again when it grows to 5 on 3, nothing for the other team's (docs/SCREENS.md). */
+let ppSide = null;
+function powerPlay(tv, playAt) {
+  const side = tv?.strength?.pp_side ?? null;
+  const started = side && side !== ppSide;
+  ppSide = side;
+  if (!started || screenId !== "bar" || side !== tv.game?.my_side) return;
+  if (!["live", "goal"].includes(current?.name)) return;
+  media.play("pp", myTeam(tv)?.uuid, playAt, log);
 }
 
 function makeCtx(root) {
@@ -123,11 +142,13 @@ function show(scene, at, animate) {
 store.on("state", (tv) => {
   media.hide(); // a seek or a reconnect: whatever was playing is no longer due
   introsPlayed.clear();
+  ppSide = tv.strength?.pp_side ?? null; // a power play already on is not announced
   decorate(tv);
   show(tv.scene, clock.now(), false);
 });
-store.on("patch", (patch) => {
-  if (patch.teams) decorate(store.tv);
+store.on("patch", (patch, playAt) => {
+  if (patch.teams || patch.game) decorate(store.tv);
+  if (patch.strength) powerPlay(store.tv, playAt);
   current?.mod.update?.(current.ctx, store.tv, patch);
 });
 store.on("scene", (scene, playAt) => show(scene, playAt, true));
@@ -142,6 +163,12 @@ store.on("preload", (event) => {
 });
 store.on("video", (m) => {
   // a test from /sim or the phone: only the video, on one side or both
+  if (m.kind === "pp") {
+    // the bar holds my team's video only
+    const uuid = myTeam(store.tv)?.uuid;
+    if (screenId === "bar" && uuid) at(m.play_at_ms, () => media.play("pp", uuid, m.play_at_ms, log));
+    return;
+  }
   const side = screenId === "left" ? "home" : screenId === "right" ? "away" : null;
   const uuid = side ? store.tv?.teams?.[side]?.uuid : null;
   if (uuid && (!m.side || m.side === side)) at(m.play_at_ms, () => media.play(m.kind, uuid, m.play_at_ms, log));

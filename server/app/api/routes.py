@@ -69,7 +69,7 @@ class TestGoalIn(BaseModel):
 
 
 class TestVideoIn(BaseModel):
-    kind: Literal["goal", "intro"]
+    kind: Literal["goal", "intro", "pp"]
     side: Literal["home", "away"] | None = None
 
 
@@ -307,7 +307,8 @@ async def test_goal(body: TestGoalIn, request: Request) -> dict[str, Any]:
 
 @router.post("/test/video")
 async def test_video(body: TestVideoIn, request: Request) -> dict[str, Any]:
-    """Play a team's goal or intro video now (one side, or both screens), video only."""
+    """Play a team's goal or intro video now (one side, or both screens), or my team's
+    power-play video on the bar; the video only."""
     return {"play_at_ms": runtime(request).test_video(body.kind, body.side)}
 
 

@@ -35,7 +35,7 @@ export class Store {
         this.later(m, 0, () => {
           Object.assign(this.tv, m.patch);
           this.tv.rev = m.rev;
-          this.emit("patch", m.patch);
+          this.emit("patch", m.patch, m.play_at_ms);
         });
         break;
       case "event":

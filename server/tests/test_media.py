@@ -51,7 +51,7 @@ def test_route(tmp_path: Path) -> None:
 
 def test_default_videos_exist_for_every_team() -> None:
     teams = json.loads((REPO_ROOT / "config" / "teams.json").read_text(encoding="utf-8"))["teams"]
-    for kind in ("goal", "intro"):
+    for kind in ("goal", "intro", "pp"):
         missing = [
             u for u in teams if not (REPO_ROOT / "web" / "media" / kind / f"{u}.webm").is_file()
         ]

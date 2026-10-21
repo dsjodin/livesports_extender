@@ -138,6 +138,8 @@ function bindControls() {
   $("video-intro").onclick = () => api("test/video", { kind: "intro" });
   $("video-goal-home").onclick = () => api("test/video", { kind: "goal", side: "home" });
   $("video-goal-away").onclick = () => api("test/video", { kind: "goal", side: "away" });
+  $("my-side").onchange = () => status?.game_uuid && api("game", { uuid: status.game_uuid, my_side: $("my-side").value || null });
+  $("video-pp").onclick = () => api("test/video", { kind: "pp" });
   $("test-goal-home").onclick = () => api("test/goal", { side: "home" });
   $("test-goal-away").onclick = () => api("test/goal", { side: "away" });
   $("next-goal").onclick = () => api("replay", { action: "seek", to: "before_next_goal" });
@@ -176,6 +178,7 @@ function showStatus() {
   $("webhook-state").textContent = hooks.enabled ? `on${hooks.pending ? `, ${hooks.pending} waiting` : ""}` : hooks.url_set ? "off" : "no URL set";
   const src = status.source ?? {};
   $("playpause").textContent = status.paused ? "Play" : "Pause";
+  if (document.activeElement !== $("my-side")) $("my-side").value = status.my_side_choice ?? "";
   // replays and recordings can be paused and seeked; live and none cannot
   const seekable = src.mode === "replay" || src.mode === "recording";
   for (const id of ["playpause", "next-period", "next-goal", "end"]) $(id).disabled = !seekable;
