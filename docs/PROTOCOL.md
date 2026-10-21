@@ -250,6 +250,7 @@ auth in front if it is ever exposed).
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
 | `POST /api/test/goal` | `{"side"?: "home"\|"away"}` | Synthetic goal (default my side), offset 0, `test: true` |
+| `GET /api/webhooks` | | `{"settings": {"url", "enabled", "events"}, "events": [all event names]}` |
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
 | `GET /api/wall` | | Contents of `config/wall.json` |
@@ -350,8 +351,22 @@ Other events and their extra fields:
         media_content_type: music
 ```
 
-Entity ids and the horn file are placeholders for the user's own. Put the full set of
-examples in `docs/HA.md` (Phase 6).
+Entity ids and the horn file are placeholders for the user's own. The full set of
+examples is in `docs/HA.md`.
+
+### Dispatcher (built in Phase 6)
+
+- Sent at `play_at_ms` by the server clock, never before (checked against a fake clock:
+  within 50 ms; 1 ms on the real service). Timeout 3 s, one retry after 1 s.
+- Only events in the settings' `events` list, only when `enabled` and a `url` is set.
+- A replay seek or a new source cancels calls not sent yet. Events applied in a catch-up
+  (`Starting and seeking`) send nothing.
+- A test goal (`POST /api/test/goal`) always has `is_my_team: true`; when my team is not
+  in the selected game it carries my team's name and home colour.
+- `GET /api/webhooks/log`: the last 100 calls, `{"id", "event", "test", "source",
+  "play_at_ms", "sent_ms", "status", "error", "attempts"}`. Each call is also sent to
+  sim and phone clients as `{"t": "webhook", "entry": {...}}`. `status.webhooks` has
+  `enabled`, `url_set` and `pending`.
 
 ## Assets
 

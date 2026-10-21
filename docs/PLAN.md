@@ -421,6 +421,15 @@ Acceptance:
 - Fake-clock test: webhooks fire at `play_at` ± 50 ms, never before.
 - Manual: the test-goal button in the app triggers the user's HA automation.
 
+Phase 6 notes (2026-10-21):
+
+- Fake-clock tests in `tests/test_webhooks.py` (play_at ± 50 ms, never before; retry;
+  event filter; cancel on seek; a linked MÅL! press sends one `shl_goal`). On the real
+  service against a local stand-in for HA, calls went out 1 ms after play_at.
+- The test goal is always `is_my_team: true` (with my team's name and colour when my team
+  is not in the game), so "my team" automations can be tried any time.
+- Still open: the manual check against the user's own Home Assistant.
+
 ---
 
 ## Phase 7: Deployment

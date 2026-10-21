@@ -18,10 +18,14 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any, Literal, Protocol
 
+import httpx
+
+from app.api.webhooks import WebhookDispatcher
 from app.clock import Clock
-from app.config import RuntimeConfig, Settings, SourceSettings, StateStore
+from app.config import RuntimeConfig, Settings, SourceSettings, StateStore, WebhookSettings
 from app.engine import league as league_engine
 from app.engine import tvstate
+from app.engine import webhooks as webhook_payloads
 from app.engine.calibration import Calibrator
 from app.engine.delay import DelayQueue, Output
 from app.engine.director import Scene, SceneDirector
@@ -89,6 +93,7 @@ class Runtime:
         assets: AssetCache | None = None,
         league: LeagueService | None = None,
         schedule: ScheduleService | None = None,
+        webhook_transport: httpx.AsyncBaseTransport | None = None,
     ) -> None:
         self.clock = clock
         self.assets = assets
@@ -113,6 +118,12 @@ class Runtime:
         self.release_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
         self.colors = TeamColors(settings.config_dir / "teams.json", store.config.team_colors)
         self.calibrator = Calibrator.from_saved(store.config.calibration_samples)
+        self.webhooks = WebhookDispatcher(
+            clock,
+            lambda: self.config.webhooks,
+            transport=webhook_transport,
+            on_log=lambda entry: self.out.broadcast({"t": "webhook", "entry": entry}),
+        )
         self.manual: list[dict[str, Any]] = []  # MÅL! presses and test goals, newest last
         self._reset_engine()
 
@@ -128,6 +139,8 @@ class Runtime:
 
     def _reset_engine(self) -> None:
         now = self.clock.now_ms()
+        if hasattr(self, "webhooks"):
+            self.webhooks.cancel_pending()  # nothing from the old timeline may still fire
         self.league_block = None
         self.normalizer = Normalizer()
         self.queue = DelayQueue(round(self.config.offset_s * 1000), self.lead_ms)
@@ -417,6 +430,7 @@ class Runtime:
             self.planned["rev"] = self.rev
             self.applied = copy.deepcopy(self.planned)
             self.pending.clear()
+            self.webhooks.cancel_pending()
             self._catching_up = True
             self._broadcast_state()
             return
@@ -445,6 +459,9 @@ class Runtime:
                 self._emit(_event_message("event", None, disallowed), out.play_at)
                 self.timeline.append(_summary(disallowed, out.play_at))
                 self._scenes(self.director.on_event(disallowed, out.play_at))
+                self._patch(out.play_at)
+                self._webhook(disallowed, out.play_at)
+                return
             self._patch(out.play_at)
 
     # --- time -----------------------------------------------------------------------
@@ -483,6 +500,8 @@ class Runtime:
             else:
                 self._scenes(self.director.on_event(event, out.play_at))
             self._patch(out.play_at)
+            if press is None:  # a linked goal sent its shl_goal at the press
+                self._webhook(event, out.play_at)
         self._scenes(self.director.advance(horizon))
         self._apply_pending(now)
         if now - self._last_status_ms >= STATUS_EVERY_MS:
@@ -589,6 +608,7 @@ class Runtime:
 
     async def stop(self) -> None:
         await self._stop_source()
+        await self.webhooks.close()
         for task in [self._league_task, self._follow_task, *self._background]:
             if task is not None:
                 task.cancel()
@@ -822,6 +842,7 @@ class Runtime:
         self.manual.append(press)
         self._emit(_event_message("event", None, event), at)
         self._scenes(self.director.manual_goal(key, side, at, {"manual": True, "score": score}))
+        self._webhook(event, at, source="manual")
         if not test:
             # the feed may already hold the goal, waiting for its play_at
             for planned in self.queue.pending():
@@ -851,6 +872,38 @@ class Runtime:
                 self._save_calibration()
             return True
         return False
+
+    def _webhook(self, event: NormalizedEvent, play_at: int, *, source: str = "feed") -> None:
+        """Queue the Home Assistant call for an event that plays at ``play_at``."""
+        body = webhook_payloads.payload(
+            event, self.meta.teams, self.my_side, self.planned.get("score") or {}, source=source
+        )
+        if body is None:
+            return
+        if event.test:
+            # a test goal is always for my team, so "my team" automations can be tried
+            # without a game, or during someone else's game
+            body["is_my_team"] = True
+            team_uuid = self.config.my_team_uuid
+            if team_uuid and self.my_side is None:
+                color = self.colors.hex(self.colors.jersey(team_uuid, "home"))
+                name = (self.colors.teams.get(team_uuid) or {}).get("name")
+                body |= {
+                    "team_name": name,
+                    "team_color": color,
+                    "team_rgb": webhook_payloads.rgb(color),
+                }
+                body["tts_sv"] = f"Mål för {name}! Det här är ett test." if name else body["tts_sv"]
+        self.webhooks.schedule(play_at, body)
+
+    def set_webhooks(self, url: str | None, enabled: bool, events: list[str]) -> None:
+        unknown = [e for e in events if e not in webhook_payloads.EVENTS]
+        if unknown:
+            raise SourceError(f"unknown webhook events {unknown}")
+        if enabled and not url:
+            raise SourceError("webhooks need a URL")
+        self.config.webhooks = WebhookSettings(url=url or None, enabled=enabled, events=events)
+        self.store.save()
 
     def manual_status(self) -> list[dict[str, Any]]:
         """Presses for the phone. The scorer only once the feed goal has played."""
@@ -930,4 +983,9 @@ class Runtime:
             "calibration": self.calibration(),
             "goal_button_sync": self.config.goal_button_sync,
             "follow_my_team": self.config.follow_my_team,
+            "webhooks": {
+                "enabled": self.config.webhooks.enabled,
+                "url_set": bool(self.config.webhooks.url),
+                "pending": self.webhooks.pending,
+            },
         }

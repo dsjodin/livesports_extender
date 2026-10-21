@@ -11,6 +11,7 @@ Read these before working on a phase:
 - `docs/PLAN.md`: phases, tasks and acceptance criteria. Work one phase at a time.
 - `docs/SHL_API.md`: the verified shl.se endpoints, field paths and data quirks.
 - `docs/PROTOCOL.md`: REST API, WebSocket messages and webhook payloads.
+- `docs/HA.md`: Home Assistant setup and example automations.
 - `docs/SCREENS.md`: wall geometry, design tokens, scenes per screen, simulator and phone app.
 - `config/wall.json`: physical screen layout (single source of truth for geometry).
 
