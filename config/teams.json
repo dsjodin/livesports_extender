@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Jersey colours per team, keyed by team uuid (CLAUDE.md rule 6). 'home' and 'away' are a name from 'colors' or a hex colour '#rrggbb'. The home team plays in its home colour, the away team in its away colour. Overrides set from the phone app are stored in data/state.json and win over this file. Set by the user 2026-10-21; Malmö not given yet.",
+  "note": "Jersey colours per team, keyed by team uuid (CLAUDE.md rule 6). 'home' and 'away' are a name from 'colors' or a hex colour '#rrggbb'. The home team plays in its home colour, the away team in its away colour. Overrides set from the phone app are stored in data/state.json and win over this file. Set by the user 2026-10-21.",
   "colors": {
     "blå": "#1f4fbf",
     "gul": "#f2c200",
@@ -23,6 +23,6 @@
     "752c-752c12zB7Z": {"name": "Färjestad BK", "home": "grön", "away": "vit"},
     "50e6-50e6DYeWM": {"name": "Skellefteå AIK", "home": "svart", "away": "gul"},
     "1a71-1a71gTHKh": {"name": "Luleå Hockey", "home": "röd", "away": "gul"},
-    "8e6f-8e6fUXJvi": {"name": "Malmö Redhawks", "home": null, "away": null}
+    "8e6f-8e6fUXJvi": {"name": "Malmö Redhawks", "home": "svart", "away": "vit"}
   }
 }

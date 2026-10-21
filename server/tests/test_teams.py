@@ -16,9 +16,7 @@ def test_config_covers_this_seasons_teams() -> None:
     standings = load_fixture("standings_qa98unlbd6.json")["leagueStandings"]
     uuids = {t["info"]["teamInfo"]["teamUuid"] for t in standings}
     assert uuids == set(colors.teams)
-    missing = {colors.teams[u]["name"] for u in uuids if colors.jersey(u, "home") is None}
-    assert missing == {"Malmö Redhawks"}  # not given yet
-    for uuid in uuids - {"8e6f-8e6fUXJvi"}:
+    for uuid in uuids:
         for jersey in ("home", "away"):
             assert colors.hex(colors.jersey(uuid, jersey)), (uuid, jersey)
 
@@ -45,7 +43,7 @@ def test_rest(tmp_path: Path) -> None:
     with TestClient(create_app(settings)) as client:
         listing = client.get("/api/teams").json()
         assert listing["colors"]["röd"] == "#c8102e" and len(listing["teams"]) == 14
-        r = client.put("/api/teams/8e6f-8e6fUXJvi", json={"home": "röd", "away": "vit"})
+        r = client.put("/api/teams/8e6f-8e6fUXJvi", json={"home": "röd", "away": "gul"})
         assert r.status_code == 200
         team = r.json()["team"]
         assert team["home"] == {"jersey": "röd", "color": "#c8102e"} and team["overridden"]
@@ -53,4 +51,4 @@ def test_rest(tmp_path: Path) -> None:
         assert client.put("/api/teams/nope", json={"home": "röd"}).status_code == 404
         assert '"8e6f-8e6fUXJvi"' in (tmp_path / "state.json").read_text()
         r = client.delete("/api/teams/8e6f-8e6fUXJvi")
-        assert r.json()["team"]["home"]["jersey"] is None
+        assert r.json()["team"]["home"]["jersey"] == "svart"  # back to config/teams.json

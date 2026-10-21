@@ -35,8 +35,6 @@ games, without the real screens and without a live game.
   between screens. `config/wall.json` has assumed values (bar vertically centred, 40 mm gaps).
 - Default "my team" (whose goals trigger the celebration and lights).
 - Team logos: use the `icon` URLs from the feed (cached locally) or keep code badges.
-- Team colours: given by the user 2026-10-21 (`config/teams.json`); Malmö Redhawks' home
-  and away colours are still missing.
 - Sound for video stingers: local speaker on the mini PC or none (Phase 8).
 - Faceoffs (found 2026-10-21): only in the boxscore, without timestamps. Options: poll the
   boxscore every 60 s during the game and show faceoffs in intermissions and after the game
