@@ -8,7 +8,7 @@ from app.main import create_app, list_pages
 
 
 def make_client(web_dir: Path) -> TestClient:
-    settings = Settings(web_dir=web_dir, config_dir=web_dir, data_dir=web_dir)
+    settings = Settings(web_dir=web_dir, config_dir=web_dir, data_dir=web_dir, fixtures_dir=web_dir)
     return TestClient(create_app(settings))
 
 
