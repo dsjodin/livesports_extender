@@ -29,12 +29,13 @@ export function periodName(p) {
 }
 export const periodWord = (n) => ({ 1: "en", 2: "två", 3: "tre" })[n] ?? String(n);
 
+/** A goal's strength as hockey writes it: EQ (full strength), PP, SH (decided 2026-10-21). */
 export function strengthChip(status, emptyNet) {
   if (emptyNet) return "TOM BUR";
   if (!status) return null;
-  if (status === "EQ") return "FULLT LAG";
-  if (status.startsWith("PP")) return "POWERPLAY";
-  if (status.startsWith("SH")) return "BOXPLAY";
+  if (status === "EQ") return "EQ";
+  if (status.startsWith("PP")) return "PP";
+  if (status.startsWith("SH")) return "SH";
   if (status === "EN") return "TOM BUR";
   return status; // unknown values are shown raw (CLAUDE.md rule 7)
 }

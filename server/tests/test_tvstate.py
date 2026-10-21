@@ -63,7 +63,7 @@ def test_active_penalty(events: list[NormalizedEvent]) -> None:
     upto = [e for e in events if e.period == 1 and (e.game_seconds or 0) <= 1120]
     tv = build(upto, meta(), SCENE)
     [pen] = tv["penalties_active"]
-    assert pen["number"] == "46" and pen["offence_text"] == "Fällning"
+    assert pen["number"] == "46" and pen["offence_text"] == "Tripping"
     assert pen["started"] == "P1 18:35" and pen["expires_game_seconds"] == 1235
     assert tv["strength"]["label"] == "4v5" and tv["strength"]["pp_side"] == "away"
 

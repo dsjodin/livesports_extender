@@ -222,8 +222,8 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 
 - Scoring side's screen: gold header flashing between `--gold` and `--gold-flash` (0.9 s
   cycle) with "MÅL!" and the team name; decorative outline jersey number behind the content;
-  "MÅLSKYTT", first name, LAST NAME; chips "#25", strength ("POWERPLAY", "FULLT LAG",
-  "BOXPLAY", "TOM BUR"), "3:E PERIODEN 09:07"; card "ASSIST" with up to two "#nr Namn";
+  "MÅLSKYTT", first name, LAST NAME; chips "#25", strength ("EQ" full strength, "PP"
+  power play, "SH" short-handed, "TOM BUR"; decided 2026-10-21), "3:E PERIODEN 09:07"; card "ASSIST" with up to two "#nr Namn";
   score row with both badges and "2–1"; "PÅ ISEN" grid with the six players from `on_ice`.
 - Other screen: dimmed header (60% opacity); "<LEDANDE LAG> LEDER" or "KVITTERING" with the
   score; "SKOTT a–b"; "MÅLEN" list with the new goal highlighted.

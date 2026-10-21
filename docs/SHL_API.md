@@ -216,7 +216,9 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
 - `goalStatus` seen: `EQ` (even strength), `PP1` (power play). Others **unknown**
   (expect short-handed and empty-net variants). Show unknown values raw and log them.
 - `pop` = scoring team's players on the ice (goalie included), `nep` = the other team's.
-- `player.statistics` = the scorer's goals and assists **in this game** after this goal.
+- `player.statistics` = the scorer's goals and assists **this season** after this goal
+  (corrected 2026-10-21: in the 2026-10-20 recording Fagemo's only goal of the game had
+  `G` 4). The goals in this game are counted from the play-by-play (`scorer_game_goals`).
 - Goals can have high revision numbers (one had revision 5); details get corrected after the fact.
 
 **penalty**
@@ -228,23 +230,24 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
  "offence": "HOLD", "didRenderInPenaltyShot": false}
 ```
 
-Offence codes seen and the Swedish text to show:
+Offence codes seen and the text to show. The English names are kept on screen, as
+Swedish hockey uses them (decided by the user 2026-10-21: "vi översätter inte hooking,
+tripping"):
 
-| Code | Swedish |
+| Code | Shown |
 |---|---|
-| `TRIP` | Fällning |
-| `HOLD` | Fasthållning |
-| `CROSS` | Crosscheck |
-| `INTRF` | Obstruktion |
-| `BOARD` | Knuff mot sarg |
-| `ROUGH` | Ruffighet |
+| `TRIP` | Tripping |
+| `HOLD` | Holding |
+| `CROSS` | Cross-checking |
+| `INTRF` | Interference |
+| `BOARD` | Boarding |
+| `ROUGH` | Roughing |
 | `SLASH` | Slashing |
-| `FIGHT` | Slagsmål |
-
-| `HOOK` | Hakning |
-| `DELAY` | Förhalning |
-| `TOO-M` | För många spelare på isen (team penalty: no `player`, variant `Bench`) |
-| `P-SHOT` | Straffslag (penalty shot awarded; empty `variant`, no minutes) |
+| `FIGHT` | Fighting |
+| `HOOK` | Hooking |
+| `DELAY` | Delay of game |
+| `TOO-M` | Too many men (team penalty: no `player`, variant `Bench`) |
+| `P-SHOT` | Penalty shot (penalty shot awarded; empty `variant`, no minutes) |
 
 Unknown codes: show the code and log it. Extend the table as new codes appear. The table
 lives in `server/app/engine/offences.py`.

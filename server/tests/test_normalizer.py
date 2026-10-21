@@ -4,7 +4,7 @@ from typing import Any
 import pytest
 from conftest import load_fixture
 
-from app.engine.normalizer import Normalizer, game_seconds, shot_result
+from app.engine.normalizer import Normalizer, game_seconds, scorer_game_goals, shot_result
 from app.feed.snapshot import Snapshot
 from app.feedtime import format_local, format_local_z
 
@@ -188,11 +188,11 @@ def test_penalty_data() -> None:
     )
     n.apply(snap([pen, bench]))
     data = n.events["e5"].data
-    assert data["offence_text"] == "Slagsmål" and data["minutes"] == 27
+    assert data["offence_text"] == "Fighting" and data["minutes"] == 27
     assert data["kind"] == "minor+major+game_misconduct" and data["segments_s"] == [120, 300]
     team = n.events["e6"].data
     assert team["kind"] == "bench_minor" and team["team_penalty"] is True
-    assert team["offence_text"] == "För många spelare på isen"
+    assert team["offence_text"] == "Too many men"
 
 
 def test_unknown_values_are_logged_once(caplog: pytest.LogCaptureFixture) -> None:
@@ -223,3 +223,28 @@ def test_epoch_change_resets() -> None:
 def test_shot_results() -> None:
     assert [shot_result(s) for s in (1, 9, 0, -3)] == ["on_goal", "on_goal", "wide", "blocked"]
     assert shot_result(-1) == "unknown" and shot_result(None) == "unknown"
+
+
+def test_scorer_game_goals_counts_this_game_not_the_season() -> None:
+    pbp = load_fixture("pbp_et9erhx0si.json")
+    norm = Normalizer()
+    norm.apply(Snapshot.at(T, None, pbp))
+    goals = {e.player.last: e.data for e in norm.events.values() if e.type == "goal" and e.player}
+    # Fagemo's statistics say G 3 (the season), but it was his only goal of the game
+    assert goals["Fagemo"]["scorer_game_goals"] == 1
+    assert goals["Fagemo"]["scorer_season_goals"] == 3
+    assert goals["Cederqvist"]["scorer_game_goals"] is None  # shootout
+
+
+def test_scorer_game_goals_in_order() -> None:
+    def g(event_id: int, period: int, time: str, who: str) -> dict[str, Any]:
+        return {"eventId": event_id, "type": "goal", "period": period, "time": time,
+                "player": {"playerId": who}}  # fmt: skip
+
+    pbp = [
+        g(9, 3, "02:00", "a"),
+        g(3, 1, "05:00", "a"),
+        g(5, 2, "01:00", "b"),
+        g(7, 2, "10:00", "a"),
+    ]
+    assert scorer_game_goals(pbp) == {3: 1, 5: 1, 7: 2, 9: 3}
