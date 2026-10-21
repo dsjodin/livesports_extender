@@ -195,3 +195,4 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 .idle-next { font-family: var(--font-condensed); font-weight: 600; font-size: 44px; letter-spacing: 0.06em; color: var(--text-secondary); }
 .goal-body { justify-content: space-between; padding-bottom: 20px; }
 .goal-body > :not(.outline-number):not(.portrait-img) { position: relative; z-index: 1; }
+.hidden { display: none !important; }

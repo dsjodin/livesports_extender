@@ -5,7 +5,7 @@ import logging
 import os
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, ValidationError
 
@@ -75,7 +75,9 @@ class RuntimeConfig(BaseModel):
     # on 2026-10-20 (rough); TV4 Play is a guess until calibrated.
     profiles: dict[str, float] = {"iptv": 40.0, "tv4play": 60.0}
     active_profile: str = "iptv"
-    calibration_samples: list[dict[str, object]] = []
+    calibration_samples: list[dict[str, Any]] = []
+    # A MÅL! press linked to a feed goal also counts as a "goal" sync sample.
+    goal_button_sync: bool = True
     webhooks: WebhookSettings = WebhookSettings()
     # Jersey colour overrides per team uuid: {"home": "röd" | "#rrggbb", "away": ...}.
     # Defaults are in config/teams.json.

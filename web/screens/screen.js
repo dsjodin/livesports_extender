@@ -25,6 +25,7 @@ const store = new Store();
 const syncLog = [];
 let connection = "connecting";
 let current = null; // {name, mod, root, ctx}
+const goalEvents = new Map(); // goals seen as events at play_at, MÅL! presses included
 
 gsap.ticker.lagSmoothing(0); // keep GSAP time equal to wall time, so timelines stay in sync
 gsap.config({ nullTargetWarn: false }); // scenes animate ".anim" lists that may be empty
@@ -58,6 +59,7 @@ function makeCtx(root) {
     get config() {
       return store.config;
     },
+    goalEvent: (key) => goalEvents.get(key),
     now: clock.now,
     log,
   };
@@ -67,6 +69,12 @@ function show(scene, at, animate) {
   const name = SCENES[scene?.name] ? scene.name : "idle";
   if (!SCENES[scene?.name]) console.warn("unknown scene", scene?.name);
   const late = clock.now() - at;
+  if (current?.name === "goal" && name === "goal" && scene.data?.linked_from === current.ctx.data?.event_key) {
+    // the feed goal behind a MÅL! press: fill in the scorer, keep the running scene
+    current.mod.relink(current.ctx, scene.data);
+    log(`[sync] goal/linked screen=${screenId} delta=${late.toFixed(1)}ms`);
+    return;
+  }
   if (current && current.name === name && current.mod.overlay && animate) {
     current.mod.overlay(current.ctx, scene.data ?? {}, at);
     log(`[sync] ${name}${scene.data?.overlay ? `/${scene.data.overlay}` : ""} screen=${screenId} delta=${late.toFixed(1)}ms`);
@@ -102,7 +110,10 @@ store.on("patch", (patch) => {
   current?.mod.update?.(current.ctx, store.tv, patch);
 });
 store.on("scene", (scene, playAt) => show(scene, playAt, true));
-store.on("event", (event, playAt, late) => current?.mod.onEvent?.(current.ctx, event, playAt, late));
+store.on("event", (event, playAt, late) => {
+  if (event.type === "goal") goalEvents.set(event.key, event);
+  current?.mod.onEvent?.(current.ctx, event, playAt, late);
+});
 store.on("event_update", (event) => current?.mod.onEventUpdate?.(current.ctx, event));
 store.on("preload", (event) => {
   // Fetch the scorer's portrait before play_at so the goal scene has it at once.

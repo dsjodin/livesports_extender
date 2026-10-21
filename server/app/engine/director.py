@@ -83,8 +83,7 @@ class SceneDirector:
             if self._temp and self._temp[0].name == "live":
                 self._temp = None
         elif t == "goal" and isinstance(event.period, int):
-            data = {"event_key": event.key, "side": event.side}
-            self._temp = (Scene("goal", at, GOAL_HOLD_MS, data), at + GOAL_HOLD_MS)
+            self._goal({"event_key": event.key, "side": event.side}, at)
         elif t in OVERLAY_MS:
             overlay_ok = self.base == "live" and (
                 self._temp is None or self._temp[0].name == "live" or t == "goal_disallowed"
@@ -95,12 +94,33 @@ class SceneDirector:
                 self._temp = (Scene("live", at, hold, data), at + hold)
         return out + self._emit(at)
 
-    def set_override(self, name: str, hold_ms: int | None, at: int) -> list[Scene]:
+    def _goal(self, data: dict[str, Any], at: int) -> None:
+        self._temp = (Scene("goal", at, GOAL_HOLD_MS, data), at + GOAL_HOLD_MS)
+
+    def manual_goal(self, key: str, side: str, at: int, extra: dict[str, Any]) -> list[Scene]:
+        """The MÅL! button (or a test goal): the goal scene at once, team only."""
+        out = self.advance(at)
+        self._goal({"event_key": key, "side": side, **extra}, at)
+        return out + self._emit(at)
+
+    def relink(self, manual_key: str, event: NormalizedEvent, at: int) -> list[Scene]:
+        """The feed goal behind a MÅL! press plays: if that press's goal scene is still on,
+        it takes the feed goal's key (scorer and score fill in) without starting over."""
+        out = self.advance(at)
+        if self._temp and self._temp[0].data.get("event_key") == manual_key:
+            scene, until = self._temp
+            data = {"event_key": event.key, "side": event.side, "linked_from": manual_key}
+            self._temp = (Scene("goal", scene.since_ms, scene.hold_ms, data), until)
+        return out + self._emit(at)
+
+    def set_override(
+        self, name: str, hold_ms: int | None, at: int, data: dict[str, Any] | None = None
+    ) -> list[Scene]:
         if name not in SCENES:
             raise ValueError(f"unknown scene {name!r}")
         out = self.advance(at)
         until = at + hold_ms if hold_ms else None
-        self._override = (Scene(name, at, hold_ms, override=True), until)
+        self._override = (Scene(name, at, hold_ms, data or {}, override=True), until)
         return out + self._emit(at)
 
     def clear_override(self, at: int) -> list[Scene]:

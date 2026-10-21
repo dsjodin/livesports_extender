@@ -22,6 +22,7 @@ from app.clock import Clock
 from app.config import RuntimeConfig, Settings, SourceSettings, StateStore
 from app.engine import league as league_engine
 from app.engine import tvstate
+from app.engine.calibration import Calibrator
 from app.engine.delay import DelayQueue, Output
 from app.engine.director import Scene, SceneDirector
 from app.engine.events import Change, NormalizedEvent
@@ -40,6 +41,10 @@ TICK_S = 0.25
 STATUS_EVERY_MS = 1000
 LOG_SIZE = 400
 LEAGUE_REFRESH_S = 600
+MANUAL_LEAD_MS = 300  # a MÅL! press plays this soon: the clients need the message first
+MANUAL_LINK_BEFORE_MS = 150_000  # a feed goal links if its event_ms is this far before
+MANUAL_LINK_AFTER_MS = 5_000  # ... or at most this far after the press
+MANUAL_CONFIRM_MS = 180_000  # no feed goal by then: the press is unconfirmed
 
 
 class Broadcaster(Protocol):
@@ -101,6 +106,8 @@ class Runtime:
         self.raw_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
         self.release_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
         self.colors = TeamColors(settings.config_dir / "teams.json", store.config.team_colors)
+        self.calibrator = Calibrator.from_saved(store.config.calibration_samples)
+        self.manual: list[dict[str, Any]] = []  # MÅL! presses and test goals, newest last
         self._reset_engine()
 
     # --- engine state ---------------------------------------------------------------
@@ -131,6 +138,9 @@ class Runtime:
         self.pending: list[tuple[int, int, dict[str, Any]]] = []
         self._seq = 0
         self._catching_up = True
+        self._linked: dict[str, dict[str, Any]] = {}  # feed goal key -> its MÅL! press
+        self.late_goals = 0  # goals that reached us after the TV showed them
+        self.last_snapshot_ms: int | None = None
         self.raw_log.clear()
         self.release_log.clear()
 
@@ -190,6 +200,7 @@ class Runtime:
 
     def on_snapshot(self, snapshot: Snapshot) -> None:
         now = self.clock.now_ms()
+        self.last_snapshot_ms = now
         for item in snapshot.pbp or []:
             if isinstance(item, dict) and isinstance(item.get("attendance"), int):
                 self._attendance = item["attendance"]
@@ -204,6 +215,11 @@ class Runtime:
             self._register_players(change)
         for out in self.queue.apply(changes, now):
             self._correction(out, now)
+        for change in changes:
+            if change.kind == "added" and change.event is not None:
+                self._link_manual(change.event, now)
+        if self.calibrator.update(self.normalizer.events.values(), now):
+            self._save_calibration()
         if self._catching_up and snapshot.pbp is not None:
             self._catching_up = False
             self._catch_up(now)
@@ -449,12 +465,25 @@ class Runtime:
             )
             if event.type not in ("shot",):
                 self.timeline.append(_summary(event, out.play_at))
-            self._scenes(self.director.on_event(event, out.play_at))
+            if event.type == "goal" and out.late:
+                self.late_goals += 1
+            press = self._linked.get(event.key)
+            if press is not None:
+                # celebrated already by the MÅL! button: fill in, do not start over
+                press["released"] = True
+                self._scenes(self.director.relink(press["key"], event, out.play_at))
+            else:
+                self._scenes(self.director.on_event(event, out.play_at))
             self._patch(out.play_at)
         self._scenes(self.director.advance(horizon))
         self._apply_pending(now)
         if now - self._last_status_ms >= STATUS_EVERY_MS:
             self._last_status_ms = now
+            for press in self.manual:
+                if press["status"] == "waiting" and now - press["pressed_ms"] > MANUAL_CONFIRM_MS:
+                    press["status"] = "unconfirmed"
+            if self.calibrator.update(self.normalizer.events.values(), now):
+                self._save_calibration()
             self.out.broadcast({"t": "status", "status": self.status()})
 
     def _apply_pending(self, now: int) -> None:
@@ -681,7 +710,135 @@ class Runtime:
     def set_scene(self, name: str, hold_s: float | None) -> None:
         at = self.clock.now_ms() + self.lead_ms
         hold = round(hold_s * 1000) if hold_s else None
-        self._scenes(self.director.set_override(name, hold, at))
+        data: dict[str, Any] = {}
+        if name == "goal":  # "Mål igen": the latest goal on screen
+            goals = [g for g in self.applied.get("goals", []) if not g["data"].get("shootout")]
+            if not goals:
+                raise SourceError("no goal to show again")
+            data = {"event_key": goals[-1]["key"], "side": goals[-1]["side"]}
+            hold = hold or 20_000
+        self._scenes(self.director.set_override(name, hold, at, data))
+
+    # --- MÅL! button and test goal --------------------------------------------------
+
+    def manual_goal(self, side: Literal["home", "away"], *, test: bool = False) -> dict[str, Any]:
+        """Celebrate now: the goal scene with the team only. A real press waits for the
+        feed goal behind it (``_link_manual``); a test goal links to nothing."""
+        now = self.clock.now_ms()
+        at = now + MANUAL_LEAD_MS
+        n = len(self.manual) + 1
+        key = f"{'test' if test else 'manual'}-{n}"
+        score = dict(self.applied.get("score") or {"home": 0, "away": 0})
+        score[side] = score.get(side, 0) + 1
+        team = self.meta.teams.get(side) or {}
+        period = self.applied.get("period")
+        event = NormalizedEvent(
+            key=key,
+            type="goal",
+            raw_type="manual",
+            game_uuid=self.meta.uuid,
+            period=period if isinstance(period, int) else None,
+            side=side,
+            team_uuid=team.get("uuid"),
+            team_code=team.get("code"),
+            data={"manual": True, "score": score, "assists": [], "on_ice": []},
+            first_seen_ms=now,
+            received_ms=now,
+            test=test,
+        )
+        press: dict[str, Any] = {
+            "id": key,
+            "key": key,
+            "side": side,
+            "test": test,
+            "pressed_ms": now,
+            "status": "test" if test else "waiting",
+            "goal_key": None,
+            "released": False,
+        }
+        self.manual.append(press)
+        self._emit(_event_message("event", None, event), at)
+        self._scenes(self.director.manual_goal(key, side, at, {"manual": True, "score": score}))
+        if not test:
+            # the feed may already hold the goal, waiting for its play_at
+            for planned in self.queue.pending():
+                if self._link_manual(planned.event, now, only=press):
+                    break
+        return press
+
+    def _link_manual(
+        self, event: NormalizedEvent, now: int, only: dict[str, Any] | None = None
+    ) -> bool:
+        if event.type != "goal" or event.data.get("shootout") or event.key in self._linked:
+            return False
+        for press in [only] if only else self.manual:
+            if press["status"] != "waiting" or press["side"] != event.side:
+                continue
+            pressed = press["pressed_ms"]
+            if now - pressed > MANUAL_CONFIRM_MS:
+                continue
+            if event.event_ms is not None and not (
+                pressed - MANUAL_LINK_BEFORE_MS <= event.event_ms <= pressed + MANUAL_LINK_AFTER_MS
+            ):
+                continue
+            press["status"], press["goal_key"] = "linked", event.key
+            self._linked[event.key] = press
+            if self.config.goal_button_sync and event.event_ms is not None:
+                self.calibrator.add_sample("goal", pressed, event.side, event)
+                self._save_calibration()
+            return True
+        return False
+
+    def manual_status(self) -> list[dict[str, Any]]:
+        """Presses for the phone. The scorer only once the feed goal has played."""
+        out = []
+        for press in self.manual[-10:]:
+            item = {k: press[k] for k in ("id", "side", "test", "pressed_ms", "status")}
+            goal = self.released.get(press["goal_key"] or "") if press["released"] else None
+            item["scorer"] = goal.player.model_dump() if goal and goal.player else None
+            out.append(item)
+        return out
+
+    # --- calibration ----------------------------------------------------------------
+
+    def _save_calibration(self) -> None:
+        self.config.calibration_samples = [p.as_dict() for p in self.calibrator.presses]
+        self.store.save()
+
+    def calibrate(self, kind: str, side: Literal["home", "away"] | None) -> dict[str, Any]:
+        now = self.clock.now_ms()
+        try:
+            press = self.calibrator.press(kind, now, side, self.normalizer.events.values())
+        except ValueError as exc:
+            raise SourceError(str(exc)) from exc
+        self._save_calibration()
+        return press.as_dict()
+
+    def calibration(self) -> dict[str, Any]:
+        proposal = self.calibrator.proposal_ms()
+        return {
+            "profile": self.config.active_profile,
+            "current_offset_s": self.config.offset_s,
+            "samples": [p.as_dict() for p in self.calibrator.presses],
+            "proposal_s": None if proposal is None else round(proposal / 1000, 1),
+            "proposal_samples": self.calibrator.matched_count(),
+            "reaction_ms": 300,
+        }
+
+    def accept_calibration(self) -> None:
+        proposal = self.calibrator.proposal_ms()
+        if proposal is None:
+            raise SourceError("no proposal yet")
+        self.set_offset(self.config.active_profile, round(proposal / 1000, 1))
+
+    def remove_sample(self, sample_id: str) -> None:
+        if not self.calibrator.remove(sample_id):
+            raise SourceError(f"no sample {sample_id!r}")
+        self._save_calibration()
+
+    def clear_samples(self) -> None:
+        self.calibrator.clear()
+        self._save_calibration()
 
     def clear_scene(self) -> None:
         self._scenes(self.director.clear_override(self.clock.now_ms() + self.lead_ms))
@@ -703,4 +860,9 @@ class Runtime:
             "raw_events": len(self.normalizer.events),
             "released_events": len(self.released),
             "pending_messages": len(self.pending),
+            "last_snapshot_ms": self.last_snapshot_ms,
+            "late_goals": self.late_goals,
+            "manual": self.manual_status(),
+            "calibration": self.calibration(),
+            "goal_button_sync": self.config.goal_button_sync,
         }

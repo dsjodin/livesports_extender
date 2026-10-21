@@ -53,6 +53,23 @@ class TeamColorsIn(BaseModel):
     away: str | None = None
 
 
+class CalibrateIn(BaseModel):
+    kind: Literal["period_start", "goal", "penalty", "timeout", "shot_on_goal"]
+    side: Literal["home", "away"] | None = None
+
+
+class GoalIn(BaseModel):
+    side: Literal["home", "away"]
+
+
+class TestGoalIn(BaseModel):
+    side: Literal["home", "away"] | None = None
+
+
+class EnabledIn(BaseModel):
+    enabled: bool
+
+
 class SceneIn(BaseModel):
     name: str
     hold_s: float | None = None
@@ -173,9 +190,73 @@ async def set_scene(body: SceneIn, request: Request) -> dict[str, Any]:
     rt = runtime(request)
     try:
         rt.set_scene(body.name, body.hold_s)
-    except ValueError as exc:
+    except (ValueError, SourceError) as exc:
         raise HTTPException(400, str(exc)) from exc
     return ok(rt)
+
+
+@router.post("/calibrate")
+async def calibrate(body: CalibrateIn, request: Request) -> dict[str, Any]:
+    """A "Synka" press; the server stamps the time."""
+    rt = runtime(request)
+    press = rt.calibrate(body.kind, body.side)
+    return {"press": press, **rt.calibration()}
+
+
+@router.get("/calibrate")
+async def calibration(request: Request) -> dict[str, Any]:
+    return runtime(request).calibration()
+
+
+@router.post("/calibrate/accept")
+async def accept_calibration(request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    try:
+        rt.accept_calibration()
+    except SourceError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    return rt.calibration()
+
+
+@router.post("/calibrate/goal-button")
+async def goal_button_sync(body: EnabledIn, request: Request) -> dict[str, Any]:
+    """Whether a linked MÅL! press counts as a goal sync sample."""
+    rt = runtime(request)
+    rt.config.goal_button_sync = body.enabled
+    rt.store.save()
+    return ok(rt)
+
+
+@router.delete("/calibrate")
+async def clear_calibration(request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    rt.clear_samples()
+    return rt.calibration()
+
+
+@router.delete("/calibrate/{sample_id}")
+async def remove_sample(sample_id: str, request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    try:
+        rt.remove_sample(sample_id)
+    except SourceError as exc:
+        raise HTTPException(404, str(exc)) from exc
+    return rt.calibration()
+
+
+@router.post("/goal")
+async def manual_goal(body: GoalIn, request: Request) -> dict[str, Any]:
+    """The MÅL! button: celebrate now; the feed goal behind it links when it arrives."""
+    rt = runtime(request)
+    return {"press": rt.manual_goal(body.side), "status": rt.status()}
+
+
+@router.post("/test/goal")
+async def test_goal(body: TestGoalIn, request: Request) -> dict[str, Any]:
+    """A synthetic goal for my team (or the given side), at once, marked test."""
+    rt = runtime(request)
+    side = body.side or rt.my_side or "home"
+    return {"press": rt.manual_goal(side, test=True), "status": rt.status()}
 
 
 @router.delete("/scene")

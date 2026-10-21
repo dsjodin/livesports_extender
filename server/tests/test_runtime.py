@@ -248,3 +248,106 @@ async def test_first_snapshot_catches_up_silently(setup: Any) -> None:
     [event] = [m for m in hub.of("event") if m["event"]["key"] == "e8"]
     assert event["play_at_ms"] == on_ice + 140 * S and not event["event"]["late"]
     assert rt.applied["scene"]["name"] == "goal"
+
+
+def period_n(n: int, started_ms: int) -> dict[str, Any]:
+    return period(started_ms) | {"period": n}
+
+
+async def test_sync_presses_at_period_starts_propose_the_tv_delay(setup: Any) -> None:
+    """Phase 4 acceptance: fake TV 75 s behind, system offset 60 s, three presses at the
+    TV's period starts propose 75 ± 0.5 s; after accepting, events play 75 s after the ice."""
+    rt, hub, clock = setup
+    rt.set_offset("iptv", 60)
+    starts = [T + 10 * S, T + 40 * 60 * S, T + 80 * 60 * S]
+    for n, start in enumerate(starts, start=1):
+        await at(clock, rt, start + 25 * S)  # the feed shows a period start ~25 s late
+        feed(rt, clock, [period_n(k, s) for k, s in enumerate(starts[:n], start=1)])
+        await at(clock, rt, start + 75 * S + 300)  # seen on TV, pressed after 0.3 s
+        rt.calibrate("period_start", None)
+    cal = rt.calibration()
+    assert [s["status"] for s in cal["samples"]] == ["matched"] * 3
+    assert abs(cal["proposal_s"] - 75) <= 0.5
+    rt.accept_calibration()
+    assert rt.config.offset_s == cal["proposal_s"]
+    on_ice = starts[2] + 300 * S
+    await at(clock, rt, on_ice + 30 * S)
+    feed(
+        rt,
+        clock,
+        [goal(7, on_ice, 1, 0) | {"period": 3}, *[period_n(k, s) for k, s in enumerate(starts, 1)]],
+    )
+    await at(clock, rt, on_ice + 75 * S)
+    [event] = [m for m in hub.of("event") if m["event"]["key"] == "e7"]
+    assert event["play_at_ms"] == on_ice + 75 * S
+
+
+async def test_sync_press_before_the_feed_has_the_goal(setup: Any) -> None:
+    rt, _hub, clock = setup
+    on_ice = T + 10 * S
+    await at(clock, rt, on_ice + 41 * S)
+    press = rt.calibrate("goal", "home")
+    assert press["status"] == "pending"
+    await at(clock, rt, on_ice + 60 * S)
+    feed(rt, clock, [goal(7, on_ice, 1, 0), period(T)])
+    [sample] = rt.calibration()["samples"]
+    assert sample["status"] == "matched" and sample["sample_s"] == 40.7
+
+
+async def test_goal_button_with_a_late_feed_goal_links_without_a_second_celebration(
+    setup: Any,
+) -> None:
+    """Phase 4 acceptance: TV 40 s behind, the goal reaches the feed 48 s after the ice.
+    MÅL! celebrates at once; the feed goal links to it: no second goal scene."""
+    rt, hub, clock = setup
+    rt.set_offset("iptv", 40)
+    await at(clock, rt, T + 5 * S)
+    feed(rt, clock, [period(T)])
+    on_ice = T + 100 * S
+    await at(clock, rt, on_ice + 40 * S + 300)
+    press = rt.manual_goal("home")
+    await at(clock, rt, clock.now_ms() + 300)
+    scenes = [m["scene"] for m in hub.of("scene") if m["scene"]["name"] == "goal"]
+    assert len(scenes) == 1 and scenes[0]["data"]["event_key"] == press["key"]
+    assert rt.applied["score"] == {"home": 0, "away": 0}  # the feed has no goal yet
+    await at(clock, rt, on_ice + 48 * S)
+    feed(rt, clock, [goal(7, on_ice, 1, 0), period(T)])
+    await at(clock, rt, on_ice + 50 * S)
+    goal_scenes = [m["scene"] for m in hub.of("scene") if m["scene"]["name"] == "goal"]
+    assert len(goal_scenes) == 2  # the same scene, now carrying the feed goal
+    assert goal_scenes[1]["data"] == {"event_key": "e7", "side": "home", "linked_from": "manual-1"}
+    assert goal_scenes[1]["since_ms"] == on_ice + 48 * S + 1500
+    assert rt.applied["score"] == {"home": 1, "away": 0}
+    [status] = rt.manual_status()
+    assert status["status"] == "linked" and status["scorer"]["last"] == "Peterson"
+    goal_sample = [s for s in rt.calibration()["samples"] if s["source"] == "goal_button"]
+    assert goal_sample[0]["sample_s"] == 40.0
+    await at(clock, rt, on_ice + 70 * S)
+    assert rt.applied["scene"]["name"] == "live"  # the hold ran from the press
+
+
+async def test_goal_button_links_to_a_goal_already_waiting_and_expires(setup: Any) -> None:
+    rt, hub, clock = setup
+    on_ice = T + 10 * S
+    await at(clock, rt, on_ice + 20 * S)
+    feed(rt, clock, [goal(7, on_ice, 1, 0), period(T)])  # plays at on_ice + 80 s
+    await at(clock, rt, on_ice + 70 * S)
+    rt.manual_goal("home")  # the TV is ahead of the screens
+    rt.manual_goal("away")  # nothing behind this one
+    assert [p["status"] for p in rt.manual_status()] == ["linked", "waiting"]
+    await at(clock, rt, on_ice + 90 * S)
+    # the away press took over the scene, so the linked home goal only fills the state
+    assert len([m for m in hub.of("scene") if m["scene"]["name"] == "goal"]) == 2
+    assert rt.applied["score"] == {"home": 1, "away": 0}
+    await at(clock, rt, on_ice + 70 * S + 181 * S)
+    assert [p["status"] for p in rt.manual_status()] == ["linked", "unconfirmed"]
+
+
+async def test_test_goal_plays_at_once(setup: Any) -> None:
+    rt, hub, clock = setup
+    press = rt.manual_goal("home", test=True)
+    [event] = [m for m in hub.of("event") if m["event"]["key"] == press["key"]]
+    assert event["event"]["test"] and event["play_at_ms"] == clock.now_ms() + 300
+    await at(clock, rt, clock.now_ms() + 300)
+    assert rt.applied["scene"]["name"] == "goal"
+    assert rt.manual_status()[0]["status"] == "test"

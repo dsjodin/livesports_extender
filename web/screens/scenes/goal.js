@@ -18,6 +18,12 @@ export function update() {
   // The goal scene is a fixed moment; later patches show up when it goes back to live.
 }
 
+export function relink(ctx, data) {
+  ctx.data = data;
+  ctx.animate = false;
+  render(ctx, ctx.now());
+}
+
 export function onEventUpdate(ctx, event) {
   // A corrected scorer or assist: redraw the text without replaying the sequence.
   if (event.key !== ctx.data?.event_key) return;
@@ -27,11 +33,16 @@ export function onEventUpdate(ctx, event) {
 
 function render(ctx, at) {
   const tv = ctx.tv;
-  const goal = (tv.goals ?? []).find((g) => g.key === ctx.data.event_key);
+  // a MÅL! press or test goal is not in the state: it comes as an event (team only)
+  const goal = (tv.goals ?? []).find((g) => g.key === ctx.data.event_key) ?? ctx.goalEvent?.(ctx.data.event_key) ?? manual(ctx.data);
   const side = goal?.side ?? ctx.data.side ?? "home";
   if (ctx.kind === "bar") bar(ctx, tv, goal, side, at);
   else if (ctx.side === side) scorer(ctx, tv, goal, side, at);
   else conceded(ctx, tv, goal, side, at);
+}
+
+function manual(data) {
+  return data.manual ? { key: data.event_key, side: data.side, player: null, data: { manual: true, score: data.score } } : undefined;
 }
 
 function scoreAfter(tv, goal) {
@@ -49,10 +60,12 @@ function bar(ctx, tv, goal, side, at) {
   }
   const strength = goal?.data?.strength;
   const tag = goal?.data?.empty_net ? "TOM BUR" : strength?.startsWith("PP") ? "PP" : strength?.startsWith("SH") ? "BOXPLAY" : null;
-  const when = goal ? `P${goal.period} ${goal.time}` : "";
+  const when = goal?.time ? `P${goal.period} ${goal.time}` : "";
   const centre = html`<div class="big-word gold" id="goal-word">MÅL</div><div class="mid">${[tag, when].filter(Boolean).join(" · ")}</div>`;
   const assists = (goal?.data?.assists ?? []).map((a) => `#${a.number} ${caps(a.last)}`).join(", ");
-  const strip = [caps(who(goal?.player)), assists ? `ASSIST ${assists}` : "UTAN ASSIST"].filter(Boolean).join(" • ");
+  const strip = goal?.player
+    ? [caps(who(goal.player)), assists ? `ASSIST ${assists}` : "UTAN ASSIST"].join(" • ")
+    : `MÅL FÖR ${caps(shortName(tv, side))}${goal?.test ? " • TEST" : ""}`;
   ctx.root.innerHTML = barPage(tv, { home: teams.home, away: teams.away, centre, strip: html`${strip}`, stripClass: "gold" });
 
   const box = ctx.root.querySelector("#goal-box");
@@ -76,7 +89,8 @@ function scorer(ctx, tv, goal, side, at) {
     p.number ? `#${p.number}` : null,
     strengthChip(d.strength, d.empty_net),
     d.penalty_shot ? "STRAFFSLAG" : null,
-    goal ? periodTime(goal) : null,
+    goal?.time ? periodTime(goal) : null,
+    goal?.test ? "TEST" : null,
     d.scorer_game_goals === 3 ? "HATTRICK" : d.scorer_game_goals > 1 ? `${caps(ordinal(d.scorer_game_goals))} MÅLET IKVÄLL` : null,
   ].filter(Boolean);
   const assists = (d.assists ?? []).slice(0, 2);
@@ -87,9 +101,9 @@ function scorer(ctx, tv, goal, side, at) {
     <div class="goal-head"><div class="mal">MÅL!</div><div class="goal-team">${caps(longName(tv, side))}</div></div>
     <div class="goal-body">
       ${raw(p.number ? html`<div class="outline-number">${p.number}</div>` : "")}${raw(portrait)}
-      <div class="scorer"><div class="label">MÅLSKYTT</div><div class="first">${p.first ?? ""}</div><div class="last">${caps(p.last ?? "")}</div></div>
+      ${raw(goal?.player ? html`<div class="scorer"><div class="label">MÅLSKYTT</div><div class="first">${p.first ?? ""}</div><div class="last">${caps(p.last ?? "")}</div></div>` : html`<div class="scorer"><div class="label">MÅLSKYTT</div><div class="first secondary">${d.manual ? "Väntar på SHL" : ""}</div></div>`)}
       <div class="chips">${raw(chips.map((c) => html`<span class="chip ${c === "POWERPLAY" ? "gold" : ""}">${c}</span>`).join(""))}</div>
-      <div class="card assist-card"><div class="label">ASSIST</div>
+      <div class="card assist-card ${d.manual ? "hidden" : ""}"><div class="label">ASSIST</div>
         ${raw(assists.length ? assists.map((a) => html`<div class="assist-name">#${a.number} ${a.first} ${a.last}</div>`).join("") : `<div class="assist-name secondary">Utan assist</div>`)}</div>
       <div class="score-row">${raw(badge(team(tv, "home"), "home", "md"))}<div class="big">${score(sc.home, sc.away)}</div>${raw(badge(team(tv, "away"), "away", "md"))}</div>
       ${raw(onIce.length ? html`<div class="onice-block"><div class="label">PÅ ISEN</div><div class="onice">${raw(onIce.map((o) => html`<div><b>#${o.number}</b>${o.last}</div>`).join(""))}</div></div>` : "")}
