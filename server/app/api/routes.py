@@ -68,6 +68,11 @@ class TestGoalIn(BaseModel):
     side: Literal["home", "away"] | None = None
 
 
+class TestVideoIn(BaseModel):
+    kind: Literal["goal", "intro"]
+    side: Literal["home", "away"] | None = None
+
+
 class EnabledIn(BaseModel):
     enabled: bool
 
@@ -298,6 +303,12 @@ async def test_goal(body: TestGoalIn, request: Request) -> dict[str, Any]:
     rt = runtime(request)
     side = body.side or rt.my_side or "home"
     return {"press": rt.manual_goal(side, test=True), "status": rt.status()}
+
+
+@router.post("/test/video")
+async def test_video(body: TestVideoIn, request: Request) -> dict[str, Any]:
+    """Play a team's goal or intro video now (one side, or both screens), video only."""
+    return {"play_at_ms": runtime(request).test_video(body.kind, body.side)}
 
 
 @router.delete("/scene")

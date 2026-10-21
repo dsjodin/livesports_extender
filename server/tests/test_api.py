@@ -159,3 +159,13 @@ def test_rest_controls(client: TestClient, tmp_path: Path) -> None:
     saved = (tmp_path / "state.json").read_text()
     assert '"tv4play": 60.0' in saved and '"game_uuid": "bdhvuc5tex"' in saved
     assert '"active_profile": "tv4play"' in saved
+
+
+def test_test_video_is_broadcast_alone(client: TestClient) -> None:
+    with client.websocket_connect("/ws?role=screen&id=left") as ws:
+        r = client.post("/api/test/video", json={"kind": "intro"})
+        assert r.status_code == 200
+        at = r.json()["play_at_ms"]
+        messages = receive_until(ws, lambda m: m.get("t") == "video")
+        assert messages[-1] == {"t": "video", "kind": "intro", "side": None, "play_at_ms": at}
+    assert client.post("/api/test/video", json={"kind": "other"}).status_code == 422

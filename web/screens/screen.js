@@ -2,6 +2,7 @@
 // left = home team, right = away team, bar = both (docs/SCREENS.md).
 import * as clock from "../shared/clock.js";
 import * as media from "../shared/media.js";
+import { at } from "../shared/scheduler.js";
 import { needsOutline, onColor } from "../shared/format.js";
 import { teamVars } from "../shared/components.js";
 import * as stage from "../shared/stage.js";
@@ -27,6 +28,7 @@ const syncLog = [];
 let connection = "connecting";
 let current = null; // {name, mod, root, ctx}
 const goalEvents = new Map(); // goals seen as events at play_at, MÅL! presses included
+const introsPlayed = new Set(); // game uuids whose intro has run here (once per game)
 
 gsap.ticker.lagSmoothing(0); // keep GSAP time equal to wall time, so timelines stay in sync
 gsap.config({ nullTargetWarn: false }); // scenes animate ".anim" lists that may be empty
@@ -67,7 +69,14 @@ function makeCtx(root) {
     video(kind, playAt, later = false) {
       const uuid = this.side ? store.tv.teams?.[this.side]?.uuid : null;
       if (!uuid) return false;
-      return later ? media.playLater(kind, uuid, playAt, log) : media.play(kind, uuid, playAt, log);
+      if (kind !== "intro") return later ? media.playLater(kind, uuid, playAt, log) : media.play(kind, uuid, playAt, log);
+      // the intro runs once per game: at the scheduled start on TV time, or at puck drop
+      const game = store.tv.game?.uuid;
+      const go = () => !introsPlayed.has(game) && media.play(kind, uuid, playAt, log) && introsPlayed.add(game);
+      if (introsPlayed.has(game)) return false;
+      if (later) return at(playAt, go);
+      go();
+      return true;
     },
     now: clock.now,
     log,
@@ -96,6 +105,7 @@ function show(scene, at, animate) {
   const ctx = makeCtx(root);
   ctx.animate = animate;
   const mod = SCENES[name];
+  ctx.previous = old?.name ?? null;
   current = { name, mod, root, ctx };
   mod.enter(ctx, scene?.data ?? {}, at);
   if (old) {
@@ -112,6 +122,7 @@ function show(scene, at, animate) {
 
 store.on("state", (tv) => {
   media.hide(); // a seek or a reconnect: whatever was playing is no longer due
+  introsPlayed.clear();
   decorate(tv);
   show(tv.scene, clock.now(), false);
 });
@@ -129,6 +140,12 @@ store.on("preload", (event) => {
   // Fetch the scorer's portrait before play_at so the goal scene has it at once.
   if (event.type === "goal" && event.player?.id) new Image().src = `/assets/players/${event.player.id}.png`;
 });
+store.on("video", (m) => {
+  // a test from /sim or the phone: only the video, on one side or both
+  const side = screenId === "left" ? "home" : screenId === "right" ? "away" : null;
+  const uuid = side ? store.tv?.teams?.[side]?.uuid : null;
+  if (uuid && (!m.side || m.side === side)) at(m.play_at_ms, () => media.play(m.kind, uuid, m.play_at_ms, log));
+});
 store.on("config", () => current?.mod.update?.(current.ctx, store.tv, {}));
 
 function debugOverlay() {
@@ -145,6 +162,7 @@ function debugOverlay() {
     el.textContent = [
       `${screenId}  ws ${connection}  offset ${c.offset} ms  rtt ${c.rtt ?? "-"} ms`,
       `rev ${store.tv?.rev ?? "-"}  scene ${current?.name ?? "-"}  tv offset ${(store.config.offset_ms ?? 0) / 1000} s`,
+      ...(screenId === "bar" ? [] : [`video ${media.status()}`]),
       ...upcoming,
       ...syncLog,
     ].join("\n");

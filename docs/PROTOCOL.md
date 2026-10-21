@@ -278,6 +278,7 @@ auth in front if it is ever exposed).
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
 | `POST /api/test/goal` | `{"side"?: "home"\|"away"}` | Synthetic goal (default my side), offset 0, `test: true` |
+| `POST /api/test/video` | `{"kind": "goal"\|"intro", "side"?: "home"\|"away"}` | Plays a team video now on the portrait screens (both without `side`): broadcasts `{"t": "video", "kind", "side", "play_at_ms"}`, no scene, state or webhook |
 | `GET /api/webhooks` | | `{"settings": {"url", "enabled", "events"}, "events": [all event names]}` |
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |

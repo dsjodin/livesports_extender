@@ -81,3 +81,9 @@ export function hide(video) {
   }
   if (!video) current = null;
 }
+
+/** For the debug overlay: which videos this screen holds. */
+export function status() {
+  const ready = (v) => (v.readyState >= 2 ? "ready" : "loading");
+  return KINDS.map((k) => `${k} ${videos[k] ? ready(videos[k]) : "none"}`).join(" · ");
+}

@@ -135,6 +135,11 @@ function bindControls() {
   $("playpause").onclick = () => api("replay", { action: status?.paused ? "play" : "pause" });
   $("next-period").onclick = () => api("replay", { action: "seek", to: "next_period" });
   $("end").onclick = () => api("replay", { action: "seek", to: "end" });
+  $("video-intro").onclick = () => api("test/video", { kind: "intro" });
+  $("video-goal-home").onclick = () => api("test/video", { kind: "goal", side: "home" });
+  $("video-goal-away").onclick = () => api("test/video", { kind: "goal", side: "away" });
+  $("test-goal-home").onclick = () => api("test/goal", { side: "home" });
+  $("test-goal-away").onclick = () => api("test/goal", { side: "away" });
   $("next-goal").onclick = () => api("replay", { action: "seek", to: "before_next_goal" });
   for (const speed of SPEEDS) {
     const b = document.createElement("button");

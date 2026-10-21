@@ -6,6 +6,8 @@ import { barPage, other, periodLabel, play, shortName, statsLine, stopTimers, te
 import { ticker } from "./ticker.js";
 
 export function enter(ctx, data, at) {
+  // puck drop: the intro, unless it already ran at the scheduled start (docs/SCREENS.md)
+  if (ctx.animate && ctx.kind === "portrait" && ctx.previous === "pregame") ctx.video("intro", at);
   ctx.overlay = data.overlay ? data : null;
   render(ctx);
   animateOverlay(ctx, at);

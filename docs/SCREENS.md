@@ -285,9 +285,14 @@ service ships a generated default per team, and your own replace them.
   `goal` video plays over the scene from `play_at` (2.2 s; bands in the team colours and
   gold, the logo, "MÅL!", the team name; it ends transparent) and the goal graphics build
   behind it. The gold band (`#fx`) still sweeps above it. The other screens show no video.
-- Intro: in `pregame`, at puck drop on TV time (`start_ms + offset_ms`), the left and right
-  screens play their team's `intro` video (4.5 s: the team colour, logo, "MATCHSTART", the
-  team name, ending transparent). A game that starts before that time shows none.
+- Intro: the left and right screens play their team's `intro` video (4.5 s: the team
+  colour, logo, "MATCHSTART", the team name, ending transparent) once per game: in
+  `pregame` at the scheduled start on TV time (`start_ms + offset_ms`), or, if that time
+  had passed (a replay, or a page opened late), at puck drop, when `live` follows
+  `pregame`, over the first seconds of the live scene.
+- Testing: `/sim` has "Intro (both)", "Goal video home/away" (`POST /api/test/video`, the
+  video alone) and "Test goal home/away" (the whole goal sequence). The debug overlay
+  (`?debug=1`) shows whether a screen holds its videos ("video goal ready · intro ready").
 - Each portrait screen fetches its own team's two videos when the teams are known, as
   blobs, so playback never waits on the network. A screen that is late starts the video
   that far in; a team without a video shows none. A fresh state (seek, reconnect) stops a

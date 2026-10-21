@@ -849,6 +849,15 @@ class Runtime:
 
     # --- MÅL! button and test goal --------------------------------------------------
 
+    def test_video(
+        self, kind: Literal["goal", "intro"], side: Literal["home", "away"] | None
+    ) -> int:
+        """Play a team video now on the portrait screens (one side, or both), to check the
+        files. Only the video: no scene, no state, no webhook. Returns its play_at."""
+        at = self.clock.now_ms() + MANUAL_LEAD_MS
+        self.out.broadcast({"t": "video", "kind": kind, "side": side, "play_at_ms": at})
+        return at
+
     def manual_goal(self, side: Literal["home", "away"], *, test: bool = False) -> dict[str, Any]:
         """Celebrate now: the goal scene with the team only. A real press waits for the
         feed goal behind it (``_link_manual``); a test goal links to nothing."""
