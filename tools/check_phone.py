@@ -151,7 +151,7 @@ async def main() -> int:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("--base", default="http://localhost:8080")
+    parser.add_argument("--base", default="http://localhost:8010")
     parser.add_argument("--chromium", help="Chromium executable (default: Playwright's)")
     args = parser.parse_args()
     async with httpx.AsyncClient(base_url=args.base, timeout=30) as client:

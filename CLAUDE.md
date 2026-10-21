@@ -65,7 +65,7 @@ docs/                  plan and specs
 ## Commands
 
 ```
-docker compose up --build            # service on http://localhost:8080
+docker compose up --build            # service on http://localhost:8010
 cd server && uv run pytest           # tests (use uv; fall back to pip + venv if missing)
 cd server && uv run pytest -m "not live"      # offline tests only
 cd server && uv run ruff check . ../tools     # lint (server and tools)

@@ -63,9 +63,9 @@ writes `data/recordings/<game_uuid>/report.md`. Keep `polls.jsonl` for later pha
 docker compose up --build
 ```
 
-- `http://<host>:8080/sim`: the whole wall in one browser window, with replay controls
-- `http://<host>:8080/app`: phone app (game selection, calibration, scenes)
-- `http://<host>:8080/screens/left.html`, `bar.html`, `right.html`: the three screen pages
+- `http://<host>:8010/sim`: the whole wall in one browser window, with replay controls
+- `http://<host>:8010/app`: phone app (game selection, calibration, scenes)
+- `http://<host>:8010/screens/left.html`, `bar.html`, `right.html`: the three screen pages
 
 ## Docs
 
