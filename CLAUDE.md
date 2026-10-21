@@ -75,6 +75,8 @@ uv run --project server python tools/analyze_recording.py data/recordings/<uuid>
 uv run --project server python tools/synth_recording.py bdhvuc5tex   # fake recording
 cd server && uv run python -m app.cli replay bdhvuc5tex --instant     # event timeline + state
 cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --instant
+uv run --project server python tools/snapshot.py           # screen snapshots (service running)
+uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.
@@ -109,7 +111,8 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
    2026-10-20) call the real shl.se in the default `pytest` run to catch API changes; run
    offline with `pytest -m "not live"`. Live tests fetch each URL at most once per session.
    Outside tests, only `tools/` scripts and the feed layer (`LiveSource`, the schedule
-   cache, and loading a finished non-fixture game for replay) touch the network.
+   cache, standings, the logo and portrait cache, and loading a finished non-fixture game
+   for replay) touch the network.
 5. **Be polite to shl.se.** Poll only the selected game: `game-info` every 60 s until
    15 min before puck drop, then `game-info` and `play-by-play` every 2 s until the game is
    over. Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a

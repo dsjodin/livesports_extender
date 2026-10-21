@@ -133,3 +133,33 @@ def test_release_order_and_reset() -> None:
     assert [o.event.key for o in outs if o.event] == ["e3", "e5"]
     [reset] = q.apply([Change("reset")], T + 50 * S)
     assert reset.kind == "reset" and q.items == {}
+
+
+def test_backlog_releases_late_events_in_game_order() -> None:
+    """Catching up: late events come out in game order with the time the TV showed them;
+    one without event_ms takes the time of the event before it; a period's end comes
+    after its events."""
+    q = DelayQueue(offset_ms=40 * S)
+    now = T + 600 * S
+    period_end = goal(
+        "period-1-end",
+        event_ms=T + 100 * S,
+        received=now,
+        type="period_end",
+        raw_type="period",
+        time=None,
+        game_seconds=None,
+        event_id=None,
+        data={},
+    )
+    early = goal("e7", event_ms=T, received=now)
+    unknown = goal("e9", event_ms=None, received=now, time="10:00", game_seconds=600)
+    ahead = goal("e12", event_ms=now, received=now, time="19:59", game_seconds=1199)
+    for e in (period_end, unknown, early, ahead):
+        add(q, e)
+    outs = q.backlog()
+    assert [o.event.key for o in outs if o.event] == ["e7", "e9", "period-1-end"]
+    assert [o.play_at for o in outs] == [T + 40 * S, T + 40 * S, T + 140 * S]
+    assert q.backlog() == []
+    [rest] = q.due(now + 40 * S)
+    assert rest.event is not None and rest.event.key == "e12" and not rest.late

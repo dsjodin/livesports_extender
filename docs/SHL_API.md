@@ -372,6 +372,12 @@ No timestamps, so it cannot be synced to the TV. (shl.se's event list marks home
   athlete `qQ9-adafYNUQw`, isa `3770`). So: roster per team (one request) gives portraits;
   matching to play-by-play is exact via athlete-details (one request per player, cache it)
   or by team + name.
+- Confirmed in Phase 3: the imgix URLs are signed (`&s=...`); adding or changing `w`
+  breaks the signature, so pick a ready-made `srcset` entry (the service takes the
+  smallest at least 480 px wide). The roster is the current one only: players who have
+  left the team (Arttu Ruotsalainen, Frölunda's scorer in the 2025 fixture `bdhvuc5tex`)
+  have no portrait. The service matches by name (accents ignored), then jersey number,
+  instead of one athlete-details request per player.
 
 ### Team logos
 

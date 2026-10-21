@@ -208,6 +208,7 @@ async function main() {
     status = m.status;
     showStatus();
   });
+  store.on("state", () => raw.clear()); // a new source or seek; raw_backlog refills on connect
   store.on("raw_backlog", (m) => {
     raw.clear();
     (m.raw ?? []).forEach(onRaw);

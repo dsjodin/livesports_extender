@@ -76,7 +76,8 @@ The delayed state every client renders. Sent in full on connect, then as patches
   "teams": {
     "home": {"uuid": "087a-087aTQv9u", "code": "FHC", "short": "Frölunda", "long": "Frölunda HC",
              "jersey": "röd", "color": "#c8102e",
-             "icon": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg"},
+             "icon": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+             "logo": "/assets/teams/087a-087aTQv9u.svg"},
     "away": {"uuid": "41c4-41c4BiYZU", "code": "LHC", "short": "Linköping", "long": "Linköping HC",
              "jersey": "vit", "color": "#f4f6f8",
              "icon": "https://sportality.cdn.s8y.se/team-logos/lhc1_lhc.svg"}
@@ -103,6 +104,7 @@ The delayed state every client renders. Sent in full on connect, then as patches
   "shootout": ["... shootout attempts ..."],
   "recent": ["... last 10 played events (not shots): key, type, period, time, side, label, play_at_ms ..."],
   "ended": false, "overtime": false, "went_to_shootout": false,
+  "league": {"... standings, form and games, see below; null until fetched ..."},
   "scene": {"name": "live", "since_ms": 1757775000000, "hold_ms": null, "data": {},
             "override": false}
 }
@@ -115,6 +117,44 @@ is per team (the goalie on the ice now, the team's saves and shots against; empt
 goals excluded) and has `pulled`. `shots` skips coordinates outside 0–300 dm. `GET
 /api/state` returns `{"tv": <this>, "config": <persisted settings>, "status": {...}}`.
 
+### League block
+
+`league` holds what the pregame and idle scenes show. It is fetched (standings cached
+1 h, schedule 1 h) only while the applied phase is `idle` or `pregame` and every 10 min
+then, so tonight's results cannot reach a screen during or after the game; it stays as it
+was from puck drop on.
+
+```json
+{"updated_ms": 1792567865804,
+ "standings": [{"rank": 1, "uuid": "752c-752c12zB7Z", "code": "FBK", "short": "Färjestad",
+                "gp": 10, "w": 8, "l": 0, "otw": 1, "otl": 1, "points": 27, "gf": 40, "ga": 11,
+                "diff": 29, "logo": "/assets/teams/752c-752c12zB7Z.svg"}, "..."],
+ "teams": {"home": {"rank": 2, "points": 25, "gp": 11, "diff": 14, "gf_per_game": 3.5,
+                    "ga_per_game": 2.2,
+                    "form": [{"uuid": "mtn5yq64mp", "date": "2026-10-20", "result": "V",
+                              "home_away": "H", "opponent": "DIF", "opponent_uuid": "...",
+                              "note": null, "score": "6–2"}, "... newest first, 5 ..."]},
+           "away": {"...": "same shape"}},
+ "last_meeting": {"uuid": "pdllryhpd8", "date": "2026-10-15", "home": "LHC", "away": "FHC",
+                  "home_uuid": "...", "score": "0–3", "arena": "Saab Arena", "note": null},
+ "my_team": {"uuid": "82eb-82ebmgaJ8", "next_game": {"uuid": "...", "start_ms": 1792688400000,
+             "home": "ÖRE", "away": "BIF", "arena": "Behrn Arena", "...": "..."}},
+ "tonight": ["... today's games without scores ..."],
+ "recent": ["... latest finished games with score and note (straffar, övertid) ..."]}
+```
+
+`result` is `V` (won) or `F` (lost) from that team's view, `home_away` `H` or `B`; the
+score is always home–away of that game.
+
+### Starting and seeking
+
+The first snapshot after a source starts (or a replay seeks) brings everything that has
+already happened. Events that are already late at that moment, so the TV has shown them,
+are applied at once as the starting state: no `event` or `scene` messages for them, then a
+fresh `state` to everyone. The scene is what the director would show at that moment (a
+goal shown 5 s ago is still the goal scene, with 15 s left). Events still ahead of the TV
+play normally.
+
 ## WebSocket
 
 Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
@@ -123,7 +163,7 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
- "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "debug": false}}
+ "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -156,7 +196,9 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 - On connect a client gets `hello`, then `state` (only what has reached its `play_at`),
   then every message still waiting for its `play_at`, in order. A replay seek or a new
   source sends a fresh `state` to everyone.
-- `{"t": "config", "config": {...}}` when the offset or TV profile changes.
+- `{"t": "config", "config": {...}}` when the offset, TV profile, source or replay speed
+  changes. `speed` is the replay speed (1 for live); the intermission countdown divides
+  the break by it.
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
   selected game, my side, profile, offset, counts.
@@ -206,6 +248,7 @@ auth in front if it is ever exposed).
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
 | `GET /api/wall` | | Contents of `config/wall.json` |
+| `GET /api/replays` | | `{"fixtures": [uuid, ...], "recordings": [dir, ...]}`: games that replay without the network, and saved recordings |
 | `POST /api/my-team` | `{"uuid": "<team uuid>"\|null}` | My team (default Örebro); my side follows it unless set per game |
 | `GET /api/teams` | | Palette and every team's home/away jersey colour (`config/teams.json` plus overrides) |
 | `PUT /api/teams/{uuid}` | `{"home"?: "röd"\|"#rrggbb", "away"?: ...}` | Override a team's colours (saved in `data/state.json`) |
@@ -285,3 +328,16 @@ Other events and their extra fields:
 
 Entity ids and the horn file are placeholders for the user's own. Put the full set of
 examples in `docs/HA.md` (Phase 6).
+
+## Assets
+
+Not under `/api`. Fetched from shl.se once, stored under `data/cache/`, served locally
+with `Cache-Control: max-age=86400`; 404 when the feed has none.
+
+| Path | Source |
+|---|---|
+| `GET /assets/teams/<team uuid>.svg` | the team's `icon` URL from game-info or the schedule |
+| `GET /assets/players/<isa id>.png` | the portrait in `athletes/by-team-uuid` (team roster cached 24 h), matched by name, then jersey number; the smallest signed `srcset` entry at least 480 px wide |
+
+A player is known once an event names them (scorer, assists, players on the ice). A
+player who has left the team since the game (old fixtures) has no portrait.

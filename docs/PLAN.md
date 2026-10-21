@@ -254,7 +254,7 @@ Tasks:
    `stage.js` (loads `config/wall.json`, converts stage millimetres to this screen's pixels),
    `tokens.css` (design tokens from `docs/SCREENS.md`), `scheduler.js` (run a callback at a
    server-time `play_at`). An asset cache in the service (`/assets/teams/<uuid>.svg`,
-   `/assets/players/<isa id>.jpg`) fetches team logos and player portraits from shl.se once,
+   `/assets/players/<isa id>.png`) fetches team logos and player portraits from shl.se once,
    stores them under `data/cache/` and serves them locally. Vendor GSAP and the Barlow /
    Barlow Condensed fonts (woff2) into
    `web/vendor/`.
@@ -277,6 +277,11 @@ Tasks:
 5. **`tools/snapshot.py`** (Playwright): opens `/sim`, seeks the `bdhvuc5tex` replay to fixed
    moments and saves each screen at native size to `artifacts/snapshots/`:
    pregame, live at P3 08:20 (FHC power play), goal at P3 09:07 + 2 s, intermission after P2.
+   Built: the screens are also opened at native size for the snapshots (the /sim page is
+   saved alongside), the live snapshot is taken once the FHC power play is on screen
+   (penalty P3 07:39, shown about P3 08:20 since the replay feed lags 42 s), and postgame
+   and idle are saved too. `--flow` replays the whole game at 5× and checks the scene
+   order and the `[sync]` deltas.
 
 Acceptance:
 
@@ -284,6 +289,19 @@ Acceptance:
 - The goal sequence starts on all three screens within 20 ms of `play_at` (debug log shows it).
 - Snapshots exist and follow the layouts in `docs/SCREENS.md` (and `docs/mockups/` if present).
 - Restarting the service: screens reconnect and restore state without a page reload.
+
+Phase 3 notes (2026-10-21):
+
+- Starting a source or seeking a replay used to replay every past event at once (old
+  goals celebrated, scenes cascading). Now the first snapshot after a start or seek
+  applies what the TV has already shown as the starting state (`docs/PROTOCOL.md`,
+  Starting and seeking). This also covers a restart mid-game in Phase 5.
+- After a restart the service starts the saved source again (a replay from the top).
+- Player portraits only exist for current rosters: the 2025 fixture's scorers who have
+  left their team show the goal scene without a picture.
+- Open: faceoffs and other team-stats numbers in the intermission and postgame
+  statistics (needs polling `gameday/team-stats`, Phase 5); a QR code for the phone in
+  /sim; the before-overtime break length (3 min assumed).
 
 ---
 

@@ -128,8 +128,9 @@ Bar (1920×360), native:
 
 ### Components
 
-- **Team badge**: circle in team colour with the team code (from `names.code`) in the
-  on-colour. Later: the team logo from the feed's `icon` URL, cached (Phase 8).
+- **Team badge**: the team logo (`/assets/teams/<uuid>.svg`, the feed's `icon` cached by the
+  service) on a light disc ringed in the team colour; without a logo, a circle in team
+  colour with the team code (from `names.code`) in the on-colour.
 - **Stat tile**: `--panel`, label on top, big value below. Three per row.
 - **Goalie card**: label "MÅLVAKT", "#nr Förnamn Efternamn", right-aligned save % with one
   decimal and a comma ("96,2 %") and "N räddningar" below.
@@ -154,10 +155,12 @@ content width (932 px at native size, so `scale = 932 / 300` px per dm):
 - Rounded top corners, radius 85 dm. Board outline in `--rink-board`, ice `--ice`.
 - Net: 18.3 dm wide, 11 dm deep, behind the goal line. Crease: half circle, radius 18 dm.
 - Faceoff circles: centres 60 dm out from the goal line, ±70 dm lateral, radius 45 dm, red.
-- Blue line about 175 to 190 dm out from the goal line (tune visually; shots cluster below 180).
+- Blue line 180 dm out from the goal line (shots cluster below it).
 - Dot at `left = centre_x + y_dm * scale`, `top = goal_line_top + x_dm * scale`.
-- On goal: filled 24 px dot in team colour. Missed: 24 px ring, 4 px. Goal: 45 px gold star.
-  Legend: "På mål", "Utanför", "Mål". Skip shots with `x_dm` outside 0–200.
+- Symbols as on shl.se's own shot plot: on goal a filled 24 px dot in team colour, wide
+  (`goalSection` 0) a cross, blocked (−3) a filled square, goal a 45 px gold star.
+  Legend: "På mål", "Utanför", "Täckt", "Mål". Built with the blue line at 180 dm; skip
+  shots with `x_dm` outside 0–180.
 - The meaning of `goalSection` and the coordinate origin are **assumptions** (see
   `docs/SHL_API.md`); plot a full replay and check that goals cluster at the net.
 
@@ -244,10 +247,16 @@ and the graphics build behind it.
 
 ### intermission (mockup scene 4)
 
+Countdown: the intermission scene's `since_ms` (the period end as shown on TV) plus 18 min,
+divided by the replay speed (`config.speed`). Before overtime the break is taken as 3 min
+(assumption, not checked against SHL). It is an estimate; the next `period_start` ends it.
+
 - Bar: score boxes; centre "PAUS", "PERIOD n OM", countdown in gold (estimate: period end +
   18 min); strip "EFTER n PERIODER • SKOTT a–b • UTV.MIN c–d".
 - Left: "EFTER TVÅ PERIODER" / "PERIODSTATISTIK", both teams named with badges, comparison rows:
-  shots per period played, shots total, power play (goals/chances), penalty minutes, save %.
+  shots per period played, shots on goal, shot attempts, power play (goals/chances), penalty
+  minutes, save % ("RÄDDNINGSPROCENT"). Faceoffs are only in shl.se's team-stats, not in
+  the TV state yet.
 - Right: "MÅLEN" list, "UTVISNINGAR" list (period time, team, player, offence text, minutes),
   bottom card "<N>:E PERIODEN · Startar om" with the countdown.
 
@@ -270,6 +279,12 @@ and the graphics build behind it.
 
 `?debug=1` on any screen page shows, in a corner: connection state, clock offset and RTT,
 TV state `rev`, current scene, and a list of upcoming `play_at` countdowns with event keys.
+Every scene change is also logged to the console as
+`[sync] goal start screen=left delta=1.2ms`, where `delta` is how late (by the synced
+clock) the scene started after its `play_at`; `tools/snapshot.py` collects these lines.
+
+On reconnect (for example after a service restart) a screen gets `hello` and a fresh
+`state` and redraws the current scene without animation; no page reload.
 
 ## Simulator (`/sim`)
 
@@ -287,7 +302,12 @@ A developer tool; its control panel may be in English.
     "TV-klocka" (period and game time), so the calibration button can be tested.
   - Webhook log: each call with time, event, status.
   - Toggles: debug overlay on all screens, show raw events.
-  - "Open phone app" link (`/app`) and QR code for the phone.
+  - "Open phone app" link (`/app`) and QR code for the phone (the QR code is not built
+    yet: no QR library is vendored).
+- Built in Phase 3: the source list comes from `GET /api/replays` plus a field for any
+  finished game uuid; "End of game" seeks to just after the game ended. The fake TV pane
+  needs the raw events, so the simulator always sends `debug_subscribe`; the
+  "Show raw events" toggle only shows the arrival list.
 
 ## Phone app (`/app`)
 
