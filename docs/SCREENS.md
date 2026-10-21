@@ -171,6 +171,12 @@ The SceneDirector picks one scene for the whole wall. All changes happen at the 
 | `game_end` | `postgame` (hold 15 min) | then `idle` |
 | Manual override from the phone | chosen scene | cleared or hold time over |
 
+The penalty, disallowed-goal and timeout emphases are sent as scene `live` with
+`data.overlay` (`penalty`, `goal_disallowed`, `timeout`), `data.event_key`, `data.side` and
+`hold_ms`; the "TOM BUR" badge comes from `stats.<side>.goalie.pulled` in the TV state. A
+penalty or timeout during a goal scene does not interrupt it; a disallowed goal does.
+Holds are in real time, so in a fast replay a goal scene can span a whole intermission.
+
 ### idle
 
 - Bar: centred clock (HH:MM) and "Nästa match: <dag> <tid> <HEMMA>–<BORTA>" for my team.

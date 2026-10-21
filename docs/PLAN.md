@@ -196,9 +196,9 @@ Tasks:
 
 1. **Clock**: `RealClock` and `FakeClock(advance)`. Everything time-based takes a clock.
 2. **DelayQueue** (`engine/delay.py`): each normalized event gets
-   `play_at = max(event_ms + offset_ms, first_seen_ms + lead_ms)`; when the second term
+   `play_at = max(event_ms + offset_ms, received_ms + lead_ms)`; when the second term
    wins the event is marked `late: true` (and `late_by_ms`). Without a plausible
-   `event_ms` (CLAUDE.md rule 2) it is `first_seen_ms + lead_ms`, also `late`, logged once
+   `event_ms` (CLAUDE.md rule 2) it is `received_ms + lead_ms`, also `late`, logged once
    at WARNING. Broadcast at `play_at - lead_ms` (lead 1500 ms) so clients can preload and
    schedule. Updates before release replace the payload and keep `play_at`. Updates after
    release (a goal's scorer or assists corrected) go out as `event_update` at once.
@@ -221,11 +221,11 @@ Tasks:
 
 Acceptance (fake-clock tests unless noted):
 
-- Every broadcast `event` has `play_at == max(event_ms + offset_ms, first_seen_ms + lead_ms)`
-  and is never broadcast before `first_seen_ms`; `late` is set exactly when the second
-  term wins.
+- Every broadcast `event` has `play_at == max(event_ms + offset_ms, received_ms + lead_ms)`
+  and is never broadcast before it reached us; `late` is set exactly when the second term
+  wins. (`received_ms` replaced `first_seen_ms` here on 2026-10-21, see CLAUDE.md rule 2.)
 - With offset 80 s, a goal first seen 48 s after its `event_ms` plays at `event_ms + 80 s`;
-  with offset 40 s it plays at `first_seen + lead` and is `late`.
+  with offset 40 s it plays at `received + lead` and is `late`.
 - A goal removed before its `play_at` is never broadcast.
 - A scorer correction after release produces one `event_update`; the TV state shows the
   corrected scorer.

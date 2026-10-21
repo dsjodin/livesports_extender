@@ -16,14 +16,14 @@ from datetime import datetime
 from pathlib import Path
 
 from app.clock import Clock, FakeClock, RealClock
-from app.config import REPO_ROOT
+from app.config import FIXTURES_DIR
 from app.engine.events import Change, NormalizedEvent
 from app.engine.normalizer import Normalizer
 from app.engine.state import RawState, compute_state
 from app.feed.sources import FeedSource, RecordingSource, ReplaySource
 from app.feedtime import STOCKHOLM
 
-FIXTURES = REPO_ROOT / "server" / "tests" / "fixtures"
+FIXTURES = FIXTURES_DIR
 
 
 def describe(e: NormalizedEvent) -> str:

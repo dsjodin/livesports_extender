@@ -7,10 +7,12 @@ Home Assistant.
 
 ## Status
 
-Phases 0 and 1 done: an empty service (`/api/health`, page index), test fixtures from
+Phases 0 to 2 done: a service (`/api/health`, page index), test fixtures from
 shl.se, the game recorder and recording analyzer, and the feed client, replay and
 recording sources, normalizer, game state and power-play tracker
-(`cd server && uv run python -m app.cli replay bdhvuc5tex --instant`). The build is split into
+(`cd server && uv run python -m app.cli replay bdhvuc5tex --instant`), and the delay
+queue, TV state, scene director, WebSocket hub and REST API with a `/debug` page. The
+build is split into
 phases in [`docs/PLAN.md`](docs/PLAN.md), designed to be implemented by Claude
 Code one phase at a time.
 

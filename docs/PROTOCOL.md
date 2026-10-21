@@ -98,15 +98,24 @@ The delayed state every client renders. Sent in full on connect, then as patches
             "away": ["..."]},
   "goals": ["... normalized goal events in order ..."],
   "penalties": ["... normalized penalty events in order ..."],
-  "scene": {"name": "live", "since_ms": 1757775000000, "override": false}
+  "shootout": ["... shootout attempts ..."],
+  "recent": ["... last 10 played events (not shots): key, type, period, time, side, label, play_at_ms ..."],
+  "ended": false, "overtime": false, "went_to_shootout": false,
+  "scene": {"name": "live", "since_ms": 1757775000000, "hold_ms": null, "data": {},
+            "override": false}
 }
 ```
 
 `phase`: `idle`, `pregame`, `live`, `intermission`, `postgame`.
 
+Notes: `strength` also has `label` (`"5v4"`; a pulled goalie adds a skater). `stats.*.goalie`
+is per team (the goalie on the ice now, the team's saves and shots against; empty-net
+goals excluded) and has `pulled`. `shots` skips coordinates outside 0–300 dm. `GET
+/api/state` returns `{"tv": <this>, "config": <persisted settings>, "status": {...}}`.
+
 ## WebSocket
 
-Endpoint: `/ws?role=screen|sim|phone&id=<screen id or client name>`
+Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 
 ### Server to client
 
@@ -137,13 +146,29 @@ Endpoint: `/ws?role=screen|sim|phone&id=<screen id or client name>`
 - `event_update` corrects an event that has already played (for example a goal's scorer);
   clients update the visible text without replaying the animation.
 - Messages are sent `lead_ms` before `play_at_ms` (default 1500 ms) so clients can preload.
-- Phone clients additionally get `{"t": "status", ...}` with source mode, replay position,
-  calibration samples and, only when debug is on, raw (undelayed) events.
+- `event` and `event_update` bodies carry `late` and `late_by_ms` (null when not late or
+  when `event_ms` was missing).
+- A goal removed after it played becomes an `event` of type `goal_disallowed` (key
+  `<key>-disallowed`); any other event removed after it played only changes the state
+  (`state_patch`), for example a precursor shot that turned into a goal.
+- On connect a client gets `hello`, then `state` (only what has reached its `play_at`),
+  then every message still waiting for its `play_at`, in order. A replay seek or a new
+  source sends a fresh `state` to everyone.
+- `{"t": "config", "config": {...}}` when the offset or TV profile changes.
+- Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
+  a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
+  selected game, my side, profile, offset, counts.
+- Raw (undelayed) normalizer changes go only to sim, phone and debug clients that sent
+  `debug_subscribe` (CLAUDE.md rule 1): first `{"t": "raw_backlog", "raw": [...],
+  "released": [...]}`, then `{"t": "raw", "entry": {"change", "key", "type", "label",
+  "event_ms", "first_seen_ms", "received_ms", "at_ms"}}` per change.
 
 ### Client to server
 
 ```json
 {"t": "clock_ping", "t0": 1760000000000}
+{"t": "debug_subscribe"}
+{"t": "debug_unsubscribe"}
 ```
 
 Clock sync: the client sends `clock_ping` every 2 s for the first 10 s, then every 30 s.

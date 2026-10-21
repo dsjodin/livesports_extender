@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHL Arena – felsökning</title>
+  <link rel="stylesheet" href="debug.css">
+</head>
+<body>
+  <header>
+    <h1>Felsökning</h1>
+    <div id="status" class="status">Ansluter…</div>
+  </header>
+  <section class="controls">
+    <label>Match <input id="uuid" value="bdhvuc5tex" size="12"></label>
+    <label>Hastighet <input id="speed" type="number" value="5" min="1" max="200" step="1"></label>
+    <button id="start">Starta repris</button>
+    <button id="pause">Paus</button>
+    <button id="play">Spela</button>
+    <button id="next-goal">10 s före nästa mål</button>
+    <label>TV-fördröjning (s) <input id="offset" type="number" step="0.5" min="0" max="600"></label>
+    <button id="set-offset">Sätt</button>
+    <label class="raw-toggle"><input id="raw" type="checkbox"> Visa råa händelser
+      <small>(kan avslöja mål innan de syns på TV)</small></label>
+  </section>
+  <main>
+    <section>
+      <h2>Råa händelser <small>första gången sedda</small></h2>
+      <table>
+        <thead><tr><th>Mottagen</th><th>Ändring</th><th>Händelse</th><th>På isen</th>
+          <th>Fördröjning</th></tr></thead>
+        <tbody id="raw-rows"><tr class="hint"><td colspan="5">Kryssa i "Visa råa händelser".</td></tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Släppta händelser <small>spelas vid play_at</small></h2>
+      <table>
+        <thead><tr><th>play_at</th><th>Om</th><th>Händelse</th><th>På isen</th>
+          <th>play_at − på isen</th><th></th></tr></thead>
+        <tbody id="released-rows"></tbody>
+      </table>
+    </section>
+  </main>
+  <script type="module" src="debug.js"></script>
+</body>
+</html>
