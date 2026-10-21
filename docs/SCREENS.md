@@ -111,8 +111,8 @@ height). Rules:
   (30 %) behind the team name on the portraits, free-standing on the bar (the user's
   call, 2026-10-21). Badges stay in lists.
 - `tools/legibility.py` (service running) measures every text of every scene; a scene
-  is done when nothing is under the floor. Done so far: `live`, `intermission` and the
-  bar in every scene. Still to do: pregame, goal, postgame and idle portraits.
+  is done when nothing is under the floor. Done so far: `live`, `intermission`, `pregame`
+  and the bar in every scene. Still to do: goal, postgame and idle portraits.
 
 Native sizes before the 3 m pass (the scenes not yet redone), portrait screens (1080 wide):
 
@@ -220,11 +220,13 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 - Bar: home and away name with badge; score boxes show league **points** with the label
   "POÄNG"; centre "IKVÄLL" / start time / arena; strip "ÄVEN IKVÄLL: …" other games tonight.
   Less than 60 min to start: centre shows a countdown "NEDSLÄPP OM 42:10".
-- Left (home) and right (away): header (badge, "HEMMA"/"BORTA", long name); tiles MATCHER,
-  POÄNG, MÅLSKILLNAD; "FORM, SENASTE 5" with five form rows, newest first; tiles
-  "GJORDA MÅL / MATCH" and "INSLÄPPTA / MATCH" (one decimal, comma).
-  Bottom card left: "SENASTE MÖTET · <datum>" with result and arena. Bottom card right:
-  "NEDSLÄPP" with arena and start time.
+- Left (home) and right (away), sized for 3 m: the header as in `live` (short name over
+  the toned-down logo); tiles PLATS ("2:A"), POÄNG, MÅL +/−; "FORM, SENASTE 5" with five
+  rows, newest first: V/F, HEMMA/BORTA, the opponent's logo and code, the score (plus ÖT
+  or STR); a "MÅL PER MATCH" card with GJORDA and INSLÄPPTA (one decimal, comma).
+  Bottom card left: "SENASTE MÖTET" with the result, the date and ÖT/STR. Bottom card
+  right: "NEDSLÄPP" with the start time and arena. Games played and the arena of the
+  last meeting are left out.
 - Data: schedule (results, points: 3 for a regulation win, 2 for an overtime or shootout win,
   1 for an overtime or shootout loss), standings.
 
