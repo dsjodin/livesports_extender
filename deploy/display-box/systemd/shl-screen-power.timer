@@ -1,0 +1,10 @@
+[Unit]
+Description=SHL Arena screen power, every minute
+
+[Timer]
+OnActiveSec=30s
+OnUnitActiveSec=60s
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target

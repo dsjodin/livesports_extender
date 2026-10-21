@@ -1,0 +1,7 @@
+# SHL Arena: screens on or off (display.env: SCREEN_POWER, SCREENS_ON_FROM/UNTIL).
+[Unit]
+Description=SHL Arena screen power
+
+[Service]
+Type=oneshot
+ExecStart=/opt/shl-arena-display/screen-power.sh

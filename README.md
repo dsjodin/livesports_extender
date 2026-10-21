@@ -7,12 +7,12 @@ Home Assistant.
 
 ## Status
 
-Phases 0 to 2 done: a service (`/api/health`, page index), test fixtures from
-shl.se, the game recorder and recording analyzer, and the feed client, replay and
-recording sources, normalizer, game state and power-play tracker
-(`cd server && uv run python -m app.cli replay bdhvuc5tex --instant`), and the delay
-queue, TV state, scene director, WebSocket hub and REST API with a `/debug` page. The
-build is split into
+Phases 0 to 7 built: the service (feed, delay queue, TV state, scenes, REST and
+WebSocket), the three screen pages, the simulator `/sim`, the phone app `/app` with
+Synka and MÅL!, live games (also recorded to `data/recordings/`), Home Assistant webhooks
+([`docs/HA.md`](docs/HA.md)) and deployment of the Docker host and the display box
+([`docs/DEPLOY.md`](docs/DEPLOY.md)). The display box still has to be tried on real
+hardware. The build is split into
 phases in [`docs/PLAN.md`](docs/PLAN.md), designed to be implemented by Claude
 Code one phase at a time.
 
@@ -76,4 +76,6 @@ docker compose up --build
 | `docs/SHL_API.md` | Verified shl.se endpoints, field paths and data quirks |
 | `docs/PROTOCOL.md` | REST API, WebSocket messages, Home Assistant webhooks |
 | `docs/SCREENS.md` | Wall geometry, design tokens, scenes, simulator, phone app |
+| `docs/HA.md` | Home Assistant setup and example automations |
+| `docs/DEPLOY.md` | Docker host and display box installation |
 | `config/wall.json` | Physical screen layout |

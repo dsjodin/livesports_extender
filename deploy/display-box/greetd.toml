@@ -1,0 +1,12 @@
+# greetd: log the kiosk user straight into sway at boot (installed by install.sh as
+# /etc/greetd/config.toml). After logging out, agreety asks for a login on VT 7.
+[terminal]
+vt = 7
+
+[default_session]
+command = "agreety --cmd sway"
+user = "_greetd"
+
+[initial_session]
+command = "sway"
+user = "arena"

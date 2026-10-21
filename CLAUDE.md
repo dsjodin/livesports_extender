@@ -12,6 +12,7 @@ Read these before working on a phase:
 - `docs/SHL_API.md`: the verified shl.se endpoints, field paths and data quirks.
 - `docs/PROTOCOL.md`: REST API, WebSocket messages and webhook payloads.
 - `docs/HA.md`: Home Assistant setup and example automations.
+- `docs/DEPLOY.md`: Docker host and display box installation.
 - `docs/SCREENS.md`: wall geometry, design tokens, scenes per screen, simulator and phone app.
 - `config/wall.json`: physical screen layout (single source of truth for geometry).
 
@@ -80,6 +81,7 @@ cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --
 uv run --project server python tools/snapshot.py           # screen snapshots (service running)
 uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
 uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
+shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.

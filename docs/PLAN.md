@@ -450,6 +450,18 @@ Tasks:
 Acceptance: following `docs/DEPLOY.md` on a fresh Debian 13 box gives three screens showing
 the right pages after boot, with no manual steps.
 
+Phase 7 notes (2026-10-21):
+
+- Built: `compose.yaml` (healthcheck, log rotation, restart), `deploy/display-box/`
+  (`install.sh`, `display.env.example`, `sway.config.template`, `render.sh`, `kiosk.sh`,
+  `screen-power.sh`, `check.sh`, systemd user units, greetd config) and `docs/DEPLOY.md`.
+- One manual step remains by nature: naming the outputs in `display.env` after the first
+  boot (`check.sh` lists them); with the defaults (DP-1, HDMI-A-1, DP-2) it may be none.
+- Windows are put on their outputs twice over: each starts on its own focused workspace
+  (bound to an output), and a sway rule moves it there by its page title.
+- Verified in a Debian 13 container (install) and a headless sway (windows, checks); see
+  `docs/DEPLOY.md`, section 3. The real box is still to be tried.
+
 ---
 
 ## Phase 8: Extras (prioritise with the user)
