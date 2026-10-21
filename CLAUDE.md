@@ -3,7 +3,7 @@
 A home "arena" for Swedish Hockey League (SHL) games. A stretched LCD bar (1920×360)
 sits between two portrait 24" screens (1080×1920 each). The system follows a chosen
 game using shl.se's own JSON API, delays everything to match the TV broadcast
-(about 30 s behind the arena on our IPTV feed), drives broadcast-style graphics on
+(about 40 s behind the arena on our Telia IPTV feed, measured roughly), drives broadcast-style graphics on
 the three screens and fires goal lights and horns in Home Assistant via webhook.
 
 Read these before working on a phase:
@@ -21,12 +21,12 @@ shl.se JSON API ──poll 2 s──► FeedSource (live | replay | recording)
                                    │ raw snapshots (play-by-play + game-info)
                                    ▼
                          Normalizer (diff by event id + revision)
-                                   │ normalized events, first_seen_ms
+                                   │ normalized events, event_ms + first_seen_ms
                                    ▼
                     RawState + DerivedStats (shots, PP, saves, penalties)
                                    │
                                    ▼
-               DelayQueue (release at first_seen + offset, minus lead)
+               DelayQueue (play_at = event_ms + TV delay, never before arrival)
                                    │ events with play_at
                                    ▼
                   TvState reducer + SceneDirector (pregame/live/goal/…)
@@ -57,7 +57,7 @@ web/app/               phone web app (PWA)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
 config/wall.json       screen geometry
 tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
-                       synth_recording.py, snapshot.py (shared: shl_http.py)
+                       synth_recording.py, snapshot.py, check_phone.py (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
 ```
@@ -70,9 +70,15 @@ cd server && uv run pytest           # tests (use uv; fall back to pip + venv if
 cd server && uv run pytest -m "not live"      # offline tests only
 cd server && uv run ruff check . ../tools     # lint (server and tools)
 uv run --project server python tools/fetch_fixtures.py        # refresh test fixtures
-uv run --project server python tools/record_game.py <uuid>    # record a live game
+uv run --project server python tools/record_game.py <uuid>    # record a live game (not
+                                     # while the service follows it: it records its own polls)
 uv run --project server python tools/analyze_recording.py data/recordings/<uuid>
 uv run --project server python tools/synth_recording.py bdhvuc5tex   # fake recording
+cd server && uv run python -m app.cli replay bdhvuc5tex --instant     # event timeline + state
+cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --instant
+uv run --project server python tools/snapshot.py           # screen snapshots (service running)
+uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
+uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.
@@ -83,16 +89,32 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
    Every derived number (score, shots, shot-map dots, standings) goes through the
    DelayQueue. A raw value leaking early spoils a goal 30 s before the TV shows it.
    Raw data may only appear in the phone app's debug view, behind an explicit toggle.
-2. **Time comes from our own clock.** Use `first_seen_ms` (our receive time) for all
-   timing. Feed timestamps are inconsistent about time zones (see `docs/SHL_API.md`)
-   and are only used for display and for ordering within a period.
+2. **Sync is anchored to the on-ice moment; scheduling uses our clock.** Each event's
+   `event_ms` is the moment it happened on the ice: `realWorldTime` (events),
+   `startedAt` (period start) or `finishedAt` (period end), all parsed as
+   Europe/Stockholm local time. `play_at = max(event_ms + offset, received_ms + lead)`,
+   where `offset` is how far the TV lags the arena (calibrated) and `received_ms` is when
+   the event first reached us. An event that arrives too late for the first term is
+   played `lead` after arrival and marked `late`. (`received_ms`, not `first_seen_ms`:
+   with a 9 s Age the latter would put `play_at` in the past; changed 2026-10-21.)
+   `first_seen_ms` is `received_ms − Age header × 1000` (fallback `received_ms`), our
+   best estimate of when the data existed; it is used for analysis and calibration, and
+   `event_ms` counts as implausible when it is more than 5 s ahead of `first_seen_ms`
+   or more than 10 min behind (then the event plays at `received_ms + lead`, `late`).
+   The server clock must be NTP-synced; a constant error in shl.se's clock is absorbed
+   by calibration. Decided 2026-10-20 after the first live recording: feed lag varies
+   19–78 s per goal, so a fixed offset from receive time cannot line up with the TV.
+   All other feed timestamps are for display and ordering only (time zones are
+   inconsistent, see `docs/SHL_API.md`).
 3. **All timing code takes an injectable `Clock`.** Tests use a fake clock and run
    instantly. No `time.sleep` or `asyncio.sleep` on the real clock in engine code.
 4. **Engine tests use fixtures; live API tests call shl.se by default.** Engine logic is
    tested against the fixtures in `server/tests/fixtures/`. Tests marked `live` (decided
    2026-10-20) call the real shl.se in the default `pytest` run to catch API changes; run
    offline with `pytest -m "not live"`. Live tests fetch each URL at most once per session.
-   Outside tests, only `tools/` scripts and `LiveSource` touch the network.
+   Outside tests, only `tools/` scripts and the feed layer (`LiveSource`, the schedule
+   cache, standings, the logo and portrait cache, and loading a finished non-fixture game
+   for replay) touch the network.
 5. **Be polite to shl.se.** Poll only the selected game: `game-info` every 60 s until
    15 min before puck drop, then `game-info` and `play-by-play` every 2 s until the game is
    over. Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a

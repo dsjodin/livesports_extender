@@ -6,6 +6,10 @@ import httpx
 import pytest
 
 import shl_http as shl
+from app.clock import FakeClock
+from app.engine.normalizer import Normalizer
+from app.engine.state import RawState, compute_state
+from app.feed.sources import ReplaySource
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -37,3 +41,18 @@ def live_shl() -> Any:
     live = LiveShl()
     yield live
     live.close()
+
+
+async def replay_to_end(
+    uuid: str, on_snapshot: Any = None, **kwargs: Any
+) -> tuple[Normalizer, RawState]:
+    """Replay a fixture game on a fake clock through the normalizer; final state."""
+    kwargs.setdefault("speed", 50)
+    source = ReplaySource.from_fixtures(FIXTURES, uuid, FakeClock(), **kwargs)
+    normalizer = Normalizer()
+    async for snapshot in source:
+        changes = normalizer.apply(snapshot)
+        if on_snapshot is not None:
+            on_snapshot(normalizer, changes, snapshot)
+    state = compute_state(normalizer.events.values(), normalizer.game_state, normalizer.game_info)
+    return normalizer, state

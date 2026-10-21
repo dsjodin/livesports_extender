@@ -1,0 +1,13 @@
+{
+  "name": "SHL Arena",
+  "short_name": "SHL Arena",
+  "lang": "sv",
+  "start_url": "/app/",
+  "scope": "/app/",
+  "display": "standalone",
+  "background_color": "#070A10",
+  "theme_color": "#070A10",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}

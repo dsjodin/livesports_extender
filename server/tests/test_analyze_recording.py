@@ -84,3 +84,47 @@ def test_revisions_and_disappearances(tmp_path: Path) -> None:
     assert "| 2 shot P1 01:00 FHC |" in report
     assert "| shot | 2 | +3.0 | +5.0 | +7.0 | +2.0 | +4.0 | +6.0 |" in report
     assert "No boxscore in the recording." in report
+
+
+def test_noise_fields_ages_and_errors(tmp_path: Path) -> None:
+    t = parse_naive_utc_ms("2025-09-13T13:20:03") or 0
+    first = shot(1, 1, "Andersson") | {"gameState": "Ongoing", "attendance": 100}
+    noisy = shot(1, 1, "Andersson") | {"gameState": "Intermission", "attendance": 12044}
+    rows = [
+        {
+            "received_ms": t,
+            "endpoint": "play-by-play",
+            "status": 200,
+            "sha1": "a",
+            "age": 2,
+            "body": [first],
+        },
+        {
+            "received_ms": t + 2000,
+            "endpoint": "play-by-play",
+            "status": None,
+            "sha1": None,
+            "error": "ReadTimeout",
+            "body": None,
+        },
+        {
+            "received_ms": t + 4000,
+            "endpoint": "play-by-play",
+            "status": 200,
+            "sha1": "b",
+            "age": 6,
+            "body": [noisy],
+        },
+    ]
+    a = analyse(rows)
+    assert a.events[("e", 1)].changes == []
+    assert a.events[("e", 1)].first_available_ms == t - 2000
+    assert a.errors == {("play-by-play", "ReadTimeout"): 1}
+
+    (tmp_path / "polls.jsonl").write_text("\n".join(json.dumps(r) for r in rows) + "\n")
+    report = write_report(tmp_path).read_text()
+    assert "- Errors: play-by-play ReadTimeout: 1" in report
+    assert "2 polls, min 2 / median 4 / max 6 s" in report
+    assert "(to `received_ms − Age`)" in report
+    assert "| shot | 1 | +1.0 | +1.0 | +1.0 | +0.0 | +0.0 | +0.0 |" in report
+    assert "No event changed after it first appeared." in report

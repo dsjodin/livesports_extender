@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "note": "Jersey colours per team, keyed by team uuid (CLAUDE.md rule 6). 'home' and 'away' are a name from 'colors' or a hex colour '#rrggbb'. The home team plays in its home colour, the away team in its away colour. Overrides set from the phone app are stored in data/state.json and win over this file. Set by the user 2026-10-21.",
+  "colors": {
+    "blå": "#1f4fbf",
+    "gul": "#f2c200",
+    "vit": "#f4f6f8",
+    "röd": "#c8102e",
+    "grön": "#0b7a3e",
+    "svart": "#14171c"
+  },
+  "teams": {
+    "3db0-3db09jXTE": {"name": "HV71", "home": "blå", "away": "gul"},
+    "41c4-41c4BiYZU": {"name": "Linköping HC", "home": "blå", "away": "vit"},
+    "82eb-82ebmgaJ8": {"name": "Örebro Hockey", "home": "röd", "away": "vit"},
+    "087a-087aTQv9u": {"name": "Frölunda HC", "home": "röd", "away": "vit"},
+    "2459-2459QTs1f": {"name": "Djurgårdens IF", "home": "blå", "away": "gul"},
+    "31d1-31d1NbSlR": {"name": "Timrå IK", "home": "röd", "away": "vit"},
+    "4519-4519Rdei6": {"name": "Björklöven", "home": "grön", "away": "vit"},
+    "1ab8-1ab8bfj7N": {"name": "Brynäs IF", "home": "svart", "away": "vit"},
+    "fe02-fe02mf1FN": {"name": "Växjö Lakers", "home": "blå", "away": "vit"},
+    "ee93-ee93uy4oW": {"name": "Rögle BK", "home": "grön", "away": "vit"},
+    "752c-752c12zB7Z": {"name": "Färjestad BK", "home": "grön", "away": "vit"},
+    "50e6-50e6DYeWM": {"name": "Skellefteå AIK", "home": "svart", "away": "gul"},
+    "1a71-1a71gTHKh": {"name": "Luleå Hockey", "home": "röd", "away": "gul"},
+    "8e6f-8e6fUXJvi": {"name": "Malmö Redhawks", "home": "svart", "away": "vit"}
+  }
+}

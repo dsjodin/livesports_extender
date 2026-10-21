@@ -3828,12 +3828,12 @@
       "uuid": "gzft1r1ngx",
       "rawStartDateTime": "2026-10-20T17:00:00.000Z",
       "startDateTime": "2026-10-20 19:00:00",
-      "state": "pre-game",
+      "state": "post-game",
       "overtime": false,
-      "shootout": false,
+      "shootout": true,
       "ssgtUuid": "qa98unlbd6",
       "homeTeamInfo": {
-        "status": "N/A",
+        "status": "LOSE",
         "uuid": "3db0-3db09jXTE",
         "ownerInstanceId": "hv711_hv71",
         "code": "HV71",
@@ -3847,11 +3847,11 @@
           "fullSite": "HV71",
           "longSite": "HV71"
         },
-        "score": "N/A",
+        "score": 2,
         "icon": "https://sportality.cdn.s8y.se/team-logos/hv711_hv71.svg"
       },
       "awayTeamInfo": {
-        "status": "N/A",
+        "status": "WIN",
         "uuid": "41c4-41c4BiYZU",
         "ownerInstanceId": "lhc1_lhc",
         "code": "LHC",
@@ -3865,7 +3865,7 @@
           "fullSite": "Linköping Hockey Club",
           "longSite": "Linköping HC"
         },
-        "score": "N/A",
+        "score": 3,
         "icon": "https://sportality.cdn.s8y.se/team-logos/lhc1_lhc.svg"
       },
       "venueInfo": {
@@ -3884,12 +3884,12 @@
       "uuid": "mtn5yq64mp",
       "rawStartDateTime": "2026-10-20T17:00:00.000Z",
       "startDateTime": "2026-10-20 19:00:00",
-      "state": "pre-game",
+      "state": "post-game",
       "overtime": false,
       "shootout": false,
       "ssgtUuid": "qa98unlbd6",
       "homeTeamInfo": {
-        "status": "N/A",
+        "status": "WIN",
         "uuid": "087a-087aTQv9u",
         "ownerInstanceId": "fhc1_fhc",
         "code": "FHC",
@@ -3903,11 +3903,11 @@
           "fullSite": "Frölunda Hockey Club / Herr",
           "longSite": "Frölunda HC"
         },
-        "score": "N/A",
+        "score": 6,
         "icon": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg"
       },
       "awayTeamInfo": {
-        "status": "N/A",
+        "status": "LOSE",
         "uuid": "2459-2459QTs1f",
         "ownerInstanceId": "dif1_dif",
         "code": "DIF",
@@ -3921,7 +3921,7 @@
           "fullSite": "Djurgården Hockey Herr",
           "longSite": "Djurgården Hockey Herr"
         },
-        "score": "N/A",
+        "score": 2,
         "icon": "https://sportality.cdn.s8y.se/team-logos/dif1_dif.svg"
       },
       "venueInfo": {

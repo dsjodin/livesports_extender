@@ -44,6 +44,15 @@ exports may be in `docs/mockups/`. The mockup drew the 24" screens at 820 px wid
 its portrait sizes by **1.317** to get native 1080-wide values (already done below). Its bar
 was drawn at native size.
 
+### Team colours
+
+The team colour is the jersey the team wears in this game: the home team's home colour,
+the away team's away colour (`teams.<side>.color` and `.jersey` in the TV state). Defaults
+per team uuid are in `config/teams.json` (set by the user 2026-10-21), overrides from the phone app win. Many teams play in white (vit) away and
+some in black (svart): on the dark wall, team-coloured fills need a thin contrasting
+outline, and text on a team colour picks black or white by contrast. Unknown colour:
+use a neutral grey and show the team code.
+
 ### Tokens (`web/shared/tokens.css`)
 
 ```css
@@ -119,8 +128,9 @@ Bar (1920×360), native:
 
 ### Components
 
-- **Team badge**: circle in team colour with the team code (from `names.code`) in the
-  on-colour. Later: the team logo from the feed's `icon` URL, cached (Phase 8).
+- **Team badge**: the team logo (`/assets/teams/<uuid>.svg`, the feed's `icon` cached by the
+  service) on a light disc ringed in the team colour; without a logo, a circle in team
+  colour with the team code (from `names.code`) in the on-colour.
 - **Stat tile**: `--panel`, label on top, big value below. Three per row.
 - **Goalie card**: label "MÅLVAKT", "#nr Förnamn Efternamn", right-aligned save % with one
   decimal and a comma ("96,2 %") and "N räddningar" below.
@@ -145,10 +155,12 @@ content width (932 px at native size, so `scale = 932 / 300` px per dm):
 - Rounded top corners, radius 85 dm. Board outline in `--rink-board`, ice `--ice`.
 - Net: 18.3 dm wide, 11 dm deep, behind the goal line. Crease: half circle, radius 18 dm.
 - Faceoff circles: centres 60 dm out from the goal line, ±70 dm lateral, radius 45 dm, red.
-- Blue line about 175 to 190 dm out from the goal line (tune visually; shots cluster below 180).
+- Blue line 180 dm out from the goal line (shots cluster below it).
 - Dot at `left = centre_x + y_dm * scale`, `top = goal_line_top + x_dm * scale`.
-- On goal: filled 24 px dot in team colour. Missed: 24 px ring, 4 px. Goal: 45 px gold star.
-  Legend: "På mål", "Utanför", "Mål". Skip shots with `x_dm` outside 0–200.
+- Symbols as on shl.se's own shot plot: on goal a filled 24 px dot in team colour, wide
+  (`goalSection` 0) a cross, blocked (−3) a filled square, goal a 45 px gold star.
+  Legend: "På mål", "Utanför", "Täckt", "Mål". Built with the blue line at 180 dm; skip
+  shots with `x_dm` outside 0–180.
 - The meaning of `goalSection` and the coordinate origin are **assumptions** (see
   `docs/SHL_API.md`); plot a full replay and check that goals cluster at the net.
 
@@ -170,6 +182,12 @@ The SceneDirector picks one scene for the whole wall. All changes happen at the 
 | `period_end` (not last) | `intermission` | next `period_start` |
 | `game_end` | `postgame` (hold 15 min) | then `idle` |
 | Manual override from the phone | chosen scene | cleared or hold time over |
+
+The penalty, disallowed-goal and timeout emphases are sent as scene `live` with
+`data.overlay` (`penalty`, `goal_disallowed`, `timeout`), `data.event_key`, `data.side` and
+`hold_ms`; the "TOM BUR" badge comes from `stats.<side>.goalie.pulled` in the TV state. A
+penalty or timeout during a goal scene does not interrupt it; a disallowed goal does.
+Holds are in real time, so in a fast replay a goal scene can span a whole intermission.
 
 ### idle
 
@@ -229,10 +247,16 @@ and the graphics build behind it.
 
 ### intermission (mockup scene 4)
 
+Countdown: the intermission scene's `since_ms` (the period end as shown on TV) plus 18 min,
+divided by the replay speed (`config.speed`). Before overtime the break is taken as 3 min
+(assumption, not checked against SHL). It is an estimate; the next `period_start` ends it.
+
 - Bar: score boxes; centre "PAUS", "PERIOD n OM", countdown in gold (estimate: period end +
   18 min); strip "EFTER n PERIODER • SKOTT a–b • UTV.MIN c–d".
 - Left: "EFTER TVÅ PERIODER" / "PERIODSTATISTIK", both teams named with badges, comparison rows:
-  shots per period played, shots total, power play (goals/chances), penalty minutes, save %.
+  shots per period played, shots on goal, shot attempts, power play (goals/chances), penalty
+  minutes, save % ("RÄDDNINGSPROCENT"). Faceoffs are only in shl.se's team-stats, not in
+  the TV state yet.
 - Right: "MÅLEN" list, "UTVISNINGAR" list (period time, team, player, offence text, minutes),
   bottom card "<N>:E PERIODEN · Startar om" with the countdown.
 
@@ -255,6 +279,12 @@ and the graphics build behind it.
 
 `?debug=1` on any screen page shows, in a corner: connection state, clock offset and RTT,
 TV state `rev`, current scene, and a list of upcoming `play_at` countdowns with event keys.
+Every scene change is also logged to the console as
+`[sync] goal start screen=left delta=1.2ms`, where `delta` is how late (by the synced
+clock) the scene started after its `play_at`; `tools/snapshot.py` collects these lines.
+
+On reconnect (for example after a service restart) a screen gets `hello` and a fresh
+`state` and redraws the current scene without animation; no page reload.
 
 ## Simulator (`/sim`)
 
@@ -264,15 +294,21 @@ A developer tool; its control panel may be in English.
   that fits the window, each an iframe of the real page at native resolution scaled with
   `transform: scale()`, with a 10 mm black bezel drawn around each.
 - Control panel (below or beside the wall):
-  - Source: replay (fixture list plus any finished game uuid), recording, live.
+  - Source: replay (fixture list plus any finished game uuid), recording, live (today's
+    games from the schedule, or a typed uuid; "Follow live").
   - Replay: play/pause, speed 1/2/5/20/50, "next period", "10 s before next goal", progress
     readout (period, game time, real time).
   - System offset (TV profile) and **fake TV delay** (separate slider).
-  - **Fake TV pane**: shows raw events as text at `first_seen + fake TV delay`, with a large
+  - **Fake TV pane**: shows raw events as text at `event_ms + fake TV delay`, with a large
     "TV-klocka" (period and game time), so the calibration button can be tested.
   - Webhook log: each call with time, event, status.
   - Toggles: debug overlay on all screens, show raw events.
-  - "Open phone app" link (`/app`) and QR code for the phone.
+  - "Open phone app" link (`/app`) and QR code for the phone (the QR code is not built
+    yet: no QR library is vendored).
+- Built in Phase 3: the source list comes from `GET /api/replays` plus a field for any
+  finished game uuid; "End of game" seeks to just after the game ended. The fake TV pane
+  needs the raw events, so the simulator always sends `debug_subscribe`; the
+  "Show raw events" toggle only shows the arrival list.
 
 ## Phone app (`/app`)
 
@@ -285,16 +321,44 @@ Tab bar: **Matcher**, **Live**, **Inställningar**.
     For finished games: "Spela upp som repris" with speed choice.
 - **Live**
   - Delayed score as on the bar, period and status.
-  - Offset row: "Fördröjning 30,0 s" with "−0,5" and "+0,5", TV profile chip ("IPTV").
-  - Calibration: large "Nu!" button with a segmented control [Nedsläpp | Mål]. Text:
-    "Tryck när du ser nedsläppet/målet på TV:n." After presses:
-    "Förslag: 27,1 s (3 mätningar)" with buttons "Använd" and "Rensa".
+  - Two large **MÅL!** buttons, one per team (my team first, in team colour). Text under:
+    "Tryck när målet syns på TV:n." After a press: "Mål registrerat – väntar på data" until
+    the feed goal links, then the scorer; "Inget mål kom från SHL" after 180 s.
+  - Offset row: "TV-fördröjning 40,0 s" with "−0,5" and "+0,5", TV profile chip ("IPTV").
+  - Sync: large "Synka" button with a picker [Nedsläpp | Mål | Utvisning | Timeout |
+    Skott på mål] and optional [Hemma | Borta]. Text: "Tryck när du ser händelsen på
+    TV:n." Each press is listed as "Väntar…", "41,3 s", "Hittade ingen händelse" or
+    "Flera möjliga – välj lag". Then "Förslag: 41,3 s (3 mätningar)" with "Använd" and
+    "Rensa"; each sample can be swiped away.
+  - A note when events arrive late: "3 mål kom efter TV:n i kväll – överväg att pausa
+    TV:n vid nedsläpp." 
   - Scene buttons: "Auto", "Tabell", "Skottkarta", "Periodstatistik", "Mål igen".
   - "Testa mål" (synthetic goal for my team, triggers lights).
   - Replay controls when the source is a replay.
 - **Inställningar**
   - TV-profil (IPTV, TV4 Play) with each offset.
   - Home Assistant: webhook URL, on/off, which events.
-  - Lagfärger: colour per team.
+  - Lagfärger: home and away jersey colour per team (`GET/PUT /api/teams`), chosen from
+    the palette (blå, gul, vit, röd, grön, svart) or any colour.
   - Debug: "Visa råa händelser" with the warning "Kan avslöja mål innan de syns på TV."
   - Om: version, source status, last poll, clock offset.
+
+Built in Phase 4 (`web/app/`):
+
+- Manifest, SVG icon and a pass-through service worker (registered only in a secure
+  context, so installing needs https or localhost; over plain http on the LAN it runs as
+  a normal page).
+- Matcher also lists "Testmatcher" (the fixtures) for replays. "Mitt lag" defaults to the
+  side my team plays on, "Inget" when it does not play; "Följ matchen" starts the live
+  source, "Spela upp som repris" a replay at the chosen speed (1, 2, 5, 20, 50×).
+- Live: the MÅL! button of my side is marked ★; each press shows "Mål registrerat –
+  väntar på data", then "Målet hittat hos SHL", then the scorer once the feed goal has
+  played on the screens, or "Inget mål kom från SHL". Sync samples are removed with ✕
+  (no swipe). "Använd målknapp för synk" is a checkbox, on by default. The side picker is
+  [Båda | Hemma | Borta]. The TV profile chip switches to the next profile.
+- Scene buttons: Auto (back to automatic), Tabell (`idle`), Skottkarta (`live`),
+  Periodstatistik (`intermission`), Mål igen (`goal` with the latest goal, 20 s).
+- Inställningar: "Mitt lag" picker; Lagfärger with the palette or "Egen färg…" (#rrggbb)
+  and "Återställ"; Home Assistant is a disabled field until Phase 6.
+- The app redraws a view only when its HTML changes, so a tap is not lost to the
+  once-a-second status update.
