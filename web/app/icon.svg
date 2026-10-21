@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#070A10"/>
+  <rect x="64" y="200" width="384" height="112" rx="18" fill="#F5C542"/>
+  <rect x="24" y="96" width="72" height="320" rx="12" fill="#3F6FE0"/>
+  <rect x="416" y="96" width="72" height="320" rx="12" fill="#E5484D"/>
+  <text x="256" y="282" text-anchor="middle" font-family="Arial Narrow, Arial, sans-serif" font-weight="700" font-size="84" fill="#1A1405">MÅL!</text>
+</svg>

@@ -57,7 +57,7 @@ web/app/               phone web app (PWA)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
 config/wall.json       screen geometry
 tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
-                       synth_recording.py, snapshot.py (shared: shl_http.py)
+                       synth_recording.py, snapshot.py, check_phone.py (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
 ```
@@ -77,6 +77,7 @@ cd server && uv run python -m app.cli replay bdhvuc5tex --instant     # event ti
 cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --instant
 uv run --project server python tools/snapshot.py           # screen snapshots (service running)
 uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
+uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.

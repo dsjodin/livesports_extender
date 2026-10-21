@@ -342,3 +342,23 @@ Tab bar: **Matcher**, **Live**, **Inställningar**.
     the palette (blå, gul, vit, röd, grön, svart) or any colour.
   - Debug: "Visa råa händelser" with the warning "Kan avslöja mål innan de syns på TV."
   - Om: version, source status, last poll, clock offset.
+
+Built in Phase 4 (`web/app/`):
+
+- Manifest, SVG icon and a pass-through service worker (registered only in a secure
+  context, so installing needs https or localhost; over plain http on the LAN it runs as
+  a normal page).
+- Matcher also lists "Testmatcher" (the fixtures) for replays. "Mitt lag" defaults to the
+  side my team plays on, "Inget" when it does not play; "Följ matchen" starts the live
+  source, "Spela upp som repris" a replay at the chosen speed (1, 2, 5, 20, 50×).
+- Live: the MÅL! button of my side is marked ★; each press shows "Mål registrerat –
+  väntar på data", then "Målet hittat hos SHL", then the scorer once the feed goal has
+  played on the screens, or "Inget mål kom från SHL". Sync samples are removed with ✕
+  (no swipe). "Använd målknapp för synk" is a checkbox, on by default. The side picker is
+  [Båda | Hemma | Borta]. The TV profile chip switches to the next profile.
+- Scene buttons: Auto (back to automatic), Tabell (`idle`), Skottkarta (`live`),
+  Periodstatistik (`intermission`), Mål igen (`goal` with the latest goal, 20 s).
+- Inställningar: "Mitt lag" picker; Lagfärger with the palette or "Egen färg…" (#rrggbb)
+  and "Återställ"; Home Assistant is a disabled field until Phase 6.
+- The app redraws a view only when its HTML changes, so a tap is not lost to the
+  once-a-second status update.

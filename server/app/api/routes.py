@@ -15,7 +15,8 @@ router = APIRouter(prefix="/api")
 
 class GameIn(BaseModel):
     uuid: str | None
-    my_side: Literal["home", "away"] | None = None
+    # "none": no side is mine for this game; null: follow my team
+    my_side: Literal["home", "away", "none"] | None = None
 
 
 class SourceIn(BaseModel):

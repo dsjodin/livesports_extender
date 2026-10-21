@@ -201,7 +201,9 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   the break by it.
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
-  selected game, my side, profile, offset, counts.
+  selected game, my side (`my_side`, and `my_side_choice` as set), profile, offset,
+  counts, `last_snapshot_ms`, `late_goals` (goals that reached us after the TV),
+  `manual` (MÅL! presses), `calibration` (as `GET /api/calibrate`), `goal_button_sync`.
 - Raw (undelayed) normalizer changes go only to sim, phone and debug clients that sent
   `debug_subscribe` (CLAUDE.md rule 1): first `{"t": "raw_backlog", "raw": [...],
   "released": [...]}`, then `{"t": "raw", "entry": {"change", "key", "type", "label",
@@ -230,7 +232,7 @@ auth in front if it is ever exposed).
 | `GET /api/state` | | Full TV state plus config and source status |
 | `GET /api/schedule?days=7` | | Games from today and the next N days, from cache |
 | `GET /api/schedule/recent?days=30` | | Finished games (for replay selection) |
-| `POST /api/game` | `{"uuid", "my_side": "home"\|"away"\|null}` | Select a game to follow |
+| `POST /api/game` | `{"uuid", "my_side": "home"\|"away"\|"none"\|null}` | Select a game to follow; `"none"`: no side is mine, `null`: my side follows my team |
 | `POST /api/source` | `{"mode": "live"\|"replay"\|"recording"\|"none", "uuid"?, "path"?, "speed"?}` | Choose the data source. `live` needs `uuid` and polls shl.se for that game (CLAUDE.md rule 5); a game that is already over is read once |
 | `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"\|"end"}` | Replay control |
 | `POST /api/offset` | `{"profile": "iptv", "seconds": 40.0}` | Set a TV profile's delay behind the arena |
@@ -239,12 +241,13 @@ auth in front if it is ever exposed).
 | `POST /api/calibrate` | `{"kind": "period_start"\|"goal"\|"penalty"\|"timeout"\|"shot_on_goal", "side"?: "home"\|"away"}` | Register a "Synka" press (server stamps the time) |
 | `GET /api/calibrate` | | Samples and current proposal |
 | `POST /api/calibrate/accept` | | Store the proposal as the active profile's offset |
+| `POST /api/calibrate/goal-button` | `{"enabled": true}` | "Använd målknapp för synk": a linked MÅL! press is a `goal` sample |
 | `DELETE /api/calibrate` | | Clear samples |
 | `DELETE /api/calibrate/{id}` | | Remove one sample |
-| `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate and fire the webhook now |
+| `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
-| `POST /api/test/goal` | `{"side": "home"\|"away"}` | Synthetic goal, offset 0, `test: true` |
+| `POST /api/test/goal` | `{"side"?: "home"\|"away"}` | Synthetic goal (default my side), offset 0, `test: true` |
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
 | `GET /api/wall` | | Contents of `config/wall.json` |
@@ -265,10 +268,29 @@ auth in front if it is ever exposed).
  "proposal_s": 41.3, "reaction_ms": 300}
 ```
 
+`POST /api/calibrate` returns this plus `press` (the new sample). Samples also carry
+`source` (`sync` or `goal_button`), `event_ms` and `side`; `proposal_samples` is how many
+samples the proposal used (at most 5). Samples are saved in `data/state.json`. A matched
+sample stays matched if its event later goes away (a replay seek).
+
 A press matches the raw event of that kind (and side) whose `event_ms` lies 5 to 150 s
-before the press. A press without a match stays `pending` for up to 150 s, because the
+before the press. `shot_on_goal` matches shots with result `on_goal` (not goals). A press without a match stays `pending` for up to 150 s, because the
 feed can be slower than the TV, then becomes `unmatched`. Two or more candidates make it
 `ambiguous`. Only `matched` samples count towards the proposal.
+
+### MÅL! button (built in Phase 4)
+
+A press plays a goal event (key `manual-<n>`, `raw_type` `manual`, no player,
+`data.manual`, `data.score` = the score on screen +1) and the goal scene 300 ms later,
+with scene data `{"event_key", "side", "manual": true, "score"}`. It does not change the
+TV state's score. The press links to the feed goal for that side whose `event_ms` lies
+150 s before to 5 s after the press: one already waiting for its `play_at`, or the next to
+arrive within 180 s. When the linked goal plays, the running goal scene (if it is still
+that press's) is sent again with `{"event_key": <feed key>, "side", "linked_from":
+"manual-<n>"}`; screens fill in scorer and score without starting over. No goal in 180 s:
+the press is `unconfirmed`. A test goal (`test-<n>`) links to nothing. The presses are in
+`status.manual`: `id`, `side`, `test`, `pressed_ms`, `status` (`waiting`, `linked`,
+`unconfirmed`, `test`) and `scorer` once the linked goal has played.
 
 ## Webhooks to Home Assistant
 

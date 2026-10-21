@@ -129,7 +129,7 @@ class Runtime:
         self.director.set_game(self.selected, now)
         self.released: dict[str, NormalizedEvent] = {}
         self.timeline: list[dict[str, Any]] = []
-        self.meta = tvstate.GameMeta(uuid=self.config.game_uuid, my_side=self.config.my_side)
+        self.meta = tvstate.GameMeta(uuid=self.config.game_uuid, my_side=self.my_side)
         self._attendance: int | None = None
         self.rev = getattr(self, "rev", 0) + 1
         self.planned = self._build()
@@ -346,6 +346,8 @@ class Runtime:
     @property
     def my_side(self) -> Literal["home", "away"] | None:
         """The explicit side for this game, else the side my team plays on, if it plays."""
+        if self.config.my_side == "none":
+            return None
         if self.config.my_side is not None:
             return self.config.my_side
         info = self.normalizer.game_info
@@ -565,7 +567,9 @@ class Runtime:
 
     # --- controls -------------------------------------------------------------------
 
-    def select_game(self, uuid: str | None, my_side: Literal["home", "away"] | None) -> None:
+    def select_game(
+        self, uuid: str | None, my_side: Literal["home", "away", "none"] | None
+    ) -> None:
         self.config.game_uuid = uuid
         self.config.my_side = my_side
         self.store.save()
@@ -853,6 +857,7 @@ class Runtime:
             "feed_ms": source.feed_now() if source else None,
             "game_uuid": self.config.game_uuid,
             "my_side": self.my_side,
+            "my_side_choice": self.config.my_side,
             "my_team_uuid": self.config.my_team_uuid,
             "profile": self.config.active_profile,
             "offset_s": self.config.offset_s,

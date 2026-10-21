@@ -348,6 +348,17 @@ Acceptance:
   webhook.
 - The app works from a phone browser on the LAN; every action is reflected in `/sim`.
 
+Phase 4 notes (2026-10-21):
+
+- `tools/check_phone.py` runs the first and third criteria in a real browser (phone app
+  tapping, fake TV in /sim). The second (a sync press before the feed has the goal) is a
+  runtime test: the replay's fake TV only shows events once they have arrived.
+- Webhooks are Phase 6: a linked feed goal is marked so the dispatcher can skip the
+  second `shl_goal`, but nothing is sent yet.
+- A MÅL! press does not change the score in the TV state; the scene shows score +1 and the
+  linked feed goal brings the real score. An unconfirmed press leaves no trace on screen.
+- `my_side` can be `"none"` for a game (Matcher's "Inget").
+
 ---
 
 ## Phase 5: Live source
