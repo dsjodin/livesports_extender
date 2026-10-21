@@ -57,9 +57,11 @@ web/screens/           left.html, bar.html, right.html + shared js/css
 web/sim/               simulator page
 web/app/               phone web app (PWA)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
+web/media/             default team videos (goal/, intro/; own ones go in data/media/)
 config/wall.json       screen geometry
 tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
-                       synth_recording.py, snapshot.py, check_phone.py (shared: shl_http.py)
+                       synth_recording.py, snapshot.py, check_phone.py, make_stingers.py
+                       (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
 ```
@@ -81,6 +83,7 @@ cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --
 uv run --project server python tools/snapshot.py           # screen snapshots (service running)
 uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
 uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
+uv run --project server python tools/make_stingers.py      # default goal/intro videos per team
 shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 

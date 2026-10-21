@@ -10,14 +10,26 @@ export function enter(ctx, data, at) {
   const tl = gsap.timeline({ paused: true });
   tl.from(ctx.root.querySelectorAll(".anim"), { y: 30, opacity: 0, duration: 0.45, ease: "power2.out", stagger: 0.07 });
   play(ctx, at, tl);
+  intro(ctx);
 }
 
 export function update(ctx) {
   render(ctx);
+  intro(ctx);
 }
 
 export function exit(ctx) {
   stopTimers(ctx);
+  ctx.introCancel?.();
+}
+
+/** The team's intro video at puck drop on TV time (docs/SCREENS.md, Team videos). */
+function intro(ctx) {
+  const drop = dropOnTv(ctx);
+  if (ctx.kind !== "portrait" || drop == null || drop === ctx.introAt || drop <= ctx.now()) return;
+  ctx.introCancel?.();
+  ctx.introAt = drop;
+  ctx.introCancel = ctx.video("intro", drop, true) || null;
 }
 
 /** Puck drop as seen on TV: the scheduled start plus the TV's delay. */

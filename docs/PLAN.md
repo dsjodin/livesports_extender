@@ -41,7 +41,8 @@ games, without the real screens and without a live game.
 - ~~Team logos~~: decided 2026-10-21: the feed's `icon` URLs (SVG), cached locally, code
   badge as fallback. **Player portraits** are also available (`athletes/by-team-uuid`,
   see `docs/SHL_API.md`); use them in the goal scene, cached locally, number as fallback.
-- Sound for video stingers: local speaker on the mini PC or none (Phase 8).
+- ~~Sound for video stingers~~: decided 2026-10-21: the videos are silent, Home Assistant
+  plays the sound (it already gets the goal webhook at `play_at`).
 - Faceoffs (found 2026-10-21): not in play-by-play. `gameday/team-stats` has them per
   period (plus hits, blocked shots and SHL's own power-play counts), without timestamps.
   Recommended: poll it every 60 s during the game and show it in intermissions and after
@@ -476,3 +477,21 @@ Phase 7 notes (2026-10-21):
 - Team logos from the feed's `icon` URLs, cached locally, badges as fallback.
 - Momentum graph: shots per team over the last 5 minutes.
 - Power-play countdown that ticks between events (estimated, clearly marked).
+
+Built first (the user's priorities, 2026-10-21):
+
+1. **Other games** (8.1): `app/others.py` and `engine/others.py`. Each other game of the
+   evening has its own normalizer and DelayQueue with our offset; live they are polled by
+   `OtherLiveSource` (play-by-play every 30 s, saved as a recording), in a replay they
+   replay in step with ours. Summaries go into the TV state as `others`, and the live
+   table (`live_table`) adds the live scores of the evening to the standings.
+2. **Bar ticker** (8.2): `web/screens/scenes/ticker.js`, see `docs/SCREENS.md`.
+3. **Intermission slides** (8.3): both portrait screens change picture every 12 s: our
+   game on the left, the other games and the live table on the right.
+4. **Team videos** (8.4): goal stingers and intros, `tools/make_stingers.py`,
+   `/media/<kind>/<uuid>.webm`, `web/shared/media.js`.
+
+Verified: other games and the live table by tests (a replay of 2026-10-17 with all four
+other games in step); ticker, slides and videos in the browser (`/sim`). The live table
+only shows on a live evening (a replay of a past evening has no `league.tonight`), so on
+screen it is still to be seen on the first live evening.

@@ -10,6 +10,9 @@ const GOLD_FLASH = "#FFE08A";
 
 export function enter(ctx, data, at) {
   ctx.data = data;
+  // the scoring team's stinger over its own screen (docs/SCREENS.md, Team videos)
+  const side = goalFor(ctx)?.side ?? data.side ?? "home";
+  if (ctx.animate && ctx.kind === "portrait" && side === ctx.side) ctx.video("goal", at);
   if (ctx.animate) goalBand(ctx.screen, ctx.fx, at);
   render(ctx, at);
 }
@@ -31,10 +34,15 @@ export function onEventUpdate(ctx, event) {
   render(ctx, ctx.now());
 }
 
+function goalFor(ctx) {
+  // a MÅL! press or test goal is not in the state: it comes as an event (team only)
+  const key = ctx.data.event_key;
+  return (ctx.tv.goals ?? []).find((g) => g.key === key) ?? ctx.goalEvent?.(key) ?? manual(ctx.data);
+}
+
 function render(ctx, at) {
   const tv = ctx.tv;
-  // a MÅL! press or test goal is not in the state: it comes as an event (team only)
-  const goal = (tv.goals ?? []).find((g) => g.key === ctx.data.event_key) ?? ctx.goalEvent?.(ctx.data.event_key) ?? manual(ctx.data);
+  const goal = goalFor(ctx);
   const side = goal?.side ?? ctx.data.side ?? "home";
   if (ctx.kind === "bar") bar(ctx, tv, goal, side, at);
   else if (ctx.side === side) scorer(ctx, tv, goal, side, at);

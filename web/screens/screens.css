@@ -237,3 +237,6 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 .og-goal { display: grid; grid-template-columns: 150px 90px 1fr 100px; gap: 10px; font-size: 28px; align-items: baseline; }
 .og-goal b { font-family: var(--font-condensed); }
 .og-goal-score { text-align: right; font-family: var(--font-condensed); font-weight: 700; }
+
+/* team videos (Phase 8): over the scene, under the goal band */
+.team-video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 40; opacity: 0; pointer-events: none; }

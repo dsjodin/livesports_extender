@@ -11,8 +11,10 @@ Phases 0 to 7 built: the service (feed, delay queue, TV state, scenes, REST and
 WebSocket), the three screen pages, the simulator `/sim`, the phone app `/app` with
 Synka and MÅL!, live games (also recorded to `data/recordings/`), Home Assistant webhooks
 ([`docs/HA.md`](docs/HA.md)) and deployment of the Docker host and the display box
-([`docs/DEPLOY.md`](docs/DEPLOY.md)). The display box still has to be tried on real
-hardware. The build is split into
+([`docs/DEPLOY.md`](docs/DEPLOY.md)). Phase 8 so far: the evening's other games (delayed
+like ours) with a ticker on the bar and a live table, intermission slides on both portrait
+screens, and goal stingers and intro videos per team. The display box still has to be
+tried on real hardware. The build is split into
 phases in [`docs/PLAN.md`](docs/PLAN.md), designed to be implemented by Claude
 Code one phase at a time.
 

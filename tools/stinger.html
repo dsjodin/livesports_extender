@@ -1,0 +1,77 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; src: url(data:font/woff2;base64,@@c800@@); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; src: url(data:font/woff2;base64,@@c700@@); }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: transparent; }
+#stage { position: absolute; inset: 0; overflow: hidden; }
+.band { position: absolute; left: -60%; width: 220%; height: 760px; transform-origin: 50% 50%; }
+.panel { position: absolute; inset: 0; }
+.logo { position: absolute; left: 50%; top: 760px; width: 560px; height: 560px; margin: -280px 0 0 -280px;
+  object-fit: contain; filter: drop-shadow(0 18px 40px rgba(0, 0, 0, .45)); }
+.word { position: absolute; left: 0; right: 0; text-align: center; font-family: "Barlow Condensed";
+  font-weight: 800; line-height: .9; letter-spacing: .01em; }
+.mal { top: 1150px; font-size: 330px; }
+.name { top: 1440px; font-size: 92px; font-weight: 700; }
+.kicker { top: 1180px; font-size: 92px; font-weight: 700; letter-spacing: .12em; }
+.big-name { top: 1330px; font-size: 150px; }
+.line { position: absolute; left: 140px; right: 140px; height: 10px; top: 1300px; transform-origin: 50% 50%; }
+</style></head><body><div id="stage"></div>
+<script>@@gsap@@</script>
+<script>
+const T = @@team@@;
+const stage = document.getElementById("stage");
+function el(cls, css, text) {
+  const e = document.createElement(text === "img" ? "img" : "div");
+  e.className = cls;
+  Object.assign(e.style, css);
+  if (text === "img") e.src = T.logo; else if (text) e.textContent = text;
+  stage.appendChild(e);
+  return e;
+}
+function goal() {
+  const tl = gsap.timeline({ paused: true });
+  const bands = [
+    el("band", { top: "-120px", background: T.color }),
+    el("band", { top: "560px", background: T.gold }),
+    el("band", { top: "1260px", background: T.accent }),
+  ];
+  const fill = el("panel", { background: T.color });
+  const logo = T.logo ? el("logo", {}, "img") : null;
+  const mal = el("word mal", { color: T.on }, "MÅL!");
+  const name = el("word name", { color: T.on }, T.name.toUpperCase());
+  gsap.set(bands, { rotation: -14 });
+  bands.forEach((b, i) => tl.fromTo(b, { xPercent: 70 }, { xPercent: 0, duration: 0.32, ease: "power3.out" }, i * 0.05));
+  tl.fromTo(fill, { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 0.3);
+  if (logo) tl.fromTo(logo, { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 0.3);
+  tl.fromTo(mal, { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, 0.42);
+  tl.fromTo(name, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 0.55);
+  if (logo) tl.to(logo, { scale: 1.06, duration: 0.8, ease: "none" }, 0.7);
+  // out: everything sweeps up and to the left; the last frame is empty
+  tl.to([logo, mal, name].filter(Boolean), { y: -260, opacity: 0, duration: 0.35, ease: "power2.in", stagger: 0.04 }, 1.5);
+  tl.to(fill, { opacity: 0, duration: 0.2, ease: "none" }, 1.55);
+  bands.slice().reverse().forEach((b, i) => tl.to(b, { xPercent: -80, duration: 0.4, ease: "power3.in" }, 1.6 + i * 0.05));
+  return tl;
+}
+function intro() {
+  const tl = gsap.timeline({ paused: true });
+  const band = el("band", { top: "580px", background: T.gold });
+  const fill = el("panel", { background: T.color });
+  const logo = T.logo ? el("logo", { top: "720px" }, "img") : null;
+  const kicker = el("word kicker", { color: T.on }, "MATCHSTART");
+  const line = el("line", { background: T.gold });
+  const big = el("word big-name", { color: T.on }, T.name.toUpperCase());
+  gsap.set(band, { rotation: -14 });
+  tl.fromTo(band, { xPercent: 70 }, { xPercent: -80, duration: 0.7, ease: "power2.inOut" }, 0);
+  tl.fromTo(fill, { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.5, ease: "power3.out" }, 0.2);
+  if (logo) tl.fromTo(logo, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 0.55);
+  tl.fromTo(kicker, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.9);
+  tl.fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.out" }, 1.0);
+  tl.fromTo(big, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 1.1);
+  if (logo) tl.to(logo, { scale: 1.05, duration: 2.2, ease: "none" }, 1.15);
+  tl.to([logo, kicker, line, big].filter(Boolean), { y: -200, opacity: 0, duration: 0.4, ease: "power2.in", stagger: 0.05 }, 3.5);
+  tl.to(fill, { clipPath: "inset(0 0 100% 0)", duration: 0.45, ease: "power3.in" }, 3.85);
+  return tl;
+}
+window.tl = (T.kind === "goal" ? goal : intro)();
+window.seek = (t) => { window.tl.seek(t, false); };
+</script></body></html>
