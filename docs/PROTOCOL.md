@@ -146,6 +146,34 @@ was from puck drop on.
 `result` is `V` (won) or `F` (lost) from that team's view, `home_away` `H` or `B`; the
 score is always home–away of that game.
 
+### Other games and the live table (Phase 8)
+
+`others`: the evening's other SHL games (same day as ours, from the schedule), each
+delayed by the same offset as ours through its own DelayQueue, sorted by start time:
+
+```json
+{"uuid": "pmch0rrshr", "start_ms": 1792242900000,
+ "teams": {"home": {"uuid": "...", "code": "DIF", "short": "Djurgården", "long": "Djurgården Hockey",
+                    "logo": "/assets/teams/<uuid>.svg", "color": "#1f4fbf"}, "away": {"...": "..."}},
+ "phase": "live", "period": 2, "period_running": true, "last_game_time": "07:12",
+ "score": {"home": 1, "away": 0}, "ended": false, "overtime": false, "went_to_shootout": false,
+ "stats": {"home": {"shots_on_goal": 14, "pim": 2, "pp": {"goals": 0, "chances": 1}}, "away": {"...": "..."}},
+ "goals": [{"key": "e41", "side": "home", "period": 1, "time": "12:03", "number": "17",
+            "last": "Bergström", "score": {"home": 1, "away": 0}, "strength": "EQ"}]}
+```
+
+Live they are polled every 30 s (play-by-play only) and saved as recordings under their
+own uuid; in a replay they replay in step with ours (fixtures, or fetched when finished).
+Their events send no event, scene or webhook messages: only state patches at play_at.
+
+`live_table`: null, or the standings "om matcherna slutade nu": the rows of
+`league.standings` (fetched before tonight) with tonight's started games applied as they
+stand on the wall (ours and `others`, only games in `league.tonight`, so a game already
+in the fetched standings is not counted twice). Points 3 / 2–1 after overtime or a
+shootout / 1 each for a tie still on. Each row adds `prev_rank`, `move` and `live`
+(`{"for", "against", "ended", "home_away", "opponent"}` or null). Replays of past evenings
+have no `league.tonight`, so no live table.
+
 ### Starting and seeking
 
 The first snapshot after a source starts (or a replay seeks) brings everything that has
@@ -250,6 +278,7 @@ auth in front if it is ever exposed).
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |
 | `POST /api/test/goal` | `{"side"?: "home"\|"away"}` | Synthetic goal (default my side), offset 0, `test: true` |
+| `GET /api/webhooks` | | `{"settings": {"url", "enabled", "events"}, "events": [all event names]}` |
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
 | `GET /api/wall` | | Contents of `config/wall.json` |
@@ -350,8 +379,22 @@ Other events and their extra fields:
         media_content_type: music
 ```
 
-Entity ids and the horn file are placeholders for the user's own. Put the full set of
-examples in `docs/HA.md` (Phase 6).
+Entity ids and the horn file are placeholders for the user's own. The full set of
+examples is in `docs/HA.md`.
+
+### Dispatcher (built in Phase 6)
+
+- Sent at `play_at_ms` by the server clock, never before (checked against a fake clock:
+  within 50 ms; 1 ms on the real service). Timeout 3 s, one retry after 1 s.
+- Only events in the settings' `events` list, only when `enabled` and a `url` is set.
+- A replay seek or a new source cancels calls not sent yet. Events applied in a catch-up
+  (`Starting and seeking`) send nothing.
+- A test goal (`POST /api/test/goal`) always has `is_my_team: true`; when my team is not
+  in the selected game it carries my team's name and home colour.
+- `GET /api/webhooks/log`: the last 100 calls, `{"id", "event", "test", "source",
+  "play_at_ms", "sent_ms", "status", "error", "attempts"}`. Each call is also sent to
+  sim and phone clients as `{"t": "webhook", "entry": {...}}`. `status.webhooks` has
+  `enabled`, `url_set` and `pending`.
 
 ## Assets
 
@@ -362,6 +405,8 @@ with `Cache-Control: max-age=86400`; 404 when the feed has none.
 |---|---|
 | `GET /assets/teams/<team uuid>.svg` | the team's `icon` URL from game-info or the schedule |
 | `GET /assets/players/<isa id>.png` | the portrait in `athletes/by-team-uuid` (team roster cached 24 h), matched by name, then jersey number; the smallest signed `srcset` entry at least 480 px wide |
+
+| `GET /media/<goal\|intro>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); see `docs/SCREENS.md`, Team videos |
 
 A player is known once an event names them (scorer, assists, players on the ice). A
 player who has left the team since the game (old fixtures) has no portrait.

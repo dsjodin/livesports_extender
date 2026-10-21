@@ -1,0 +1,6161 @@
+[
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 149,
+    "eventUuid": "50228584-39df-5677-8385-7f635704f3b2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:47:24.901124",
+    "updatedTime": "2026-10-17T15:47:25.491667",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 4
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "5603",
+      "firstName": "Emil",
+      "familyName": "Larmi",
+      "jerseyToday": "33"
+    },
+    "isEntering": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 148,
+    "eventUuid": "146e45a3-23e1-5a7e-a1e3-153baebf5059",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:47:24.301752",
+    "updatedTime": "2026-10-17T15:47:24.425193",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 4
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2298",
+      "firstName": "Marcus",
+      "familyName": "Högberg",
+      "jerseyToday": "63"
+    },
+    "isEntering": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 147,
+    "eventUuid": "6baddfde-3306-5e6e-a0fe-5a1b8520fd35",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:35",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:44:15.00584",
+    "updatedTime": "2026-10-17T15:46:50.857077",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 4
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "variant": {
+      "shortName": "Bench",
+      "minorTime": "0",
+      "doubleMinorTime": "0",
+      "benchTime": "2",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "Team Penalty 2 min"
+    },
+    "offence": "ABUSE",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 146,
+    "eventUuid": "206663a2-f360-50f0-a883-fcea0da66135",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:35",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:43:21.718008",
+    "updatedTime": "2026-10-17T15:44:07.082891",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 4
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "5"
+        }
+      ]
+    },
+    "locationX": 36,
+    "locationY": 14,
+    "homeGoals": 2,
+    "awayGoals": 4,
+    "goalSection": 6,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "4271",
+        "firstName": "Sebastian",
+        "familyName": "Cederle",
+        "jerseyToday": "16"
+      },
+      {
+        "playerId": "2818",
+        "firstName": "Gabriel",
+        "familyName": "Carlsson",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "3208",
+        "firstName": "Oskar",
+        "familyName": "Steen",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "5603",
+        "firstName": "Emil",
+        "familyName": "Larmi",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "4180",
+        "firstName": "Filip",
+        "familyName": "Roos",
+        "jerseyToday": "48"
+      },
+      {
+        "playerId": "3018",
+        "firstName": "Linus",
+        "familyName": "Johansson",
+        "jerseyToday": "59"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "2027",
+        "firstName": "Linus",
+        "familyName": "Hultström",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "2364",
+        "firstName": "Jakub",
+        "familyName": "Vrana",
+        "jerseyToday": "13"
+      },
+      {
+        "playerId": "7039",
+        "firstName": "Cooper",
+        "familyName": "Marody",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "3226",
+        "firstName": "Tim",
+        "familyName": "Söderlund",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "2298",
+        "firstName": "Marcus",
+        "familyName": "Högberg",
+        "jerseyToday": "63"
+      },
+      {
+        "playerId": "2558",
+        "firstName": "Theodor",
+        "familyName": "Lennström",
+        "jerseyToday": "81"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "3018",
+        "firstName": "Linus",
+        "familyName": "Johansson",
+        "jerseyToday": "59",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 144,
+    "eventUuid": "8fecd2ae-e1fe-52c7-9ddc-91eeae4f5ada",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:54",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:39:09.358274",
+    "updatedTime": "2026-10-17T15:47:02.253165",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 3
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "5"
+        }
+      ]
+    },
+    "locationX": 65,
+    "locationY": 130,
+    "homeGoals": 2,
+    "awayGoals": 3,
+    "goalSection": 52,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "6791",
+        "firstName": "Mikkel",
+        "familyName": "Eriksen",
+        "jerseyToday": "23"
+      },
+      {
+        "playerId": "2818",
+        "firstName": "Gabriel",
+        "familyName": "Carlsson",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "3208",
+        "firstName": "Oskar",
+        "familyName": "Steen",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "5603",
+        "firstName": "Emil",
+        "familyName": "Larmi",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "4180",
+        "firstName": "Filip",
+        "familyName": "Roos",
+        "jerseyToday": "48"
+      },
+      {
+        "playerId": "3018",
+        "firstName": "Linus",
+        "familyName": "Johansson",
+        "jerseyToday": "59"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "2027",
+        "firstName": "Linus",
+        "familyName": "Hultström",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "2364",
+        "firstName": "Jakub",
+        "familyName": "Vrana",
+        "jerseyToday": "13"
+      },
+      {
+        "playerId": "3226",
+        "firstName": "Tim",
+        "familyName": "Söderlund",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "2298",
+        "firstName": "Marcus",
+        "familyName": "Högberg",
+        "jerseyToday": "63"
+      },
+      {
+        "playerId": "2558",
+        "firstName": "Theodor",
+        "familyName": "Lennström",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "4288",
+        "firstName": "Zion",
+        "familyName": "Nybeck",
+        "jerseyToday": "92"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4180",
+        "firstName": "Filip",
+        "familyName": "Roos",
+        "jerseyToday": "48",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "7"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 142,
+    "eventUuid": "8a43b8b1-8000-53f9-a64a-59532e29c07a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:35:59.66",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6435",
+      "firstName": "Marian",
+      "familyName": "Studenic",
+      "jerseyToday": "98"
+    },
+    "locationX": 83,
+    "locationY": 82,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 141,
+    "eventUuid": "8a48c406-c1c4-51bb-ae05-6a27fd934732",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:45",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:31:32",
+    "updatedTime": "2026-10-17T15:32:59.857579",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2609",
+      "firstName": "Christoffer",
+      "familyName": "Ehn",
+      "jerseyToday": "21"
+    },
+    "locationX": 63,
+    "locationY": 65,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 140,
+    "eventUuid": "beeb0552-6829-57e0-930a-abf5689cfc3f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:32:34.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "4288",
+      "firstName": "Zion",
+      "familyName": "Nybeck",
+      "jerseyToday": "92"
+    },
+    "locationX": 99,
+    "locationY": 95,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 139,
+    "eventUuid": "cda12b67-0061-5bde-a4de-4c76b528ebb2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:32:05.8",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "664",
+      "firstName": "Per",
+      "familyName": "Åslund",
+      "jerseyToday": "22"
+    },
+    "locationX": 15,
+    "locationY": 3,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 137,
+    "eventUuid": "1562309c-675e-5bcf-9cca-3558d89ea3f0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:11",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:30:23.18",
+    "updatedTime": "2026-10-17T15:31:19.342427",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6435",
+      "firstName": "Marian",
+      "familyName": "Studenic",
+      "jerseyToday": "98"
+    },
+    "locationX": 29,
+    "locationY": 3,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 135,
+    "eventUuid": "9529ad6a-4472-5d64-b23b-5ad57f3f870d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:29:36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "locationX": 100,
+    "locationY": 48,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 134,
+    "eventUuid": "fa00641b-4d36-5f86-81b2-7a072c40b339",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:29:02.12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "4288",
+      "firstName": "Zion",
+      "familyName": "Nybeck",
+      "jerseyToday": "92"
+    },
+    "locationX": 16,
+    "locationY": 11,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 133,
+    "eventUuid": "c9e65b14-7d83-5251-8dd4-252c33bd57a2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:10",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:27:06.84",
+    "updatedTime": "2026-10-17T15:28:21.257204",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "6798",
+      "firstName": "Mikko",
+      "familyName": "Kokkonen",
+      "jerseyToday": "48"
+    },
+    "locationX": 132,
+    "locationY": -93,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 132,
+    "eventUuid": "63ab5221-8d2d-5145-a5d7-efab13de0a58",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "09:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:26:30.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4897",
+      "firstName": "Mikkel",
+      "familyName": "Øby-Olsen",
+      "jerseyToday": "8"
+    },
+    "locationX": 0,
+    "locationY": 10,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 129,
+    "eventUuid": "1bcfcd7b-ab37-5d71-9bf9-f875727435d4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "09:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:26:27.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 84,
+    "locationY": -129,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 127,
+    "eventUuid": "0eef7a62-a648-500e-a890-f577073f3ff1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "09:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:25:46.24",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6741",
+      "firstName": "Radim",
+      "familyName": "Zohorna",
+      "jerseyToday": "67"
+    },
+    "locationX": 138,
+    "locationY": -74,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 126,
+    "eventUuid": "fce4288d-c8f2-54f4-ad89-10ea9d565329",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "08:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:25:15.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2558",
+      "firstName": "Theodor",
+      "familyName": "Lennström",
+      "jerseyToday": "81"
+    },
+    "locationX": 104,
+    "locationY": 21,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 125,
+    "eventUuid": "e3c320c2-357f-5c98-8caa-d1f4ac327a52",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "05:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:20:42.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "7039",
+      "firstName": "Cooper",
+      "familyName": "Marody",
+      "jerseyToday": "20"
+    },
+    "locationX": 93,
+    "locationY": -56,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 124,
+    "eventUuid": "2ef25bad-47cb-53e6-b6e8-4c5f2817a6ca",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:49",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:11:27.32",
+    "updatedTime": "2026-10-17T15:12:35.310697",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "1540",
+      "firstName": "Magnus",
+      "familyName": "Nygren",
+      "jerseyToday": "32"
+    },
+    "locationX": 113,
+    "locationY": 140,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 123,
+    "eventUuid": "f95346ec-6d3e-51c2-823b-b7c506c7b020",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:46",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:55.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4180",
+      "firstName": "Filip",
+      "familyName": "Roos",
+      "jerseyToday": "48"
+    },
+    "locationX": 106,
+    "locationY": 80,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 121,
+    "eventUuid": "abd7b6a5-4cea-5e87-8334-0136aee57f95",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:48.02",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "locationX": 113,
+    "locationY": -90,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 119,
+    "eventUuid": "75c46686-e37f-5f8f-9807-3cd112dd85a0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:07:41.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3226",
+      "firstName": "Tim",
+      "familyName": "Söderlund",
+      "jerseyToday": "46"
+    },
+    "locationX": 115,
+    "locationY": -70,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 118,
+    "eventUuid": "afb8a186-e986-5086-aae0-f4230cb39d8d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "01:20",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:06:55.06",
+    "updatedTime": "2026-10-17T15:08:17.520799",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2558",
+      "firstName": "Theodor",
+      "familyName": "Lennström",
+      "jerseyToday": "81"
+    },
+    "locationX": 33,
+    "locationY": 9,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 116,
+    "eventUuid": "82c5fb99-8c9e-50c1-99df-9cb7ea597b62",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "01:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:07:28.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2027",
+      "firstName": "Linus",
+      "familyName": "Hultström",
+      "jerseyToday": "3"
+    },
+    "locationX": 99,
+    "locationY": 101,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 114,
+    "eventUuid": "3267c41a-9638-52ee-9020-cb4d7a279412",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:06:17.92",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2609",
+      "firstName": "Christoffer",
+      "familyName": "Ehn",
+      "jerseyToday": "21"
+    },
+    "locationX": 61,
+    "locationY": 95,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 113,
+    "eventUuid": "5dd111ee-cffb-51b9-b056-1a11f2b863f5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:46:47.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "locationX": 4,
+    "locationY": -73,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 111,
+    "eventUuid": "50a2a16b-3267-5008-9767-f8f45cf5b09f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:14.603",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "locationX": 2,
+    "locationY": -37,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 110,
+    "eventUuid": "35460e08-a386-5685-b107-6cf06e4d6d81",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:46:34.1",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4180",
+      "firstName": "Filip",
+      "familyName": "Roos",
+      "jerseyToday": "48"
+    },
+    "locationX": 146,
+    "locationY": 90,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 109,
+    "eventUuid": "30af597e-e2d0-5ecc-a725-57b83dda3306",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:44:32.86",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29"
+    },
+    "locationX": 75,
+    "locationY": 103,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 108,
+    "eventUuid": "13ab9376-1c4c-5d12-bf3e-55fd03185775",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:44:18.52",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3226",
+      "firstName": "Tim",
+      "familyName": "Söderlund",
+      "jerseyToday": "46"
+    },
+    "locationX": 86,
+    "locationY": 97,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 107,
+    "eventUuid": "bca15d24-6d0f-594b-a8fe-c965f5e6f44f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:05",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:53.66",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "1655",
+      "firstName": "Oscar",
+      "familyName": "Fantenberg",
+      "jerseyToday": "5"
+    },
+    "locationX": 134,
+    "locationY": -103,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 106,
+    "eventUuid": "bbfc333f-ca0c-587a-b43b-c1a2b5c0da57",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "16:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:42:30.705",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2027",
+      "firstName": "Linus",
+      "familyName": "Hultström",
+      "jerseyToday": "3"
+    },
+    "locationX": 128,
+    "locationY": 113,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 105,
+    "eventUuid": "7b84242a-8110-5d6a-b296-4136b333d964",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:23.76",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "1540",
+      "firstName": "Magnus",
+      "familyName": "Nygren",
+      "jerseyToday": "32"
+    },
+    "locationX": 161,
+    "locationY": 44,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 103,
+    "eventUuid": "60255c18-82d8-5114-83a1-b93f2b855f9c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:16.5",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "1540",
+      "firstName": "Magnus",
+      "familyName": "Nygren",
+      "jerseyToday": "32"
+    },
+    "locationX": 162,
+    "locationY": 97,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 101,
+    "eventUuid": "821b29dd-3692-58fc-a027-a5f1d676288e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "16:14",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:40:54.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3861",
+      "firstName": "Arvid",
+      "familyName": "Degerstedt",
+      "jerseyToday": "28"
+    },
+    "locationX": 114,
+    "locationY": 99,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 100,
+    "eventUuid": "92e6ee01-8b23-5d5e-984d-685b22e19173",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "15:08",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:39:10.76",
+    "updatedTime": "2026-10-17T14:39:44.523296",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2677",
+      "firstName": "Adam",
+      "familyName": "Ollas Mattsson",
+      "jerseyToday": "73"
+    },
+    "locationX": 130,
+    "locationY": -90,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 98,
+    "eventUuid": "82eed915-6b45-5c17-8621-ff5c1fe4b707",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:38:22.24",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2558",
+      "firstName": "Theodor",
+      "familyName": "Lennström",
+      "jerseyToday": "81"
+    },
+    "locationX": 166,
+    "locationY": -42,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 97,
+    "eventUuid": "22698fa1-9b75-5ed6-a9f6-923f08d01978",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:37:50.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2364",
+      "firstName": "Jakub",
+      "familyName": "Vrana",
+      "jerseyToday": "13"
+    },
+    "locationX": 60,
+    "locationY": -108,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 96,
+    "eventUuid": "3cd49545-b0ea-5876-b69e-5620801f62d8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:36:30.56",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "1540",
+      "firstName": "Magnus",
+      "familyName": "Nygren",
+      "jerseyToday": "32"
+    },
+    "locationX": 145,
+    "locationY": 138,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 95,
+    "eventUuid": "305a14db-f9e5-5d75-a95d-33a2495c46e6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:35:42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "locationX": 155,
+    "locationY": -33,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 93,
+    "eventUuid": "0e2dfb93-f0a8-5195-a24e-dca162c72a33",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:34:40.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4180",
+      "firstName": "Filip",
+      "familyName": "Roos",
+      "jerseyToday": "48"
+    },
+    "locationX": 98,
+    "locationY": 58,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 92,
+    "eventUuid": "60b134f1-41c0-50b8-acb9-b9a4f00ca753",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:34:22.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4271",
+      "firstName": "Sebastian",
+      "familyName": "Cederle",
+      "jerseyToday": "16"
+    },
+    "locationX": 114,
+    "locationY": -99,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 91,
+    "eventUuid": "bfb7c959-feb5-5828-b0fa-c0839068b797",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:32:58.42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2558",
+      "firstName": "Theodor",
+      "familyName": "Lennström",
+      "jerseyToday": "81"
+    },
+    "locationX": 174,
+    "locationY": -55,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 89,
+    "eventUuid": "a0c84b27-3eef-5f13-9d4f-d6d61ce39dd9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:29:40.86",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "locationX": 58,
+    "locationY": -100,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 88,
+    "eventUuid": "9602bf22-478a-53ce-b1d6-e7f0fd07cc9f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:28:27.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 166,
+    "locationY": -89,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 87,
+    "eventUuid": "566dc4d2-443b-5747-94a0-ec5fbe49828d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:28:05.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "1540",
+      "firstName": "Magnus",
+      "familyName": "Nygren",
+      "jerseyToday": "32"
+    },
+    "locationX": 112,
+    "locationY": 119,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 86,
+    "eventUuid": "944a8ed7-688f-5720-a212-b881f26b749b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:28:03.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3517",
+      "firstName": "Christoffer",
+      "familyName": "Jansson",
+      "jerseyToday": "12"
+    },
+    "locationX": 20,
+    "locationY": -75,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 85,
+    "eventUuid": "99a93a6d-7b1e-5c22-a200-cf5ec470b291",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:21",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:26:55.172686",
+    "updatedTime": "2026-10-17T14:27:33.215262",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "4288",
+      "firstName": "Zion",
+      "familyName": "Nybeck",
+      "jerseyToday": "92",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 24,
+    "locationY": -16,
+    "homeGoals": 2,
+    "awayGoals": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "2027",
+        "firstName": "Linus",
+        "familyName": "Hultström",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "2364",
+        "firstName": "Jakub",
+        "familyName": "Vrana",
+        "jerseyToday": "13"
+      },
+      {
+        "playerId": "3226",
+        "firstName": "Tim",
+        "familyName": "Söderlund",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "2298",
+        "firstName": "Marcus",
+        "familyName": "Högberg",
+        "jerseyToday": "63"
+      },
+      {
+        "playerId": "2558",
+        "firstName": "Theodor",
+        "familyName": "Lennström",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "4288",
+        "firstName": "Zion",
+        "familyName": "Nybeck",
+        "jerseyToday": "92"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6791",
+        "firstName": "Mikkel",
+        "familyName": "Eriksen",
+        "jerseyToday": "23"
+      },
+      {
+        "playerId": "2818",
+        "firstName": "Gabriel",
+        "familyName": "Carlsson",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "3208",
+        "firstName": "Oskar",
+        "familyName": "Steen",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "5603",
+        "firstName": "Emil",
+        "familyName": "Larmi",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "4180",
+        "firstName": "Filip",
+        "familyName": "Roos",
+        "jerseyToday": "48"
+      },
+      {
+        "playerId": "3018",
+        "firstName": "Linus",
+        "familyName": "Johansson",
+        "jerseyToday": "59"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "2364",
+        "firstName": "Jakub",
+        "familyName": "Vrana",
+        "jerseyToday": "13",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "3226",
+        "firstName": "Tim",
+        "familyName": "Söderlund",
+        "jerseyToday": "46",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 83,
+    "eventUuid": "a83d8651-5ae2-5454-93d2-c32c93f7e795",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:50.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2364",
+      "firstName": "Jakub",
+      "familyName": "Vrana",
+      "jerseyToday": "13"
+    },
+    "locationX": 109,
+    "locationY": 61,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 82,
+    "eventUuid": "b61ef5a3-16a2-591a-af61-010c3e8248e1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:53",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:23:45.48",
+    "updatedTime": "2026-10-17T14:26:46.280761",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "6163",
+      "firstName": "Zach",
+      "familyName": "Giuttari",
+      "jerseyToday": "8"
+    },
+    "locationX": 179,
+    "locationY": -34,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 81,
+    "eventUuid": "68c9c725-5f3e-5d2d-97b8-91ab34bda49a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:25:07.32",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 63,
+    "locationY": -131,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 79,
+    "eventUuid": "6f0ee596-21b7-5c24-b85e-dad7430795c9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:23:38.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3280",
+      "firstName": "Fredrik",
+      "familyName": "Karlström",
+      "jerseyToday": "70"
+    },
+    "locationX": 20,
+    "locationY": -21,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 78,
+    "eventUuid": "115d6421-a638-529d-9ea9-59c80cd7adaa",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:39",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:20:38.28",
+    "updatedTime": "2026-10-17T14:22:19.94012",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2609",
+      "firstName": "Christoffer",
+      "familyName": "Ehn",
+      "jerseyToday": "21"
+    },
+    "locationX": 26,
+    "locationY": -6,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 77,
+    "eventUuid": "ad8c0f8b-e4bd-53bd-a3e8-4380788ed056",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:53",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:20:52.74",
+    "updatedTime": "2026-10-17T14:22:19.94012",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "1655",
+      "firstName": "Oscar",
+      "familyName": "Fantenberg",
+      "jerseyToday": "5"
+    },
+    "locationX": 329,
+    "locationY": 18,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 76,
+    "eventUuid": "c601803b-a17c-5d58-8457-94ea275d84ff",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:18:30.62",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "5742",
+      "firstName": "Remi",
+      "familyName": "Elie",
+      "jerseyToday": "18"
+    },
+    "locationX": 1,
+    "locationY": 16,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 73,
+    "eventUuid": "8b1e6a39-66d6-5ca2-b0e8-36c10624627b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "03:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:36.44",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "7039",
+      "firstName": "Cooper",
+      "familyName": "Marody",
+      "jerseyToday": "20"
+    },
+    "locationX": 9,
+    "locationY": 6,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 72,
+    "eventUuid": "d91f5851-f26c-5654-92eb-8251f45beba4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:26.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3517",
+      "firstName": "Christoffer",
+      "familyName": "Jansson",
+      "jerseyToday": "12"
+    },
+    "locationX": 30,
+    "locationY": 15,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 71,
+    "eventUuid": "e40e7761-5410-518c-96cd-fc48ef675d7d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:17.32",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2364",
+      "firstName": "Jakub",
+      "familyName": "Vrana",
+      "jerseyToday": "13"
+    },
+    "locationX": 87,
+    "locationY": -26,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 70,
+    "eventUuid": "bc895d0e-ea48-578d-acdf-d19bd81722dc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "02:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:33.56",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2677",
+      "firstName": "Adam",
+      "familyName": "Ollas Mattsson",
+      "jerseyToday": "73"
+    },
+    "locationX": 7,
+    "locationY": 1,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 68,
+    "eventUuid": "699dadf4-fdee-5a30-9285-daa737e11b82",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:14:36.502",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "locationX": 177,
+    "locationY": 119,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 66,
+    "eventUuid": "261df825-c75a-57de-9109-e96aee215d13",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "03:32",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:16:51.93196",
+    "updatedTime": "2026-10-17T14:22:19.032523",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "5603",
+      "firstName": "Emil",
+      "familyName": "Larmi",
+      "jerseyToday": "33"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "ABUSE",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 65,
+    "eventUuid": "107d1a94-7b69-554e-a5f5-e77166f0b890",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:26",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:41.24",
+    "updatedTime": "2026-10-17T14:15:08.821623",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "664",
+      "firstName": "Per",
+      "familyName": "Åslund",
+      "jerseyToday": "22"
+    },
+    "locationX": 43,
+    "locationY": -9,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 63,
+    "eventUuid": "0deddd9c-5029-5f68-9059-3eab6d224d6b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:46",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:01.38",
+    "updatedTime": "2026-10-17T14:14:01.427604",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "664",
+      "firstName": "Per",
+      "familyName": "Åslund",
+      "jerseyToday": "22"
+    },
+    "locationX": 53,
+    "locationY": 4,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 62,
+    "eventUuid": "3a4272a1-31c7-501f-be49-f291737e40d0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:40",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:55.3",
+    "updatedTime": "2026-10-17T14:13:28.096684",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29"
+    },
+    "locationX": 61,
+    "locationY": -61,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 59,
+    "eventUuid": "a8900691-9c36-542c-9dfe-f7b0c9d100e1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:50.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29"
+    },
+    "locationX": 90,
+    "locationY": -67,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 58,
+    "eventUuid": "95b0dd52-7a90-5fff-aaa5-2ea167fc06dd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:44.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 140,
+    "locationY": -144,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 57,
+    "eventUuid": "a9c4b432-e70d-558b-8a8e-d9f430021442",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:39",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 162,
+    "locationY": 17,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 56,
+    "eventUuid": "4f70f0d7-2ff3-51cc-90da-60f6582d9ddc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:59:13.423439",
+    "updatedTime": "2026-10-17T14:56:51.585202",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2364",
+      "firstName": "Jakub",
+      "familyName": "Vrana",
+      "jerseyToday": "13"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "ABUSE",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 55,
+    "eventUuid": "bc1f5360-ff4f-5efe-b20f-eb12c82b2ec5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:58:16.210143",
+    "updatedTime": "2026-10-17T14:56:41.933801",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "UN-SP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 54,
+    "eventUuid": "10fb1fe8-578c-5640-a2d2-6ac329c5a6ba",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:51:32.06",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 167,
+    "locationY": -122,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 52,
+    "eventUuid": "f26c86dd-d04e-5c1f-ae31-4edb6171dcb7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:50:54.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "locationX": 24,
+    "locationY": 33,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 51,
+    "eventUuid": "065d511c-4651-58bb-87f3-2a8d7dab185f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:50:53.14",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 176,
+    "locationY": -140,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 50,
+    "eventUuid": "1114cd85-70cb-5af2-b9bb-3c0fecd2bd38",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:31",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:50:04.147966",
+    "updatedTime": "2026-10-17T14:14:47.208589",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3226",
+      "firstName": "Tim",
+      "familyName": "Söderlund",
+      "jerseyToday": "46"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 49,
+    "eventUuid": "3057b1a6-c7f6-5005-b606-a4088391a367",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:49:40.58",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6791",
+      "firstName": "Mikkel",
+      "familyName": "Eriksen",
+      "jerseyToday": "23"
+    },
+    "locationX": 28,
+    "locationY": 4,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 48,
+    "eventUuid": "9f3b95ee-b66d-5f95-a89a-f99b51d023c9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:49:22.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2677",
+      "firstName": "Adam",
+      "familyName": "Ollas Mattsson",
+      "jerseyToday": "73"
+    },
+    "locationX": 159,
+    "locationY": -138,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 47,
+    "eventUuid": "e3c55b07-f32c-5a99-b5c2-5f4aff8166c9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:37",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:48:18.547894",
+    "updatedTime": "2026-10-17T13:48:54.869815",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "6"
+        },
+        {
+          "key": "A",
+          "value": "7"
+        }
+      ]
+    },
+    "locationX": 29,
+    "locationY": -27,
+    "homeGoals": 1,
+    "awayGoals": 2,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3930",
+        "firstName": "Axel",
+        "familyName": "Bergkvist",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "664",
+        "firstName": "Per",
+        "familyName": "Åslund",
+        "jerseyToday": "22"
+      },
+      {
+        "playerId": "3208",
+        "firstName": "Oskar",
+        "familyName": "Steen",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "5603",
+        "firstName": "Emil",
+        "familyName": "Larmi",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "6741",
+        "firstName": "Radim",
+        "familyName": "Zohorna",
+        "jerseyToday": "67"
+      },
+      {
+        "playerId": "3970",
+        "firstName": "Viktor",
+        "familyName": "Lodin",
+        "jerseyToday": "71"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "1655",
+        "firstName": "Oscar",
+        "familyName": "Fantenberg",
+        "jerseyToday": "5"
+      },
+      {
+        "playerId": "6163",
+        "firstName": "Zach",
+        "familyName": "Giuttari",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "2609",
+        "firstName": "Christoffer",
+        "familyName": "Ehn",
+        "jerseyToday": "21"
+      },
+      {
+        "playerId": "3778",
+        "firstName": "Brendan",
+        "familyName": "Shinnimin",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "2298",
+        "firstName": "Marcus",
+        "familyName": "Högberg",
+        "jerseyToday": "63"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "3208",
+        "firstName": "Oskar",
+        "familyName": "Steen",
+        "jerseyToday": "29",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "2"
+          },
+          {
+            "key": "A",
+            "value": "5"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6741",
+        "firstName": "Radim",
+        "familyName": "Zohorna",
+        "jerseyToday": "67",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "4"
+          },
+          {
+            "key": "A",
+            "value": "7"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 46,
+    "eventUuid": "65642a8f-49ba-5a90-af56-203f65469425",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:48:14.12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29"
+    },
+    "locationX": 136,
+    "locationY": 23,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 45,
+    "eventUuid": "33c05310-6440-5f57-99bf-26030e84dac5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:53",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:45:06.410084",
+    "updatedTime": "2026-10-17T13:49:03.915467",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "4288",
+      "firstName": "Zion",
+      "familyName": "Nybeck",
+      "jerseyToday": "92"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "TRIP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 44,
+    "eventUuid": "51d28db9-566c-559e-b002-3b185ebdec93",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:44:01",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "7099",
+      "firstName": "Sami",
+      "familyName": "Niku",
+      "jerseyToday": "88"
+    },
+    "locationX": 173,
+    "locationY": 21,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 43,
+    "eventUuid": "d9dc0b04-8a52-5aab-825e-65fb80740101",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:43:55.48",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2609",
+      "firstName": "Christoffer",
+      "familyName": "Ehn",
+      "jerseyToday": "21"
+    },
+    "locationX": 82,
+    "locationY": 16,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 42,
+    "eventUuid": "5946de9a-024d-512a-a420-ae7200e1cbaa",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:10",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:42:55.939066",
+    "updatedTime": "2026-10-17T13:47:53.878725",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "BOARD",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 41,
+    "eventUuid": "b2612fd4-958c-5666-b104-af56b129f4d9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:32.4",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6741",
+      "firstName": "Radim",
+      "familyName": "Zohorna",
+      "jerseyToday": "67"
+    },
+    "locationX": 11,
+    "locationY": -11,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 40,
+    "eventUuid": "3ae6dcf3-24dd-500c-848e-2642d10ebb78",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:33",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:38:49.410679",
+    "updatedTime": "2026-10-17T13:39:11.385653",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6791",
+      "firstName": "Mikkel",
+      "familyName": "Eriksen",
+      "jerseyToday": "23",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 38,
+    "locationY": -31,
+    "homeGoals": 1,
+    "awayGoals": 1,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "6791",
+        "firstName": "Mikkel",
+        "familyName": "Eriksen",
+        "jerseyToday": "23"
+      },
+      {
+        "playerId": "2818",
+        "firstName": "Gabriel",
+        "familyName": "Carlsson",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "3208",
+        "firstName": "Oskar",
+        "familyName": "Steen",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "5603",
+        "firstName": "Emil",
+        "familyName": "Larmi",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "4180",
+        "firstName": "Filip",
+        "familyName": "Roos",
+        "jerseyToday": "48"
+      },
+      {
+        "playerId": "3018",
+        "firstName": "Linus",
+        "familyName": "Johansson",
+        "jerseyToday": "59"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "2027",
+        "firstName": "Linus",
+        "familyName": "Hultström",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "5742",
+        "firstName": "Remi",
+        "familyName": "Elie",
+        "jerseyToday": "18"
+      },
+      {
+        "playerId": "2609",
+        "firstName": "Christoffer",
+        "familyName": "Ehn",
+        "jerseyToday": "21"
+      },
+      {
+        "playerId": "3861",
+        "firstName": "Arvid",
+        "familyName": "Degerstedt",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "2298",
+        "firstName": "Marcus",
+        "familyName": "Högberg",
+        "jerseyToday": "63"
+      },
+      {
+        "playerId": "2558",
+        "firstName": "Theodor",
+        "familyName": "Lennström",
+        "jerseyToday": "81"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "2818",
+        "firstName": "Gabriel",
+        "familyName": "Carlsson",
+        "jerseyToday": "27",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "5"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "4180",
+        "firstName": "Filip",
+        "familyName": "Roos",
+        "jerseyToday": "48",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "6"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 39,
+    "eventUuid": "065c35cf-ebe9-5d83-a423-9368aae2453b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:38:43.5",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "locationX": 166,
+    "locationY": -93,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 38,
+    "eventUuid": "e5506f52-143c-5d24-901b-764c3a166b1f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "14:33",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:37:45.4",
+    "updatedTime": "2026-10-17T13:38:36.557866",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6318",
+      "firstName": "Jack",
+      "familyName": "Berglund",
+      "jerseyToday": "15"
+    },
+    "locationX": 30,
+    "locationY": 11,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 36,
+    "eventUuid": "d96b1f93-fe1a-51ee-be37-1dbcbb598066",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "14:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:36:02.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "664",
+      "firstName": "Per",
+      "familyName": "Åslund",
+      "jerseyToday": "22"
+    },
+    "locationX": 19,
+    "locationY": -100,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 34,
+    "eventUuid": "aea47baa-b7ef-5e63-8c1e-6c7b06ac8143",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:25.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6741",
+      "firstName": "Radim",
+      "familyName": "Zohorna",
+      "jerseyToday": "67"
+    },
+    "locationX": 94,
+    "locationY": 16,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 33,
+    "eventUuid": "f65a6f6a-f14b-5312-b2b9-104675ab62ea",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "12:14",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:33:52.02",
+    "updatedTime": "2026-10-17T13:34:54.375378",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4180",
+      "firstName": "Filip",
+      "familyName": "Roos",
+      "jerseyToday": "48"
+    },
+    "locationX": 99,
+    "locationY": -15,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 32,
+    "eventUuid": "8e74f9d9-b033-51e9-89b9-d5217aec3a46",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:17",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:55.58",
+    "updatedTime": "2026-10-17T13:34:34.689817",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 179,
+    "locationY": -76,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 30,
+    "eventUuid": "884bd8a5-ab25-56cc-9abf-ecfdc4c22dde",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:37.7",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "664",
+      "firstName": "Per",
+      "familyName": "Åslund",
+      "jerseyToday": "22"
+    },
+    "locationX": 52,
+    "locationY": -15,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 28,
+    "eventUuid": "85407223-9690-57ca-a590-5db7013b24f9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:48.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "locationX": 75,
+    "locationY": 68,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 27,
+    "eventUuid": "783f700f-8648-541d-8e99-2cf7a4434e0f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:33.7",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29"
+    },
+    "locationX": 103,
+    "locationY": -41,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 26,
+    "eventUuid": "47316bbf-5213-5300-9b05-81e026394607",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:31:17.82",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3930",
+      "firstName": "Axel",
+      "familyName": "Bergkvist",
+      "jerseyToday": "7"
+    },
+    "locationX": 171,
+    "locationY": 55,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 25,
+    "eventUuid": "05ffebe1-4bea-5d57-aa3b-b379cf469a1d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:49.203",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3018",
+      "firstName": "Linus",
+      "familyName": "Johansson",
+      "jerseyToday": "59"
+    },
+    "locationX": 4,
+    "locationY": -18,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 24,
+    "eventUuid": "cb1ddb7a-3f54-561c-8668-7ec3448f8462",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:48",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:29:23.946077",
+    "updatedTime": "2026-10-17T13:34:05.945959",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "1655",
+      "firstName": "Oscar",
+      "familyName": "Fantenberg",
+      "jerseyToday": "5"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "ROUGH",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 23,
+    "eventUuid": "95cf95dd-ba3f-5879-b841-d3802c7552f1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:23",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:28:51.54",
+    "updatedTime": "2026-10-17T13:29:18.853853",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "4935",
+      "firstName": "Adam",
+      "familyName": "Hofbauer",
+      "jerseyToday": "53"
+    },
+    "locationX": 129,
+    "locationY": -106,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 22,
+    "eventUuid": "48e855af-aa42-5c4c-bbd1-6b51aac5c6c3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:12",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:28:10.256053",
+    "updatedTime": "2026-10-17T13:29:03.779178",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2027",
+      "firstName": "Linus",
+      "familyName": "Hultström",
+      "jerseyToday": "3",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 35,
+    "locationY": 33,
+    "homeGoals": 1,
+    "awayGoals": 0,
+    "goalSection": 9,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "2027",
+        "firstName": "Linus",
+        "familyName": "Hultström",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "2364",
+        "firstName": "Jakub",
+        "familyName": "Vrana",
+        "jerseyToday": "13"
+      },
+      {
+        "playerId": "5742",
+        "firstName": "Remi",
+        "familyName": "Elie",
+        "jerseyToday": "18"
+      },
+      {
+        "playerId": "7039",
+        "firstName": "Cooper",
+        "familyName": "Marody",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "3778",
+        "firstName": "Brendan",
+        "familyName": "Shinnimin",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "2298",
+        "firstName": "Marcus",
+        "familyName": "Högberg",
+        "jerseyToday": "63"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "2341",
+        "firstName": "Joakim",
+        "familyName": "Nygård",
+        "jerseyToday": "11"
+      },
+      {
+        "playerId": "6318",
+        "firstName": "Jack",
+        "familyName": "Berglund",
+        "jerseyToday": "15"
+      },
+      {
+        "playerId": "1540",
+        "firstName": "Magnus",
+        "familyName": "Nygren",
+        "jerseyToday": "32"
+      },
+      {
+        "playerId": "5603",
+        "firstName": "Emil",
+        "familyName": "Larmi",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "2677",
+        "firstName": "Adam",
+        "familyName": "Ollas Mattsson",
+        "jerseyToday": "73"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "5742",
+        "firstName": "Remi",
+        "familyName": "Elie",
+        "jerseyToday": "18",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 20,
+    "eventUuid": "41bce289-d857-5da2-aab7-5dd5f545f0f0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:55.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3226",
+      "firstName": "Tim",
+      "familyName": "Söderlund",
+      "jerseyToday": "46"
+    },
+    "locationX": 88,
+    "locationY": 62,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 19,
+    "eventUuid": "8a3c4912-0931-5855-a512-472859df9bbc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:40.58",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3226",
+      "firstName": "Tim",
+      "familyName": "Söderlund",
+      "jerseyToday": "46"
+    },
+    "locationX": 80,
+    "locationY": 53,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 18,
+    "eventUuid": "fd1baa33-8e23-5436-a8a0-69e8bdd53ca2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:18.04",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2609",
+      "firstName": "Christoffer",
+      "familyName": "Ehn",
+      "jerseyToday": "21"
+    },
+    "locationX": 118,
+    "locationY": -84,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 17,
+    "eventUuid": "2ad044d2-5ddd-5a8a-818f-71aaf1090b33",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:12",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:24:46.666027",
+    "updatedTime": "2026-10-17T13:29:16.62081",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4180",
+      "firstName": "Filip",
+      "familyName": "Roos",
+      "jerseyToday": "48"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HO-ST",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 16,
+    "eventUuid": "233ab724-ea33-5349-964b-491a4401ac71",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:24:41.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3280",
+      "firstName": "Fredrik",
+      "familyName": "Karlström",
+      "jerseyToday": "70"
+    },
+    "locationX": 45,
+    "locationY": -54,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 15,
+    "eventUuid": "19daefe9-066f-5061-9350-cb3f77f017e3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:23:58.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3970",
+      "firstName": "Viktor",
+      "familyName": "Lodin",
+      "jerseyToday": "71"
+    },
+    "locationX": 145,
+    "locationY": 55,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 14,
+    "eventUuid": "fe5368c0-b1df-58fc-81a3-09c91ba6df9f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "04:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:21:46.76",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "3208",
+      "firstName": "Oskar",
+      "familyName": "Steen",
+      "jerseyToday": "29"
+    },
+    "locationX": 119,
+    "locationY": 69,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 13,
+    "eventUuid": "4e184add-18d3-56e4-bccb-f7525a67308a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:20:32.396378",
+    "updatedTime": "2026-10-17T13:20:44.350517",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2818",
+      "firstName": "Gabriel",
+      "familyName": "Carlsson",
+      "jerseyToday": "27"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "ROUGH",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 12,
+    "eventUuid": "2c11f6ae-14c3-583e-bafb-4240c9c802cb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:20:12.473763",
+    "updatedTime": "2026-10-17T13:20:32.464399",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "3778",
+      "firstName": "Brendan",
+      "familyName": "Shinnimin",
+      "jerseyToday": "24"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "ROUGH",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 11,
+    "eventUuid": "dc420f38-121b-54f1-97ce-a790429b6080",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:20:01.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "6798",
+      "firstName": "Mikko",
+      "familyName": "Kokkonen",
+      "jerseyToday": "48"
+    },
+    "locationX": 112,
+    "locationY": -88,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 10,
+    "eventUuid": "42a1cd15-a8e3-59ff-bc07-723e6a28a6a6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:19:00.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "1655",
+      "firstName": "Oscar",
+      "familyName": "Fantenberg",
+      "jerseyToday": "5"
+    },
+    "locationX": 123,
+    "locationY": -121,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 9,
+    "eventUuid": "07aac1f2-e71b-5fa3-81df-60493a448918",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:18:29.02",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "4897",
+      "firstName": "Mikkel",
+      "familyName": "Øby-Olsen",
+      "jerseyToday": "8"
+    },
+    "locationX": 88,
+    "locationY": -78,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 8,
+    "eventUuid": "32e13912-c530-527f-af09-7a112f055879",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:01",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:17:46.06",
+    "updatedTime": "2026-10-17T13:18:27.834931",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "6791",
+      "firstName": "Mikkel",
+      "familyName": "Eriksen",
+      "jerseyToday": "23"
+    },
+    "locationX": 33,
+    "locationY": 14,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 7,
+    "eventUuid": "e1f8d81a-6c73-52e8-bb8a-13a34067a323",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:17:53.8",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "5816",
+      "firstName": "Albert",
+      "familyName": "Wikman",
+      "jerseyToday": "6"
+    },
+    "locationX": 165,
+    "locationY": 128,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 5,
+    "eventUuid": "b5bd11e1-c5c9-5034-9527-2c8d37d47dff",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:16:15.76",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "2341",
+      "firstName": "Joakim",
+      "familyName": "Nygård",
+      "jerseyToday": "11"
+    },
+    "locationX": 24,
+    "locationY": 1,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 4,
+    "eventUuid": "0579423a-49fb-5296-9a7c-5ba0183df21a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:10:10.528914",
+    "updatedTime": "2026-10-17T15:47:25.491667",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "FBK",
+      "place": "away",
+      "teamCode": "FBK",
+      "teamName": "Färjestad BK"
+    },
+    "player": {
+      "playerId": "5603",
+      "firstName": "Emil",
+      "familyName": "Larmi",
+      "jerseyToday": "33"
+    },
+    "isEntering": true,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "eventId": 3,
+    "eventUuid": "d9c6f730-5cae-5c93-a5ed-0f2cf3ead500",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Saab Arena",
+    "attendance": 7900,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:10:02.985084",
+    "updatedTime": "2026-10-17T15:47:24.425193",
+    "homeTeam": {
+      "teamId": "LHC",
+      "teamName": "Linköpings HC",
+      "teamCode": "LHC",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "FBK",
+      "teamName": "Färjestad BK",
+      "teamCode": "FBK",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHC",
+      "place": "home",
+      "teamCode": "LHC",
+      "teamName": "Linköpings HC"
+    },
+    "player": {
+      "playerId": "2298",
+      "firstName": "Marcus",
+      "familyName": "Högberg",
+      "jerseyToday": "63"
+    },
+    "isEntering": true,
+    "gameUuid": "yklkh1aqmw"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-10-17T15:15:14.076Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T15:51:42.031Z",
+    "realWorldTime": "2026-10-17T15:51:42.316262",
+    "gameUuid": "yklkh1aqmw",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-10-17T16:12:17.004Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T16:47:00.066Z",
+    "realWorldTime": "2026-10-17T16:47:00.660861",
+    "gameUuid": "yklkh1aqmw",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-LHC-FBK",
+    "gameId": 23066,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-10-17T17:05:35.003Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:46:58.054Z",
+    "realWorldTime": "2026-10-17T17:46:58.548369",
+    "gameUuid": "yklkh1aqmw",
+    "type": "period"
+  }
+]

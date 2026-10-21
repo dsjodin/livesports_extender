@@ -11,6 +11,8 @@ Read these before working on a phase:
 - `docs/PLAN.md`: phases, tasks and acceptance criteria. Work one phase at a time.
 - `docs/SHL_API.md`: the verified shl.se endpoints, field paths and data quirks.
 - `docs/PROTOCOL.md`: REST API, WebSocket messages and webhook payloads.
+- `docs/HA.md`: Home Assistant setup and example automations.
+- `docs/DEPLOY.md`: Docker host and display box installation.
 - `docs/SCREENS.md`: wall geometry, design tokens, scenes per screen, simulator and phone app.
 - `config/wall.json`: physical screen layout (single source of truth for geometry).
 
@@ -55,9 +57,11 @@ web/screens/           left.html, bar.html, right.html + shared js/css
 web/sim/               simulator page
 web/app/               phone web app (PWA)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
+web/media/             default team videos (goal/, intro/; own ones go in data/media/)
 config/wall.json       screen geometry
 tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
-                       synth_recording.py, snapshot.py, check_phone.py (shared: shl_http.py)
+                       synth_recording.py, snapshot.py, check_phone.py, make_stingers.py
+                       (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
 ```
@@ -79,6 +83,8 @@ cd server && uv run python -m app.cli recording ../data/recordings/mtn5yq64mp --
 uv run --project server python tools/snapshot.py           # screen snapshots (service running)
 uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
 uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
+uv run --project server python tools/make_stingers.py      # default goal/intro videos per team
+shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 
 Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.
@@ -117,7 +123,9 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
    for replay) touch the network.
 5. **Be polite to shl.se.** Poll only the selected game: `game-info` every 60 s until
    15 min before puck drop, then `game-info` and `play-by-play` every 2 s until the game is
-   over. Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a
+   over. While it is followed, the evening's other SHL games (same day) get `play-by-play`
+   every 30 s from 15 min before each one's start until it ends (decided 2026-10-21),
+   delayed by the same offset (rule 1). Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a
    `User-Agent: shl-arena/<version> (private home display)` header.
 6. **Teams are identified by uuid**, never by code. Codes differ between endpoints
    (Skellefteå is `SAIK` and `SKE`, Örebro is `OHK` and `ÖRE`).

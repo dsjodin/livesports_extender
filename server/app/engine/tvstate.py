@@ -8,6 +8,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass, field
 from typing import Any
 
+from app.engine import league as league_engine
 from app.engine.events import NormalizedEvent, Side
 from app.engine.state import compute_state
 from app.feedtime import parse_utc_ms
@@ -78,10 +79,12 @@ def build(
     recent: list[dict[str, Any]] | None = None,
     selected: bool = True,
     league: dict[str, Any] | None = None,
+    others: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     evs = list(events)
     st = compute_state(evs, None, None)
     phase = st.phase if selected or evs else "idle"
+    others = others or []
 
     shots: dict[str, list[dict[str, Any]]] = {"home": [], "away": []}
     for e in evs:
@@ -176,8 +179,53 @@ def build(
         "overtime": st.overtime,
         "went_to_shootout": st.went_to_shootout,
         "league": league,
+        "others": others,
+        "live_table": _live_table(league, meta, st, phase, others),
         "scene": scene,
     }
+
+
+def _live_table(
+    league: dict[str, Any] | None,
+    meta: GameMeta,
+    st: Any,
+    phase: str,
+    others: list[dict[str, Any]],
+) -> list[dict[str, Any]] | None:
+    """The standings if tonight's games ended now, from delayed scores only. Only games
+    that were not finished when the standings were fetched count (``league.tonight``)."""
+    if not league or not league.get("standings"):
+        return None
+    tonight = {g["uuid"] for g in league.get("tonight", [])}
+    games = []
+    if meta.uuid in tonight and phase not in ("idle", "pregame") and meta.teams:
+        games.append(
+            {
+                "home_uuid": meta.teams["home"].get("uuid"),
+                "away_uuid": meta.teams["away"].get("uuid"),
+                "home": st.score["home"],
+                "away": st.score["away"],
+                "ended": st.ended,
+                "overtime": st.overtime,
+                "shootout": st.went_to_shootout,
+            }
+        )
+    for o in others:
+        if o["uuid"] in tonight and o["phase"] not in ("idle", "pregame"):
+            games.append(
+                {
+                    "home_uuid": o["teams"]["home"]["uuid"],
+                    "away_uuid": o["teams"]["away"]["uuid"],
+                    "home": o["score"]["home"],
+                    "away": o["score"]["away"],
+                    "ended": o["ended"],
+                    "overtime": o["overtime"],
+                    "shootout": o["went_to_shootout"],
+                }
+            )
+    if not games:
+        return None
+    return league_engine.live_table(league["standings"], games)
 
 
 def diff(old: dict[str, Any], new: dict[str, Any]) -> dict[str, Any]:

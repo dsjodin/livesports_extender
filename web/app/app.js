@@ -23,6 +23,14 @@ const SCENES = [
 ];
 const SPEEDS = [1, 2, 5, 20, 50];
 const PROFILE_NAMES = { iptv: "IPTV", tv4play: "TV4 Play" };
+const WEBHOOK_EVENTS = [
+  ["shl_goal", "Mål"],
+  ["shl_goal_disallowed", "Underkänt mål"],
+  ["shl_penalty", "Utvisning"],
+  ["shl_period_start", "Periodstart"],
+  ["shl_period_end", "Periodslut"],
+  ["shl_game_end", "Matchslut"],
+];
 
 const store = new Store();
 const ui = {
@@ -35,6 +43,8 @@ const ui = {
   raw: [],
   games: null, // {today, upcoming, played, fixtures}
   teams: null, // GET /api/teams
+  webhooks: null, // GET /api/webhooks settings
+  webhookLog: [],
   version: null,
 };
 let socket = null;
@@ -318,12 +328,16 @@ async function startGame(mode) {
 // --- Inställningar --------------------------------------------------------------------
 
 async function loadSettings() {
-  const [teams, health] = await Promise.all([
+  const [teams, health, hooks, hookLog] = await Promise.all([
     fetch("/api/teams").then((r) => r.json()),
     fetch("/api/health").then((r) => r.json()),
-  ]).catch(() => [null, null]);
+    fetch("/api/webhooks").then((r) => r.json()),
+    fetch("/api/webhooks/log").then((r) => r.json()),
+  ]).catch(() => [null, null, null, null]);
   ui.teams = teams;
   ui.version = health?.version;
+  ui.webhooks = hooks?.settings ?? null;
+  ui.webhookLog = hookLog?.log ?? [];
   renderSettings();
 }
 
@@ -369,7 +383,7 @@ function renderSettings() {
     <div class="card"><div class="label">Mitt lag</div>${raw(myTeam)}<div class="muted">Mitt lags mål tänder lamporna. Kan ändras per match under Matcher.</div>
       <label class="row"><input type="checkbox" data-act="follow" ${st.follow_my_team ? "checked" : ""}> Följ mitt lag automatiskt</label>
       <div class="muted">Följer mitt lags match live när den spelas idag, om ingen annan match eller repris är igång. Stäng av för att sluta följa.</div></div>
-    <div class="card"><div class="label">Home Assistant</div><input disabled placeholder="Webhook-URL"><div class="muted">Kommer i fas 6.</div></div>
+    ${raw(haCard())}
     <div class="card"><div class="label">Lagfärger</div>${raw(teamRows)}</div>
     <div class="card"><div class="label">Felsökning</div>
       <label class="row"><input type="checkbox" data-act="raw" ${ui.rawOn ? "checked" : ""}> Visa råa händelser</label>
@@ -378,6 +392,40 @@ function renderSettings() {
   );
   renderAbout();
   renderRaw();
+  renderHaLog();
+}
+
+function haCard() {
+  const w = ui.webhooks;
+  if (!w) return `<div class="card"><div class="label">Home Assistant</div><div class="muted">Hämtar…</div></div>`;
+  const events = WEBHOOK_EVENTS.map(
+    ([id, name]) => html`<label class="row"><input type="checkbox" data-ha-event="${id}" ${w.events.includes(id) ? "checked" : ""}> ${name}</label>`,
+  ).join("");
+  return html`<div class="card" id="ha-card"><div class="label">Home Assistant</div>
+    <input id="ha-url" type="url" inputmode="url" placeholder="http://homeassistant.local:8123/api/webhook/shl-arena" value="${w.url ?? ""}">
+    <label class="row"><input type="checkbox" id="ha-enabled" ${w.enabled ? "checked" : ""}> Skicka till Home Assistant</label>
+    <div class="label">Händelser</div>${raw(events)}
+    <button class="primary" data-act="save-ha">Spara</button>
+    <div class="muted">Anropen skickas när händelsen syns på TV:n. Prova med "Testa mål" under Live.</div>
+    <ul class="press-list" id="ha-log"></ul></div>`;
+}
+
+function renderHaLog() {
+  const el = $("ha-log");
+  if (!el) return;
+  const names = Object.fromEntries(WEBHOOK_EVENTS);
+  put(
+    el,
+    ui.webhookLog
+      .slice(-5)
+      .reverse()
+      .map((e) => {
+        const ok = !e.error;
+        const what = `${names[e.event] ?? e.event}${e.test ? " (test)" : e.source === "manual" ? " (MÅL!-knapp)" : ""}`;
+        return html`<li><span>${new Date(e.sent_ms ?? e.play_at_ms).toLocaleTimeString("sv-SE")} ${what}</span><span class="${ok ? "ok" : "bad"}">${ok ? "Skickat" : `Fel: ${e.error}`}</span></li>`;
+      })
+      .join(""),
+  );
 }
 
 function renderAbout() {
@@ -437,6 +485,15 @@ const actions = {
   "replay-game": () => startGame("replay"),
   "use-profile": (d) => api("profile", { profile: d.profile }).then(() => renderSettings()),
   "team-reset": (d) => api(`teams/${d.uuid}`, undefined, "DELETE").then(loadSettings),
+  "save-ha": () => {
+    const events = [...document.querySelectorAll("[data-ha-event]")].filter((el) => el.checked).map((el) => el.dataset.haEvent);
+    const url = $("ha-url").value.trim() || null;
+    api("webhooks", { url, enabled: $("ha-enabled").checked, events }).then((r) => {
+      if (!r) return;
+      ui.webhooks = r.settings;
+      toast("Home Assistant sparat");
+    });
+  },
 };
 
 const changes = {
@@ -507,6 +564,11 @@ store.on("status", (m) => {
   renderConn();
   if (ui.view === "live") renderLive();
   if (ui.view === "installningar") renderAbout();
+});
+store.on("webhook", (m) => {
+  ui.webhookLog.push(m.entry);
+  if (ui.webhookLog.length > 50) ui.webhookLog.shift();
+  renderHaLog();
 });
 store.on("raw_backlog", (m) => {
   ui.raw = [...(m.raw ?? [])];

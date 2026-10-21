@@ -10,6 +10,14 @@ Games:
 - `m01wkdm2u1`: HV71–Skellefteå 4–3 after overtime, 2026-09-24
 - `et9erhx0si`: Frölunda–Skellefteå 3–2 after shootout, 2026-10-17
 
+Played at the same time as `et9erhx0si` (game-info and play-by-play only, fetched
+2026-10-21 with `tools/fetch_fixtures.py --evening-only`):
+
+- `pmch0rrshr`: Djurgården–Malmö, 2026-10-17 15:15
+- `ux4bplsxbh`: Luleå–HV71, 2026-10-17 15:15
+- `wffn21lxeb`: Rögle–Örebro, 2026-10-17 15:15
+- `yklkh1aqmw`: Linköping–Färjestad, 2026-10-17 15:15
+
 | File | Source URL |
 |---|---|
 | `filter.json` | https://www.shl.se/api/sports-v2/season-series-game-types-filter |

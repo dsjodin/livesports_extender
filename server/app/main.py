@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app import __version__
 from app.api import ws
+from app.api.assets import media_router
 from app.api.assets import router as assets_router
 from app.api.routes import router
 from app.clock import Clock, RealClock
@@ -95,6 +96,7 @@ def create_app(
     app.state.schedule = schedule
     app.include_router(router)
     app.include_router(assets_router)
+    app.include_router(media_router)
 
     @app.websocket("/ws")
     async def websocket(socket: WebSocket) -> None:

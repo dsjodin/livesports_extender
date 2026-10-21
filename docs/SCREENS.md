@@ -242,8 +242,8 @@ Goal sequence, times relative to `play_at`:
 | 1800 ms | Assist card, score row, on-ice grid, 60 ms stagger. Other side: goal list highlights the new row at 1500 ms. |
 | 20 s | 500 ms cross-fade back to `live`. |
 
-With video stingers (Phase 8), the stinger plays over the scoring side for the first 2.5 s
-and the graphics build behind it.
+With team videos (Phase 8, below), the stinger plays over the scoring side for the first
+2.2 s and the graphics build behind it.
 
 ### intermission (mockup scene 4)
 
@@ -252,13 +252,53 @@ divided by the replay speed (`config.speed`). Before overtime the break is taken
 (assumption, not checked against SHL). It is an estimate; the next `period_start` ends it.
 
 - Bar: score boxes; centre "PAUS", "PERIOD n OM", countdown in gold (estimate: period end +
-  18 min); strip "EFTER n PERIODER • SKOTT a–b • UTV.MIN c–d".
-- Left: "EFTER TVÅ PERIODER" / "PERIODSTATISTIK", both teams named with badges, comparison rows:
-  shots per period played, shots on goal, shot attempts, power play (goals/chances), penalty
-  minutes, save % ("RÄDDNINGSPROCENT"). Faceoffs are only in shl.se's team-stats, not in
-  the TV state yet.
-- Right: "MÅLEN" list, "UTVISNINGAR" list (period time, team, player, offence text, minutes),
-  bottom card "<N>:E PERIODEN · Startar om" with the countdown.
+  18 min); the strip is the ticker (below).
+- Both portrait screens change picture every 12 s (Phase 8, decided with the user
+  2026-10-21: "bildbyten mellan olika statistik"). The slide shown is
+  `floor((now − since_ms) / 12 s) mod n` on the synced clock, so all screens agree and a
+  reload lands on the same slide; the change is a 0.5 s cross-fade. Dots at the bottom show
+  where in the cycle it is, and the countdown card "<N>:E PERIODEN STARTAR OM" stays.
+- Left: our game. "EFTER n PERIODER" over: PERIODSTATISTIK (both teams, comparison rows:
+  shots per period, shots on goal, shot attempts, power play goals/chances, penalty
+  minutes, save %); SKOTTKARTOR (both teams' maps); MÅL OCH UTVISNINGAR; MÅLVAKTER OCH
+  SPECIALLAG (goalie cards, power play and penalty kill).
+- Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (one card per other game: badges, score,
+  status, shots, penalty minutes); the live table "OM MATCHERNA SLUTADE NU" (or plain
+  TABELL when no other game has started, see `docs/PROTOCOL.md`, live table) with a
+  movement arrow per team; MÅLSKYTTAR (goals per other game). With no other games the
+  right screen shows our goals and penalties.
+
+### Bar ticker (Phase 8)
+
+The bar's bottom strip in `live` and `intermission` pages through our own line (shots,
+penalty minutes, arena) and then the evening's other games, three per page
+("LHF 2–2 HV71 P2 • …"), 8 s a page by the synced clock. A goal in another game (its score
+changing in `tv.others` at its own `play_at`, delayed like ours) takes the strip in gold for
+8 s: "MÅL HV71!  LHF 2–2 HV71 P2". Penalty and timeout overlays keep the strip while they run.
+
+### Team videos (Phase 8)
+
+Decided 2026-10-21: the videos are silent (Home Assistant plays the horn and sound), the
+service ships a generated default per team, and your own replace them.
+
+- Goal stinger: when the goal scene starts on the scoring side's screen, its team's
+  `goal` video plays over the scene from `play_at` (2.2 s; bands in the team colours and
+  gold, the logo, "MÅL!", the team name; it ends transparent) and the goal graphics build
+  behind it. The gold band (`#fx`) still sweeps above it. The other screens show no video.
+- Intro: in `pregame`, at puck drop on TV time (`start_ms + offset_ms`), the left and right
+  screens play their team's `intro` video (4.5 s: the team colour, logo, "MATCHSTART", the
+  team name, ending transparent). A game that starts before that time shows none.
+- Each portrait screen fetches its own team's two videos when the teams are known, as
+  blobs, so playback never waits on the network. A screen that is late starts the video
+  that far in; a team without a video shows none. A fresh state (seek, reconnect) stops a
+  running video. Each start logs `[sync] video/<kind> screen=… delta=…ms`.
+- Files: `GET /media/<goal|intro>/<team uuid>.webm` serves `data/media/<kind>/<uuid>.webm`
+  if it exists, else the default in `web/media/`. Your own: WebM VP9 with alpha
+  (`yuva420p`), 1080×1920, short, ending transparent; e.g.
+  `ffmpeg -i in.mov -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 0 -crf 32 -an out.webm`.
+- Defaults: `tools/make_stingers.py` draws every frame in Chromium on a transparent page
+  (colours from `config/teams.json`, logos from the logo cache) and encodes them with
+  ffmpeg; run it again after changing a team's colours.
 
 ### postgame
 

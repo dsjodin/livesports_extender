@@ -1,0 +1,8 @@
+# SHL Arena: the three Chromium kiosk windows. Started by sway (see sway config).
+[Unit]
+Description=SHL Arena kiosk windows
+
+[Service]
+ExecStart=/opt/shl-arena-display/kiosk.sh
+Restart=always
+RestartSec=5

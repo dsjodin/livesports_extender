@@ -1,0 +1,61 @@
+{
+  "instanceContext": {
+    "siteTeamIsInGame": true,
+    "siteTeamIsHomeTeam": true,
+    "siteTeamIsAwayTeam": true
+  },
+  "gameInfo": {
+    "gameUuid": "yklkh1aqmw",
+    "extId": "23066",
+    "startDateTime": "2026-10-17T13:15:00.000Z",
+    "arenaName": "Saab Arena",
+    "state": "post_game",
+    "overtime": false,
+    "shootout": false,
+    "seriesCode": "SHL",
+    "seriesName": "SHL",
+    "roundNumber": 10,
+    "roundLabel": "",
+    "seriesDisplayName": "SHL"
+  },
+  "homeTeam": {
+    "names": {
+      "code": "LHC",
+      "short": "Linköping",
+      "long": "Linköping HC",
+      "full": "Linköping Hockey Club",
+      "codeSite": "LHC",
+      "shortSite": "Linköping",
+      "fullSite": "Linköping Hockey Club",
+      "longSite": "Linköping HC"
+    },
+    "uuid": "41c4-41c4BiYZU",
+    "instanceId": "lhc1_lhc",
+    "foundedOn": "1976",
+    "address": "Stångebro Ishall, Gumpekullavägen 3 582 78 Linköping",
+    "email": "info@lhc.eu",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/lhc1_lhc.svg",
+    "score": 2
+  },
+  "awayTeam": {
+    "names": {
+      "code": "FBK",
+      "short": "Färjestad",
+      "long": "Färjestad BK",
+      "full": "Färjestad Bollklubb",
+      "codeSite": "FBK",
+      "shortSite": "Färjestad Herr",
+      "fullSite": "Färjestad Bollklubb Herr",
+      "longSite": "Färjestad BK"
+    },
+    "uuid": "752c-752c12zB7Z",
+    "instanceId": "fbk1_fbk",
+    "foundedOn": "1932",
+    "address": "Färjestad BK\r\nBox 318\r\n651 08 KARLSTAD",
+    "email": "kundcenter@farjestadsbk.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/fbk1_fbk.svg",
+    "score": 4
+  },
+  "ssgtUuid": "qa98unlbd6",
+  "seriesUuid": "qQ9-bb0bzEWUk"
+}

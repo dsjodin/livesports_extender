@@ -1,0 +1,61 @@
+{
+  "instanceContext": {
+    "siteTeamIsInGame": true,
+    "siteTeamIsHomeTeam": true,
+    "siteTeamIsAwayTeam": true
+  },
+  "gameInfo": {
+    "gameUuid": "pmch0rrshr",
+    "extId": "23064",
+    "startDateTime": "2026-10-17T13:15:00.000Z",
+    "arenaName": "Hovet",
+    "state": "post_game",
+    "overtime": false,
+    "shootout": true,
+    "seriesCode": "SHL",
+    "seriesName": "SHL",
+    "roundNumber": 10,
+    "roundLabel": "",
+    "seriesDisplayName": "SHL"
+  },
+  "homeTeam": {
+    "names": {
+      "code": "DIF",
+      "short": "Djurgården",
+      "long": "Djurgårdens IF",
+      "full": "Djurgården Hockey",
+      "codeSite": "DIF Herr",
+      "shortSite": "Djurgården Herr",
+      "fullSite": "Djurgården Hockey Herr",
+      "longSite": "Djurgården Hockey Herr"
+    },
+    "uuid": "2459-2459QTs1f",
+    "instanceId": "dif1_dif",
+    "foundedOn": "1891",
+    "address": "Djurgården Hockey AB\r\nLindetorpsvägen 25\r\nBox 2\r\n121 25 STOCKHOLM-GLOBEN",
+    "email": "",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/dif1_dif.svg",
+    "score": 3
+  },
+  "awayTeam": {
+    "names": {
+      "code": "MIF",
+      "short": "Malmö",
+      "long": "Malmö Redhawks",
+      "full": "Malmö Redhawks",
+      "codeSite": "MIF",
+      "shortSite": "Redhawks",
+      "fullSite": "Malmö Redhawks",
+      "longSite": "Malmö Redhawks"
+    },
+    "uuid": "8e6f-8e6fUXJvi",
+    "instanceId": "mif1_mif",
+    "foundedOn": "1972",
+    "address": "Hyllie Stationstorg 215 32  MALMÖ",
+    "email": "info@malmoredhawks.com",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/mif1_mif.svg",
+    "score": 2
+  },
+  "ssgtUuid": "qa98unlbd6",
+  "seriesUuid": "qQ9-bb0bzEWUk"
+}

@@ -7,6 +7,7 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 
 from app import __version__
+from app.engine import webhooks as webhook_payloads
 from app.feed.client import ShlError
 from app.runtime import Runtime, SourceError
 
@@ -243,6 +244,34 @@ async def remove_sample(sample_id: str, request: Request) -> dict[str, Any]:
     except SourceError as exc:
         raise HTTPException(404, str(exc)) from exc
     return rt.calibration()
+
+
+class WebhooksIn(BaseModel):
+    url: str | None = None
+    enabled: bool = False
+    events: list[str] = list(webhook_payloads.EVENTS)
+
+
+@router.get("/webhooks")
+async def webhooks(request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    return {"settings": rt.config.webhooks.model_dump(), "events": list(webhook_payloads.EVENTS)}
+
+
+@router.post("/webhooks")
+async def set_webhooks(body: WebhooksIn, request: Request) -> dict[str, Any]:
+    """Home Assistant webhook: URL, on/off and which events."""
+    rt = runtime(request)
+    try:
+        rt.set_webhooks(body.url, body.enabled, body.events)
+    except SourceError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    return {"settings": rt.config.webhooks.model_dump(), "status": rt.status()}
+
+
+@router.get("/webhooks/log")
+async def webhook_log(request: Request) -> dict[str, Any]:
+    return {"log": list(runtime(request).webhooks.log)}
 
 
 @router.post("/follow")

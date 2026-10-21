@@ -167,6 +167,8 @@ function showConfig(config) {
 
 function showStatus() {
   if (!status) return;
+  const hooks = status.webhooks ?? {};
+  $("webhook-state").textContent = hooks.enabled ? `on${hooks.pending ? `, ${hooks.pending} waiting` : ""}` : hooks.url_set ? "off" : "no URL set";
   const src = status.source ?? {};
   $("playpause").textContent = status.paused ? "Play" : "Pause";
   for (const b of $("speeds").children) b.classList.toggle("on", Number(b.dataset.speed) === src.speed);
@@ -178,6 +180,21 @@ function showStatus() {
     `real    ${hhmm(clock.now())} · events ${status.released_events}/${status.raw_events} released`,
   ];
   $("progress").textContent = lines.join("\n");
+}
+
+// --- webhooks -----------------------------------------------------------------------
+
+function showWebhook(entry) {
+  const list = $("webhook-log");
+  list.querySelector(".muted")?.remove();
+  const li = document.createElement("li");
+  const when = new Date(entry.sent_ms ?? entry.play_at_ms).toLocaleTimeString("sv-SE");
+  const late = entry.sent_ms != null ? ` +${entry.sent_ms - entry.play_at_ms} ms` : "";
+  const flags = [entry.test && "test", entry.source === "manual" && "MÅL! button", entry.attempts > 1 && "retried"].filter(Boolean);
+  li.textContent = `${when}${late} ${entry.event} → ${entry.error ?? entry.status}${flags.length ? ` (${flags.join(", ")})` : ""}`;
+  if (entry.error) li.style.color = "var(--penalty)";
+  list.prepend(li);
+  while (list.children.length > 50) list.lastChild.remove();
 }
 
 // --- fake TV ------------------------------------------------------------------------
@@ -235,6 +252,11 @@ async function main() {
     (m.raw ?? []).forEach(onRaw);
   });
   store.on("raw", (m) => onRaw(m.entry));
+  store.on("webhook", (m) => showWebhook(m.entry));
+  fetch("/api/webhooks/log")
+    .then((r) => r.json())
+    .then((d) => d.log.forEach(showWebhook))
+    .catch(() => {});
   socket = connect({
     role: "sim",
     id: "sim",

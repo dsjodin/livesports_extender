@@ -1,0 +1,5938 @@
+[
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 142,
+    "eventUuid": "73ae6b6a-1ebd-54ca-8234-736b624d7bf2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:31:56.9",
+    "updatedTime": "2026-10-17T15:35:45.283153",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 534,
+    "locationY": -35,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 141,
+    "eventUuid": "a9d4f39e-887d-5d58-8172-13005f8e9ca9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:33:38.414829",
+    "updatedTime": "2026-10-17T15:33:38.317665",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3297",
+      "firstName": "Jonas",
+      "familyName": "Arntzen",
+      "jerseyToday": "31"
+    },
+    "isEntering": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 140,
+    "eventUuid": "ab66ffd0-1ed1-5423-b368-f9defccb728e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:32:10.16",
+    "updatedTime": "2026-10-17T15:32:26.095018",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 144,
+    "locationY": 111,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 139,
+    "eventUuid": "fd022b68-6136-550b-8b66-8b71baaf69e9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:31:59.62",
+    "updatedTime": "2026-10-17T15:32:12.854333",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 85,
+    "locationY": 65,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 138,
+    "eventUuid": "57219165-5255-5138-bb6e-67cec35acd49",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:31:05.12",
+    "updatedTime": "2026-10-17T15:31:19.437144",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 159,
+    "locationY": -66,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 137,
+    "eventUuid": "94fab5df-bdcc-5700-a199-abb4194b12e5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:30:31.34",
+    "updatedTime": "2026-10-17T15:30:45.823346",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6841",
+      "firstName": "Tinus Luc",
+      "familyName": "Koblar",
+      "jerseyToday": "94"
+    },
+    "locationX": 74,
+    "locationY": -117,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 136,
+    "eventUuid": "0a59cfc0-0a9d-5255-8bbf-af3aef59ecdf",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:30:02.64",
+    "updatedTime": "2026-10-17T15:30:18.87583",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4349",
+      "firstName": "Fredrik",
+      "familyName": "Olofsson",
+      "jerseyToday": "22"
+    },
+    "locationX": 139,
+    "locationY": 126,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 135,
+    "eventUuid": "12b4616c-989c-5731-8766-364ae8ecb743",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:29:55.02",
+    "updatedTime": "2026-10-17T15:30:12.005944",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 145,
+    "locationY": -118,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 134,
+    "eventUuid": "a8fbb7c5-13cb-525a-b62c-4606765592d4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:29:36.52",
+    "updatedTime": "2026-10-17T15:29:51.618061",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6697",
+      "firstName": "Lubos",
+      "familyName": "Horky",
+      "jerseyToday": "62"
+    },
+    "locationX": 68,
+    "locationY": 66,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 133,
+    "eventUuid": "69c5d9e1-5128-5bd9-b8dc-9fc36d86ab85",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "17:41",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:28:57.25261",
+    "updatedTime": "2026-10-17T15:28:57.156124",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4135",
+      "firstName": "Calle",
+      "familyName": "Clang",
+      "jerseyToday": "70"
+    },
+    "isEntering": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 132,
+    "eventUuid": "47bc792d-c896-5149-ad41-c382e9f8e310",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "17:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:27:38.02",
+    "updatedTime": "2026-10-17T15:28:21.342553",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 10,
+    "locationY": -17,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 131,
+    "eventUuid": "b22880d2-8d74-53ec-aa11-938c3c8e89fc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "17:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "timeout",
+    "realWorldTime": "2026-10-17T17:28:04.057099",
+    "updatedTime": "2026-10-17T15:28:04.179792",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 130,
+    "eventUuid": "668ffbe0-554b-58da-9fee-9d5e017c9a7d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "17:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:27:34",
+    "updatedTime": "2026-10-17T15:27:55.12382",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 307,
+    "locationY": 59,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 129,
+    "eventUuid": "88723766-e457-53a5-bca5-e89071e5f1fb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:26:04.76",
+    "updatedTime": "2026-10-17T15:26:16.328839",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6697",
+      "firstName": "Lubos",
+      "familyName": "Horky",
+      "jerseyToday": "62"
+    },
+    "locationX": 11,
+    "locationY": 61,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 128,
+    "eventUuid": "f64d60db-89a1-5753-8335-47763e9110c2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:33",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:24:15",
+    "updatedTime": "2026-10-17T15:25:37.119434",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 87,
+    "locationY": -68,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 127,
+    "eventUuid": "47210b0a-bcaf-553c-abe9-2f2cf3a9539b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:11",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:52.96",
+    "updatedTime": "2026-10-17T15:25:22.278957",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 34,
+    "locationY": -28,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 126,
+    "eventUuid": "10add14d-056b-512a-b44f-58bc1404aaf3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:24:38.82",
+    "updatedTime": "2026-10-17T15:24:55.837194",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6753",
+      "firstName": "Karson",
+      "familyName": "Kuhlman",
+      "jerseyToday": "83"
+    },
+    "locationX": 47,
+    "locationY": -75,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 122,
+    "eventUuid": "0e9a0e53-60ba-5cef-bba6-a7a01bac0966",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:50.64",
+    "updatedTime": "2026-10-17T15:24:01.910224",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 135,
+    "locationY": -128,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 121,
+    "eventUuid": "1159635d-16da-54a7-8120-197216b8dc07",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:23",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:22:05.88",
+    "updatedTime": "2026-10-17T15:22:41.085011",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 162,
+    "locationY": -94,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 119,
+    "eventUuid": "01a0f9ec-2b6f-516d-97b8-f192edb64937",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:47",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:20:29.02",
+    "updatedTime": "2026-10-17T15:21:07.899344",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "2655",
+      "firstName": "Linus",
+      "familyName": "Arnesson",
+      "jerseyToday": "28"
+    },
+    "locationX": 84,
+    "locationY": -35,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 117,
+    "eventUuid": "14af305e-f25b-5488-b3a6-5b9495bf2e6c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:19:44.12",
+    "updatedTime": "2026-10-17T15:19:59.179208",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4705",
+      "firstName": "Max",
+      "familyName": "Veronneau",
+      "jerseyToday": "51"
+    },
+    "locationX": 91,
+    "locationY": 42,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 115,
+    "eventUuid": "d029bab7-b852-5205-a518-0c9248ee452d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:16:05.16",
+    "updatedTime": "2026-10-17T15:16:16.917232",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 144,
+    "locationY": 98,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 114,
+    "eventUuid": "deeec6f5-ac39-525b-bcce-ca41dba9a3b3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "07:47",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:11:44.36",
+    "updatedTime": "2026-10-17T15:13:01.919035",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4686",
+      "firstName": "Oskar",
+      "familyName": "Jellvik",
+      "jerseyToday": "21"
+    },
+    "locationX": 14,
+    "locationY": -46,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 113,
+    "eventUuid": "221c5d44-b79f-58bc-89e7-dab7c6e5eb81",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "07:41",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:11:38.36",
+    "updatedTime": "2026-10-17T15:12:41.808397",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 177,
+    "locationY": 51,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 112,
+    "eventUuid": "ab4a4dff-e46d-534a-bb40-ea4aa0183b01",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "07:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:11:28.24",
+    "updatedTime": "2026-10-17T15:12:22.13654",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4686",
+      "firstName": "Oskar",
+      "familyName": "Jellvik",
+      "jerseyToday": "21"
+    },
+    "locationX": -7,
+    "locationY": 19,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 109,
+    "eventUuid": "6bae534f-73c6-5b04-ae3a-44d29737e85b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "06:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:08.86",
+    "updatedTime": "2026-10-17T15:10:20.825177",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3262",
+      "firstName": "Filip",
+      "familyName": "Berglund",
+      "jerseyToday": "6"
+    },
+    "locationX": 99,
+    "locationY": 114,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 108,
+    "eventUuid": "53027936-bb9d-500b-a79a-e31a258ffe37",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "05:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:09:56.28",
+    "updatedTime": "2026-10-17T15:10:07.121614",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4774",
+      "firstName": "Milton",
+      "familyName": "Oscarson",
+      "jerseyToday": "29"
+    },
+    "locationX": 113,
+    "locationY": -67,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 107,
+    "eventUuid": "c1b92312-84b6-5080-bea8-e1fcd6bbd570",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "04:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:08:49.3",
+    "updatedTime": "2026-10-17T15:09:06.300645",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2336",
+      "firstName": "Daniel",
+      "familyName": "Zaar",
+      "jerseyToday": "72"
+    },
+    "locationX": 54,
+    "locationY": 93,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 106,
+    "eventUuid": "8b4b7e28-ab87-521f-bdbb-6fe3de764cc3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "04:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:08:44.5",
+    "updatedTime": "2026-10-17T15:08:58.941166",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "1623",
+      "firstName": "Dennis",
+      "familyName": "Everberg",
+      "jerseyToday": "18"
+    },
+    "locationX": 42,
+    "locationY": -24,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 105,
+    "eventUuid": "e7d26348-0542-537e-9504-c4ccac55c3de",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:06:16.68",
+    "updatedTime": "2026-10-17T15:06:27.996674",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6751",
+      "firstName": "Mark",
+      "familyName": "Friedman",
+      "jerseyToday": "95"
+    },
+    "locationX": 161,
+    "locationY": 144,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 104,
+    "eventUuid": "0f69844d-4e69-521c-9327-4a353aaf3ec4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "01:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:04:31.98",
+    "updatedTime": "2026-10-17T15:04:47.669303",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 187,
+    "locationY": -114,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 103,
+    "eventUuid": "e1959f02-7fbf-5c5a-990f-71e8cb74135d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "01:13",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:03:38.379054",
+    "updatedTime": "2026-10-17T15:06:18.665652",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 102,
+    "eventUuid": "f9930950-5398-582d-9b67-b7f94ef15b15",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:03:15.56",
+    "updatedTime": "2026-10-17T15:03:56.575006",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 44,
+    "locationY": 145,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 101,
+    "eventUuid": "149410e6-adcd-5021-a77d-979c2af8dda5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:41",
+    "gameState": "GameEnded",
+    "revision": 5,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:02:25.904594",
+    "updatedTime": "2026-10-17T15:33:32.59075",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "7"
+        }
+      ]
+    },
+    "locationX": 23,
+    "locationY": 16,
+    "homeGoals": 1,
+    "awayGoals": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5632",
+        "firstName": "Kalle",
+        "familyName": "Kossila",
+        "jerseyToday": "11"
+      },
+      {
+        "playerId": "3246",
+        "firstName": "William",
+        "familyName": "Wikman",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "2655",
+        "firstName": "Linus",
+        "familyName": "Arnesson",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "3297",
+        "firstName": "Jonas",
+        "familyName": "Arntzen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "3224",
+        "firstName": "Glenn",
+        "familyName": "Gustafsson",
+        "jerseyToday": "37"
+      },
+      {
+        "playerId": "4828",
+        "firstName": "David",
+        "familyName": "Quenneville",
+        "jerseyToday": "55"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6446",
+        "firstName": "Paul",
+        "familyName": "LaDue",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "3012",
+        "firstName": "Linus",
+        "familyName": "Sandin",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "2537",
+        "firstName": "Joel",
+        "familyName": "Kellman",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "3665",
+        "firstName": "Calle",
+        "familyName": "Själin",
+        "jerseyToday": "51"
+      },
+      {
+        "playerId": "4135",
+        "firstName": "Calle",
+        "familyName": "Clang",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "6753",
+        "firstName": "Karson",
+        "familyName": "Kuhlman",
+        "jerseyToday": "83"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "3246",
+        "firstName": "William",
+        "familyName": "Wikman",
+        "jerseyToday": "17",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "2655",
+        "firstName": "Linus",
+        "familyName": "Arnesson",
+        "jerseyToday": "28",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 99,
+    "eventUuid": "0d623146-ac55-57f5-8e9f-56703487e6eb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:02:00.64",
+    "updatedTime": "2026-10-17T15:02:12.630068",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 145,
+    "locationY": -104,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 98,
+    "eventUuid": "62b1067f-db97-5397-a1f4-bfbe5d512be7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:05.18",
+    "updatedTime": "2026-10-17T14:43:49.944508",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6841",
+      "firstName": "Tinus Luc",
+      "familyName": "Koblar",
+      "jerseyToday": "94"
+    },
+    "locationX": 13,
+    "locationY": -29,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 97,
+    "eventUuid": "8110f5e6-554b-5f27-b1d1-084128e4df49",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:46",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:43:04.18",
+    "updatedTime": "2026-10-17T14:43:15.05783",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 36,
+    "locationY": -11,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 96,
+    "eventUuid": "a298f773-270f-5632-8cfd-70ce4d8ce166",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:41:36.94",
+    "updatedTime": "2026-10-17T14:41:50.207816",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 85,
+    "locationY": 95,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 95,
+    "eventUuid": "6e2448bf-c9ae-5f54-93f1-cb35476b5b3d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:41:23.86",
+    "updatedTime": "2026-10-17T14:41:36.630318",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 111,
+    "locationY": -134,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 94,
+    "eventUuid": "bfdc5bd1-97d0-5a1d-9340-612e0ada87a5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:41:20.74",
+    "updatedTime": "2026-10-17T14:41:36.630318",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "2845",
+      "firstName": "Christopher",
+      "familyName": "Mastomäki",
+      "jerseyToday": "33"
+    },
+    "locationX": 98,
+    "locationY": -64,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 93,
+    "eventUuid": "018e716e-7300-554a-8430-b4102707d618",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:40:06.16",
+    "updatedTime": "2026-10-17T14:41:03.821265",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 17,
+    "locationY": -18,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 92,
+    "eventUuid": "d187ddf8-26a8-5eef-9960-afc972671770",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:39:09.42",
+    "updatedTime": "2026-10-17T14:39:25.280537",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6751",
+      "firstName": "Mark",
+      "familyName": "Friedman",
+      "jerseyToday": "95"
+    },
+    "locationX": 154,
+    "locationY": 90,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 91,
+    "eventUuid": "422e2183-fc44-582e-b865-e36279093baa",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:38:52.2",
+    "updatedTime": "2026-10-17T14:39:04.269797",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6751",
+      "firstName": "Mark",
+      "familyName": "Friedman",
+      "jerseyToday": "95"
+    },
+    "locationX": 24,
+    "locationY": 144,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 90,
+    "eventUuid": "f52eb363-93cd-53e3-a314-51863de83801",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "15:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:36:22.8",
+    "updatedTime": "2026-10-17T14:36:37.500962",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6753",
+      "firstName": "Karson",
+      "familyName": "Kuhlman",
+      "jerseyToday": "83"
+    },
+    "locationX": 106,
+    "locationY": 74,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 89,
+    "eventUuid": "dcd8d72f-11ce-571d-9424-0fd1434f8d5f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:34",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:25.48",
+    "updatedTime": "2026-10-17T14:35:36.621306",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5718",
+      "firstName": "Egor",
+      "familyName": "Polin",
+      "jerseyToday": "23"
+    },
+    "locationX": 70,
+    "locationY": 46,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 88,
+    "eventUuid": "6051f7c1-0c2c-5634-95b0-8ae3ab59dbc1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "15:06",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:35:00.334825",
+    "updatedTime": "2026-10-17T14:38:32.981623",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "TRIP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 87,
+    "eventUuid": "0d462db6-c0ef-50bb-ad10-ac78501ec746",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:34:40.32",
+    "updatedTime": "2026-10-17T14:34:52.382665",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 72,
+    "locationY": 92,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 85,
+    "eventUuid": "a558dd76-21ff-5a5b-802b-0a12025d53c7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:32.78",
+    "updatedTime": "2026-10-17T14:33:44.677072",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 115,
+    "locationY": -88,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 83,
+    "eventUuid": "99475685-ae84-5a71-90ce-13c0a6851342",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:31:55.58",
+    "updatedTime": "2026-10-17T14:32:13.501514",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4686",
+      "firstName": "Oskar",
+      "familyName": "Jellvik",
+      "jerseyToday": "21"
+    },
+    "locationX": 36,
+    "locationY": 16,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 82,
+    "eventUuid": "8f82cb2b-184e-5447-9c88-13bf0b601cfb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:30:00.48",
+    "updatedTime": "2026-10-17T14:30:14.007206",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 107,
+    "locationY": 141,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 81,
+    "eventUuid": "4b7db5bc-e598-56ad-b54a-dc53fbb1d42c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:44",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:25:36.86",
+    "updatedTime": "2026-10-17T14:29:20.704414",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6327",
+      "firstName": "Lucas",
+      "familyName": "Stockselius",
+      "jerseyToday": "71"
+    },
+    "locationX": 141,
+    "locationY": -63,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 80,
+    "eventUuid": "b56e91d8-ca93-5d4a-b277-8e1256bd8cfe",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:29:00.22",
+    "updatedTime": "2026-10-17T14:29:14.107789",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6841",
+      "firstName": "Tinus Luc",
+      "familyName": "Koblar",
+      "jerseyToday": "94"
+    },
+    "locationX": 53,
+    "locationY": -143,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 79,
+    "eventUuid": "ceb97004-29d1-5bdf-8105-ff72bf662605",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:42.789",
+    "updatedTime": "2026-10-17T14:28:53.509065",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6856",
+      "firstName": "Calvin",
+      "familyName": "de Haan",
+      "jerseyToday": "44"
+    },
+    "locationX": 168,
+    "locationY": -114,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 77,
+    "eventUuid": "4ce9ee24-c01b-52e4-8a15-4ea27e6d1a1b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:54",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:25:56.716239",
+    "updatedTime": "2026-10-17T14:26:47.376345",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "7075",
+      "firstName": "Wojciech",
+      "familyName": "Stachowiak",
+      "jerseyToday": "91",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 20,
+    "locationY": 22,
+    "homeGoals": 1,
+    "awayGoals": 1,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5632",
+        "firstName": "Kalle",
+        "familyName": "Kossila",
+        "jerseyToday": "11"
+      },
+      {
+        "playerId": "4774",
+        "firstName": "Milton",
+        "familyName": "Oscarson",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "3297",
+        "firstName": "Jonas",
+        "familyName": "Arntzen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "4485",
+        "firstName": "Robin",
+        "familyName": "Salo",
+        "jerseyToday": "42"
+      },
+      {
+        "playerId": "6327",
+        "firstName": "Lucas",
+        "familyName": "Stockselius",
+        "jerseyToday": "71"
+      },
+      {
+        "playerId": "7075",
+        "firstName": "Wojciech",
+        "familyName": "Stachowiak",
+        "jerseyToday": "91"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3012",
+        "firstName": "Linus",
+        "familyName": "Sandin",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "4103",
+        "firstName": "Albin",
+        "familyName": "Sundsvik",
+        "jerseyToday": "37"
+      },
+      {
+        "playerId": "6856",
+        "firstName": "Calvin",
+        "familyName": "de Haan",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "4135",
+        "firstName": "Calle",
+        "familyName": "Clang",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "6751",
+        "firstName": "Mark",
+        "familyName": "Friedman",
+        "jerseyToday": "95"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4774",
+        "firstName": "Milton",
+        "familyName": "Oscarson",
+        "jerseyToday": "29",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "3"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6327",
+        "firstName": "Lucas",
+        "familyName": "Stockselius",
+        "jerseyToday": "71",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 74,
+    "eventUuid": "12452019-6b45-52ab-8238-652a53af431c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:05",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:23:28.48",
+    "updatedTime": "2026-10-17T14:24:26.532929",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4828",
+      "firstName": "David",
+      "familyName": "Quenneville",
+      "jerseyToday": "55"
+    },
+    "locationX": 145,
+    "locationY": 73,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 73,
+    "eventUuid": "23bcdd4a-420e-59bc-aecf-5a00eced3632",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:23:38.58",
+    "updatedTime": "2026-10-17T14:23:52.0524",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4349",
+      "firstName": "Fredrik",
+      "familyName": "Olofsson",
+      "jerseyToday": "22"
+    },
+    "locationX": 130,
+    "locationY": 9,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 72,
+    "eventUuid": "b815aefc-700c-5e1a-beb9-4edd717d5180",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:23:30.4",
+    "updatedTime": "2026-10-17T14:23:45.385064",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 90,
+    "locationY": -63,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 70,
+    "eventUuid": "2d25e0a3-61da-53b8-b7fd-57e1909f0349",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:18:17.387",
+    "updatedTime": "2026-10-17T14:23:38.499673",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "locationX": 153,
+    "locationY": -65,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 69,
+    "eventUuid": "0a765168-23c6-53be-8a78-33b9c2db6181",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:57",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:22:42.655674",
+    "updatedTime": "2026-10-17T14:26:38.93593",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "1623",
+      "firstName": "Dennis",
+      "familyName": "Everberg",
+      "jerseyToday": "18"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "KNEE",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 68,
+    "eventUuid": "cc74a71d-05c0-5a51-8b59-785b39dad51d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:21:34.32",
+    "updatedTime": "2026-10-17T14:21:51.739059",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 16,
+    "locationY": -9,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 67,
+    "eventUuid": "c61c8063-fe8c-5cbc-ab34-c65092d4314a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:10:36.299",
+    "updatedTime": "2026-10-17T14:20:43.009626",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6697",
+      "firstName": "Lubos",
+      "familyName": "Horky",
+      "jerseyToday": "62"
+    },
+    "locationX": 61,
+    "locationY": -38,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 66,
+    "eventUuid": "82c6ec3a-e83a-5834-a139-17a799ed84f9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:10:27.3",
+    "updatedTime": "2026-10-17T14:19:57.25989",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6697",
+      "firstName": "Lubos",
+      "familyName": "Horky",
+      "jerseyToday": "62"
+    },
+    "locationX": 114,
+    "locationY": 48,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 65,
+    "eventUuid": "17226fc8-8637-57b1-a110-c318815e12fc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:26.94",
+    "updatedTime": "2026-10-17T14:19:43.287842",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "locationX": 99,
+    "locationY": -70,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 64,
+    "eventUuid": "d44b158d-8b8d-5af3-827f-9a6ab48cffce",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:17:58.82",
+    "updatedTime": "2026-10-17T14:18:10.876746",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6753",
+      "firstName": "Karson",
+      "familyName": "Kuhlman",
+      "jerseyToday": "83"
+    },
+    "locationX": 29,
+    "locationY": 136,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 63,
+    "eventUuid": "1c20fe31-6801-55b0-8594-4d59b544eb02",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:05.14",
+    "updatedTime": "2026-10-17T14:16:16.347587",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "7035",
+      "firstName": "Nate",
+      "familyName": "Clurman",
+      "jerseyToday": "4"
+    },
+    "locationX": 172,
+    "locationY": 71,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 62,
+    "eventUuid": "79af7929-a670-5c8e-bb06-ddf4ccb59d2c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:59.08",
+    "updatedTime": "2026-10-17T14:16:16.347587",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2856",
+      "firstName": "Ludvig",
+      "familyName": "Claesson",
+      "jerseyToday": "7"
+    },
+    "locationX": 161,
+    "locationY": -45,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 61,
+    "eventUuid": "7db1c37c-9b50-5f5e-a3b9-7678714d965c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:44.96",
+    "updatedTime": "2026-10-17T14:15:56.492206",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2336",
+      "firstName": "Daniel",
+      "familyName": "Zaar",
+      "jerseyToday": "72"
+    },
+    "locationX": 136,
+    "locationY": -32,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 59,
+    "eventUuid": "d2858613-0102-5737-b222-4f56a67a7bc3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:35",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:09:40.199",
+    "updatedTime": "2026-10-17T14:15:49.932185",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6753",
+      "firstName": "Karson",
+      "familyName": "Kuhlman",
+      "jerseyToday": "83"
+    },
+    "locationX": 41,
+    "locationY": -29,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 57,
+    "eventUuid": "2f6ec0b6-745d-5218-848e-cec6c1f10022",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "02:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:54.86",
+    "updatedTime": "2026-10-17T14:14:08.078439",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6750",
+      "firstName": "Luke",
+      "familyName": "Martin",
+      "jerseyToday": "7"
+    },
+    "locationX": 98,
+    "locationY": 116,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 56,
+    "eventUuid": "e3be3128-29d1-5a4b-9e34-f82333631dfd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "02:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:46.14",
+    "updatedTime": "2026-10-17T14:14:01.510415",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 65,
+    "locationY": -28,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 55,
+    "eventUuid": "b5101ecf-0fd1-5d5c-8d5f-8f94078a857c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:36.2",
+    "updatedTime": "2026-10-17T14:12:56.040816",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 158,
+    "locationY": 131,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 54,
+    "eventUuid": "7ed26661-9317-5e21-92c2-49d9ffe6468d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:20.32",
+    "updatedTime": "2026-10-17T14:12:36.424757",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 173,
+    "locationY": -51,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 53,
+    "eventUuid": "95e36c43-7377-5cf7-ac15-1b86c91d2990",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:01.34",
+    "updatedTime": "2026-10-17T14:12:16.517358",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 170,
+    "locationY": -49,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 52,
+    "eventUuid": "9bfc593e-2cf0-5577-9a8f-9060666cd7c9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:09",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:10:57.591469",
+    "updatedTime": "2026-10-17T14:14:21.630198",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4828",
+      "firstName": "David",
+      "familyName": "Quenneville",
+      "jerseyToday": "55"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOLD",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 51,
+    "eventUuid": "df703f81-fc05-5413-872e-ed074ccf3f20",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:50:35.123",
+    "updatedTime": "2026-10-17T13:59:11.918423",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 147,
+    "locationY": -24,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 50,
+    "eventUuid": "e582ed8e-74eb-5430-bfd4-1ebce0315c27",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:50:38.124",
+    "updatedTime": "2026-10-17T13:54:31.255293",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "locationX": 34,
+    "locationY": -5,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 47,
+    "eventUuid": "0de01203-3734-569c-9b13-3d1bcd563e08",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:49:27.64",
+    "updatedTime": "2026-10-17T13:49:39.821543",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5718",
+      "firstName": "Egor",
+      "familyName": "Polin",
+      "jerseyToday": "23"
+    },
+    "locationX": 35,
+    "locationY": 14,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 46,
+    "eventUuid": "a6970886-811d-576d-935f-9c2fcddccd6e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:49:25.82",
+    "updatedTime": "2026-10-17T13:49:39.821543",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4287",
+      "firstName": "Erik",
+      "familyName": "Norén",
+      "jerseyToday": "4"
+    },
+    "locationX": 172,
+    "locationY": -54,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 45,
+    "eventUuid": "8a1a4cc7-9249-52b4-b882-8b20a0b029e3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:47:49.127",
+    "updatedTime": "2026-10-17T13:49:13.01019",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 13,
+    "locationY": -47,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 44,
+    "eventUuid": "19a4153c-caf3-58f2-98e7-e251f19bb835",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:48:56.08",
+    "updatedTime": "2026-10-17T13:49:06.661305",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 143,
+    "locationY": -92,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 43,
+    "eventUuid": "e0ae4dde-20c8-5567-a0b5-1908c440ae06",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:44:50.84",
+    "updatedTime": "2026-10-17T13:45:04.326524",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "locationX": 45,
+    "locationY": 79,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 42,
+    "eventUuid": "ba9edaaa-f6cf-5579-abfc-91f9fe9c0d95",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:41:35.031",
+    "updatedTime": "2026-10-17T13:44:38.063969",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 164,
+    "locationY": -76,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 41,
+    "eventUuid": "f0c0ab2e-e94d-56b8-87c2-ea0e7209ae09",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:43:50.06",
+    "updatedTime": "2026-10-17T13:44:06.089618",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6307",
+      "firstName": "Isac",
+      "familyName": "Solberg",
+      "jerseyToday": "32"
+    },
+    "locationX": 70,
+    "locationY": -98,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 40,
+    "eventUuid": "c8404aac-64b9-507d-a5c0-913f3a040cf7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "12:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:41:22.34",
+    "updatedTime": "2026-10-17T13:43:00.393779",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 0,
+    "locationY": 10,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 39,
+    "eventUuid": "7f14a118-c6d3-56d1-a927-d54c60473095",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:17",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:41:52.58",
+    "updatedTime": "2026-10-17T13:42:40.609336",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3012",
+      "firstName": "Linus",
+      "familyName": "Sandin",
+      "jerseyToday": "8"
+    },
+    "locationX": 153,
+    "locationY": 120,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 37,
+    "eventUuid": "16deb1d7-5556-5890-b418-46440506f608",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:39",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:40:14.52",
+    "updatedTime": "2026-10-17T13:41:02.175597",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6307",
+      "firstName": "Isac",
+      "familyName": "Solberg",
+      "jerseyToday": "32"
+    },
+    "locationX": 168,
+    "locationY": -41,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 35,
+    "eventUuid": "b035f105-bbfe-5da6-8b24-b276b0a34bcc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:40:08.5",
+    "updatedTime": "2026-10-17T13:40:23.369167",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6751",
+      "firstName": "Mark",
+      "familyName": "Friedman",
+      "jerseyToday": "95"
+    },
+    "locationX": 176,
+    "locationY": 24,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 34,
+    "eventUuid": "3a191981-5a7f-5269-8758-f62273b8124d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:39:59.46",
+    "updatedTime": "2026-10-17T13:40:17.078965",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4686",
+      "firstName": "Oskar",
+      "familyName": "Jellvik",
+      "jerseyToday": "21"
+    },
+    "locationX": 30,
+    "locationY": -30,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 33,
+    "eventUuid": "8f7fc891-a2db-5616-92b5-2ad5755e7b6e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:28",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:39:03.12",
+    "updatedTime": "2026-10-17T13:40:01.742668",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 13,
+    "locationY": -56,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 32,
+    "eventUuid": "8dabacce-9320-5c83-820e-a45606a330d6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:39:16.88",
+    "updatedTime": "2026-10-17T13:39:28.887229",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6446",
+      "firstName": "Paul",
+      "familyName": "LaDue",
+      "jerseyToday": "6"
+    },
+    "locationX": 167,
+    "locationY": 110,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 30,
+    "eventUuid": "594331e2-5b3a-5566-8b85-f3c5313f0923",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:38:18.74",
+    "updatedTime": "2026-10-17T13:38:36.77673",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "2655",
+      "firstName": "Linus",
+      "familyName": "Arnesson",
+      "jerseyToday": "28"
+    },
+    "locationX": 242,
+    "locationY": -111,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 28,
+    "eventUuid": "d7912b2b-fb4d-534e-b80a-584f4c98ca41",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:48",
+    "gameState": "GameEnded",
+    "revision": 6,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:35:44.89872",
+    "updatedTime": "2026-10-17T14:29:32.582663",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "1623",
+      "firstName": "Dennis",
+      "familyName": "Everberg",
+      "jerseyToday": "18",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "4"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 15,
+    "locationY": 10,
+    "homeGoals": 1,
+    "awayGoals": 0,
+    "goalSection": 10,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "1623",
+        "firstName": "Dennis",
+        "familyName": "Everberg",
+        "jerseyToday": "18"
+      },
+      {
+        "playerId": "2537",
+        "firstName": "Joel",
+        "familyName": "Kellman",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "3831",
+        "firstName": "Filip",
+        "familyName": "Johansson",
+        "jerseyToday": "58"
+      },
+      {
+        "playerId": "4135",
+        "firstName": "Calle",
+        "familyName": "Clang",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "2336",
+        "firstName": "Daniel",
+        "familyName": "Zaar",
+        "jerseyToday": "72"
+      },
+      {
+        "playerId": "6753",
+        "firstName": "Karson",
+        "familyName": "Kuhlman",
+        "jerseyToday": "83"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "2567",
+        "firstName": "Gustav",
+        "familyName": "Backström",
+        "jerseyToday": "5"
+      },
+      {
+        "playerId": "6750",
+        "firstName": "Luke",
+        "familyName": "Martin",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "5727",
+        "firstName": "Josh",
+        "familyName": "Dickinson",
+        "jerseyToday": "19"
+      },
+      {
+        "playerId": "3297",
+        "firstName": "Jonas",
+        "familyName": "Arntzen",
+        "jerseyToday": "31"
+      },
+      {
+        "playerId": "4705",
+        "firstName": "Max",
+        "familyName": "Veronneau",
+        "jerseyToday": "51"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "6753",
+        "firstName": "Karson",
+        "familyName": "Kuhlman",
+        "jerseyToday": "83",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "2"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "2336",
+        "firstName": "Daniel",
+        "familyName": "Zaar",
+        "jerseyToday": "72",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 27,
+    "eventUuid": "3768819a-bb59-5e89-aaaf-8436b54af49b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:46",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:24.34",
+    "updatedTime": "2026-10-17T13:35:42.08549",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6753",
+      "firstName": "Karson",
+      "familyName": "Kuhlman",
+      "jerseyToday": "83"
+    },
+    "locationX": 102,
+    "locationY": -73,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 26,
+    "eventUuid": "c4728d62-2140-5a99-8374-04d75bd3e9e8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:17.14",
+    "updatedTime": "2026-10-17T13:35:29.095938",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2537",
+      "firstName": "Joel",
+      "familyName": "Kellman",
+      "jerseyToday": "46"
+    },
+    "locationX": 20,
+    "locationY": 10,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 25,
+    "eventUuid": "5156f67d-09ad-576f-bab5-d1b68fcbb2c4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:34:25.88",
+    "updatedTime": "2026-10-17T13:35:07.28736",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "1623",
+      "firstName": "Dennis",
+      "familyName": "Everberg",
+      "jerseyToday": "18"
+    },
+    "locationX": 102,
+    "locationY": 64,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 24,
+    "eventUuid": "a3fe688e-da7d-5d44-8753-027c27e19b6e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:34:19.68",
+    "updatedTime": "2026-10-17T13:34:34.844277",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "2336",
+      "firstName": "Daniel",
+      "familyName": "Zaar",
+      "jerseyToday": "72"
+    },
+    "locationX": 155,
+    "locationY": 62,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 23,
+    "eventUuid": "24e55fe1-ae2a-5b04-b977-53c0c14069fe",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:04",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:33:34.309432",
+    "updatedTime": "2026-10-17T13:35:47.719439",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3262",
+      "firstName": "Filip",
+      "familyName": "Berglund",
+      "jerseyToday": "6"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOLD",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 22,
+    "eventUuid": "5d9486e1-f2a3-5ca7-8e10-ffced0bb92f1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:40.24",
+    "updatedTime": "2026-10-17T13:32:56.602462",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 159,
+    "locationY": -128,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 21,
+    "eventUuid": "a9cae544-b883-57f7-81c0-1cf5f9ce4d97",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:32.96",
+    "updatedTime": "2026-10-17T13:32:43.253177",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5718",
+      "firstName": "Egor",
+      "familyName": "Polin",
+      "jerseyToday": "23"
+    },
+    "locationX": 53,
+    "locationY": 15,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 20,
+    "eventUuid": "e3d6a02e-d161-59f8-a318-08053fe0e200",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:32:15.12",
+    "updatedTime": "2026-10-17T13:32:30.486098",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 105,
+    "locationY": 133,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 19,
+    "eventUuid": "27443491-d630-5275-8337-6d0ede02974b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:31:45.34",
+    "updatedTime": "2026-10-17T13:31:58.304459",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6751",
+      "firstName": "Mark",
+      "familyName": "Friedman",
+      "jerseyToday": "95"
+    },
+    "locationX": 133,
+    "locationY": 142,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 18,
+    "eventUuid": "76a01b92-bb67-53fb-a510-1c70d73c8b22",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:30:07.66",
+    "updatedTime": "2026-10-17T13:30:46.611702",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3262",
+      "firstName": "Filip",
+      "familyName": "Berglund",
+      "jerseyToday": "6"
+    },
+    "locationX": 175,
+    "locationY": -48,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 17,
+    "eventUuid": "164882e0-eb0d-540b-8afc-1f1c9847b405",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "04:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:27:23.96",
+    "updatedTime": "2026-10-17T13:27:37.195152",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4828",
+      "firstName": "David",
+      "familyName": "Quenneville",
+      "jerseyToday": "55"
+    },
+    "locationX": 147,
+    "locationY": -136,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 16,
+    "eventUuid": "a0faf3ed-1b51-5371-8346-fef30dca84e0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "04:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:42.64",
+    "updatedTime": "2026-10-17T13:26:57.30803",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "2655",
+      "firstName": "Linus",
+      "familyName": "Arnesson",
+      "jerseyToday": "28"
+    },
+    "locationX": 158,
+    "locationY": -109,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 15,
+    "eventUuid": "6f180c8e-f70c-599e-bedb-e02ae52506b7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:51",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:13",
+    "updatedTime": "2026-10-17T13:26:24.989202",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4349",
+      "firstName": "Fredrik",
+      "familyName": "Olofsson",
+      "jerseyToday": "22"
+    },
+    "locationX": 123,
+    "locationY": 108,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 14,
+    "eventUuid": "c0863e4e-cd37-5b09-8ede-36137b7a0d19",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:01.38",
+    "updatedTime": "2026-10-17T13:25:14.03248",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 144,
+    "locationY": -115,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 13,
+    "eventUuid": "6d66d70f-70db-5b30-9e22-414f521e7113",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:23",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:23:41.446441",
+    "updatedTime": "2026-10-17T13:27:24.889195",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3831",
+      "firstName": "Filip",
+      "familyName": "Johansson",
+      "jerseyToday": "58"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 12,
+    "eventUuid": "e4b7efb3-8a7b-5553-ac60-41991a38b40d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:23:36.4",
+    "updatedTime": "2026-10-17T13:23:49.865271",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4705",
+      "firstName": "Max",
+      "familyName": "Veronneau",
+      "jerseyToday": "51"
+    },
+    "locationX": 2,
+    "locationY": 6,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 11,
+    "eventUuid": "368ac527-30aa-53ae-9f77-128f6154712d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:39",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:21:30.38",
+    "updatedTime": "2026-10-17T13:22:46.806239",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 96,
+    "locationY": -69,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 10,
+    "eventUuid": "b54a5673-9602-5960-b94c-b013d6ceb15c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:25",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:21:16.28",
+    "updatedTime": "2026-10-17T13:22:33.148584",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4349",
+      "firstName": "Fredrik",
+      "familyName": "Olofsson",
+      "jerseyToday": "22"
+    },
+    "locationX": 148,
+    "locationY": 92,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 9,
+    "eventUuid": "a8b44d0c-0c3f-5d3e-9bbc-2b8e405f518a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:56",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:21:49.704379",
+    "updatedTime": "2026-10-17T13:26:23.280654",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4828",
+      "firstName": "David",
+      "familyName": "Quenneville",
+      "jerseyToday": "55"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "TRIP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 8,
+    "eventUuid": "a8ae3260-2c12-5937-9b92-e561de599e15",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:21:46.18",
+    "updatedTime": "2026-10-17T13:22:02.323382",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6446",
+      "firstName": "Paul",
+      "familyName": "LaDue",
+      "jerseyToday": "6"
+    },
+    "locationX": 139,
+    "locationY": -34,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 5,
+    "eventUuid": "79443b10-9b41-5783-9264-c55718b2c10a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:20:57.62",
+    "updatedTime": "2026-10-17T13:21:10.67229",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "3665",
+      "firstName": "Calle",
+      "familyName": "Själin",
+      "jerseyToday": "51"
+    },
+    "locationX": 163,
+    "locationY": -107,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 4,
+    "eventUuid": "6713abe5-ab8c-5a33-9e5a-a0749880d1af",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:20:48.02",
+    "updatedTime": "2026-10-17T13:20:58.14311",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "6697",
+      "firstName": "Lubos",
+      "familyName": "Horky",
+      "jerseyToday": "62"
+    },
+    "locationX": 179,
+    "locationY": -95,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 3,
+    "eventUuid": "7252a4b5-fd5c-5995-b337-c746d81d331d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:18:33.8",
+    "updatedTime": "2026-10-17T13:18:53.524866",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3246",
+      "firstName": "William",
+      "familyName": "Wikman",
+      "jerseyToday": "17"
+    },
+    "locationX": 75,
+    "locationY": -41,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 2,
+    "eventUuid": "ac88ce31-072f-5fe0-8f61-a8493147fd51",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:15:06.085921",
+    "updatedTime": "2026-10-17T15:28:57.156124",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "RBK",
+      "place": "home",
+      "teamCode": "RBK",
+      "teamName": "Rögle BK"
+    },
+    "player": {
+      "playerId": "4135",
+      "firstName": "Calle",
+      "familyName": "Clang",
+      "jerseyToday": "70"
+    },
+    "isEntering": true,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "eventId": 1,
+    "eventUuid": "8d4d03c1-f037-5f8e-8171-4d31629c1c68",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Catena Arena",
+    "attendance": 6310,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:15:03.102077",
+    "updatedTime": "2026-10-17T15:33:38.317665",
+    "homeTeam": {
+      "teamId": "RBK",
+      "teamName": "Rögle BK",
+      "teamCode": "RBK",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "away",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3297",
+      "firstName": "Jonas",
+      "familyName": "Arntzen",
+      "jerseyToday": "31"
+    },
+    "isEntering": true,
+    "gameUuid": "wffn21lxeb"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-10-17T15:17:23.029Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T15:50:52.030Z",
+    "realWorldTime": "2026-10-17T15:50:52.309962",
+    "gameUuid": "wffn21lxeb",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-10-17T16:07:43.044Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T16:43:26.002Z",
+    "realWorldTime": "2026-10-17T16:43:26.25313",
+    "gameUuid": "wffn21lxeb",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-RBK-OHK",
+    "gameId": 23068,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-10-17T16:59:49.055Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:33:32.064Z",
+    "realWorldTime": "2026-10-17T17:33:32.649319",
+    "gameUuid": "wffn21lxeb",
+    "type": "period"
+  }
+]

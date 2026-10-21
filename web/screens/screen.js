@@ -1,6 +1,7 @@
 // Screen bootstrap: connects, keeps the TV state and switches scenes at their play_at.
 // left = home team, right = away team, bar = both (docs/SCREENS.md).
 import * as clock from "../shared/clock.js";
+import * as media from "../shared/media.js";
 import { needsOutline, onColor } from "../shared/format.js";
 import { teamVars } from "../shared/components.js";
 import * as stage from "../shared/stage.js";
@@ -44,6 +45,8 @@ function decorate(tv) {
     t.outline = needsOutline(t.color);
   }
   teamVars(document.documentElement, tv.teams);
+  // each portrait screen shows its own team's goal stinger and intro
+  if (screenId !== "bar") media.preload(tv.teams?.[screenId === "left" ? "home" : "away"]?.uuid);
 }
 
 function makeCtx(root) {
@@ -60,6 +63,12 @@ function makeCtx(root) {
       return store.config;
     },
     goalEvent: (key) => goalEvents.get(key),
+    /** Play this screen's team video (goal or intro) from play_at; false if none. */
+    video(kind, playAt, later = false) {
+      const uuid = this.side ? store.tv.teams?.[this.side]?.uuid : null;
+      if (!uuid) return false;
+      return later ? media.playLater(kind, uuid, playAt, log) : media.play(kind, uuid, playAt, log);
+    },
     now: clock.now,
     log,
   };
@@ -102,6 +111,7 @@ function show(scene, at, animate) {
 }
 
 store.on("state", (tv) => {
+  media.hide(); // a seek or a reconnect: whatever was playing is no longer due
   decorate(tv);
   show(tv.scene, clock.now(), false);
 });

@@ -207,6 +207,16 @@ class ReplaySource:
         self.speed = speed
         self._reanchor(position)
 
+    def follow(self, main: "ReplaySource") -> None:
+        """Run on ``main``'s timeline: same position, speed and pause (for the evening's
+        other games, so they replay in step with ours). A jump starts over (new epoch)."""
+        jumped = abs(self.feed_now() - main.feed_now()) > 5_000
+        self._f_anchor, self._t_anchor = main._f_anchor, main._t_anchor
+        self.speed, self.paused = main.speed, main.paused
+        self._version += 1
+        if jumped:
+            self.epoch += 1
+
     def seek(self, feed_ms: int) -> None:
         """Jump to a feed time. Consumers see a new ``epoch`` and should start over."""
         self._reanchor(min(max(feed_ms, self.start_f), self.end_f))
@@ -528,3 +538,76 @@ class LiveSource:
                         return
                 first = False
                 await self.clock.sleep(LIVE_FAST_S if fast else LIVE_SLOW_S)
+
+
+OTHER_POLL_S = 30.0
+
+
+class OtherLiveSource:
+    """Another game of the evening (CLAUDE.md rule 5): play-by-play every 30 s from 15 min
+    before its start until 2 min after ``GameEnded``; once if it is already over. No
+    game-info: the schedule has the teams. Errors back off from 2 s doubling to 30 s."""
+
+    def __init__(
+        self,
+        client_factory: Callable[[], ShlClient],
+        game_uuid: str,
+        clock: Clock,
+        start_ms: int | None,
+        *,
+        poll_s: float = OTHER_POLL_S,
+        stop_after_s: float = LIVE_STOP_AFTER_S,
+        poll_log: PollLog | None = None,
+    ) -> None:
+        self.client_factory = client_factory
+        self.game_uuid = game_uuid
+        self.clock = clock
+        self.start_ms = start_ms
+        self.poll_s = poll_s
+        self.stop_after_s = stop_after_s
+        self.poll_log = poll_log
+        self.polls = 0
+
+    def __aiter__(self) -> AsyncIterator[Snapshot]:
+        return self._run()
+
+    async def _run(self) -> AsyncIterator[Snapshot]:
+        try:
+            async for snapshot in self._poll():
+                yield snapshot
+        finally:
+            if self.poll_log is not None:
+                self.poll_log.close()
+
+    async def _poll(self) -> AsyncIterator[Snapshot]:
+        if self.start_ms is not None:
+            while (wait := self.start_ms - LIVE_FAST_BEFORE_S * 1000 - self.clock.now_ms()) > 0:
+                await self.clock.sleep(min(wait, 60_000) / 1000)
+        backoff = BACKOFF_START_S
+        over_since: int | None = None
+        first = True
+        async with self.client_factory() as client:
+            while True:
+                self.polls += 1
+                try:
+                    response = await client.play_by_play(self.game_uuid)
+                except ShlError as exc:
+                    if self.poll_log is not None:
+                        self.poll_log.error("play-by-play", exc)
+                    log.warning("other game %s: %s, retry in %.0f s", self.game_uuid, exc, backoff)
+                    await self.clock.sleep(backoff)
+                    backoff = min(backoff * 2, BACKOFF_MAX_S)
+                    continue
+                backoff = BACKOFF_START_S
+                if self.poll_log is not None:
+                    self.poll_log.ok("play-by-play", response.data, response.age_s, response.cache)
+                pbp = response.data if isinstance(response.data, list) else []
+                yield Snapshot.at(self.clock.now_ms(), None, pbp, age_s=response.age_s)
+                if any(isinstance(e, dict) and e.get("gameState") == "GameEnded" for e in pbp):
+                    if first:
+                        return
+                    over_since = over_since or self.clock.now_ms()
+                    if self.clock.now_ms() - over_since >= self.stop_after_s * 1000:
+                        return
+                first = False
+                await self.clock.sleep(self.poll_s)

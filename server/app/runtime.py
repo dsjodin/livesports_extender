@@ -18,10 +18,14 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any, Literal, Protocol
 
+import httpx
+
+from app.api.webhooks import WebhookDispatcher
 from app.clock import Clock
-from app.config import RuntimeConfig, Settings, SourceSettings, StateStore
+from app.config import RuntimeConfig, Settings, SourceSettings, StateStore, WebhookSettings
 from app.engine import league as league_engine
 from app.engine import tvstate
+from app.engine import webhooks as webhook_payloads
 from app.engine.calibration import Calibrator
 from app.engine.delay import DelayQueue, Output
 from app.engine.director import Scene, SceneDirector
@@ -34,6 +38,7 @@ from app.feed.polllog import PollLog
 from app.feed.schedule import ScheduleService
 from app.feed.snapshot import Snapshot
 from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
+from app.others import OtherGames
 from app.teams import TeamColors
 
 log = logging.getLogger(__name__)
@@ -89,6 +94,7 @@ class Runtime:
         assets: AssetCache | None = None,
         league: LeagueService | None = None,
         schedule: ScheduleService | None = None,
+        webhook_transport: httpx.AsyncBaseTransport | None = None,
     ) -> None:
         self.clock = clock
         self.assets = assets
@@ -113,6 +119,21 @@ class Runtime:
         self.release_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
         self.colors = TeamColors(settings.config_dir / "teams.json", store.config.team_colors)
         self.calibrator = Calibrator.from_saved(store.config.calibration_samples)
+        self.others = OtherGames(
+            clock,
+            client_factory,
+            schedule,
+            self.colors,
+            settings.data_dir,
+            on_change=lambda: self._patch(self.clock.now_ms() + self.lead_ms),
+            assets=assets,
+        )
+        self.webhooks = WebhookDispatcher(
+            clock,
+            lambda: self.config.webhooks,
+            transport=webhook_transport,
+            on_log=lambda entry: self.out.broadcast({"t": "webhook", "entry": entry}),
+        )
         self.manual: list[dict[str, Any]] = []  # MÅL! presses and test goals, newest last
         self._reset_engine()
 
@@ -128,6 +149,8 @@ class Runtime:
 
     def _reset_engine(self) -> None:
         now = self.clock.now_ms()
+        if hasattr(self, "webhooks"):
+            self.webhooks.cancel_pending()  # nothing from the old timeline may still fire
         self.league_block = None
         self.normalizer = Normalizer()
         self.queue = DelayQueue(round(self.config.offset_s * 1000), self.lead_ms)
@@ -159,6 +182,7 @@ class Runtime:
             self.timeline,
             self.selected,
             self.league_block,
+            self.others.summaries(),
         )
 
     def full_state_messages(self) -> list[dict[str, Any]]:
@@ -417,6 +441,7 @@ class Runtime:
             self.planned["rev"] = self.rev
             self.applied = copy.deepcopy(self.planned)
             self.pending.clear()
+            self.webhooks.cancel_pending()
             self._catching_up = True
             self._broadcast_state()
             return
@@ -445,17 +470,44 @@ class Runtime:
                 self._emit(_event_message("event", None, disallowed), out.play_at)
                 self.timeline.append(_summary(disallowed, out.play_at))
                 self._scenes(self.director.on_event(disallowed, out.play_at))
+                self._patch(out.play_at)
+                self._webhook(disallowed, out.play_at)
+                return
             self._patch(out.play_at)
 
     # --- time -----------------------------------------------------------------------
 
     def pump(self, now: int) -> None:
-        """Hand out everything due within ``lead_ms`` and apply what has reached play_at."""
+        """Hand out everything due within ``lead_ms`` and apply what has reached play_at.
+        Our events and the other games' go out together in play_at order, so each patch
+        holds only what has played by then."""
         horizon = now + self.lead_ms
-        for out in self.queue.due(horizon):
-            event = out.event
-            if event is None:
-                continue
+        due: list[tuple[int, int, str | None, Output]] = [
+            (o.play_at, 0, None, o) for o in self.queue.due(horizon) if o.event is not None
+        ]
+        due += [(at, 1, uuid, o) for at, uuid, o in self.others.due(horizon)]
+        due.sort(key=lambda t: (t[0], t[1]))
+        for play_at, _, other, out in due:
+            if other is not None and out.event is not None:
+                self.others.release(other, out.event)
+                self._patch(play_at)
+            else:
+                self._release(out)
+        self._scenes(self.director.advance(horizon))
+        self._apply_pending(now)
+        if now - self._last_status_ms >= STATUS_EVERY_MS:
+            self._last_status_ms = now
+            for press in self.manual:
+                if press["status"] == "waiting" and now - press["pressed_ms"] > MANUAL_CONFIRM_MS:
+                    press["status"] = "unconfirmed"
+            if self.calibrator.update(self.normalizer.events.values(), now):
+                self._save_calibration()
+            self.out.broadcast({"t": "status", "status": self.status()})
+
+    def _release(self, out: Output) -> None:
+        """One of our events reaches its play_at window: event, scenes, patch, webhook."""
+        event = out.event
+        if event is not None:
             self._scenes(self.director.advance(out.play_at))
             self.released[event.key] = event
             self._emit(_event_message("event", out, event), out.play_at)
@@ -483,16 +535,8 @@ class Runtime:
             else:
                 self._scenes(self.director.on_event(event, out.play_at))
             self._patch(out.play_at)
-        self._scenes(self.director.advance(horizon))
-        self._apply_pending(now)
-        if now - self._last_status_ms >= STATUS_EVERY_MS:
-            self._last_status_ms = now
-            for press in self.manual:
-                if press["status"] == "waiting" and now - press["pressed_ms"] > MANUAL_CONFIRM_MS:
-                    press["status"] = "unconfirmed"
-            if self.calibrator.update(self.normalizer.events.values(), now):
-                self._save_calibration()
-            self.out.broadcast({"t": "status", "status": self.status()})
+            if press is None:  # a linked goal sent its shl_goal at the press
+                self._webhook(event, out.play_at)
 
     def _apply_pending(self, now: int) -> None:
         while self.pending and self.pending[0][0] <= now:
@@ -506,6 +550,7 @@ class Runtime:
     def next_wake_ms(self) -> int | None:
         times = [
             self.queue.next_due_ms(),
+            self.others.next_due_ms(),
             None if (t := self.director.next_timer_ms()) is None else t - self.lead_ms,
             self.pending[0][0] if self.pending else None,
         ]
@@ -589,6 +634,8 @@ class Runtime:
 
     async def stop(self) -> None:
         await self._stop_source()
+        await self.others.stop()
+        await self.webhooks.close()
         for task in [self._league_task, self._follow_task, *self._background]:
             if task is not None:
                 task.cancel()
@@ -679,6 +726,17 @@ class Runtime:
         if source is not None:
             self.source = source
             self._source_task = asyncio.get_running_loop().create_task(self._run_source(source))
+        # the evening's other games, live or in step with this replay
+        self._spawn(
+            self.others.start(
+                self.config.game_uuid if mode != "none" else None,
+                mode,
+                source,
+                round(self.config.offset_s * 1000),
+                self.lead_ms,
+                self._load_finished_game,
+            )
+        )
         if self.league is not None:
             self._spawn(self.refresh_league())
 
@@ -749,11 +807,13 @@ class Runtime:
                 raise SourceError(f"nothing to seek to for {to!r}")
         else:
             raise SourceError(f"unknown replay action {action!r}")
+        self.others.follow_main()
 
     def set_offset(self, profile: str, seconds: float) -> None:
         self.config.profiles[profile] = round(seconds, 3)
         if profile == self.config.active_profile:
             self.queue.set_offset(round(seconds * 1000))
+            self.others.set_offset(round(seconds * 1000))
         self.store.save()
         self.out.broadcast({"t": "config", "config": self.config_message()})
         self.pump(self.clock.now_ms())
@@ -766,6 +826,7 @@ class Runtime:
             raise SourceError(f"unknown TV profile {profile!r}")
         self.config.active_profile = profile
         self.queue.set_offset(round(self.config.offset_s * 1000))
+        self.others.set_offset(round(self.config.offset_s * 1000))
         self.store.save()
         self.out.broadcast({"t": "config", "config": self.config_message()})
         self.pump(self.clock.now_ms())
@@ -822,6 +883,7 @@ class Runtime:
         self.manual.append(press)
         self._emit(_event_message("event", None, event), at)
         self._scenes(self.director.manual_goal(key, side, at, {"manual": True, "score": score}))
+        self._webhook(event, at, source="manual")
         if not test:
             # the feed may already hold the goal, waiting for its play_at
             for planned in self.queue.pending():
@@ -851,6 +913,38 @@ class Runtime:
                 self._save_calibration()
             return True
         return False
+
+    def _webhook(self, event: NormalizedEvent, play_at: int, *, source: str = "feed") -> None:
+        """Queue the Home Assistant call for an event that plays at ``play_at``."""
+        body = webhook_payloads.payload(
+            event, self.meta.teams, self.my_side, self.planned.get("score") or {}, source=source
+        )
+        if body is None:
+            return
+        if event.test:
+            # a test goal is always for my team, so "my team" automations can be tried
+            # without a game, or during someone else's game
+            body["is_my_team"] = True
+            team_uuid = self.config.my_team_uuid
+            if team_uuid and self.my_side is None:
+                color = self.colors.hex(self.colors.jersey(team_uuid, "home"))
+                name = (self.colors.teams.get(team_uuid) or {}).get("name")
+                body |= {
+                    "team_name": name,
+                    "team_color": color,
+                    "team_rgb": webhook_payloads.rgb(color),
+                }
+                body["tts_sv"] = f"Mål för {name}! Det här är ett test." if name else body["tts_sv"]
+        self.webhooks.schedule(play_at, body)
+
+    def set_webhooks(self, url: str | None, enabled: bool, events: list[str]) -> None:
+        unknown = [e for e in events if e not in webhook_payloads.EVENTS]
+        if unknown:
+            raise SourceError(f"unknown webhook events {unknown}")
+        if enabled and not url:
+            raise SourceError("webhooks need a URL")
+        self.config.webhooks = WebhookSettings(url=url or None, enabled=enabled, events=events)
+        self.store.save()
 
     def manual_status(self) -> list[dict[str, Any]]:
         """Presses for the phone. The scorer only once the feed goal has played."""
@@ -924,10 +1018,16 @@ class Runtime:
             "raw_events": len(self.normalizer.events),
             "released_events": len(self.released),
             "pending_messages": len(self.pending),
+            "others": self.others.status(),
             "last_snapshot_ms": self.last_snapshot_ms,
             "late_goals": self.late_goals,
             "manual": self.manual_status(),
             "calibration": self.calibration(),
             "goal_button_sync": self.config.goal_button_sync,
             "follow_my_team": self.config.follow_my_team,
+            "webhooks": {
+                "enabled": self.config.webhooks.enabled,
+                "url_set": bool(self.config.webhooks.url),
+                "pending": self.webhooks.pending,
+            },
         }
