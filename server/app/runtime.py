@@ -20,12 +20,15 @@ from typing import Any, Literal, Protocol
 
 from app.clock import Clock
 from app.config import RuntimeConfig, Settings, SourceSettings, StateStore
+from app.engine import league as league_engine
 from app.engine import tvstate
 from app.engine.delay import DelayQueue, Output
 from app.engine.director import Scene, SceneDirector
 from app.engine.events import Change, NormalizedEvent
 from app.engine.normalizer import Normalizer
-from app.feed.client import ShlClient
+from app.feed.assets import AssetCache
+from app.feed.client import ShlClient, ShlError
+from app.feed.league import LeagueService
 from app.feed.snapshot import Snapshot
 from app.feed.sources import FeedSource, RecordingSource, ReplaySource
 from app.teams import TeamColors
@@ -36,6 +39,7 @@ LEAD_MS = 1500
 TICK_S = 0.25
 STATUS_EVERY_MS = 1000
 LOG_SIZE = 400
+LEAGUE_REFRESH_S = 600
 
 
 class Broadcaster(Protocol):
@@ -74,8 +78,16 @@ class Runtime:
         broadcaster: Broadcaster,
         client_factory: Callable[[], ShlClient] = ShlClient,
         lead_ms: int = LEAD_MS,
+        assets: AssetCache | None = None,
+        league: LeagueService | None = None,
     ) -> None:
         self.clock = clock
+        self.assets = assets
+        self.league = league
+        self.league_block: dict[str, Any] | None = None
+        self._league_task: asyncio.Task[None] | None = None
+        self._background: set[asyncio.Task[Any]] = set()
+        self._league_warned = False
         self.settings = settings
         self.store = store
         self.out = broadcaster
@@ -103,6 +115,7 @@ class Runtime:
 
     def _reset_engine(self) -> None:
         now = self.clock.now_ms()
+        self.league_block = None
         self.normalizer = Normalizer()
         self.queue = DelayQueue(round(self.config.offset_s * 1000), self.lead_ms)
         self.director = SceneDirector(now)
@@ -117,13 +130,19 @@ class Runtime:
         self.applied = copy.deepcopy(self.planned)
         self.pending: list[tuple[int, int, dict[str, Any]]] = []
         self._seq = 0
+        self._catching_up = True
         self.raw_log.clear()
         self.release_log.clear()
 
     def _build(self) -> dict[str, Any]:
         events = sorted(self.released.values(), key=lambda e: e.received_ms)
         return tvstate.build(
-            events, self.meta, self.director.current.as_dict(), self.timeline, self.selected
+            events,
+            self.meta,
+            self.director.current.as_dict(),
+            self.timeline,
+            self.selected,
+            self.league_block,
         )
 
     def full_state_messages(self) -> list[dict[str, Any]]:
@@ -135,6 +154,7 @@ class Runtime:
             "offset_ms": round(self.config.offset_s * 1000),
             "lead_ms": self.lead_ms,
             "profile": self.config.active_profile,
+            "speed": self.config.source.speed if self.config.source.mode != "none" else 1.0,
             "debug": False,
         }
 
@@ -181,9 +201,36 @@ class Runtime:
             self._patch(now + self.lead_ms)
         for change in changes:
             self._log_raw(change)
+            self._register_players(change)
         for out in self.queue.apply(changes, now):
             self._correction(out, now)
+        if self._catching_up:
+            self._catching_up = False
+            self._catch_up(now)
         self.pump(now)
+
+    def _catch_up(self, now: int) -> None:
+        """First snapshot after a start or a seek: events the TV has already shown become
+        the starting state at once, without event or scene messages (no old goals
+        celebrated), and clients get a fresh ``state``."""
+        backlog = self.queue.backlog()
+        if not backlog:
+            return
+        for out in backlog:
+            event = out.event
+            if event is None:
+                continue
+            self.released[event.key] = event
+            if event.type != "shot":
+                self.timeline.append(_summary(event, out.play_at))
+            self.director.on_event(event, out.play_at)
+        self.director.advance(now)
+        self.rev += 1
+        self.planned = self._build()
+        self.planned["rev"] = self.rev
+        self.applied = copy.deepcopy(self.planned)
+        self.pending.clear()
+        self._broadcast_state()
 
     def _meta(self) -> tvstate.GameMeta:
         meta = tvstate.GameMeta.from_game_info(
@@ -191,7 +238,94 @@ class Runtime:
         )
         if meta.uuid is None:
             meta.uuid = self.config.game_uuid
+        info = self.normalizer.game_info or {}
+        for side, key in (("home", "homeTeam"), ("away", "awayTeam")):
+            team = meta.teams.get(side)
+            if team is None:
+                continue
+            icon = (info.get(key) or {}).get("icon")
+            if self.assets is not None:
+                self.assets.register_team(team.get("uuid"), icon)
+            team["logo"] = (
+                f"/assets/teams/{team['uuid']}.svg" if icon and team.get("uuid") else None
+            )
         return meta
+
+    def _register_players(self, change: Change) -> None:
+        """Tell the asset cache who is who; prefetch a scorer's portrait (not a spoiler: it
+        only warms a server-side cache)."""
+        event = change.event
+        if self.assets is None or event is None or change.kind == "removed" or not event.side:
+            return
+        own = (self.meta.teams.get(event.side) or {}).get("uuid")
+        other = (self.meta.teams.get("away" if event.side == "home" else "home") or {}).get("uuid")
+        people: list[tuple[dict[str, Any], str | None]] = []
+        if event.player is not None:
+            people.append((event.player.model_dump(), own))
+        people += [(p, own) for p in event.data.get("assists", [])]
+        people += [(p, own) for p in event.data.get("on_ice", [])]
+        people += [(p, other) for p in event.data.get("opponents_on_ice", [])]
+        for person, team in people:
+            self.assets.register_player(
+                person.get("id"),
+                team,
+                person.get("first"),
+                person.get("last"),
+                person.get("number"),
+            )
+        if event.type == "goal" and event.player is not None and event.player.id:
+            self._spawn(self.assets.player_portrait(event.player.id))
+
+    def _spawn(self, coroutine: Any) -> None:
+        task = asyncio.get_running_loop().create_task(coroutine)
+        self._background.add(task)
+        task.add_done_callback(self._background.discard)
+
+    # --- league context (pregame, idle) ---------------------------------------------
+
+    async def refresh_league(self) -> None:
+        """Standings, form and next games. Only before puck drop: during and after a game
+        the block stays as it was, so tonight's results cannot leak in early."""
+        if self.league is None or self.applied.get("phase") not in ("idle", "pregame"):
+            return
+        try:
+            standings_raw, games = await self.league.snapshot()
+        except ShlError as exc:
+            if not self._league_warned:
+                log.warning("league data unavailable: %s", exc)
+                self._league_warned = True
+            return
+        self._league_warned = False
+        if self.assets is not None:
+            for g in games:
+                for side in ("home", "away"):
+                    self.assets.register_team(g[side]["uuid"], g[side]["icon"])
+        game = next((g for g in games if g["uuid"] == self.config.game_uuid), None)
+        home = (game or {}).get("home", {}).get("uuid") or (self.meta.teams.get("home") or {}).get(
+            "uuid"
+        )
+        away = (game or {}).get("away", {}).get("uuid") or (self.meta.teams.get("away") or {}).get(
+            "uuid"
+        )
+        start = (game or {}).get("start_ms") or self.meta.start_ms
+        now = self.clock.now_ms()
+        self.league_block = league_engine.build(
+            league_engine.standings_rows(standings_raw),
+            games,
+            now,
+            home_uuid=home,
+            away_uuid=away,
+            start_ms=start,
+            my_team_uuid=self.config.my_team_uuid,
+        )
+        for row in self.league_block["standings"]:
+            row["logo"] = f"/assets/teams/{row['uuid']}.svg" if row.get("uuid") else None
+        self._patch(now + self.lead_ms)
+
+    async def _league_loop(self) -> None:
+        while True:
+            await self.refresh_league()
+            await self.clock.sleep(LEAGUE_REFRESH_S)
 
     @property
     def my_side(self) -> Literal["home", "away"] | None:
@@ -259,6 +393,7 @@ class Runtime:
             self.planned["rev"] = self.rev
             self.applied = copy.deepcopy(self.planned)
             self.pending.clear()
+            self._catching_up = True
             self._broadcast_state()
             return
         event = out.event
@@ -353,9 +488,28 @@ class Runtime:
     def start(self) -> None:
         if self._scheduler_task is None:
             self._scheduler_task = asyncio.get_running_loop().create_task(self._scheduler())
+        if self.league is not None and self._league_task is None:
+            self._league_task = asyncio.get_running_loop().create_task(self._league_loop())
+        if self.config.source.mode != "none" and self.source is None:
+            self._spawn(self._resume_source())
+
+    async def _resume_source(self) -> None:
+        """After a restart, start the saved source again (a replay starts from the top)."""
+        src = self.config.source
+        try:
+            await self.set_source(src.mode, src.uuid, src.path, src.speed)
+        except (SourceError, NotImplementedError, ShlError) as exc:
+            self.source_error = str(exc)
+            log.warning("could not resume source %s: %s", src.mode, exc)
 
     async def stop(self) -> None:
         await self._stop_source()
+        for task in [self._league_task, *self._background]:
+            if task is not None:
+                task.cancel()
+                with contextlib.suppress(asyncio.CancelledError, Exception):
+                    await task
+        self._league_task = None
         if self._scheduler_task is not None:
             self._scheduler_task.cancel()
             with contextlib.suppress(asyncio.CancelledError):
@@ -390,6 +544,8 @@ class Runtime:
         self.meta = self._meta()
         self._scenes(self.director.set_game(self.selected, now + self.lead_ms))
         self._patch(now + self.lead_ms)
+        if self.league is not None:
+            self._spawn(self.refresh_league())
 
     async def set_source(
         self,
@@ -424,10 +580,13 @@ class Runtime:
         self.store.save()
         self.source_error = None
         self._reset_engine()
+        self.out.broadcast({"t": "config", "config": self.config_message()})
         self._broadcast_state()
         if source is not None:
             self.source = source
             self._source_task = asyncio.get_running_loop().create_task(self._run_source(source))
+        if self.league is not None:
+            self._spawn(self.refresh_league())
 
     async def _load_finished_game(self, uuid: str) -> tuple[list[Any], dict[str, Any]]:
         fixtures = self.settings.fixtures_dir
@@ -472,6 +631,7 @@ class Runtime:
             source.set_speed(speed)
             self.config.source.speed = speed
             self.store.save()
+            self.out.broadcast({"t": "config", "config": self.config_message()})
         elif action == "seek":
             if to == "before_next_goal":
                 ok = source.seek_before_next_goal()

@@ -128,3 +128,22 @@ class ShlClient:
 
     async def site_settings(self) -> FeedResponse:
         return await self.get("site/settings")
+
+    async def team_stats(self, game_uuid: str) -> FeedResponse:
+        return await self.get(f"gameday/team-stats/{game_uuid}")
+
+    async def athletes(self, team_uuid: str) -> FeedResponse:
+        """The current roster of a team with portrait URLs (docs/SHL_API.md, Players)."""
+        return await self.get(f"sports-v2/athletes/by-team-uuid/{team_uuid}")
+
+    async def download(self, url: str) -> bytes:
+        """A file from shl.se's CDNs (team logos, player portraits)."""
+        try:
+            response = await self._http.get(url)
+        except httpx.TimeoutException as exc:
+            raise ShlTimeout(f"{url}: {type(exc).__name__}") from exc
+        except httpx.HTTPError as exc:
+            raise ShlNetworkError(f"{url}: {type(exc).__name__}: {exc}") from exc
+        if response.status_code != 200:
+            raise ShlHttpError(url, response.status_code)
+        return response.content

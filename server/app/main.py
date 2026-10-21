@@ -12,10 +12,13 @@ from fastapi.staticfiles import StaticFiles
 
 from app import __version__
 from app.api import ws
+from app.api.assets import router as assets_router
 from app.api.routes import router
 from app.clock import Clock, RealClock
 from app.config import Settings, StateStore
+from app.feed.assets import AssetCache
 from app.feed.client import ShlClient
+from app.feed.league import LeagueService
 from app.feed.schedule import ScheduleService
 from app.runtime import Runtime
 
@@ -53,12 +56,18 @@ def create_app(
     settings: Settings | None = None,
     clock: Clock | None = None,
     client_factory: Callable[[], ShlClient] = ShlClient,
+    fetch_league: bool = True,
 ) -> FastAPI:
+    """``fetch_league=False`` keeps the service from fetching standings and the schedule on
+    its own (tests)."""
     settings = settings or Settings.from_env()
     clock = clock or RealClock()
     hub = ws.Hub()
     store = StateStore(settings.data_dir / "state.json")
-    runtime = Runtime(clock, settings, store, hub, client_factory)
+    schedule = ScheduleService(client_factory, clock)
+    assets = AssetCache(settings.data_dir / "cache", client_factory, clock)
+    league = LeagueService(schedule, client_factory, clock) if fetch_league else None
+    runtime = Runtime(clock, settings, store, hub, client_factory, assets=assets, league=league)
 
     @contextlib.asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
@@ -74,8 +83,9 @@ def create_app(
     app.state.settings = settings
     app.state.runtime = runtime
     app.state.hub = hub
-    app.state.schedule = ScheduleService(client_factory, clock)
+    app.state.schedule = schedule
     app.include_router(router)
+    app.include_router(assets_router)
 
     @app.websocket("/ws")
     async def websocket(socket: WebSocket) -> None:

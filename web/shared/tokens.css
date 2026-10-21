@@ -1,0 +1,43 @@
+/* Design tokens (docs/SCREENS.md) and fonts. Shared by screens, simulator and phone app. */
+
+@font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: block;
+  src: url("../vendor/fonts/barlow-condensed-600.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: block;
+  src: url("../vendor/fonts/barlow-condensed-700.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: block;
+  src: url("../vendor/fonts/barlow-condensed-800.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: block;
+  src: url("../vendor/fonts/barlow-400.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 500; font-display: block;
+  src: url("../vendor/fonts/barlow-500.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 600; font-display: block;
+  src: url("../vendor/fonts/barlow-600.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 700; font-display: block;
+  src: url("../vendor/fonts/barlow-700.woff2") format("woff2"); }
+
+:root {
+  --bg-screen: #070A10;
+  --panel: #0F1420;
+  --panel-raised: #1A2130;
+  --panel-alt: #141A26;
+  --strip: #0E131C;
+  --text: #F2F4F8;
+  --text-secondary: #C9D0DD;
+  --text-muted: #A3ACBE;
+  --divider: #4A5366;
+  --gold: #F5C542;
+  --gold-flash: #FFE08A;
+  --on-gold: #1A1405;
+  --penalty: #FF8A8F;
+  --ice: #0C111B;
+  --rink-red: #E5484D;
+  --rink-blue: #3F6FE0;
+  --rink-board: rgba(255, 255, 255, 0.28);
+  --home: #8A93A6;
+  --on-home: #0B0F17;
+  --away: #8A93A6;
+  --on-away: #0B0F17;
+  --wall: #1B1E24;
+  --font-condensed: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", Arial, sans-serif;
+}

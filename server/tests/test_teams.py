@@ -40,7 +40,7 @@ def test_rest(tmp_path: Path) -> None:
     settings = Settings(
         web_dir=tmp_path, config_dir=REPO_ROOT / "config", data_dir=tmp_path, fixtures_dir=FIXTURES
     )
-    with TestClient(create_app(settings)) as client:
+    with TestClient(create_app(settings, fetch_league=False)) as client:
         listing = client.get("/api/teams").json()
         assert listing["colors"]["röd"] == "#c8102e" and len(listing["teams"]) == 14
         r = client.put("/api/teams/8e6f-8e6fUXJvi", json={"home": "röd", "away": "gul"})

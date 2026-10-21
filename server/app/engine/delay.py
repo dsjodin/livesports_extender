@@ -54,8 +54,12 @@ class Output:
 
 
 def _order(e: NormalizedEvent) -> tuple[int, int, int]:
+    """Game order: by period, game time and event id; a period's end after its events."""
     period = e.period if isinstance(e.period, int) else 99
-    return (period, e.game_seconds if e.game_seconds is not None else -1, e.event_id or 0)
+    seconds = e.game_seconds
+    if seconds is None:
+        seconds = 10**6 if e.type in ("period_end", "game_end") else -1
+    return (period, seconds, e.event_id or 0)
 
 
 @dataclass
@@ -114,6 +118,26 @@ class DelayQueue:
         for p in ready:
             p.released = True
         return [Output("release", p.play_at, p.event, p.late, p.late_by_ms) for p in ready]
+
+    def backlog(self) -> list[Output]:
+        """Release the pending events that are already late, without playing them.
+
+        For catching up after a fresh start or a replay seek: what the TV has already
+        shown becomes the starting state instead of a burst of old goals. Each output's
+        ``play_at`` is the moment the TV showed it (``event_ms + offset``); events come in
+        game order, and one without ``event_ms`` gets the time of the event before it."""
+        ready = [p for p in self.items.values() if not p.released and p.late]
+        ready.sort(key=lambda p: p.order)  # game order: event_ms may be missing
+        out: list[Output] = []
+        known = [p.play_at - p.late_by_ms for p in ready if p.late_by_ms is not None]
+        last = min(known, default=min((p.received_ms for p in ready), default=0))
+        for p in ready:
+            p.released = True
+            if p.late_by_ms is not None:
+                last = max(last, p.play_at - p.late_by_ms)
+            # an event without event_ms counts as shown right after the one before it
+            out.append(Output("release", last, p.event, True, p.late_by_ms))
+        return out
 
     def next_due_ms(self) -> int | None:
         """When ``due`` will next have something to hand out."""

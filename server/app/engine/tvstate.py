@@ -77,6 +77,7 @@ def build(
     scene: dict[str, Any],
     recent: list[dict[str, Any]] | None = None,
     selected: bool = True,
+    league: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     evs = list(events)
     st = compute_state(evs, None, None)
@@ -174,6 +175,7 @@ def build(
         "ended": st.ended,
         "overtime": st.overtime,
         "went_to_shootout": st.went_to_shootout,
+        "league": league,
         "scene": scene,
     }
 

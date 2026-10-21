@@ -18,7 +18,7 @@ def client(tmp_path: Path) -> Any:
     settings = Settings(
         web_dir=tmp_path, config_dir=REPO_ROOT / "config", data_dir=tmp_path, fixtures_dir=FIXTURES
     )
-    with TestClient(create_app(settings)) as c:
+    with TestClient(create_app(settings, fetch_league=False)) as c:
         yield c
 
 
@@ -51,6 +51,7 @@ def test_websocket_hello_state_then_events_in_order(client: TestClient) -> None:
             "offset_ms": 0,
             "lead_ms": 1500,
             "profile": "iptv",
+            "speed": 1.0,
             "debug": False,
         }
         state = ws.receive_json()

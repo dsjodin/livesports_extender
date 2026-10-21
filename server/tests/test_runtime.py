@@ -228,3 +228,23 @@ async def test_my_side_follows_my_team(setup: Any) -> None:
     assert rt.applied["game"]["my_side"] == "away"
     rt.select_game("bdhvuc5tex", "home")  # an explicit side wins
     assert rt.my_side == "home"
+
+
+async def test_first_snapshot_catches_up_silently(setup: Any) -> None:
+    """Starting (or seeking) mid-game: what the TV already showed is the starting state,
+    not a burst of old goals; later events still play at their time."""
+    rt, hub, clock = setup
+    on_ice = T + 10 * S
+    await at(clock, rt, on_ice + 130 * S)  # TV showed the goal at on_ice + 80 s
+    feed(rt, clock, [goal(8, on_ice + 60 * S, 2, 0), goal(7, on_ice, 1, 0), period(T)])
+    assert not [m for m in hub.of("event") if m["event"]["key"] == "e7"]
+    assert not [m for m in hub.of("scene") if m["scene"]["name"] == "goal"]
+    state = hub.of("state")[-1]["state"]
+    assert state["score"] == {"home": 1, "away": 0}
+    assert state["scene"]["name"] == "live"
+    assert [r["key"] for r in state["recent"]] == ["period-1-start", "e7"]
+    # e8 is shown on TV at on_ice + 140 s: it is still played, with its goal scene
+    await at(clock, rt, on_ice + 140 * S)
+    [event] = [m for m in hub.of("event") if m["event"]["key"] == "e8"]
+    assert event["play_at_ms"] == on_ice + 140 * S and not event["event"]["late"]
+    assert rt.applied["scene"]["name"] == "goal"
