@@ -44,6 +44,10 @@ class ProfileIn(BaseModel):
     profile: str
 
 
+class MyTeamIn(BaseModel):
+    uuid: str | None
+
+
 class TeamColorsIn(BaseModel):
     home: str | None = None
     away: str | None = None
@@ -166,6 +170,15 @@ async def set_scene(body: SceneIn, request: Request) -> dict[str, Any]:
 async def clear_scene(request: Request) -> dict[str, Any]:
     rt = runtime(request)
     rt.clear_scene()
+    return ok(rt)
+
+
+@router.post("/my-team")
+async def set_my_team(body: MyTeamIn, request: Request) -> dict[str, Any]:
+    rt = runtime(request)
+    if body.uuid is not None and body.uuid not in rt.colors.teams:
+        raise HTTPException(404, f"unknown team {body.uuid!r}")
+    rt.set_my_team(body.uuid)
     return ok(rt)
 
 

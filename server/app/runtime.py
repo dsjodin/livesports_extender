@@ -187,11 +187,31 @@ class Runtime:
 
     def _meta(self) -> tvstate.GameMeta:
         meta = tvstate.GameMeta.from_game_info(
-            self.normalizer.game_info, self._attendance, self.config.my_side, self.colors
+            self.normalizer.game_info, self._attendance, self.my_side, self.colors
         )
         if meta.uuid is None:
             meta.uuid = self.config.game_uuid
         return meta
+
+    @property
+    def my_side(self) -> Literal["home", "away"] | None:
+        """The explicit side for this game, else the side my team plays on, if it plays."""
+        if self.config.my_side is not None:
+            return self.config.my_side
+        info = self.normalizer.game_info
+        if not info or not self.config.my_team_uuid:
+            return None
+        if (info.get("homeTeam") or {}).get("uuid") == self.config.my_team_uuid:
+            return "home"
+        if (info.get("awayTeam") or {}).get("uuid") == self.config.my_team_uuid:
+            return "away"
+        return None
+
+    def set_my_team(self, uuid: str | None) -> None:
+        self.config.my_team_uuid = uuid
+        self.store.save()
+        self.meta = self._meta()
+        self._patch(self.clock.now_ms() + self.lead_ms)
 
     def set_team_colors(self, uuid: str, home: str | None, away: str | None) -> None:
         """Override a team's jersey colours (a palette name or #rrggbb); None keeps it."""
@@ -367,7 +387,7 @@ class Runtime:
         self.config.my_side = my_side
         self.store.save()
         now = self.clock.now_ms()
-        self.meta.my_side = my_side
+        self.meta = self._meta()
         self._scenes(self.director.set_game(self.selected, now + self.lead_ms))
         self._patch(now + self.lead_ms)
 
@@ -511,7 +531,8 @@ class Runtime:
             "paused": source.paused if source else False,
             "feed_ms": source.feed_now() if source else None,
             "game_uuid": self.config.game_uuid,
-            "my_side": self.config.my_side,
+            "my_side": self.my_side,
+            "my_team_uuid": self.config.my_team_uuid,
             "profile": self.config.active_profile,
             "offset_s": self.config.offset_s,
             "lead_ms": self.lead_ms,

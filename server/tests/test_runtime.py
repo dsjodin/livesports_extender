@@ -214,3 +214,17 @@ async def test_events_are_broadcast_in_play_order(setup: Any) -> None:
     timed = [m["play_at_ms"] for m in hub.messages if "play_at_ms" in m]
     assert timed == sorted(timed)
     assert [m["event"]["key"] for m in hub.of("event")] == ["period-1-start", "e7", "e8", "e9"]
+
+
+async def test_my_side_follows_my_team(setup: Any) -> None:
+    rt, _, clock = setup
+    rt.select_game("bdhvuc5tex", None)
+    assert rt.config.my_team_uuid == "82eb-82ebmgaJ8"  # Örebro by default
+    feed(rt, clock, [period(T)])
+    assert rt.my_side is None  # Örebro does not play in FHC–LHC
+    rt.set_my_team("41c4-41c4BiYZU")  # Linköping
+    assert rt.my_side == "away" and rt.status()["my_side"] == "away"
+    await at(clock, rt, clock.now_ms() + 2000)
+    assert rt.applied["game"]["my_side"] == "away"
+    rt.select_game("bdhvuc5tex", "home")  # an explicit side wins
+    assert rt.my_side == "home"

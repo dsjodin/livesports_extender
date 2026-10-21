@@ -206,6 +206,7 @@ auth in front if it is ever exposed).
 | `GET /api/webhooks/log` | | Recent webhook calls and results |
 | `POST /api/webhooks` | `{"url", "enabled", "events": [...]}` | Webhook settings |
 | `GET /api/wall` | | Contents of `config/wall.json` |
+| `POST /api/my-team` | `{"uuid": "<team uuid>"\|null}` | My team (default Örebro); my side follows it unless set per game |
 | `GET /api/teams` | | Palette and every team's home/away jersey colour (`config/teams.json` plus overrides) |
 | `PUT /api/teams/{uuid}` | `{"home"?: "röd"\|"#rrggbb", "away"?: ...}` | Override a team's colours (saved in `data/state.json`) |
 | `DELETE /api/teams/{uuid}` | | Back to the defaults from `config/teams.json` |

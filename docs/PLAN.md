@@ -31,14 +31,19 @@ games, without the real screens and without a live game.
   design handles both cases (sync on `event_ms`, late events at once, the MÅL! button).
   Still open: whether the Telia box can pause the SHL channel; pausing ~40 s at puck drop
   would put almost every goal in time. Verify with the sync button once Phase 4 exists.
-- Physical layout: the bar's vertical position relative to the 24" screens and the gaps
-  between screens. `config/wall.json` has assumed values (bar vertically centred, 40 mm gaps).
-- Default "my team" (whose goals trigger the celebration and lights).
-- Team logos: use the `icon` URLs from the feed (cached locally) or keep code badges.
+- Physical layout: the wall is not built yet (2026-10-21), so the bar's vertical position
+  and the gaps stay assumed in `config/wall.json` (bar vertically centred, 40 mm gaps).
+  Everything reads the geometry from that file; measure and edit it once the wall exists.
+- ~~Default "my team"~~: Örebro Hockey (`82eb-82ebmgaJ8`), decided 2026-10-21
+  (`my_team_uuid`, `POST /api/my-team`); the side follows the team unless set per game.
+- ~~Team logos~~: decided 2026-10-21: the feed's `icon` URLs (SVG), cached locally, code
+  badge as fallback. **Player portraits** are also available (`athletes/by-team-uuid`,
+  see `docs/SHL_API.md`); use them in the goal scene, cached locally, number as fallback.
 - Sound for video stingers: local speaker on the mini PC or none (Phase 8).
-- Faceoffs (found 2026-10-21): only in the boxscore, without timestamps. Options: poll the
-  boxscore every 60 s during the game and show faceoffs in intermissions and after the game
-  (recommended), or not at all. Needed by Phase 3 (intermission scene).
+- Faceoffs (found 2026-10-21): not in play-by-play. `gameday/team-stats` has them per
+  period (plus hits, blocked shots and SHL's own power-play counts), without timestamps.
+  Recommended: poll it every 60 s during the game and show it in intermissions and after
+  the game only. Needed by Phase 3 (intermission scene).
 
 ---
 
@@ -248,7 +253,10 @@ Tasks:
    ping/pong, `now()`), `ws.js` (reconnect with backoff, dispatch by message type),
    `stage.js` (loads `config/wall.json`, converts stage millimetres to this screen's pixels),
    `tokens.css` (design tokens from `docs/SCREENS.md`), `scheduler.js` (run a callback at a
-   server-time `play_at`). Vendor GSAP and the Barlow / Barlow Condensed fonts (woff2) into
+   server-time `play_at`). An asset cache in the service (`/assets/teams/<uuid>.svg`,
+   `/assets/players/<isa id>.jpg`) fetches team logos and player portraits from shl.se once,
+   stores them under `data/cache/` and serves them locally. Vendor GSAP and the Barlow /
+   Barlow Condensed fonts (woff2) into
    `web/vendor/`.
 2. **Screen pages** `web/screens/{left,bar,right}.html`, each loading scene modules from
    `web/screens/scenes/`. A scene module exports `enter(ctx, data, at)`, `update(ctx, tv)`,

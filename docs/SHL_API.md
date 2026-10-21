@@ -328,6 +328,48 @@ goalie was pulled (or left); the game also ends with `isEntering: false` events 
 
 - 14 teams. Identify teams by `info.teamInfo.teamUuid`; `id` is a code.
 
+### Endpoints used by shl.se itself (found 2026-10-21)
+
+From the site's JavaScript bundle (`/assets/index-*.js`), all under `/api`:
+`gameday/` boxscore, game-info, game-overview, gameheader, periodstats, play-by-play,
+play-by-play/initial-events, player-stats, post-game-data/promo-bar-stats,
+post-game-data/team-stats, team-standings, team-stats, upcoming-live-games(/v2);
+`sports-v2/` all-sites, all-teams, athlete-details, athletes/by-team-uuid, game-info,
+game-schedule, game-series/by-ssgt, last-game-day, latest-ssgt, next-game-day,
+played-games, season-series-game-types-filter, staffs, teams, today-games, upcoming-games,
+upcoming-live-games. Only the ones described in this file have been inspected
+(`gameday/periodstats/<game>` returned HTTP 500 for `mtn5yq64mp`).
+
+### Team stats (verified 2026-10-21)
+
+`GET /api/gameday/team-stats/<game_uuid>`: `{"home": {...}, "away": {...}}`, each with
+`teamId`, `place` and `statistics`: a list per `period` (0 = whole game) of
+`parsedTotalStatistics` `[{"key", "value"}]`. Keys include `G`, `PIM`, `FOW` (faceoffs
+won), `SOG`, `Saves`, `GA`, `PPG`, `PPGA`, `SHG`, `SHGA`, `NumPP`, `NumSH`, `PP_perc`,
+`SH_perc`, `Hits`, `BkS` (shots this team blocked), `SiBk` (this team's shots that were
+blocked), `SPG`, `PPSOG`. For `mtn5yq64mp` it matches our numbers (SOG 45–14, FOW 25–28,
+SiBk 10 / 8 = our blocked shots) except **power plays: SHL says FHC 3 (`NumPP` 1 per
+period), we count 4**; the difference is in period 3, probably the fight at 10:26 (see
+`server/app/engine/powerplay.py`). No timestamps, so it cannot be synced to the TV.
+
+### Players and portraits (verified 2026-10-21)
+
+- `GET /api/sports-v2/athletes/by-team-uuid/<team_uuid>`: the current roster grouped by
+  position (`positionCode` GK, D, F), each player with `uuid` (athlete uuid), `firstName`,
+  `lastName`, `jerseyNumber`, `nationality` and `renderedLatestPortrait.url` (a PNG
+  portrait on an imgix CDN; `&w=320` style widths in `srcset`).
+- `GET /api/sports-v2/athlete-details/<athlete_uuid>`: `athleteData.playerExtIds`; the
+  entry with `extIdType.code == "isa"` is the play-by-play `playerId` (Jacob Peterson:
+  athlete `qQ9-adafYNUQw`, isa `3770`). So: roster per team (one request) gives portraits;
+  matching to play-by-play is exact via athlete-details (one request per player, cache it)
+  or by team + name.
+
+### Team logos
+
+Use the `icon` field (game-info, schedule, standings `teamMedia`), e.g.
+`https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg`. Guessing the file name from the
+code fails (`oh1_oh.svg` is 403; Örebro is `ohk1_ohk.svg`, from `ownerInstanceId`).
+
 ### Site settings (verified, large)
 
 `GET /api/site/settings`: `teamsInSite` / `allTeamsInSite` hold every team with `uuid`,

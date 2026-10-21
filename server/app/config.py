@@ -66,7 +66,10 @@ class RuntimeConfig(BaseModel):
     """Everything the user sets that must survive a restart."""
 
     game_uuid: str | None = None
+    # Explicit side for the selected game; when None it follows my_team_uuid.
     my_side: Literal["home", "away"] | None = None
+    # The user's team (Örebro Hockey, chosen 2026-10-21): its goals trigger the lights.
+    my_team_uuid: str | None = "82eb-82ebmgaJ8"
     source: SourceSettings = SourceSettings()
     # TV delay behind the arena per TV profile, seconds. IPTV was measured at about 40 s
     # on 2026-10-20 (rough); TV4 Play is a guess until calibrated.
