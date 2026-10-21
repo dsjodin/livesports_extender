@@ -147,7 +147,7 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
   | 1 to 9 | Skott | `on_goal` |
   | 0 | Skott (utanför) | `wide` |
   | -3 | Skott (täckt av spelare) | `blocked` |
-  | -1 | not checked (seen once, `bdhvuc5tex` P3 19:58) | `unknown`, logged once |
+  | -1 | not checked (seen once, `bdhvuc5tex` P3 19:58); likely "Ramträff" (post) | `unknown`, logged once |
 
   (First guess was 0 blocked, -3 missed: the other way round.)
 - What 1 to 9 mean (open). Probably where on the goal the shot went, but **not a clean
@@ -182,10 +182,16 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
 - The earlier counter-example (event 120 in `bdhvuc5tex`, "FHC, P3 18:01, `goalSection` 5")
   is an **LHC** shot in the feed (Christoffer Ehn, revision 1), i.e. by the team that had
   pulled its goalie. Not a contradiction.
-- `locationX` / `locationY`: **assumption** decimetres, X = distance out from the goal line
-  being attacked (goals in the sample come from X 29 to 57; most shots are below 180, about
-  the blue line), Y = lateral position (about -140 to +130). Outliers exist (X 481, X -29):
-  skip anything outside 0 to 200 for the shot map.
+- `locationX` / `locationY` (**verified 2026-10-21** against shl.se's shot plot for
+  `mtn5yq64mp`, five shots within about 1.5 m): decimetres on a 60 × 30 m rink.
+  `locationX` = distance out from the goal line being attacked; `locationY` = lateral,
+  negative on the attacking team's left (the goalie's right). Outliers exist (X 481,
+  X -29): skip anything outside 0 to 300 for the shot map.
+- shl.se's shot plot: "SKOTT" is all attempts (`shot` + `goal`, regulation and overtime),
+  "MÅL%" goals / attempts. Symbols: circle = "Räddat skott", square = "Blockat skott",
+  cross = "Skott utanför", G = "Mål"; it also filters on "Ramträff". For `mtn5yq64mp`
+  its counts (FHC 6 goals / 67 shots, DIF 2 / 38; DIF 12 saved, 8 blocked, 16 wide) equal
+  ours from the final play-by-play.
 
 **goal**
 
@@ -368,6 +374,11 @@ client ──► Cloudflare ──► Varnish ──► Varnish ──► Expres
   was updated, or each intermission produces ~100 `updated` events.
 - Period objects appear when the period starts (`started: true, finished: false`) and get
   `finished: true` when it ends. Seen 22–31 s after `startedAt`, 14–26 s after `finishedAt`.
+
+- **Corrections continue after the game.** After the recording stopped (5 min after
+  `GameEnded`), shot 146 (P3 15:29) was deleted and replaced by 161 (P3 15:29, revision 3)
+  and a new shot 162 (P3 15:32), and penalty 130's player name changed. A final refresh
+  some time after the game is needed for exact final stats (Phase 5).
 
 Recording in the repo: `data/recordings/mtn5yq64mp/` (FHC–DIF 6–2, `polls.jsonl` and
 `report.md`; no `age` header recorded yet).

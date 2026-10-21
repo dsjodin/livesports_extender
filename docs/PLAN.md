@@ -335,6 +335,8 @@ Tasks:
 3. Test: run a real recording through `RecordingSource` and assert the goal timeline
    against the official result.
 4. Optional "follow my team": select my team's next game automatically each day.
+5. Final refresh: fetch play-by-play once more about 30 min after `GameEnded` (and the
+   boxscore), since shl.se keeps correcting events after the game (docs/SHL_API.md).
 
 Acceptance:
 
