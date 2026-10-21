@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHL Arena – simulator</title>
+  <link rel="stylesheet" href="sim.css">
+</head>
+<body>
+  <div id="wall"></div>
+  <div id="panel">
+    <section>
+      <h2>Source</h2>
+      <div class="row">
+        <select id="game"></select>
+        <input id="uuid" placeholder="or any finished game uuid" size="18">
+      </div>
+      <div class="row">
+        <label>Speed <select id="start-speed"><option>1</option><option>2</option><option selected>5</option><option>20</option><option>50</option></select></label>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+      </div>
+      <div class="row muted">Live source: Phase 5.</div>
+    </section>
+    <section>
+      <h2>Replay</h2>
+      <div class="row">
+        <button id="playpause">Pause</button>
+        <span class="speeds" id="speeds"></span>
+      </div>
+      <div class="row">
+        <button id="next-period">Next period</button>
+        <button id="next-goal">10 s before next goal</button>
+        <button id="end">End of game</button>
+      </div>
+      <div class="readout" id="progress">–</div>
+    </section>
+    <section>
+      <h2>Timing</h2>
+      <label class="slider"><span>System offset (<span id="profile">–</span>)</span>
+        <input id="offset" type="range" min="0" max="120" step="0.5"><output id="offset-out"></output></label>
+      <label class="slider"><span>Fake TV delay</span>
+        <input id="fake" type="range" min="0" max="120" step="0.5"><output id="fake-out"></output></label>
+      <div class="row muted">Offset = how far the TV lags the arena (sent to the service). Fake TV delay only drives the pane on the right.</div>
+    </section>
+    <section class="tv">
+      <h2>Fake TV <small>raw events at event_ms + fake delay</small></h2>
+      <div class="tv-clock"><span class="tv-label">TV-klocka</span><span id="tv-clock">–</span></div>
+      <ol id="tv-events"></ol>
+    </section>
+    <section>
+      <h2>Raw events <small>on arrival, spoils the TV</small></h2>
+      <ol id="raw-events" class="hidden"></ol>
+      <h2>Webhook log</h2>
+      <div class="muted">Home Assistant webhooks arrive in Phase 6.</div>
+    </section>
+    <section>
+      <h2>Toggles</h2>
+      <label><input type="checkbox" id="debug"> Debug overlay on screens</label>
+      <label><input type="checkbox" id="show-raw"> Show raw events</label>
+      <div class="row"><a href="/app" target="_blank">Open phone app (/app, Phase 4)</a></div>
+      <div class="row"><a href="/debug/" target="_blank">Debug page</a></div>
+      <div class="readout" id="conn">connecting…</div>
+    </section>
+  </div>
+  <script type="module" src="sim.js"></script>
+</body>
+</html>

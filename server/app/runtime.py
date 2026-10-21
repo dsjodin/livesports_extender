@@ -635,6 +635,8 @@ class Runtime:
         elif action == "seek":
             if to == "before_next_goal":
                 ok = source.seek_before_next_goal()
+            elif to == "end":
+                ok = source.seek_end()
             elif to == "next_period":
                 current = max(
                     (

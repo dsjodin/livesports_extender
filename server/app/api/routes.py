@@ -95,6 +95,20 @@ async def schedule_recent(request: Request, days: int = 30) -> dict[str, Any]:
     return {"games": games}
 
 
+@router.get("/replays")
+async def replays(request: Request) -> dict[str, Any]:
+    """Games that can be replayed without the network, and saved recordings."""
+    settings = runtime(request).settings
+    fixtures = sorted(
+        p.name.removeprefix("pbp_").removesuffix(".json")
+        for p in settings.fixtures_dir.glob("pbp_*.json")
+        if (settings.fixtures_dir / p.name.replace("pbp_", "game_info_")).exists()
+    )
+    base = settings.data_dir / "recordings"
+    recordings = sorted(p.parent.name for p in base.glob("*/polls.jsonl")) if base.is_dir() else []
+    return {"fixtures": fixtures, "recordings": recordings}
+
+
 @router.post("/game")
 async def select_game(body: GameIn, request: Request) -> dict[str, Any]:
     rt = runtime(request)

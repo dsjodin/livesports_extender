@@ -220,6 +220,13 @@ class ReplaySource:
                     return True
         return False
 
+    def seek_end(self, after_s: float = 5.0) -> bool:
+        """Seek to just after the game ended (``after_s`` past the last period's end)."""
+        if self._ended_f is None:
+            return False
+        self.seek(self._ended_f + round(after_s * 1000))
+        return True
+
     def seek_before_next_goal(self, before_s: float = 10.0) -> bool:
         """Seek to ``before_s`` before the next goal's on-ice moment."""
         now = self.feed_now()

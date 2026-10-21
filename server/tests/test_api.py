@@ -135,7 +135,7 @@ def test_rest_controls(client: TestClient, tmp_path: Path) -> None:
     assert not client.post("/api/replay", json={"action": "play"}).json()["status"]["paused"]
     r = client.post("/api/replay", json={"action": "speed", "speed": 20})
     assert r.json()["status"]["source"]["speed"] == 20
-    for to in ("period:2", "next_period", "before_next_goal"):
+    for to in ("period:2", "next_period", "before_next_goal", "end"):
         r = client.post("/api/replay", json={"action": "seek", "to": to})
         assert r.status_code == 200, (to, r.text)
     assert client.post("/api/replay", json={"action": "seek", "to": "period:9"}).status_code == 400
@@ -150,6 +150,8 @@ def test_rest_controls(client: TestClient, tmp_path: Path) -> None:
     rec = tmp_path / "recordings" / "mtn5yq64mp"
     rec.mkdir(parents=True)
     shutil.copy(REPO_ROOT / "data" / "recordings" / "mtn5yq64mp" / "polls.jsonl", rec)
+    replays = client.get("/api/replays").json()
+    assert "bdhvuc5tex" in replays["fixtures"] and replays["recordings"] == ["mtn5yq64mp"]
     r = client.post("/api/source", json={"mode": "recording", "path": "mtn5yq64mp", "speed": 50})
     assert r.status_code == 200 and r.json()["status"]["running"]
     assert client.post("/api/source", json={"mode": "none"}).json()["status"]["running"] is False
