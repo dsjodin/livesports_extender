@@ -203,3 +203,37 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 .strip .tk-game.live .tk-status { color: var(--gold); }
 .strip .tk-sep { margin: 0 28px; color: var(--divider); }
 .strip.gold .tk-game b, .strip.gold .tk-status { color: var(--on-gold); }
+
+/* intermission slides (Phase 8) */
+.inter-page { gap: 30px; }
+.slides { position: relative; flex: 1; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 34px; opacity: 0; }
+.inter-foot { display: flex; flex-direction: column; gap: 18px; }
+.dots { display: flex; justify-content: center; gap: 14px; }
+.dots span { width: 16px; height: 16px; border-radius: 50%; background: var(--divider); }
+.dots span.on { background: var(--gold); }
+.countdown-card { display: flex; justify-content: space-between; align-items: center; padding: 20px 32px; }
+.countdown-card .big-line { font-size: 80px; margin: 0; }
+.map-pair { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.map-pair .shotmap { width: 640px; }
+.map-title, .goalie-pair .map-title { display: flex; align-items: center; gap: 16px; font-family: var(--font-condensed); font-weight: 700; font-size: 40px; align-self: stretch; }
+.map-title .muted { margin-left: auto; font-size: 30px; font-weight: 600; }
+.goalie-pair { display: flex; flex-direction: column; gap: 12px; }
+.other-game { display: grid; grid-template-columns: 1fr 200px 1fr; align-items: center; gap: 12px; background: var(--panel); border-radius: 18px; padding: 18px 24px; }
+.other-game.live { box-shadow: inset 0 0 0 3px rgba(245, 197, 66, 0.55); }
+.og-team { display: flex; align-items: center; gap: 14px; font-family: var(--font-condensed); font-weight: 700; font-size: 40px; }
+.og-team.away { justify-content: flex-end; }
+.og-score { text-align: center; font-family: var(--font-condensed); font-weight: 800; font-size: 76px; line-height: 1; }
+.og-meta { grid-column: 1 / -1; display: flex; justify-content: space-between; font-family: var(--font-condensed); font-weight: 600; font-size: 28px; letter-spacing: 0.08em; }
+.other-game.live .og-status { color: var(--gold); }
+.table-live .table-row { grid-template-columns: 56px 64px 56px 1fr 120px 70px 80px; font-size: 32px; padding: 7px 0; }
+.table-live .table-row.playing { background: var(--panel-raised); border-radius: 10px; }
+.table-live .live-score { color: var(--gold); font-weight: 700; }
+.mv { font-family: var(--font-condensed); font-weight: 700; font-size: 24px; }
+.mv.up { color: #34d399; }
+.mv.down { color: var(--penalty); }
+.og-goals { background: var(--panel); border-radius: 18px; padding: 16px 24px; display: flex; flex-direction: column; gap: 6px; }
+.og-goals-head { font-family: var(--font-condensed); font-weight: 800; font-size: 40px; }
+.og-goal { display: grid; grid-template-columns: 150px 90px 1fr 100px; gap: 10px; font-size: 28px; align-items: baseline; }
+.og-goal b { font-family: var(--font-condensed); }
+.og-goal-score { text-align: right; font-family: var(--font-condensed); font-weight: 700; }
