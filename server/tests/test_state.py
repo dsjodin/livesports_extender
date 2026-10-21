@@ -151,6 +151,8 @@ async def test_shots(bdh: RawState) -> None:
     assert list(home.shot_attempts_by_period.values()) == [19, 20, 16]
     assert list(away.shot_attempts_by_period.values()) == [10, 21, 32]
     assert (home.shot_attempts, away.shot_attempts) == (55, 63)
+    assert (home.shots_wide, home.shots_blocked) == (9, 15)
+    assert (away.shots_wide, away.shots_blocked) == (13, 20)  # plus one goalSection -1
     assert boxscore_sog("bdhvuc5tex") == {"home": 31, "away": 29}
 
 
@@ -217,5 +219,8 @@ async def test_recorded_live_game() -> None:
     ]
     assert (st.stats["home"].pim, st.stats["away"].pim) == (17, 45)  # = boxscore
     assert (st.stats["home"].shots_on_goal, st.stats["away"].shots_on_goal) == (44, 14)
+    # checked against shl.se's game report: 0 = "utanför", -3 = "täckt av spelare"
+    assert (st.stats["home"].shots_wide, st.stats["home"].shots_blocked) == (12, 10)
+    assert (st.stats["away"].shots_wide, st.stats["away"].shots_blocked) == (16, 8)
     assert counts["removed"] == 27  # the precursor shots and other deletions
     assert counts["updated"] < 40  # real revisions only, no gameState noise

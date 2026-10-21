@@ -78,7 +78,8 @@ def format_state(state: RawState) -> str:
         attempts = "/".join(str(v) for v in s.shot_attempts_by_period.values())
         lines.append(
             f"{side}: goals {s.goals}, shots on goal {s.shots_on_goal} ({on_goal}), "
-            f"attempts {s.shot_attempts} ({attempts}), PIM {s.pim}, "
+            f"attempts {s.shot_attempts} ({attempts}), wide {s.shots_wide}, "
+            f"blocked {s.shots_blocked}, PIM {s.pim}, "
             f"PP {s.pp_goals}/{s.pp_chances}, timeouts {s.timeouts}"
         )
     return "\n".join(lines)

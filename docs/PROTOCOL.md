@@ -56,7 +56,7 @@ Type-specific `data`:
 | type | data |
 |---|---|
 | `goal` | as in the example, plus `opponents_on_ice`, `shootout`, `x_dm`, `y_dm`, `goal_section` |
-| `shot` | `x_dm`, `y_dm`, `goal_section`, `on_goal` (bool, from the rule in `docs/SHL_API.md`), `penalty_shot` |
+| `shot` | `x_dm`, `y_dm`, `goal_section`, `on_goal` (bool), `result` (`on_goal`, `wide` = "utanför", `blocked` = "täckt", `unknown`; see `docs/SHL_API.md`), `penalty_shot` |
 | `penalty` | `offence_code`, `offence_text` (Swedish), `minutes` (PIM), `kind` (minor, bench_minor, double_minor, major, match, misconduct, game_misconduct, penalty_shot, joined with `+`), `segments_s` (shorthanded parts in order), `variant`, `description`, `penalty_shot_awarded`, `team_penalty`. Expiry is in the state, not the event. |
 | `shootout_attempt` | `scored`, `index`, `shootout_score`, `game_winning` |
 | `goalie_change` | `entering` (bool) |
@@ -89,12 +89,12 @@ The delayed state every client renders. Sent in full on connect, then as patches
                         "offence_text": "Fasthållning", "minutes": 2, "started": "P3 07:39",
                         "expires_game_seconds": 2979}],
   "stats": {
-    "home": {"shots_on_goal": 36, "shot_attempts": 48, "shots_by_period": [16, 15, 5], "pim": 2,
+    "home": {"shots_on_goal": 36, "shots_wide": 5, "shots_blocked": 7, "shot_attempts": 48, "shots_by_period": [16, 15, 5], "pim": 2,
              "pp": {"goals": 0, "chances": 3}, "goalie": {"number": "1", "name": "Lars Johansson",
              "saves": 25, "shots_against": 26, "on_ice": true}},
     "away": {"...": "same shape"}
   },
-  "shots": {"home": [{"x_dm": 50, "y_dm": -74, "on_goal": true, "goal": false, "period": 1}, "..."],
+  "shots": {"home": [{"x_dm": 50, "y_dm": -74, "result": "on_goal", "goal": false, "period": 1}, "..."],
             "away": ["..."]},
   "goals": ["... normalized goal events in order ..."],
   "penalties": ["... normalized penalty events in order ..."],

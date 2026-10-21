@@ -23,7 +23,9 @@ OT_LENGTH_S = 5 * 60  # regular-season overtime
 
 class TeamStats(BaseModel):
     shots_on_goal: int = 0
-    shot_attempts: int = 0
+    shots_wide: int = 0  # "utanför"
+    shots_blocked: int = 0  # "täckt av spelare"
+    shot_attempts: int = 0  # all of the above, plus any unknown goalSection
     shots_on_goal_by_period: dict[str, int] = {}
     shot_attempts_by_period: dict[str, int] = {}
     goals: int = 0  # excludes the shootout
@@ -184,6 +186,10 @@ def compute_state(
         if on_goal:
             s.shots_on_goal += 1
             s.shots_on_goal_by_period[p] = s.shots_on_goal_by_period.get(p, 0) + 1
+        elif e.data.get("result") == "wide":
+            s.shots_wide += 1
+        elif e.data.get("result") == "blocked":
+            s.shots_blocked += 1
     for g in goals:
         if g.side:
             stats[g.side].goals += 1

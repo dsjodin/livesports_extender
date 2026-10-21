@@ -11,10 +11,11 @@ from app.feedtime import parse_local_ms
 
 log = logging.getLogger(__name__)
 
-# Shots on goal are goalSection 1 to 9: this matched the boxscore exactly in all four
-# games checked, and shl.se's game report shows 1-9 as "Skott" and 0 as "Skott (utanför)"
-# (docs/SHL_API.md, shot). -3 and -1 are not on goal; their exact meaning is unknown.
+# Shot result from goalSection (docs/SHL_API.md, shot). 1 to 9 is on goal: it matched the
+# boxscore exactly in all four games checked. shl.se's game report shows 1-9 as "Skott",
+# 0 as "Skott (utanför)" and -3 as "Skott (täckt av spelare)". -1 (seen once) is unknown.
 ON_GOAL_SECTIONS = frozenset(range(1, 10))
+SECTION_RESULT = {0: "wide", -3: "blocked"}
 # Copied onto every event and rewritten at every period boundary (or by a replay's
 # timestamp shift); not a content change. realWorldTime is read once, as event_ms.
 IGNORED_FIELDS = frozenset({"gameState", "attendance", "updatedTime", "realWorldTime"})
@@ -41,6 +42,16 @@ def warn_once(kind: str, value: object) -> None:
     if (kind, repr(value)) not in _warned:
         _warned.add((kind, repr(value)))
         log.warning("unknown %s %r, shown raw", kind, value)
+
+
+def shot_result(section: object) -> str:
+    """``on_goal``, ``wide``, ``blocked`` or ``unknown`` (logged once)."""
+    if section in ON_GOAL_SECTIONS:
+        return "on_goal"
+    if isinstance(section, int) and section in SECTION_RESULT:
+        return SECTION_RESULT[section]
+    warn_once("goalSection", section)
+    return "unknown"
 
 
 def game_seconds(period: object, time: object) -> int | None:
@@ -242,6 +253,7 @@ class Normalizer:
                 "y_dm": item.get("locationY"),
                 "goal_section": section,
                 "on_goal": section in ON_GOAL_SECTIONS,
+                "result": shot_result(section),
                 "penalty_shot": bool(item.get("isPenaltyShot")),
             }
         if typ == "penalty":

@@ -4,7 +4,7 @@ from typing import Any
 import pytest
 from conftest import load_fixture
 
-from app.engine.normalizer import Normalizer, game_seconds
+from app.engine.normalizer import Normalizer, game_seconds, shot_result
 from app.feed.snapshot import Snapshot
 from app.feedtime import format_local, format_local_z
 
@@ -63,6 +63,7 @@ def test_added_updated_removed_and_first_seen() -> None:
     assert shot.team_uuid == "087a-087aTQv9u"
     assert shot.player and shot.player.number == "40" and shot.player.last == "Peterson"
     assert shot.data["on_goal"] is True and shot.game_seconds == 273
+    assert shot.data["result"] == "on_goal"
 
     # a new list with the same content: nothing
     assert n.apply(snap([ev(1)], at=T + 2000)) == []
@@ -80,6 +81,7 @@ def test_added_updated_removed_and_first_seen() -> None:
     assert kinds(changes) == [("updated", "e1")]
     updated = changes[0].event
     assert updated is not None and updated.revision == 2 and updated.data["on_goal"] is False
+    assert updated.data["result"] == "blocked"
     assert updated.first_seen_ms == T - 4000 and updated.event_ms == T - 30_000
     assert updated.received_ms == T + 6000
     # removal, then reappearance as a new event
@@ -216,3 +218,8 @@ def test_epoch_change_resets() -> None:
     changes = n.apply(snap([ev(2)], at=T + 2000, epoch=1))
     assert kinds(changes) == [("reset", None), ("added", "e2")]
     assert list(n.events) == ["e2"]
+
+
+def test_shot_results() -> None:
+    assert [shot_result(s) for s in (1, 9, 0, -3)] == ["on_goal", "on_goal", "wide", "blocked"]
+    assert shot_result(-1) == "unknown" and shot_result(None) == "unknown"
