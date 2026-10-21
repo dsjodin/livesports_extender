@@ -173,3 +173,17 @@ def test_power_play_after_four_on_four_is_a_chance() -> None:
     assert r.strength.label == "4v4" and r.pp_chances == {"home": 0, "away": 1}
     r = compute(penalties, [], 1270)
     assert r.strength.label == "5v4" and r.pp_chances == {"home": 1, "away": 1}
+
+
+def test_different_offences_cancel_too() -> None:
+    """P3 09:56 (2026-10-20): Hasa interference against Zirath roughing, 5 on 5."""
+    r = compute(
+        [
+            PenaltyIn("hasa", "home", 2996, 115, MINOR, "INTRF", "6"),
+            PenaltyIn("zirath", "away", 2996, 116, MINOR, "ROUGH", "36"),
+        ],
+        [],
+        3000,
+    )
+    assert r.strength.label == "5v5" and r.pp_chances == {"home": 0, "away": 0}
+    assert status(r, "hasa").coincidental and status(r, "zirath").coincidental
