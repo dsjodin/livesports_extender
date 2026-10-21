@@ -138,7 +138,8 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
   **Original assumption:** only -3 means missed the net. **Contradicted by the boxscores
   (checked 2026-10-20):** in all three fixture games, counting `shot` + `goal` events with
   `goalSection` **1 to 9** gives exactly the boxscore's per-team skater `SOG` sum
-  (`bdhvuc5tex` FHC 31 / LHC 29, `m01wkdm2u1` 24 / 40, `mtn5yq64mp` 44 / 14). The "-3 only"
+  (`bdhvuc5tex` FHC 31 / LHC 29, `m01wkdm2u1` 24 / 40, `mtn5yq64mp` 44 / 14 at the
+  end of the recording; 45 / 14 after the post-game corrections). The "-3 only"
   rule gives 40 / 43 for `bdhvuc5tex`. **Checked against shl.se's game report
   (2026-10-21, `mtn5yq64mp`):**
 
@@ -149,13 +150,15 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
   | -3 | Skott (täckt av spelare) | `blocked` |
   | -1 | not checked (seen once, `bdhvuc5tex` P3 19:58); likely "Ramträff" (post) | `unknown`, logged once |
 
-  (First guess was 0 blocked, -3 missed: the other way round.)
+  (First guess was 0 blocked, -3 missed: the other way round.) **Decided 2026-10-20:**
+  the engine uses `ON_GOAL_SECTIONS = 1..9`; goals always count as on goal (all goals in
+  the samples have a section 1 to 9).
 - What 1 to 9 mean (open). Probably where on the goal the shot went, but **not a clean
   3 × 3 grid**. Observations:
   - 5 and 8 are never goals although they are the most common sections: 5 only in the
     2025/26 fixture, 8 only in 2026/27 games (22–32 per game). Likely "into the goalie";
     the numbering or the scorers' habits seem to have changed between seasons.
-  - The user compared six `mtn5yq64mp` goals with the video (goalie's perspective):
+  - The user compared all eight `mtn5yq64mp` goals with the video (goalie's perspective):
 
     | Goal | Section | Where it went in |
     |---|---|---|
@@ -165,16 +168,15 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
     | P2 07:36 Wahlstrom | 2 | right post, along the ice |
     | P2 10:50 Fagemo | 3 | middle, along the ice |
     | P3 07:20 Lindholm | 4 | left post, high |
-
     | P3 09:21 Westergård | 3 | along the ice, a little towards the left post |
     | P3 17:09 Hudon | 2 | middle, along the ice (deflection) |
 
-    Both predictions from the first six (3 = middle, 2 = goalie's right) were off.
+    The last two were predicted from the first six (3 = middle, 2 = goalie's right);
+    both predictions were off.
     **Conclusion (2026-10-21):** at most a rough side tendency (low numbers towards the
     goalie's right), no reliable height; the scorers' manual entry and slow-motion
     judgement both add noise. Decided: use 1 to 9 only as "on goal"; no goal-zone
-    graphic. Shot graphics use `locationX` / `locationY` (where the shot was taken from). **Decided 2026-10-20:** the engine uses
-  `ON_GOAL_SECTIONS = 1..9`. All goals in the samples have a section 1 to 9.
+    graphic. Shot graphics use `locationX` / `locationY` (where the shot was taken from).
 - Shootout and shots: in `et9erhx0si` the home skaters' `SOG` sum is 16, which **includes
   the deciding shootout goal**; the away goalies' `SOGA` is 15, which does not. Regulation
   and overtime shots (period an int) give 15 / 23. The engine leaves the shootout out of
