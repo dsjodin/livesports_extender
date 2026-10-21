@@ -1,7 +1,10 @@
 """Snapshot sources, all async iterators of ``Snapshot`` driven by an injectable ``Clock``.
 
 - ``ReplaySource`` plays a finished game from its final play-by-play.
-- ``RecordingSource`` plays a ``polls.jsonl`` made by ``tools/record_game.py``.
+- ``RecordingSource`` plays a ``polls.jsonl`` made by ``tools/record_game.py`` or by
+  following a game live.
+
+Both can be paused, sped up and seeked (``Timeline``).
 - ``LiveSource`` follows a real game on shl.se.
 
 Replay and recording sources move the feed's timestamps onto the clock's timeline
@@ -73,7 +76,93 @@ def shift_info(info: dict[str, Any], to_clock: TimeMap) -> dict[str, Any]:
     return out
 
 
-class ReplaySource:
+class Timeline:
+    """Play, pause, speed and seek on a feed timeline, shared by the replay and recording
+    sources. ``feed_now`` is the position on the original feed's clock; ``to_clock`` maps
+    a feed time onto our clock. A seek starts a new ``epoch``: consumers start over.
+
+    Subclasses set ``start_f``/``end_f``, ``_goals`` (on-ice goal times),
+    ``_period_starts`` (period -> on-ice start) and ``_end_seek_f`` (when the game ended,
+    or None), and call ``_init_timeline`` first.
+    """
+
+    clock: Clock
+    speed: float
+    start_f: int
+    end_f: int
+    _goals: list[int]
+    _period_starts: dict[int | str, int]
+    _end_seek_f: int | None
+
+    def _init_timeline(self) -> None:
+        self.epoch = 0
+        self.paused = False
+        self._t_anchor: int | None = None
+        self._f_anchor = self.start_f
+        self._version = 0
+
+    def feed_now(self) -> int:
+        """Current position on the original feed timeline (epoch ms)."""
+        if self._t_anchor is None or self.paused:
+            return self._f_anchor
+        return self._f_anchor + round((self.clock.now_ms() - self._t_anchor) * self.speed)
+
+    def to_clock(self, feed_ms: int) -> int:
+        t_anchor = self.clock.now_ms() if self._t_anchor is None else self._t_anchor
+        return t_anchor + round((feed_ms - self._f_anchor) / self.speed)
+
+    def _reanchor(self, feed_ms: int) -> None:
+        self._f_anchor = feed_ms
+        self._t_anchor = self.clock.now_ms()
+        self._version += 1
+
+    def play(self) -> None:
+        if self.paused:
+            self.paused = False
+            self._reanchor(self._f_anchor)
+
+    def pause(self) -> None:
+        if not self.paused:
+            self._reanchor(self.feed_now())
+            self.paused = True
+
+    def set_speed(self, speed: float) -> None:
+        if speed <= 0:
+            raise ValueError("speed must be positive")
+        position = self.feed_now()
+        self.speed = speed
+        self._reanchor(position)
+
+    def seek(self, feed_ms: int) -> None:
+        """Jump to a feed time. Consumers see a new ``epoch`` and should start over."""
+        self._reanchor(min(max(feed_ms, self.start_f), self.end_f))
+        self.epoch += 1
+
+    def seek_period(self, period: int | str, before_s: float = 10.0) -> bool:
+        started = self._period_starts.get(period)
+        if started is None:
+            return False
+        self.seek(started - round(before_s * 1000))
+        return True
+
+    def seek_end(self, after_s: float = 5.0) -> bool:
+        """Seek to just after the game ended (``after_s`` past the last period's end)."""
+        if self._end_seek_f is None:
+            return False
+        self.seek(self._end_seek_f + round(after_s * 1000))
+        return True
+
+    def seek_before_next_goal(self, before_s: float = 10.0) -> bool:
+        """Seek to ``before_s`` before the next goal's on-ice moment."""
+        now = self.feed_now()
+        i = bisect.bisect_right(self._goals, now + round(before_s * 1000))
+        if i == len(self._goals):
+            return False
+        self.seek(self._goals[i] - round(before_s * 1000))
+        return True
+
+
+class ReplaySource(Timeline):
     """Replays a finished game from its final play-by-play and game-info.
 
     Each event appears ``lag_s`` (per raw type) after its ``realWorldTime``; a period
@@ -155,11 +244,15 @@ class ReplaySource:
         self.start_f = min(s for s, _, _ in self._periods) - period_lag - round(pregame_s * 1000)
         self.end_f = max(last_vis, self._post_game_f or last_vis) + round(tail_s * 1000)
 
-        self.epoch = 0
-        self.paused = False
-        self._t_anchor: int | None = None
-        self._f_anchor = self.start_f
-        self._version = 0
+        self._period_starts = {
+            item["period"]: started
+            for item in pbp_full
+            if isinstance(item, dict)
+            and item.get("type") == "period"
+            and (started := parse_local_ms(item.get("startedAt"))) is not None
+        }
+        self._end_seek_f = self._ended_f
+        self._init_timeline()
         self._cache_key: tuple[Any, ...] | None = None
         self._cache: tuple[dict[str, Any], list[dict[str, Any]]] | None = None
 
@@ -171,41 +264,7 @@ class ReplaySource:
         info = json.loads((fixtures / f"game_info_{game_uuid}.json").read_text(encoding="utf-8"))
         return cls(pbp, info, clock, **kwargs)
 
-    # --- timeline -------------------------------------------------------------------
-
-    def feed_now(self) -> int:
-        """Current position on the original feed timeline (epoch ms)."""
-        if self._t_anchor is None or self.paused:
-            return self._f_anchor
-        return self._f_anchor + round((self.clock.now_ms() - self._t_anchor) * self.speed)
-
-    def to_clock(self, feed_ms: int) -> int:
-        t_anchor = self.clock.now_ms() if self._t_anchor is None else self._t_anchor
-        return t_anchor + round((feed_ms - self._f_anchor) / self.speed)
-
-    def _reanchor(self, feed_ms: int) -> None:
-        self._f_anchor = feed_ms
-        self._t_anchor = self.clock.now_ms()
-        self._version += 1
-
     # --- controls -------------------------------------------------------------------
-
-    def play(self) -> None:
-        if self.paused:
-            self.paused = False
-            self._reanchor(self._f_anchor)
-
-    def pause(self) -> None:
-        if not self.paused:
-            self._reanchor(self.feed_now())
-            self.paused = True
-
-    def set_speed(self, speed: float) -> None:
-        if speed <= 0:
-            raise ValueError("speed must be positive")
-        position = self.feed_now()
-        self.speed = speed
-        self._reanchor(position)
 
     def follow(self, main: "ReplaySource") -> None:
         """Run on ``main``'s timeline: same position, speed and pause (for the evening's
@@ -216,36 +275,6 @@ class ReplaySource:
         self._version += 1
         if jumped:
             self.epoch += 1
-
-    def seek(self, feed_ms: int) -> None:
-        """Jump to a feed time. Consumers see a new ``epoch`` and should start over."""
-        self._reanchor(min(max(feed_ms, self.start_f), self.end_f))
-        self.epoch += 1
-
-    def seek_period(self, period: int | str, before_s: float = 10.0) -> bool:
-        for _, _, item in self._periods:
-            if item.get("period") == period:
-                started = parse_local_ms(item.get("startedAt"))
-                if started is not None:
-                    self.seek(started - round(before_s * 1000))
-                    return True
-        return False
-
-    def seek_end(self, after_s: float = 5.0) -> bool:
-        """Seek to just after the game ended (``after_s`` past the last period's end)."""
-        if self._ended_f is None:
-            return False
-        self.seek(self._ended_f + round(after_s * 1000))
-        return True
-
-    def seek_before_next_goal(self, before_s: float = 10.0) -> bool:
-        """Seek to ``before_s`` before the next goal's on-ice moment."""
-        now = self.feed_now()
-        i = bisect.bisect_right(self._goals, now + round(before_s * 1000))
-        if i == len(self._goals):
-            return False
-        self.seek(self._goals[i] - round(before_s * 1000))
-        return True
 
     # --- rendering ------------------------------------------------------------------
 
@@ -304,13 +333,16 @@ class ReplaySource:
             await self.clock.sleep(self.poll_s / self.speed)
 
 
-class RecordingSource:
+class RecordingSource(Timeline):
     """Replays a ``polls.jsonl`` recording with its original spacing, scaled by ``speed``.
 
     Each successful game-info or play-by-play row becomes one snapshot carrying the latest
     body of both (rows store a body only when it changed). ``available_ms`` comes from the
     row's Age header when recorded. With ``skip_to_first_event`` the replay starts 60 s
     before the first play-by-play row with an event, skipping the hours of pre-game polls.
+    Play, pause, speed and seek work as for ``ReplaySource``; the seek targets (goals,
+    period starts, the end) come from the last play-by-play in the recording, and a seek
+    shows what had been received by then.
     """
 
     def __init__(
@@ -335,6 +367,7 @@ class RecordingSource:
         if not self.rows:
             raise ValueError(f"{path}: no game-info or play-by-play rows")
         self.start_f = self.rows[0]["received_ms"]
+        self.end_f = self.rows[-1]["received_ms"]
         if skip_to_first_event:
             for row in self.rows:
                 body = row.get("body")
@@ -342,51 +375,116 @@ class RecordingSource:
                 if row["endpoint"] == "play-by-play" and has_event:
                     self.start_f = max(self.start_f, row["received_ms"] - 60_000)
                     break
+        self._index_final()
+        self._init_timeline()
+        self._shifted: dict[str, tuple[tuple[int, int], Any]] = {}
+
+    def _index_final(self) -> None:
+        """Seek targets from the last play-by-play body (the most complete one)."""
+        final: list[dict[str, Any]] = next(
+            (
+                [e for e in row["body"] if isinstance(e, dict)]
+                for row in reversed(self.rows)
+                if row["endpoint"] == "play-by-play" and isinstance(row.get("body"), list)
+            ),
+            [],
+        )
+        self._goals = sorted(
+            at
+            for e in final
+            if e.get("type") == "goal"
+            and isinstance(e.get("period"), int)
+            and (at := parse_local_ms(e.get("realWorldTime"))) is not None
+        )
+        periods = [e for e in final if e.get("type") == "period"]
+        self._period_starts = {
+            e["period"]: at for e in periods if (at := parse_local_ms(e.get("startedAt")))
+        }
+        ended = any(e.get("gameState") == "GameEnded" for e in final)
+        finishes = [at for e in periods if (at := parse_local_ms(e.get("finishedAt")))]
+        self._end_seek_f = max(finishes) if ended and finishes else None
 
     def __aiter__(self) -> AsyncIterator[Snapshot]:
         return self._run()
 
+    def _restore(self, position: int) -> tuple[int, dict[str, Any]]:
+        """The latest bodies received before ``position``; returns the next row's index."""
+        latest: dict[str, Any] = {"info": None, "pbp": None, "avail_f": None, "age": None}
+        i = 0
+        while i < len(self.rows) and self.rows[i]["received_ms"] < position:
+            self._take(latest, self.rows[i])
+            i += 1
+        return i, latest
+
+    @staticmethod
+    def _take(latest: dict[str, Any], row: dict[str, Any]) -> None:
+        if row.get("status") != 200:
+            return
+        body = row.get("body")
+        if row["endpoint"] == "game-info":
+            if isinstance(body, dict):
+                latest["info"] = body
+        elif isinstance(body, list):
+            latest["pbp"] = body
+            age = row.get("age") if isinstance(row.get("age"), int) else None
+            latest["age"] = age
+            latest["avail_f"] = row["received_ms"] - (age or 0) * 1000
+
+    def _shift(self, name: str, body: Any) -> Any:
+        """``body`` moved onto the clock; the same object until it or the mapping changes."""
+        if body is None:
+            return None
+        key = (id(body), self._version)
+        cached = self._shifted.get(name)
+        if cached is None or cached[0] != key:
+            if name == "info":
+                value: Any = shift_info(body, self.to_clock)
+            else:
+                value = [shift_item(e, self.to_clock) for e in body if isinstance(e, dict)]
+            cached = (key, value)
+            self._shifted[name] = cached
+        return cached[1]
+
+    def _snapshot(self, latest: dict[str, Any], feed_ms: int) -> Snapshot:
+        now = self.to_clock(feed_ms)
+        avail = latest["avail_f"]
+        return Snapshot(
+            received_ms=now,
+            game_info=self._shift("info", latest["info"]),
+            pbp=self._shift("pbp", latest["pbp"]),
+            available_ms=self.to_clock(avail) if avail is not None else now,
+            age_s=latest["age"],
+            epoch=self.epoch,
+            feed_ms=feed_ms,
+        )
+
     async def _run(self) -> AsyncIterator[Snapshot]:
-        t0 = self.clock.now_ms()
-
-        def to_clock(feed_ms: int) -> int:
-            return t0 + round((feed_ms - self.start_f) / self.speed)
-
-        info: dict[str, Any] | None = None
-        pbp: list[dict[str, Any]] | None = None
-        raw_info: dict[str, Any] | None = None
-        available: int | None = None
-        age: int | None = None
-        for row in self.rows:
-            received = row["received_ms"]
-            if received >= self.start_f:
-                wait_ms = to_clock(received) - self.clock.now_ms()
-                if wait_ms > 0:
-                    await self.clock.sleep(wait_ms / 1000)
-            if row.get("status") != 200:
+        if self._t_anchor is None:
+            self._t_anchor = self.clock.now_ms()
+        epoch = self.epoch
+        i, latest = self._restore(self.feed_now())
+        while i < len(self.rows):
+            if self.epoch != epoch:
+                # a seek: start over from what had been received by the new position
+                epoch = self.epoch
+                position = self.feed_now()
+                i, latest = self._restore(position)
+                if latest["info"] is not None or latest["pbp"] is not None:
+                    yield self._snapshot(latest, position)
                 continue
-            body = row.get("body")
-            if row["endpoint"] == "game-info":
-                if isinstance(body, dict):
-                    raw_info = body
-                    info = shift_info(body, to_clock)
-            elif isinstance(body, list):
-                pbp = [shift_item(e, to_clock) for e in body if isinstance(e, dict)]
-                age = row.get("age") if isinstance(row.get("age"), int) else None
-                available = to_clock(received - (age or 0) * 1000)
-            if received < self.start_f:
+            row = self.rows[i]
+            if self.paused:
+                await self.clock.sleep(0.5)
                 continue
-            if info is None and raw_info is not None:
-                info = shift_info(raw_info, to_clock)
-            now = to_clock(received)
-            yield Snapshot(
-                received_ms=now,
-                game_info=info,
-                pbp=pbp,
-                available_ms=available if available is not None else now,
-                age_s=age,
-                feed_ms=received,
-            )
+            wait_ms = self.to_clock(row["received_ms"]) - self.clock.now_ms()
+            if wait_ms > 0:
+                # in steps, so a pause or a seek is picked up within a second
+                await self.clock.sleep(min(wait_ms, 1000) / 1000)
+                continue
+            self._take(latest, row)
+            i += 1
+            if row.get("status") == 200:
+                yield self._snapshot(latest, row["received_ms"])
 
 
 LIVE_FAST_S = 2.0

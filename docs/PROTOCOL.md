@@ -263,7 +263,7 @@ auth in front if it is ever exposed).
 | `GET /api/schedule/recent?days=30` | | Finished games (for replay selection) |
 | `POST /api/game` | `{"uuid", "my_side": "home"\|"away"\|"none"\|null}` | Select a game to follow; `"none"`: no side is mine, `null`: my side follows my team |
 | `POST /api/source` | `{"mode": "live"\|"replay"\|"recording"\|"none", "uuid"?, "path"?, "speed"?}` | Choose the data source. `live` needs `uuid` and polls shl.se for that game (CLAUDE.md rule 5); a game that is already over is read once. Every live poll is also saved to `data/recordings/<uuid>/polls.jsonl` (the `tools/record_game.py` format, plus boxscore and team-stats at the final refresh), so it can be replayed as `recording` and analysed |
-| `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"\|"end"}` | Replay control |
+| `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"\|"end"}` | Replay and recording control (live: 400, nothing to pause or seek). A recording seeks to the on-ice times in its last play-by-play and shows what had been received by then; a seek after the end reads on from the new position |
 | `POST /api/offset` | `{"profile": "iptv", "seconds": 40.0}` | Set a TV profile's delay behind the arena |
 | `POST /api/offset/nudge` | `{"delta": 0.5}` | Adjust the active profile's offset |
 | `POST /api/profile` | `{"profile": "iptv"\|"tv4play"}` | Switch TV profile |

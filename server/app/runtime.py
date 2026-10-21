@@ -37,7 +37,7 @@ from app.feed.league import LeagueService
 from app.feed.polllog import PollLog
 from app.feed.schedule import ScheduleService
 from app.feed.snapshot import Snapshot
-from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
+from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource, Timeline
 from app.others import OtherGames
 from app.teams import TeamColors
 
@@ -771,8 +771,9 @@ class Runtime:
         self, action: str, speed: float | None = None, to: str | None = None
     ) -> None:
         source = self.source
-        if not isinstance(source, ReplaySource):
-            raise SourceError("no replay is running")
+        if not isinstance(source, Timeline):
+            # live: shl.se is the clock, nothing to pause or seek
+            raise SourceError("only a replay or a recording can be paused or seeked")
         if action == "play":
             source.play()
         elif action == "pause":
@@ -805,6 +806,9 @@ class Runtime:
                 raise SourceError(f"unknown seek target {to!r}")
             if not ok:
                 raise SourceError(f"nothing to seek to for {to!r}")
+            if self._source_task is not None and self._source_task.done():
+                # it had played to the end: read on from the new position
+                self._source_task = asyncio.get_running_loop().create_task(self._run_source(source))
         else:
             raise SourceError(f"unknown replay action {action!r}")
         self.others.follow_main()
@@ -1001,7 +1005,7 @@ class Runtime:
         self._scenes(self.director.clear_override(self.clock.now_ms() + self.lead_ms))
 
     def status(self) -> dict[str, Any]:
-        source = self.source if isinstance(self.source, ReplaySource) else None
+        source = self.source if isinstance(self.source, Timeline) else None
         return {
             "source": self.config.source.model_dump(),
             "running": self._source_task is not None and not self._source_task.done(),

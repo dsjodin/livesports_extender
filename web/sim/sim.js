@@ -171,6 +171,11 @@ function showStatus() {
   $("webhook-state").textContent = hooks.enabled ? `on${hooks.pending ? `, ${hooks.pending} waiting` : ""}` : hooks.url_set ? "off" : "no URL set";
   const src = status.source ?? {};
   $("playpause").textContent = status.paused ? "Play" : "Pause";
+  // replays and recordings can be paused and seeked; live and none cannot
+  const seekable = src.mode === "replay" || src.mode === "recording";
+  for (const id of ["playpause", "next-period", "next-goal", "end"]) $(id).disabled = !seekable;
+  for (const b of $("speeds").children) b.disabled = !seekable;
+  $("replay-note").textContent = seekable ? "" : src.mode === "live" ? "Following live: shl.se sets the pace, nothing to pause or seek." : "Start a replay or a recording to use these.";
   for (const b of $("speeds").children) b.classList.toggle("on", Number(b.dataset.speed) === src.speed);
   const tv = store.tv ?? {};
   const lines = [
