@@ -56,7 +56,7 @@ Tasks:
 
 1. **Repo skeleton.** `server/pyproject.toml` (uv, FastAPI, uvicorn, httpx, pydantic v2,
    pytest, pytest-asyncio, ruff), `server/app/main.py` with `GET /api/health` and a static
-   mount of `web/`, `Dockerfile` (python:3.12-slim), `compose.yaml` (port 8080, volume
+   mount of `web/`, `Dockerfile` (python:3.12-slim), `compose.yaml` (port 8010, volume
    `./data:/data`, env file), `.gitignore`, ruff and pytest config.
 2. **`tools/fetch_fixtures.py`.** Fetch and save pretty-printed JSON into
    `server/tests/fixtures/` (file names as listed):

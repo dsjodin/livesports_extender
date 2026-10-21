@@ -210,7 +210,7 @@ async def main() -> int:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("--base", default="http://localhost:8080")
+    parser.add_argument("--base", default="http://localhost:8010")
     parser.add_argument("--game", default="bdhvuc5tex")
     parser.add_argument("--out", type=Path, default=REPO_ROOT / "artifacts" / "snapshots")
     parser.add_argument("--flow", action="store_true", help="check the whole replay instead")
