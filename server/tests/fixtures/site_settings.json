@@ -146,6 +146,313 @@
   },
   "teamsInSite": [
     {
+      "uuid": "1ab8-1ab8bfj7N",
+      "createdAt": null,
+      "createdBy": null,
+      "deleted": false,
+      "gender": "male",
+      "graphicsLibrary": "bif1-bif-713a5",
+      "lastModified": "2024-10-31T17:06:28.000Z",
+      "nationality": "sv",
+      "ownerInstanceId": "bif1_bif",
+      "ownersite": "BIF",
+      "teamCode": "BIF",
+      "series": [
+        {
+          "uuid": "qQ9-bb0bzEWUk",
+          "code": "SHL",
+          "createdAt": null,
+          "createdBy": null,
+          "deleted": false,
+          "lastModified": "2023-03-01T13:47:40.000Z",
+          "displayName": "SHL",
+          "names": [
+            {
+              "language": "sv",
+              "translation": "SHL"
+            },
+            {
+              "language": "en",
+              "translation": "SHL"
+            }
+          ]
+        }
+      ],
+      "sport": [
+        {
+          "uuid": "qQ9-bd0dSLh6k",
+          "code": "hockey",
+          "createdAt": null,
+          "createdBy": null,
+          "deleted": false,
+          "lastModified": "2022-09-28T13:18:06.000Z"
+        }
+      ],
+      "teamMedia": [
+        {
+          "id": 1006,
+          "mediaString": "image|ramses|22/08/b1bf9baf857c502fc15ab727b0405f32",
+          "sortOrder": 0,
+          "type": "squad"
+        }
+      ],
+      "teamNames": {
+        "code": "BIF",
+        "short": "Brynäs",
+        "long": "Brynäs IF",
+        "full": "Brynäs Idrottsförening",
+        "codeSite": "BIF",
+        "shortSite": "Brynäs",
+        "fullSite": "Brynäs Idrottsförening",
+        "longSite": "Brynäs IF"
+      },
+      "clubName": {
+        "code": "BIF",
+        "short": "Brynäs",
+        "long": "Brynäs IF",
+        "full": "Brynäs Idrottsförening"
+      },
+      "teamInfo": {
+        "founded": "1912",
+        "golds": "13 (1964, 1966, 1967, 1968, 1970, 1971, 1972, 1976, 1977, 1980, 1993, 1999, 2012).",
+        "finals": "11* (1966, 1967, 1975, 1976, 1977, 1980, 1993, 1995, 1999, 2012, 2017).\r\n\r\n*Vissa guld togs efter seriespel, därav färre antal finaler än SM-guld",
+        "retiredNumbers": "#06 Tord Lundström\r\n#26 Anders Huss",
+        "address": "Brynäs IF, Gavlehovsvägen 13, 806 33 Gävle",
+        "email": "info@brynas.se",
+        "facebook": "https://www.facebook.com/brynasif/",
+        "instagram": "https://www.instagram.com/brynas__if/",
+        "twitter": "https://twitter.com/Brynas"
+      },
+      "teamExtIds": [
+        {
+          "id": 3,
+          "extId": "BIF",
+          "locked": true,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
+          }
+        },
+        {
+          "id": 4,
+          "extId": "3",
+          "locked": true,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
+          }
+        }
+      ],
+      "extIds": [
+        {
+          "id": 3,
+          "extId": "BIF",
+          "locked": true,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
+          }
+        },
+        {
+          "id": 4,
+          "extId": "3",
+          "locked": true,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
+          }
+        }
+      ],
+      "logo": "https://sportality.cdn.s8y.se/team-logos/bif1_bif.svg",
+      "socialMedia": [],
+      "displayName": "",
+      "icon": "https://sportality.cdn.s8y.se/team-logos/bif1_bif.svg",
+      "siteInstanceId": "shl1_shl",
+      "id": "1ab8-1ab8bfj7N",
+      "instanceId": "bif1_bif",
+      "publicUrl": "http://www.brynas.se/",
+      "name": "Brynäs",
+      "socialMediaInformation": [
+        {
+          "url": "https://www.facebook.com/brynasif/",
+          "type": "facebook"
+        },
+        {
+          "url": "https://www.instagram.com/brynas__if/",
+          "type": "instagram"
+        },
+        {
+          "url": "https://twitter.com/Brynas",
+          "type": "twitter"
+        }
+      ]
+    },
+    {
+      "uuid": "2459-2459QTs1f",
+      "createdAt": null,
+      "createdBy": null,
+      "deleted": false,
+      "gender": "male",
+      "graphicsLibrary": "dif1-dif-896f9",
+      "lastModified": "2025-09-18T21:35:41.000Z",
+      "nationality": "sv",
+      "ownerInstanceId": "dif1_dif",
+      "ownersite": "DIF",
+      "teamCode": "DIF",
+      "series": [
+        {
+          "uuid": "qQ9-bb0bzEWUk",
+          "code": "SHL",
+          "createdAt": null,
+          "createdBy": null,
+          "deleted": false,
+          "lastModified": "2023-03-01T13:47:40.000Z",
+          "displayName": "SHL",
+          "names": [
+            {
+              "language": "sv",
+              "translation": "SHL"
+            },
+            {
+              "language": "en",
+              "translation": "SHL"
+            }
+          ]
+        }
+      ],
+      "sport": [
+        {
+          "uuid": "qQ9-bd0dSLh6k",
+          "code": "hockey",
+          "createdAt": null,
+          "createdBy": null,
+          "deleted": false,
+          "lastModified": "2022-09-28T13:18:06.000Z"
+        }
+      ],
+      "teamMedia": [],
+      "teamNames": {
+        "code": "DIF",
+        "short": "Djurgården",
+        "long": "Djurgårdens IF",
+        "full": "Djurgården Hockey",
+        "codeSite": "DIF Herr",
+        "shortSite": "Djurgården Herr",
+        "fullSite": "Djurgården Hockey Herr",
+        "longSite": "Djurgården Hockey Herr"
+      },
+      "clubName": {},
+      "teamInfo": {
+        "founded": "1891",
+        "golds": "16 st (1926, 1950, 1954, 1955, 1958, 1959, 1960, 1961, 1962, 1963, 1983, 1989, 1990, 1991, 2000, 2001)",
+        "finals": "26 st (1923, 1924, 1926, 1927, 1950, 1954, 1955, 1958, 1959, 1960, 1961, 1962, 1963, 1979, 1983, 1984, 1985, 1989, 1990, 1991, 1992, 1998, 2000, 2001, 2010, 2019)",
+        "retiredNumbers": "#2 Roland Stoltz\r\n#2 Charles Berglund\r\n#5 Sven Tumba\r\n#11 Jens Öhling\r\n#12 Lasse Björn\r\n#16 Nichlas Falk\r\n#22 Håkan Södergren\r\n#25 Mikael Johansson\r\n#27 Thomas Eriksson",
+        "address": "Djurgården Hockey AB\r\nLindetorpsvägen 25\r\nBox 2\r\n121 25 STOCKHOLM-GLOBEN",
+        "phone": "08-600 81 00",
+        "fax": "08-600 81 99",
+        "chairman": "Kaarel Lehiste",
+        "accreditation": "Senast dagen före match till ackreditering@difhockey.se."
+      },
+      "teamExtIds": [
+        {
+          "id": 6,
+          "extId": "2",
+          "locked": false,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 5,
+          "extId": "DIF",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
+          }
+        }
+      ],
+      "extIds": [
+        {
+          "id": 6,
+          "extId": "2",
+          "locked": false,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 5,
+          "extId": "DIF",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
+          }
+        }
+      ],
+      "logo": "https://sportality.cdn.s8y.se/team-logos/dif1_dif.svg",
+      "socialMedia": [],
+      "displayName": "",
+      "icon": "https://sportality.cdn.s8y.se/team-logos/dif1_dif.svg",
+      "siteInstanceId": "shl1_shl",
+      "id": "2459-2459QTs1f",
+      "instanceId": "dif1_dif",
+      "publicUrl": "http://www.difhockey.se/",
+      "name": "Djurgårdens IF Hockey",
+      "socialMediaInformation": []
+    },
+    {
       "uuid": "752c-752c12zB7Z",
       "createdAt": null,
       "createdBy": null,
@@ -230,21 +537,6 @@
       },
       "teamExtIds": [
         {
-          "id": 8,
-          "extId": "6",
-          "locked": true,
-          "extIdType": {
-            "uuid": "7b6a-e633fcdB7",
-            "code": "ramses_legacy",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": false,
-            "name": "Ramses gammalt id"
-          }
-        },
-        {
           "id": 7,
           "extId": "FBK",
           "locked": true,
@@ -257,26 +549,26 @@
             "lastModified": null,
             "visible": true,
             "name": "ISA / Statnet"
+          }
+        },
+        {
+          "id": 8,
+          "extId": "6",
+          "locked": true,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
           }
         }
       ],
       "extIds": [
         {
-          "id": 8,
-          "extId": "6",
-          "locked": true,
-          "extIdType": {
-            "uuid": "7b6a-e633fcdB7",
-            "code": "ramses_legacy",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": false,
-            "name": "Ramses gammalt id"
-          }
-        },
-        {
           "id": 7,
           "extId": "FBK",
           "locked": true,
@@ -289,6 +581,21 @@
             "lastModified": null,
             "visible": true,
             "name": "ISA / Statnet"
+          }
+        },
+        {
+          "id": 8,
+          "extId": "6",
+          "locked": true,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
           }
         }
       ],
@@ -689,240 +996,6 @@
       ]
     },
     {
-      "uuid": "259b-259bYGVIp",
-      "createdAt": null,
-      "createdBy": null,
-      "deleted": false,
-      "gender": "male",
-      "graphicsLibrary": "iko1-iko-891ab",
-      "lastModified": "2024-11-08T11:34:03.000Z",
-      "nationality": "sv",
-      "ownerInstanceId": "iko1_iko",
-      "ownersite": "IKO",
-      "teamCode": "IKO",
-      "series": [
-        {
-          "uuid": "qQ9-594cW8OWD",
-          "code": "HA",
-          "createdAt": null,
-          "createdBy": null,
-          "deleted": false,
-          "lastModified": "2024-02-15T08:21:41.000Z",
-          "displayName": "HA",
-          "names": [
-            {
-              "language": "sv",
-              "translation": "HockeyAllsvenskan"
-            },
-            {
-              "language": "en",
-              "translation": "HockeyAllsvenskan"
-            },
-            {
-              "language": "display",
-              "translation": "HA"
-            }
-          ]
-        }
-      ],
-      "sport": [
-        {
-          "uuid": "qQ9-bd0dSLh6k",
-          "code": "hockey",
-          "createdAt": null,
-          "createdBy": null,
-          "deleted": false,
-          "lastModified": "2022-09-28T13:18:06.000Z"
-        }
-      ],
-      "teamMedia": [
-        {
-          "id": 898,
-          "mediaString": "image|ramses|21/09/9eb68f3794d3c79d0d190cd94efeb56e",
-          "sortOrder": 0,
-          "type": "squad"
-        }
-      ],
-      "teamNames": {
-        "code": "IKO",
-        "short": "Oskarshamn",
-        "long": "IK Oskarshamn",
-        "full": "Ishockeyklubben Oskarshamn",
-        "codeSite": "IKO",
-        "shortSite": "Oskarshamn",
-        "fullSite": "Ishockeyklubben Oskarshamn",
-        "longSite": "IK Oskarshamn"
-      },
-      "clubName": {
-        "code": "IKO",
-        "short": "Oskarshamn",
-        "long": "IK Oskarshamn",
-        "full": "Ishockeyklubben Oskarshamn"
-      },
-      "teamInfo": {
-        "founded": "1970",
-        "golds": "–",
-        "finals": "–",
-        "retiredNumbers": "#4 Skeeter Moore \r\n#5 Peter Ekroth \r\n#12 Alexander Johansson \r\n#15 Fredric Jaensson\r\n#28 Tomas Gustafsson",
-        "address": "IK Oskarshamn, Döderhultsvägen 5B, 572 31 Oskarshamn",
-        "phone": "0491-38 22 00",
-        "email": "info@ikoskarshamn.se",
-        "chairman": "Johan Franzén",
-        "manager": "Martin Åkerberg",
-        "accreditation": "Gustav Backlund, gustav@ikoskarshamn.se",
-        "facebook": "https://www.facebook.com/ikoskarshamn",
-        "instagram": "https://www.instagram.com/iko_officiell/",
-        "twitter": "https://twitter.com/iko_officiell"
-      },
-      "teamExtIds": [
-        {
-          "id": 820,
-          "extId": "IKO",
-          "locked": true,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
-          "id": 502,
-          "extId": "49095",
-          "locked": true,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 233,
-          "extId": "42847",
-          "locked": true,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 130,
-          "extId": "36820",
-          "locked": true,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        }
-      ],
-      "extIds": [
-        {
-          "id": 820,
-          "extId": "IKO",
-          "locked": true,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
-          "id": 502,
-          "extId": "49095",
-          "locked": true,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 233,
-          "extId": "42847",
-          "locked": true,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 130,
-          "extId": "36820",
-          "locked": true,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        }
-      ],
-      "logo": "https://sportality.cdn.s8y.se/team-logos/iko1_iko.svg",
-      "socialMedia": [],
-      "displayName": "",
-      "icon": "https://sportality.cdn.s8y.se/team-logos/iko1_iko.svg",
-      "siteInstanceId": "shl1_shl",
-      "id": "259b-259bYGVIp",
-      "instanceId": "iko1_iko",
-      "publicUrl": "http://www.ikoskarshamn.se/",
-      "name": "Oskarshamn",
-      "socialMediaInformation": [
-        {
-          "url": "https://www.facebook.com/ikoskarshamn",
-          "type": "facebook"
-        },
-        {
-          "url": "https://www.instagram.com/iko_officiell/",
-          "type": "instagram"
-        },
-        {
-          "url": "https://twitter.com/iko_officiell",
-          "type": "twitter"
-        }
-      ]
-    },
-    {
       "uuid": "41c4-41c4BiYZU",
       "createdAt": "2018-05-15T19:07:27.000Z",
       "createdBy": null,
@@ -1002,21 +1075,6 @@
       },
       "teamExtIds": [
         {
-          "id": 15,
-          "extId": "LHC",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 16,
           "extId": "1",
           "locked": false,
@@ -1029,26 +1087,26 @@
             "lastModified": null,
             "visible": false,
             "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 15,
+          "extId": "LHC",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
       "extIds": [
         {
-          "id": 15,
-          "extId": "LHC",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 16,
           "extId": "1",
           "locked": false,
@@ -1061,6 +1119,21 @@
             "lastModified": null,
             "visible": false,
             "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 15,
+          "extId": "LHC",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
@@ -1168,21 +1241,6 @@
       },
       "teamExtIds": [
         {
-          "id": 17,
-          "extId": "LHF",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 18,
           "extId": "8",
           "locked": false,
@@ -1195,26 +1253,26 @@
             "lastModified": null,
             "visible": false,
             "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 17,
+          "extId": "LHF",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
       "extIds": [
         {
-          "id": 17,
-          "extId": "LHF",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 18,
           "extId": "8",
           "locked": false,
@@ -1227,6 +1285,21 @@
             "lastModified": null,
             "visible": false,
             "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 17,
+          "extId": "LHF",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
@@ -1333,38 +1406,8 @@
       },
       "teamExtIds": [
         {
-          "id": 19,
-          "extId": "LIF",
-          "locked": true,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
-          "id": 20,
-          "extId": "15",
-          "locked": true,
-          "extIdType": {
-            "uuid": "7b6a-e633fcdB7",
-            "code": "ramses_legacy",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": false,
-            "name": "Ramses gammalt id"
-          }
-        },
-        {
-          "id": 218,
-          "extId": "36759",
+          "id": 496,
+          "extId": "49089",
           "locked": true,
           "extIdType": {
             "uuid": "9f4c-1284S7mMn",
@@ -1393,8 +1436,8 @@
           }
         },
         {
-          "id": 496,
-          "extId": "49089",
+          "id": 218,
+          "extId": "36759",
           "locked": true,
           "extIdType": {
             "uuid": "9f4c-1284S7mMn",
@@ -1405,43 +1448,43 @@
             "lastModified": "2016-12-01T17:20:56.000Z",
             "visible": true,
             "name": "Impleo / Swehockey: Serie lagid"
+          }
+        },
+        {
+          "id": 20,
+          "extId": "15",
+          "locked": true,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 19,
+          "extId": "LIF",
+          "locked": true,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
       "extIds": [
         {
-          "id": 19,
-          "extId": "LIF",
-          "locked": true,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
-          "id": 20,
-          "extId": "15",
-          "locked": true,
-          "extIdType": {
-            "uuid": "7b6a-e633fcdB7",
-            "code": "ramses_legacy",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": false,
-            "name": "Ramses gammalt id"
-          }
-        },
-        {
-          "id": 218,
-          "extId": "36759",
+          "id": 496,
+          "extId": "49089",
           "locked": true,
           "extIdType": {
             "uuid": "9f4c-1284S7mMn",
@@ -1470,8 +1513,8 @@
           }
         },
         {
-          "id": 496,
-          "extId": "49089",
+          "id": 218,
+          "extId": "36759",
           "locked": true,
           "extIdType": {
             "uuid": "9f4c-1284S7mMn",
@@ -1482,6 +1525,36 @@
             "lastModified": "2016-12-01T17:20:56.000Z",
             "visible": true,
             "name": "Impleo / Swehockey: Serie lagid"
+          }
+        },
+        {
+          "id": 20,
+          "extId": "15",
+          "locked": true,
+          "extIdType": {
+            "uuid": "7b6a-e633fcdB7",
+            "code": "ramses_legacy",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": false,
+            "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 19,
+          "extId": "LIF",
+          "locked": true,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
@@ -1574,21 +1647,6 @@
       },
       "teamExtIds": [
         {
-          "id": 21,
-          "extId": "MIF",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 22,
           "extId": "17",
           "locked": false,
@@ -1601,26 +1659,26 @@
             "lastModified": null,
             "visible": false,
             "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 21,
+          "extId": "MIF",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
       "extIds": [
         {
-          "id": 21,
-          "extId": "MIF",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 22,
           "extId": "17",
           "locked": false,
@@ -1633,6 +1691,21 @@
             "lastModified": null,
             "visible": false,
             "name": "Ramses gammalt id"
+          }
+        },
+        {
+          "id": 21,
+          "extId": "MIF",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
@@ -1653,355 +1726,6 @@
         {
           "url": "https://instagram.com/malmoredhawks",
           "type": "instagram"
-        }
-      ]
-    },
-    {
-      "uuid": "110b-110bJcIAI",
-      "createdAt": null,
-      "createdBy": null,
-      "deleted": false,
-      "gender": "male",
-      "graphicsLibrary": "modo1-modo-94498",
-      "lastModified": "2025-03-06T08:36:43.000Z",
-      "nationality": "sv",
-      "ownerInstanceId": "modo1_modo",
-      "ownersite": "MODO",
-      "teamCode": "MODO",
-      "series": [
-        {
-          "uuid": "qQ9-594cW8OWD",
-          "code": "HA",
-          "createdAt": null,
-          "createdBy": null,
-          "deleted": false,
-          "lastModified": "2024-02-15T08:21:41.000Z",
-          "displayName": "HA",
-          "names": [
-            {
-              "language": "sv",
-              "translation": "HockeyAllsvenskan"
-            },
-            {
-              "language": "en",
-              "translation": "HockeyAllsvenskan"
-            },
-            {
-              "language": "display",
-              "translation": "HA"
-            }
-          ]
-        }
-      ],
-      "sport": [
-        {
-          "uuid": "qQ9-bd0dSLh6k",
-          "code": "hockey",
-          "createdAt": null,
-          "createdBy": null,
-          "deleted": false,
-          "lastModified": "2022-09-28T13:18:06.000Z"
-        }
-      ],
-      "teamMedia": [
-        {
-          "id": 865,
-          "mediaString": "image|ramses|21/09/f64da51234cb76f6fd5a3885df6cbd14",
-          "sortOrder": 0,
-          "type": "squad"
-        }
-      ],
-      "teamNames": {
-        "code": "MoDo",
-        "short": "MoDo",
-        "long": "MoDo Hockey",
-        "full": "MoDo Hockey",
-        "codeSite": "MoDo",
-        "shortSite": "MoDo",
-        "fullSite": "MoDo Hockey",
-        "longSite": "MoDo Herrar"
-      },
-      "clubName": {},
-      "teamInfo": {
-        "founded": "1921",
-        "golds": "2 st (1979, 2007)",
-        "finals": "6 st (1979, 1994, 1999, 2000, 2002, 2007)",
-        "retiredNumbers": "# 03 Mattias Timander\r\n# 04 Nicke Johansson\r\n# 08 Per Lundqvist\r\n# 09 Magnus Wernblom\r\n# 16 Anders Hedberg\r\n# 21 Peter Forsberg\r\n# 39 Per Svartvadet",
-        "address": "Viktoriaesplanaden 1A\r\nBox 49\r\n891 33 ÖRNSKÖLDSVIK",
-        "phone": "0660-216600",
-        "fax": "0660-216600",
-        "email": "fornamn.efternamn@modohockey.se",
-        "chairman": "Ulf Strinnholm",
-        "accreditation": "ackred@modohockey.se",
-        "instagram": "https://www.instagram.com/modo_hockey/",
-        "facebook": "https://www.facebook.com/modo1921/",
-        "twitter": "https://x.com/MoDo_Hockey"
-      },
-      "teamExtIds": [
-        {
-          "id": 132,
-          "extId": "36822",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 2332,
-          "extId": "69625",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 1463,
-          "extId": "62519",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 825,
-          "extId": "55958",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 499,
-          "extId": "49092",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 236,
-          "extId": "42850",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 24,
-          "extId": "9",
-          "locked": false,
-          "extIdType": {
-            "uuid": "7b6a-e633fcdB7",
-            "code": "ramses_legacy",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": false,
-            "name": "Ramses gammalt id"
-          }
-        },
-        {
-          "id": 23,
-          "extId": "MODO",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        }
-      ],
-      "extIds": [
-        {
-          "id": 132,
-          "extId": "36822",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 2332,
-          "extId": "69625",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 1463,
-          "extId": "62519",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 825,
-          "extId": "55958",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 499,
-          "extId": "49092",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 236,
-          "extId": "42850",
-          "locked": false,
-          "extIdType": {
-            "uuid": "9f4c-1284S7mMn",
-            "code": "impleo_tournament-team-id",
-            "createdAt": "2016-12-01T17:20:56.000Z",
-            "createdBy": "ramses",
-            "deleted": false,
-            "lastModified": "2016-12-01T17:20:56.000Z",
-            "visible": true,
-            "name": "Impleo / Swehockey: Serie lagid"
-          }
-        },
-        {
-          "id": 24,
-          "extId": "9",
-          "locked": false,
-          "extIdType": {
-            "uuid": "7b6a-e633fcdB7",
-            "code": "ramses_legacy",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": false,
-            "name": "Ramses gammalt id"
-          }
-        },
-        {
-          "id": 23,
-          "extId": "MODO",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        }
-      ],
-      "logo": "https://sportality.cdn.s8y.se/team-logos/modo1_modo.svg",
-      "socialMedia": [],
-      "displayName": "",
-      "icon": "https://sportality.cdn.s8y.se/team-logos/modo1_modo.svg",
-      "siteInstanceId": "shl1_shl",
-      "id": "110b-110bJcIAI",
-      "instanceId": "modo1_modo",
-      "publicUrl": "http://www.modohockey.se/",
-      "name": "MoDo",
-      "socialMediaInformation": [
-        {
-          "url": "https://www.instagram.com/modo_hockey/",
-          "type": "instagram"
-        },
-        {
-          "url": "https://www.facebook.com/modo1921/",
-          "type": "facebook"
-        },
-        {
-          "url": "https://x.com/MoDo_Hockey",
-          "type": "twitter"
         }
       ]
     },
@@ -2230,21 +1954,6 @@
       },
       "teamExtIds": [
         {
-          "id": 27,
-          "extId": "RBK",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 28,
           "extId": "13",
           "locked": false,
@@ -2272,26 +1981,26 @@
             "lastModified": "2016-12-01T17:20:56.000Z",
             "visible": true,
             "name": "Impleo / Swehockey: Serie lagid"
+          }
+        },
+        {
+          "id": 27,
+          "extId": "RBK",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],
       "extIds": [
         {
-          "id": 27,
-          "extId": "RBK",
-          "locked": false,
-          "extIdType": {
-            "uuid": "165a-d5bcMnEuq",
-            "code": "isa",
-            "createdAt": null,
-            "createdBy": null,
-            "deleted": false,
-            "lastModified": null,
-            "visible": true,
-            "name": "ISA / Statnet"
-          }
-        },
-        {
           "id": 28,
           "extId": "13",
           "locked": false,
@@ -2319,6 +2028,21 @@
             "lastModified": "2016-12-01T17:20:56.000Z",
             "visible": true,
             "name": "Impleo / Swehockey: Serie lagid"
+          }
+        },
+        {
+          "id": 27,
+          "extId": "RBK",
+          "locked": false,
+          "extIdType": {
+            "uuid": "165a-d5bcMnEuq",
+            "code": "isa",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": null,
+            "visible": true,
+            "name": "ISA / Statnet"
           }
         }
       ],

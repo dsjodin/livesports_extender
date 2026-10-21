@@ -91,8 +91,10 @@ class FakeShl:
             body = game_info(self.state_at(self.time.ms), self.start_ms)
         elif endpoint == "play-by-play":
             body = pbp_with_state(self.pbp_state_at(self.time.ms))
-        else:
+        elif endpoint == "boxscore":
             body = load_fixture("boxscore_bdhvuc5tex.json")
+        else:
+            body = load_fixture("team_stats_bdhvuc5tex.json")
         return httpx.Response(200, json=body, headers=CACHE_HEADERS)
 
 
@@ -124,7 +126,7 @@ async def test_finished_game_makes_one_poll_and_exits(tmp_path: Path) -> None:
     rec, fake, rows = await run(tmp_path, time, lambda _: "post_game", T0 - 3 * 3600_000)
     assert rec.polls == 1
     assert time.sleeps == []
-    assert fake.requests == ["game-info", "play-by-play", "boxscore"]
+    assert fake.requests == ["game-info", "play-by-play", "boxscore", "team-stats"]
     assert [r["endpoint"] for r in rows] == fake.requests
     for row in rows:
         assert row.keys() == {"received_ms", "endpoint", "status", "sha1", "age", "cache", "body"}
@@ -136,7 +138,7 @@ async def test_upcoming_game_polls_game_info_slowly(tmp_path: Path) -> None:
     time = FakeTime(max_sleeps=3)
     _, fake, rows = await run(tmp_path, time, lambda _: "pre_game", T0 + 2 * 3600_000)
     assert time.sleeps == [60.0, 60.0, 60.0]
-    assert fake.requests == ["game-info"] * 4 + ["boxscore"]
+    assert fake.requests == ["game-info"] * 4 + ["boxscore", "team-stats"]
     assert [r["body"] is not None for r in rows[:4]] == [True, False, False, False]
     assert len({r["sha1"] for r in rows[:4]}) == 1
 
@@ -156,8 +158,8 @@ async def test_stops_five_minutes_after_post_game(tmp_path: Path) -> None:
     )
     assert set(time.sleeps) == {2.0}
     assert time.ms - ends_at == 5 * MIN_MS
-    assert fake.requests[-1] == "boxscore"
-    assert rows[-1]["endpoint"] == "boxscore"
+    assert fake.requests[-2:] == ["boxscore", "team-stats"]
+    assert rows[-1]["endpoint"] == "team-stats"
     pbp = [r for r in rows if r["endpoint"] == "play-by-play"]
     assert len(pbp) == rec.polls and sum(r["body"] is not None for r in pbp) == 2
 
@@ -166,7 +168,7 @@ async def test_backs_off_on_errors(tmp_path: Path) -> None:
     time = FakeTime()
     _, _, rows = await run(tmp_path, time, lambda _: "post_game", T0, fail=4)
     assert time.sleeps == [2.0, 4.0, 8.0, 16.0]
-    assert [r["status"] for r in rows] == [503, 503, 503, 503, 200, 200, 200]
+    assert [r["status"] for r in rows] == [503, 503, 503, 503, 200, 200, 200, 200]
 
 
 async def test_backoff_caps_at_30_s(tmp_path: Path) -> None:
@@ -208,8 +210,8 @@ async def test_unknown_state_is_logged_once(
 async def test_restart_continues_hash_chain(tmp_path: Path) -> None:
     await run(tmp_path, FakeTime(), lambda _: "post_game", T0)
     _, _, rows = await run(tmp_path, FakeTime(), lambda _: "post_game", T0)
-    assert len(rows) == 6
-    assert all(r["body"] is None for r in rows[3:])
+    assert len(rows) == 8
+    assert all(r["body"] is None for r in rows[4:])
 
 
 async def test_stops_after_pbp_game_ended_while_game_info_stays_pre_game(tmp_path: Path) -> None:
@@ -226,7 +228,7 @@ async def test_stops_after_pbp_game_ended_while_game_info_stays_pre_game(tmp_pat
     assert rec.state() == "GameEnded"
     assert set(time.sleeps) == {2.0}
     assert time.ms - ends_at == 5 * MIN_MS
-    assert rows[-1]["endpoint"] == "boxscore"
+    assert rows[-1]["endpoint"] == "team-stats"
 
 
 async def test_gives_up_six_hours_after_start(tmp_path: Path) -> None:
@@ -259,7 +261,7 @@ async def test_live_finished_game(tmp_path: Path) -> None:
         await asyncio.wait_for(rec.run(), timeout=60)
     rows = read_rows(out)
     assert rec.polls == 1
-    assert [r["endpoint"] for r in rows] == ["game-info", "play-by-play", "boxscore"]
+    assert [r["endpoint"] for r in rows] == ["game-info", "play-by-play", "boxscore", "team-stats"]
     assert all(r["status"] == 200 for r in rows)
     assert rec.state() == "GameEnded" and rec.info_state() == "post-game"
 
@@ -294,5 +296,5 @@ async def test_live_upcoming_game_polls_slowly(tmp_path: Path, live_shl: LiveShl
         await asyncio.wait_for(rec.run(), timeout=60)
     rows = read_rows(out)
     assert sleeps == [60.0, 60.0]
-    assert [r["endpoint"] for r in rows] == ["game-info"] * 3 + ["boxscore"]
+    assert [r["endpoint"] for r in rows] == ["game-info"] * 3 + ["boxscore", "team-stats"]
     assert rec.state() == "pre-game"

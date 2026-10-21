@@ -72,10 +72,15 @@ def boxscore_url(game: str) -> str:
     return f"{BASE_URL}/gameday/boxscore/{game}"
 
 
+def team_stats_url(game: str) -> str:
+    return f"{BASE_URL}/gameday/team-stats/{game}"
+
+
 GAME_ENDPOINTS: dict[str, Callable[[str], str]] = {
     "game-info": game_info_url,
     "play-by-play": pbp_url,
     "boxscore": boxscore_url,
+    "team-stats": team_stats_url,
 }
 
 

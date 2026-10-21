@@ -348,18 +348,18 @@ upcoming-live-games. Only the ones described in this file have been inspected
 won), `SOG`, `Saves`, `GA`, `PPG`, `PPGA`, `SHG`, `SHGA`, `NumPP`, `NumSH`, `PP_perc`,
 `SH_perc`, `Hits`, `BkS` (shots this team blocked), `SiBk` (this team's shots that were
 blocked), `SPG`, `PPSOG`. For `mtn5yq64mp` it matches our numbers (SOG 45–14, FOW 25–28,
-SiBk 10 / 8 = our blocked shots) except **power plays: SHL says FHC 3 (`NumPP` 1 per
-period), we count 4**. The difference is in period 3. At 10:26 shl.se lists FHC: Meijer 5
-(fighting), Clarke, Cederqvist, Tömmernes 2 each; DIF: Grewe 2+5+GM, Grewe 2 (holding),
-Carlsson, Pettersen #20, Pettersson #37 2 each (event 130 was corrected from #37 to #20
-after the game; 131 is a real second penalty). With majors and three minors each
-cancelled, DIF has two minors left, so our engine shows FHC 5 on 3 from 10:26 to 12:26.
-The shot list supports a power play both then (4 FHC shots, none by DIF) and after
-Hartmann's minor at 14:17 (6 FHC shots, none by DIF), yet SHL counts one. Assumption: SHL
-does not count leftovers from coincidental penalties as a power-play opportunity. Known
-difference, kept: live strength comes from our engine; intermission and postgame screens
-show SHL's official numbers from this endpoint. No timestamps, so it cannot be synced to
-the TV. (shl.se's event list marks home events with ' and away events with ''.)
+SiBk 10 / 8 = our blocked shots). **Power plays now match too** (FHC 1/3, DIF 0/1; and
+FHC 1/3 – LHC 1/2, HV71 0/2 – SAIK 1/4, FHC 0/2 – SAIK 1/2 for the fixtures, tested). That
+needed three rules worked out with the user from the 10:26 fight in `mtn5yq64mp` (shl.se
+lists FHC: Meijer 5 fighting, Clarke, Cederqvist, Tömmernes 2 roughing; DIF: Grewe 2+5+GM
+fighting, Grewe 2 holding, Carlsson, Pettersen #20, Pettersson #37 2 roughing; event 130
+was corrected from #37 to #20 after the game, 131 is a real second penalty):
+coincidental penalties cancel the same offence first (roughing against roughing, the
+fighting majors against each other), one player's remaining penalties are served one
+after the other (Grewe: 2 + 2, so FHC 5 on 4 for four minutes, not 5 on 3 for two), and a
+chance is counted when a team gains a man advantage it did not have (so Hartmann's minor
+at 14:17, during that power play, is not a new one, while 4 on 4 turning into 5 on 4 is).
+No timestamps, so it cannot be synced to the TV. (shl.se's event list marks home events with ' and away events with ''.)
 
 ### Players and portraits (verified 2026-10-21)
 

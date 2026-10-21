@@ -89,17 +89,57 @@ def test_coincidental_penalties_cancel() -> None:
     assert status(r, "p1").coincidental and status(r, "p2").coincidental
 
 
-def test_fight_with_unequal_penalties() -> None:
-    """P3 10:26 on 2026-10-20: FHC major + 3 minors, DIF 2+5+GM, 4 more minors."""
+def test_fight_on_2026_10_20() -> None:
+    """P3 10:26 FHC–DIF, as listed on shl.se. Roughing cancels roughing, the fighting
+    majors cancel, Grewe's holding minor and the minor in his 2+5+GM remain and are
+    served one after the other: FHC 5 on 4 for four minutes, one power-play chance."""
     t = 3026
-    home = [pen("h1", "home", t, MAJOR, 1)] + [pen(f"h{i}", "home", t, MINOR, i) for i in (2, 3, 4)]
-    away = [pen("a1", "away", t, MINOR, 5), pen("a2", "away", t, (120, 300), 6)] + [
-        pen(f"a{i}", "away", t, MINOR, i) for i in (7, 8, 9)
+
+    def p(key: str, side: str, segs: tuple[int, ...], offence: str, player: str, order: int):
+        return PenaltyIn(key, side, t, order, segs, offence, player)  # type: ignore[arg-type]
+
+    penalties = [
+        p("meijer", "home", MAJOR, "FIGHT", "16", 123),
+        p("clarke", "home", MINOR, "ROUGH", "9", 124),
+        p("cederqvist", "home", MINOR, "ROUGH", "92", 125),
+        p("tommernes", "home", MINOR, "ROUGH", "7", 126),
+        p("grewe_hold", "away", MINOR, "HOLD", "46", 127),
+        p("grewe_fight", "away", (120, 300), "FIGHT", "46", 128),
+        p("carlsson", "away", MINOR, "ROUGH", "26", 129),
+        p("pettersen", "away", MINOR, "ROUGH", "20", 130),
+        p("pettersson", "away", MINOR, "ROUGH", "37", 131),
     ]
-    r = compute(home + away, [], t + 10)
-    assert r.strength.label == "5v3" and r.strength.pp_side == "home"
-    assert [p.key for p in r.penalties if p.active] == ["a8", "a9"]
-    assert r.pp_chances == {"home": 1, "away": 0}
+    r = compute(penalties, [], t + 10)
+    assert r.strength.label == "5v4" and r.strength.pp_side == "home"
+    assert [s.key for s in r.penalties if s.active] == ["grewe_hold"]
+    assert status(r, "grewe_fight").waiting and status(r, "grewe_fight").expires_at == t + 240
+    assert all(status(r, k).coincidental for k in ("meijer", "clarke", "carlsson", "pettersson"))
+    assert status(r, "grewe_fight").cancelled_s == (300,)
+    r = compute(penalties, [], t + 130)
+    assert r.strength.label == "5v4" and [s.key for s in r.penalties if s.active] == ["grewe_fight"]
+    r = compute(penalties, [], t + 240)
+    assert r.strength.label == "5v5" and r.pp_chances == {"home": 1, "away": 0}
+    # Hartmann's slashing at 14:17 comes during that power play: 5 on 3, no new chance.
+    r = compute([*penalties, pen("hartmann", "away", 3257)], [], 3260)
+    assert r.strength.label == "5v3" and r.pp_chances == {"home": 1, "away": 0}
+
+
+def test_same_player_minors_are_served_in_a_row() -> None:
+    two = [
+        PenaltyIn("a", "away", 100, 1, MINOR, "HOLD", "46"),
+        PenaltyIn("b", "away", 100, 2, MINOR, "ROUGH", "46"),
+    ]
+    assert compute(two, [], 150).strength.label == "5v4"
+    r = compute(two, [goal("g1", "home", 150)], 160)  # the goal ends the running minor only
+    assert status(r, "a").ended_early_by == "g1" and status(r, "b").active
+    assert status(r, "b").expires_at == 270
+
+
+def test_penalty_during_a_power_play_is_not_a_new_chance() -> None:
+    r = compute([pen("p1", "away", 100), pen("p2", "away", 150)], [], 160)
+    assert r.strength.label == "5v3" and r.pp_chances == {"home": 1, "away": 0}
+    r = compute([pen("p1", "away", 100), pen("p2", "away", 300)], [], 310)
+    assert r.pp_chances == {"home": 2, "away": 0}
 
 
 def test_penalties_carry_over_periods() -> None:
@@ -123,3 +163,13 @@ def test_game_over_clears_everything() -> None:
 def test_no_segments_no_power_play() -> None:
     r = compute([pen("p1", "away", 100, ())], [], 150)  # misconduct only, or a penalty shot
     assert r.strength.label == "5v5" and r.pp_chances == {"home": 0, "away": 0}
+
+
+def test_power_play_after_four_on_four_is_a_chance() -> None:
+    """P1 19:03 FHC minor, P2 00:28 DIF minor (2026-10-20): 4 on 4, then FHC on the power
+    play from P2 01:03 when its own penalty ends. SHL counts that as an FHC chance."""
+    penalties = [pen("hasa", "home", 1143), pen("hartmann", "away", 1228)]
+    r = compute(penalties, [], 1240)
+    assert r.strength.label == "4v4" and r.pp_chances == {"home": 0, "away": 1}
+    r = compute(penalties, [], 1270)
+    assert r.strength.label == "5v4" and r.pp_chances == {"home": 1, "away": 1}

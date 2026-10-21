@@ -205,7 +205,13 @@ def compute_state(
     pp = powerplay.compute(
         [
             powerplay.PenaltyIn(
-                e.key, e.side, e.game_seconds, e.event_id or 0, tuple(e.data.get("segments_s", ()))
+                e.key,
+                e.side,
+                e.game_seconds,
+                e.event_id or 0,
+                tuple(e.data.get("segments_s", ())),
+                e.data.get("offence_code"),
+                e.player.id if e.player else None,
             )
             for e in pen_events
             if e.side is not None and e.game_seconds is not None

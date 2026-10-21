@@ -223,4 +223,18 @@ async def test_recorded_live_game() -> None:
     assert (st.stats["home"].shots_wide, st.stats["home"].shots_blocked) == (12, 10)
     assert (st.stats["away"].shots_wide, st.stats["away"].shots_blocked) == (16, 8)
     assert counts["removed"] == 27  # the precursor shots and other deletions
+    # SHL's team-stats: FHC 1 PP goal on 3 power plays, DIF 0 on 1
+    assert (st.stats["home"].pp_goals, st.stats["home"].pp_chances) == (1, 3)
+    assert (st.stats["away"].pp_goals, st.stats["away"].pp_chances) == (0, 1)
     assert counts["updated"] < 40  # real revisions only, no gameState noise
+
+
+@pytest.mark.parametrize("game", ["bdhvuc5tex", "m01wkdm2u1", "et9erhx0si"])
+async def test_power_play_counts_match_shl_team_stats(game: str) -> None:
+    _, st = await replay_to_end(game)
+    team_stats = load_fixture(f"team_stats_{game}.json")
+    for side in ("home", "away"):
+        total = next(p for p in team_stats[side]["statistics"] if p["period"] == 0)
+        shl = {s["key"]: s["value"] for s in total["parsedTotalStatistics"]}
+        assert (st.stats[side].pp_goals, st.stats[side].pp_chances) == (shl["PPG"], shl["NumPP"])
+        assert st.stats[side].pim == shl["PIM"] or game == "et9erhx0si"  # bench minor

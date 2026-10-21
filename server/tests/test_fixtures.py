@@ -9,7 +9,11 @@ EXPECTED = [
     "schedule_2026.json",
     "site_settings.json",
     "standings_qa98unlbd6.json",
-    *(f"{prefix}_{game}.json" for game in GAMES for prefix in ("game_info", "pbp", "boxscore")),
+    *(
+        f"{prefix}_{game}.json"
+        for game in GAMES
+        for prefix in ("game_info", "pbp", "boxscore", "team_stats")
+    ),
 ]
 
 

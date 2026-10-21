@@ -21,7 +21,12 @@ FIXTURE_GAMES = {
     "m01wkdm2u1": "HV71–Skellefteå 4–3 after overtime, 2026-09-24",
     "et9erhx0si": "Frölunda–Skellefteå 3–2 after shootout, 2026-10-17",
 }
-GAME_FILE_PREFIX = {"game-info": "game_info", "play-by-play": "pbp", "boxscore": "boxscore"}
+GAME_FILE_PREFIX = {
+    "game-info": "game_info",
+    "play-by-play": "pbp",
+    "boxscore": "boxscore",
+    "team-stats": "team_stats",
+}
 PAUSE_S = 0.5  # between requests, to be polite
 
 log = logging.getLogger("fetch_fixtures")

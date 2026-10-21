@@ -12,7 +12,7 @@ puck drop; game-info and play-by-play every 2 s otherwise. game-info is not upda
 during the game, so state and score come from play-by-play. Stops 5 min after
 play-by-play says GameEnded or game-info says post-game (at once if the game was already
 over on the first poll), 6 h after the start time if neither happens, or on Ctrl-C. The
-boxscore is fetched once at the end.
+boxscore and team-stats are fetched once at the end.
 """
 
 import argparse
@@ -222,7 +222,11 @@ class Recorder:
             except asyncio.CancelledError:
                 self.echo("stopped")
             box = await self.request("boxscore", f)
-            self.echo(f"boxscore: {box.status or box.error}; {self.polls} polls in {self.out_file}")
+            stats = await self.request("team-stats", f)
+            self.echo(
+                f"boxscore: {box.status or box.error}, team-stats: {stats.status or stats.error};"
+                f" {self.polls} polls in {self.out_file}"
+            )
 
 
 async def main() -> None:

@@ -1,0 +1,1047 @@
+{
+  "home": {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "place": "home",
+    "score": 0,
+    "teamId": "FHC",
+    "teamName": "Frölunda HC",
+    "teamCode": "",
+    "statistics": [
+      {
+        "period": 0,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 3
+          },
+          {
+            "key": "PIM",
+            "value": 4
+          },
+          {
+            "key": "FOW",
+            "value": 18
+          },
+          {
+            "key": "SOG",
+            "value": 16
+          },
+          {
+            "key": "SPG",
+            "value": 8
+          },
+          {
+            "key": "PPSOG",
+            "value": 1
+          },
+          {
+            "key": "Saves",
+            "value": 21
+          },
+          {
+            "key": "GA",
+            "value": 2
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 1
+          },
+          {
+            "key": "NumPP",
+            "value": 2
+          },
+          {
+            "key": "NumSH",
+            "value": 2
+          },
+          {
+            "key": "Hits",
+            "value": 10
+          },
+          {
+            "key": "BkS",
+            "value": 16
+          },
+          {
+            "key": "SiBk",
+            "value": 13
+          }
+        ]
+      },
+      {
+        "period": 1,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 1
+          },
+          {
+            "key": "PIM",
+            "value": 0
+          },
+          {
+            "key": "FOW",
+            "value": 5
+          },
+          {
+            "key": "SOG",
+            "value": 4
+          },
+          {
+            "key": "SPG",
+            "value": 6
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 5
+          },
+          {
+            "key": "GA",
+            "value": 0
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 1
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 1
+          },
+          {
+            "key": "NumSH",
+            "value": 0
+          },
+          {
+            "key": "Hits",
+            "value": 5
+          },
+          {
+            "key": "BkS",
+            "value": 4
+          },
+          {
+            "key": "SiBk",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 1
+          },
+          {
+            "key": "PIM",
+            "value": 2
+          },
+          {
+            "key": "FOW",
+            "value": 6
+          },
+          {
+            "key": "SOG",
+            "value": 5
+          },
+          {
+            "key": "SPG",
+            "value": 1
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 10
+          },
+          {
+            "key": "GA",
+            "value": 2
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 1
+          },
+          {
+            "key": "NumPP",
+            "value": 0
+          },
+          {
+            "key": "NumSH",
+            "value": 1
+          },
+          {
+            "key": "Hits",
+            "value": 3
+          },
+          {
+            "key": "BkS",
+            "value": 8
+          },
+          {
+            "key": "SiBk",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 0
+          },
+          {
+            "key": "PIM",
+            "value": 2
+          },
+          {
+            "key": "FOW",
+            "value": 3
+          },
+          {
+            "key": "SOG",
+            "value": 5
+          },
+          {
+            "key": "SPG",
+            "value": 0
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 4
+          },
+          {
+            "key": "GA",
+            "value": 0
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 1
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 1
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 0
+          },
+          {
+            "key": "NumSH",
+            "value": 1
+          },
+          {
+            "key": "Hits",
+            "value": 2
+          },
+          {
+            "key": "BkS",
+            "value": 4
+          },
+          {
+            "key": "SiBk",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "period": 4,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 0
+          },
+          {
+            "key": "PIM",
+            "value": 0
+          },
+          {
+            "key": "FOW",
+            "value": 4
+          },
+          {
+            "key": "SOG",
+            "value": 1
+          },
+          {
+            "key": "SPG",
+            "value": 1
+          },
+          {
+            "key": "PPSOG",
+            "value": 1
+          },
+          {
+            "key": "Saves",
+            "value": 2
+          },
+          {
+            "key": "GA",
+            "value": 0
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 1
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 1
+          },
+          {
+            "key": "NumSH",
+            "value": 0
+          },
+          {
+            "key": "Hits",
+            "value": 0
+          },
+          {
+            "key": "BkS",
+            "value": 0
+          },
+          {
+            "key": "SiBk",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "period": 99,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 1
+          },
+          {
+            "key": "PIM",
+            "value": 0
+          },
+          {
+            "key": "FOW",
+            "value": 0
+          },
+          {
+            "key": "SOG",
+            "value": 1
+          },
+          {
+            "key": "SPG",
+            "value": 0
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 0
+          },
+          {
+            "key": "GA",
+            "value": 0
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 0
+          },
+          {
+            "key": "NumSH",
+            "value": 0
+          },
+          {
+            "key": "Hits",
+            "value": 0
+          },
+          {
+            "key": "BkS",
+            "value": 0
+          },
+          {
+            "key": "SiBk",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "gameUuid": "et9erhx0si"
+  },
+  "away": {
+    "gameSourceId": "20261017-FHC-SAIK",
+    "gameId": 23065,
+    "place": "away",
+    "score": 0,
+    "teamId": "SAIK",
+    "teamName": "Skellefteå AIK",
+    "teamCode": "",
+    "statistics": [
+      {
+        "period": 0,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 2
+          },
+          {
+            "key": "PIM",
+            "value": 4
+          },
+          {
+            "key": "FOW",
+            "value": 31
+          },
+          {
+            "key": "SOG",
+            "value": 23
+          },
+          {
+            "key": "SPG",
+            "value": 8
+          },
+          {
+            "key": "PPSOG",
+            "value": 3
+          },
+          {
+            "key": "Saves",
+            "value": 13
+          },
+          {
+            "key": "GA",
+            "value": 3
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 1
+          },
+          {
+            "key": "PPG",
+            "value": 1
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 2
+          },
+          {
+            "key": "NumSH",
+            "value": 2
+          },
+          {
+            "key": "Hits",
+            "value": 9
+          },
+          {
+            "key": "BkS",
+            "value": 13
+          },
+          {
+            "key": "SiBk",
+            "value": 16
+          }
+        ]
+      },
+      {
+        "period": 1,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 0
+          },
+          {
+            "key": "PIM",
+            "value": 2
+          },
+          {
+            "key": "FOW",
+            "value": 10
+          },
+          {
+            "key": "SOG",
+            "value": 5
+          },
+          {
+            "key": "SPG",
+            "value": 4
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 3
+          },
+          {
+            "key": "GA",
+            "value": 1
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 1
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 0
+          },
+          {
+            "key": "NumSH",
+            "value": 1
+          },
+          {
+            "key": "Hits",
+            "value": 4
+          },
+          {
+            "key": "BkS",
+            "value": 3
+          },
+          {
+            "key": "SiBk",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 2
+          },
+          {
+            "key": "PIM",
+            "value": 0
+          },
+          {
+            "key": "FOW",
+            "value": 8
+          },
+          {
+            "key": "SOG",
+            "value": 12
+          },
+          {
+            "key": "SPG",
+            "value": 4
+          },
+          {
+            "key": "PPSOG",
+            "value": 2
+          },
+          {
+            "key": "Saves",
+            "value": 4
+          },
+          {
+            "key": "GA",
+            "value": 1
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 1
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 1
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 1
+          },
+          {
+            "key": "NumSH",
+            "value": 0
+          },
+          {
+            "key": "Hits",
+            "value": 5
+          },
+          {
+            "key": "BkS",
+            "value": 4
+          },
+          {
+            "key": "SiBk",
+            "value": 8
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 0
+          },
+          {
+            "key": "PIM",
+            "value": 0
+          },
+          {
+            "key": "FOW",
+            "value": 11
+          },
+          {
+            "key": "SOG",
+            "value": 4
+          },
+          {
+            "key": "SPG",
+            "value": 0
+          },
+          {
+            "key": "PPSOG",
+            "value": 1
+          },
+          {
+            "key": "Saves",
+            "value": 5
+          },
+          {
+            "key": "GA",
+            "value": 0
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 1
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 1
+          },
+          {
+            "key": "NumSH",
+            "value": 0
+          },
+          {
+            "key": "Hits",
+            "value": 0
+          },
+          {
+            "key": "BkS",
+            "value": 5
+          },
+          {
+            "key": "SiBk",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "period": 4,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 0
+          },
+          {
+            "key": "PIM",
+            "value": 2
+          },
+          {
+            "key": "FOW",
+            "value": 2
+          },
+          {
+            "key": "SOG",
+            "value": 2
+          },
+          {
+            "key": "SPG",
+            "value": 0
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 1
+          },
+          {
+            "key": "GA",
+            "value": 0
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 1
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 1
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 0
+          },
+          {
+            "key": "NumSH",
+            "value": 1
+          },
+          {
+            "key": "Hits",
+            "value": 0
+          },
+          {
+            "key": "BkS",
+            "value": 1
+          },
+          {
+            "key": "SiBk",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "period": 99,
+        "parsedTotalStatistics": [
+          {
+            "key": "G",
+            "value": 0
+          },
+          {
+            "key": "PIM",
+            "value": 0
+          },
+          {
+            "key": "FOW",
+            "value": 0
+          },
+          {
+            "key": "SOG",
+            "value": 0
+          },
+          {
+            "key": "SPG",
+            "value": 0
+          },
+          {
+            "key": "PPSOG",
+            "value": 0
+          },
+          {
+            "key": "Saves",
+            "value": 0
+          },
+          {
+            "key": "GA",
+            "value": 1
+          },
+          {
+            "key": "SavesPerShot",
+            "value": 0
+          },
+          {
+            "key": "PP_perc",
+            "value": 0
+          },
+          {
+            "key": "SH_perc",
+            "value": 0
+          },
+          {
+            "key": "PPG",
+            "value": 0
+          },
+          {
+            "key": "SHGA",
+            "value": 0
+          },
+          {
+            "key": "SHG",
+            "value": 0
+          },
+          {
+            "key": "PPGA",
+            "value": 0
+          },
+          {
+            "key": "NumPP",
+            "value": 0
+          },
+          {
+            "key": "NumSH",
+            "value": 0
+          },
+          {
+            "key": "Hits",
+            "value": 0
+          },
+          {
+            "key": "BkS",
+            "value": 0
+          },
+          {
+            "key": "SiBk",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "gameUuid": "et9erhx0si"
+  },
+  "provider": "statnet"
+}
