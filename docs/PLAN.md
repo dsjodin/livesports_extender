@@ -428,7 +428,8 @@ Phase 6 notes (2026-10-21):
   service against a local stand-in for HA, calls went out 1 ms after play_at.
 - The test goal is always `is_my_team: true` (with my team's name and colour when my team
   is not in the game), so "my team" automations can be tried any time.
-- Still open: the manual check against the user's own Home Assistant.
+- Manual check passed 2026-10-21: "Testa mål" in the app made the user's own HA
+  automation blink `light.rgb_spot_1` (docs/HA.md, Blink).
 
 ---
 

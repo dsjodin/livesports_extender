@@ -8,8 +8,9 @@ a goal horn, a spoken scorer. Payloads are in `docs/PROTOCOL.md` (Webhooks).
 
 1. Pick a webhook id, for example `shl-arena`. The URL is
    `http://<home assistant>:8123/api/webhook/shl-arena`.
-2. Add the automations below (Settings → Automations → ⋮ → Edit in YAML, or
-   `automations.yaml`). Replace the entity ids (`light.vardagsrum`,
+2. Add the automations below: Settings → Automations & scenes → the **Automations** tab
+   (not Scenes) → Create automation → Create new → ⋮ → Edit in YAML, and paste one
+   automation without its leading `- `. Or put them in `automations.yaml`. Replace the entity ids (`light.vardagsrum`,
    `media_player.vardagsrum`, `tts.google_translate_sv_se`) with your own.
 3. In the phone app: Inställningar → Home Assistant: paste the URL, tick "Skicka till Home
    Assistant", choose the events, "Spara".
@@ -87,6 +88,49 @@ over.
 
 Put the horn file in `/media/malhorn.mp3` (Media → Local media). Bulbs that support it can
 use `flash: long` on `light.turn_on` instead of the colour change.
+
+### Blink instead (the user's setup)
+
+Three quick blinks in the team colour, then off. `mode: single` so a second press
+during the blinks does not cut in. Bulbs that do not support `transition` may need those
+lines removed; slow (Wi-Fi) bulbs may need 700–1000 ms.
+
+```yaml
+- alias: "SHL: mål för mitt lag"
+  id: shl_goal_mine_blink
+  mode: single
+  triggers:
+    - trigger: webhook
+      webhook_id: shl-arena
+      allowed_methods: [POST]
+      local_only: true
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.json.event == 'shl_goal' and trigger.json.is_my_team }}"
+  actions:
+    - repeat:
+        count: 3
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: light.rgb_spot_1
+            data:
+              rgb_color: "{{ trigger.json.team_rgb or [245, 197, 66] }}"
+              brightness_pct: 100
+              transition: 0
+          - delay:
+              milliseconds: 500
+          - action: light.turn_off
+            target:
+              entity_id: light.rgb_spot_1
+            data:
+              transition: 0
+          - delay:
+              milliseconds: 500
+```
+
+When you restore with `scene.create`, snapshot the same lights you change: a snapshot of
+another light leaves yours in the goal colour.
 
 ## 3. Goal against: a short dim
 
