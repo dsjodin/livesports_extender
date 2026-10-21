@@ -3,6 +3,7 @@
 import { badge, compareRow, goalRow, penaltyRow } from "../../shared/components.js";
 import { caps, countdown, html, percent, periodWord, raw, score } from "../../shared/format.js";
 import { barPage, every, ordinal, play, statsLine, stopTimers, team } from "./common.js";
+import { ticker } from "./ticker.js";
 
 const BREAK_MS = 18 * 60_000;
 const OVERTIME_BREAK_MS = 3 * 60_000; // assumption: a short pause before overtime
@@ -51,6 +52,7 @@ function render(ctx) {
   }
   const els = ctx.root.querySelectorAll("[data-countdown]");
   if (els.length) every(ctx, 250, () => els.forEach((el) => (el.textContent = countdown(ends(ctx) - ctx.now()))));
+  if (ctx.kind === "bar") ticker(ctx, ctx.root.querySelector(".strip"), () => `${after(n)} • ${statsLine(ctx.tv)}`);
 }
 
 function duo(tv) {

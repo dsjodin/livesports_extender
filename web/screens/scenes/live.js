@@ -2,7 +2,8 @@
 // data.overlay (docs/SCREENS.md, Scenes).
 import { goalieCard, shotLegend, shotMap, tile } from "../../shared/components.js";
 import { caps, html, periodName, raw, score } from "../../shared/format.js";
-import { barPage, other, periodLabel, play, shortName, statsLine, team, teamHead, venueLine, who } from "./common.js";
+import { barPage, other, periodLabel, play, shortName, statsLine, stopTimers, team, teamHead, venueLine, who } from "./common.js";
+import { ticker } from "./ticker.js";
 
 export function enter(ctx, data, at) {
   ctx.overlay = data.overlay ? data : null;
@@ -20,9 +21,22 @@ export function update(ctx) {
   render(ctx);
 }
 
+export function exit(ctx) {
+  stopTimers(ctx);
+}
+
 function render(ctx) {
   const tv = ctx.tv;
   ctx.root.innerHTML = ctx.kind === "bar" ? bar(tv, ctx.overlay) : portrait(tv, ctx.side, ctx.overlay);
+  if (ctx.kind === "bar") {
+    stopTimers(ctx);
+    const overlay = ctx.overlay?.overlay;
+    ticker(ctx, ctx.root.querySelector(".strip"), () => ownLine(ctx.tv), () => overlay === "penalty" || overlay === "timeout");
+  }
+}
+
+function ownLine(tv) {
+  return `${statsLine(tv)}${venueLine(tv) ? ` • ${venueLine(tv)}` : ""}`;
 }
 
 function animateOverlay(ctx, at) {
@@ -50,7 +64,7 @@ export function strengthPill(tv) {
 function bar(tv, ov) {
   const p = periodLabel(tv);
   const centre = html`<div class="label">${p.label}</div><div class="period">${p.big}</div>${raw(strengthPill(tv))}`;
-  let strip = `${statsLine(tv)}${venueLine(tv) ? ` • ${venueLine(tv)}` : ""}`;
+  let strip = ownLine(tv);
   let stripClass = "";
   if (ov?.overlay === "penalty") {
     const pen = (tv.penalties ?? []).find((e) => e.key === ov.event_key);

@@ -196,3 +196,10 @@ body.bar #debug { font-size: 13px; top: 6px; bottom: auto; max-width: 600px; }
 .goal-body { justify-content: space-between; padding-bottom: 20px; }
 .goal-body > :not(.outline-number):not(.portrait-img) { position: relative; z-index: 1; }
 .hidden { display: none !important; }
+
+/* bar ticker (scenes/ticker.js) */
+.strip .tk-game b { color: var(--text); font-weight: 700; }
+.strip .tk-status { color: var(--text-muted); }
+.strip .tk-game.live .tk-status { color: var(--gold); }
+.strip .tk-sep { margin: 0 28px; color: var(--divider); }
+.strip.gold .tk-game b, .strip.gold .tk-status { color: var(--on-gold); }
