@@ -140,7 +140,10 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
   `goalSection` **1 to 9** gives exactly the boxscore's per-team skater `SOG` sum
   (`bdhvuc5tex` FHC 31 / LHC 29, `m01wkdm2u1` 24 / 40, `mtn5yq64mp` 44 / 14). The "-3 only"
   rule gives 40 / 43 for `bdhvuc5tex`. So 0 is most likely a blocked shot (or similar
-  non-SOG attempt), -3 missed, -1 unknown. **Decided 2026-10-20:** the engine uses
+  non-SOG attempt), -3 missed, -1 unknown. **Checked against shl.se's game report
+  (2026-10-21, `mtn5yq64mp` P3 17:47–19:36):** sections 1, 2 and 8 are shown as "Skott",
+  section 0 as "Skott (utanför)" (wide), so 0 is a miss, not a block. What the site
+  shows for -3 and -1 is still to check. **Decided 2026-10-20:** the engine uses
   `ON_GOAL_SECTIONS = 1..9`. All goals in the samples have a section 1 to 9.
 - Shootout and shots: in `et9erhx0si` the home skaters' `SOG` sum is 16, which **includes
   the deciding shootout goal**; the away goalies' `SOGA` is 15, which does not. Regulation

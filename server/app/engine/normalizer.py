@@ -12,7 +12,8 @@ from app.feedtime import parse_local_ms
 log = logging.getLogger(__name__)
 
 # Shots on goal are goalSection 1 to 9: this matched the boxscore exactly in all four
-# games checked (docs/SHL_API.md, shot). -3 is wide, 0 most likely blocked, -1 unknown.
+# games checked, and shl.se's game report shows 1-9 as "Skott" and 0 as "Skott (utanför)"
+# (docs/SHL_API.md, shot). -3 and -1 are not on goal; their exact meaning is unknown.
 ON_GOAL_SECTIONS = frozenset(range(1, 10))
 # Copied onto every event and rewritten at every period boundary (or by a replay's
 # timestamp shift); not a content change. realWorldTime is read once, as event_ms.
