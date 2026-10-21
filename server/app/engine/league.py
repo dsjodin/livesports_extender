@@ -182,3 +182,53 @@ def build(
         "tonight": [brief(g, False) for g in tonight],
         "recent": [brief(g, True) for g in recent],
     }
+
+
+def live_table(
+    standings: list[dict[str, Any]], games: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """The table "om matcherna slutade nu": ``standings`` (from before tonight's games)
+    plus tonight's games as they stand on the wall (delayed scores).
+
+    ``games``: ``{"home_uuid", "away_uuid", "home", "away", "ended", "overtime",
+    "shootout"}`` for games that have started; a game still on counts as if it ended now.
+    Points: 3 for a regulation win; 2 and 1 after overtime or a shootout; a tie that is
+    still on gives each team 1 (both are sure of the overtime point; an assumption).
+    Order: points, goal difference, goals scored (SHL), then the old rank. Each row gets
+    ``prev_rank``, ``move`` (places up, negative down) and ``live`` for its game tonight.
+    """
+    rows = {r["uuid"]: dict(r, prev_rank=r["rank"], live=None) for r in standings if r.get("uuid")}
+    for g in games:
+        home, away = rows.get(g["home_uuid"]), rows.get(g["away_uuid"])
+        if home is None or away is None:
+            continue
+        h, a = g["home"], g["away"]
+        extra = g.get("overtime") or g.get("shootout")
+        if h == a and not g.get("ended"):
+            points = {"home": 1, "away": 1}
+        else:
+            winner = "home" if h > a else "away"
+            points = {
+                winner: 2 if extra else 3,
+                ("away" if winner == "home" else "home"): 1 if extra else 0,
+            }
+        for side, row, gf, ga in (("home", home, h, a), ("away", away, a, h)):
+            row["gp"] += 1
+            row["gf"] += gf
+            row["ga"] += ga
+            row["diff"] = row["gf"] - row["ga"]
+            row["points"] += points[side]
+            row["live"] = {
+                "for": gf,
+                "against": ga,
+                "ended": bool(g.get("ended")),
+                "home_away": "H" if side == "home" else "B",
+                "opponent": (away if side == "home" else home).get("code"),
+            }
+    ordered = sorted(
+        rows.values(), key=lambda r: (-r["points"], -r["diff"], -r["gf"], r["prev_rank"])
+    )
+    for rank, row in enumerate(ordered, start=1):
+        row["rank"] = rank
+        row["move"] = row["prev_rank"] - rank
+    return ordered

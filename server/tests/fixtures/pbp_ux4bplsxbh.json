@@ -1,0 +1,5377 @@
+[
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 115,
+    "eventUuid": "cb317039-d2fc-58f0-853e-4a901773049d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:25:35.541743",
+    "updatedTime": "2026-10-17T15:27:00.594091",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2694",
+      "firstName": "Felix",
+      "familyName": "Sandström",
+      "jerseyToday": "60"
+    },
+    "isEntering": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 114,
+    "eventUuid": "46efcf84-8669-5fe1-9c5f-190f03bff200",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 6,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:25:23.926189",
+    "updatedTime": "2026-10-17T15:26:28.683454",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "1558",
+      "firstName": "Joel",
+      "familyName": "Lassinantti",
+      "jerseyToday": "34"
+    },
+    "isEntering": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 113,
+    "eventUuid": "d5b480b3-1765-5878-8627-369273b2068c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:54.4",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6909",
+      "firstName": "Malte",
+      "familyName": "Gustafsson",
+      "jerseyToday": "78"
+    },
+    "locationX": 104,
+    "locationY": -94,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 112,
+    "eventUuid": "e279c5c5-cbbb-5ced-96cd-e74e4a9ef9c2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:56",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:51.32",
+    "updatedTime": "2026-10-17T15:24:55.749531",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 87,
+    "locationY": 78,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 110,
+    "eventUuid": "3749532d-f5f4-5ddd-abd0-256a8285e535",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:40.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 76,
+    "locationY": -39,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 109,
+    "eventUuid": "93ecb3b9-f217-59d6-831c-57efd92d533a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:07.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6909",
+      "firstName": "Malte",
+      "familyName": "Gustafsson",
+      "jerseyToday": "78"
+    },
+    "locationX": 149,
+    "locationY": -17,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 108,
+    "eventUuid": "b8216846-e45d-5be4-a07d-c24a30131d04",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:03",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:22:14.655738",
+    "updatedTime": "2026-10-17T15:28:46.452268",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "2825",
+      "firstName": "Oscar",
+      "familyName": "Engsund",
+      "jerseyToday": "32"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOLD",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 107,
+    "eventUuid": "16bd1832-8f13-5109-b669-e63217dddc83",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:07:23.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3044",
+      "firstName": "Mathias",
+      "familyName": "Bromé",
+      "jerseyToday": "86"
+    },
+    "locationX": 8,
+    "locationY": -22,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 106,
+    "eventUuid": "66dcfe0c-158f-55f0-9d05-0876bbe426c6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:21:47.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6662",
+      "firstName": "Karl",
+      "familyName": "Annborn",
+      "jerseyToday": "65"
+    },
+    "locationX": 141,
+    "locationY": 94,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 105,
+    "eventUuid": "2feed535-4997-5836-9ba3-aeec10590482",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:21:37.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 136,
+    "locationY": -140,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 104,
+    "eventUuid": "3c17e396-8b58-5ede-a443-b6be3cc874ec",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:21:05.58",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 93,
+    "locationY": -89,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 103,
+    "eventUuid": "ca7c7613-9b43-5291-b1e3-164d0abd4b2e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "17:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:19:52.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6909",
+      "firstName": "Malte",
+      "familyName": "Gustafsson",
+      "jerseyToday": "78"
+    },
+    "locationX": 170,
+    "locationY": 82,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 102,
+    "eventUuid": "a614afde-f68d-5f5d-a966-2cb7891670b2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:31",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:18:51.843837",
+    "updatedTime": "2026-10-17T15:27:00.594091",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2694",
+      "firstName": "Felix",
+      "familyName": "Sandström",
+      "jerseyToday": "60"
+    },
+    "isEntering": true,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 101,
+    "eventUuid": "ce781fed-3f82-52d5-9f84-71cf28c88526",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:29",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:18:21.807528",
+    "updatedTime": "2026-10-17T15:20:49.654575",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 5
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "2762",
+      "firstName": "Pontus",
+      "familyName": "Själin",
+      "jerseyToday": "39",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "2"
+        }
+      ]
+    },
+    "locationX": 537,
+    "locationY": -94,
+    "homeGoals": 5,
+    "awayGoals": 2,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": true,
+    "pop": [
+      {
+        "playerId": "5680",
+        "firstName": "Filip",
+        "familyName": "Eriksson",
+        "jerseyToday": "25"
+      },
+      {
+        "playerId": "2825",
+        "firstName": "Oscar",
+        "familyName": "Engsund",
+        "jerseyToday": "32"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "2762",
+        "firstName": "Pontus",
+        "familyName": "Själin",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "7011",
+        "firstName": "Joona",
+        "familyName": "Koppanen",
+        "jerseyToday": "45"
+      },
+      {
+        "playerId": "3044",
+        "firstName": "Mathias",
+        "familyName": "Bromé",
+        "jerseyToday": "86"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16"
+      },
+      {
+        "playerId": "4821",
+        "firstName": "Justin",
+        "familyName": "Kloos",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "7107",
+        "firstName": "Pavol",
+        "familyName": "Regenda",
+        "jerseyToday": "84"
+      },
+      {
+        "playerId": "3894",
+        "firstName": "Nikola",
+        "familyName": "Pasic",
+        "jerseyToday": "96"
+      }
+    ],
+    "assists": {},
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 99,
+    "eventUuid": "b52e3410-fba0-59ed-b787-e5634d870328",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:12",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:17:10.086459",
+    "updatedTime": "2026-10-17T15:17:10.183976",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2694",
+      "firstName": "Felix",
+      "familyName": "Sandström",
+      "jerseyToday": "60"
+    },
+    "isEntering": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 98,
+    "eventUuid": "27578df0-d3b4-543b-93ae-67092c598653",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "timeout",
+    "realWorldTime": "2026-10-17T17:16:17.468756",
+    "updatedTime": "2026-10-17T15:16:17.692966",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 97,
+    "eventUuid": "8dcf77ed-dd8c-56a2-b412-9bdc2aa092af",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:15:42.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7034",
+      "firstName": "Jan",
+      "familyName": "Mysak",
+      "jerseyToday": "81"
+    },
+    "locationX": 66,
+    "locationY": -144,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 96,
+    "eventUuid": "0ad408c5-7c63-5f87-ba4c-4e5cad2db367",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "14:23",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:13:57.1",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 112,
+    "locationY": -108,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 95,
+    "eventUuid": "2fd22e34-e834-5be4-8ec1-f7688bdc0a2d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:13:11.9",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "7011",
+      "firstName": "Joona",
+      "familyName": "Koppanen",
+      "jerseyToday": "45"
+    },
+    "locationX": 104,
+    "locationY": 61,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 94,
+    "eventUuid": "a5805918-510c-5ef8-9fe8-f80bee1a3b87",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:12:16.42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6442",
+      "firstName": "Brian",
+      "familyName": "O'Neill",
+      "jerseyToday": "91"
+    },
+    "locationX": 82,
+    "locationY": 35,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 93,
+    "eventUuid": "b19506de-1cc7-5267-b099-0d4216755eaf",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:11:11.82",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 101,
+    "locationY": -113,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 92,
+    "eventUuid": "5f58f0c7-5f95-561b-8079-a94aaf50dabe",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:57:51.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6805",
+      "firstName": "Casper",
+      "familyName": "Juustovaara",
+      "jerseyToday": "20"
+    },
+    "locationX": 3,
+    "locationY": -18,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 90,
+    "eventUuid": "beaaa760-3298-5de5-8dd7-280a807510b1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:09:28.32",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 102,
+    "locationY": 81,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 89,
+    "eventUuid": "cf9c430b-f603-5dcf-8221-c26bda68d123",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:09:13.86",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 55,
+    "locationY": 66,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 88,
+    "eventUuid": "166b18d0-419d-5e90-add2-2073bb61e627",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:07:22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3775",
+      "firstName": "Pontus",
+      "familyName": "Andreasson",
+      "jerseyToday": "96"
+    },
+    "locationX": 93,
+    "locationY": -82,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 87,
+    "eventUuid": "ca2d65bc-65cc-5c85-aa95-aa305d387971",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "08:14",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:04:42.776769",
+    "updatedTime": "2026-10-17T15:07:38.628774",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "CROSS",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 86,
+    "eventUuid": "9c190e33-bd89-55aa-9564-afc3520044af",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "06:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:03:04.72",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "5517",
+      "firstName": "Lucas",
+      "familyName": "Lagerberg",
+      "jerseyToday": "8"
+    },
+    "locationX": 81,
+    "locationY": -1,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 85,
+    "eventUuid": "5d43f734-2977-5a28-9b12-0bc421f6c851",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "05:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:01:35.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "7011",
+      "firstName": "Joona",
+      "familyName": "Koppanen",
+      "jerseyToday": "45"
+    },
+    "locationX": 54,
+    "locationY": 5,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 84,
+    "eventUuid": "e7a605ca-00ef-52fb-be65-0b0586c1892c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "05:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:01:22.62",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6662",
+      "firstName": "Karl",
+      "familyName": "Annborn",
+      "jerseyToday": "65"
+    },
+    "locationX": 161,
+    "locationY": 143,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 83,
+    "eventUuid": "e21cdadc-8993-5ca7-8f09-9c4d42a1eeef",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:14",
+    "gameState": "GameEnded",
+    "revision": 7,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:58:02.129678",
+    "updatedTime": "2026-10-17T19:17:45.889204",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 4
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "2762",
+      "firstName": "Pontus",
+      "familyName": "Själin",
+      "jerseyToday": "39",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "2"
+        }
+      ]
+    },
+    "locationX": 172,
+    "locationY": -122,
+    "homeGoals": 4,
+    "awayGoals": 2,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5837",
+        "firstName": "Isac",
+        "familyName": "Hedqvist",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "6719",
+        "firstName": "William",
+        "familyName": "Håkansson",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "6805",
+        "firstName": "Casper",
+        "familyName": "Juustovaara",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "2762",
+        "firstName": "Pontus",
+        "familyName": "Själin",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "7076",
+        "firstName": "Mike",
+        "familyName": "Hardman",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "4821",
+        "firstName": "Justin",
+        "familyName": "Kloos",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "3059",
+        "firstName": "Olle",
+        "familyName": "Alsing",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "2340",
+        "firstName": "Andreas",
+        "familyName": "Borgman",
+        "jerseyToday": "55"
+      },
+      {
+        "playerId": "2694",
+        "firstName": "Felix",
+        "familyName": "Sandström",
+        "jerseyToday": "60"
+      },
+      {
+        "playerId": "4547",
+        "firstName": "Aleksi",
+        "familyName": "Heponiemi",
+        "jerseyToday": "91"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "5837",
+        "firstName": "Isac",
+        "familyName": "Hedqvist",
+        "jerseyToday": "6",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 81,
+    "eventUuid": "a27ae6b5-31c6-5feb-9aeb-e161dd41b1c1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:57:40",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4821",
+      "firstName": "Justin",
+      "familyName": "Kloos",
+      "jerseyToday": "28"
+    },
+    "locationX": 129,
+    "locationY": -91,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 80,
+    "eventUuid": "c97355c3-465a-5494-9cdf-c178ac6e4613",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:57:30.12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4547",
+      "firstName": "Aleksi",
+      "familyName": "Heponiemi",
+      "jerseyToday": "91"
+    },
+    "locationX": 108,
+    "locationY": 65,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 79,
+    "eventUuid": "9c7190c7-8f01-55c9-8dae-5decc78beb84",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:57:14.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4194",
+      "firstName": "William",
+      "familyName": "Ignberg Nilsson",
+      "jerseyToday": "71"
+    },
+    "locationX": 56,
+    "locationY": 18,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 78,
+    "eventUuid": "1cb016fc-bc97-52b8-9f22-c160af734883",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:57:04.44",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 156,
+    "locationY": -74,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 77,
+    "eventUuid": "352591d7-fff2-5940-b504-6e38ae926bd2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:42.04",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 58,
+    "locationY": 15,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 76,
+    "eventUuid": "9da961a7-9d76-5f21-9384-7dde547276ee",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:38.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6621",
+      "firstName": "Jonathan",
+      "familyName": "Ang",
+      "jerseyToday": "27"
+    },
+    "locationX": 74,
+    "locationY": 65,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 75,
+    "eventUuid": "94449344-efb3-5946-9122-03167fd5b403",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:33:08.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4925",
+      "firstName": "Riley",
+      "familyName": "Woods",
+      "jerseyToday": "41"
+    },
+    "locationX": 89,
+    "locationY": 57,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 74,
+    "eventUuid": "ad75627c-ee45-5a42-bc83-ff30d1c3f0db",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:07",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:31:25.499376",
+    "updatedTime": "2026-10-17T14:52:29.537347",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6441",
+      "firstName": "Markus",
+      "familyName": "Nurmi",
+      "jerseyToday": "51"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HI-ST",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 73,
+    "eventUuid": "2ddc5b35-a685-51b8-8e59-6962240b6b91",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:30:50.52",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 144,
+    "locationY": 64,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 72,
+    "eventUuid": "9884e083-f26b-5019-9819-68df72ca9574",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:30:38.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7034",
+      "firstName": "Jan",
+      "familyName": "Mysak",
+      "jerseyToday": "81"
+    },
+    "locationX": 22,
+    "locationY": -20,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 71,
+    "eventUuid": "3e06e906-98aa-564b-ac6c-b812aa5b23b1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:30:25.8",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 183,
+    "locationY": 7,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 70,
+    "eventUuid": "a8905596-c90c-5e22-afcf-90592cd73686",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "17:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:30:13.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 168,
+    "locationY": -111,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 69,
+    "eventUuid": "17049690-480b-5301-b0be-c38c50e0423e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:33.429",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3775",
+      "firstName": "Pontus",
+      "familyName": "Andreasson",
+      "jerseyToday": "96"
+    },
+    "locationX": 178,
+    "locationY": 112,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 68,
+    "eventUuid": "06db564b-264f-5bea-a04f-66920616e308",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "15:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:28:20.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "2825",
+      "firstName": "Oscar",
+      "familyName": "Engsund",
+      "jerseyToday": "32"
+    },
+    "locationX": 124,
+    "locationY": 76,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 66,
+    "eventUuid": "81cd9931-658b-54ca-82fe-7c5767c89134",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:50.47",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "5680",
+      "firstName": "Filip",
+      "familyName": "Eriksson",
+      "jerseyToday": "25"
+    },
+    "locationX": 90,
+    "locationY": -108,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 64,
+    "eventUuid": "e63caf94-2e0a-5e10-a0a3-de7cd410281d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:23:58.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6440",
+      "firstName": "Anton",
+      "familyName": "Levtchi",
+      "jerseyToday": "76"
+    },
+    "locationX": 3,
+    "locationY": -73,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 63,
+    "eventUuid": "c55b01eb-b72a-5373-9443-3c982a67fe17",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:25:58",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4194",
+      "firstName": "William",
+      "familyName": "Ignberg Nilsson",
+      "jerseyToday": "71"
+    },
+    "locationX": 106,
+    "locationY": -6,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 61,
+    "eventUuid": "59c3b4dd-9d5a-5075-b08c-5a966245755a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:17",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:24:48.137637",
+    "updatedTime": "2026-10-17T19:17:45.889204",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6805",
+      "firstName": "Casper",
+      "familyName": "Juustovaara",
+      "jerseyToday": "20",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 27,
+    "locationY": -6,
+    "homeGoals": 3,
+    "awayGoals": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5837",
+        "firstName": "Isac",
+        "familyName": "Hedqvist",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "6805",
+        "firstName": "Casper",
+        "familyName": "Juustovaara",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "6128",
+        "firstName": "Oskari",
+        "familyName": "Laaksonen",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "2825",
+        "firstName": "Oscar",
+        "familyName": "Engsund",
+        "jerseyToday": "32"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "5517",
+        "firstName": "Lucas",
+        "familyName": "Lagerberg",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "2694",
+        "firstName": "Felix",
+        "familyName": "Sandström",
+        "jerseyToday": "60"
+      },
+      {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "7034",
+        "firstName": "Jan",
+        "familyName": "Mysak",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "7107",
+        "firstName": "Pavol",
+        "familyName": "Regenda",
+        "jerseyToday": "84"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "5837",
+        "firstName": "Isac",
+        "familyName": "Hedqvist",
+        "jerseyToday": "6",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 60,
+    "eventUuid": "5c6b96f0-eb41-5934-8e84-9a9fc26e3fc0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:40",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:20.509",
+    "updatedTime": "2026-10-17T14:25:05.162393",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 78,
+    "locationY": 35,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 57,
+    "eventUuid": "d52864c6-93a9-5c13-8076-398bd424bd52",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:04.489",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "5680",
+      "firstName": "Filip",
+      "familyName": "Eriksson",
+      "jerseyToday": "25"
+    },
+    "locationX": 82,
+    "locationY": 30,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 55,
+    "eventUuid": "94c7a37e-6199-58b4-8c32-f935edfdfd8c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:21:50.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6442",
+      "firstName": "Brian",
+      "familyName": "O'Neill",
+      "jerseyToday": "91"
+    },
+    "locationX": 59,
+    "locationY": 79,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 54,
+    "eventUuid": "2b6c0acf-5e65-59cb-9df5-796ef95ba67b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:59",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:18.698",
+    "updatedTime": "2026-10-17T14:21:25.266538",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6805",
+      "firstName": "Casper",
+      "familyName": "Juustovaara",
+      "jerseyToday": "20"
+    },
+    "locationX": 83,
+    "locationY": -74,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 53,
+    "eventUuid": "9824ab9c-9b20-5a86-9b22-e1852c959033",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:03",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:20:01.640158",
+    "updatedTime": "2026-10-17T14:24:08.988081",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3894",
+      "firstName": "Nikola",
+      "familyName": "Pasic",
+      "jerseyToday": "96",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "4"
+        },
+        {
+          "key": "A",
+          "value": "2"
+        }
+      ]
+    },
+    "locationX": 23,
+    "locationY": -12,
+    "homeGoals": 2,
+    "awayGoals": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16"
+      },
+      {
+        "playerId": "4925",
+        "firstName": "Riley",
+        "familyName": "Woods",
+        "jerseyToday": "41"
+      },
+      {
+        "playerId": "2340",
+        "firstName": "Andreas",
+        "familyName": "Borgman",
+        "jerseyToday": "55"
+      },
+      {
+        "playerId": "2694",
+        "firstName": "Felix",
+        "familyName": "Sandström",
+        "jerseyToday": "60"
+      },
+      {
+        "playerId": "6909",
+        "firstName": "Malte",
+        "familyName": "Gustafsson",
+        "jerseyToday": "78"
+      },
+      {
+        "playerId": "3894",
+        "firstName": "Nikola",
+        "familyName": "Pasic",
+        "jerseyToday": "96"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "5680",
+        "firstName": "Filip",
+        "familyName": "Eriksson",
+        "jerseyToday": "25"
+      },
+      {
+        "playerId": "6362",
+        "firstName": "Oliwer",
+        "familyName": "Sjöström",
+        "jerseyToday": "26"
+      },
+      {
+        "playerId": "6128",
+        "firstName": "Oskari",
+        "familyName": "Laaksonen",
+        "jerseyToday": "27"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72"
+      },
+      {
+        "playerId": "3044",
+        "firstName": "Mathias",
+        "familyName": "Bromé",
+        "jerseyToday": "86"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "3321",
+        "firstName": "Linus",
+        "familyName": "Lindström",
+        "jerseyToday": "16",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "4"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "4925",
+        "firstName": "Riley",
+        "familyName": "Woods",
+        "jerseyToday": "41",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "2"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 51,
+    "eventUuid": "e452beec-147d-5c00-bdbb-a15fb63eb28a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:51.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4925",
+      "firstName": "Riley",
+      "familyName": "Woods",
+      "jerseyToday": "41"
+    },
+    "locationX": 73,
+    "locationY": 98,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 50,
+    "eventUuid": "bd657ff5-215f-5554-ab05-8561729b6094",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:49",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:08.762",
+    "updatedTime": "2026-10-17T14:19:43.205235",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6912",
+      "firstName": "Ben",
+      "familyName": "Tardif",
+      "jerseyToday": "72"
+    },
+    "locationX": 25,
+    "locationY": -70,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 48,
+    "eventUuid": "1719b216-2b83-57ad-adfd-07dac5fa09fb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:02",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:13:26.729527",
+    "updatedTime": "2026-10-17T14:18:16.663976",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6362",
+      "firstName": "Oliwer",
+      "familyName": "Sjöström",
+      "jerseyToday": "26",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "3"
+        }
+      ]
+    },
+    "locationX": 80,
+    "locationY": 6,
+    "homeGoals": 2,
+    "awayGoals": 1,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5837",
+        "firstName": "Isac",
+        "familyName": "Hedqvist",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "6805",
+        "firstName": "Casper",
+        "familyName": "Juustovaara",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "3413",
+        "firstName": "Jesper",
+        "familyName": "Sellgren",
+        "jerseyToday": "23"
+      },
+      {
+        "playerId": "6362",
+        "firstName": "Oliwer",
+        "familyName": "Sjöström",
+        "jerseyToday": "26"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "5517",
+        "firstName": "Lucas",
+        "familyName": "Lagerberg",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "7076",
+        "firstName": "Mike",
+        "familyName": "Hardman",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "4821",
+        "firstName": "Justin",
+        "familyName": "Kloos",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "2340",
+        "firstName": "Andreas",
+        "familyName": "Borgman",
+        "jerseyToday": "55"
+      },
+      {
+        "playerId": "2694",
+        "firstName": "Felix",
+        "familyName": "Sandström",
+        "jerseyToday": "60"
+      },
+      {
+        "playerId": "4547",
+        "firstName": "Aleksi",
+        "familyName": "Heponiemi",
+        "jerseyToday": "91"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "6805",
+        "firstName": "Casper",
+        "familyName": "Juustovaara",
+        "jerseyToday": "20",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 47,
+    "eventUuid": "10421baf-269f-5b3a-9073-f6ed647ee9c9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:11:28.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6662",
+      "firstName": "Karl",
+      "familyName": "Annborn",
+      "jerseyToday": "65"
+    },
+    "locationX": 73,
+    "locationY": 39,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 46,
+    "eventUuid": "5fd29a44-dd5b-5df3-a85f-43e0f3890f9b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:11:11.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6662",
+      "firstName": "Karl",
+      "familyName": "Annborn",
+      "jerseyToday": "65"
+    },
+    "locationX": 172,
+    "locationY": 143,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 45,
+    "eventUuid": "5871bfec-666b-5785-864c-dcf7de7648a8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:10:40.92",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "5680",
+      "firstName": "Filip",
+      "familyName": "Eriksson",
+      "jerseyToday": "25"
+    },
+    "locationX": 90,
+    "locationY": -4,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 44,
+    "eventUuid": "8753169b-1d80-5797-bba2-7dc4442faed6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:09:18.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3059",
+      "firstName": "Olle",
+      "familyName": "Alsing",
+      "jerseyToday": "38"
+    },
+    "locationX": 96,
+    "locationY": 95,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 43,
+    "eventUuid": "6d4e0329-dfce-59d9-bbb2-f963262045c1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "02:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:07:21.14",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 40,
+    "locationY": -80,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 42,
+    "eventUuid": "098d6654-9d5a-5ec3-9148-27e8649e42eb",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "02:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:06:41.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6441",
+      "firstName": "Markus",
+      "familyName": "Nurmi",
+      "jerseyToday": "51"
+    },
+    "locationX": 159,
+    "locationY": 106,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 41,
+    "eventUuid": "98fe76ee-58a8-58ec-9114-9972ff4cef5b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "02:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:06:36.12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6441",
+      "firstName": "Markus",
+      "familyName": "Nurmi",
+      "jerseyToday": "51"
+    },
+    "locationX": 62,
+    "locationY": -42,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 40,
+    "eventUuid": "81ecde83-d407-5136-b5b6-5cef4977d2de",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:05:44.92",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6909",
+      "firstName": "Malte",
+      "familyName": "Gustafsson",
+      "jerseyToday": "78"
+    },
+    "locationX": 131,
+    "locationY": -91,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 39,
+    "eventUuid": "9e682153-50d7-547d-a27e-60416f40f609",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:05:26.4",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 124,
+    "locationY": -35,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 38,
+    "eventUuid": "b8bdb242-3ec0-5f2f-bc7a-7a81a5af2e7a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:05:24.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4925",
+      "firstName": "Riley",
+      "familyName": "Woods",
+      "jerseyToday": "41"
+    },
+    "locationX": 90,
+    "locationY": 99,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 37,
+    "eventUuid": "d7dfd817-6059-57a1-b9b9-df1ae9929367",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:19",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:45:07.52",
+    "updatedTime": "2026-10-17T13:48:22.121422",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 31,
+    "locationY": 5,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 35,
+    "eventUuid": "87385de2-a828-5cc0-90dd-fbc074a5b2a9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:45:06.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7034",
+      "firstName": "Jan",
+      "familyName": "Mysak",
+      "jerseyToday": "81"
+    },
+    "locationX": 71,
+    "locationY": 27,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 34,
+    "eventUuid": "b4b77d25-7297-54da-b3b8-fa6845c11d5e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:45:05.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7034",
+      "firstName": "Jan",
+      "familyName": "Mysak",
+      "jerseyToday": "81"
+    },
+    "locationX": 88,
+    "locationY": 50,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 33,
+    "eventUuid": "54932c8c-6088-549e-8e7f-fe7184823b5f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:43:08.42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6719",
+      "firstName": "William",
+      "familyName": "Håkansson",
+      "jerseyToday": "8"
+    },
+    "locationX": 174,
+    "locationY": 13,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 32,
+    "eventUuid": "fe69a170-a12d-5b9d-9c55-e87a07536149",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "17:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:20.32",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7076",
+      "firstName": "Mike",
+      "familyName": "Hardman",
+      "jerseyToday": "9"
+    },
+    "locationX": 91,
+    "locationY": -143,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 31,
+    "eventUuid": "55262f00-30a5-56c5-bdf0-1719330af124",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:42",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:33:18.78",
+    "updatedTime": "2026-10-17T13:40:01.585226",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6441",
+      "firstName": "Markus",
+      "familyName": "Nurmi",
+      "jerseyToday": "51"
+    },
+    "locationX": 41,
+    "locationY": -4,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 30,
+    "eventUuid": "5ecee8df-ebd1-517e-a112-423474e28808",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "15:20",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:39:38.226488",
+    "updatedTime": "2026-10-17T13:42:29.378994",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6440",
+      "firstName": "Anton",
+      "familyName": "Levtchi",
+      "jerseyToday": "76"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 29,
+    "eventUuid": "ad4c4865-a7f0-535c-a43d-59d14cb5de2d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "14:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:38:21.32",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6128",
+      "firstName": "Oskari",
+      "familyName": "Laaksonen",
+      "jerseyToday": "27"
+    },
+    "locationX": 162,
+    "locationY": -95,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 28,
+    "eventUuid": "2eb56f45-d6f1-5907-af07-f42f92d26bec",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:37:34.4",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "7070",
+      "firstName": "Valtteri",
+      "familyName": "Puustinen",
+      "jerseyToday": "48"
+    },
+    "locationX": 126,
+    "locationY": 111,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 27,
+    "eventUuid": "7609d542-28a3-5ad2-a7bc-c36ff541ddc8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "12:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:36:40.42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "3321",
+      "firstName": "Linus",
+      "familyName": "Lindström",
+      "jerseyToday": "16"
+    },
+    "locationX": 144,
+    "locationY": 75,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 25,
+    "eventUuid": "eca20011-5eb5-503e-9f79-2c03011118a6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:40.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3413",
+      "firstName": "Jesper",
+      "familyName": "Sellgren",
+      "jerseyToday": "23"
+    },
+    "locationX": 172,
+    "locationY": 129,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 24,
+    "eventUuid": "3397a97c-2eba-5830-82ab-54cbc9af09da",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "10:46",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:33:57.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6128",
+      "firstName": "Oskari",
+      "familyName": "Laaksonen",
+      "jerseyToday": "27"
+    },
+    "locationX": 138,
+    "locationY": 5,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 21,
+    "eventUuid": "3be24577-beb7-5d58-99c9-aee202b2d0d2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:28",
+    "gameState": "GameEnded",
+    "revision": 6,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:29:17.664061",
+    "updatedTime": "2026-10-17T13:50:03.614613",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "5837",
+      "firstName": "Isac",
+      "familyName": "Hedqvist",
+      "jerseyToday": "6",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 20,
+    "locationY": -31,
+    "homeGoals": 1,
+    "awayGoals": 1,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5837",
+        "firstName": "Isac",
+        "familyName": "Hedqvist",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "6805",
+        "firstName": "Casper",
+        "familyName": "Juustovaara",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "2825",
+        "firstName": "Oscar",
+        "familyName": "Engsund",
+        "jerseyToday": "32"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "2762",
+        "firstName": "Pontus",
+        "familyName": "Själin",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "5517",
+        "firstName": "Lucas",
+        "familyName": "Lagerberg",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "7076",
+        "firstName": "Mike",
+        "familyName": "Hardman",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "4821",
+        "firstName": "Justin",
+        "familyName": "Kloos",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "4800",
+        "firstName": "Hugo",
+        "familyName": "Fransson",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "2694",
+        "firstName": "Felix",
+        "familyName": "Sandström",
+        "jerseyToday": "60"
+      },
+      {
+        "playerId": "4547",
+        "firstName": "Aleksi",
+        "familyName": "Heponiemi",
+        "jerseyToday": "91"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "2825",
+        "firstName": "Oscar",
+        "familyName": "Engsund",
+        "jerseyToday": "32",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6912",
+        "firstName": "Ben",
+        "familyName": "Tardif",
+        "jerseyToday": "72",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 19,
+    "eventUuid": "7fc8b392-1869-569e-8609-5796b76d8744",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:29:11.1",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "2825",
+      "firstName": "Oscar",
+      "familyName": "Engsund",
+      "jerseyToday": "32"
+    },
+    "locationX": 189,
+    "locationY": -70,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 18,
+    "eventUuid": "7efbbfec-abfc-55eb-8c07-7e97dd7c4b42",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:06",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:24:06.62",
+    "updatedTime": "2026-10-17T13:29:12.158491",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6440",
+      "firstName": "Anton",
+      "familyName": "Levtchi",
+      "jerseyToday": "76"
+    },
+    "locationX": 165,
+    "locationY": 94,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 17,
+    "eventUuid": "0420972c-cfcb-5d33-aa3e-b30e7dac8b25",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "04:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:22:08.3",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6362",
+      "firstName": "Oliwer",
+      "familyName": "Sjöström",
+      "jerseyToday": "26"
+    },
+    "locationX": 179,
+    "locationY": -108,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 16,
+    "eventUuid": "0b4ef18e-eec6-508e-a9da-b6cce068ecef",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:00",
+    "gameState": "GameEnded",
+    "revision": 5,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:26:34.475181",
+    "updatedTime": "2026-10-17T13:49:21.716144",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6662",
+      "firstName": "Karl",
+      "familyName": "Annborn",
+      "jerseyToday": "65",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 60,
+    "locationY": 50,
+    "homeGoals": 0,
+    "awayGoals": 1,
+    "goalSection": 7,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5517",
+        "firstName": "Lucas",
+        "familyName": "Lagerberg",
+        "jerseyToday": "8"
+      },
+      {
+        "playerId": "2694",
+        "firstName": "Felix",
+        "familyName": "Sandström",
+        "jerseyToday": "60"
+      },
+      {
+        "playerId": "6662",
+        "firstName": "Karl",
+        "familyName": "Annborn",
+        "jerseyToday": "65"
+      },
+      {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70"
+      },
+      {
+        "playerId": "7034",
+        "firstName": "Jan",
+        "familyName": "Mysak",
+        "jerseyToday": "81"
+      },
+      {
+        "playerId": "7107",
+        "firstName": "Pavol",
+        "familyName": "Regenda",
+        "jerseyToday": "84"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6362",
+        "firstName": "Oliwer",
+        "familyName": "Sjöström",
+        "jerseyToday": "26"
+      },
+      {
+        "playerId": "1558",
+        "firstName": "Joel",
+        "familyName": "Lassinantti",
+        "jerseyToday": "34"
+      },
+      {
+        "playerId": "2762",
+        "firstName": "Pontus",
+        "familyName": "Själin",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "7070",
+        "firstName": "Valtteri",
+        "familyName": "Puustinen",
+        "jerseyToday": "48"
+      },
+      {
+        "playerId": "6442",
+        "firstName": "Brian",
+        "familyName": "O'Neill",
+        "jerseyToday": "91"
+      },
+      {
+        "playerId": "3775",
+        "firstName": "Pontus",
+        "familyName": "Andreasson",
+        "jerseyToday": "96"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "6736",
+        "firstName": "Lukas",
+        "familyName": "Rousek",
+        "jerseyToday": "70",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "2"
+          },
+          {
+            "key": "A",
+            "value": "6"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "7107",
+        "firstName": "Pavol",
+        "familyName": "Regenda",
+        "jerseyToday": "84",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "3"
+          },
+          {
+            "key": "A",
+            "value": "6"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 14,
+    "eventUuid": "b24e2188-b418-51bc-a28d-82864c88677f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:27.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "7107",
+      "firstName": "Pavol",
+      "familyName": "Regenda",
+      "jerseyToday": "84"
+    },
+    "locationX": 153,
+    "locationY": -61,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 13,
+    "eventUuid": "69783906-ddd0-5cee-90c8-e8cfa415c9ec",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:31.48",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "5680",
+      "firstName": "Filip",
+      "familyName": "Eriksson",
+      "jerseyToday": "25"
+    },
+    "locationX": 99,
+    "locationY": -6,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 12,
+    "eventUuid": "56ec7840-2ed9-5916-bd37-b441f475146e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:21.42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3044",
+      "firstName": "Mathias",
+      "familyName": "Bromé",
+      "jerseyToday": "86"
+    },
+    "locationX": 104,
+    "locationY": -88,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 11,
+    "eventUuid": "8fd12045-ac98-55d4-9f23-2b55d407912b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:13.76",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 82,
+    "locationY": -103,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 10,
+    "eventUuid": "44384f67-2e68-5f84-ad34-f0147730c082",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:24:17.48",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2340",
+      "firstName": "Andreas",
+      "familyName": "Borgman",
+      "jerseyToday": "55"
+    },
+    "locationX": 54,
+    "locationY": -70,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 8,
+    "eventUuid": "4c2d1613-c6d1-5faf-9828-72b4a6d694d8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:23:52.7",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "6440",
+      "firstName": "Anton",
+      "familyName": "Levtchi",
+      "jerseyToday": "76"
+    },
+    "locationX": 119,
+    "locationY": -142,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 7,
+    "eventUuid": "1f13da29-f9c6-50b2-87a6-0fd050c11cf5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:22:37.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "6737",
+      "firstName": "Santeri",
+      "familyName": "Hatakka",
+      "jerseyToday": "82"
+    },
+    "locationX": 365,
+    "locationY": 56,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 6,
+    "eventUuid": "5bb0e467-33aa-545f-b16b-47440893d831",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:21:24.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3044",
+      "firstName": "Mathias",
+      "familyName": "Bromé",
+      "jerseyToday": "86"
+    },
+    "locationX": 79,
+    "locationY": 129,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 5,
+    "eventUuid": "67a09213-ea71-559e-9bf4-48379929f34f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:19:47",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4547",
+      "firstName": "Aleksi",
+      "familyName": "Heponiemi",
+      "jerseyToday": "91"
+    },
+    "locationX": 171,
+    "locationY": -51,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 4,
+    "eventUuid": "44a4ae32-9fcd-5d7f-a823-4662c54e1fce",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:16:13.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "3044",
+      "firstName": "Mathias",
+      "familyName": "Bromé",
+      "jerseyToday": "86"
+    },
+    "locationX": 57,
+    "locationY": 12,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 3,
+    "eventUuid": "e0e2709b-c886-56e1-976b-10d9b3b849e1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:16:07.3",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "4800",
+      "firstName": "Hugo",
+      "familyName": "Fransson",
+      "jerseyToday": "44"
+    },
+    "locationX": 176,
+    "locationY": 41,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 2,
+    "eventUuid": "9653c43e-4b6c-590b-893c-a7da77fb1878",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:06:41.884857",
+    "updatedTime": "2026-10-17T15:17:10.183976",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "HV71",
+      "place": "away",
+      "teamCode": "HV71",
+      "teamName": "HV71"
+    },
+    "player": {
+      "playerId": "2694",
+      "firstName": "Felix",
+      "familyName": "Sandström",
+      "jerseyToday": "60"
+    },
+    "isEntering": true,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "eventId": 1,
+    "eventUuid": "60f9111b-b063-5a9a-90fb-ab268facbc2c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Coop Norrbotten Arena",
+    "attendance": 6150,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 6,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:06:20.764292",
+    "updatedTime": "2026-10-17T15:26:28.683454",
+    "homeTeam": {
+      "teamId": "LHF",
+      "teamName": "Luleå HF",
+      "teamCode": "LHF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "HV71",
+      "teamName": "HV71",
+      "teamCode": "HV71",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "LHF",
+      "place": "home",
+      "teamCode": "LHF",
+      "teamName": "Luleå HF"
+    },
+    "player": {
+      "playerId": "1558",
+      "firstName": "Joel",
+      "familyName": "Lassinantti",
+      "jerseyToday": "34"
+    },
+    "isEntering": true,
+    "gameUuid": "ux4bplsxbh"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-10-17T15:15:37.084Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T15:45:53.095Z",
+    "realWorldTime": "2026-10-17T15:45:53.952175",
+    "gameUuid": "ux4bplsxbh",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-10-17T16:04:03.078Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T16:34:13.007Z",
+    "realWorldTime": "2026-10-17T16:34:13.75064",
+    "gameUuid": "ux4bplsxbh",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-LHF-HV71",
+    "gameId": 23067,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-10-17T16:52:17.014Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:25:20.084Z",
+    "realWorldTime": "2026-10-17T17:25:20.844522",
+    "gameUuid": "ux4bplsxbh",
+    "type": "period"
+  }
+]

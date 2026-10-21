@@ -1,0 +1,57 @@
+{
+  "instanceContext": {
+    "siteTeamIsInGame": true,
+    "siteTeamIsHomeTeam": true,
+    "siteTeamIsAwayTeam": true
+  },
+  "gameInfo": {
+    "gameUuid": "wffn21lxeb",
+    "extId": "23068",
+    "startDateTime": "2026-10-17T13:15:00.000Z",
+    "arenaName": "Catena Arena",
+    "state": "post_game",
+    "overtime": false,
+    "shootout": false,
+    "seriesCode": "SHL",
+    "seriesName": "SHL",
+    "roundNumber": 10,
+    "roundLabel": "",
+    "seriesDisplayName": "SHL"
+  },
+  "homeTeam": {
+    "names": {
+      "code": "RBK",
+      "short": "Rögle",
+      "long": "Rögle BK",
+      "full": "Rögle Bandyklubb",
+      "codeSite": "RBK",
+      "shortSite": "Rögle",
+      "fullSite": "Rögle Bandyklubb",
+      "longSite": "Rögle BK"
+    },
+    "uuid": "ee93-ee93uy4oW",
+    "instanceId": "rbk1_rbk",
+    "foundedOn": "1932",
+    "address": "Rögle BK\r\nCatena Arena\r\n262 54 ÄNGELHOLM",
+    "email": "info@roglebk.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/rbk1_rbk.svg",
+    "score": 1
+  },
+  "awayTeam": {
+    "names": {
+      "code": "ÖRE",
+      "short": "Örebro",
+      "long": "Örebro Hockey",
+      "full": "Örebro Hockey"
+    },
+    "uuid": "82eb-82ebmgaJ8",
+    "instanceId": "ohk1_ohk",
+    "foundedOn": "1990",
+    "address": "Orvar Bergmarks Plats 5\r\n702 23 Örebro",
+    "email": "info@orebrohockey.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/ohk1_ohk.svg",
+    "score": 2
+  },
+  "ssgtUuid": "qa98unlbd6",
+  "seriesUuid": "qQ9-bb0bzEWUk"
+}

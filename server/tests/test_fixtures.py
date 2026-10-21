@@ -4,6 +4,7 @@ import pytest
 from conftest import FIXTURES, load_fixture
 
 GAMES = ["bdhvuc5tex", "m01wkdm2u1", "et9erhx0si"]
+EVENING = ["pmch0rrshr", "ux4bplsxbh", "wffn21lxeb", "yklkh1aqmw"]  # with et9erhx0si
 EXPECTED = [
     "filter.json",
     "schedule_2026.json",
@@ -14,6 +15,7 @@ EXPECTED = [
         for game in GAMES
         for prefix in ("game_info", "pbp", "boxscore", "team_stats")
     ),
+    *(f"{prefix}_{game}.json" for game in EVENING for prefix in ("game_info", "pbp")),
 ]
 
 

@@ -1,0 +1,61 @@
+{
+  "instanceContext": {
+    "siteTeamIsInGame": true,
+    "siteTeamIsHomeTeam": true,
+    "siteTeamIsAwayTeam": true
+  },
+  "gameInfo": {
+    "gameUuid": "ux4bplsxbh",
+    "extId": "23067",
+    "startDateTime": "2026-10-17T13:15:00.000Z",
+    "arenaName": "Coop Norrbotten Arena",
+    "state": "post_game",
+    "overtime": false,
+    "shootout": false,
+    "seriesCode": "SHL",
+    "seriesName": "SHL",
+    "roundNumber": 10,
+    "roundLabel": "",
+    "seriesDisplayName": "SHL"
+  },
+  "homeTeam": {
+    "names": {
+      "code": "LHF",
+      "short": "Luleå",
+      "long": "Luleå Hockey",
+      "full": "Luleå Hockey",
+      "codeSite": "LHF",
+      "shortSite": "Luleå",
+      "fullSite": "Luleå Hockey",
+      "longSite": "Luleå Hockey"
+    },
+    "uuid": "1a71-1a71gTHKh",
+    "instanceId": "lhf1_lhf",
+    "foundedOn": "1977",
+    "address": "Luleå Hockey\r\nOstrongatan 2\r\n973 34 Luleå",
+    "email": "info@luleahockey.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/lhf1_lhf.svg",
+    "score": 5
+  },
+  "awayTeam": {
+    "names": {
+      "code": "HV71",
+      "short": "HV71",
+      "long": "HV71",
+      "full": "HV71",
+      "codeSite": "HV71",
+      "shortSite": "HV71",
+      "fullSite": "HV71",
+      "longSite": "HV71"
+    },
+    "uuid": "3db0-3db09jXTE",
+    "instanceId": "hv711_hv71",
+    "foundedOn": "1971",
+    "address": "Husqvarna Garden 554 54 Jönköping",
+    "email": "info@hv71.se",
+    "icon": "https://sportality.cdn.s8y.se/team-logos/hv711_hv71.svg",
+    "score": 2
+  },
+  "ssgtUuid": "qa98unlbd6",
+  "seriesUuid": "qQ9-bb0bzEWUk"
+}

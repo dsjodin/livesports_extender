@@ -146,6 +146,34 @@ was from puck drop on.
 `result` is `V` (won) or `F` (lost) from that team's view, `home_away` `H` or `B`; the
 score is always home–away of that game.
 
+### Other games and the live table (Phase 8)
+
+`others`: the evening's other SHL games (same day as ours, from the schedule), each
+delayed by the same offset as ours through its own DelayQueue, sorted by start time:
+
+```json
+{"uuid": "pmch0rrshr", "start_ms": 1792242900000,
+ "teams": {"home": {"uuid": "...", "code": "DIF", "short": "Djurgården", "long": "Djurgården Hockey",
+                    "logo": "/assets/teams/<uuid>.svg", "color": "#1f4fbf"}, "away": {"...": "..."}},
+ "phase": "live", "period": 2, "period_running": true, "last_game_time": "07:12",
+ "score": {"home": 1, "away": 0}, "ended": false, "overtime": false, "went_to_shootout": false,
+ "stats": {"home": {"shots_on_goal": 14, "pim": 2, "pp": {"goals": 0, "chances": 1}}, "away": {"...": "..."}},
+ "goals": [{"key": "e41", "side": "home", "period": 1, "time": "12:03", "number": "17",
+            "last": "Bergström", "score": {"home": 1, "away": 0}, "strength": "EQ"}]}
+```
+
+Live they are polled every 30 s (play-by-play only) and saved as recordings under their
+own uuid; in a replay they replay in step with ours (fixtures, or fetched when finished).
+Their events send no event, scene or webhook messages: only state patches at play_at.
+
+`live_table`: null, or the standings "om matcherna slutade nu": the rows of
+`league.standings` (fetched before tonight) with tonight's started games applied as they
+stand on the wall (ours and `others`, only games in `league.tonight`, so a game already
+in the fetched standings is not counted twice). Points 3 / 2–1 after overtime or a
+shootout / 1 each for a tie still on. Each row adds `prev_rank`, `move` and `live`
+(`{"for", "against", "ended", "home_away", "opponent"}` or null). Replays of past evenings
+have no `league.tonight`, so no live table.
+
 ### Starting and seeking
 
 The first snapshot after a source starts (or a replay seeks) brings everything that has

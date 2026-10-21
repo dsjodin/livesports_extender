@@ -21,6 +21,14 @@ FIXTURE_GAMES = {
     "m01wkdm2u1": "HV71–Skellefteå 4–3 after overtime, 2026-09-24",
     "et9erhx0si": "Frölunda–Skellefteå 3–2 after shootout, 2026-10-17",
 }
+# Games played at the same time as et9erhx0si: the "other games" of that evening
+# (Phase 8: ticker, live table, intermission). Only game-info and play-by-play.
+EVENING_GAMES = {
+    "pmch0rrshr": "Djurgården–Malmö, 2026-10-17 15:15",
+    "ux4bplsxbh": "Luleå–HV71, 2026-10-17 15:15",
+    "wffn21lxeb": "Rögle–Örebro, 2026-10-17 15:15",
+    "yklkh1aqmw": "Linköping–Färjestad, 2026-10-17 15:15",
+}
 GAME_FILE_PREFIX = {
     "game-info": "game_info",
     "play-by-play": "pbp",
@@ -43,7 +51,9 @@ def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-async def fetch_all(client: httpx.AsyncClient, out: Path) -> list[tuple[str, str]]:
+async def fetch_all(
+    client: httpx.AsyncClient, out: Path, evening_only: bool = False
+) -> list[tuple[str, str]]:
     """Fetch every fixture. Returns (file name, source URL) pairs."""
     fetched: list[tuple[str, str]] = []
 
@@ -55,6 +65,12 @@ async def fetch_all(client: httpx.AsyncClient, out: Path) -> list[tuple[str, str
         await asyncio.sleep(PAUSE_S)
         return data
 
+    for game in EVENING_GAMES:
+        for endpoint in ("game-info", "play-by-play"):
+            url = shl.GAME_ENDPOINTS[endpoint](game)
+            await save(f"{GAME_FILE_PREFIX[endpoint]}_{game}.json", url)
+    if evening_only:
+        return fetched
     filt = await save("filter.json", shl.filter_url())
     season = pick(filt["season"], SCHEDULE_SEASON_CODE)
     series = pick(filt["series"], "SHL")
@@ -73,6 +89,7 @@ def write_readme(out: Path, fetched: list[tuple[str, str]]) -> None:
     now = datetime.now(UTC).strftime("%Y-%m-%d %H:%M UTC")
     rows = "\n".join(f"| `{name}` | {url} |" for name, url in fetched)
     games = "\n".join(f"- `{uuid}`: {label}" for uuid, label in FIXTURE_GAMES.items())
+    evening = "\n".join(f"- `{uuid}`: {label}" for uuid, label in EVENING_GAMES.items())
     text = f"""# Test fixtures
 
 Fetched from shl.se on {now} by `tools/fetch_fixtures.py` (User-Agent
@@ -82,6 +99,10 @@ Refresh with `uv run --project server python tools/fetch_fixtures.py`.
 Games:
 
 {games}
+
+Played at the same time as `et9erhx0si` (game-info and play-by-play only):
+
+{evening}
 
 | File | Source URL |
 |---|---|
@@ -93,13 +114,19 @@ Games:
 async def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=shl.FIXTURES_DIR)
+    parser.add_argument(
+        "--evening-only",
+        action="store_true",
+        help="only the evening games, keeping the other fixtures (README not rewritten)",
+    )
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     args.out.mkdir(parents=True, exist_ok=True)
     async with shl.make_client() as client:
-        fetched = await fetch_all(client, args.out)
-    write_readme(args.out, fetched)
+        fetched = await fetch_all(client, args.out, args.evening_only)
+    if not args.evening_only:
+        write_readme(args.out, fetched)
     log.info("wrote %d fixtures to %s", len(fetched), args.out)
 
 

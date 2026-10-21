@@ -14,7 +14,7 @@ from app.engine.normalizer import Normalizer
 from app.feed.client import ShlClient
 from app.feed.polllog import PollLog
 from app.feed.snapshot import Snapshot
-from app.feed.sources import LiveSource, RecordingSource, ReplaySource
+from app.feed.sources import LiveSource, OtherLiveSource, RecordingSource, ReplaySource
 from app.feedtime import format_local, format_naive_utc, format_utc_z, parse_local_ms
 
 GAME = "bdhvuc5tex"
@@ -372,3 +372,19 @@ async def test_live_saves_a_recording_that_replays(tmp_path: Path) -> None:
     assert last and last[0]["gameState"] == "GameEnded"
     assert len(replayed) == len([r for r in rows if r["endpoint"] in ("game-info", "play-by-play")])
     assert len(live) >= 3
+
+
+async def test_other_live_source_polls_every_30_s_from_15_min_before() -> None:
+    clock = FakeClock()
+    start = clock.now_ms() + 20 * 60_000
+    shl = FakeShl(start, [[]] * 3 + [with_state("Ongoing")] * 2 + [with_state("GameEnded")])
+    shl.clock = clock
+    transport = httpx.MockTransport(shl.handler)
+    source = OtherLiveSource(lambda: ShlClient(transport=transport), GAME, clock, start)
+    snaps = await collect(source)
+    times = [t for kind, t in shl.calls]
+    assert {kind for kind, _ in shl.calls} == {"pbp"}  # no game-info: the schedule has it
+    assert times[0] >= start - 15 * 60_000
+    assert {b - a for a, b in itertools.pairwise(times[:6])} == {30_000}
+    ended = [s for s in snaps if s.pbp and s.pbp[0]["gameState"] == "GameEnded"]
+    assert ended[-1].received_ms - ended[0].received_ms >= 120_000  # stops 2 min after the end

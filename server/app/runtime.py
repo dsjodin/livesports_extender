@@ -38,6 +38,7 @@ from app.feed.polllog import PollLog
 from app.feed.schedule import ScheduleService
 from app.feed.snapshot import Snapshot
 from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
+from app.others import OtherGames
 from app.teams import TeamColors
 
 log = logging.getLogger(__name__)
@@ -118,6 +119,15 @@ class Runtime:
         self.release_log: deque[dict[str, Any]] = deque(maxlen=LOG_SIZE)
         self.colors = TeamColors(settings.config_dir / "teams.json", store.config.team_colors)
         self.calibrator = Calibrator.from_saved(store.config.calibration_samples)
+        self.others = OtherGames(
+            clock,
+            client_factory,
+            schedule,
+            self.colors,
+            settings.data_dir,
+            on_change=lambda: self._patch(self.clock.now_ms() + self.lead_ms),
+            assets=assets,
+        )
         self.webhooks = WebhookDispatcher(
             clock,
             lambda: self.config.webhooks,
@@ -172,6 +182,7 @@ class Runtime:
             self.timeline,
             self.selected,
             self.league_block,
+            self.others.summaries(),
         )
 
     def full_state_messages(self) -> list[dict[str, Any]]:
@@ -467,12 +478,36 @@ class Runtime:
     # --- time -----------------------------------------------------------------------
 
     def pump(self, now: int) -> None:
-        """Hand out everything due within ``lead_ms`` and apply what has reached play_at."""
+        """Hand out everything due within ``lead_ms`` and apply what has reached play_at.
+        Our events and the other games' go out together in play_at order, so each patch
+        holds only what has played by then."""
         horizon = now + self.lead_ms
-        for out in self.queue.due(horizon):
-            event = out.event
-            if event is None:
-                continue
+        due: list[tuple[int, int, str | None, Output]] = [
+            (o.play_at, 0, None, o) for o in self.queue.due(horizon) if o.event is not None
+        ]
+        due += [(at, 1, uuid, o) for at, uuid, o in self.others.due(horizon)]
+        due.sort(key=lambda t: (t[0], t[1]))
+        for play_at, _, other, out in due:
+            if other is not None and out.event is not None:
+                self.others.release(other, out.event)
+                self._patch(play_at)
+            else:
+                self._release(out)
+        self._scenes(self.director.advance(horizon))
+        self._apply_pending(now)
+        if now - self._last_status_ms >= STATUS_EVERY_MS:
+            self._last_status_ms = now
+            for press in self.manual:
+                if press["status"] == "waiting" and now - press["pressed_ms"] > MANUAL_CONFIRM_MS:
+                    press["status"] = "unconfirmed"
+            if self.calibrator.update(self.normalizer.events.values(), now):
+                self._save_calibration()
+            self.out.broadcast({"t": "status", "status": self.status()})
+
+    def _release(self, out: Output) -> None:
+        """One of our events reaches its play_at window: event, scenes, patch, webhook."""
+        event = out.event
+        if event is not None:
             self._scenes(self.director.advance(out.play_at))
             self.released[event.key] = event
             self._emit(_event_message("event", out, event), out.play_at)
@@ -502,16 +537,6 @@ class Runtime:
             self._patch(out.play_at)
             if press is None:  # a linked goal sent its shl_goal at the press
                 self._webhook(event, out.play_at)
-        self._scenes(self.director.advance(horizon))
-        self._apply_pending(now)
-        if now - self._last_status_ms >= STATUS_EVERY_MS:
-            self._last_status_ms = now
-            for press in self.manual:
-                if press["status"] == "waiting" and now - press["pressed_ms"] > MANUAL_CONFIRM_MS:
-                    press["status"] = "unconfirmed"
-            if self.calibrator.update(self.normalizer.events.values(), now):
-                self._save_calibration()
-            self.out.broadcast({"t": "status", "status": self.status()})
 
     def _apply_pending(self, now: int) -> None:
         while self.pending and self.pending[0][0] <= now:
@@ -525,6 +550,7 @@ class Runtime:
     def next_wake_ms(self) -> int | None:
         times = [
             self.queue.next_due_ms(),
+            self.others.next_due_ms(),
             None if (t := self.director.next_timer_ms()) is None else t - self.lead_ms,
             self.pending[0][0] if self.pending else None,
         ]
@@ -608,6 +634,7 @@ class Runtime:
 
     async def stop(self) -> None:
         await self._stop_source()
+        await self.others.stop()
         await self.webhooks.close()
         for task in [self._league_task, self._follow_task, *self._background]:
             if task is not None:
@@ -699,6 +726,17 @@ class Runtime:
         if source is not None:
             self.source = source
             self._source_task = asyncio.get_running_loop().create_task(self._run_source(source))
+        # the evening's other games, live or in step with this replay
+        self._spawn(
+            self.others.start(
+                self.config.game_uuid if mode != "none" else None,
+                mode,
+                source,
+                round(self.config.offset_s * 1000),
+                self.lead_ms,
+                self._load_finished_game,
+            )
+        )
         if self.league is not None:
             self._spawn(self.refresh_league())
 
@@ -769,11 +807,13 @@ class Runtime:
                 raise SourceError(f"nothing to seek to for {to!r}")
         else:
             raise SourceError(f"unknown replay action {action!r}")
+        self.others.follow_main()
 
     def set_offset(self, profile: str, seconds: float) -> None:
         self.config.profiles[profile] = round(seconds, 3)
         if profile == self.config.active_profile:
             self.queue.set_offset(round(seconds * 1000))
+            self.others.set_offset(round(seconds * 1000))
         self.store.save()
         self.out.broadcast({"t": "config", "config": self.config_message()})
         self.pump(self.clock.now_ms())
@@ -786,6 +826,7 @@ class Runtime:
             raise SourceError(f"unknown TV profile {profile!r}")
         self.config.active_profile = profile
         self.queue.set_offset(round(self.config.offset_s * 1000))
+        self.others.set_offset(round(self.config.offset_s * 1000))
         self.store.save()
         self.out.broadcast({"t": "config", "config": self.config_message()})
         self.pump(self.clock.now_ms())
@@ -977,6 +1018,7 @@ class Runtime:
             "raw_events": len(self.normalizer.events),
             "released_events": len(self.released),
             "pending_messages": len(self.pending),
+            "others": self.others.status(),
             "last_snapshot_ms": self.last_snapshot_ms,
             "late_goals": self.late_goals,
             "manual": self.manual_status(),

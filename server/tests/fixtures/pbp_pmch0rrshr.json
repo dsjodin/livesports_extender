@@ -1,0 +1,7115 @@
+[
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 151,
+    "eventUuid": "f9dc03d0-0202-5251-b5e1-47f3d928f0a1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "05:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:43:38.191092",
+    "updatedTime": "2026-10-17T15:43:38.204185",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6108",
+      "firstName": "Marek",
+      "familyName": "Langhamer",
+      "jerseyToday": "94"
+    },
+    "isEntering": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 150,
+    "eventUuid": "7508196c-1ba2-551f-adc7-13907c82d2a7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "05:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T17:43:36.463764",
+    "updatedTime": "2026-10-17T15:43:36.483084",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "1987",
+      "firstName": "Magnus",
+      "familyName": "Hellberg",
+      "jerseyToday": "35"
+    },
+    "isEntering": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 149,
+    "eventUuid": "b586b909-bd0f-54f7-897c-2fa3e230b854",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:42:04.707933",
+    "updatedTime": "2026-10-17T15:43:34.731136",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "3"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 33,
+    "locationY": 10,
+    "homeGoals": 3,
+    "awayGoals": 2,
+    "goalSection": 6,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "4604",
+        "firstName": "Oliver",
+        "familyName": "Wahlstrom",
+        "jerseyToday": "89"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6108",
+        "firstName": "Marek",
+        "familyName": "Langhamer",
+        "jerseyToday": "94"
+      }
+    ],
+    "assists": {},
+    "goalStatus": "EQ",
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 148,
+    "eventUuid": "aad5df3c-40d8-59f8-a0fa-0a2dfeafdbd6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:43:20.867571",
+    "updatedTime": "2026-10-17T15:43:27.000552",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6119",
+      "firstName": "Lauri",
+      "familyName": "Pajuniemi",
+      "jerseyToday": "48"
+    },
+    "isPenaltyShot": true,
+    "locationX": 51,
+    "locationY": 2,
+    "goalSection": 0,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 5,
+    "shootoutScore": {
+      "homeGoals": 1,
+      "awayGoals": 0
+    },
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 147,
+    "eventUuid": "f932aa8b-d735-5c0d-8048-5c898b852967",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:42:57.324676",
+    "updatedTime": "2026-10-17T15:42:59.958941",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "isPenaltyShot": true,
+    "locationX": 38,
+    "locationY": 0,
+    "goalSection": 1,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 4,
+    "shootoutScore": {
+      "homeGoals": 1,
+      "awayGoals": 0
+    },
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 146,
+    "eventUuid": "f4231e74-3e8f-53ac-8c67-da88556fa277",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:42:32.155445",
+    "updatedTime": "2026-10-17T15:42:36.455702",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6113",
+      "firstName": "Janne",
+      "familyName": "Kuokkanen",
+      "jerseyToday": "22"
+    },
+    "isPenaltyShot": true,
+    "locationX": 56,
+    "locationY": 12,
+    "goalSection": 4,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 3,
+    "shootoutScore": {
+      "homeGoals": 1,
+      "awayGoals": 0
+    },
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 145,
+    "eventUuid": "c5343502-ff14-5f90-90c0-9339b2e06235",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:42:04.707933",
+    "updatedTime": "2026-10-17T15:43:34.731136",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "isPenaltyShot": true,
+    "locationX": 33,
+    "locationY": 10,
+    "goalSection": 6,
+    "isGameWinningGoal": true,
+    "isGoal": true,
+    "shootoutIndex": 2,
+    "shootoutScore": {
+      "homeGoals": 1,
+      "awayGoals": 0
+    },
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 144,
+    "eventUuid": "5fbb5f9c-a379-5f92-b853-c4f6c2c19f98",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": "shootout",
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shootout-penalty-shot",
+    "realWorldTime": "2026-10-17T17:41:40.013213",
+    "updatedTime": "2026-10-17T15:41:44.400803",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "isPenaltyShot": true,
+    "locationX": 51,
+    "locationY": 8,
+    "goalSection": 6,
+    "isGameWinningGoal": false,
+    "isGoal": false,
+    "shootoutIndex": 1,
+    "shootoutScore": {
+      "homeGoals": 0,
+      "awayGoals": 0
+    },
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 143,
+    "eventUuid": "57269b56-f13a-541a-9f6f-36b9af2c1ee3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "04:47",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:39:25.9",
+    "updatedTime": "2026-10-17T15:39:56.392281",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5781",
+      "firstName": "Petter",
+      "familyName": "Vesterheim",
+      "jerseyToday": "13"
+    },
+    "locationX": 69,
+    "locationY": -4,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 141,
+    "eventUuid": "d264fe66-dd28-5363-ac94-538659adfa14",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "04:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:39:02.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "locationX": 129,
+    "locationY": -6,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 140,
+    "eventUuid": "50aa4d0c-4425-5c72-a98e-72a83d2e02bf",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "04:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:38:57.12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "locationX": 27,
+    "locationY": 16,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 139,
+    "eventUuid": "141cc1db-20f5-5c92-8d92-757cd694f0d9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "03:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:38:12.44",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6113",
+      "firstName": "Janne",
+      "familyName": "Kuokkanen",
+      "jerseyToday": "22"
+    },
+    "locationX": 24,
+    "locationY": 33,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 138,
+    "eventUuid": "3d735c66-4135-5852-9ccc-94099b5dc837",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "03:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:38:03.24",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2777",
+      "firstName": "Lukas",
+      "familyName": "Vejdemo",
+      "jerseyToday": "44"
+    },
+    "locationX": 90,
+    "locationY": -35,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 137,
+    "eventUuid": "bc0b82fc-fec0-50ba-a002-560d72c0b7d9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "03:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:37:05.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 82,
+    "locationY": -3,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 136,
+    "eventUuid": "31f243c1-71c9-5275-87da-7670724c3a9f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "03:06",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:36:58.38",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4838",
+      "firstName": "Robin",
+      "familyName": "Hanzl",
+      "jerseyToday": "78"
+    },
+    "locationX": 7,
+    "locationY": -3,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 135,
+    "eventUuid": "3817d984-c7b9-50bb-a537-032b4143844a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "03:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:36:56.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 61,
+    "locationY": 27,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 134,
+    "eventUuid": "3a8adf3d-a897-52a7-ae7c-1ab5649ee396",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "02:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:36:33.62",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4838",
+      "firstName": "Robin",
+      "familyName": "Hanzl",
+      "jerseyToday": "78"
+    },
+    "locationX": 128,
+    "locationY": 60,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 133,
+    "eventUuid": "0f14490e-c0d4-5cea-9734-8782306439df",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "02:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:36:22.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "1459",
+      "firstName": "Klas",
+      "familyName": "Dahlbeck",
+      "jerseyToday": "12"
+    },
+    "locationX": 109,
+    "locationY": -8,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 132,
+    "eventUuid": "09a700ae-5db5-5527-b381-aee094938e83",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "01:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:35:47.3",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5781",
+      "firstName": "Petter",
+      "familyName": "Vesterheim",
+      "jerseyToday": "13"
+    },
+    "locationX": 40,
+    "locationY": 23,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 131,
+    "eventUuid": "e2a17f80-dd88-5546-9682-39c99b3e24e1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 4,
+    "time": "00:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:33:44.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 109,
+    "locationY": -82,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 130,
+    "eventUuid": "b3457fea-3e37-58b3-af6e-a800e30414c0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:29:56.62",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3056",
+      "firstName": "Sebastian",
+      "familyName": "Hartmann",
+      "jerseyToday": "94"
+    },
+    "locationX": 3,
+    "locationY": -27,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 129,
+    "eventUuid": "32826a0e-522a-505d-b4c6-c00985c12ac1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:14",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:28:56.88",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 142,
+    "locationY": 45,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 128,
+    "eventUuid": "88b93898-1e29-59e7-a642-2f9b06810ce7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "19:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:27:57.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "locationX": 107,
+    "locationY": 56,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 127,
+    "eventUuid": "8a6bce38-6c2e-59b5-85b0-3335b1d7b557",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "18:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:27:44.16",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3791",
+      "firstName": "Axel",
+      "familyName": "Sundberg",
+      "jerseyToday": "91"
+    },
+    "locationX": 19,
+    "locationY": 3,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 126,
+    "eventUuid": "7868368c-3d61-5747-b73a-0f88e2472b4d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "17:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:26:50.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 176,
+    "locationY": 80,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 125,
+    "eventUuid": "527c56c3-876c-5bbc-8612-c2d8f887a30f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:24:55.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6780",
+      "firstName": "Peter",
+      "familyName": "DiLiberatore",
+      "jerseyToday": "51"
+    },
+    "locationX": 158,
+    "locationY": 38,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 124,
+    "eventUuid": "94bbaa4e-1442-5d99-be6a-b3064231f4a8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:24:09.82",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3791",
+      "firstName": "Axel",
+      "familyName": "Sundberg",
+      "jerseyToday": "91"
+    },
+    "locationX": 231,
+    "locationY": 75,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 123,
+    "eventUuid": "e08ba1c2-fd89-5992-9ca3-3a478aa879ef",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "16:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:23:27.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2777",
+      "firstName": "Lukas",
+      "familyName": "Vejdemo",
+      "jerseyToday": "44"
+    },
+    "locationX": 54,
+    "locationY": 24,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 122,
+    "eventUuid": "f3ed2058-04a9-506d-ad36-58c3ce827016",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:22:51.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6119",
+      "firstName": "Lauri",
+      "familyName": "Pajuniemi",
+      "jerseyToday": "48"
+    },
+    "locationX": 128,
+    "locationY": -53,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 121,
+    "eventUuid": "78ab1ba8-1887-5ac7-b99e-8d4d4bce5297",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:22:12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2752",
+      "firstName": "Lucas",
+      "familyName": "Carlsson",
+      "jerseyToday": "26"
+    },
+    "locationX": 148,
+    "locationY": -97,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 120,
+    "eventUuid": "b2563191-d5c6-58d0-87c9-265305d974c7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "15:01",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:21:01.502743",
+    "updatedTime": "2026-10-17T15:25:56.745952",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "variant": {
+      "shortName": "Bench",
+      "minorTime": "0",
+      "doubleMinorTime": "0",
+      "benchTime": "2",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "Team Penalty 2 min"
+    },
+    "offence": "TOO-M",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 119,
+    "eventUuid": "7837f6f6-7a22-5d71-9ee1-9cb933170ed4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:19:11.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2752",
+      "firstName": "Lucas",
+      "familyName": "Carlsson",
+      "jerseyToday": "26"
+    },
+    "locationX": 172,
+    "locationY": 142,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 118,
+    "eventUuid": "715db5c6-5602-5aea-9ba8-cbe784aaabf2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:18:56.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "locationX": 132,
+    "locationY": 42,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 117,
+    "eventUuid": "1dd50ea3-e9bf-5c45-a544-92b94a112461",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:20",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T17:16:24.979124",
+    "updatedTime": "2026-10-17T15:22:24.561506",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "INTRF",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 115,
+    "eventUuid": "d54f59b7-1910-5bfa-9d45-8c4efac73d43",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "13:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:16:00.88",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "locationX": 83,
+    "locationY": -60,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 114,
+    "eventUuid": "8d0d7328-7036-54a7-b24e-d5d707d15f15",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "12:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:15:04.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 169,
+    "locationY": 53,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 113,
+    "eventUuid": "a68eb487-37b4-566a-94ce-acf43595b644",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:55",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:13:59.638774",
+    "updatedTime": "2026-10-17T15:14:34.073997",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 2
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3791",
+      "firstName": "Axel",
+      "familyName": "Sundberg",
+      "jerseyToday": "91",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "2"
+        }
+      ]
+    },
+    "locationX": 169,
+    "locationY": -28,
+    "homeGoals": 2,
+    "awayGoals": 2,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "1459",
+        "firstName": "Klas",
+        "familyName": "Dahlbeck",
+        "jerseyToday": "12"
+      },
+      {
+        "playerId": "4982",
+        "firstName": "Jonathan",
+        "familyName": "Myrenberg",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "3663",
+        "firstName": "Oscar",
+        "familyName": "Eklind",
+        "jerseyToday": "43"
+      },
+      {
+        "playerId": "4838",
+        "firstName": "Robin",
+        "familyName": "Hanzl",
+        "jerseyToday": "78"
+      },
+      {
+        "playerId": "3791",
+        "firstName": "Axel",
+        "familyName": "Sundberg",
+        "jerseyToday": "91"
+      },
+      {
+        "playerId": "6108",
+        "firstName": "Marek",
+        "familyName": "Langhamer",
+        "jerseyToday": "94"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "1075",
+        "firstName": "Henrik",
+        "familyName": "Eriksson",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "3991",
+        "firstName": "Gustav",
+        "familyName": "Lindström",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "1987",
+        "firstName": "Magnus",
+        "familyName": "Hellberg",
+        "jerseyToday": "35"
+      },
+      {
+        "playerId": "6884",
+        "firstName": "Theo",
+        "familyName": "Stockselius",
+        "jerseyToday": "42"
+      },
+      {
+        "playerId": "4060",
+        "firstName": "Albin",
+        "familyName": "Grewe",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "1871",
+        "firstName": "Philip",
+        "familyName": "Holm",
+        "jerseyToday": "52"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4982",
+        "firstName": "Jonathan",
+        "familyName": "Myrenberg",
+        "jerseyToday": "28",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "1"
+          },
+          {
+            "key": "A",
+            "value": "4"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "4838",
+        "firstName": "Robin",
+        "familyName": "Hanzl",
+        "jerseyToday": "78",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "5"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 111,
+    "eventUuid": "4a0f66bf-06a3-5fcb-b0c1-7858a528a404",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:13:47.48",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4982",
+      "firstName": "Jonathan",
+      "familyName": "Myrenberg",
+      "jerseyToday": "28"
+    },
+    "locationX": 163,
+    "locationY": 8,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 110,
+    "eventUuid": "b03f97d9-2647-51df-9e98-164d55c0b9ab",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:13:21.46",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "1459",
+      "firstName": "Klas",
+      "familyName": "Dahlbeck",
+      "jerseyToday": "12"
+    },
+    "locationX": 103,
+    "locationY": 6,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 109,
+    "eventUuid": "8c6de50a-370b-5f42-812b-42c74a1bac26",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:13:18.66",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 33,
+    "locationY": 45,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 108,
+    "eventUuid": "66ec67a2-4759-5f6a-aa54-a30003cb1285",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "11:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:12:36.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "locationX": 89,
+    "locationY": -124,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 107,
+    "eventUuid": "3e8029a7-3b06-5432-8326-82bca8d0d7ad",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:12:05.8",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "locationX": 109,
+    "locationY": -11,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 106,
+    "eventUuid": "00e2fcea-8d9e-5891-97a8-0d4edf630448",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "10:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:12:15.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "locationX": 92,
+    "locationY": -124,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 105,
+    "eventUuid": "c20bd9bf-c218-579c-b33f-b7181cd91621",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "09:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:11:29.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4797",
+      "firstName": "Filip",
+      "familyName": "Björkman",
+      "jerseyToday": "24"
+    },
+    "locationX": 39,
+    "locationY": -119,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 104,
+    "eventUuid": "35fd0754-c978-5753-92ff-417208e2ac0a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "09:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:56.8",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "1459",
+      "firstName": "Klas",
+      "familyName": "Dahlbeck",
+      "jerseyToday": "12"
+    },
+    "locationX": 137,
+    "locationY": -136,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 103,
+    "eventUuid": "c00277a8-a9d9-500a-9136-fb01020216f6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "08:37",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:12.14",
+    "updatedTime": "2026-10-17T15:10:47.140434",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4060",
+      "firstName": "Albin",
+      "familyName": "Grewe",
+      "jerseyToday": "46"
+    },
+    "locationX": 52,
+    "locationY": 32,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 101,
+    "eventUuid": "f2fe81ab-3aac-5d7e-a3f3-fd488e4ee5bd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "08:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:10:01.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4060",
+      "firstName": "Albin",
+      "familyName": "Grewe",
+      "jerseyToday": "46"
+    },
+    "locationX": 79,
+    "locationY": -16,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 100,
+    "eventUuid": "4906e962-a1cc-5dc8-a9a4-fda3a53b7394",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "07:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:08:48.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 168,
+    "locationY": -68,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 99,
+    "eventUuid": "932635bd-aa3e-5bc5-9bcb-223bc6f7a96e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "07:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:08:37.02",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5799",
+      "firstName": "Isac",
+      "familyName": "Born",
+      "jerseyToday": "27"
+    },
+    "locationX": 84,
+    "locationY": 66,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 98,
+    "eventUuid": "11c01bc2-340b-5c9e-a88a-ed69b28c50f3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "06:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:08:22.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6109",
+      "firstName": "Thomas",
+      "familyName": "Berg-Paulsen",
+      "jerseyToday": "20"
+    },
+    "locationX": 104,
+    "locationY": 25,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 97,
+    "eventUuid": "cfbe3e5d-4c7e-5d5f-9ac8-92325cdeee1f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "05:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:07:14.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4060",
+      "firstName": "Albin",
+      "familyName": "Grewe",
+      "jerseyToday": "46"
+    },
+    "locationX": 157,
+    "locationY": -77,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 96,
+    "eventUuid": "b77befc0-7a26-59b5-b393-409d2c4cedfc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "04:36",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T17:05:21.598946",
+    "updatedTime": "2026-10-17T15:05:49.165225",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 1
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4690",
+      "firstName": "William",
+      "familyName": "von Barnekow",
+      "jerseyToday": "10",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "3"
+        }
+      ]
+    },
+    "locationX": 29,
+    "locationY": -22,
+    "homeGoals": 2,
+    "awayGoals": 1,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "4690",
+        "firstName": "William",
+        "familyName": "von Barnekow",
+        "jerseyToday": "10"
+      },
+      {
+        "playerId": "1459",
+        "firstName": "Klas",
+        "familyName": "Dahlbeck",
+        "jerseyToday": "12"
+      },
+      {
+        "playerId": "5781",
+        "firstName": "Petter",
+        "familyName": "Vesterheim",
+        "jerseyToday": "13"
+      },
+      {
+        "playerId": "4982",
+        "firstName": "Jonathan",
+        "familyName": "Myrenberg",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "6901",
+        "firstName": "Kalle",
+        "familyName": "Hemström",
+        "jerseyToday": "33"
+      },
+      {
+        "playerId": "6108",
+        "firstName": "Marek",
+        "familyName": "Langhamer",
+        "jerseyToday": "94"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3991",
+        "firstName": "Gustav",
+        "familyName": "Lindström",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "6739",
+        "firstName": "Håvard",
+        "familyName": "Salsten",
+        "jerseyToday": "29"
+      },
+      {
+        "playerId": "1987",
+        "firstName": "Magnus",
+        "familyName": "Hellberg",
+        "jerseyToday": "35"
+      },
+      {
+        "playerId": "7088",
+        "firstName": "Hampus",
+        "familyName": "Zirath",
+        "jerseyToday": "36"
+      },
+      {
+        "playerId": "1871",
+        "firstName": "Philip",
+        "familyName": "Holm",
+        "jerseyToday": "52"
+      },
+      {
+        "playerId": "6755",
+        "firstName": "Charles",
+        "familyName": "Hudon",
+        "jerseyToday": "55"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "6901",
+        "firstName": "Kalle",
+        "familyName": "Hemström",
+        "jerseyToday": "33",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "1459",
+        "firstName": "Klas",
+        "familyName": "Dahlbeck",
+        "jerseyToday": "12",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 94,
+    "eventUuid": "04be62ff-bb32-5481-8421-b8ec2abe6473",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "04:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:04:22.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4914",
+      "firstName": "Colby",
+      "familyName": "Sissons",
+      "jerseyToday": "82"
+    },
+    "locationX": 138,
+    "locationY": -113,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 93,
+    "eventUuid": "5b57e5c1-1e68-5e05-bb0f-e61098eb1a93",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:03:29.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "locationX": 28,
+    "locationY": -41,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 92,
+    "eventUuid": "fc59406d-a9f1-55c5-bf23-bdd342ba7492",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "03:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:02:24.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3791",
+      "firstName": "Axel",
+      "familyName": "Sundberg",
+      "jerseyToday": "91"
+    },
+    "locationX": 56,
+    "locationY": 22,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 91,
+    "eventUuid": "0c88db90-e7c5-5377-823d-82bddd667aa8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "02:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T17:00:24.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 169,
+    "locationY": 70,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 90,
+    "eventUuid": "3465bd6f-1e7e-5f7d-8675-87fc274a675f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "01:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:59:43.06",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2752",
+      "firstName": "Lucas",
+      "familyName": "Carlsson",
+      "jerseyToday": "26"
+    },
+    "locationX": 175,
+    "locationY": -133,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 89,
+    "eventUuid": "72b52423-0f65-5ff1-97af-9468775ebc0d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 3,
+    "time": "00:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:55:19.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3056",
+      "firstName": "Sebastian",
+      "familyName": "Hartmann",
+      "jerseyToday": "94"
+    },
+    "locationX": 132,
+    "locationY": 144,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 88,
+    "eventUuid": "9d5326c9-f995-5679-9983-69c473826bda",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:35:45.52",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2777",
+      "firstName": "Lukas",
+      "familyName": "Vejdemo",
+      "jerseyToday": "44"
+    },
+    "locationX": 35,
+    "locationY": -46,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 87,
+    "eventUuid": "8480394e-d310-5f7e-8fcc-1c6298de098e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:35:02.76",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3663",
+      "firstName": "Oscar",
+      "familyName": "Eklind",
+      "jerseyToday": "43"
+    },
+    "locationX": 27,
+    "locationY": 11,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 86,
+    "eventUuid": "c7aef5b7-2a84-5285-a6c9-f800726f3c92",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:35:00.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6749",
+      "firstName": "Eemil",
+      "familyName": "Viro",
+      "jerseyToday": "6"
+    },
+    "locationX": 163,
+    "locationY": 66,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 85,
+    "eventUuid": "e4f50e80-96ce-57c8-bdb0-cee47b0ee2a5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "19:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:34:22.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6780",
+      "firstName": "Peter",
+      "familyName": "DiLiberatore",
+      "jerseyToday": "51"
+    },
+    "locationX": 91,
+    "locationY": 109,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 84,
+    "eventUuid": "b418403d-fadf-50ec-aa60-fd26a5088dc9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:32:50.16",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 151,
+    "locationY": 90,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 83,
+    "eventUuid": "40d443fb-85dd-533c-af2d-fbc104e5505a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "18:05",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:32:09.04",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6756",
+      "firstName": "Mathias Emilio",
+      "familyName": "Pettersen",
+      "jerseyToday": "20"
+    },
+    "locationX": 173,
+    "locationY": 140,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 82,
+    "eventUuid": "6fbd924e-772b-5ae7-84a2-b84d7241d7bc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:27:52.88",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5781",
+      "firstName": "Petter",
+      "familyName": "Vesterheim",
+      "jerseyToday": "13"
+    },
+    "locationX": 30,
+    "locationY": -139,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 81,
+    "eventUuid": "bbb68be2-bf77-5098-b7c6-35924bab870e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:27:37.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4690",
+      "firstName": "William",
+      "familyName": "von Barnekow",
+      "jerseyToday": "10"
+    },
+    "locationX": 32,
+    "locationY": -57,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 80,
+    "eventUuid": "4fb53fca-1116-57e9-b854-85018623400a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "14:05",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:27:22.58",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6119",
+      "firstName": "Lauri",
+      "familyName": "Pajuniemi",
+      "jerseyToday": "48"
+    },
+    "locationX": 101,
+    "locationY": -135,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 79,
+    "eventUuid": "3e097416-3f63-508a-b92b-c5ab1d65c252",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:27:07.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 163,
+    "locationY": 5,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 78,
+    "eventUuid": "b43e62c6-3720-564f-823e-30ff1b6c79c4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:59.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 122,
+    "locationY": -63,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 77,
+    "eventUuid": "b542457c-66ad-5868-8645-76d187461530",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "13:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:34.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6745",
+      "firstName": "Seth",
+      "familyName": "Barton",
+      "jerseyToday": "49"
+    },
+    "locationX": 166,
+    "locationY": -87,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 76,
+    "eventUuid": "2169a77e-8ead-5230-9042-9f4495dc6e62",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:11.5",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6745",
+      "firstName": "Seth",
+      "familyName": "Barton",
+      "jerseyToday": "49"
+    },
+    "locationX": 157,
+    "locationY": 117,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 75,
+    "eventUuid": "f9807dd4-77f5-5c89-9f21-70d10922436f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "12:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:26:01.54",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6780",
+      "firstName": "Peter",
+      "familyName": "DiLiberatore",
+      "jerseyToday": "51"
+    },
+    "locationX": 151,
+    "locationY": -129,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 73,
+    "eventUuid": "55a0e5a8-23c7-5817-ae81-71e0f60576a0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:22:48.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "locationX": 142,
+    "locationY": -68,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 72,
+    "eventUuid": "0d901104-b0ea-52e5-9384-cd8b5907eff8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:22:39.64",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "locationX": 85,
+    "locationY": -78,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 71,
+    "eventUuid": "19368c93-e70f-5241-b495-fc9176ceb46e",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "11:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:22:30.62",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3056",
+      "firstName": "Sebastian",
+      "familyName": "Hartmann",
+      "jerseyToday": "94"
+    },
+    "locationX": 96,
+    "locationY": 33,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 70,
+    "eventUuid": "023840c4-cbc0-54aa-97b6-9d8f1c664ac8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:48.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 156,
+    "locationY": 75,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 69,
+    "eventUuid": "5969bba6-4adb-58cb-816d-47f0bd876792",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:41.38",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6760",
+      "firstName": "Joe",
+      "familyName": "Snively",
+      "jerseyToday": "7"
+    },
+    "locationX": 93,
+    "locationY": 81,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 68,
+    "eventUuid": "71b3ac24-884e-51ed-aa1f-5bb7cd06bf36",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "10:18",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:19:33.96",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6884",
+      "firstName": "Theo",
+      "familyName": "Stockselius",
+      "jerseyToday": "42"
+    },
+    "locationX": 75,
+    "locationY": -73,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 67,
+    "eventUuid": "7fd8a5c1-59e1-5d5a-b480-e590897635c5",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:18:51.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5799",
+      "firstName": "Isac",
+      "familyName": "Born",
+      "jerseyToday": "27"
+    },
+    "locationX": 372,
+    "locationY": -139,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 66,
+    "eventUuid": "88654a7e-4b2b-5522-949f-40f80f845736",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:31",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T16:17:50.328735",
+    "updatedTime": "2026-10-17T14:22:47.716277",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "variant": {
+      "shortName": "Bench",
+      "minorTime": "0",
+      "doubleMinorTime": "0",
+      "benchTime": "2",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "Team Penalty 2 min"
+    },
+    "offence": "TOO-M",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 65,
+    "eventUuid": "05a9fb5e-5145-5dde-99f0-3ab4bfce0f0b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "09:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:17:25.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5799",
+      "firstName": "Isac",
+      "familyName": "Born",
+      "jerseyToday": "27"
+    },
+    "locationX": 114,
+    "locationY": 9,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 64,
+    "eventUuid": "3124f7f7-3fd9-5658-ab71-04f7001ab1dc",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:56.92",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 129,
+    "locationY": 34,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 63,
+    "eventUuid": "5432b4b4-b0bf-5b0c-902d-20661ac9c6ee",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:48.42",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 66,
+    "locationY": 19,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 62,
+    "eventUuid": "229c5e36-691b-585d-bfa5-15d15faccbf2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:44.9",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6780",
+      "firstName": "Peter",
+      "familyName": "DiLiberatore",
+      "jerseyToday": "51"
+    },
+    "locationX": 80,
+    "locationY": -144,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 61,
+    "eventUuid": "84693887-2cf4-594e-8ca1-bd564b4e918f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "08:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:16:19.66",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6780",
+      "firstName": "Peter",
+      "familyName": "DiLiberatore",
+      "jerseyToday": "51"
+    },
+    "locationX": 70,
+    "locationY": -136,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 60,
+    "eventUuid": "c8273965-d1d2-53c8-873a-38a34888de8a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "07:47",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:15:30.2",
+    "updatedTime": "2026-10-17T14:16:36.195989",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4690",
+      "firstName": "William",
+      "familyName": "von Barnekow",
+      "jerseyToday": "10"
+    },
+    "locationX": 96,
+    "locationY": -43,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 58,
+    "eventUuid": "88457a23-5292-5d1b-a527-dc5fa77f6203",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:14:15.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7088",
+      "firstName": "Hampus",
+      "familyName": "Zirath",
+      "jerseyToday": "36"
+    },
+    "locationX": 160,
+    "locationY": 106,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 57,
+    "eventUuid": "b5fbcab2-2935-510e-9f5b-bcd235aff4a4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "06:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:57.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4797",
+      "firstName": "Filip",
+      "familyName": "Björkman",
+      "jerseyToday": "24"
+    },
+    "locationX": 138,
+    "locationY": 30,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 56,
+    "eventUuid": "d4f69f54-8d98-545b-a29a-f592f2157e47",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:37.64",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3056",
+      "firstName": "Sebastian",
+      "familyName": "Hartmann",
+      "jerseyToday": "94"
+    },
+    "locationX": 49,
+    "locationY": 0,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 55,
+    "eventUuid": "2fe7ba31-ba38-5b5d-b0d0-8c3e51618e1b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "05:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:13:21.12",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3791",
+      "firstName": "Axel",
+      "familyName": "Sundberg",
+      "jerseyToday": "91"
+    },
+    "locationX": 149,
+    "locationY": -25,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 54,
+    "eventUuid": "ab0a09d7-6cb7-592a-9d4d-8d0b5e1ac9d9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:12:01.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4852",
+      "firstName": "David",
+      "familyName": "Blomgren",
+      "jerseyToday": "53"
+    },
+    "locationX": 156,
+    "locationY": 131,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 53,
+    "eventUuid": "1d4373fc-709d-5d60-98cb-86cf2bcf8d4f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:11:47.24",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6760",
+      "firstName": "Joe",
+      "familyName": "Snively",
+      "jerseyToday": "7"
+    },
+    "locationX": 190,
+    "locationY": -135,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 52,
+    "eventUuid": "d77308b5-0578-5035-a808-393560458b23",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:11:26.6",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3991",
+      "firstName": "Gustav",
+      "familyName": "Lindström",
+      "jerseyToday": "28"
+    },
+    "locationX": 168,
+    "locationY": 130,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 51,
+    "eventUuid": "fb9302fd-d5da-560c-ad24-bff97d47836b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "04:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:10:50.36",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6739",
+      "firstName": "Håvard",
+      "familyName": "Salsten",
+      "jerseyToday": "29"
+    },
+    "locationX": 76,
+    "locationY": 69,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 50,
+    "eventUuid": "81c2b186-4612-5c0b-b3fb-d584d92760ac",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "03:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:10:17.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2042",
+      "firstName": "Jesper",
+      "familyName": "Pettersson",
+      "jerseyToday": "37"
+    },
+    "locationX": 139,
+    "locationY": 27,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 49,
+    "eventUuid": "e91ef96b-72cd-5795-aa08-0551aa2cfd02",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "03:30",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:10:10.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2042",
+      "firstName": "Jesper",
+      "familyName": "Pettersson",
+      "jerseyToday": "37"
+    },
+    "locationX": 35,
+    "locationY": 84,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 48,
+    "eventUuid": "62f327f9-5dbe-585e-b9fb-e5de1c770095",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "03:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:09:15.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6780",
+      "firstName": "Peter",
+      "familyName": "DiLiberatore",
+      "jerseyToday": "51"
+    },
+    "locationX": 167,
+    "locationY": 71,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 47,
+    "eventUuid": "ab1ee4a6-a32f-58ff-b5ac-e58e178f5f3a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:32",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T16:07:01.116082",
+    "updatedTime": "2026-10-17T14:07:20.3479",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6760",
+      "firstName": "Joe",
+      "familyName": "Snively",
+      "jerseyToday": "7",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "2"
+        },
+        {
+          "key": "A",
+          "value": "3"
+        }
+      ]
+    },
+    "locationX": 70,
+    "locationY": 2,
+    "homeGoals": 2,
+    "awayGoals": 0,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "6760",
+        "firstName": "Joe",
+        "familyName": "Snively",
+        "jerseyToday": "7"
+      },
+      {
+        "playerId": "1075",
+        "firstName": "Henrik",
+        "familyName": "Eriksson",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "3991",
+        "firstName": "Gustav",
+        "familyName": "Lindström",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "1987",
+        "firstName": "Magnus",
+        "familyName": "Hellberg",
+        "jerseyToday": "35"
+      },
+      {
+        "playerId": "2777",
+        "firstName": "Lukas",
+        "familyName": "Vejdemo",
+        "jerseyToday": "44"
+      },
+      {
+        "playerId": "1871",
+        "firstName": "Philip",
+        "familyName": "Holm",
+        "jerseyToday": "52"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "1459",
+        "firstName": "Klas",
+        "familyName": "Dahlbeck",
+        "jerseyToday": "12"
+      },
+      {
+        "playerId": "5781",
+        "firstName": "Petter",
+        "familyName": "Vesterheim",
+        "jerseyToday": "13"
+      },
+      {
+        "playerId": "4982",
+        "firstName": "Jonathan",
+        "familyName": "Myrenberg",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "4838",
+        "firstName": "Robin",
+        "familyName": "Hanzl",
+        "jerseyToday": "78"
+      },
+      {
+        "playerId": "3791",
+        "firstName": "Axel",
+        "familyName": "Sundberg",
+        "jerseyToday": "91"
+      },
+      {
+        "playerId": "6108",
+        "firstName": "Marek",
+        "familyName": "Langhamer",
+        "jerseyToday": "94"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "3991",
+        "firstName": "Gustav",
+        "familyName": "Lindström",
+        "jerseyToday": "28",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 45,
+    "eventUuid": "cb6c39f2-c008-5ded-8c3b-3cc503418733",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:06:36.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4982",
+      "firstName": "Jonathan",
+      "familyName": "Myrenberg",
+      "jerseyToday": "28"
+    },
+    "locationX": 93,
+    "locationY": -72,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 44,
+    "eventUuid": "bed0e8aa-b69d-59db-b5a6-2cf4f70ae537",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "01:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:06:28.62",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 64,
+    "locationY": -31,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 43,
+    "eventUuid": "75391c54-dfd2-5f4a-92b8-aa164d810ee2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 2,
+    "time": "00:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T16:06:14.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6119",
+      "firstName": "Lauri",
+      "familyName": "Pajuniemi",
+      "jerseyToday": "48"
+    },
+    "locationX": 126,
+    "locationY": -50,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 42,
+    "eventUuid": "f6cad880-08cf-5457-acf6-3dae8b8a4188",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:46:29.28",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3663",
+      "firstName": "Oscar",
+      "familyName": "Eklind",
+      "jerseyToday": "43"
+    },
+    "locationX": 8,
+    "locationY": 1,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 41,
+    "eventUuid": "79335e4d-6547-535d-8615-d1114e36586c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:46:27.98",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 136,
+    "locationY": 44,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 40,
+    "eventUuid": "1d03d93e-bf89-505e-9b7e-cceef9f44cb2",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:46",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:46:19.8",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 167,
+    "locationY": 92,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 39,
+    "eventUuid": "ef1234d5-e693-5fd6-84b1-e85a13413ef3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "19:03",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:44:28.699405",
+    "updatedTime": "2026-10-17T14:06:33.922614",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2777",
+      "firstName": "Lukas",
+      "familyName": "Vejdemo",
+      "jerseyToday": "44"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "TRIP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 38,
+    "eventUuid": "ba023e76-9b1e-5c9f-a91d-c0bc8a2c7ba4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:43:36.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6749",
+      "firstName": "Eemil",
+      "familyName": "Viro",
+      "jerseyToday": "6"
+    },
+    "locationX": 177,
+    "locationY": -53,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 37,
+    "eventUuid": "f25b7d49-b751-54d4-922f-9887417c5ee3",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "18:02",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:52.44",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "3663",
+      "firstName": "Oscar",
+      "familyName": "Eklind",
+      "jerseyToday": "43"
+    },
+    "locationX": 53,
+    "locationY": -79,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 36,
+    "eventUuid": "79fd3f2e-49f1-5783-8923-078051e9dea9",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "17:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:12.08",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2777",
+      "firstName": "Lukas",
+      "familyName": "Vejdemo",
+      "jerseyToday": "44"
+    },
+    "locationX": 40,
+    "locationY": 11,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 35,
+    "eventUuid": "01a5327a-dd6c-5c8f-aa71-a0b77ad2e272",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "17:21",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:42:11.18",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 169,
+    "locationY": 29,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 33,
+    "eventUuid": "5f90b9c7-1bbc-5fb7-952d-bdb8a0b9d1f7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:39:26.3",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6760",
+      "firstName": "Joe",
+      "familyName": "Snively",
+      "jerseyToday": "7"
+    },
+    "locationX": 107,
+    "locationY": 24,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 32,
+    "eventUuid": "caf03691-36f4-5fcc-be90-3b986457b120",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:38:19.94",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "1871",
+      "firstName": "Philip",
+      "familyName": "Holm",
+      "jerseyToday": "52"
+    },
+    "locationX": 175,
+    "locationY": -105,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 31,
+    "eventUuid": "e744d794-50be-5444-bd28-9d0f86290750",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "16:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:38:21.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3056",
+      "firstName": "Sebastian",
+      "familyName": "Hartmann",
+      "jerseyToday": "94"
+    },
+    "locationX": 1,
+    "locationY": 11,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 30,
+    "eventUuid": "fb83b66d-0fae-5dcf-a1ac-758e5d05f7f8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:46",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:54.36",
+    "updatedTime": "2026-10-17T13:36:34.097342",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "locationX": 81,
+    "locationY": -73,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 29,
+    "eventUuid": "105f1363-547b-5411-8ec3-ea5506e507a8",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:55.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "1075",
+      "firstName": "Henrik",
+      "familyName": "Eriksson",
+      "jerseyToday": "17"
+    },
+    "locationX": 58,
+    "locationY": -35,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 27,
+    "eventUuid": "695671a0-2625-5386-a101-e2e3ba05d99a",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "13:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:35:30.22",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6109",
+      "firstName": "Thomas",
+      "familyName": "Berg-Paulsen",
+      "jerseyToday": "20"
+    },
+    "locationX": 122,
+    "locationY": -80,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 26,
+    "eventUuid": "0ef2f5fa-b47f-56b4-9011-037abad65d39",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "12:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:34:37.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "3056",
+      "firstName": "Sebastian",
+      "familyName": "Hartmann",
+      "jerseyToday": "94"
+    },
+    "locationX": 37,
+    "locationY": 114,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 25,
+    "eventUuid": "fe133d71-4593-57e3-b6ba-277380f83649",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:33:50.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "5870",
+      "firstName": "Oliwer",
+      "familyName": "Kaski",
+      "jerseyToday": "7"
+    },
+    "locationX": 148,
+    "locationY": 35,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 24,
+    "eventUuid": "925d26e0-5b40-56d1-a580-8dccf8524df6",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "11:09",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:33:17.06",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "1075",
+      "firstName": "Henrik",
+      "familyName": "Eriksson",
+      "jerseyToday": "17"
+    },
+    "locationX": 52,
+    "locationY": 66,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 23,
+    "eventUuid": "2176865d-b3df-5665-a11a-055ed9952882",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:14",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:30:32.52",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6739",
+      "firstName": "Håvard",
+      "familyName": "Salsten",
+      "jerseyToday": "29"
+    },
+    "locationX": 9,
+    "locationY": -3,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 22,
+    "eventUuid": "abe67f20-a86a-5f2d-b45b-3454a315374d",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "09:13",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:30:31.26",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2752",
+      "firstName": "Lucas",
+      "familyName": "Carlsson",
+      "jerseyToday": "26"
+    },
+    "locationX": 180,
+    "locationY": -83,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 21,
+    "eventUuid": "1b74cc77-244e-52f4-8779-086aab3d4af0",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:30:10.4",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "locationX": 135,
+    "locationY": 117,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 20,
+    "eventUuid": "b09a7244-986e-5a61-a50b-20da6c632997",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:40",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-10-17T15:29:08.18025",
+    "updatedTime": "2026-10-17T13:32:50.146508",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6113",
+      "firstName": "Janne",
+      "familyName": "Kuokkanen",
+      "jerseyToday": "22"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 19,
+    "eventUuid": "88419a41-d911-5e21-9b36-8f12eefb1e43",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "08:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:28:22.78",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2820",
+      "firstName": "Carl",
+      "familyName": "Persson",
+      "jerseyToday": "95"
+    },
+    "locationX": 166,
+    "locationY": 107,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 18,
+    "eventUuid": "e165387f-6f46-5a1a-918e-1837a55e4975",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:58.68",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "4690",
+      "firstName": "William",
+      "familyName": "von Barnekow",
+      "jerseyToday": "10"
+    },
+    "locationX": 193,
+    "locationY": 6,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 17,
+    "eventUuid": "a3fd92fe-c0ec-5aa0-a235-e65698612c9f",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "07:01",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:26:39.3",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2752",
+      "firstName": "Lucas",
+      "familyName": "Carlsson",
+      "jerseyToday": "26"
+    },
+    "locationX": 109,
+    "locationY": -40,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 16,
+    "eventUuid": "ce6e21c5-7637-5091-a5b4-a800b0806778",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:25:40.7",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "1459",
+      "firstName": "Klas",
+      "familyName": "Dahlbeck",
+      "jerseyToday": "12"
+    },
+    "locationX": 85,
+    "locationY": -145,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 15,
+    "eventUuid": "306b7f7d-8fa6-5c7d-80ab-19719928f2dd",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "06:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:24:53.74",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "locationX": 128,
+    "locationY": -89,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 14,
+    "eventUuid": "e47d2bea-e5c8-5ee5-91ea-8c5c7f3247e4",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:45",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-10-17T15:23:26.341091",
+    "updatedTime": "2026-10-17T13:24:07.322643",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "1871",
+      "firstName": "Philip",
+      "familyName": "Holm",
+      "jerseyToday": "52",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "2"
+        }
+      ]
+    },
+    "locationX": 169,
+    "locationY": -122,
+    "homeGoals": 1,
+    "awayGoals": 0,
+    "goalSection": 7,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "1075",
+        "firstName": "Henrik",
+        "familyName": "Eriksson",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "6756",
+        "firstName": "Mathias Emilio",
+        "familyName": "Pettersen",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "3991",
+        "firstName": "Gustav",
+        "familyName": "Lindström",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "1987",
+        "firstName": "Magnus",
+        "familyName": "Hellberg",
+        "jerseyToday": "35"
+      },
+      {
+        "playerId": "4060",
+        "firstName": "Albin",
+        "familyName": "Grewe",
+        "jerseyToday": "46"
+      },
+      {
+        "playerId": "1871",
+        "firstName": "Philip",
+        "familyName": "Holm",
+        "jerseyToday": "52"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "2458",
+        "firstName": "Patrik",
+        "familyName": "Norén",
+        "jerseyToday": "26"
+      },
+      {
+        "playerId": "6780",
+        "firstName": "Peter",
+        "familyName": "DiLiberatore",
+        "jerseyToday": "51"
+      },
+      {
+        "playerId": "4838",
+        "firstName": "Robin",
+        "familyName": "Hanzl",
+        "jerseyToday": "78"
+      },
+      {
+        "playerId": "3791",
+        "firstName": "Axel",
+        "familyName": "Sundberg",
+        "jerseyToday": "91"
+      },
+      {
+        "playerId": "6108",
+        "firstName": "Marek",
+        "familyName": "Langhamer",
+        "jerseyToday": "94"
+      },
+      {
+        "playerId": "2820",
+        "firstName": "Carl",
+        "familyName": "Persson",
+        "jerseyToday": "95"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "4060",
+        "firstName": "Albin",
+        "familyName": "Grewe",
+        "jerseyToday": "46",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6756",
+        "firstName": "Mathias Emilio",
+        "familyName": "Pettersen",
+        "jerseyToday": "20",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 12,
+    "eventUuid": "25d5c1b1-4fcd-5e8d-88c4-22ac471f5a47",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:22:40.02",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "6755",
+      "firstName": "Charles",
+      "familyName": "Hudon",
+      "jerseyToday": "55"
+    },
+    "locationX": 66,
+    "locationY": 79,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 11,
+    "eventUuid": "a36c2d96-77e5-5e1b-b8c5-f571f86e60b1",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "05:22",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:22:24.68",
+    "updatedTime": "2026-10-17T13:22:59.636365",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 163,
+    "locationY": 101,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 9,
+    "eventUuid": "3ea5dafd-7416-5de0-8e59-25690577640c",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:18:43.44",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "locationX": 349,
+    "locationY": 47,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 8,
+    "eventUuid": "96879eba-444b-5069-b13e-8972f16030ac",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:20:01.16",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "2777",
+      "firstName": "Lukas",
+      "familyName": "Vejdemo",
+      "jerseyToday": "44"
+    },
+    "locationX": 29,
+    "locationY": 30,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 6,
+    "eventUuid": "5cf4d27e-a2d5-502b-9d56-ae4e63e6f2b7",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:19:12.34",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "7015",
+      "firstName": "Nikolas",
+      "familyName": "Brouillard",
+      "jerseyToday": "15"
+    },
+    "locationX": 134,
+    "locationY": 61,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 5,
+    "eventUuid": "2a0d6854-b116-5133-b871-f43f14eb7c3b",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "03:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:19:04.2",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4060",
+      "firstName": "Albin",
+      "familyName": "Grewe",
+      "jerseyToday": "46"
+    },
+    "locationX": 77,
+    "locationY": 82,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 4,
+    "eventUuid": "33e57f4a-a1fa-5945-ace1-23dc3f6b6f98",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "02:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:17:31.84",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "4604",
+      "firstName": "Oliver",
+      "familyName": "Wahlstrom",
+      "jerseyToday": "89"
+    },
+    "locationX": 5,
+    "locationY": -37,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 3,
+    "eventUuid": "e5da0d71-5d22-587f-9386-b7e087a6d362",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "01:26",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-10-17T15:16:39.52",
+    "updatedTime": "0001-01-01T00:00:00",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "2458",
+      "firstName": "Patrik",
+      "familyName": "Norén",
+      "jerseyToday": "26"
+    },
+    "locationX": 152,
+    "locationY": -80,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 2,
+    "eventUuid": "f9cd76b9-0cfc-5cbb-96e3-ad1b78f185fe",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:10:50.644857",
+    "updatedTime": "2026-10-17T15:43:38.204185",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "MIF",
+      "place": "away",
+      "teamCode": "MIF",
+      "teamName": "IF Malmö Redhawks"
+    },
+    "player": {
+      "playerId": "6108",
+      "firstName": "Marek",
+      "familyName": "Langhamer",
+      "jerseyToday": "94"
+    },
+    "isEntering": true,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "eventId": 1,
+    "eventUuid": "645f88ae-c1f8-50d1-a801-7c82872fb541",
+    "round": 10,
+    "gameType": "Elitserien",
+    "arena": "Hovet",
+    "attendance": 8098,
+    "startDateAndTime": "2026-10-17T15:15:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-10-17T15:10:35.344005",
+    "updatedTime": "2026-10-17T15:43:36.483084",
+    "homeTeam": {
+      "teamId": "DIF",
+      "teamName": "Djurgården Hockey",
+      "teamCode": "DIF",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "MIF",
+      "teamName": "IF Malmö Redhawks",
+      "teamCode": "MIF",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "DIF",
+      "place": "home",
+      "teamCode": "DIF",
+      "teamName": "Djurgården Hockey"
+    },
+    "player": {
+      "playerId": "1987",
+      "firstName": "Magnus",
+      "familyName": "Hellberg",
+      "jerseyToday": "35"
+    },
+    "isEntering": true,
+    "gameUuid": "pmch0rrshr"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-10-17T15:15:13.077Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T15:48:57.017Z",
+    "realWorldTime": "2026-10-17T15:48:57.170109",
+    "gameUuid": "pmch0rrshr",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-10-17T16:05:27.072Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T16:36:00.046Z",
+    "realWorldTime": "2026-10-17T16:36:00.462288",
+    "gameUuid": "pmch0rrshr",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-10-17T16:54:34.095Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:30:54.019Z",
+    "realWorldTime": "2026-10-17T17:30:54.194803",
+    "gameUuid": "pmch0rrshr",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "period": 4,
+    "started": true,
+    "startedAt": "2026-10-17T17:33:27.000Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:40:12.043Z",
+    "realWorldTime": "2026-10-17T17:40:12.437417",
+    "gameUuid": "pmch0rrshr",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20261017-DIF-MIF",
+    "gameId": 23064,
+    "period": "shootout",
+    "started": true,
+    "startedAt": "2026-10-17T17:40:16.061Z",
+    "finished": true,
+    "finishedAt": "2026-10-17T17:43:31.092Z",
+    "realWorldTime": "2026-10-17T17:43:31.929291",
+    "gameUuid": "pmch0rrshr",
+    "type": "period"
+  }
+]

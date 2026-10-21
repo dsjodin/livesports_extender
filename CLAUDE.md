@@ -120,7 +120,9 @@ Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/s
    for replay) touch the network.
 5. **Be polite to shl.se.** Poll only the selected game: `game-info` every 60 s until
    15 min before puck drop, then `game-info` and `play-by-play` every 2 s until the game is
-   over. Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a
+   over. While it is followed, the evening's other SHL games (same day) get `play-by-play`
+   every 30 s from 15 min before each one's start until it ends (decided 2026-10-21),
+   delayed by the same offset (rule 1). Never poll when no game is selected. Cache the schedule for one hour. Exponential backoff on errors (2 s doubling to 30 s). Send a
    `User-Agent: shl-arena/<version> (private home display)` header.
 6. **Teams are identified by uuid**, never by code. Codes differ between endpoints
    (Skellefteå is `SAIK` and `SKE`, Örebro is `OHK` and `ÖRE`).
