@@ -203,7 +203,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
   selected game, my side (`my_side`, and `my_side_choice` as set), profile, offset,
   counts, `last_snapshot_ms`, `late_goals` (goals that reached us after the TV),
-  `manual` (MÅL! presses), `calibration` (as `GET /api/calibrate`), `goal_button_sync`.
+  `manual` (MÅL! presses), `calibration` (as `GET /api/calibrate`), `goal_button_sync`,
+  `follow_my_team`.
 - Raw (undelayed) normalizer changes go only to sim, phone and debug clients that sent
   `debug_subscribe` (CLAUDE.md rule 1): first `{"t": "raw_backlog", "raw": [...],
   "released": [...]}`, then `{"t": "raw", "entry": {"change", "key", "type", "label",
@@ -244,6 +245,7 @@ auth in front if it is ever exposed).
 | `POST /api/calibrate/goal-button` | `{"enabled": true}` | "Använd målknapp för synk": a linked MÅL! press is a `goal` sample |
 | `DELETE /api/calibrate` | | Clear samples |
 | `DELETE /api/calibrate/{id}` | | Remove one sample |
+| `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag": follow my team's game of the day live when nothing else runs (checked every 10 min) |
 | `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |

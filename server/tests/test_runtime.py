@@ -1,5 +1,6 @@
 """Phase 2 acceptance on the runtime with a fake clock and hand-made snapshots."""
 
+import asyncio
 from pathlib import Path
 from typing import Any
 
@@ -351,3 +352,44 @@ async def test_test_goal_plays_at_once(setup: Any) -> None:
     await at(clock, rt, clock.now_ms() + 300)
     assert rt.applied["scene"]["name"] == "goal"
     assert rt.manual_status()[0]["status"] == "test"
+
+
+class TodaysGames:
+    def __init__(self, games: list[dict[str, Any]]) -> None:
+        self.games = games
+
+    async def upcoming(self, days: int) -> list[dict[str, Any]]:
+        return self.games
+
+
+def scheduled(uuid: str, home: str, away: str, state: str = "pre-game") -> dict[str, Any]:
+    return {"uuid": uuid, "state": state, "home": {"uuid": home}, "away": {"uuid": away}}
+
+
+async def test_follow_my_team(tmp_path: Path) -> None:
+    clock = FakeClock(T)
+    settings = Settings(
+        web_dir=tmp_path, config_dir=tmp_path, data_dir=tmp_path, fixtures_dir=FIXTURES
+    )
+    store = StateStore(tmp_path / "state.json")
+    store.config.my_team_uuid = "ore"
+    games = TodaysGames([scheduled("g1", "fhc", "lhc"), scheduled("g2", "ore", "bif")])
+    rt = Runtime(clock, settings, store, Collector(), schedule=games)  # type: ignore[arg-type]
+    started: list[tuple[str, str | None]] = []
+
+    async def fake_source(mode: str, uuid: str | None = None, *_: Any) -> None:
+        started.append((mode, uuid))
+        rt.config.source.mode, rt.config.source.uuid = mode, uuid  # type: ignore[assignment]
+
+    rt.set_source = fake_source  # type: ignore[method-assign]
+    assert await rt.follow_my_team() is None  # off by default
+    await rt.set_follow(True)
+    assert started == [("live", "g2")] and rt.config.my_side is None
+    assert await rt.follow_my_team() is None  # already followed today
+    rt.config.source.mode = "replay"  # type: ignore[assignment]
+    rt._source_task = asyncio.get_running_loop().create_future()  # type: ignore[assignment]
+    assert await rt.follow_my_team() is None  # never interrupts a replay
+    games.games = [scheduled("g2", "ore", "bif", "post-game")]
+    rt._source_task = None
+    rt.config.source.mode = "none"  # type: ignore[assignment]
+    assert await rt.follow_my_team() is None  # my team's game is over

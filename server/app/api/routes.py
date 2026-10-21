@@ -245,6 +245,17 @@ async def remove_sample(sample_id: str, request: Request) -> dict[str, Any]:
     return rt.calibration()
 
 
+@router.post("/follow")
+async def follow(body: EnabledIn, request: Request) -> dict[str, Any]:
+    """ "Följ mitt lag": follow my team's game of the day by itself."""
+    rt = runtime(request)
+    try:
+        await rt.set_follow(body.enabled)
+    except (SourceError, ShlError) as exc:
+        raise HTTPException(502, str(exc)) from exc
+    return ok(rt)
+
+
 @router.post("/goal")
 async def manual_goal(body: GoalIn, request: Request) -> dict[str, Any]:
     """The MÅL! button: celebrate now; the feed goal behind it links when it arrives."""

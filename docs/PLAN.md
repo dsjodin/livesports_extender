@@ -384,8 +384,22 @@ Acceptance:
 - A recorded live game replays through `RecordingSource` with the correct goal timeline.
 - Dry run: `LiveSource` on an upcoming game polls at 60 s; on a finished game it stops cleanly.
   (Checked 2026-10-21 against shl.se with `zvcj2so1am` and `mtn5yq64mp`, and in
-  `tests/test_sources.py` with a fake shl.se. Still open from this phase: tasks 2–5,
-  and a real game followed live end to end.)
+  `tests/test_sources.py` with a fake shl.se.)
+
+Phase 5 notes (2026-10-21):
+
+- Task 2: `docs/SHL_API.md` open questions updated from the recording.
+- Task 3: `tests/test_recorded_game.py` runs `mtn5yq64mp` through the whole runtime and
+  checks the eight goals in game order, one at a time, ending 6–2, with the same scorers
+  as the recorded boxscore, none played before it arrived.
+- Task 4: "Följ mitt lag" (`follow_my_team`, `POST /api/follow`, off by default): every
+  10 min, if my team plays today and no replay, recording or live game is running, it
+  follows that game live with my side following my team. It does not restart a game it
+  already followed today. Turn it off to stop it.
+- Task 5: `LiveSource` fetches game-info and play-by-play once more 30 min after
+  `GameEnded`; corrections become `event_update`s and state patches. The boxscore is not
+  fetched (nothing uses it yet; faceoffs are a later task).
+- Not yet done: a real game followed live from puck drop to the final refresh.
 
 ---
 

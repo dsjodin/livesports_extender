@@ -77,6 +77,8 @@ class RuntimeConfig(BaseModel):
     profiles: dict[str, float] = {"iptv": 40.0, "tv4play": 60.0}
     active_profile: str = "iptv"
     calibration_samples: list[dict[str, Any]] = []
+    # Follow my team's game of the day by itself (live), when nothing else is running.
+    follow_my_team: bool = False
     # A MÅL! press linked to a feed goal also counts as a "goal" sync sample.
     goal_button_sync: bool = True
     webhooks: WebhookSettings = WebhookSettings()

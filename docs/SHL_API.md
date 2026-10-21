@@ -498,14 +498,22 @@ being logged by the scorers. How long after the actual on-ice moment they are lo
 
 ## Open questions for the Phase 0 recording
 
+Checked again against `mtn5yq64mp` in Phase 5 (2026-10-21).
+
 1. ~~Game state while live~~: play-by-play `Ongoing`; game-info stays `pre_game`
-   (see Live behaviour). Still to check: when game-info turns `post_game`.
-2. ~~What `goalSection` means~~: fixtures say 1 to 9 = on goal (see **shot**). Confirm on a
-   live recording, and decide what -1 is.
-3. ~~How shootouts appear~~: answered from the fixtures (see **Shootout**). A live recording
-   would show whether attempts arrive one by one.
-4. How a disallowed goal appears (removed event, revision, or a new event type). Events
-   are deleted live (see Live behaviour); whether goals are, needs the report.
-5. Other `goalStatus` and `offence` values.
-6. Delay from `realWorldTime` / `updatedTime` to our first sight of each event type.
-7. Whether period objects appear the moment a period starts.
+   (see Live behaviour). game-info was still `pre_game` 1.3 min after `GameEnded`, when
+   the recording stopped, so `LiveSource` ends on play-by-play's `GameEnded`, not on
+   game-info. When game-info turns `post_game` is still unknown (it was `post_game` for
+   finished games fetched later).
+2. ~~What `goalSection` means~~: 1 to 9 = on goal, confirmed live (see **shot** and the
+   latency section). -1 stays unexplained (seen once, shown as unknown).
+3. ~~How shootouts appear~~: answered from the fixtures (see **Shootout**). Whether
+   attempts arrive one by one live is still unseen.
+4. How a disallowed goal appears: not seen yet. No goal disappeared in `mtn5yq64mp`
+   (other events did; see Live behaviour). The engine treats a removed goal as
+   disallowed.
+5. Other `goalStatus` and `offence` values: logged once at WARNING when they appear
+   (CLAUDE.md rule 7); none new in the recording.
+6. ~~Delay to our first sight per event type~~: see Feed latency and Observed latency.
+7. ~~Whether period objects appear at once~~: no, 22–31 s after `startedAt`
+   (P1 22 s, P2 31 s, P3 25 s in `mtn5yq64mp`), the replay source's 25 s period lag.

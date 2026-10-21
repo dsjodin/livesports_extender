@@ -366,7 +366,9 @@ function renderSettings() {
     $("view-installningar"),
     html`<div class="card"><div class="label">TV-profil</div>${raw(profiles || `<div class="muted">Ansluter…</div>`)}
       <div class="muted">Hur många sekunder TV:n ligger efter arenan.</div></div>
-    <div class="card"><div class="label">Mitt lag</div>${raw(myTeam)}<div class="muted">Mitt lags mål tänder lamporna. Kan ändras per match under Matcher.</div></div>
+    <div class="card"><div class="label">Mitt lag</div>${raw(myTeam)}<div class="muted">Mitt lags mål tänder lamporna. Kan ändras per match under Matcher.</div>
+      <label class="row"><input type="checkbox" data-act="follow" ${st.follow_my_team ? "checked" : ""}> Följ mitt lag automatiskt</label>
+      <div class="muted">Följer mitt lags match live när den spelas idag, om ingen annan match eller repris är igång. Stäng av för att sluta följa.</div></div>
     <div class="card"><div class="label">Home Assistant</div><input disabled placeholder="Webhook-URL"><div class="muted">Kommer i fas 6.</div></div>
     <div class="card"><div class="label">Lagfärger</div>${raw(teamRows)}</div>
     <div class="card"><div class="label">Felsökning</div>
@@ -441,6 +443,7 @@ const changes = {
   "goal-sync": (el) => api("calibrate/goal-button", { enabled: el.checked }),
   "profile-offset": (el) => api("offset", { profile: el.dataset.profile, seconds: Number(el.value) }),
   "my-team": (el) => api("my-team", { uuid: el.value || null }),
+  follow: (el) => api("follow", { enabled: el.checked }).then((r) => r && toast(el.checked ? "Följer mitt lag" : "Följer inte mitt lag automatiskt")),
   "team-color": (el) => {
     let value = el.value;
     if (value === "custom") {

@@ -331,13 +331,15 @@ async def test_live_polls_slowly_before_and_fast_near_puck_drop() -> None:
     assert snaps[-1].age_s == 4 and snaps[-1].available_ms == snaps[-1].received_ms - 4000
 
 
-async def test_live_stops_two_minutes_after_game_end() -> None:
+async def test_live_stops_two_minutes_after_game_end_then_refreshes_once() -> None:
     clock = FakeClock()
     shl = FakeShl(clock.now_ms() - 3 * 3600_000, [with_state("Ongoing"), with_state("GameEnded")])
     snaps = await collect(shl.source(clock))
     ended = [s for s in snaps if s.pbp and s.pbp[0]["gameState"] == "GameEnded"]
-    assert ended[-1].received_ms - ended[0].received_ms == 120_000
-    assert snaps[-1] is ended[-1]
+    polling, final = ended[:-1], ended[-1]
+    assert polling[-1].received_ms - polling[0].received_ms == 120_000
+    assert final.received_ms - polling[0].received_ms == 30 * 60_000  # corrections after the game
+    assert snaps[-1] is final
 
 
 async def test_live_finished_game_polls_once_and_errors_back_off() -> None:

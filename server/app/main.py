@@ -59,7 +59,7 @@ def create_app(
     fetch_league: bool = True,
 ) -> FastAPI:
     """``fetch_league=False`` keeps the service from fetching standings and the schedule on
-    its own (tests)."""
+    its own, and from following my team (tests)."""
     settings = settings or Settings.from_env()
     clock = clock or RealClock()
     hub = ws.Hub()
@@ -67,7 +67,16 @@ def create_app(
     schedule = ScheduleService(client_factory, clock)
     assets = AssetCache(settings.data_dir / "cache", client_factory, clock)
     league = LeagueService(schedule, client_factory, clock) if fetch_league else None
-    runtime = Runtime(clock, settings, store, hub, client_factory, assets=assets, league=league)
+    runtime = Runtime(
+        clock,
+        settings,
+        store,
+        hub,
+        client_factory,
+        assets=assets,
+        league=league,
+        schedule=schedule if fetch_league else None,
+    )
 
     @contextlib.asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:

@@ -30,6 +30,7 @@ from app.engine.normalizer import Normalizer
 from app.feed.assets import AssetCache
 from app.feed.client import ShlClient, ShlError
 from app.feed.league import LeagueService
+from app.feed.schedule import ScheduleService
 from app.feed.snapshot import Snapshot
 from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
 from app.teams import TeamColors
@@ -41,6 +42,7 @@ TICK_S = 0.25
 STATUS_EVERY_MS = 1000
 LOG_SIZE = 400
 LEAGUE_REFRESH_S = 600
+FOLLOW_CHECK_S = 600  # "follow my team": look at today's schedule (cached 1 h) this often
 MANUAL_LEAD_MS = 300  # a MÅL! press plays this soon: the clients need the message first
 MANUAL_LINK_BEFORE_MS = 150_000  # a feed goal links if its event_ms is this far before
 MANUAL_LINK_AFTER_MS = 5_000  # ... or at most this far after the press
@@ -85,10 +87,13 @@ class Runtime:
         lead_ms: int = LEAD_MS,
         assets: AssetCache | None = None,
         league: LeagueService | None = None,
+        schedule: ScheduleService | None = None,
     ) -> None:
         self.clock = clock
         self.assets = assets
         self.league = league
+        self.schedule = schedule
+        self._follow_task: asyncio.Task[None] | None = None
         self.league_block: dict[str, Any] | None = None
         self._league_task: asyncio.Task[None] | None = None
         self._background: set[asyncio.Task[Any]] = set()
@@ -523,6 +528,54 @@ class Runtime:
             self._league_task = asyncio.get_running_loop().create_task(self._league_loop())
         if self.config.source.mode != "none" and self.source is None:
             self._spawn(self._resume_source())
+        if self.schedule is not None and self._follow_task is None:
+            self._follow_task = asyncio.get_running_loop().create_task(self._follow_loop())
+
+    # --- follow my team -------------------------------------------------------------
+
+    async def _follow_loop(self) -> None:
+        while True:
+            try:
+                await self.follow_my_team()
+            except ShlError as exc:
+                log.warning("follow my team: schedule unavailable: %s", exc)
+            await self.clock.sleep(FOLLOW_CHECK_S)
+
+    async def follow_my_team(self) -> str | None:
+        """Start following my team's game today if that is on and nothing else runs: no
+        source, or a live source that has finished. Never interrupts a replay, a recording
+        or a live game in progress. Returns the uuid it started, if any."""
+        team = self.config.my_team_uuid
+        if not self.config.follow_my_team or not team or self.schedule is None:
+            return None
+        mode = self.config.source.mode
+        running = self._source_task is not None and not self._source_task.done()
+        if mode in ("replay", "recording") and running:
+            return None
+        if mode == "live" and running:
+            return None
+        games = await self.schedule.upcoming(0)
+        mine = [
+            g
+            for g in games
+            if team in (g["home"]["uuid"], g["away"]["uuid"]) and g["state"] != "post-game"
+        ]
+        if not mine:
+            return None
+        game = mine[0]["uuid"]
+        if mode == "live" and self.config.source.uuid == game:
+            return None  # already followed today (finished, or stopped by the user)
+        log.info("follow my team: following %s", game)
+        await self.set_source("live", game)
+        self.config.my_side = None  # my side follows my team
+        self.store.save()
+        return game
+
+    async def set_follow(self, enabled: bool) -> None:
+        self.config.follow_my_team = enabled
+        self.store.save()
+        if enabled:
+            await self.follow_my_team()
 
     async def _resume_source(self) -> None:
         """After a restart, start the saved source again (a replay starts from the top)."""
@@ -535,12 +588,13 @@ class Runtime:
 
     async def stop(self) -> None:
         await self._stop_source()
-        for task in [self._league_task, *self._background]:
+        for task in [self._league_task, self._follow_task, *self._background]:
             if task is not None:
                 task.cancel()
                 with contextlib.suppress(asyncio.CancelledError, Exception):
                     await task
         self._league_task = None
+        self._follow_task = None
         if self._scheduler_task is not None:
             self._scheduler_task.cancel()
             with contextlib.suppress(asyncio.CancelledError):
@@ -870,4 +924,5 @@ class Runtime:
             "manual": self.manual_status(),
             "calibration": self.calibration(),
             "goal_button_sync": self.config.goal_button_sync,
+            "follow_my_team": self.config.follow_my_team,
         }

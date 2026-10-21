@@ -382,6 +382,8 @@ LIVE_FAST_S = 2.0
 LIVE_SLOW_S = 60.0
 LIVE_FAST_BEFORE_S = 15 * 60
 LIVE_STOP_AFTER_S = 120.0
+LIVE_FINAL_REFRESH_S = 30 * 60
+LIVE_FINAL_TRIES = 3
 BACKOFF_START_S = 2.0
 BACKOFF_MAX_S = 30.0
 KNOWN_INFO_STATES = {"pre-game", "post-game"}
@@ -394,8 +396,9 @@ class LiveSource:
     ``play-by-play`` every 2 s. game-info goes stale during the game (docs/SHL_API.md),
     so the game is over when play-by-play says ``GameEnded`` (or game-info says
     post-game); polling stops 2 min after that, at once if the game was already over on
-    the first poll. Errors back off from 2 s doubling to 30 s. ``Snapshot.age_s`` is
-    play-by-play's Age header.
+    the first poll. shl.se keeps correcting events after the game, so 30 min after the
+    end both are fetched once more (up to 3 tries) before the source ends. Errors back
+    off from 2 s doubling to 30 s. ``Snapshot.age_s`` is play-by-play's Age header.
     """
 
     def __init__(
@@ -405,16 +408,37 @@ class LiveSource:
         clock: Clock,
         *,
         stop_after_s: float = LIVE_STOP_AFTER_S,
+        final_refresh_s: float | None = LIVE_FINAL_REFRESH_S,
     ) -> None:
         self.client_factory = client_factory
         self.game_uuid = game_uuid
         self.clock = clock
         self.stop_after_s = stop_after_s
+        self.final_refresh_s = final_refresh_s
         self.polls = 0
         self._warned: set[str] = set()
 
     def __aiter__(self) -> AsyncIterator[Snapshot]:
         return self._run()
+
+    async def _final_refresh(self, client: ShlClient, over_since: int) -> Snapshot | None:
+        assert self.final_refresh_s is not None
+        wait_ms = over_since + round(self.final_refresh_s * 1000) - self.clock.now_ms()
+        if wait_ms > 0:
+            await self.clock.sleep(wait_ms / 1000)
+        backoff = BACKOFF_START_S
+        for _ in range(LIVE_FINAL_TRIES):
+            self.polls += 1
+            try:
+                info = (await client.game_info(self.game_uuid)).data
+                response = await client.play_by_play(self.game_uuid)
+            except ShlError as exc:
+                log.warning("live %s final refresh: %s", self.game_uuid, exc)
+                await self.clock.sleep(backoff)
+                backoff = min(backoff * 2, BACKOFF_MAX_S)
+                continue
+            return Snapshot.at(self.clock.now_ms(), info, response.data, age_s=response.age_s)
+        return None
 
     def _info_state(self, info: dict[str, Any]) -> str | None:
         raw = (info.get("gameInfo") or {}).get("state")
@@ -459,6 +483,10 @@ class LiveSource:
                         return
                     over_since = over_since or self.clock.now_ms()
                     if self.clock.now_ms() - over_since >= self.stop_after_s * 1000:
+                        if self.final_refresh_s is not None:
+                            final = await self._final_refresh(client, over_since)
+                            if final is not None:
+                                yield final
                         return
                 first = False
                 await self.clock.sleep(LIVE_FAST_S if fast else LIVE_SLOW_S)
