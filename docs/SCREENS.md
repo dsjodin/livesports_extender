@@ -111,8 +111,8 @@ height). Rules:
   (30 %) behind the team name on the portraits, free-standing on the bar (the user's
   call, 2026-10-21). Badges stay in lists.
 - `tools/legibility.py` (service running) measures every text of every scene; a scene
-  is done when nothing is under the floor. Done so far: `live` and the bar in every
-  scene. Still to do: pregame, goal, intermission, postgame and idle portraits.
+  is done when nothing is under the floor. Done so far: `live`, `intermission` and the
+  bar in every scene. Still to do: pregame, goal, postgame and idle portraits.
 
 Native sizes before the 3 m pass (the scenes not yet redone), portrait screens (1080 wide):
 
@@ -280,15 +280,20 @@ divided by the replay speed (`config.speed`). Before overtime the break is taken
   `floor((now − since_ms) / 12 s) mod n` on the synced clock, so all screens agree and a
   reload lands on the same slide; the change is a 0.5 s cross-fade. Dots at the bottom show
   where in the cycle it is, and the countdown card "<N>:E PERIODEN STARTAR OM" stays.
-- Left: our game. "EFTER n PERIODER" over: PERIODSTATISTIK (both teams, comparison rows:
-  shots per period, shots on goal, shot attempts, power play goals/chances, penalty
-  minutes, save %); SKOTTKARTOR (both teams' maps); MÅL OCH UTVISNINGAR; MÅLVAKTER OCH
-  SPECIAL TEAMS (goalie cards, power play and penalty kill).
-- Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (one card per other game: badges, score,
-  status, shots, penalty minutes); the live table "OM MATCHERNA SLUTADE NU" (or plain
-  TABELL when no other game has started, see `docs/PROTOCOL.md`, live table) with a
-  movement arrow per team; MÅLSKYTTAR (goals per other game). With no other games the
-  right screen shows our goals and penalties.
+- Left: our game, five slides under "EFTER n PERIODER" (sized for 3 m, 2026-10-21):
+  SKOTT (both teams, comparison rows: shots per period, on goal, attempts); SKOTTKARTOR
+  (both maps, shots on goal per team); MÅLEN (the last six: "#11 FAGEMO 1–0", under it
+  "P1 07:11 · FHC · EQ"); UTVISNINGAR (the last six: "#4 BERGQVIST 2 MIN", "P1 15:09 ·
+  SKE · Slashing"; a penalty shot reads STRAFFSLAG); MÅLVAKTER OCH SPECIAL TEAMS (goalie
+  per team with save % and saves, power play goals/chances, penalty minutes). Assists
+  are left out of the lists (the goal scene has them).
+- Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (up to six games: logos, codes, score,
+  status); the live table "OM MATCHERNA SLUTADE NU" (or plain TABELL when no other game
+  has started, see `docs/PROTOCOL.md`, live table): rank, movement arrow, logo, team,
+  tonight's score, points; MÅLSKYTTAR (three games a slide, the last four goals each:
+  "P2 14:17 LHF JUUSTOVAARA 3–2"). With no other games the right screen shows our goals
+  and penalties.
+- Bottom of both: the slide dots and "PERIOD n OM" with the countdown.
 
 ### Bar ticker (Phase 8)
 
