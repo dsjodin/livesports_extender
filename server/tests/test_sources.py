@@ -12,6 +12,7 @@ from conftest import FIXTURES, load_fixture
 from app.clock import FakeClock
 from app.engine.normalizer import Normalizer
 from app.feed.client import ShlClient
+from app.feed.polllog import PollLog
 from app.feed.snapshot import Snapshot
 from app.feed.sources import LiveSource, RecordingSource, ReplaySource
 from app.feedtime import format_local, format_naive_utc, format_utc_z, parse_local_ms
@@ -349,3 +350,25 @@ async def test_live_finished_game_polls_once_and_errors_back_off() -> None:
     assert len(snaps) == 1
     times = [t for _, t in shl.calls]
     assert [b - a for a, b in itertools.pairwise(times[:5])] == [2000, 4000, 8000, 16000]
+
+
+async def test_live_saves_a_recording_that_replays(tmp_path: Path) -> None:
+    clock = FakeClock()
+    shl = FakeShl(
+        clock.now_ms() - 3600_000, [with_state("Ongoing")] * 3 + [with_state("GameEnded")]
+    )
+    source = shl.source(clock)
+    path = tmp_path / "recordings" / GAME / "polls.jsonl"
+    source.poll_log = PollLog(path, clock)
+    live = await collect(source)
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+    endpoints = [r["endpoint"] for r in rows]
+    assert endpoints[-2:] == ["boxscore", "team-stats"]  # with the final refresh
+    pbp_rows = [r for r in rows if r["endpoint"] == "play-by-play"]
+    assert pbp_rows[0]["body"] is not None and pbp_rows[1]["body"] is None  # unchanged
+    assert {r["age"] for r in pbp_rows} == {4} and all(r["status"] == 200 for r in rows)
+    replayed = await collect(RecordingSource(path, FakeClock()))
+    last = replayed[-1].pbp or []
+    assert last and last[0]["gameState"] == "GameEnded"
+    assert len(replayed) == len([r for r in rows if r["endpoint"] in ("game-info", "play-by-play")])
+    assert len(live) >= 3

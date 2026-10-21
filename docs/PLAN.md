@@ -399,6 +399,10 @@ Phase 5 notes (2026-10-21):
 - Task 5: `LiveSource` fetches game-info and play-by-play once more 30 min after
   `GameEnded`; corrections become `event_update`s and state patches. The boxscore is not
   fetched (nothing uses it yet; faceoffs are a later task).
+- The service saves every live poll as a recording (`data/recordings/<uuid>/polls.jsonl`,
+  same format as `tools/record_game.py`, boxscore and team-stats at the final refresh),
+  so following a game is also recording it, with one poller instead of two. Run
+  `tools/record_game.py` only when the service is not following that game.
 - Not yet done: a real game followed live from puck drop to the final refresh.
 
 ---

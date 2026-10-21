@@ -30,6 +30,7 @@ from app.engine.normalizer import Normalizer
 from app.feed.assets import AssetCache
 from app.feed.client import ShlClient, ShlError
 from app.feed.league import LeagueService
+from app.feed.polllog import PollLog
 from app.feed.schedule import ScheduleService
 from app.feed.snapshot import Snapshot
 from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
@@ -646,7 +647,11 @@ class Runtime:
         if mode == "live":
             if not uuid:
                 raise SourceError("live needs a game uuid")
-            source = LiveSource(self.client_factory, uuid, self.clock)
+            # saved as a recording too, so no second poller is needed (CLAUDE.md rule 5)
+            log_path = self.settings.data_dir / "recordings" / uuid / "polls.jsonl"
+            source = LiveSource(
+                self.client_factory, uuid, self.clock, poll_log=PollLog(log_path, self.clock)
+            )
         elif mode == "replay":
             if not uuid:
                 raise SourceError("replay needs a game uuid")

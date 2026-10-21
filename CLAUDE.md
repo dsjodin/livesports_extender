@@ -70,7 +70,8 @@ cd server && uv run pytest           # tests (use uv; fall back to pip + venv if
 cd server && uv run pytest -m "not live"      # offline tests only
 cd server && uv run ruff check . ../tools     # lint (server and tools)
 uv run --project server python tools/fetch_fixtures.py        # refresh test fixtures
-uv run --project server python tools/record_game.py <uuid>    # record a live game
+uv run --project server python tools/record_game.py <uuid>    # record a live game (not
+                                     # while the service follows it: it records its own polls)
 uv run --project server python tools/analyze_recording.py data/recordings/<uuid>
 uv run --project server python tools/synth_recording.py bdhvuc5tex   # fake recording
 cd server && uv run python -m app.cli replay bdhvuc5tex --instant     # event timeline + state

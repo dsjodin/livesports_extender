@@ -17,7 +17,8 @@ from pathlib import Path
 from typing import Any, Protocol
 
 from app.clock import Clock
-from app.feed.client import ShlClient, ShlError
+from app.feed.client import FeedResponse, ShlClient, ShlError
+from app.feed.polllog import PollLog
 from app.feed.snapshot import Snapshot
 from app.feedtime import (
     format_local,
@@ -399,6 +400,9 @@ class LiveSource:
     the first poll. shl.se keeps correcting events after the game, so 30 min after the
     end both are fetched once more (up to 3 tries) before the source ends. Errors back
     off from 2 s doubling to 30 s. ``Snapshot.age_s`` is play-by-play's Age header.
+
+    With a ``PollLog`` every request is also saved as a recording; the final refresh
+    then adds the boxscore and team-stats, as ``tools/record_game.py`` does.
     """
 
     def __init__(
@@ -409,17 +413,37 @@ class LiveSource:
         *,
         stop_after_s: float = LIVE_STOP_AFTER_S,
         final_refresh_s: float | None = LIVE_FINAL_REFRESH_S,
+        poll_log: PollLog | None = None,
     ) -> None:
         self.client_factory = client_factory
         self.game_uuid = game_uuid
         self.clock = clock
         self.stop_after_s = stop_after_s
         self.final_refresh_s = final_refresh_s
+        self.poll_log = poll_log
         self.polls = 0
         self._warned: set[str] = set()
 
     def __aiter__(self) -> AsyncIterator[Snapshot]:
         return self._run()
+
+    async def _get(self, client: ShlClient, endpoint: str) -> FeedResponse:
+        """One request, saved to the poll log when there is one."""
+        calls = {
+            "game-info": client.game_info,
+            "play-by-play": client.play_by_play,
+            "boxscore": client.boxscore,
+            "team-stats": client.team_stats,
+        }
+        try:
+            response = await calls[endpoint](self.game_uuid)
+        except ShlError as exc:
+            if self.poll_log is not None:
+                self.poll_log.error(endpoint, exc)
+            raise
+        if self.poll_log is not None:
+            self.poll_log.ok(endpoint, response.data, response.age_s, response.cache)
+        return response
 
     async def _final_refresh(self, client: ShlClient, over_since: int) -> Snapshot | None:
         assert self.final_refresh_s is not None
@@ -430,13 +454,19 @@ class LiveSource:
         for _ in range(LIVE_FINAL_TRIES):
             self.polls += 1
             try:
-                info = (await client.game_info(self.game_uuid)).data
-                response = await client.play_by_play(self.game_uuid)
+                info = (await self._get(client, "game-info")).data
+                response = await self._get(client, "play-by-play")
             except ShlError as exc:
                 log.warning("live %s final refresh: %s", self.game_uuid, exc)
                 await self.clock.sleep(backoff)
                 backoff = min(backoff * 2, BACKOFF_MAX_S)
                 continue
+            if self.poll_log is not None:
+                for extra in ("boxscore", "team-stats"):
+                    try:
+                        await self._get(client, extra)
+                    except ShlError as exc:
+                        log.warning("live %s %s: %s", self.game_uuid, extra, exc)
             return Snapshot.at(self.clock.now_ms(), info, response.data, age_s=response.age_s)
         return None
 
@@ -449,6 +479,14 @@ class LiveSource:
         return state
 
     async def _run(self) -> AsyncIterator[Snapshot]:
+        try:
+            async for snapshot in self._poll():
+                yield snapshot
+        finally:
+            if self.poll_log is not None:
+                self.poll_log.close()
+
+    async def _poll(self) -> AsyncIterator[Snapshot]:
         backoff = BACKOFF_START_S
         over_since: int | None = None
         first = True
@@ -456,7 +494,7 @@ class LiveSource:
             while True:
                 self.polls += 1
                 try:
-                    info = (await client.game_info(self.game_uuid)).data
+                    info = (await self._get(client, "game-info")).data
                     state = self._info_state(info)
                     start = parse_utc_ms((info.get("gameInfo") or {}).get("startDateTime"))
                     now = self.clock.now_ms()
@@ -466,7 +504,7 @@ class LiveSource:
                     pbp: list[dict[str, Any]] | None = None
                     age: int | None = None
                     if fast:
-                        response = await client.play_by_play(self.game_uuid)
+                        response = await self._get(client, "play-by-play")
                         pbp, age = response.data, response.age_s
                 except ShlError as exc:
                     log.warning("live %s: %s, retry in %.0f s", self.game_uuid, exc, backoff)
