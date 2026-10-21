@@ -1,6 +1,6 @@
 // pregame (mockup scene 1): league points, form and the last meeting from tv.league.
 import { formRow, tile } from "../../shared/components.js";
-import { caps, countdown, decimal, hhmm, html, raw, shortDate } from "../../shared/format.js";
+import { caps, countdown, dayLabel, decimal, hhmm, html, raw, shortDate } from "../../shared/format.js";
 import { barPage, barTeam, every, ordinal, play, shortName, stopTimers, teamHead } from "./common.js";
 
 const COUNTDOWN_FROM_MS = 60 * 60_000;
@@ -37,7 +37,7 @@ function render(ctx) {
     const home = barTeam(tv, "home", blocks.home?.points ?? "–", { sub: "POÄNG" });
     const away = barTeam(tv, "away", blocks.away?.points ?? "–", { sub: "POÄNG" });
     const start = tv.game?.start_ms;
-    const centre = html`<div class="label" data-when>IKVÄLL</div><div class="big-word" data-time>${start ? hhmm(start) : "–"}</div>
+    const centre = html`<div class="label" data-when>${start ? dayLabel(start, ctx.now()) : ""}</div><div class="big-word" data-time>${start ? hhmm(start) : "–"}</div>
       <div class="small">${tv.game?.arena ?? ""}</div>`;
     const others = (league.tonight ?? []).filter((g) => g.uuid !== tv.game?.uuid);
     const strip = others.length

@@ -144,7 +144,7 @@ def test_rest_controls(client: TestClient, tmp_path: Path) -> None:
     assert client.post("/api/scene", json={"name": "party"}).status_code == 400
     assert client.delete("/api/scene").status_code == 200
 
-    assert client.post("/api/source", json={"mode": "live", "uuid": "x"}).status_code == 501
+    assert client.post("/api/source", json={"mode": "live"}).status_code == 400  # needs a uuid
     r = client.post("/api/source", json={"mode": "recording", "path": "../../etc"})
     assert r.status_code == 400
     rec = tmp_path / "recordings" / "mtn5yq64mp"

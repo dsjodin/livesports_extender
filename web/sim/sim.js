@@ -103,7 +103,27 @@ async function fillGames() {
   group("Recordings", recordings, "recording");
 }
 
+async function fillLive() {
+  const r = await fetch("/api/schedule?days=0");
+  if (!r.ok) {
+    $("live-game").options[0].text = "Schedule unavailable";
+    return;
+  }
+  const { games } = await r.json();
+  const state = { "pre-game": "not started", "post-game": "finished" };
+  for (const g of games) {
+    const label = `${hhmm(g.start_ms)} ${g.home.code}–${g.away.code} · ${state[g.state] ?? g.state ?? "?"}`;
+    $("live-game").appendChild(new Option(label, g.uuid));
+  }
+  if (!games.length) $("live-game").options[0].text = "No games today";
+}
+
 function bindControls() {
+  $("follow-live").onclick = () => {
+    const uuid = $("uuid").value.trim() || $("live-game").value;
+    if (!uuid) return alert("Pick one of today's games or type a game uuid.");
+    api("source", { mode: "live", uuid });
+  };
   $("start").onclick = () => {
     const typed = $("uuid").value.trim();
     const [kind, value] = typed ? ["replay", typed] : $("game").value.split(":");
@@ -202,6 +222,7 @@ async function main() {
   buildWall();
   bindControls();
   fillGames();
+  fillLive();
   let socket = null;
   store.on("config", showConfig);
   store.on("status", (m) => {

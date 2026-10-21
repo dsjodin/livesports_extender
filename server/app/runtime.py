@@ -30,7 +30,7 @@ from app.feed.assets import AssetCache
 from app.feed.client import ShlClient, ShlError
 from app.feed.league import LeagueService
 from app.feed.snapshot import Snapshot
-from app.feed.sources import FeedSource, RecordingSource, ReplaySource
+from app.feed.sources import FeedSource, LiveSource, RecordingSource, ReplaySource
 from app.teams import TeamColors
 
 log = logging.getLogger(__name__)
@@ -204,7 +204,7 @@ class Runtime:
             self._register_players(change)
         for out in self.queue.apply(changes, now):
             self._correction(out, now)
-        if self._catching_up:
+        if self._catching_up and snapshot.pbp is not None:
             self._catching_up = False
             self._catch_up(now)
         self.pump(now)
@@ -498,7 +498,7 @@ class Runtime:
         src = self.config.source
         try:
             await self.set_source(src.mode, src.uuid, src.path, src.speed)
-        except (SourceError, NotImplementedError, ShlError) as exc:
+        except (SourceError, ShlError) as exc:
             self.source_error = str(exc)
             log.warning("could not resume source %s: %s", src.mode, exc)
 
@@ -554,11 +554,13 @@ class Runtime:
         path: str | None = None,
         speed: float = 1.0,
     ) -> None:
-        """Start a source. Raises ``SourceError`` or ``NotImplementedError`` (live)."""
-        if mode == "live":
-            raise NotImplementedError("live source arrives in Phase 5")
+        """Start a source. Raises ``SourceError``."""
         source: FeedSource | None = None
-        if mode == "replay":
+        if mode == "live":
+            if not uuid:
+                raise SourceError("live needs a game uuid")
+            source = LiveSource(self.client_factory, uuid, self.clock)
+        elif mode == "replay":
             if not uuid:
                 raise SourceError("replay needs a game uuid")
             pbp, info = await self._load_finished_game(uuid)

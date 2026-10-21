@@ -231,7 +231,7 @@ auth in front if it is ever exposed).
 | `GET /api/schedule?days=7` | | Games from today and the next N days, from cache |
 | `GET /api/schedule/recent?days=30` | | Finished games (for replay selection) |
 | `POST /api/game` | `{"uuid", "my_side": "home"\|"away"\|null}` | Select a game to follow |
-| `POST /api/source` | `{"mode": "live"\|"replay"\|"recording", "uuid"?, "path"?, "speed"?}` | Choose the data source |
+| `POST /api/source` | `{"mode": "live"\|"replay"\|"recording"\|"none", "uuid"?, "path"?, "speed"?}` | Choose the data source. `live` needs `uuid` and polls shl.se for that game (CLAUDE.md rule 5); a game that is already over is read once |
 | `POST /api/replay` | `{"action": "play"\|"pause"\|"speed"\|"seek", "speed"?, "to"?: "next_period"\|"before_next_goal"\|"period:N"\|"end"}` | Replay control |
 | `POST /api/offset` | `{"profile": "iptv", "seconds": 40.0}` | Set a TV profile's delay behind the arena |
 | `POST /api/offset/nudge` | `{"delta": 0.5}` | Adjust the active profile's offset |

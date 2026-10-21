@@ -2,7 +2,7 @@
 
 - ``ReplaySource`` plays a finished game from its final play-by-play.
 - ``RecordingSource`` plays a ``polls.jsonl`` made by ``tools/record_game.py``.
-- ``LiveSource`` follows a real game (Phase 5; interface only).
+- ``LiveSource`` follows a real game on shl.se.
 
 Replay and recording sources move the feed's timestamps onto the clock's timeline
 (scaled by speed), so ``event_ms`` parsed from them lines up with ``first_seen_ms``.
@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any, Protocol
 
 from app.clock import Clock
-from app.feed.client import ShlClient
+from app.feed.client import ShlClient, ShlError
 from app.feed.snapshot import Snapshot
 from app.feedtime import (
     format_local,
@@ -378,19 +378,87 @@ class RecordingSource:
             )
 
 
-class LiveSource:
-    """Follows one game on shl.se (Phase 5). Interface only for now.
+LIVE_FAST_S = 2.0
+LIVE_SLOW_S = 60.0
+LIVE_FAST_BEFORE_S = 15 * 60
+LIVE_STOP_AFTER_S = 120.0
+BACKOFF_START_S = 2.0
+BACKOFF_MAX_S = 30.0
+KNOWN_INFO_STATES = {"pre-game", "post-game"}
 
-    Planned behaviour (CLAUDE.md rule 5, docs/PLAN.md Phase 5): game-info every 60 s
-    until 15 min before puck drop, then game-info and play-by-play every 2 s; state from
-    play-by-play; stop 2 min after ``GameEnded``; backoff 2 s doubling to 30 s on errors;
-    ``Snapshot.age_s`` from the Age header.
+
+class LiveSource:
+    """Follows one game on shl.se (CLAUDE.md rule 5).
+
+    ``game-info`` every 60 s until 15 min before puck drop, then ``game-info`` and
+    ``play-by-play`` every 2 s. game-info goes stale during the game (docs/SHL_API.md),
+    so the game is over when play-by-play says ``GameEnded`` (or game-info says
+    post-game); polling stops 2 min after that, at once if the game was already over on
+    the first poll. Errors back off from 2 s doubling to 30 s. ``Snapshot.age_s`` is
+    play-by-play's Age header.
     """
 
-    def __init__(self, client: ShlClient, game_uuid: str, clock: Clock) -> None:
-        self.client = client
+    def __init__(
+        self,
+        client_factory: Callable[[], ShlClient],
+        game_uuid: str,
+        clock: Clock,
+        *,
+        stop_after_s: float = LIVE_STOP_AFTER_S,
+    ) -> None:
+        self.client_factory = client_factory
         self.game_uuid = game_uuid
         self.clock = clock
+        self.stop_after_s = stop_after_s
+        self.polls = 0
+        self._warned: set[str] = set()
 
     def __aiter__(self) -> AsyncIterator[Snapshot]:
-        raise NotImplementedError("LiveSource arrives in Phase 5")
+        return self._run()
+
+    def _info_state(self, info: dict[str, Any]) -> str | None:
+        raw = (info.get("gameInfo") or {}).get("state")
+        state = raw.replace("_", "-") if isinstance(raw, str) else None
+        if state is not None and state not in KNOWN_INFO_STATES and state not in self._warned:
+            self._warned.add(state)
+            log.warning("live: unrecognised game-info state %r", raw)
+        return state
+
+    async def _run(self) -> AsyncIterator[Snapshot]:
+        backoff = BACKOFF_START_S
+        over_since: int | None = None
+        first = True
+        async with self.client_factory() as client:
+            while True:
+                self.polls += 1
+                try:
+                    info = (await client.game_info(self.game_uuid)).data
+                    state = self._info_state(info)
+                    start = parse_utc_ms((info.get("gameInfo") or {}).get("startDateTime"))
+                    now = self.clock.now_ms()
+                    fast = state != "pre-game" or (
+                        start is not None and now >= start - LIVE_FAST_BEFORE_S * 1000
+                    )
+                    pbp: list[dict[str, Any]] | None = None
+                    age: int | None = None
+                    if fast:
+                        response = await client.play_by_play(self.game_uuid)
+                        pbp, age = response.data, response.age_s
+                except ShlError as exc:
+                    log.warning("live %s: %s, retry in %.0f s", self.game_uuid, exc, backoff)
+                    await self.clock.sleep(backoff)
+                    backoff = min(backoff * 2, BACKOFF_MAX_S)
+                    continue
+                backoff = BACKOFF_START_S
+                yield Snapshot.at(self.clock.now_ms(), info, pbp, age_s=age)
+                ended = state == "post-game" or any(
+                    isinstance(e, dict) and e.get("gameState") == "GameEnded" for e in pbp or []
+                )
+                if ended:
+                    if first:
+                        return
+                    over_since = over_since or self.clock.now_ms()
+                    if self.clock.now_ms() - over_since >= self.stop_after_s * 1000:
+                        return
+                first = False
+                await self.clock.sleep(LIVE_FAST_S if fast else LIVE_SLOW_S)

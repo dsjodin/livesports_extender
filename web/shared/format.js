@@ -48,6 +48,15 @@ export function dayTime(ms) {
   return `${day} ${hhmm(ms)}`;
 }
 
+const dayKey = (ms) => new Intl.DateTimeFormat("sv-SE", { dateStyle: "short", timeZone: TZ }).format(ms);
+
+/** "IKVÄLL" for today, "IMORGON", else the weekday ("LÖRDAG"). */
+export function dayLabel(ms, nowMs) {
+  if (dayKey(ms) === dayKey(nowMs)) return "IKVÄLL";
+  if (dayKey(ms) === dayKey(nowMs + 86_400_000)) return "IMORGON";
+  return caps(new Intl.DateTimeFormat("sv-SE", { weekday: "long", timeZone: TZ }).format(ms));
+}
+
 export function shortDate(iso) {
   if (!iso) return "";
   const [, m, d] = iso.split("-");

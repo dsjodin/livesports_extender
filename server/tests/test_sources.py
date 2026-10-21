@@ -1,9 +1,11 @@
 import asyncio
+import copy
 import itertools
 import json
 from pathlib import Path
 from typing import Any
 
+import httpx
 import pytest
 from conftest import FIXTURES, load_fixture
 
@@ -12,7 +14,7 @@ from app.engine.normalizer import Normalizer
 from app.feed.client import ShlClient
 from app.feed.snapshot import Snapshot
 from app.feed.sources import LiveSource, RecordingSource, ReplaySource
-from app.feedtime import format_local, format_naive_utc, parse_local_ms
+from app.feedtime import format_local, format_naive_utc, format_utc_z, parse_local_ms
 
 GAME = "bdhvuc5tex"
 
@@ -275,7 +277,73 @@ async def test_recorded_game_replays() -> None:
     assert len([e for e in final.pbp or [] if "eventId" in e]) == 126
 
 
-def test_live_source_is_an_interface() -> None:
-    source = LiveSource(ShlClient(), GAME, FakeClock())
-    with pytest.raises(NotImplementedError):
-        source.__aiter__()
+class FakeShl:
+    """shl.se for LiveSource: game-info with a start time, play-by-play from a list of
+    bodies (the last one repeats), optional failures first."""
+
+    def __init__(self, start_ms: int, pbps: list[Any], fail: int = 0) -> None:
+        self.start_ms = start_ms
+        self.pbps = pbps
+        self.fail = fail
+        self.calls: list[tuple[str, int]] = []
+        self.clock: FakeClock | None = None
+
+    def handler(self, request: httpx.Request) -> httpx.Response:
+        assert self.clock is not None
+        kind = "pbp" if "play-by-play" in request.url.path else "info"
+        self.calls.append((kind, self.clock.now_ms()))
+        if self.fail:
+            self.fail -= 1
+            return httpx.Response(503)
+        if kind == "info":
+            info = copy.deepcopy(INFO)
+            info["gameInfo"]["state"] = "pre_game"  # stale during the game, as on shl.se
+            info["gameInfo"]["startDateTime"] = format_utc_z(self.start_ms)
+            return httpx.Response(200, json=info)
+        body = self.pbps.pop(0) if len(self.pbps) > 1 else self.pbps[0]
+        return httpx.Response(200, json=body, headers={"age": "4"})
+
+    def source(self, clock: FakeClock) -> LiveSource:
+        self.clock = clock
+        transport = httpx.MockTransport(self.handler)
+        return LiveSource(lambda: ShlClient(transport=transport), GAME, clock)
+
+
+INFO = load_fixture(f"game_info_{GAME}.json")
+PBP = load_fixture(f"pbp_{GAME}.json")
+
+
+def with_state(state: str) -> list[dict[str, Any]]:
+    return [e | {"gameState": state} for e in PBP if e.get("type") != "period"]
+
+
+async def test_live_polls_slowly_before_and_fast_near_puck_drop() -> None:
+    clock = FakeClock()
+    start = clock.now_ms() + 20 * 60_000
+    shl = FakeShl(start, [[]] * 3 + [with_state("Ongoing")] * 2 + [with_state("GameEnded")])
+    snaps = await collect(shl.source(clock), limit=12)
+    info_times = [t for k, t in shl.calls if k == "info"]
+    assert info_times[1] - info_times[0] == 60_000  # 20 min before: game-info only, 60 s
+    assert ("pbp", info_times[0]) not in shl.calls and snaps[0].pbp is None
+    fast = [t for k, t in shl.calls if k == "pbp"]
+    assert fast and fast[0] >= start - 15 * 60_000  # play-by-play from 15 min before
+    assert {b - a for a, b in itertools.pairwise(fast)} == {2000}
+    assert snaps[-1].age_s == 4 and snaps[-1].available_ms == snaps[-1].received_ms - 4000
+
+
+async def test_live_stops_two_minutes_after_game_end() -> None:
+    clock = FakeClock()
+    shl = FakeShl(clock.now_ms() - 3 * 3600_000, [with_state("Ongoing"), with_state("GameEnded")])
+    snaps = await collect(shl.source(clock))
+    ended = [s for s in snaps if s.pbp and s.pbp[0]["gameState"] == "GameEnded"]
+    assert ended[-1].received_ms - ended[0].received_ms == 120_000
+    assert snaps[-1] is ended[-1]
+
+
+async def test_live_finished_game_polls_once_and_errors_back_off() -> None:
+    clock = FakeClock()
+    shl = FakeShl(clock.now_ms() - 5 * 3600_000, [with_state("GameEnded")], fail=4)
+    snaps = await collect(shl.source(clock))
+    assert len(snaps) == 1
+    times = [t for _, t in shl.calls]
+    assert [b - a for a, b in itertools.pairwise(times[:5])] == [2000, 4000, 8000, 16000]

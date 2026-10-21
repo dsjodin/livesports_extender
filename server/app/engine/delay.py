@@ -24,6 +24,7 @@ from app.engine.events import Change, NormalizedEvent
 log = logging.getLogger(__name__)
 
 DEFAULT_LEAD_MS = 1500
+HISTORY_MS = 3600_000
 
 
 @dataclass(slots=True)
@@ -125,12 +126,14 @@ class DelayQueue:
         For catching up after a fresh start or a replay seek: what the TV has already
         shown becomes the starting state instead of a burst of old goals. Each output's
         ``play_at`` is the moment the TV showed it (``event_ms + offset``); events come in
-        game order, and one without ``event_ms`` gets the time of the event before it."""
+        game order, and one without ``event_ms`` gets the time of the event before it (an
+        hour before arrival when no event before it has one)."""
         ready = [p for p in self.items.values() if not p.released and p.late]
         ready.sort(key=lambda p: p.order)  # game order: event_ms may be missing
         out: list[Output] = []
         known = [p.play_at - p.late_by_ms for p in ready if p.late_by_ms is not None]
-        last = min(known, default=min((p.received_ms for p in ready), default=0))
+        # without any known time (a game long over) everything counts as old history
+        last = min(known, default=min((p.received_ms for p in ready), default=0) - HISTORY_MS)
         for p in ready:
             p.released = True
             if p.late_by_ms is not None:

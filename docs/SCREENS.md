@@ -294,7 +294,8 @@ A developer tool; its control panel may be in English.
   that fits the window, each an iframe of the real page at native resolution scaled with
   `transform: scale()`, with a 10 mm black bezel drawn around each.
 - Control panel (below or beside the wall):
-  - Source: replay (fixture list plus any finished game uuid), recording, live.
+  - Source: replay (fixture list plus any finished game uuid), recording, live (today's
+    games from the schedule, or a typed uuid; "Follow live").
   - Replay: play/pause, speed 1/2/5/20/50, "next period", "10 s before next goal", progress
     readout (period, game time, real time).
   - System offset (TV profile) and **fake TV delay** (separate slider).

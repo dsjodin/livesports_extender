@@ -123,8 +123,6 @@ async def set_source(body: SourceIn, request: Request) -> dict[str, Any]:
         raise HTTPException(400, "speed must be positive")
     try:
         await rt.set_source(body.mode, body.uuid, body.path, body.speed)
-    except NotImplementedError as exc:
-        raise HTTPException(501, str(exc)) from exc
     except SourceError as exc:
         raise HTTPException(400, str(exc)) from exc
     except ShlError as exc:

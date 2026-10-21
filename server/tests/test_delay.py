@@ -163,3 +163,11 @@ def test_backlog_releases_late_events_in_game_order() -> None:
     assert q.backlog() == []
     [rest] = q.due(now + 40 * S)
     assert rest.event is not None and rest.event.key == "e12" and not rest.late
+
+
+def test_backlog_without_any_event_ms_is_old_history() -> None:
+    q = DelayQueue(offset_ms=40 * S)
+    now = T + 5 * 3600 * S
+    add(q, goal("e7", event_ms=None, received=now))
+    [out] = q.backlog()
+    assert out.play_at == now - 3600 * S

@@ -356,7 +356,8 @@ Goal: follow real games.
 
 Tasks:
 
-1. **`LiveSource`**: driven by the schedule. More than 15 min before start: `game-info`
+1. **`LiveSource`** (built early, 2026-10-21, so a live game can be followed in /sim):
+   driven by the schedule. More than 15 min before start: `game-info`
    every 60 s. From 15 min before: `game-info` and `play-by-play` every 2 s. Stop 2 min
    after a post-game state. Backoff on errors. Log unknown state strings once.
 2. Update state normalisation and `docs/SHL_API.md` with what the Phase 0 recording showed
@@ -371,6 +372,9 @@ Acceptance:
 
 - A recorded live game replays through `RecordingSource` with the correct goal timeline.
 - Dry run: `LiveSource` on an upcoming game polls at 60 s; on a finished game it stops cleanly.
+  (Checked 2026-10-21 against shl.se with `zvcj2so1am` and `mtn5yq64mp`, and in
+  `tests/test_sources.py` with a fake shl.se. Still open from this phase: tasks 2–5,
+  and a real game followed live end to end.)
 
 ---
 
