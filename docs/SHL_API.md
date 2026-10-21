@@ -149,7 +149,26 @@ Types seen: `goal`, `shot`, `penalty`, `goalkeeper`, `timeout`, `period`.
   | -3 | Skott (täckt av spelare) | `blocked` |
   | -1 | not checked (seen once, `bdhvuc5tex` P3 19:58) | `unknown`, logged once |
 
-  (First guess was 0 blocked, -3 missed: the other way round.) **Decided 2026-10-20:** the engine uses
+  (First guess was 0 blocked, -3 missed: the other way round.)
+- What 1 to 9 mean (open). Probably where on the goal the shot went, but **not a clean
+  3 × 3 grid**. Observations:
+  - 5 and 8 are never goals although they are the most common sections: 5 only in the
+    2025/26 fixture, 8 only in 2026/27 games (22–32 per game). Likely "into the goalie";
+    the numbering or the scorers' habits seem to have changed between seasons.
+  - The user compared six `mtn5yq64mp` goals with the video (goalie's perspective):
+
+    | Goal | Section | Where it went in |
+    |---|---|---|
+    | P1 03:47 Heens | 6 | left post, mid height |
+    | P1 10:01 Thorell | 6 | left post, along the ice |
+    | P2 05:04 Tömmernes | 1 | right post, along the ice |
+    | P2 07:36 Wahlstrom | 2 | right post, along the ice |
+    | P2 10:50 Fagemo | 3 | middle, along the ice |
+    | P3 07:20 Lindholm | 4 | left post, high |
+
+    The side roughly fits (1–2 goalie's right, 3 middle, 4 and 6 goalie's left); the
+    height does not. Do not build a goal-zone graphic on it until more goals are checked.
+    Prediction to test: P3 09:21 Westergård (3) middle, P3 17:09 Hudon (2) goalie's right. **Decided 2026-10-20:** the engine uses
   `ON_GOAL_SECTIONS = 1..9`. All goals in the samples have a section 1 to 9.
 - Shootout and shots: in `et9erhx0si` the home skaters' `SOG` sum is 16, which **includes
   the deciding shootout goal**; the away goalies' `SOGA` is 15, which does not. Regulation
