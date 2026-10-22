@@ -377,7 +377,9 @@ service ships a generated default per team, and your own replace them.
 ## Debug overlay
 
 `?debug=1` on any screen page shows, in a corner: connection state, clock offset and RTT,
-TV state `rev`, current scene, and a list of upcoming `play_at` countdowns with event keys.
+TV state `rev`, current scene, on portraits the team videos held (`video goal ready ·
+intro ready`) and the slideshow (`slides 2/4`, or `none` outside pregame and the
+intermission), and a list of upcoming `play_at` countdowns with event keys.
 Every scene change is also logged to the console as
 `[sync] goal start screen=left delta=1.2ms`, where `delta` is how late (by the synced
 clock) the scene started after its `play_at`; `tools/snapshot.py` collects these lines.
