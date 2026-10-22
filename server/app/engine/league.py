@@ -10,6 +10,7 @@ from typing import Any
 from app.feedtime import STOCKHOLM
 
 FORM_GAMES = 5
+H2H_GAMES = 5  # head-to-head meetings, over seasons and game types
 
 
 def standings_rows(raw: dict[str, Any] | None) -> list[dict[str, Any]]:
@@ -109,6 +110,68 @@ def last_meeting(
     }
 
 
+def head_to_head(
+    games: list[dict[str, Any]], home_uuid: str, away_uuid: str, before_ms: int
+) -> dict[str, Any]:
+    """The last H2H_GAMES meetings of the two teams before ``before_ms``, newest first,
+    across seasons and game types (playoff games marked), and the wins of each side."""
+    pair = {home_uuid, away_uuid}
+    met = [g for g in _finished(games, before_ms) if {g["home"]["uuid"], g["away"]["uuid"]} == pair]
+    seen: set[str] = set()
+    rows = []
+    for g in sorted(met, key=lambda g: g["start_ms"], reverse=True):
+        if g["uuid"] in seen:
+            continue
+        seen.add(g["uuid"])
+        winner = g["home"] if g["home"]["score"] > g["away"]["score"] else g["away"]
+        rows.append(
+            {
+                "uuid": g["uuid"],
+                "date": _date(g["start_ms"]),
+                "home": g["home"]["code"],
+                "away": g["away"]["code"],
+                "home_uuid": g["home"]["uuid"],
+                "away_uuid": g["away"]["uuid"],
+                "score": f"{g['home']['score']}–{g['away']['score']}",
+                "winner_uuid": winner["uuid"],
+                "note": _note(g),
+                "playoff": g.get("game_type") == "playoff",
+            }
+        )
+        if len(rows) == H2H_GAMES:
+            break
+    wins = {
+        side: sum(r["winner_uuid"] == uuid for r in rows)
+        for side, uuid in (("home", home_uuid), ("away", away_uuid))
+    }
+    return {"games": rows, "wins": wins}
+
+
+def leader_rows(raw: list[dict[str, Any]], team_uuid: str) -> list[dict[str, Any]]:
+    """Scoring leaders from statistics-v2 stats-info rows (points or goals)."""
+    rows = []
+    for r in raw:
+        info = r.get("info") or {}
+        if not info.get("uuid"):
+            continue
+        rows.append(
+            {
+                "rank": r.get("Rank"),
+                "athlete_uuid": info["uuid"],
+                "team_uuid": team_uuid,
+                "first": info.get("firstName"),
+                "last": info.get("lastName"),
+                "number": info.get("number"),
+                "position": info.get("position"),
+                "gp": r.get("GP"),
+                "g": r.get("G"),
+                "a": r.get("A"),
+                "tp": r.get("TP"),
+            }
+        )
+    return rows
+
+
 def team_block(
     standings: list[dict[str, Any]], games: list[dict[str, Any]], uuid: str | None, before_ms: int
 ) -> dict[str, Any] | None:
@@ -136,7 +199,11 @@ def build(
     away_uuid: str | None = None,
     start_ms: int | None = None,
     my_team_uuid: str | None = None,
+    history: list[dict[str, Any]] | None = None,
+    leaders: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
+    """``history``: games outside this season's schedule (earlier seasons, playoffs), for
+    head-to-head; ``leaders``: raw stats-info rows per team uuid ({"points", "goals"})."""
     before = start_ms or now_ms
     day = _date(now_ms)
     upcoming = [g for g in games if g["start_ms"] and g["start_ms"] >= now_ms - 3 * 3600_000]
@@ -167,13 +234,24 @@ def build(
             "note": _note(g) if with_score else None,
         }
 
+    teams = {
+        "home": team_block(standings, games, home_uuid, before),
+        "away": team_block(standings, games, away_uuid, before),
+    }
+    for side, uuid in (("home", home_uuid), ("away", away_uuid)):
+        raw = (leaders or {}).get(uuid or "")
+        if teams[side] is not None and uuid and raw:
+            teams[side]["leaders"] = {
+                "points": leader_rows(raw.get("points") or [], uuid),
+                "goals": leader_rows(raw.get("goals") or [], uuid),
+            }
     return {
         "updated_ms": now_ms,
         "standings": standings,
-        "teams": {
-            "home": team_block(standings, games, home_uuid, before),
-            "away": team_block(standings, games, away_uuid, before),
-        },
+        "teams": teams,
+        "head_to_head": head_to_head([*games, *(history or [])], home_uuid, away_uuid, before)
+        if home_uuid and away_uuid
+        else None,
         "last_meeting": last_meeting(games, home_uuid, away_uuid, before)
         if home_uuid and away_uuid
         else None,

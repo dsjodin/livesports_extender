@@ -343,6 +343,39 @@ played-games, season-series-game-types-filter, staffs, teams, today-games, upcom
 upcoming-live-games. Only the ones described in this file have been inspected
 (`gameday/periodstats/<game>` returned HTTP 500 for `mtn5yq64mp`).
 
+### Earlier seasons and playoffs (verified 2026-10-22)
+
+- `GET /api/sports-v2/season-series-game-types-filter?season=<season uuid>` lists that
+  season's game types: for 2025/2026 `regular` (`qQ9-af37Ti40B`), `qualdown`
+  (`qRf-347BaDIOc`) and `playoff` (`qQ9-7debq38kX`). With `seasonUuid=` instead, or none,
+  only the default (regular) comes back.
+- The game schedule takes any of them: playoff games have the same shape as regular ones,
+  `roundLabel` "Eight final 1", "Quarter final 3" and so on (44 playoff games in 2025/26).
+- Team uuids are the same across seasons (Frölunda `087a-087aTQv9u` in 2025/26 and
+  2026/27), so head-to-head meetings are found by uuid over seasons. The filter's
+  `season` list is newest first: 2026, 2025, 2024, ...
+
+### Statistics (verified 2026-10-22)
+
+Found in the site's bundle (`STATS_V2` in `/assets/index-*.js`): `statistics-v2/`
+overview, stats-info, layout-info, featured/athlete/leaderboard, game-form,
+game-center/team-h2h, player-h2h, league-standings and more. Used:
+
+- `GET /api/statistics-v2/stats-info/<module>?ssgtUuid=<ssgt>&provider=statnet&count=<n>&teamUuid=<team>`:
+  a list with one object `{dataColumns, defaultSortKey, stats, ...}`; `stats` are the
+  rows, best first, each with `info` (the athlete: `uuid` = the athlete uuid of
+  `athletes/by-team-uuid`, `firstName`, `lastName`, `number`, `position`, `playerMedia`,
+  `team`) and the numbers: `players_point` gives `Rank`, `GP`, `G`, `A`, `TP`, ...;
+  `players_goal` gives `Rank`, `G`, `GP`, `GWG`, ... `teamUuid` filters on one team
+  (`team=` is ignored and returns the league); `count` limits the rows.
+- Modules (from `layout-info?statisticsType=players`): players_summary, players_point,
+  players_goal, players_powerplay, players_penalty, players_plusMinus, players_faceoff,
+  goalkeepers_summary, teams_result, teams_goal, teams_powerplay, games_games and more;
+  filters `location`, `position`, `outcome`, `team`, `vsTeam`. The provider is `statnet`
+  (also in the standings response).
+- `GET /api/statistics-v2/overview/<ssgt>?provider=statnet`: the league's top ten by goals,
+  points, penalty minutes and save %, and the teams' by wins, goals, PP % and PK %.
+
 ### Team stats (verified 2026-10-21)
 
 `GET /api/gameday/team-stats/<game_uuid>`: `{"home": {...}, "away": {...}}`, each with

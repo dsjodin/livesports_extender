@@ -67,7 +67,11 @@ def create_app(
     store = StateStore(settings.data_dir / "state.json")
     schedule = ScheduleService(client_factory, clock)
     assets = AssetCache(settings.data_dir / "cache", client_factory, clock)
-    league = LeagueService(schedule, client_factory, clock) if fetch_league else None
+    league = (
+        LeagueService(schedule, client_factory, clock, settings.data_dir / "cache")
+        if fetch_league
+        else None
+    )
     runtime = Runtime(
         clock,
         settings,

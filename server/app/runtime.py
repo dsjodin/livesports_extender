@@ -356,6 +356,7 @@ class Runtime:
             "uuid"
         )
         start = (game or {}).get("start_ms") or self.meta.start_ms
+        history, leaders = await self._league_extras(home, away)
         now = self.clock.now_ms()
         self.league_block = league_engine.build(
             league_engine.standings_rows(standings_raw),
@@ -365,10 +366,40 @@ class Runtime:
             away_uuid=away,
             start_ms=start,
             my_team_uuid=self.config.my_team_uuid,
+            history=history,
+            leaders=leaders,
         )
+        for block in (self.league_block["teams"] or {}).values():
+            for row in [r for rows in ((block or {}).get("leaders") or {}).values() for r in rows]:
+                row["portrait"] = f"/assets/players/{row['athlete_uuid']}.png"
+                if self.assets is not None:
+                    self.assets.register_athlete(
+                        row["athlete_uuid"], row["team_uuid"], row["first"], row["last"],
+                        str(row["number"]) if row["number"] is not None else None,
+                    )  # fmt: skip
         for row in self.league_block["standings"]:
             row["logo"] = f"/assets/teams/{row['uuid']}.svg" if row.get("uuid") else None
         self._patch(now + self.lead_ms)
+
+    async def _league_extras(
+        self, home: str | None, away: str | None
+    ) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
+        """Earlier seasons' games and both teams' scoring leaders for the pregame slides;
+        empty when shl.se cannot give them (the slides then leave them out)."""
+        assert self.league is not None
+        history: list[dict[str, Any]] = []
+        leaders: dict[str, dict[str, Any]] = {}
+        try:
+            history = await self.league.history()
+        except ShlError as exc:
+            log.warning("earlier seasons unavailable: %s", exc)
+        for uuid in (home, away):
+            if uuid:
+                try:
+                    leaders[uuid] = await self.league.leaders(uuid)
+                except ShlError as exc:
+                    log.warning("scoring leaders of %s unavailable: %s", uuid, exc)
+        return history, leaders
 
     async def _league_loop(self) -> None:
         while True:

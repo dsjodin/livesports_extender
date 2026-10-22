@@ -384,3 +384,41 @@ body.bar .banner-overlay { bottom: 98px; }
   background: #ff2d3a; box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); z-index: 60; opacity: 0; pointer-events: none; }
 #feed-dot.on { animation: feed-pulse 1.4s ease-in-out infinite; }
 @keyframes feed-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
+
+/* pregame slideshow (standings, scoring leaders, head-to-head) */
+.pre-page { gap: 24px; }
+.pre-page .slides { position: relative; flex: 1; }
+.pre-page .slide { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 30px; opacity: 0; }
+.pre-foot { display: flex; flex-direction: column; gap: 18px; }
+.scene-pregame .dots { display: flex; justify-content: center; gap: 20px; }
+.scene-pregame .dots span { width: 26px; height: 26px; border-radius: 50%; background: var(--divider); }
+.scene-pregame .dots span.on { background: var(--gold); }
+.scene-pregame .slide-head .slide-title { font-size: 110px; }
+.leader-card { position: relative; height: 560px; background: var(--panel); border-radius: 24px; overflow: hidden; }
+.leader-img { position: absolute; right: -20px; bottom: 0; height: 560px; width: 460px; object-fit: contain; object-position: bottom right;
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent); mask-image: linear-gradient(to bottom, black 75%, transparent); }
+.leader-text { position: relative; z-index: 1; padding: 34px 36px; display: flex; flex-direction: column; gap: 6px; max-width: 70%; }
+.leader-first { font-family: var(--font-condensed); font-weight: 700; font-size: 72px; line-height: 1; color: var(--text-secondary); }
+.leader-last { font-family: var(--font-condensed); font-weight: 800; font-size: 130px; line-height: 0.95; white-space: nowrap; overflow: hidden;
+  padding-top: 0.2em; padding-bottom: 0.12em; margin-top: -0.2em; margin-bottom: -0.12em; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6); }
+.leader-value { font-family: var(--font-condensed); font-weight: 800; font-size: 200px; line-height: 0.9; color: var(--gold); margin-top: 18px; }
+.leader-value span { font-size: var(--fs-floor); color: var(--text-secondary); margin-left: 16px; letter-spacing: 0.08em; }
+.leader-text .r3-meta { text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
+.h2h-sum { display: flex; align-items: center; justify-content: space-between; background: var(--panel); border-radius: 24px; padding: 18px 34px; }
+.h2h-side { display: flex; align-items: center; gap: 24px; font-family: var(--font-condensed); font-weight: 800; font-size: 130px; line-height: 1; }
+.h2h-side .plain-sm { width: 100px; height: 100px; }
+.tag-gold { flex: none; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: 6px 20px; font-family: var(--font-condensed);
+  font-weight: 800; font-size: var(--fs-floor); letter-spacing: 0.06em; line-height: 1; align-self: center; }
+.scene-pregame .list3 { gap: 16px; }
+.scene-pregame .row3 { padding: 18px 34px 18px 50px; }
+.scene-pregame .slide { gap: 24px; }
+.scene-pregame .list3 { gap: 12px; }
+.scene-pregame .row3 { padding: 12px 34px 12px 50px; }
+.scene-pregame .r3-name, .scene-pregame .r3-score { font-size: 76px; }
+.scene-pregame .r3-meta { margin-top: 4px; }
+.h2h-sum { padding: 10px 34px; }
+.h2h-side { font-size: 110px; }
+.h2h-side .plain-sm { width: 86px; height: 86px; }
+.scene-pregame .row3 { padding: 8px 34px 8px 50px; }
+.scene-pregame .r3-meta { margin-top: 2px; }
+.pre-page .slides { margin-bottom: 8px; }

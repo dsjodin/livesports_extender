@@ -29,6 +29,11 @@ EVENING_GAMES = {
     "wffn21lxeb": "Rögle–Örebro, 2026-10-17 15:15",
     "yklkh1aqmw": "Linköping–Färjestad, 2026-10-17 15:15",
 }
+# Phase 8 pregame slides: the teams of et9erhx0si (scoring leaders), and the season
+# before for head-to-head meetings (regular season and playoffs).
+LEADER_TEAMS = {"087a-087aTQv9u": "fhc", "50e6-50e6DYeWM": "ske"}
+LEADER_MODULES = {"players_point": "points", "players_goal": "goals"}
+HISTORY_SEASON_CODE = "2025"
 GAME_FILE_PREFIX = {
     "game-info": "game_info",
     "play-by-play": "pbp",
@@ -52,7 +57,7 @@ def write_json(path: Path, data: Any) -> None:
 
 
 async def fetch_all(
-    client: httpx.AsyncClient, out: Path, evening_only: bool = False
+    client: httpx.AsyncClient, out: Path, evening_only: bool = False, history_only: bool = False
 ) -> list[tuple[str, str]]:
     """Fetch every fixture. Returns (file name, source URL) pairs."""
     fetched: list[tuple[str, str]] = []
@@ -65,13 +70,16 @@ async def fetch_all(
         await asyncio.sleep(PAUSE_S)
         return data
 
-    for game in EVENING_GAMES:
+    for game in [] if history_only else EVENING_GAMES:
         for endpoint in ("game-info", "play-by-play"):
             url = shl.GAME_ENDPOINTS[endpoint](game)
             await save(f"{GAME_FILE_PREFIX[endpoint]}_{game}.json", url)
     if evening_only:
         return fetched
     filt = await save("filter.json", shl.filter_url())
+    await fetch_history(save, filt)
+    if history_only:
+        return fetched
     season = pick(filt["season"], SCHEDULE_SEASON_CODE)
     series = pick(filt["series"], "SHL")
     game_type = pick(filt["gameType"], "regular")
@@ -83,6 +91,21 @@ async def fetch_all(
         for endpoint, url_for in shl.GAME_ENDPOINTS.items():
             await save(f"{GAME_FILE_PREFIX[endpoint]}_{game}.json", url_for(game))
     return fetched
+
+
+async def fetch_history(save: Any, filt: dict[str, Any]) -> None:
+    """Scoring leaders of two teams, and last season's schedules (head-to-head)."""
+    ssgt = filt["ssgtUuid"]
+    for team, code in LEADER_TEAMS.items():
+        for module, name in LEADER_MODULES.items():
+            await save(f"leaders_{name}_{code}.json", shl.stats_info_url(module, ssgt, team, 3))
+    season = pick(filt["season"], HISTORY_SEASON_CODE)
+    series = pick(filt["series"], "SHL")
+    types = await save(f"filter_{HISTORY_SEASON_CODE}.json", shl.season_filter_url(season))
+    for game_type in types["gameType"]:
+        if game_type["code"] in ("regular", "playoff"):
+            url = shl.schedule_url(season, series, game_type["uuid"])
+            await save(f"schedule_{HISTORY_SEASON_CODE}_{game_type['code']}.json", url)
 
 
 def write_readme(out: Path, fetched: list[tuple[str, str]]) -> None:
@@ -119,13 +142,18 @@ async def main() -> None:
         action="store_true",
         help="only the evening games, keeping the other fixtures (README not rewritten)",
     )
+    parser.add_argument(
+        "--history-only",
+        action="store_true",
+        help="only scoring leaders and last season's schedules (README not rewritten)",
+    )
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     args.out.mkdir(parents=True, exist_ok=True)
     async with shl.make_client() as client:
-        fetched = await fetch_all(client, args.out, args.evening_only)
-    if not args.evening_only:
+        fetched = await fetch_all(client, args.out, args.evening_only, args.history_only)
+    if not (args.evening_only or args.history_only):
         write_readme(args.out, fetched)
     log.info("wrote %d fixtures to %s", len(fetched), args.out)
 

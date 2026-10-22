@@ -71,3 +71,22 @@ def test_finished_game_matches_fixture(live_shl: LiveShl, game: str) -> None:
 
     box = live_shl.get(shl.boxscore_url(game))
     assert box.keys() == load_fixture(f"boxscore_{game}.json").keys()
+
+
+def test_scoring_leaders(live_shl: LiveShl) -> None:
+    ssgt = load_fixture("filter.json")["ssgtUuid"]
+    team = "087a-087aTQv9u"
+    for module in ("players_point", "players_goal"):
+        live = live_shl.get(shl.stats_info_url(module, ssgt, team, 3))
+        rows = live[0]["stats"]
+        assert 0 < len(rows) <= 3
+        assert all(r["info"]["uuid"] and r["info"]["team"]["uuid"] == team for r in rows)
+        assert "G" in rows[0] and (module != "players_point" or "TP" in rows[0])
+
+
+def test_last_season_has_playoffs(live_shl: LiveShl) -> None:
+    season = load_fixture("filter_2025.json")
+    codes = {t["code"] for t in season["gameType"]}
+    assert {"regular", "playoff"} <= codes
+    live = live_shl.get(shl.season_filter_url("xs4m9qupsi"))
+    assert {"regular", "playoff"} <= {t["code"] for t in live["gameType"]}

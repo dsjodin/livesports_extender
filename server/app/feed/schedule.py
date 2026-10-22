@@ -12,7 +12,7 @@ CACHE_MS = 3600_000
 DAY_MS = 86_400_000
 
 
-def simplify(game: dict[str, Any]) -> dict[str, Any]:
+def simplify(game: dict[str, Any], game_type: str = "regular") -> dict[str, Any]:
     def team(raw: dict[str, Any]) -> dict[str, Any]:
         names = raw.get("names") or {}
         score = raw.get("score")
@@ -33,6 +33,7 @@ def simplify(game: dict[str, Any]) -> dict[str, Any]:
         "overtime": bool(game.get("overtime")),
         "shootout": bool(game.get("shootout")),
         "arena": (game.get("venueInfo") or {}).get("name"),
+        "game_type": game_type,
         "home": team(game.get("homeTeamInfo") or {}),
         "away": team(game.get("awayTeamInfo") or {}),
     }

@@ -1,0 +1,552 @@
+[
+  {
+    "dataColumns": [
+      {
+        "name": "Rank",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Player",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Team",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "GP",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "G",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "A",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "AFirsts",
+        "type": "integer",
+        "highlighted": false,
+        "group": "assists"
+      },
+      {
+        "name": "ASeconds",
+        "type": "integer",
+        "highlighted": false,
+        "group": "assists"
+      },
+      {
+        "name": "TP",
+        "type": "integer",
+        "highlighted": true,
+        "group": ""
+      },
+      {
+        "name": "PPG",
+        "type": "integer",
+        "highlighted": true,
+        "group": "pp"
+      },
+      {
+        "name": "PPA",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pp"
+      },
+      {
+        "name": "PPTP",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pp"
+      },
+      {
+        "name": "EQG",
+        "type": "integer",
+        "highlighted": false,
+        "group": "eq"
+      },
+      {
+        "name": "EQA",
+        "type": "integer",
+        "highlighted": false,
+        "group": "eq"
+      },
+      {
+        "name": "EQTP",
+        "type": "integer",
+        "highlighted": false,
+        "group": "eq"
+      },
+      {
+        "name": "SHG",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pk"
+      },
+      {
+        "name": "SHA",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pk"
+      },
+      {
+        "name": "SHTP",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pk"
+      },
+      {
+        "name": "TOI_GP",
+        "type": "string",
+        "highlighted": true,
+        "group": ""
+      }
+    ],
+    "defaultSortKey": {
+      "name": "TP",
+      "order": "DESC"
+    },
+    "stats": [
+      {
+        "Rank": 1,
+        "Player": 0,
+        "Team": 0,
+        "GP": 10,
+        "G": 3,
+        "A": 8,
+        "AFirsts": 3,
+        "ASeconds": 5,
+        "TP": 11,
+        "PPG": 3,
+        "PPA": 3,
+        "PPTP": 6,
+        "EQG": 0,
+        "EQA": 5,
+        "EQTP": 5,
+        "SHG": 0,
+        "SHA": 0,
+        "SHTP": 0,
+        "TOI_GP": "18:25",
+        "info": {
+          "uuid": "qQ9-322eZcouc",
+          "fullName": "Oscar Lindberg",
+          "firstName": "Oscar",
+          "lastName": "Lindberg",
+          "birthDate": "1991-10-29",
+          "nationality": "SE",
+          "number": 24,
+          "position": "CE",
+          "shoots": "-",
+          "gender": "male",
+          "weight": {
+            "value": 88,
+            "format": "kg"
+          },
+          "height": {
+            "value": 183,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42653,
+            "mediaString": "image|ramses_sports|player_portrait_05d2ab46-edaf-410e-aac1-9763190744e924 Oscar Lindberg.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "50e6-50e6DYeWM",
+            "name": "Skellefteå AIK",
+            "code": "SKE",
+            "media": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+            "ownerInstanceId": "saik1_saik",
+            "siteDisplayName": "Skellefteå AIK"
+          },
+          "teamCode": "SAIK",
+          "teamId": "50e6-50e6DYeWM"
+        }
+      },
+      {
+        "Rank": 1,
+        "Player": 0,
+        "Team": 0,
+        "GP": 10,
+        "G": 3,
+        "A": 8,
+        "AFirsts": 6,
+        "ASeconds": 2,
+        "TP": 11,
+        "PPG": 1,
+        "PPA": 0,
+        "PPTP": 1,
+        "EQG": 2,
+        "EQA": 4,
+        "EQTP": 6,
+        "SHG": 0,
+        "SHA": 4,
+        "SHTP": 4,
+        "TOI_GP": "17:02",
+        "info": {
+          "uuid": "qQ9-ab86wJcqj",
+          "fullName": "Pär Lindholm",
+          "firstName": "Pär",
+          "lastName": "Lindholm",
+          "birthDate": "1991-10-05",
+          "nationality": "SE",
+          "number": 17,
+          "position": "CE",
+          "shoots": "-",
+          "gender": "male",
+          "weight": {
+            "value": 85,
+            "format": "kg"
+          },
+          "height": {
+            "value": 181,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42657,
+            "mediaString": "image|ramses_sports|player_portrait_e06d5746-f72b-4400-9faa-6cd07773a16c17 Par Lindholm.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "50e6-50e6DYeWM",
+            "name": "Skellefteå AIK",
+            "code": "SKE",
+            "media": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+            "ownerInstanceId": "saik1_saik",
+            "siteDisplayName": "Skellefteå AIK"
+          },
+          "teamCode": "SAIK",
+          "teamId": "50e6-50e6DYeWM"
+        }
+      },
+      {
+        "Rank": 3,
+        "Player": 0,
+        "Team": 0,
+        "GP": 10,
+        "G": 5,
+        "A": 3,
+        "AFirsts": 3,
+        "ASeconds": 0,
+        "TP": 8,
+        "PPG": 1,
+        "PPA": 2,
+        "PPTP": 3,
+        "EQG": 4,
+        "EQA": 1,
+        "EQTP": 5,
+        "SHG": 0,
+        "SHA": 0,
+        "SHTP": 0,
+        "TOI_GP": "17:04",
+        "info": {
+          "uuid": "qYC-4THzp8DoI",
+          "fullName": "Mikkel Aagaard",
+          "firstName": "Mikkel",
+          "lastName": "Aagaard",
+          "birthDate": "1995-10-18",
+          "nationality": "DK",
+          "number": 29,
+          "position": "F",
+          "shoots": "-",
+          "gender": "male",
+          "weight": {
+            "value": 81,
+            "format": "kg"
+          },
+          "height": {
+            "value": 184,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42661,
+            "mediaString": "image|ramses_sports|player_portrait_8e8b2b29-a742-4f4b-8947-25d85c51d8e329 Mikkel Aagaard.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "50e6-50e6DYeWM",
+            "name": "Skellefteå AIK",
+            "code": "SKE",
+            "media": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+            "ownerInstanceId": "saik1_saik",
+            "siteDisplayName": "Skellefteå AIK"
+          },
+          "teamCode": "SAIK",
+          "teamId": "50e6-50e6DYeWM"
+        }
+      }
+    ],
+    "provider": "statnet",
+    "teams": {
+      "50e6-50e6DYeWM": {
+        "type": "team",
+        "id": "SAIK",
+        "teamCode": "SAIK",
+        "siteDisplayName": "Skellefteå AIK",
+        "name": "SAIK",
+        "uuid": "50e6-50e6DYeWM",
+        "createdAt": null,
+        "createdBy": null,
+        "deleted": false,
+        "gender": "male",
+        "graphicsLibrary": "saik1-saik-ba23a",
+        "lastModified": "2024-11-18T09:21:40.000Z",
+        "nationality": "sv",
+        "ownerInstanceId": "saik1_saik",
+        "ownersite": "SAIK",
+        "series": [
+          {
+            "uuid": "qQ9-bb0bzEWUk",
+            "code": "SHL",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": "2023-03-01T13:47:40.000Z",
+            "displayName": "SHL",
+            "names": {
+              "0": {
+                "language": "sv",
+                "translation": "SHL"
+              },
+              "1": {
+                "language": "en",
+                "translation": "SHL"
+              }
+            }
+          }
+        ],
+        "sport": [
+          {
+            "uuid": "qQ9-bd0dSLh6k",
+            "code": "hockey",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": "2022-09-28T13:18:06.000Z"
+          }
+        ],
+        "teamMedia": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+        "teamNames": {
+          "code": "SKE",
+          "short": "Skellefteå",
+          "long": "Skellefteå AIK",
+          "full": "Skellefteå AIK Hockey",
+          "code_site": "SKE",
+          "short_site": "Skellefteå",
+          "full_site": "Skellefteå AIK Hockey",
+          "long_site": "Skellefteå AIK"
+        },
+        "clubName": {
+          "code": "SKE",
+          "short": "Skellefteå",
+          "long": "Skellefteå AIK",
+          "full": "Skellefteå AIK Hockey"
+        },
+        "teamInfo": {
+          "founded": "1921",
+          "golds": "3 st (1978, 2013, 2014)",
+          "finals": "8 st (1978, 2011, 2012, 2013, 2014, 2015, 2016, 2018)",
+          "address": "Skellefteå AIK, Skellefteå Kraft Arena, Mossgatan 27, Box 185, 931 22 Skellefteå",
+          "phone": "0910-79 20 00",
+          "fax": "0910-79 20 10",
+          "email": "info@skellefteaaik.se",
+          "chairman": "Kenneth Fahlgren",
+          "manager": "Pea Israelsson",
+          "accreditation": "Anna Hägglund, anna.hagglund@skellefteaaik.se",
+          "facebook": "https://www.facebook.com/skellefteaaikhockey",
+          "instagram": "https://www.instagram.com/skellefteaaik/",
+          "twitter": "https://twitter.com/skelleftea_aik"
+        },
+        "teamExtIds": [
+          {
+            "id": 29,
+            "extId": "SAIK",
+            "locked": true,
+            "extIdType": {
+              "uuid": "165a-d5bcMnEuq",
+              "code": "isa",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": true,
+              "name": "ISA / Statnet"
+            }
+          },
+          {
+            "id": 30,
+            "extId": "10",
+            "locked": true,
+            "extIdType": {
+              "uuid": "7b6a-e633fcdB7",
+              "code": "ramses_legacy",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": false,
+              "name": "Ramses gammalt id"
+            }
+          },
+          {
+            "id": 4921,
+            "extId": "8279",
+            "locked": false,
+            "extIdType": {
+              "uuid": "zdepkt9oum",
+              "code": "everysport",
+              "createdAt": "2026-10-20T09:01:00.000Z",
+              "createdBy": "shl1_shl",
+              "deleted": false,
+              "lastModified": "2026-10-20T09:01:00.000Z",
+              "visible": true,
+              "name": "Everysport"
+            }
+          }
+        ],
+        "extIds": [
+          {
+            "id": 29,
+            "extId": "SAIK",
+            "locked": true,
+            "extIdType": {
+              "uuid": "165a-d5bcMnEuq",
+              "code": "isa",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": true,
+              "name": "ISA / Statnet"
+            }
+          },
+          {
+            "id": 30,
+            "extId": "10",
+            "locked": true,
+            "extIdType": {
+              "uuid": "7b6a-e633fcdB7",
+              "code": "ramses_legacy",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": false,
+              "name": "Ramses gammalt id"
+            }
+          },
+          {
+            "id": 4921,
+            "extId": "8279",
+            "locked": false,
+            "extIdType": {
+              "uuid": "zdepkt9oum",
+              "code": "everysport",
+              "createdAt": "2026-10-20T09:01:00.000Z",
+              "createdBy": "shl1_shl",
+              "deleted": false,
+              "lastModified": "2026-10-20T09:01:00.000Z",
+              "visible": true,
+              "name": "Everysport"
+            }
+          }
+        ],
+        "logo": "https://sportality.cdn.s8y.se/team-logos/saik1_saik.svg",
+        "socialMedia": [],
+        "displayName": ""
+      }
+    },
+    "games": {},
+    "seasonSeriesGameTypes": {},
+    "type": "athlete",
+    "totalCount": 3,
+    "players": {
+      "1552": {
+        "type": "athlete",
+        "id": 1552,
+        "firstName": "Oscar",
+        "lastName": "Lindberg",
+        "jerseyNumber": 24,
+        "position": "CE",
+        "shoots": "-",
+        "epUrl": "",
+        "uuid": "qQ9-322eZcouc",
+        "fullName": "Oscar Lindberg",
+        "dateOfBirth": "1991-10-29",
+        "nationality": "SE",
+        "gender": "male",
+        "weight": 88,
+        "height": 183,
+        "playerMedia": {
+          "id": 42653,
+          "mediaString": "image|ramses_sports|player_portrait_05d2ab46-edaf-410e-aac1-9763190744e924 Oscar Lindberg.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      },
+      "1674": {
+        "type": "athlete",
+        "id": 1674,
+        "firstName": "Pär",
+        "lastName": "Lindholm",
+        "jerseyNumber": 17,
+        "position": "CE",
+        "shoots": "-",
+        "epUrl": "",
+        "uuid": "qQ9-ab86wJcqj",
+        "fullName": "Pär Lindholm",
+        "dateOfBirth": "1991-10-05",
+        "nationality": "SE",
+        "gender": "male",
+        "weight": 85,
+        "height": 181,
+        "playerMedia": {
+          "id": 42657,
+          "mediaString": "image|ramses_sports|player_portrait_e06d5746-f72b-4400-9faa-6cd07773a16c17 Par Lindholm.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      },
+      "4548": {
+        "type": "athlete",
+        "id": 4548,
+        "firstName": "Mikkel",
+        "lastName": "Aagaard",
+        "jerseyNumber": 29,
+        "position": "F",
+        "shoots": "-",
+        "epUrl": "",
+        "uuid": "qYC-4THzp8DoI",
+        "fullName": "Mikkel Aagaard",
+        "dateOfBirth": "1995-10-18",
+        "nationality": "DK",
+        "gender": "male",
+        "weight": 81,
+        "height": 184,
+        "playerMedia": {
+          "id": 42661,
+          "mediaString": "image|ramses_sports|player_portrait_8e8b2b29-a742-4f4b-8947-25d85c51d8e329 Mikkel Aagaard.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      }
+    }
+  }
+]

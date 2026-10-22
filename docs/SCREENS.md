@@ -221,12 +221,19 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
   "POÄNG"; centre "IKVÄLL" / start time / arena; strip "ÄVEN IKVÄLL: …" other games tonight.
   Less than 60 min to start: centre shows a countdown "NEDSLÄPP OM 42:10".
 - Left (home) and right (away), sized for 3 m: the header as in `live` (short name over
-  the toned-down logo); tiles PLATS ("2:A"), POÄNG, MÅL +/−; "FORM, SENASTE 5" with five
-  rows, newest first: V/F, HEMMA/BORTA, the opponent's logo and code, the score (plus ÖT
-  or STR); a "MÅL PER MATCH" card with GJORDA and INSLÄPPTA (one decimal, comma).
-  Bottom card left: "SENASTE MÖTET" with the result, the date and ÖT/STR. Bottom card
-  right: "NEDSLÄPP" with the start time and arena. Games played and the arena of the
-  last meeting are left out.
+  the toned-down logo), then a slideshow, 12 s a slide by the synced clock (as in the
+  intermission; asked for by the user 2026-10-22):
+  1. Standing: tiles PLATS ("2:A"), POÄNG, MÅL +/−; "FORM, SENASTE 5" (V/F, HEMMA/BORTA,
+     the opponent's logo and code, the score plus ÖT or STR); "MÅL PER MATCH" (GJORDA,
+     INSLÄPPTA, one decimal, comma).
+  2. POÄNGLIGA "INOM LAGET": the team's points leader large with portrait, number, name,
+     points in gold and "4 MÅL · 5 ASSIST"; numbers two and three in rows.
+  3. MÅLLIGA: the same by goals, with games played.
+  4. INBÖRDES MÖTEN "SENASTE 5": wins of each team, then the meetings newest first over
+     seasons (home–away as played, the winner's colour on the left edge, date, ÖT/STR,
+     a gold SLUTSPEL tag for playoff games). The same slide on both screens.
+  Slides without data (no leaders, no meetings) are left out. Bottom of both: the slide
+  dots and "NEDSLÄPP" with the start time and arena.
 - Data: schedule (results, points: 3 for a regulation win, 2 for an overtime or shootout win,
   1 for an overtime or shootout loss), standings.
 
