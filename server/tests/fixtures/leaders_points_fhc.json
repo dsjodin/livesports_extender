@@ -1,0 +1,552 @@
+[
+  {
+    "dataColumns": [
+      {
+        "name": "Rank",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Player",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Team",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "GP",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "G",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "A",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "AFirsts",
+        "type": "integer",
+        "highlighted": false,
+        "group": "assists"
+      },
+      {
+        "name": "ASeconds",
+        "type": "integer",
+        "highlighted": false,
+        "group": "assists"
+      },
+      {
+        "name": "TP",
+        "type": "integer",
+        "highlighted": true,
+        "group": ""
+      },
+      {
+        "name": "PPG",
+        "type": "integer",
+        "highlighted": true,
+        "group": "pp"
+      },
+      {
+        "name": "PPA",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pp"
+      },
+      {
+        "name": "PPTP",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pp"
+      },
+      {
+        "name": "EQG",
+        "type": "integer",
+        "highlighted": false,
+        "group": "eq"
+      },
+      {
+        "name": "EQA",
+        "type": "integer",
+        "highlighted": false,
+        "group": "eq"
+      },
+      {
+        "name": "EQTP",
+        "type": "integer",
+        "highlighted": false,
+        "group": "eq"
+      },
+      {
+        "name": "SHG",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pk"
+      },
+      {
+        "name": "SHA",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pk"
+      },
+      {
+        "name": "SHTP",
+        "type": "integer",
+        "highlighted": false,
+        "group": "pk"
+      },
+      {
+        "name": "TOI_GP",
+        "type": "string",
+        "highlighted": true,
+        "group": ""
+      }
+    ],
+    "defaultSortKey": {
+      "name": "TP",
+      "order": "DESC"
+    },
+    "stats": [
+      {
+        "Rank": 1,
+        "Player": 0,
+        "Team": 0,
+        "GP": 11,
+        "G": 4,
+        "A": 5,
+        "AFirsts": 4,
+        "ASeconds": 1,
+        "TP": 9,
+        "PPG": 1,
+        "PPA": 3,
+        "PPTP": 4,
+        "EQG": 3,
+        "EQA": 2,
+        "EQTP": 5,
+        "SHG": 0,
+        "SHA": 0,
+        "SHTP": 0,
+        "TOI_GP": "16:02",
+        "info": {
+          "uuid": "kczux7nz3f",
+          "fullName": "Graeme Clarke",
+          "firstName": "Graeme",
+          "lastName": "Clarke",
+          "birthDate": "2001-04-24",
+          "nationality": "N/A",
+          "number": 9,
+          "position": "F",
+          "shoots": "-",
+          "gender": "",
+          "weight": {
+            "value": 79,
+            "format": "kg"
+          },
+          "height": {
+            "value": 183,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 43276,
+            "mediaString": "image|ramses_sports|player_portrait_cef6ecc8-1473-4a36-a8e0-f5767381a8c9GraemeClark.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "087a-087aTQv9u",
+            "name": "Frölunda HC",
+            "code": "FHC",
+            "media": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+            "ownerInstanceId": "fhc1_fhc",
+            "siteDisplayName": "Frölunda HC"
+          },
+          "teamCode": "FHC",
+          "teamId": "087a-087aTQv9u"
+        }
+      },
+      {
+        "Rank": 2,
+        "Player": 0,
+        "Team": 0,
+        "GP": 11,
+        "G": 4,
+        "A": 4,
+        "AFirsts": 2,
+        "ASeconds": 2,
+        "TP": 8,
+        "PPG": 1,
+        "PPA": 2,
+        "PPTP": 3,
+        "EQG": 2,
+        "EQA": 2,
+        "EQTP": 4,
+        "SHG": 0,
+        "SHA": 0,
+        "SHTP": 0,
+        "TOI_GP": "16:01",
+        "info": {
+          "uuid": "qQ9-94dduDGo5",
+          "fullName": "Samuel Fagemo",
+          "firstName": "Samuel",
+          "lastName": "Fagemo",
+          "birthDate": "2000-03-14",
+          "nationality": "SE",
+          "number": 11,
+          "position": "F",
+          "shoots": "R",
+          "gender": "male",
+          "weight": {
+            "value": 88,
+            "format": "kg"
+          },
+          "height": {
+            "value": 180,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42541,
+            "mediaString": "image|ramses_sports|player_portrait_8ba32545-1321-45bc-85a4-c98c27a816bdSamuel Fagemo.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "087a-087aTQv9u",
+            "name": "Frölunda HC",
+            "code": "FHC",
+            "media": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+            "ownerInstanceId": "fhc1_fhc",
+            "siteDisplayName": "Frölunda HC"
+          },
+          "teamCode": "FHC",
+          "teamId": "087a-087aTQv9u"
+        }
+      },
+      {
+        "Rank": 3,
+        "Player": 0,
+        "Team": 0,
+        "GP": 11,
+        "G": 3,
+        "A": 5,
+        "AFirsts": 4,
+        "ASeconds": 1,
+        "TP": 8,
+        "PPG": 0,
+        "PPA": 0,
+        "PPTP": 0,
+        "EQG": 3,
+        "EQA": 5,
+        "EQTP": 8,
+        "SHG": 0,
+        "SHA": 0,
+        "SHTP": 0,
+        "TOI_GP": "10:04",
+        "info": {
+          "uuid": "upsneusru5",
+          "fullName": "Max Westergård",
+          "firstName": "Max",
+          "lastName": "Westergård",
+          "birthDate": "2007-09-03",
+          "nationality": "FI",
+          "number": 10,
+          "position": "F",
+          "shoots": "L",
+          "gender": "male",
+          "weight": {
+            "value": 73,
+            "format": "kg"
+          },
+          "height": {
+            "value": 180,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42549,
+            "mediaString": "image|ramses_sports|player_portrait_f4a8669a-be38-4399-98c6-d3b2ae6a7d6cMax Westergard.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "087a-087aTQv9u",
+            "name": "Frölunda HC",
+            "code": "FHC",
+            "media": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+            "ownerInstanceId": "fhc1_fhc",
+            "siteDisplayName": "Frölunda HC"
+          },
+          "teamCode": "FHC",
+          "teamId": "087a-087aTQv9u"
+        }
+      }
+    ],
+    "provider": "statnet",
+    "teams": {
+      "087a-087aTQv9u": {
+        "type": "team",
+        "id": "FHC",
+        "teamCode": "FHC",
+        "siteDisplayName": "Frölunda HC",
+        "name": "FHC",
+        "uuid": "087a-087aTQv9u",
+        "createdAt": null,
+        "createdBy": null,
+        "deleted": false,
+        "gender": "male",
+        "graphicsLibrary": "fhc1-fhc-f7c59",
+        "lastModified": "2024-11-11T16:30:35.000Z",
+        "nationality": "sv",
+        "ownerInstanceId": "fhc1_fhc",
+        "ownersite": "FHC",
+        "series": [
+          {
+            "uuid": "qQ9-bb0bzEWUk",
+            "code": "SHL",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": "2023-03-01T13:47:40.000Z",
+            "displayName": "SHL",
+            "names": {
+              "0": {
+                "language": "sv",
+                "translation": "SHL"
+              },
+              "1": {
+                "language": "en",
+                "translation": "SHL"
+              }
+            }
+          }
+        ],
+        "sport": [
+          {
+            "uuid": "qQ9-bd0dSLh6k",
+            "code": "hockey",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": "2022-09-28T13:18:06.000Z"
+          }
+        ],
+        "teamMedia": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+        "teamNames": {
+          "code": "FHC",
+          "short": "Frölunda ",
+          "long": "Frölunda HC",
+          "full": "Frölunda Hockey Club",
+          "code_site": "FHC",
+          "short_site": "Frölunda",
+          "full_site": "Frölunda Hockey Club / Herr",
+          "long_site": "Frölunda HC"
+        },
+        "clubName": {
+          "code": "FHC",
+          "short": "Frölunda",
+          "long": "Frölunda HC",
+          "full": "Frölunda Hockey Club / Herr"
+        },
+        "teamInfo": {
+          "founded": "1944",
+          "golds": "5 st (1965, 2003, 2005, 2016, 2019)",
+          "finals": "7 st (1980, 1996, 2003, 2005, 2006, 2016, 2019)",
+          "retired_numbers": "#13 Lars-Erik Lundvall\r\n#14 Ronald Pettersson\r\n#14 Patrik Carnbäck\r\n#19 Jörgen Pettersson\r\n#23 Ronnie Sundin\r\n#24 Niklas Andersson\r\n#29 Stefan Larsson",
+          "address": "Frölunda HC\r\nFrölundaborgs Isstadion\r\nBox 12127\r\n402 42 Göteborg",
+          "phone": "031-708 16 80",
+          "fax": "031-18 97 06",
+          "email": "kontakt@frolundahockey.com",
+          "chairman": "Mats Grauers",
+          "manager": "Christian Lecthaler",
+          "accreditation": "peter.kymmer@frolundahockey.com",
+          "facebook": "https://www.facebook.com/frolundahc",
+          "instagram": "https://www.instagram.com/frolunda_hc/",
+          "twitter": "https://twitter.com/frolunda_hc"
+        },
+        "teamExtIds": [
+          {
+            "id": 9,
+            "extId": "FHC",
+            "locked": true,
+            "extIdType": {
+              "uuid": "165a-d5bcMnEuq",
+              "code": "isa",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": true,
+              "name": "ISA / Statnet"
+            }
+          },
+          {
+            "id": 10,
+            "extId": "5",
+            "locked": true,
+            "extIdType": {
+              "uuid": "7b6a-e633fcdB7",
+              "code": "ramses_legacy",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": false,
+              "name": "Ramses gammalt id"
+            }
+          },
+          {
+            "id": 4923,
+            "extId": "1176",
+            "locked": false,
+            "extIdType": {
+              "uuid": "zdepkt9oum",
+              "code": "everysport",
+              "createdAt": "2026-10-20T09:01:00.000Z",
+              "createdBy": "shl1_shl",
+              "deleted": false,
+              "lastModified": "2026-10-20T09:01:00.000Z",
+              "visible": true,
+              "name": "Everysport"
+            }
+          }
+        ],
+        "extIds": [
+          {
+            "id": 9,
+            "extId": "FHC",
+            "locked": true,
+            "extIdType": {
+              "uuid": "165a-d5bcMnEuq",
+              "code": "isa",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": true,
+              "name": "ISA / Statnet"
+            }
+          },
+          {
+            "id": 10,
+            "extId": "5",
+            "locked": true,
+            "extIdType": {
+              "uuid": "7b6a-e633fcdB7",
+              "code": "ramses_legacy",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": false,
+              "name": "Ramses gammalt id"
+            }
+          },
+          {
+            "id": 4923,
+            "extId": "1176",
+            "locked": false,
+            "extIdType": {
+              "uuid": "zdepkt9oum",
+              "code": "everysport",
+              "createdAt": "2026-10-20T09:01:00.000Z",
+              "createdBy": "shl1_shl",
+              "deleted": false,
+              "lastModified": "2026-10-20T09:01:00.000Z",
+              "visible": true,
+              "name": "Everysport"
+            }
+          }
+        ],
+        "logo": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+        "socialMedia": [],
+        "displayName": ""
+      }
+    },
+    "games": {},
+    "seasonSeriesGameTypes": {},
+    "type": "athlete",
+    "totalCount": 3,
+    "players": {
+      "3815": {
+        "type": "athlete",
+        "id": 3815,
+        "firstName": "Samuel",
+        "lastName": "Fagemo",
+        "jerseyNumber": 11,
+        "position": "F",
+        "shoots": "R",
+        "epUrl": "",
+        "uuid": "qQ9-94dduDGo5",
+        "fullName": "Samuel Fagemo",
+        "dateOfBirth": "2000-03-14",
+        "nationality": "SE",
+        "gender": "male",
+        "weight": 88,
+        "height": 180,
+        "playerMedia": {
+          "id": 42541,
+          "mediaString": "image|ramses_sports|player_portrait_8ba32545-1321-45bc-85a4-c98c27a816bdSamuel Fagemo.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      },
+      "6711": {
+        "type": "athlete",
+        "id": 6711,
+        "firstName": "Max",
+        "lastName": "Westergård",
+        "jerseyNumber": 10,
+        "position": "F",
+        "shoots": "L",
+        "epUrl": "",
+        "uuid": "upsneusru5",
+        "fullName": "Max Westergård",
+        "dateOfBirth": "2007-09-03",
+        "nationality": "FI",
+        "gender": "male",
+        "weight": 73,
+        "height": 180,
+        "playerMedia": {
+          "id": 42549,
+          "mediaString": "image|ramses_sports|player_portrait_f4a8669a-be38-4399-98c6-d3b2ae6a7d6cMax Westergard.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      },
+      "7091": {
+        "type": "athlete",
+        "id": 7091,
+        "firstName": "Graeme",
+        "lastName": "Clarke",
+        "jerseyNumber": 9,
+        "position": "F",
+        "shoots": "-",
+        "epUrl": "",
+        "uuid": "kczux7nz3f",
+        "fullName": "Graeme Clarke",
+        "dateOfBirth": "2001-04-24",
+        "gender": "",
+        "weight": 79,
+        "height": 183,
+        "playerMedia": {
+          "id": 43276,
+          "mediaString": "image|ramses_sports|player_portrait_cef6ecc8-1473-4a36-a8e0-f5767381a8c9GraemeClark.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      }
+    }
+  }
+]

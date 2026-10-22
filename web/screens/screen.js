@@ -195,6 +195,14 @@ function feedDot() {
   dot.classList.toggle("on", lost);
 }
 
+/** For the debug overlay: "2/4" (the slide shown of how many), or "none". */
+function slideStatus() {
+  const slides = [...app.querySelectorAll(".scene:last-child .slide")];
+  if (!slides.length) return "none";
+  const shown = slides.findIndex((el) => getComputedStyle(el).opacity > 0.5);
+  return `${shown + 1}/${slides.length}`;
+}
+
 function debugOverlay() {
   const el = document.createElement("div");
   el.id = "debug";
@@ -209,7 +217,7 @@ function debugOverlay() {
     el.textContent = [
       `${screenId}  ws ${connection}  offset ${c.offset} ms  rtt ${c.rtt ?? "-"} ms`,
       `rev ${store.tv?.rev ?? "-"}  scene ${current?.name ?? "-"}  tv offset ${(store.config.offset_ms ?? 0) / 1000} s`,
-      ...(screenId === "bar" ? [] : [`video ${media.status()}`]),
+      ...(screenId === "bar" ? [] : [`video ${media.status()}`, `slides ${slideStatus()}`]),
       ...upcoming,
       ...syncLog,
     ].join("\n");

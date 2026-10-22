@@ -114,6 +114,23 @@ class ShlClient:
         }
         return await self.get("sports-v2/game-schedule", params)
 
+    async def season_filter(self, season: str) -> FeedResponse:
+        """The filter for one season: its game types (regular, playoff, qualdown)."""
+        return await self.get("sports-v2/season-series-game-types-filter", {"season": season})
+
+    async def stats_info(
+        self, module: str, ssgt: str, team_uuid: str, count: int, provider: str = "statnet"
+    ) -> FeedResponse:
+        """A team's statistics leaders (docs/SHL_API.md, Statistics): module
+        ``players_point`` or ``players_goal``."""
+        params = {
+            "ssgtUuid": ssgt,
+            "provider": provider,
+            "count": str(count),
+            "teamUuid": team_uuid,
+        }
+        return await self.get(f"statistics-v2/stats-info/{module}", params)
+
     async def game_info(self, game_uuid: str) -> FeedResponse:
         return await self.get(f"sports-v2/game-info/{game_uuid}")
 

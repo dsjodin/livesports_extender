@@ -103,3 +103,38 @@ export const ordinal = (n) => `${n}:${n % 10 === 1 || n % 10 === 2 ? "a" : "e"}`
 
 /** Text of a player: "#25 Arttu Ruotsalainen". */
 export const who = (p) => (p ? `#${p.number ?? ""} ${p.first ?? ""} ${p.last ?? ""}`.replace(/\s+/g, " ").trim() : "");
+
+const SLIDE_MS = 12_000;
+
+/**
+ * Show the .slide elements in ctx.root one at a time, 12 s each, cross-fading. The slide
+ * follows from the synced clock and ``startMs`` (the scene start), so every screen and any
+ * reload agree; [data-dot] elements mark the one shown (intermission, pregame).
+ */
+export function slideshow(ctx, startMs) {
+  const slides = [...ctx.root.querySelectorAll(".slide")];
+  const dots = [...ctx.root.querySelectorAll("[data-dot]")];
+  if (!slides.length) return;
+  let current = null;
+  const pick = () => Math.floor(Math.max(0, ctx.now() - startMs) / SLIDE_MS) % slides.length;
+  const show = (i, animate) => {
+    slides.forEach((el, j) => {
+      gsap.killTweensOf(el);
+      if (j === i) {
+        if (animate) gsap.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
+        else gsap.set(el, { opacity: 1, y: 0 });
+      } else if (j === current && animate) {
+        gsap.to(el, { opacity: 0, duration: 0.35, ease: "power1.out" });
+      } else {
+        gsap.set(el, { opacity: 0 });
+      }
+    });
+    dots.forEach((d, j) => d.classList.toggle("on", j === i));
+    current = i;
+  };
+  show(pick(), false);
+  every(ctx, 250, () => {
+    const i = pick();
+    if (i !== current) show(i, true);
+  });
+}

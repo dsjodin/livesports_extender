@@ -1,0 +1,507 @@
+[
+  {
+    "dataColumns": [
+      {
+        "name": "Rank",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Player",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Team",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "G",
+        "type": "integer",
+        "highlighted": true,
+        "group": ""
+      },
+      {
+        "name": "GFG",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "GP",
+        "type": "integer",
+        "highlighted": true,
+        "group": ""
+      },
+      {
+        "name": "Trailing2",
+        "type": "integer",
+        "highlighted": false,
+        "group": "trailing"
+      },
+      {
+        "name": "Trailing1",
+        "type": "integer",
+        "highlighted": false,
+        "group": "trailing"
+      },
+      {
+        "name": "Tiedg",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "Leading1",
+        "type": "integer",
+        "highlighted": false,
+        "group": "leading"
+      },
+      {
+        "name": "Leading2",
+        "type": "integer",
+        "highlighted": false,
+        "group": "leading"
+      },
+      {
+        "name": "TOI_GP",
+        "type": "string",
+        "highlighted": true,
+        "group": ""
+      },
+      {
+        "name": "ENG",
+        "type": "integer",
+        "highlighted": false,
+        "group": ""
+      },
+      {
+        "name": "GWG",
+        "type": "integer",
+        "highlighted": true,
+        "group": ""
+      }
+    ],
+    "defaultSortKey": {
+      "name": "G",
+      "order": "DESC"
+    },
+    "stats": [
+      {
+        "Rank": 1,
+        "Player": 0,
+        "Team": 0,
+        "G": 4,
+        "GFG": 1,
+        "GP": 11,
+        "Trailing2": 0,
+        "Trailing1": 1,
+        "Tiedg": 2,
+        "Leading1": 0,
+        "Leading2": 1,
+        "TOI_GP": "16:01",
+        "ENG": 0,
+        "GWG": 0,
+        "info": {
+          "uuid": "qQ9-94dduDGo5",
+          "fullName": "Samuel Fagemo",
+          "firstName": "Samuel",
+          "lastName": "Fagemo",
+          "birthDate": "2000-03-14",
+          "nationality": "SE",
+          "number": 11,
+          "position": "F",
+          "shoots": "R",
+          "gender": "male",
+          "weight": {
+            "value": 88,
+            "format": "kg"
+          },
+          "height": {
+            "value": 180,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42541,
+            "mediaString": "image|ramses_sports|player_portrait_8ba32545-1321-45bc-85a4-c98c27a816bdSamuel Fagemo.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "087a-087aTQv9u",
+            "name": "Frölunda HC",
+            "code": "FHC",
+            "media": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+            "ownerInstanceId": "fhc1_fhc",
+            "siteDisplayName": "Frölunda HC"
+          },
+          "teamCode": "FHC",
+          "teamId": "087a-087aTQv9u"
+        }
+      },
+      {
+        "Rank": 1,
+        "Player": 0,
+        "Team": 0,
+        "G": 4,
+        "GFG": 1,
+        "GP": 11,
+        "Trailing2": 0,
+        "Trailing1": 2,
+        "Tiedg": 1,
+        "Leading1": 0,
+        "Leading2": 1,
+        "TOI_GP": "16:02",
+        "ENG": 0,
+        "GWG": 1,
+        "info": {
+          "uuid": "kczux7nz3f",
+          "fullName": "Graeme Clarke",
+          "firstName": "Graeme",
+          "lastName": "Clarke",
+          "birthDate": "2001-04-24",
+          "nationality": "N/A",
+          "number": 9,
+          "position": "F",
+          "shoots": "-",
+          "gender": "",
+          "weight": {
+            "value": 79,
+            "format": "kg"
+          },
+          "height": {
+            "value": 183,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 43276,
+            "mediaString": "image|ramses_sports|player_portrait_cef6ecc8-1473-4a36-a8e0-f5767381a8c9GraemeClark.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "087a-087aTQv9u",
+            "name": "Frölunda HC",
+            "code": "FHC",
+            "media": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+            "ownerInstanceId": "fhc1_fhc",
+            "siteDisplayName": "Frölunda HC"
+          },
+          "teamCode": "FHC",
+          "teamId": "087a-087aTQv9u"
+        }
+      },
+      {
+        "Rank": 3,
+        "Player": 0,
+        "Team": 0,
+        "G": 3,
+        "GFG": 0,
+        "GP": 11,
+        "Trailing2": 0,
+        "Trailing1": 0,
+        "Tiedg": 1,
+        "Leading1": 1,
+        "Leading2": 1,
+        "TOI_GP": "18:41",
+        "ENG": 1,
+        "GWG": 1,
+        "info": {
+          "uuid": "qQ9-9d31rLEXi",
+          "fullName": "Max Friberg",
+          "firstName": "Max",
+          "lastName": "Friberg",
+          "birthDate": "1992-11-20",
+          "nationality": "SE",
+          "number": 12,
+          "position": "F",
+          "shoots": "R",
+          "gender": "male",
+          "weight": {
+            "value": 86,
+            "format": "kg"
+          },
+          "height": {
+            "value": 179,
+            "format": "cm"
+          },
+          "playerMedia": {
+            "id": 42542,
+            "mediaString": "image|ramses_sports|player_portrait_6135350d-a56e-44df-8dcd-c2a1a1feb6caMax Friberg.png",
+            "type": "portrait",
+            "sortOrder": 0
+          },
+          "team": {
+            "uuid": "087a-087aTQv9u",
+            "name": "Frölunda HC",
+            "code": "FHC",
+            "media": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+            "ownerInstanceId": "fhc1_fhc",
+            "siteDisplayName": "Frölunda HC"
+          },
+          "teamCode": "FHC",
+          "teamId": "087a-087aTQv9u"
+        }
+      }
+    ],
+    "provider": "statnet",
+    "teams": {
+      "087a-087aTQv9u": {
+        "type": "team",
+        "id": "FHC",
+        "teamCode": "FHC",
+        "siteDisplayName": "Frölunda HC",
+        "name": "FHC",
+        "uuid": "087a-087aTQv9u",
+        "createdAt": null,
+        "createdBy": null,
+        "deleted": false,
+        "gender": "male",
+        "graphicsLibrary": "fhc1-fhc-f7c59",
+        "lastModified": "2024-11-11T16:30:35.000Z",
+        "nationality": "sv",
+        "ownerInstanceId": "fhc1_fhc",
+        "ownersite": "FHC",
+        "series": [
+          {
+            "uuid": "qQ9-bb0bzEWUk",
+            "code": "SHL",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": "2023-03-01T13:47:40.000Z",
+            "displayName": "SHL",
+            "names": {
+              "0": {
+                "language": "sv",
+                "translation": "SHL"
+              },
+              "1": {
+                "language": "en",
+                "translation": "SHL"
+              }
+            }
+          }
+        ],
+        "sport": [
+          {
+            "uuid": "qQ9-bd0dSLh6k",
+            "code": "hockey",
+            "createdAt": null,
+            "createdBy": null,
+            "deleted": false,
+            "lastModified": "2022-09-28T13:18:06.000Z"
+          }
+        ],
+        "teamMedia": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+        "teamNames": {
+          "code": "FHC",
+          "short": "Frölunda ",
+          "long": "Frölunda HC",
+          "full": "Frölunda Hockey Club",
+          "code_site": "FHC",
+          "short_site": "Frölunda",
+          "full_site": "Frölunda Hockey Club / Herr",
+          "long_site": "Frölunda HC"
+        },
+        "clubName": {
+          "code": "FHC",
+          "short": "Frölunda",
+          "long": "Frölunda HC",
+          "full": "Frölunda Hockey Club / Herr"
+        },
+        "teamInfo": {
+          "founded": "1944",
+          "golds": "5 st (1965, 2003, 2005, 2016, 2019)",
+          "finals": "7 st (1980, 1996, 2003, 2005, 2006, 2016, 2019)",
+          "retired_numbers": "#13 Lars-Erik Lundvall\r\n#14 Ronald Pettersson\r\n#14 Patrik Carnbäck\r\n#19 Jörgen Pettersson\r\n#23 Ronnie Sundin\r\n#24 Niklas Andersson\r\n#29 Stefan Larsson",
+          "address": "Frölunda HC\r\nFrölundaborgs Isstadion\r\nBox 12127\r\n402 42 Göteborg",
+          "phone": "031-708 16 80",
+          "fax": "031-18 97 06",
+          "email": "kontakt@frolundahockey.com",
+          "chairman": "Mats Grauers",
+          "manager": "Christian Lecthaler",
+          "accreditation": "peter.kymmer@frolundahockey.com",
+          "facebook": "https://www.facebook.com/frolundahc",
+          "instagram": "https://www.instagram.com/frolunda_hc/",
+          "twitter": "https://twitter.com/frolunda_hc"
+        },
+        "teamExtIds": [
+          {
+            "id": 9,
+            "extId": "FHC",
+            "locked": true,
+            "extIdType": {
+              "uuid": "165a-d5bcMnEuq",
+              "code": "isa",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": true,
+              "name": "ISA / Statnet"
+            }
+          },
+          {
+            "id": 10,
+            "extId": "5",
+            "locked": true,
+            "extIdType": {
+              "uuid": "7b6a-e633fcdB7",
+              "code": "ramses_legacy",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": false,
+              "name": "Ramses gammalt id"
+            }
+          },
+          {
+            "id": 4923,
+            "extId": "1176",
+            "locked": false,
+            "extIdType": {
+              "uuid": "zdepkt9oum",
+              "code": "everysport",
+              "createdAt": "2026-10-20T09:01:00.000Z",
+              "createdBy": "shl1_shl",
+              "deleted": false,
+              "lastModified": "2026-10-20T09:01:00.000Z",
+              "visible": true,
+              "name": "Everysport"
+            }
+          }
+        ],
+        "extIds": [
+          {
+            "id": 9,
+            "extId": "FHC",
+            "locked": true,
+            "extIdType": {
+              "uuid": "165a-d5bcMnEuq",
+              "code": "isa",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": true,
+              "name": "ISA / Statnet"
+            }
+          },
+          {
+            "id": 10,
+            "extId": "5",
+            "locked": true,
+            "extIdType": {
+              "uuid": "7b6a-e633fcdB7",
+              "code": "ramses_legacy",
+              "createdAt": null,
+              "createdBy": null,
+              "deleted": false,
+              "lastModified": null,
+              "visible": false,
+              "name": "Ramses gammalt id"
+            }
+          },
+          {
+            "id": 4923,
+            "extId": "1176",
+            "locked": false,
+            "extIdType": {
+              "uuid": "zdepkt9oum",
+              "code": "everysport",
+              "createdAt": "2026-10-20T09:01:00.000Z",
+              "createdBy": "shl1_shl",
+              "deleted": false,
+              "lastModified": "2026-10-20T09:01:00.000Z",
+              "visible": true,
+              "name": "Everysport"
+            }
+          }
+        ],
+        "logo": "https://sportality.cdn.s8y.se/team-logos/fhc1_fhc.svg",
+        "socialMedia": [],
+        "displayName": ""
+      }
+    },
+    "games": {},
+    "seasonSeriesGameTypes": {},
+    "type": "athlete",
+    "totalCount": 3,
+    "players": {
+      "2004": {
+        "type": "athlete",
+        "id": 2004,
+        "firstName": "Max",
+        "lastName": "Friberg",
+        "jerseyNumber": 12,
+        "position": "F",
+        "shoots": "R",
+        "epUrl": "",
+        "uuid": "qQ9-9d31rLEXi",
+        "fullName": "Max Friberg",
+        "dateOfBirth": "1992-11-20",
+        "nationality": "SE",
+        "gender": "male",
+        "weight": 86,
+        "height": 179,
+        "playerMedia": {
+          "id": 42542,
+          "mediaString": "image|ramses_sports|player_portrait_6135350d-a56e-44df-8dcd-c2a1a1feb6caMax Friberg.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      },
+      "3815": {
+        "type": "athlete",
+        "id": 3815,
+        "firstName": "Samuel",
+        "lastName": "Fagemo",
+        "jerseyNumber": 11,
+        "position": "F",
+        "shoots": "R",
+        "epUrl": "",
+        "uuid": "qQ9-94dduDGo5",
+        "fullName": "Samuel Fagemo",
+        "dateOfBirth": "2000-03-14",
+        "nationality": "SE",
+        "gender": "male",
+        "weight": 88,
+        "height": 180,
+        "playerMedia": {
+          "id": 42541,
+          "mediaString": "image|ramses_sports|player_portrait_8ba32545-1321-45bc-85a4-c98c27a816bdSamuel Fagemo.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      },
+      "7091": {
+        "type": "athlete",
+        "id": 7091,
+        "firstName": "Graeme",
+        "lastName": "Clarke",
+        "jerseyNumber": 9,
+        "position": "F",
+        "shoots": "-",
+        "epUrl": "",
+        "uuid": "kczux7nz3f",
+        "fullName": "Graeme Clarke",
+        "dateOfBirth": "2001-04-24",
+        "gender": "",
+        "weight": 79,
+        "height": 183,
+        "playerMedia": {
+          "id": 43276,
+          "mediaString": "image|ramses_sports|player_portrait_cef6ecc8-1473-4a36-a8e0-f5767381a8c9GraemeClark.png",
+          "type": "portrait",
+          "sortOrder": 0
+        }
+      }
+    }
+  }
+]

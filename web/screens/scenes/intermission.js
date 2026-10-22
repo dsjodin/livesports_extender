@@ -5,12 +5,11 @@
 // scaled by the replay speed.
 import { compareRow, shotMap } from "../../shared/components.js";
 import { caps, countdown, esc, html, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
-import { barPage, every, plainLogo, play, shortName, statsLine, stopTimers } from "./common.js";
+import { barPage, every, plainLogo, play, shortName, slideshow, statsLine, stopTimers } from "./common.js";
 import { gameStatus, ticker } from "./ticker.js";
 
 const BREAK_MS = 18 * 60_000;
 const OVERTIME_BREAK_MS = 3 * 60_000; // assumption: a short pause before overtime
-const SLIDE_MS = 12_000;
 
 export function enter(ctx, data, at) {
   render(ctx);
@@ -57,39 +56,10 @@ function render(ctx) {
       <div class="inter-foot anim"><div class="dots">${raw(slides.map((_, i) => `<span data-dot="${i}"></span>`).join(""))}</div>
         <div class="card alt countdown-card"><div class="label">${nextName(n)} OM</div>
         <div class="big-line gold" data-countdown></div></div></div></div>`;
-    rotate(ctx, slides.length);
+    slideshow(ctx, ctx.tv.scene?.since_ms ?? 0);
   }
   const els = ctx.root.querySelectorAll("[data-countdown]");
   if (els.length) every(ctx, 250, () => els.forEach((el) => (el.textContent = countdown(ends(ctx) - ctx.now()))));
-}
-
-/** Show one slide at a time; cross-fade when the clock says the next one is due. */
-function rotate(ctx, count) {
-  const slides = [...ctx.root.querySelectorAll(".slide")];
-  const dots = [...ctx.root.querySelectorAll("[data-dot]")];
-  const start = ctx.tv.scene?.since_ms ?? 0;
-  let current = null;
-  const pick = () => Math.floor(Math.max(0, ctx.now() - start) / SLIDE_MS) % count;
-  const show = (i, animate) => {
-    slides.forEach((el, j) => {
-      gsap.killTweensOf(el);
-      if (j === i) {
-        if (animate) gsap.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
-        else gsap.set(el, { opacity: 1, y: 0 });
-      } else if (j === current && animate) {
-        gsap.to(el, { opacity: 0, duration: 0.35, ease: "power1.out" });
-      } else {
-        gsap.set(el, { opacity: 0 });
-      }
-    });
-    dots.forEach((d, j) => d.classList.toggle("on", j === i));
-    current = i;
-  };
-  show(pick(), false);
-  every(ctx, 250, () => {
-    const i = pick();
-    if (i !== current) show(i, true);
-  });
 }
 
 // --- our game -------------------------------------------------------------------------

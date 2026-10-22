@@ -52,6 +52,19 @@ def schedule_url(season: str, series: str, game_type: str) -> str:
     )
 
 
+def season_filter_url(season: str) -> str:
+    """The filter for one season: its game types (regular, playoff, qualdown)."""
+    return f"{BASE_URL}/sports-v2/season-series-game-types-filter?season={season}"
+
+
+def stats_info_url(module: str, ssgt: str, team: str, count: int, provider: str = "statnet") -> str:
+    """A team's statistics leaders, e.g. module players_point or players_goal."""
+    return (
+        f"{BASE_URL}/statistics-v2/stats-info/{module}?ssgtUuid={ssgt}&provider={provider}"
+        f"&count={count}&teamUuid={team}"
+    )
+
+
 def site_settings_url() -> str:
     return f"{BASE_URL}/site/settings"
 

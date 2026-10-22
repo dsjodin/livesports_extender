@@ -133,8 +133,19 @@ was from puck drop on.
                     "ga_per_game": 2.2,
                     "form": [{"uuid": "mtn5yq64mp", "date": "2026-10-20", "result": "V",
                               "home_away": "H", "opponent": "DIF", "opponent_uuid": "...",
-                              "note": null, "score": "6–2"}, "... newest first, 5 ..."]},
+                              "note": null, "score": "6–2"}, "... newest first, 5 ..."],
+                    "leaders": {"points": [{"rank": 1, "athlete_uuid": "kczux7nz3f",
+                                            "team_uuid": "087a-087aTQv9u", "first": "Graeme",
+                                            "last": "Clarke", "number": 9, "position": "F",
+                                            "gp": 11, "g": 4, "a": 5, "tp": 9,
+                                            "portrait": "/assets/players/kczux7nz3f.png"}, "... 3 ..."],
+                                "goals": ["... same shape, top 3 by goals ..."]}},
            "away": {"...": "same shape"}},
+ "head_to_head": {"games": [{"uuid": "ycvbammskq", "date": "2026-02-26", "home": "FHC",
+                             "away": "SKE", "home_uuid": "...", "away_uuid": "...",
+                             "score": "0–2", "winner_uuid": "50e6-50e6DYeWM", "note": null,
+                             "playoff": false}, "... newest first, up to 5 ..."],
+                  "wins": {"home": 3, "away": 2}},
  "last_meeting": {"uuid": "pdllryhpd8", "date": "2026-10-15", "home": "LHC", "away": "FHC",
                   "home_uuid": "...", "score": "0–3", "arena": "Saab Arena", "note": null},
  "my_team": {"uuid": "82eb-82ebmgaJ8", "next_game": {"uuid": "...", "start_ms": 1792688400000,
@@ -145,6 +156,13 @@ was from puck drop on.
 
 `result` is `V` (won) or `F` (lost) from that team's view, `home_away` `H` or `B`; the
 score is always home–away of that game.
+
+`leaders` (Phase 8, pregame slides): the team's top three this season by points and by
+goals, from shl.se's statistics (cached 1 h per team, fetched like the rest of the block
+only before puck drop); missing when shl.se has none. `head_to_head`: the two teams' last
+five meetings before tonight over this season, the two seasons before and their playoffs
+(`playoff` true), newest first; `wins` counts them for tonight's home and away team.
+Earlier seasons are fetched once and kept in `data/cache/schedules/`.
 
 ### Other games and the live table (Phase 8)
 

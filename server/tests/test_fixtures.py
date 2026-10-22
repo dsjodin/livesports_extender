@@ -16,6 +16,11 @@ EXPECTED = [
         for prefix in ("game_info", "pbp", "boxscore", "team_stats")
     ),
     *(f"{prefix}_{game}.json" for game in EVENING for prefix in ("game_info", "pbp")),
+    # Phase 8 pregame slides: scoring leaders, last season (head-to-head)
+    *(f"leaders_{kind}_{team}.json" for kind in ("points", "goals") for team in ("fhc", "ske")),
+    "filter_2025.json",
+    "schedule_2025_regular.json",
+    "schedule_2025_playoff.json",
 ]
 
 

@@ -1,7 +1,7 @@
-// pregame (mockup scene 1): league points, form and the last meeting from tv.league.
+// pregame (mockup scene 1): standings, form, scoring leaders and head-to-head from tv.league.
 import { tile } from "../../shared/components.js";
-import { caps, countdown, dayLabel, decimal, hhmm, html, raw, shortDate } from "../../shared/format.js";
-import { barPage, barTeam, every, ordinal, play, shortName, stopTimers, teamHead } from "./common.js";
+import { caps, countdown, dayLabel, decimal, hhmm, html, raw } from "../../shared/format.js";
+import { barPage, barTeam, every, ordinal, plainLogo, play, shortName, slideshow, stopTimers, teamHead } from "./common.js";
 
 const COUNTDOWN_FROM_MS = 60 * 60_000;
 
@@ -73,32 +73,70 @@ function render(ctx) {
     });
     return;
   }
-  // portraits, sized for 3 m (docs/SCREENS.md, Type)
+  // portraits, sized for 3 m (docs/SCREENS.md, Type): a slideshow, 12 s a slide
   const side = ctx.side;
   const b = league.teams?.[side];
-  const form = b?.form ?? [];
-  let card;
-  if (side === "home") {
-    const m = league.last_meeting;
-    card = m
-      ? html`<div class="card alt anim"><div class="label">SENASTE MÖTET</div>
-          <div class="latest-text">${m.home} ${m.score} ${m.away}</div><div class="secondary">${[shortDate(m.date), m.note].filter(Boolean).join(" · ")}</div></div>`
-      : html`<div class="card alt anim"><div class="label">SENASTE MÖTET</div><div class="latest-text">Inget möte i år</div></div>`;
-  } else {
-    const start = tv.game?.start_ms;
-    card = html`<div class="card alt anim drop-card"><div><div class="label">NEDSLÄPP</div><div class="secondary">${tv.game?.arena ?? ""}</div></div>
-      <div class="drop-time">${start ? hhmm(start) : "–"}</div></div>`;
-  }
-  const rank = b?.rank ? caps(ordinal(b.rank)) : "–";
-  ctx.root.innerHTML = html`<div class="portrait-page">
+  const slides = [standingSlide(b)];
+  if (b?.leaders?.points?.length) slides.push(leaderSlide(b.leaders.points, "POÄNGLIGA", "tp", "POÄNG"));
+  if (b?.leaders?.goals?.length) slides.push(leaderSlide(b.leaders.goals, "MÅLLIGA", "g", "MÅL"));
+  if (league.head_to_head?.games?.length) slides.push(h2hSlide(tv, league.head_to_head));
+  const start = tv.game?.start_ms;
+  ctx.root.innerHTML = html`<div class="portrait-page pre-page">
     ${raw(teamHead(tv, side, "anim", { compact: true }))}
-    <div class="tiles anim">${raw(tile("PLATS", rank))}${raw(tile("POÄNG", b?.points ?? "–"))}${raw(tile("MÅL +/−", signed(b?.diff)))}</div>
-    <div class="form3 anim"><div class="label">FORM, SENASTE 5</div>
+    <div class="slides anim">${raw(slides.map((x, i) => `<section class="slide" data-i="${i}">${x}</section>`).join(""))}</div>
+    <div class="pre-foot anim"><div class="dots">${raw(slides.length > 1 ? slides.map((_, i) => `<span data-dot="${i}"></span>`).join("") : "")}</div>
+      <div class="card alt drop-card"><div><div class="label">NEDSLÄPP</div><div class="secondary">${tv.game?.arena ?? ""}</div></div>
+      <div class="drop-time">${start ? hhmm(start) : "–"}</div></div></div></div>`;
+  slideshow(ctx, tv.scene?.since_ms ?? 0);
+}
+
+function standingSlide(b) {
+  const rank = b?.rank ? caps(ordinal(b.rank)) : "–";
+  const form = b?.form ?? [];
+  return html`<div class="tiles">${raw(tile("PLATS", rank))}${raw(tile("POÄNG", b?.points ?? "–"))}${raw(tile("MÅL +/−", signed(b?.diff)))}</div>
+    <div class="form3"><div class="label">FORM, SENASTE 5</div>
       ${raw(form.length ? form.map(formLine).join("") : `<div class="empty3">Inga matcher ännu</div>`)}</div>
-    <div class="card per-game anim"><div class="label">MÅL PER MATCH</div>
+    <div class="card per-game"><div class="label">MÅL PER MATCH</div>
       <div class="pg-values"><div><div class="pg-value">${decimal(b?.gf_per_game)}</div><div class="secondary">GJORDA</div></div>
-      <div><div class="pg-value">${decimal(b?.ga_per_game)}</div><div class="secondary">INSLÄPPTA</div></div></div></div>
-    <div class="bottom-slot">${raw(card)}</div></div>`;
+      <div><div class="pg-value">${decimal(b?.ga_per_game)}</div><div class="secondary">INSLÄPPTA</div></div></div></div>`;
+}
+
+/** The team's top three by points or goals: the leader large with a portrait. */
+function leaderSlide(rows, title, field, unit) {
+  const [first, ...rest] = rows;
+  const detail = (r) => (field === "tp" ? `${r.g ?? 0} MÅL · ${r.a ?? 0} ASSIST` : `${r.gp ?? "–"} MATCHER`);
+  const portrait = first.portrait ? html`<img class="leader-img" src="${first.portrait}" alt="" onerror="this.remove()">` : "";
+  return html`<div class="slide-head"><div class="label">INOM LAGET</div><div class="slide-title">${title}</div></div>
+    <div class="leader-card">${raw(portrait)}
+      <div class="leader-text"><div class="leader-first">${first.number != null ? `#${first.number} ` : ""}${first.first ?? ""}</div>
+        <div class="leader-last" data-fit>${caps(first.last ?? "")}</div>
+        <div class="leader-value">${first[field] ?? 0}<span>${unit}</span></div>
+        <div class="r3-meta">${detail(first)}</div></div></div>
+    <div class="list3">${raw(rest.map((r) => html`<div class="row3"><div class="r3-main"><span class="r3-name">${r.number != null ? `#${r.number} ` : ""}${caps(r.last ?? "")}</span><span class="r3-score">${r[field] ?? 0}</span></div>
+      <div class="r3-meta">${detail(r)}</div></div>`).join(""))}</div>`;
+}
+
+const MONTHS = ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+const dateText = (iso) => {
+  const [y, m, d] = (iso ?? "").split("-").map(Number);
+  return y ? `${d} ${MONTHS[m - 1]} ${y}` : "";
+};
+
+/** The last five meetings, over seasons and playoffs, and the wins of each side. */
+function h2hSlide(tv, h2h) {
+  const home = tv.teams?.home?.uuid;
+  const rows = h2h.games
+    .map((g) => {
+      const winner = g.winner_uuid === home ? "home" : "away";
+      const meta = [dateText(g.date), g.note ? (NOTE[g.note] ?? g.note) : null].filter(Boolean).join(" · ");
+      return html`<div class="row3" style="--c: var(--${winner})"><div class="r3-main"><span class="r3-name">${g.home} ${g.score} ${g.away}</span>
+        ${raw(g.playoff ? `<span class="tag-gold">SLUTSPEL</span>` : "")}</div><div class="r3-meta">${meta}</div></div>`;
+    })
+    .join("");
+  return html`<div class="slide-head"><div class="label">SENASTE ${h2h.games.length}</div><div class="slide-title">INBÖRDES MÖTEN</div></div>
+    <div class="h2h-sum"><div class="h2h-side">${raw(plainLogo(tv, "home", "sm"))}<span>${h2h.wins?.home ?? 0}</span></div>
+      <div class="label">VINSTER</div><div class="h2h-side away"><span>${h2h.wins?.away ?? 0}</span>${raw(plainLogo(tv, "away", "sm"))}</div></div>
+    <div class="list3">${raw(rows)}</div>`;
 }
 
 const NOTE = { övertid: "ÖT", straffar: "STR" };

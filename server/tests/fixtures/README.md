@@ -18,6 +18,10 @@ Played at the same time as `et9erhx0si` (game-info and play-by-play only, fetche
 - `wffn21lxeb`: Rögle–Örebro, 2026-10-17 15:15
 - `yklkh1aqmw`: Linköping–Färjestad, 2026-10-17 15:15
 
+Pregame slides (Phase 8), fetched 2026-10-22 with `tools/fetch_fixtures.py --history-only`:
+Frölunda's and Skellefteå's top three by points and by goals this season, and the
+2025/2026 schedules (regular season, playoffs) for head-to-head meetings.
+
 | File | Source URL |
 |---|---|
 | `filter.json` | https://www.shl.se/api/sports-v2/season-series-game-types-filter |
@@ -36,3 +40,10 @@ Played at the same time as `et9erhx0si` (game-info and play-by-play only, fetche
 | `pbp_et9erhx0si.json` | https://www.shl.se/api/gameday/play-by-play/et9erhx0si |
 | `boxscore_et9erhx0si.json` | https://www.shl.se/api/gameday/boxscore/et9erhx0si |
 | `team_stats_et9erhx0si.json` | https://www.shl.se/api/gameday/team-stats/et9erhx0si |
+| `leaders_points_fhc.json` | https://www.shl.se/api/statistics-v2/stats-info/players_point?ssgtUuid=qa98unlbd6&provider=statnet&count=3&teamUuid=087a-087aTQv9u |
+| `leaders_goals_fhc.json` | https://www.shl.se/api/statistics-v2/stats-info/players_goal?ssgtUuid=qa98unlbd6&provider=statnet&count=3&teamUuid=087a-087aTQv9u |
+| `leaders_points_ske.json` | https://www.shl.se/api/statistics-v2/stats-info/players_point?ssgtUuid=qa98unlbd6&provider=statnet&count=3&teamUuid=50e6-50e6DYeWM |
+| `leaders_goals_ske.json` | https://www.shl.se/api/statistics-v2/stats-info/players_goal?ssgtUuid=qa98unlbd6&provider=statnet&count=3&teamUuid=50e6-50e6DYeWM |
+| `filter_2025.json` | https://www.shl.se/api/sports-v2/season-series-game-types-filter?season=xs4m9qupsi |
+| `schedule_2025_regular.json` | https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=xs4m9qupsi&seriesUuid=qQ9-bb0bzEWUk&gameTypeUuid=qQ9-af37Ti40B&gamePlace=all&played=all |
+| `schedule_2025_playoff.json` | https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=xs4m9qupsi&seriesUuid=qQ9-bb0bzEWUk&gameTypeUuid=qQ9-7debq38kX&gamePlace=all&played=all |

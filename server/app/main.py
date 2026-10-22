@@ -5,9 +5,10 @@ import contextlib
 from collections.abc import AsyncIterator, Callable
 from html import escape
 from pathlib import Path
+from typing import Any
 
 from fastapi import FastAPI, WebSocket
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from app import __version__
@@ -53,6 +54,17 @@ def render_index(pages: list[str]) -> str:
     )
 
 
+class RevalidatedStaticFiles(StaticFiles):
+    """The pages and their modules, revalidated on every load (``Cache-Control: no-cache``,
+    a cheap 304 by ETag on the LAN). Without it browsers guess a freshness from the file's
+    age and keep running old scene modules after an update."""
+
+    def file_response(self, *args: Any, **kwargs: Any) -> Response:
+        response = super().file_response(*args, **kwargs)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
+
+
 def create_app(
     settings: Settings | None = None,
     clock: Clock | None = None,
@@ -67,7 +79,11 @@ def create_app(
     store = StateStore(settings.data_dir / "state.json")
     schedule = ScheduleService(client_factory, clock)
     assets = AssetCache(settings.data_dir / "cache", client_factory, clock)
-    league = LeagueService(schedule, client_factory, clock) if fetch_league else None
+    league = (
+        LeagueService(schedule, client_factory, clock, settings.data_dir / "cache")
+        if fetch_league
+        else None
+    )
     runtime = Runtime(
         clock,
         settings,
@@ -106,7 +122,7 @@ def create_app(
     async def index() -> str:
         return render_index(list_pages(settings.web_dir))
 
-    app.mount("/", StaticFiles(directory=settings.web_dir, html=True), name="web")
+    app.mount("/", RevalidatedStaticFiles(directory=settings.web_dir, html=True), name="web")
     return app
 
 

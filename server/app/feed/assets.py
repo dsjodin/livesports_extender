@@ -37,6 +37,7 @@ class PlayerRef:
     first: str | None
     last: str | None
     number: str | None
+    athlete_uuid: str | None = None  # exact match in the roster (statistics leaders)
 
 
 class AssetCache:
@@ -68,6 +69,19 @@ class AssetCache:
     ) -> None:
         if player_id and team_uuid and SAFE_ID.match(player_id):
             self.players[player_id] = PlayerRef(team_uuid, first, last, number)
+
+    def register_athlete(
+        self,
+        athlete_uuid: str | None,
+        team_uuid: str | None,
+        first: str | None,
+        last: str | None,
+        number: str | None,
+    ) -> None:
+        """A player known by athlete uuid (statistics leaders); the portrait is served as
+        /assets/players/<athlete uuid>.png."""
+        if athlete_uuid and team_uuid and SAFE_ID.match(athlete_uuid):
+            self.players[athlete_uuid] = PlayerRef(team_uuid, first, last, number, athlete_uuid)
 
     # --- files ----------------------------------------------------------------------
 
@@ -140,6 +154,10 @@ class AssetCache:
 
     async def _portrait_url(self, ref: PlayerRef) -> str | None:
         players = await self.roster(ref.team_uuid)
+        if ref.athlete_uuid:
+            exact = next((p for p in players if p.get("uuid") == ref.athlete_uuid), None)
+            if exact is not None:
+                return portrait_url(exact.get("renderedLatestPortrait") or {})
         wanted = name_key(ref.first, ref.last)
         match = next(
             (p for p in players if name_key(p.get("firstName"), p.get("lastName")) == wanted), None
