@@ -57,3 +57,18 @@ def test_default_videos_exist_for_every_team() -> None:
             u for u in teams if not (REPO_ROOT / "web" / "media" / kind / f"{u}.webm").is_file()
         ]
         assert not missing, (kind, missing)
+
+
+def test_pages_are_revalidated(tmp_path: Path) -> None:
+    web = tmp_path / "web"
+    (web / "screens").mkdir(parents=True)
+    (web / "screens" / "left.html").write_text("<html></html>")
+    settings = Settings(
+        web_dir=web, config_dir=REPO_ROOT / "config", data_dir=tmp_path, fixtures_dir=FIXTURES
+    )
+    with TestClient(create_app(settings, fetch_league=False)) as client:
+        r = client.get("/screens/left.html")
+        # browsers would otherwise keep old scene modules after an update
+        assert r.status_code == 200 and r.headers["cache-control"] == "no-cache"
+        again = client.get("/screens/left.html", headers={"if-none-match": r.headers["etag"]})
+        assert again.status_code == 304

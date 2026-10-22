@@ -5,9 +5,10 @@ import contextlib
 from collections.abc import AsyncIterator, Callable
 from html import escape
 from pathlib import Path
+from typing import Any
 
 from fastapi import FastAPI, WebSocket
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from app import __version__
@@ -51,6 +52,17 @@ def render_index(pages: list[str]) -> str:
         f"<body>\n<h1>SHL Arena</h1>\n<p>Version {escape(__version__)}</p>\n{body}\n"
         "</body>\n</html>\n"
     )
+
+
+class RevalidatedStaticFiles(StaticFiles):
+    """The pages and their modules, revalidated on every load (``Cache-Control: no-cache``,
+    a cheap 304 by ETag on the LAN). Without it browsers guess a freshness from the file's
+    age and keep running old scene modules after an update."""
+
+    def file_response(self, *args: Any, **kwargs: Any) -> Response:
+        response = super().file_response(*args, **kwargs)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
 
 
 def create_app(
@@ -110,7 +122,7 @@ def create_app(
     async def index() -> str:
         return render_index(list_pages(settings.web_dir))
 
-    app.mount("/", StaticFiles(directory=settings.web_dir, html=True), name="web")
+    app.mount("/", RevalidatedStaticFiles(directory=settings.web_dir, html=True), name="web")
     return app
 
 

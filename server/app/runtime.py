@@ -391,19 +391,24 @@ class Runtime:
         leaders: dict[str, dict[str, Any]] = {}
         try:
             history = await self.league.history()
-        except ShlError as exc:
+        except Exception as exc:  # the rest of the block still updates without it
             log.warning("earlier seasons unavailable: %s", exc)
         for uuid in (home, away):
             if uuid:
                 try:
                     leaders[uuid] = await self.league.leaders(uuid)
-                except ShlError as exc:
+                except Exception as exc:
                     log.warning("scoring leaders of %s unavailable: %s", uuid, exc)
         return history, leaders
 
     async def _league_loop(self) -> None:
         while True:
-            await self.refresh_league()
+            try:
+                await self.refresh_league()
+            except asyncio.CancelledError:
+                raise
+            except Exception:  # a bug must not stop the refreshes for good
+                log.exception("league refresh failed")
             await self.clock.sleep(LEAGUE_REFRESH_S)
 
     @property

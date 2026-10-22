@@ -38,6 +38,9 @@ sudo firewall-cmd --permanent --add-port=8010/tcp && sudo firewall-cmd --reload 
 ```
 
 Update: `git pull && docker compose up -d --build`. Logs: `docker compose logs -f`.
+The pages are served with `Cache-Control: no-cache` (since 2026-10-22), so a reload picks
+up an update; a browser that loaded them before that may need one hard reload
+(Ctrl+Shift+R) to drop its old copies.
 
 ## 2. Display box
 
