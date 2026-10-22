@@ -402,6 +402,12 @@ A developer tool; its control panel may be in English.
   - System offset (TV profile) and **fake TV delay** (separate slider).
   - **Fake TV pane**: shows raw events as text at `event_ms + fake TV delay`, with a large
     "TV-klocka" (period and game time), so the calibration button can be tested.
+  - **Event queue** (toggle "Show event queue", it spoils the TV; asked for 2026-10-22):
+    the events held until their `play_at`, with a countdown, and the last ones released;
+    each row has the key (`e142`), the label, the on-ice time, how long after it the
+    event reached us, its `play_at`, and LATE (red) with how far after the TV when it
+    came too late. The raw events list shows the same keys, coloured held (amber),
+    released or late (red), so a raw event can be followed into the queue.
   - Webhook log: each call with time, event, status.
   - Toggles: debug overlay on all screens, show raw events.
   - "Open phone app" link (`/app`) and QR code for the phone (the QR code is not built

@@ -31,3 +31,15 @@ ol li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 ol li.goal { color: var(--gold); }
 .hidden { display: none; }
 a { color: var(--rink-blue); }
+
+/* event queue: held (amber) and released, keyed like the raw events */
+.queue ol { max-height: 240px; }
+.queue-head { font: 600 11px var(--font-condensed); letter-spacing: 0.14em; color: var(--text-muted); }
+#queue-held li { color: var(--gold); }
+#queue-released li.late, #raw-events li.late { color: var(--penalty); }
+#raw-events li.held { color: var(--gold); }
+#raw-events li.released { color: var(--text-secondary); }
+.queue { grid-column: span 2; }
+.queue ol li { white-space: normal; overflow: visible; padding: 2px 0; border-bottom: 1px solid var(--panel-raised); }
+.queue ol li .q-main { display: block; }
+.queue ol li .q-meta { display: block; color: var(--text-muted); padding-left: 2ch; }

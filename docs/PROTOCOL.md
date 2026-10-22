@@ -261,6 +261,11 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   `debug_subscribe` (CLAUDE.md rule 1): first `{"t": "raw_backlog", "raw": [...],
   "released": [...]}`, then `{"t": "raw", "entry": {"change", "key", "type", "label",
   "event_ms", "first_seen_ms", "received_ms", "at_ms"}}` per change.
+- The same subscribers get the DelayQueue about once a second (it spoils the TV too):
+  `{"t": "queue", "queue": {"now_ms", "offset_ms", "held": [...], "released": [...]}}`,
+  each row `{"key", "label", "event_ms", "received_ms", "play_at_ms", "late",
+  "late_by_ms"}`. `held`: events waiting for their `play_at`, soonest first (up to 25);
+  `released`: the last released, newest first (up to 25). `key` is the raw events' key.
 
 ### Client to server
 

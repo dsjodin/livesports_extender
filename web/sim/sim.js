@@ -1,6 +1,6 @@
 // Simulator: the whole wall at one millimetre scale, replay controls and a fake TV.
 import * as clock from "../shared/clock.js";
-import { hhmm } from "../shared/format.js";
+import { esc, hhmm } from "../shared/format.js";
 import * as stage from "../shared/stage.js";
 import { Store } from "../shared/store.js";
 import { connect } from "../shared/ws.js";
@@ -161,6 +161,11 @@ function bindControls() {
   $("debug").checked = debug;
   $("debug").onchange = () => setDebug($("debug").checked);
   $("show-raw").onchange = () => $("raw-events").classList.toggle("hidden", !$("show-raw").checked);
+  $("show-queue").onchange = () => {
+    $("queue").classList.toggle("hidden", !$("show-queue").checked);
+    $("queue-note").classList.toggle("hidden", $("show-queue").checked);
+    renderQueue();
+  };
 }
 
 function showConfig(config) {
@@ -220,10 +225,63 @@ function onRaw(entry) {
   if (entry.change === "removed") raw.delete(entry.key);
   else raw.set(entry.key, entry);
   const li = document.createElement("li");
-  li.textContent = `${new Date(entry.received_ms).toLocaleTimeString("sv-SE")} ${entry.change} ${entry.label}`;
+  li.textContent = `${new Date(entry.received_ms).toLocaleTimeString("sv-SE")} ${entry.key ?? ""} ${entry.change} ${entry.label}`;
+  li.dataset.key = entry.key ?? "";
   if (entry.type === "goal") li.className = "goal";
+  markRaw(li);
   $("raw-events").prepend(li);
   while ($("raw-events").children.length > 200) $("raw-events").lastChild.remove();
+}
+
+// --- event queue (held until play_at / released), keyed like the raw events -------------
+
+let queue = null; // the last {"t": "queue"} view from the service
+const queueState = new Map(); // key -> "held" | "released" | "late"
+
+const clockText = (ms) => (ms == null ? "–" : new Date(ms).toLocaleTimeString("sv-SE"));
+const secs = (ms) => `${(ms / 1000).toFixed(1)} s`;
+
+/** Two lines: when it plays (or played), key and label; then the timing behind it. */
+function queueLine(r, now, held) {
+  const when = held ? `in ${secs(r.play_at_ms - now)}` : `${secs(now - r.play_at_ms)} ago`;
+  const lag = r.event_ms != null ? `arrived ${secs(r.received_ms - r.event_ms)} after` : "no on-ice time";
+  const late = r.late ? ` · LATE${r.late_by_ms != null ? `, ${secs(r.late_by_ms)} after the TV` : ""}` : "";
+  return [`${when} · ${r.key} · ${r.label}`, `on ice ${clockText(r.event_ms)} · ${lag} · plays ${clockText(r.play_at_ms)}${late}`];
+}
+
+function renderQueue() {
+  if (!queue || $("queue").classList.contains("hidden")) return;
+  const now = clock.now();
+  const fill = (list, rows, held) => {
+    const html = rows
+      .map((r) => {
+        const [main, meta] = queueLine(r, now, held);
+        return `<li class="${r.late ? "late" : ""}"><span class="q-main">${esc(main)}</span><span class="q-meta">${esc(meta)}</span></li>`;
+      })
+      .join("");
+    if (list.innerHTML !== html) list.innerHTML = html;
+  };
+  const held = queue.held.filter((r) => r.play_at_ms > now);
+  fill($("queue-held"), held, true);
+  fill($("queue-released"), [...queue.held.filter((r) => r.play_at_ms <= now), ...queue.released], false);
+  $("queue-held-n").textContent = `${held.length} · offset ${secs(queue.offset_ms)}`;
+}
+
+function onQueue(view) {
+  queue = view;
+  queueState.clear();
+  for (const r of view.released) queueState.set(r.key, r.late ? "late" : "released");
+  for (const r of view.held) queueState.set(r.key, "held");
+  for (const li of $("raw-events").children) markRaw(li);
+  renderQueue();
+}
+
+/** Colour a raw event by where it is in the queue: held (amber), released, late (red). */
+function markRaw(li) {
+  const state = queueState.get(li.dataset.key);
+  li.classList.toggle("held", state === "held");
+  li.classList.toggle("released", state === "released");
+  li.classList.toggle("late", state === "late");
 }
 
 function renderTv() {
@@ -265,6 +323,7 @@ async function main() {
     (m.raw ?? []).forEach(onRaw);
   });
   store.on("raw", (m) => onRaw(m.entry));
+  store.on("queue", (m) => onQueue(m.queue));
   store.on("webhook", (m) => showWebhook(m.entry));
   fetch("/api/webhooks/log")
     .then((r) => r.json())
@@ -280,6 +339,7 @@ async function main() {
     },
   });
   setInterval(renderTv, 200);
+  setInterval(renderQueue, 250); // the countdowns
   setInterval(showStatus, 1000);
 }
 

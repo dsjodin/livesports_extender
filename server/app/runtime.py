@@ -45,6 +45,7 @@ log = logging.getLogger(__name__)
 
 LEAD_MS = 1500
 TICK_S = 0.25
+QUEUE_VIEW_SIZE = 25  # rows per list in the simulator's queue view
 STATUS_EVERY_MS = 1000
 LOG_SIZE = 400
 LEAGUE_REFRESH_S = 600
@@ -541,6 +542,36 @@ class Runtime:
             if self.calibrator.update(self.normalizer.events.values(), now):
                 self._save_calibration()
             self.out.broadcast({"t": "status", "status": self.status()})
+            # spoils the TV: only to raw subscribers (the simulator), CLAUDE.md rule 1
+            self.out.broadcast({"t": "queue", "queue": self.queue_view(now)}, raw=True)
+
+    def queue_view(self, now: int) -> dict[str, Any]:
+        """The DelayQueue for the simulator: events held for their play_at, soonest first,
+        and the last ones released, newest first; keyed like the raw events."""
+        held = sorted(
+            (p for p in self.queue.items.values() if not p.released or p.play_at > now),
+            key=lambda p: p.play_at,
+        )
+        return {
+            "now_ms": now,
+            "offset_ms": self.queue.offset_ms,
+            "held": [
+                {
+                    "key": p.event.key,
+                    "label": p.event.label(),
+                    "event_ms": p.event.event_ms,
+                    "received_ms": p.received_ms,
+                    "play_at_ms": p.play_at,
+                    "late": p.late,
+                    "late_by_ms": p.late_by_ms,
+                }
+                for p in held[:QUEUE_VIEW_SIZE]
+            ],
+            # release_log rows have the same fields
+            "released": [r for r in reversed(self.release_log) if r["play_at_ms"] <= now][
+                :QUEUE_VIEW_SIZE
+            ],
+        }
 
     def _release(self, out: Output) -> None:
         """One of our events reaches its play_at window: event, scenes, patch, webhook."""

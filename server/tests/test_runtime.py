@@ -437,3 +437,22 @@ async def test_lost_contact_goes_out_as_feed_ok(setup: Any) -> None:
     rt.source = None
     rt._check_feed()
     assert rt.feed_ok  # a replay or no source: never lost
+
+
+async def test_queue_view_shows_held_and_released(setup: Any) -> None:
+    rt, hub, clock = setup  # offset 80 s
+    on_ice = T + 10 * S
+    await at(clock, rt, on_ice + 48 * S)
+    feed(rt, clock, [goal(7, on_ice, 1, 0), period(T)])
+    view = rt.queue_view(clock.now_ms())
+    [held] = [r for r in view["held"] if r["key"] == "e7"]
+    assert held["play_at_ms"] == on_ice + 80 * S and not held["late"]
+    assert held["event_ms"] == on_ice and held["received_ms"] == on_ice + 48 * S
+    assert held["label"] and view["offset_ms"] == 80 * S
+    assert all(r["key"] != "e7" for r in view["released"])
+    await at(clock, rt, on_ice + 80 * S + 500)
+    view = rt.queue_view(clock.now_ms())
+    assert all(r["key"] != "e7" for r in view["held"])
+    assert view["released"][0]["key"] == "e7"
+    # only for raw subscribers: it spoils the TV
+    assert not any(m["t"] == "queue" for m in hub.messages)

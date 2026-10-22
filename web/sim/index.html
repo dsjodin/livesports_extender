@@ -70,6 +70,16 @@
       <div class="tv-clock"><span class="tv-label">TV-klocka</span><span id="tv-clock">–</span></div>
       <ol id="tv-events"></ol>
     </section>
+    <section class="queue">
+      <h2>Event queue <small>held until play_at, spoils the TV</small></h2>
+      <div id="queue" class="hidden">
+        <div class="queue-head">HELD <span id="queue-held-n"></span></div>
+        <ol id="queue-held"></ol>
+        <div class="queue-head">RELEASED</div>
+        <ol id="queue-released"></ol>
+      </div>
+      <div class="row muted" id="queue-note">Tick "Show event queue" under Toggles. Keys (e142) match the raw events.</div>
+    </section>
     <section>
       <h2>Raw events <small>on arrival, spoils the TV</small></h2>
       <ol id="raw-events" class="hidden"></ol>
@@ -80,6 +90,7 @@
       <h2>Toggles</h2>
       <label><input type="checkbox" id="debug"> Debug overlay on screens</label>
       <label><input type="checkbox" id="show-raw"> Show raw events</label>
+      <label><input type="checkbox" id="show-queue"> Show event queue</label>
       <div class="row"><a href="/app" target="_blank">Open phone app (/app, Phase 4)</a></div>
       <div class="row"><a href="/debug/" target="_blank">Debug page</a></div>
       <div class="readout" id="conn">connecting…</div>
