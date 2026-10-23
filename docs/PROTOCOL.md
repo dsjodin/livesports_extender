@@ -120,9 +120,12 @@ goals excluded) and has `pulled`. `shots` skips coordinates outside 0–300 dm. 
 ### League block
 
 `league` holds what the pregame and idle scenes show. It is fetched (standings cached
-1 h, schedule 1 h) only while the applied phase is `idle` or `pregame` and every 10 min
-then, so tonight's results cannot reach a screen during or after the game; it stays as it
-was from puck drop on.
+1 h, schedule 1 h) every 10 min, but only while the applied phase is `idle` or `pregame`,
+or once the game is over on TV (the postgame hold has passed, the scene is `idle`) and
+no other game of the evening is still being played on TV time. So tonight's results
+cannot reach a screen early, and the morning after, the next game, the standings and
+"tonight" move on (fixed 2026-10-23: they used to stay on the evening before). It is
+refreshed at once when it opens again.
 
 ```json
 {"updated_ms": 1792567865804,

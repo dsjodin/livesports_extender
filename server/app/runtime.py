@@ -49,6 +49,7 @@ QUEUE_VIEW_SIZE = 25  # rows per list in the simulator's queue view
 STATUS_EVERY_MS = 1000
 LOG_SIZE = 400
 LEAGUE_REFRESH_S = 600
+LEAGUE_CHECK_S = 30  # how often the league loop looks whether it may refresh
 FOLLOW_CHECK_S = 600  # "follow my team": look at today's schedule (cached 1 h) this often
 MANUAL_LEAD_MS = 300  # a MÅL! press plays this soon: the clients need the message first
 MANUAL_LINK_BEFORE_MS = 150_000  # a feed goal links if its event_ms is this far before
@@ -332,10 +333,21 @@ class Runtime:
 
     # --- league context (pregame, idle) ---------------------------------------------
 
+    def league_open(self) -> bool:
+        """May the league block be refreshed now? Before puck drop, and again once the game
+        is over on TV (its postgame hold has passed and the screens are back to idle) and
+        none of the evening's other games is still being played on TV time: from then on
+        tonight's results are known on screen, so the standings cannot spoil them."""
+        if self.applied.get("phase") in ("idle", "pregame"):
+            return True
+        if (self.applied.get("scene") or {}).get("name") != "idle":
+            return False
+        return all(o["ended"] or o["phase"] == "pregame" for o in self.others.summaries())
+
     async def refresh_league(self) -> None:
-        """Standings, form and next games. Only before puck drop: during and after a game
-        the block stays as it was, so tonight's results cannot leak in early."""
-        if self.league is None or self.applied.get("phase") not in ("idle", "pregame"):
+        """Standings, form and next games, only while ``league_open``: during a game the
+        block stays as it was, so tonight's results cannot leak in early."""
+        if self.league is None or not self.league_open():
             return
         try:
             standings_raw, games = await self.league.snapshot()
@@ -403,14 +415,24 @@ class Runtime:
         return history, leaders
 
     async def _league_loop(self) -> None:
+        """Refresh every LEAGUE_REFRESH_S while open, and at once when it opens again
+        (the morning after: next game, standings and tonight's games move on)."""
+        last_ms: int | None = None
+        was_open = False
         while True:
-            try:
-                await self.refresh_league()
-            except asyncio.CancelledError:
-                raise
-            except Exception:  # a bug must not stop the refreshes for good
-                log.exception("league refresh failed")
-            await self.clock.sleep(LEAGUE_REFRESH_S)
+            is_open = self.league_open()
+            now = self.clock.now_ms()
+            due = last_ms is None or now - last_ms >= LEAGUE_REFRESH_S * 1000
+            if is_open and (due or not was_open):
+                try:
+                    await self.refresh_league()
+                except asyncio.CancelledError:
+                    raise
+                except Exception:  # a bug must not stop the refreshes for good
+                    log.exception("league refresh failed")
+                last_ms = now
+            was_open = is_open
+            await self.clock.sleep(LEAGUE_CHECK_S)
 
     @property
     def my_side(self) -> Literal["home", "away"] | None:
