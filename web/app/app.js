@@ -383,6 +383,10 @@ function renderSettings() {
     <div class="card"><div class="label">Mitt lag</div>${raw(myTeam)}<div class="muted">Mitt lags mål tänder lamporna. Kan ändras per match under Matcher.</div>
       <label class="row"><input type="checkbox" data-act="follow" ${st.follow_my_team ? "checked" : ""}> Följ mitt lag automatiskt</label>
       <div class="muted">Följer mitt lags match live när den spelas idag, om ingen annan match eller repris är igång. Stäng av för att sluta följa.</div></div>
+    <div class="card"><div class="label">Dimning i vila</div>
+      <div class="row"><input class="grow" type="range" min="0" max="90" step="10" value="${Math.round((st.idle_dim ?? 0.5) * 100)}" data-act="idle-dim" aria-label="Dimning i vila">
+        <span id="idle-dim-value">${Math.round((st.idle_dim ?? 0.5) * 100)} %</span></div>
+      <div class="muted">Hur mycket mörkare skärmarna blir när ingen match visas (klocka, tabell, kvällens matcher). 0 % är ingen dimning.</div></div>
     ${raw(haCard())}
     <div class="card"><div class="label">Lagfärger</div>${raw(teamRows)}</div>
     <div class="card"><div class="label">Felsökning</div>
@@ -499,6 +503,7 @@ const actions = {
 
 const changes = {
   "goal-sync": (el) => api("calibrate/goal-button", { enabled: el.checked }),
+  "idle-dim": (el) => api("idle-dim", { level: Number(el.value) / 100 }),
   "profile-offset": (el) => api("offset", { profile: el.dataset.profile, seconds: Number(el.value) }),
   "my-team": (el) => api("my-team", { uuid: el.value || null }),
   follow: (el) => api("follow", { enabled: el.checked }).then((r) => r && toast(el.checked ? "Följer mitt lag" : "Följer inte mitt lag automatiskt")),
@@ -522,6 +527,9 @@ document.addEventListener("click", (e) => {
   const el = e.target.closest("[data-act]");
   if (!el || el.tagName === "INPUT" || el.tagName === "SELECT") return;
   actions[el.dataset.act]?.(el.dataset);
+});
+document.addEventListener("input", (e) => {
+  if (e.target.dataset?.act === "idle-dim") $("idle-dim-value").textContent = `${e.target.value} %`;
 });
 document.addEventListener("change", (e) => {
   const el = e.target.closest("[data-act]");

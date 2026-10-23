@@ -200,6 +200,7 @@ class Runtime:
             "speed": self.config.source.speed if self.config.source.mode != "none" else 1.0,
             "debug": False,
             "feed_ok": self.feed_ok,
+            "idle_dim": self.config.idle_dim,
         }
 
     # --- messages -------------------------------------------------------------------
@@ -935,6 +936,12 @@ class Runtime:
         self.out.broadcast({"t": "config", "config": self.config_message()})
         self.pump(self.clock.now_ms())
 
+    def set_idle_dim(self, level: float) -> None:
+        """How much darker the screens are in the idle scene, 0–0.9."""
+        self.config.idle_dim = round(min(max(level, 0.0), 0.9), 2)
+        self.store.save()
+        self.out.broadcast({"t": "config", "config": self.config_message()})
+
     def nudge_offset(self, delta: float) -> None:
         self.set_offset(self.config.active_profile, self.config.offset_s + delta)
 
@@ -1152,6 +1159,7 @@ class Runtime:
             "calibration": self.calibration(),
             "goal_button_sync": self.config.goal_button_sync,
             "follow_my_team": self.config.follow_my_team,
+            "idle_dim": self.config.idle_dim,
             "webhooks": {
                 "enabled": self.config.webhooks.enabled,
                 "url_set": bool(self.config.webhooks.url),

@@ -54,6 +54,7 @@ def test_websocket_hello_state_then_events_in_order(client: TestClient) -> None:
             "speed": 1.0,
             "debug": False,
             "feed_ok": True,
+            "idle_dim": 0.5,
         }
         state = ws.receive_json()
         assert state["t"] == "state" and state["state"]["score"] == {"home": 0, "away": 0}
@@ -170,3 +171,17 @@ def test_test_video_is_broadcast_alone(client: TestClient) -> None:
         messages = receive_until(ws, lambda m: m.get("t") == "video")
         assert messages[-1] == {"t": "video", "kind": "intro", "side": None, "play_at_ms": at}
     assert client.post("/api/test/video", json={"kind": "other"}).status_code == 422
+
+
+def test_idle_dim_is_saved_and_sent_to_screens(client: TestClient, tmp_path: Path) -> None:
+    with client.websocket_connect("/ws?role=screen&id=bar") as ws:
+        hello = ws.receive_json()
+        assert hello["t"] == "hello" and hello["config"]["idle_dim"] == 0.5
+        r = client.post("/api/idle-dim", json={"level": 0.7})
+        assert r.status_code == 200
+        assert r.json()["status"]["idle_dim"] == 0.7
+        update = receive_until(ws, lambda m: m.get("t") == "config")[-1]
+        assert update["config"]["idle_dim"] == 0.7
+    assert '"idle_dim": 0.7' in (tmp_path / "state.json").read_text(encoding="utf-8")
+    assert client.post("/api/idle-dim", json={"level": 0.95}).status_code == 422
+    assert client.post("/api/idle-dim", json={"level": -0.1}).status_code == 422

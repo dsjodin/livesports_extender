@@ -382,6 +382,8 @@ body.bar .banner-overlay { bottom: 98px; }
    top of the bar's centre, about 12 mm; nothing while all is well */
 #feed-dot { position: absolute; left: 50%; top: 16px; width: 34px; height: 34px; margin-left: -17px; border-radius: 50%;
   background: #ff2d3a; box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); z-index: 60; opacity: 0; pointer-events: none; }
+/* idle dimming (config idle_dim): above the scene, videos and fx, below the feed dot */
+#dim { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 55; pointer-events: none; }
 #feed-dot.on { animation: feed-pulse 1.4s ease-in-out infinite; }
 @keyframes feed-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
 

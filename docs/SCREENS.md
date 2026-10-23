@@ -214,6 +214,7 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 - Bar: centred clock (HH:MM) and "Nästa match: <dag> <tid> <HEMMA>–<BORTA>" for my team.
 - Left: standings table (14 teams: placering, lag, matcher, poäng, målskillnad).
 - Right: "Kvällens matcher" or "Senaste resultat".
+- All three are dimmed (below, Idle dimming).
 
 ### pregame (mockup scene 1)
 
@@ -312,6 +313,16 @@ contact: the service has lost shl.se during a live game (`config.feed_ok` false,
 shown after a 5 s grace period at page load). Nothing shows while all is well, and it
 goes out by itself when contact is back. The phone app says "Kontakt med shl.se: OK /
 Borta, försöker igen" in its status, `/sim` "NO CONTACT WITH SHL.SE" in its readout.
+
+### Idle dimming (asked for by the user 2026-10-23)
+
+While the scene is `idle`, each screen lays a black layer over everything but the feed dot
+and the debug overlay, at the opacity `config.idle_dim` (default 0.5; 0 is off, 0.9 the
+most). It fades in over 1.5 s when idle starts and lifts in 0.4 s when another scene takes
+over; a new level from the phone app ("Inställningar", "Dimning i vila", 0–90 % in steps
+of 10) applies at once. It only darkens the picture: the LCD backlight stays on, so black
+is not as black as a screen that is off. Turning the screens off at night is the display
+box's job (`SCREENS_ON_FROM`/`SCREENS_ON_UNTIL`, `docs/DEPLOY.md`).
 
 ### Standings table (idle left, intermission right)
 

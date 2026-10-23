@@ -217,7 +217,7 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
  "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false,
-            "feed_ok": true}}
+            "feed_ok": true, "idle_dim": 0.5}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -258,6 +258,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   game, with a poll a minute, 3 min). Replays and recordings are always true. It is
   sent at once, not at a `play_at` (it is about the connection, not the game), and is
   also in `status`. The bar shows it as a red dot (`docs/SCREENS.md`, Feed warning).
+- `idle_dim` (0–0.9) is how much darker the screens are in the `idle` scene: a black layer
+  of that opacity (`docs/SCREENS.md`, Idle dimming). Set in the phone app; also in `status`.
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
   selected game, my side (`my_side`, and `my_side_choice` as set), profile, offset,
@@ -309,6 +311,7 @@ auth in front if it is ever exposed).
 | `POST /api/calibrate/goal-button` | `{"enabled": true}` | "Använd målknapp för synk": a linked MÅL! press is a `goal` sample |
 | `DELETE /api/calibrate` | | Clear samples |
 | `DELETE /api/calibrate/{id}` | | Remove one sample |
+| `POST /api/idle-dim` | `{"level": 0.5}` | "Dimning i vila": how much darker the screens are while idle, 0–0.9 (422 outside) |
 | `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag": follow my team's game of the day live when nothing else runs (checked every 10 min) |
 | `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |

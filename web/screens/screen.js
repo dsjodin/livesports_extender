@@ -139,6 +139,23 @@ function show(scene, at, animate) {
     }
   }
   if (animate) log(`[sync] ${name} start screen=${screenId} delta=${late.toFixed(1)}ms`);
+  dim(animate);
+}
+
+/** Idle screens are dimmed by a black layer (config idle_dim, set in the phone app):
+ * faded in slowly when idle starts, lifted quickly when anything else takes over. */
+let dimEl = null;
+function dim(animate = true) {
+  if (!dimEl) {
+    dimEl = document.createElement("div");
+    dimEl.id = "dim";
+    document.body.appendChild(dimEl);
+  }
+  const level = current?.name === "idle" ? (store.config.idle_dim ?? 0.5) : 0;
+  const from = Number(getComputedStyle(dimEl).opacity) || 0;
+  gsap.killTweensOf(dimEl);
+  if (!animate) gsap.set(dimEl, { opacity: level });
+  else gsap.to(dimEl, { opacity: level, duration: level > from ? 1.5 : 0.4, ease: "power1.inOut" });
 }
 
 store.on("state", (tv) => {
@@ -179,6 +196,7 @@ store.on("video", (m) => {
 store.on("config", () => {
   current?.mod.update?.(current.ctx, store.tv, {});
   feedDot();
+  dim();
 });
 
 /** The bar's red dot: no contact with shl.se (the service says so), or none with the

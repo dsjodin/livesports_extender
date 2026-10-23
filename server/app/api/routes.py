@@ -4,7 +4,7 @@ import json
 from typing import Any, Literal
 
 from fastapi import APIRouter, HTTPException, Request
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app import __version__
 from app.engine import webhooks as webhook_payloads
@@ -75,6 +75,10 @@ class TestVideoIn(BaseModel):
 
 class EnabledIn(BaseModel):
     enabled: bool
+
+
+class DimIn(BaseModel):
+    level: float = Field(ge=0, le=0.9)
 
 
 class SceneIn(BaseModel):
@@ -231,6 +235,14 @@ async def goal_button_sync(body: EnabledIn, request: Request) -> dict[str, Any]:
     rt = runtime(request)
     rt.config.goal_button_sync = body.enabled
     rt.store.save()
+    return ok(rt)
+
+
+@router.post("/idle-dim")
+async def idle_dim(body: DimIn, request: Request) -> dict[str, Any]:
+    """How much darker the screens are while idle (0 = not at all, 0.9 = nearly black)."""
+    rt = runtime(request)
+    rt.set_idle_dim(body.level)
     return ok(rt)
 
 

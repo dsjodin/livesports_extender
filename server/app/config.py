@@ -81,6 +81,9 @@ class RuntimeConfig(BaseModel):
     follow_my_team: bool = False
     # A MÅL! press linked to a feed goal also counts as a "goal" sync sample.
     goal_button_sync: bool = True
+    # How much darker the screens are while idle (0 = not at all, 0.9 = nearly black);
+    # asked for by the user 2026-10-23.
+    idle_dim: float = 0.5
     webhooks: WebhookSettings = WebhookSettings()
     # Jersey colour overrides per team uuid: {"home": "röd" | "#rrggbb", "away": ...}.
     # Defaults are in config/teams.json.
