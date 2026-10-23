@@ -138,3 +138,34 @@ export function slideshow(ctx, startMs) {
     if (i !== current) show(i, true);
   });
 }
+
+// --- the standings table (idle, intermission), sized for 3 m --------------------------
+
+const ZONE_LABEL = { playoff: "SLUTSPEL", playin: "PLAY IN", qualdown: "KVAL" };
+
+/**
+ * SHL's table with its zones (league.groupings: playoff 1–6, play in 7–10, kval 13–14):
+ * a coloured edge per zone, a heavier line where a zone ends, and a legend. ``live`` rows
+ * (the live table) show a movement arrow and tonight's score; else goal difference.
+ */
+export function standingsTable(rows, groupings = [], { mine = null, live = false } = {}) {
+  const ends = new Set(groupings.map((g) => g.last));
+  const logo = (url) => (url ? `<img class="logo3" src="${url}" alt="" onerror="this.remove()">` : `<span class="logo3"></span>`);
+  const signed = (n) => (n == null ? "" : n > 0 ? `+${n}` : n < 0 ? `−${-n}` : "0");
+  const body = rows
+    .map((r) => {
+      const move = !live ? "" : r.move > 0 ? `<span class="mv up">▲</span>` : r.move < 0 ? `<span class="mv down">▼</span>` : "";
+      const middle = live ? (r.live ? `${r.live.for}–${r.live.against}` : "") : signed(r.diff);
+      const cls = ["t3-row", r.zone ? `zone-${r.zone}` : "", ends.has(r.rank) ? "zone-end" : "", live && r.live ? "playing" : "", r.uuid === mine ? "mine" : ""];
+      return html`<div class="${cls.filter(Boolean).join(" ")}"><span class="num">${r.rank}</span><span class="mv">${raw(move)}</span>${raw(logo(r.logo))}
+        <span class="t3-team">${r.short ?? r.code}</span><span class="num ${live ? "t3-live" : ""}">${middle}</span><span class="num t3-pts">${r.points}</span></div>`;
+    })
+    .join("");
+  const legend = groupings
+    .filter((g) => ZONE_LABEL[g.zone])
+    .map((g) => html`<span class="zl zone-${g.zone}"><i></i>${ZONE_LABEL[g.zone]}</span>`)
+    .join("");
+  return html`<div class="table3"><div class="t3-row t3-head label"><span class="num">#</span><span></span><span></span><span>LAG</span>
+      <span class="num">${live ? "IKVÄLL" : "+/−"}</span><span class="num">P</span></div>${raw(body)}</div>
+    ${raw(legend ? `<div class="zone-legend">${legend}</div>` : "")}`;
+}

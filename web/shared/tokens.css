@@ -41,6 +41,10 @@
   --font-condensed: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-body: "Barlow", Arial, sans-serif;
   /* text sizes for 3 m; screen.js sets them per screen from wall.json (stage.applyType) */
+  /* the table's zones (SHL groupings) */
+  --zone-playoff: #2FBF71;
+  --zone-playin: #4A8FE7;
+  --zone-qualdown: #E5484D;
   --fs-floor: 55px;
   --fs-text: 90px;
 }

@@ -4,16 +4,52 @@ Pure: takes the simplified schedule (app.feed.schedule.simplify) and standings r
 Only finished games before ``before_ms`` are used, so nothing from tonight leaks in.
 """
 
+import logging
 from datetime import datetime
 from typing import Any
 
 from app.feedtime import STOCKHOLM
 
+log = logging.getLogger(__name__)
+
 FORM_GAMES = 5
+# The standings' groupings (docs/SHL_API.md, Standings): SHL's own zones of the table.
+ZONES = {
+    "Playoff": "playoff",
+    "Playin": "playin",
+    "MissedPlayoff": "out",
+    "QualificationDown": "qualdown",
+}
+_warned_zones: set[str] = set()
 H2H_GAMES = 5  # head-to-head meetings, over seasons and game types
 
 
+def zones(raw: dict[str, Any] | None) -> list[dict[str, Any]]:
+    """The table's zones from the standings' ``groupings``: playoff (1–6), playin (7–10),
+    out (11–12), qualdown (13–14) in 2026/27. An unknown description is logged once and
+    kept as it is (CLAUDE.md rule 7)."""
+    out = []
+    for g in (raw or {}).get("groupings") or []:
+        description = str(g.get("description"))
+        zone = ZONES.get(description)
+        if zone is None:
+            if description not in _warned_zones:
+                _warned_zones.add(description)
+                log.warning("unknown standings grouping %r, shown raw", description)
+            zone = description
+        if isinstance(g.get("first"), int) and isinstance(g.get("last"), int):
+            out.append({"zone": zone, "first": g["first"], "last": g["last"]})
+    return out
+
+
+def zone_for(rank: int | None, table_zones: list[dict[str, Any]]) -> str | None:
+    if rank is None:
+        return None
+    return next((z["zone"] for z in table_zones if z["first"] <= rank <= z["last"]), None)
+
+
 def standings_rows(raw: dict[str, Any] | None) -> list[dict[str, Any]]:
+    table_zones = zones(raw)
     rows = []
     for row in (raw or {}).get("leagueStandings") or []:
         info = (row.get("info") or {}).get("teamInfo") or {}
@@ -33,6 +69,7 @@ def standings_rows(raw: dict[str, Any] | None) -> list[dict[str, Any]]:
                 "gf": row.get("GF"),
                 "ga": row.get("GA"),
                 "diff": row.get("Diff"),
+                "zone": zone_for(row.get("rank"), table_zones),
             }
         )
     return sorted(rows, key=lambda r: r["rank"] or 99)
@@ -201,6 +238,7 @@ def build(
     my_team_uuid: str | None = None,
     history: list[dict[str, Any]] | None = None,
     leaders: dict[str, dict[str, Any]] | None = None,
+    groupings: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """``history``: games outside this season's schedule (earlier seasons, playoffs), for
     head-to-head; ``leaders``: raw stats-info rows per team uuid ({"points", "goals"})."""
@@ -248,6 +286,7 @@ def build(
     return {
         "updated_ms": now_ms,
         "standings": standings,
+        "groupings": groupings or [],
         "teams": teams,
         "head_to_head": head_to_head([*games, *(history or [])], home_uuid, away_uuid, before)
         if home_uuid and away_uuid
@@ -263,7 +302,9 @@ def build(
 
 
 def live_table(
-    standings: list[dict[str, Any]], games: list[dict[str, Any]]
+    standings: list[dict[str, Any]],
+    games: list[dict[str, Any]],
+    table_zones: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     """The table "om matcherna slutade nu": ``standings`` (from before tonight's games)
     plus tonight's games as they stand on the wall (delayed scores).
@@ -309,4 +350,6 @@ def live_table(
     for rank, row in enumerate(ordered, start=1):
         row["rank"] = rank
         row["move"] = row["prev_rank"] - rank
+        if table_zones is not None:
+            row["zone"] = zone_for(rank, table_zones)  # the zone of the new place
     return ordered

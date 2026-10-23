@@ -111,8 +111,8 @@ height). Rules:
   (30 %) behind the team name on the portraits, free-standing on the bar (the user's
   call, 2026-10-21). Badges stay in lists.
 - `tools/legibility.py` (service running) measures every text of every scene; a scene
-  is done when nothing is under the floor. Done so far: `live`, `intermission`, `pregame`
-  and the bar in every scene. Still to do: goal, postgame and idle portraits.
+  is done when nothing is under the floor. Done so far: `live`, `intermission`, `pregame`,
+  `idle` and the bar in every scene. Still to do: goal and postgame portraits.
 
 Native sizes before the 3 m pass (the scenes not yet redone), portrait screens (1080 wide):
 
@@ -312,6 +312,17 @@ contact: the service has lost shl.se during a live game (`config.feed_ok` false,
 shown after a 5 s grace period at page load). Nothing shows while all is well, and it
 goes out by itself when contact is back. The phone app says "Kontakt med shl.se: OK /
 Borta, försöker igen" in its status, `/sim` "NO CONTACT WITH SHL.SE" in its readout.
+
+### Standings table (idle left, intermission right)
+
+One table (`standingsTable` in `scenes/common.js`), sized for 3 m: rank, logo, team,
+goal difference (the live table: tonight's score and a movement arrow), points. SHL's
+zones from `league.groupings` (asked for by the user 2026-10-23): a coloured left edge
+for SLUTSPEL (green, 1–6), PLAY IN (blue, 7–10) and KVAL (red, 13–14), none for 11–12, a
+heavier line where a zone ends, and a legend "SLUTSPEL · PLAY IN · KVAL" under the
+table. In the live table the zone follows the team's place if the games ended now. My
+team's name is gold. Idle right ("KVÄLLENS MATCHER" or "SENASTE RESULTAT") is sized for 3
+m too.
 
 ### Bar ticker (Phase 8)
 

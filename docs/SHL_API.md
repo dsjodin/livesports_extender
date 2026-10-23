@@ -330,6 +330,10 @@ goalie was pulled (or left); the game also ends with `isEntering: false` events 
 ```
 
 - 14 teams. Identify teams by `info.teamInfo.teamUuid`; `id` is a code.
+- `groupings` (verified 2026-10-23) are SHL's zones of the table: `Playoff` 1–6 (straight
+  to the quarter-finals), `Playin` 7–10, `MissedPlayoff` 11–12, `QualificationDown` 13–14
+  (the qualifier against HockeyAllsvenskan). Read them, do not hard-code the ranges: they
+  follow the season's format. Each row also has `rankDiff` (not used yet).
 
 ### Endpoints used by shl.se itself (found 2026-10-21)
 

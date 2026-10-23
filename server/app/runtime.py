@@ -381,6 +381,7 @@ class Runtime:
             my_team_uuid=self.config.my_team_uuid,
             history=history,
             leaders=leaders,
+            groupings=league_engine.zones(standings_raw),
         )
         for block in (self.league_block["teams"] or {}).values():
             for row in [r for rows in ((block or {}).get("leaders") or {}).values() for r in rows]:

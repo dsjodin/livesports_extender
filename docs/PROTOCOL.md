@@ -131,7 +131,9 @@ refreshed at once when it opens again.
 {"updated_ms": 1792567865804,
  "standings": [{"rank": 1, "uuid": "752c-752c12zB7Z", "code": "FBK", "short": "Färjestad",
                 "gp": 10, "w": 8, "l": 0, "otw": 1, "otl": 1, "points": 27, "gf": 40, "ga": 11,
-                "diff": 29, "logo": "/assets/teams/752c-752c12zB7Z.svg"}, "..."],
+                "diff": 29, "zone": "playoff", "logo": "/assets/teams/752c-752c12zB7Z.svg"}, "..."],
+ "groupings": [{"zone": "playoff", "first": 1, "last": 6}, {"zone": "playin", "first": 7, "last": 10},
+               {"zone": "out", "first": 11, "last": 12}, {"zone": "qualdown", "first": 13, "last": 14}],
  "teams": {"home": {"rank": 2, "points": 25, "gp": 11, "diff": 14, "gf_per_game": 3.5,
                     "ga_per_game": 2.2,
                     "form": [{"uuid": "mtn5yq64mp", "date": "2026-10-20", "result": "V",
@@ -160,6 +162,8 @@ refreshed at once when it opens again.
 `result` is `V` (won) or `F` (lost) from that team's view, `home_away` `H` or `B`; the
 score is always home–away of that game.
 
+`zone` (each standings row, and each `live_table` row by its new place) and `groupings`
+come from SHL's standings groupings; an unknown grouping is logged and kept raw.
 `leaders` (Phase 8, pregame slides): the team's top three this season by points and by
 goals, from shl.se's statistics (cached 1 h per team, fetched like the rest of the block
 only before puck drop); missing when shl.se has none. `head_to_head`: the two teams' last
