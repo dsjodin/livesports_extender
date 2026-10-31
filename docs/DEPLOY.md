@@ -175,7 +175,11 @@ are in the menu (OK) → Inställningar → Server och HDMI.
   `docker compose up -d --build` on the Docker host. The TV notices the restarted
   service and loads the new pages by itself (no reinstall).
 - **The shell** (`SHLlive/`, its version in `config.xml`): package and install again.
-  Only needed when a change says so.
+  Only needed when a change says so. Build from the updated repo's `SHLlive/` (a copy
+  imported into Tizen Studio or VS Code earlier stays at its old version). When the
+  installed shell is older than the server's `SHLlive/config.xml`, the graphics say so
+  for 30 s at start: "TV-appen är 1.0.0, servern har 1.3.0 · bygg och installera om
+  appen". Menu → Inställningar shows the installed version ("skal 1.3.0").
 
 ### Troubleshooting
 
@@ -185,7 +189,7 @@ are in the menu (OK) → Inställningar → Server och HDMI.
 | "Grafiken svarar inte" | The graphics stopped answering (the service went away). The shell waits for the service and loads them again by itself. |
 | "Ingen bild från HDMI 1 · är boxen på?" | The box is off or on another input. The shell looks again when the TV's sources change, and every 10 s. |
 | Black picture, graphics fine | Menu → Inställningar → Server och HDMI: the right HDMI number. |
-| The screen saver starts | Menu → Inställningar shows "Skärmsläckare: av" when the shell turned it off (shell 0.3.2 or later). |
+| The screen saver starts | Menu → Inställningar shows "Skärmsläckare: av · skärmlås på" from shell 1.3.0 (it turns the saver off again every minute and holds the screen on). Only "Skärmsläckare: av" means an older shell is installed: Samsung's saver came back after about 4 min with 1.0.0 (2026-10-31). |
 | Something else | Menu → Inställningar → Testsidan: checks the TV and reports to `http://<server>:8010/api/tv/probe`. |
 
 ## 4. Where things were verified (2026-10-21)

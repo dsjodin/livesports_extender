@@ -315,6 +315,24 @@ function hdmi(s) {
   notice.classList.toggle("on", !!lost);
 }
 
+/** The app installed on the TV is older than the shell the server has (SHLlive/config.xml):
+ * say so for 30 s, since an old shell lacks fixes (the screen saver, sound) and nothing else
+ * shows it. */
+async function outdated(info) {
+  if (!info?.tv || !info.version) return;
+  try {
+    const xml = await (await fetch(`${host.base}/tvapp/config.xml`, { cache: "no-store" })).text();
+    const latest = /<widget[^>]*\sversion="([^"]+)"/.exec(xml)?.[1];
+    if (!latest || latest === info.version) return;
+    const old = el("div", "tv-notice on old");
+    old.textContent = `TV-appen är ${info.version}, servern har ${latest} · bygg och installera om appen`;
+    root.append(old);
+    setTimeout(() => old.remove(), 30_000);
+  } catch {
+    /* no /tvapp: nothing to compare with */
+  }
+}
+
 function feedDot() {
   dot.classList.toggle("on", connection !== "open" || store.config.feed_ok === false);
 }
@@ -425,6 +443,7 @@ async function main() {
   host.onInfo((info) => {
     host.ready();
     if (info?.source) hdmi(info.source);
+    outdated(info);
   });
   host.onSource(hdmi);
   host.start();
