@@ -9,6 +9,9 @@ Two machines:
 
 The phone app and `/sim` are just pages on the service: open `http://lnx01:8010/app`.
 
+Instead of (or as well as) the wall, **the Samsung TV app** (`SHLlive/`, section 3) draws the
+graphics over the TV picture itself; it needs only the Docker host.
+
 ## 1. Docker host
 
 Needs Docker with the compose plugin, and an NTP-synced clock (CLAUDE.md rule 2: the
@@ -127,7 +130,65 @@ cd livesports_extender && git pull && sudo deploy/display-box/install.sh && sudo
 
 A keyboard on the box: sway has no key bindings in this config; log in over SSH instead.
 
-## 3. Where things were verified (2026-10-21)
+## 3. Samsung TV app
+
+The app (`SHLlive/`, `docs/TV_APP.md`) is a thin shell: it shows HDMI 1 (the Telia box)
+behind its page, takes the remote's keys and loads the graphics from the service
+(`http://lnx01:8010/tv/`). Tried on a Samsung S95HF (77", Tizen 9.0, 2026).
+
+### Once: developer mode, Tizen tools, certificate
+
+1. **Developer mode on the TV:** Apps, then type `1 2 3 4 5` (the remote's on-screen
+   number pad), Developer mode **On**, Host PC IP = the computer you build on; restart the
+   TV as it asks.
+2. **Tizen Studio** (or its CLI-only installer) on that computer. In its Package Manager,
+   under Extension SDK: *Samsung Certificate Extension* and *TV Extensions*. `tizen` and
+   `sdb` must be on `PATH` for the script below
+   (`~/tizen-studio/tools/ide/bin` and `~/tizen-studio/tools`).
+3. **Connect:** `sdb connect <TV's IP>`; `sdb devices` should list the TV.
+4. **Certificate:** Tizen Studio, Tools → Certificate Manager → `+` → **Samsung** → TV →
+   a profile name (e.g. `mytv`) → author certificate (a Samsung account sign-in) →
+   distributor certificate with the TV's DUID (it is filled in while the TV is connected).
+   An app signed with it installs on that TV only.
+
+### Package and install
+
+```
+TIZEN_PROFILE=mytv TV=<TV's IP> deploy/tv/package.sh
+```
+
+It copies `SHLlive/` aside (without the source picture), signs it as `SHLlive.wgt` in
+the repo root and installs it on the TV. Without `TV` it only packages; install later
+with `tizen install -n SHLlive.wgt -s <TV's IP>:26101 -- <dir>`, or from Tizen Studio
+(import `SHLlive/` as a web project, Run As → Tizen Web Application). The app is then in
+the TV's Apps as **SHLlive**; it stays when developer mode is turned off again.
+
+### First start
+
+"Inställningar": the Docker host's address with port (`192.168.1.20:8010`; OK opens the
+TV's keyboard), HDMI 1, Läge **Iframe**, Anslut. The settings stay on the TV; later they
+are in the menu (OK) → Inställningar → Server och HDMI.
+
+### Updates
+
+- **Graphics** (everything under `web/`, the server): `git pull` and
+  `docker compose up -d --build` on the Docker host. The TV notices the restarted
+  service and loads the new pages by itself (no reinstall).
+- **The shell** (`SHLlive/`, its version in `config.xml`): package and install again.
+  Only needed when a change says so.
+
+### Troubleshooting
+
+| On the TV | What it means |
+|---|---|
+| "Ingen kontakt med <server>" | The address or port is wrong, the service is down, or the TV is on another network. It retries every 5 s; OK opens the settings. |
+| "Grafiken svarar inte" | The graphics stopped answering (the service went away). The shell waits for the service and loads them again by itself. |
+| "Ingen bild från HDMI 1 · är boxen på?" | The box is off or on another input. The shell looks again when the TV's sources change, and every 10 s. |
+| Black picture, graphics fine | Menu → Inställningar → Server och HDMI: the right HDMI number. |
+| The screen saver starts | Menu → Inställningar shows "Skärmsläckare: av" when the shell turned it off (shell 0.3.2 or later). |
+| Something else | Menu → Inställningar → Testsidan: checks the TV and reports to `http://<server>:8010/api/tv/probe`. |
+
+## 4. Where things were verified (2026-10-21)
 
 - `compose.yaml`: built and started; the container became `healthy`, with the restart
   policy and log rotation in place.

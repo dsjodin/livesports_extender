@@ -17,7 +17,7 @@ body.preview { background: #05080c !important; }
 
 #status { position: absolute; right: 60px; bottom: 60px; display: flex; align-items: center; gap: 28px;
   max-width: 1300px; padding: 22px 30px; background: rgba(7, 10, 16, 0.88); border-left: 8px solid #F5C542; border-radius: 12px; }
-#status img { width: 120px; height: 120px; border-radius: 10px; }
+#status img { width: 145px; height: 120px; object-fit: contain; border-radius: 10px; }
 #status-text { font-size: 36px; font-weight: 700; }
 #status-hint { font-size: 28px; color: #C9D0DD; }
 #status > div { flex: 1; }

@@ -215,7 +215,7 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 ### Server to client
 
 ```json
-{"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
+{"t": "hello", "server_ms": 1760000000000, "boot": "3f9a0c1e2b7d", "role": "screen", "id": "left",
  "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false,
             "feed_ok": true, "idle_dim": 0.5, "tv_probe": false}}
 
@@ -258,6 +258,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   game, with a poll a minute, 3 min). Replays and recordings are always true. It is
   sent at once, not at a `play_at` (it is about the connection, not the game), and is
   also in `status`. The bar shows it as a red dot (`docs/SCREENS.md`, Feed warning).
+- `boot` in the hello is new each time the service starts; a client that sees it change
+  on a reconnect knows the pages may have changed (the TV app reloads itself).
 - `tv_probe` is true while the TV app shows its test page instead of the graphics
   (`docs/TV_APP.md`); the TV page reloads itself when it changes. Also in `status`.
 - `idle_dim` (0–0.9) is how much darker the screens are in the `idle` scene: a black layer

@@ -205,14 +205,18 @@ it off while the app is shown and on again when the app is hidden or exits:
 - The TV's size and distance are in `config/wall.json` under `tv` (the TV is not part of
   the wall's geometry); `stage.applyType("tv")` gives `--fs-floor` 23 px and
   `--fs-text` 38 px.
-- The `.wgt` is built and installed with the Tizen CLI (Tizen Studio or the VS Code
-  extension): developer mode on the TV with the PC's IP, `sdb connect <tv>`,
-  `tizen package -t wgt -s <certificate profile>`, `tizen install -n SHLlive.wgt -t <tv>`.
-  A Samsung certificate from the Certificate Manager is needed for a TV. Steps in
-  `docs/DEPLOY.md` once the app exists.
-- `config.xml` needs, besides `tv.window`: `internet`, `tv.inputdevice`,
-  `<access origin="*" subdomains="true"/>` (the service on the LAN) and the right
-  `tizen:content-security-policy` to allow the iframe and WebSocket to the server.
+- The `.wgt` is built and installed with `deploy/tv/package.sh` (the Tizen CLI and a
+  Samsung certificate for the TV); the steps are in `docs/DEPLOY.md`, section 3.
+- `config.xml` (shell 1.0.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
+  `power` (the screen saver) and Samsung's `productinfo`; `<access origin="*"
+  subdomains="true"/>` for the service on the LAN (no content security policy is needed:
+  the iframe, HTTP and WebSocket to the server work as is); `icon.png` 512×423.
+- **Recovery** (shell 1.0.0): the graphics say "ready" every 10 s; silent for 30 s (an
+  error page while the service was down, a hang), the shell waits for `/api/health` and
+  loads them again. HDMI that went away (the box off) is looked for again when the TV
+  reports a change of its sources and every 10 s; meanwhile the graphics say "Ingen bild
+  från HDMI 1 · är boxen på?". The service's hello carries a `boot` id new at each start;
+  the graphics reload themselves when it changes, so an update needs no reinstall.
 
 ## To verify on the real TV first (task 9.1)
 
@@ -242,8 +246,9 @@ The TV: S95HF, Tizen 9.0, firmware T-RSMFDEUC-0090-1301.0, Chromium 120, page
 
 ## The test build (task 9.1)
 
-`SHLlive/` is the shell (version 0.3.1); its overlay `/tv/` is, for now, the test page
-`web/tv/probe.js`. It checks the list above and reports to the service.
+The test page (`web/tv/probe.js`) checks the list above and reports to the service. It
+was the whole of `/tv/` in task 9.1; now it shows instead of the graphics while
+`tv_probe` is set (menu → Inställningar → Testsidan, or `/sim`).
 
 1. Build and install `SHLlive/` on the TV as with the demo (Tizen Studio or the Tizen
    CLI, see Development and install). New privileges: `internet`, `tv.inputdevice`,

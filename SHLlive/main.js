@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '0.3.2';
+  const VERSION = '1.0.0';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -32,6 +32,11 @@
   let overlayReady = false;
   let retryTimer = null;
   let readyTimer = null;
+  // The graphics say "ready" when they start and every 10 s after (a heartbeat). Silent for
+  // this long (an error page while the service was down, a hang): load them again.
+  const SILENT_MS = 30000;
+  let lastReady = 0;
+  let reloading = false;
   const iframe = $('overlay');
 
   // ---- small helpers --------------------------------------------------------------------
@@ -148,6 +153,23 @@
     } catch (err) { fail(token, 'VIDEOSOURCE', err); }
   }
 
+  /** HDMI that went away (the box switched off) comes back by itself: the TV reports a
+   * change of its sources, and while there is no picture we look again every 10 s. */
+  function watchSources() {
+    if (!realTV) return;
+    try {
+      api.systeminfo.addPropertyValueChangeListener('VIDEOSOURCE', function () {
+        if (document.hidden) return;
+        log('Källorna ändrades');
+        tv.busy = false;
+        scan();
+      });
+    } catch (err) { log('VIDEOSOURCE-lyssnare: ' + err); }
+    setInterval(function () {
+      if (!document.hidden && !source.ok && !tv.busy) scan();
+    }, 10000);
+  }
+
   /** The overlay asks to move the TV picture; answer when it has moved. */
   function placeWindow(rect, id) {
     tv.rect = rect || null;
@@ -196,8 +218,12 @@
       : event.source !== iframe.contentWindow || event.origin !== overlayOrigin()) return;
     if (m.t === 'hello') toOverlay(info());
     else if (m.t === 'ready') {
+      lastReady = Date.now();
+      reloading = false;
       overlayReady = true;
+      if (settings.mode !== 'direct') iframe.classList.remove('hidden');
       clearTimeout(readyTimer);
+      clearTimeout(retryTimer);
       $('status').classList.add('hidden');
       $('diag').classList.add('hidden');
     } else if (m.t === 'window') placeWindow(m.rect, m.id);
@@ -236,13 +262,42 @@
       script.src = base + '/tv/tv.js';
       script.onerror = function () { status('Kunde inte ladda ' + script.src, 'Prova läge iframe · OK: inställningar'); };
       document.body.appendChild(script);
+      readyTimer = setTimeout(function () {
+        if (!overlayReady) status('Grafiken startar inte', 'Prova läge iframe · OK: inställningar · Back: avsluta');
+      }, SILENT_MS);
     } else {
       iframe.src = base + '/tv/';
       iframe.classList.remove('hidden');
+      lastReady = Date.now(); // a grace period for the first start
+      setInterval(watchOverlay, 5000);
     }
-    readyTimer = setTimeout(function () {
-      if (!overlayReady) status('Grafiken startar inte', 'Prova det andra läget · OK: inställningar · Back: avsluta');
-    }, 15000);
+  }
+
+  /** The heartbeat stopped: wait for the service, then load the graphics again. */
+  function watchOverlay() {
+    if (reloading || document.hidden || Date.now() - lastReady < SILENT_MS) return;
+    reloading = true;
+    overlayReady = false;
+    iframe.classList.add('hidden'); // an error page would cover the TV picture
+    placeWindow(null, 0); // the whole TV picture until the graphics are back and place it
+    status('Grafiken svarar inte', 'Väntar på servern och försöker igen · OK: inställningar');
+    reloadWhenUp();
+  }
+
+  function reloadWhenUp() {
+    clearTimeout(retryTimer);
+    fetch(base + '/api/health', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); })
+      .then(function () {
+        log('Servern svarar igen, laddar grafiken');
+        lastReady = Date.now(); // the reload's own grace period
+        reloading = false;
+        iframe.src = base + '/tv/?t=' + Date.now();
+      })
+      .catch(function (err) {
+        log('Väntar på servern: ' + err);
+        retryTimer = setTimeout(reloadWhenUp, 5000);
+      });
   }
 
   // ---- screen saver ---------------------------------------------------------------------
@@ -398,6 +453,7 @@
   window.addEventListener('resize', fit);
   log('SHL live! ' + VERSION + (realTV ? ' på TV:n' : ' (förhandsvisning på dator)'));
   registerKeys();
+  watchSources();
   setScreenSaver(true);
   // said again now and then, in case the TV forgets it (no harm when it holds)
   setInterval(function () { if (!document.hidden) setScreenSaver(true); }, 5 * 60 * 1000);

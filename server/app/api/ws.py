@@ -8,6 +8,7 @@ still waiting for its ``play_at``; after that it gets broadcasts as they happen.
 import asyncio
 import contextlib
 import logging
+import secrets
 from typing import Any
 
 from fastapi import WebSocket, WebSocketDisconnect
@@ -43,6 +44,9 @@ class Client:
 class Hub:
     def __init__(self) -> None:
         self.clients: set[Client] = set()
+        # new on every start of the service: a client that sees it change on a reconnect
+        # knows the pages may have changed too (the TV app reloads itself)
+        self.boot = secrets.token_hex(6)
 
     def broadcast(self, message: dict[str, Any], *, raw: bool = False) -> None:
         for client in list(self.clients):
@@ -72,6 +76,7 @@ async def serve(ws: WebSocket, hub: Hub, runtime: Any, clock: Clock) -> None:
         {
             "t": "hello",
             "server_ms": clock.now_ms(),
+            "boot": hub.boot,
             "role": role,
             "id": client_id,
             "config": runtime.config_message(),
