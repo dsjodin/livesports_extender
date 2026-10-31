@@ -196,8 +196,11 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
   background: var(--panel); }
 
 /* the full picture in an L-frame scene (the menu's "Helbild"): column and band step aside */
-.tv-scenes { transition: opacity 0.25s; }
-.tv.full .tv-scenes { opacity: 0; } /* the scene's own fades set inline opacity on col and band */
+/* how bright the scenes are (hidden, dimmed in idle) is set by overlay.js look() */
+/* OLED: our graphics (not the backdrop, which lines up with the TV picture) move a few
+   pixels every 2 min (overlay.js pixelShift); `translate` composes with GSAP's transforms */
+.tv-scenes, .tv-fx, .tv-panel, .tv-menu, .tv-sheet, .tv-feed-dot, .tv-notice, .tv-toast {
+  translate: var(--sx, 0) var(--sy, 0); transition: translate 3s ease-in-out; }
 
 /* --- the menu on OK and its sheets (menu.js), low on the left over the picture ------------- */
 .tv-menu, .tv-sheet { position: absolute; bottom: 130px; box-sizing: border-box; padding: 18px; background: rgba(7, 10, 16, 0.94);

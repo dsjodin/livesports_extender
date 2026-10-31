@@ -316,6 +316,9 @@ Borta, försöker igen" in its status, `/sim` "NO CONTACT WITH SHL.SE" in its re
 
 ### Idle dimming (asked for by the user 2026-10-23)
 
+The same setting dims the TV app's graphics in idle, never the TV picture
+(`docs/TV_APP.md`, Dimming and the OLED).
+
 While the scene is `idle`, each screen lays a black layer over everything but the feed dot
 and the debug overlay, at the opacity `config.idle_dim` (default 0.5; 0 is off, 0.9 the
 most). It fades in over 1.5 s when idle starts and lifts in 0.4 s when another scene takes

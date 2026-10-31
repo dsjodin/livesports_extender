@@ -184,6 +184,27 @@ started part way, so a late one plays from its start, and one later than its len
 its last frame is empty anyway (checked in Chromium for the defaults). They play once
 (WebP loop count 1). Your own go in `data/media/<kind>/<uuid>.webp` (`docs/VIDEOS.md`).
 
+## Dimming and the OLED
+
+The TV is an OLED (S95HF), so graphics that stand still for hours can burn in (the user,
+2026-10-31). `web/tv/overlay.js`:
+
+- **Dimming in idle**, the wall's setting (`idle_dim`, "Dimning i vila" in the phone app,
+  `docs/SCREENS.md`): our graphics fade to `1 − idle_dim` over 1.5 s when idle starts and
+  come back in 0.4 s; the TV picture is never dimmed. Panels opened by hand are not.
+- **Rest in idle:** after 10 min in idle without a key the graphics step aside and the TV
+  gets the whole picture (as "Helbild"); the first key brings the L-frame back and does
+  nothing else, and the next game brings the graphics back by itself.
+- **Pixel shift:** every 2 min our graphics (not the backdrop, which lines up with the TV
+  picture) move to the next of eight offsets within ±3 px, over 3 s, so no edge stays on
+  the same pixels. Invisible at 4 m.
+- In play little stands still: panels close after 20 s, lower thirds after seconds, the
+  power-play pill after the power play.
+- The TV's own care helps too: Samsung's pixel shift and logo-luminance settings
+  (Settings → General / Picture → panel care, names vary by model) are worth leaving on.
+
+For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
+
 ## Screen saver
 
 The TV counts an app nobody presses keys in as idle and starts its screen saver after a

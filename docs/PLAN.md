@@ -593,3 +593,7 @@ Phase 9 notes (2026-10-31):
   overlay over HDMI, 60 fps, L-frame moves without a flash, WebP, keys, screen saver off.
   Still to see on the TV: a whole live game, and the shell 1.0.0's recovery and HDMI
   watch (needs a reinstall).
+- OLED care (asked for by the user 2026-10-31): the TV's graphics dim in idle with the
+  wall's `idle_dim`, step aside after 10 min of idle without a key (full picture; a key
+  brings them back), and shift ±3 px every 2 min (`docs/TV_APP.md`, Dimming and the
+  OLED). Tried in Chromium with `?rest=6&shift=2`.

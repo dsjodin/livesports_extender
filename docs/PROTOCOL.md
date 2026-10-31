@@ -262,7 +262,7 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   on a reconnect knows the pages may have changed (the TV app reloads itself).
 - `tv_probe` is true while the TV app shows its test page instead of the graphics
   (`docs/TV_APP.md`); the TV page reloads itself when it changes. Also in `status`.
-- `idle_dim` (0–0.9) is how much darker the screens are in the `idle` scene: a black layer
+- `idle_dim` (0–0.9) is how much darker the screens (and the TV app's graphics) are in the `idle` scene: a black layer
   of that opacity (`docs/SCREENS.md`, Idle dimming). Set in the phone app; also in `status`.
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
