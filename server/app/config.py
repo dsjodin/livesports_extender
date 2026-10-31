@@ -81,7 +81,8 @@ class RuntimeConfig(BaseModel):
     active_profile: str = "iptv"
     calibration_samples: list[dict[str, Any]] = []
     # Follow my team's game of the day by itself (live), when nothing else is running.
-    follow_my_team: bool = False
+    # my team's game of the day is followed by itself (the default since 2026-10-31)
+    follow_my_team: bool = True
     # A MÅL! press linked to a feed goal also counts as a "goal" sync sample.
     goal_button_sync: bool = True
     # How much darker the screens are while idle (0 = not at all, 0.9 = nearly black);

@@ -227,6 +227,31 @@ def team_block(
     }
 
 
+def my_team_block(
+    standings: list[dict[str, Any]],
+    games: list[dict[str, Any]],
+    now_ms: int,
+    uuid: str | None,
+    next_game: dict[str, Any] | None,
+    leaders: dict[str, dict[str, Any]] | None,
+    brief: Any,
+) -> dict[str, Any]:
+    """My team between games (the TV's idle slides): its next game, place and form, and
+    its scoring leaders when they were fetched."""
+    block: dict[str, Any] = {
+        "uuid": uuid,
+        "next_game": brief(next_game, False) if next_game else None,
+        "team": team_block(standings, games, uuid, now_ms),
+    }
+    raw = (leaders or {}).get(uuid or "")
+    if uuid and raw:
+        block["leaders"] = {
+            "points": leader_rows(raw.get("points") or [], uuid),
+            "goals": leader_rows(raw.get("goals") or [], uuid),
+        }
+    return block
+
+
 def build(
     standings: list[dict[str, Any]],
     games: list[dict[str, Any]],
@@ -294,7 +319,7 @@ def build(
         "last_meeting": last_meeting(games, home_uuid, away_uuid, before)
         if home_uuid and away_uuid
         else None,
-        "my_team": {"uuid": my_team_uuid, "next_game": brief(my_next, False) if my_next else None},
+        "my_team": my_team_block(standings, games, now_ms, my_team_uuid, my_next, leaders, brief),
         # Tonight's other games show start times only: their live scores are not delayed.
         "tonight": [brief(g, False) for g in tonight],
         "recent": [brief(g, True) for g in recent],

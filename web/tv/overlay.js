@@ -78,8 +78,12 @@ function say(text, seconds = 2.5) {
  * nothing of ours on it) is not taken for a dead app (the user, 2026-10-31). */
 const NOW = { pregame: "före matchen", live: "live", goal: "live", intermission: "paus", postgame: "slut", idle: "vila" };
 let welcomed = false;
+const loadedAt = Date.now();
+/** Said once the followed game's teams are known (a game just started by "tv/start" loads
+ * them a moment later), or after 4 s whatever is known. */
 function welcome(tv) {
-  if (welcomed) return;
+  if (welcomed || !tv) return;
+  if (tv.game?.uuid && !tv.teams?.home?.code && Date.now() - loadedAt < 4000) return;
   welcomed = true;
   const t = tv.teams ?? {};
   const game = tv.game?.uuid && t.home ? `Följer ${t.home.code ?? ""}–${t.away?.code ?? ""} · ${NOW[tv.scene?.name] ?? ""}` : "Ingen match vald";
@@ -87,9 +91,10 @@ function welcome(tv) {
 }
 
 /** The service's REST API (docs/PROTOCOL.md); throws with its error detail. */
-async function api(path, body, method = "POST") {
+async function api(path, body, method = "POST", signal = undefined) {
   const r = await fetch(`${host.base}/api/${path}`, {
     method,
+    signal,
     headers: body ? { "content-type": "application/json" } : undefined,
     body: body ? JSON.stringify(body) : undefined,
   });
@@ -317,9 +322,13 @@ store.on("state", (tv) => {
   decorate(tv);
   show(tv.scene, clock.now(), false);
   welcome(tv);
+  setTimeout(() => welcome(store.tv), 4100);
 });
 store.on("patch", (patch, playAt) => {
-  if (patch.teams || patch.game) decorate(store.tv);
+  if (patch.teams || patch.game) {
+    decorate(store.tv);
+    welcome(store.tv);
+  }
   if (patch.strength) powerPlay(store.tv, playAt);
   current?.mod.update?.(current.ctx, store.tv, patch);
   if (current) fitText(current.root);
@@ -347,6 +356,30 @@ store.on("config", (config) => {
   if (current) look(); // a new idle_dim
   feedDot();
 });
+
+/** The app has just started (not a reload of the page: a new update, the shell's recovery,
+ * the test page): ask the service for the defaults, my team's game today or idle, rather
+ * than whatever was left running (the user, 2026-10-31). /sim keeps its own source. */
+async function startFresh() {
+  let first = true;
+  try {
+    first = !sessionStorage.getItem("shllive.started");
+    sessionStorage.setItem("shllive.started", "1");
+  } catch {
+    // no storage: treat every load as a start
+  }
+  if (!first || params.get("sim") === "1") return;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 10_000);
+  try {
+    const r = await api("tv/start", {}, "POST", controller.signal);
+    note(`start: ${r.did}`);
+  } catch (err) {
+    note(`start: ${err.message}`);
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 async function main() {
   await Promise.all([
@@ -383,6 +416,7 @@ async function main() {
   host.onSource(hdmi);
   host.start();
   setTimeout(feedDot, 5000); // the service may not answer at all
+  await startFresh();
   connect({
     role: "screen",
     id: "tv",

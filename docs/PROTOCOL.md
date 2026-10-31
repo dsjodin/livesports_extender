@@ -323,8 +323,9 @@ the service are same-origin and need none; other websites get no CORS headers.
 | `POST /api/idle-dim` | `{"level": 0.5}` | "Dimning i vila": how much darker the screens are while idle, 0–0.9 (422 outside) |
 | `POST /api/tv/probe` | the test report (JSON, at most 64 kB) | The TV app's test page reports what works on the TV (`docs/TV_APP.md`); kept in `data/tv_probe.json` |
 | `GET /api/tv/probe` | | The latest report, `{"received_ms", "report"}`, or 404 |
+| `POST /api/tv/start` | | The TV app started: my team's game today (when "follow my team" is on), else idle; a running live game the user chose is kept. Returns `{"did": "my_team"\|"kept"\|"idle", "status"}` |
 | `POST /api/tv/probe-mode` | `{"enabled": true}` | The TV app shows its test page (true) or the graphics |
-| `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag": follow my team's game of the day live when nothing else runs (checked every 10 min) |
+| `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag" (on by default): follow my team's game of the day live when nothing else runs, and over a replay or recording from 15 min before its start (checked every 10 min); never over a live game the user chose |
 | `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
 | `DELETE /api/scene` | | Back to automatic |

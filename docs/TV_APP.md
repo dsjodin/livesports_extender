@@ -86,6 +86,16 @@ layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md r
 | `intermission` | L-frame | Column, 12 s a slide: shots per period, both shot maps, goals, penalties, goalies and special teams (save % here only), the (live) table, the other games. Band: the score and "PERIOD 3 OM 14:22" |
 | `postgame` | L-frame | Column: final statistics, the goals (and the shootout), the table. Band: the final score, "SLUT", after overtime or a shootout |
 
+- **At start the defaults, not where it was left** (the user, 2026-10-31): the first load
+  of the graphics after the app starts (not their own reloads: `sessionStorage`) calls
+  `POST /api/tv/start`. With "follow my team" on (the default) and my team playing today,
+  the service follows that game live (pregame, live or intermission as it stands);
+  otherwise a replay, a recording or an old game is closed and the TV shows idle. A live
+  game the user chose today that still runs is kept. `/sim`'s TV view skips this
+  (`?sim=1`).
+- **Between games (idle)** the column pages through the standings, my team's next game
+  (time, arena, both teams' place), my team's place, form and points leaders (with a
+  portrait), and the latest results when the band shows tonight's games.
 - **At start** a note shows for 6 s what the app does ("SHL live! · Följer FHC–SKE · live ·
   OK öppnar menyn", or "Ingen match vald"), so a quiet full picture in play is not taken
   for a dead app (the user, 2026-10-31).
@@ -136,7 +146,8 @@ The menu (`web/tv/menu.js`, task 9.4) is a list low on the left over the picture
 text (nine items in a row along the bottom would not fit at a readable size):
 MÅL! <my team>, MÅL! <the other team>, Synka nedsläpp, Statistik, Skottkarta, Tabell,
 Kvällens matcher, Helbild (in an L-frame scene; "Tillbaka till L-ram" when on), Matcher ›,
-Synk ›, Inställningar ›. The goal and sync items only while a game is selected. It closes
+Synk ›, Inställningar › (TV profile, "Följ mitt lag automatiskt" on/off, server and
+HDMI, the test page). The goal and sync items only while a game is selected. It closes
 after 30 s without a key, and when the scene changes.
 
 - **Where it opens**, so that OK, OK is always the useful thing and never a change of

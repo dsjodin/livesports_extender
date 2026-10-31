@@ -362,8 +362,16 @@ class TodaysGames:
         return self.games
 
 
-def scheduled(uuid: str, home: str, away: str, state: str = "pre-game") -> dict[str, Any]:
-    return {"uuid": uuid, "state": state, "home": {"uuid": home}, "away": {"uuid": away}}
+def scheduled(
+    uuid: str, home: str, away: str, state: str = "pre-game", start_ms: int | None = None
+) -> dict[str, Any]:
+    return {
+        "uuid": uuid,
+        "state": state,
+        "start_ms": start_ms,
+        "home": {"uuid": home},
+        "away": {"uuid": away},
+    }
 
 
 async def test_follow_my_team(tmp_path: Path) -> None:
@@ -382,13 +390,23 @@ async def test_follow_my_team(tmp_path: Path) -> None:
         rt.config.source.mode, rt.config.source.uuid = mode, uuid  # type: ignore[assignment]
 
     rt.set_source = fake_source  # type: ignore[method-assign]
-    assert await rt.follow_my_team() is None  # off by default
+    assert rt.config.follow_my_team  # on by default (2026-10-31)
+    rt.config.follow_my_team = False
+    assert await rt.follow_my_team() is None  # off
     await rt.set_follow(True)
     assert started == [("live", "g2")] and rt.config.my_side is None
     assert await rt.follow_my_team() is None  # already followed today
     rt.config.source.mode = "replay"  # type: ignore[assignment]
     rt._source_task = asyncio.get_running_loop().create_future()  # type: ignore[assignment]
-    assert await rt.follow_my_team() is None  # never interrupts a replay
+    assert await rt.follow_my_team() is None  # a replay stays while my game is far off
+    games.games = [scheduled("g3", "ore", "bif", start_ms=clock.now_ms() + 10 * 60_000)]
+    assert await rt.follow_my_team() == "g3"  # 15 min before my game, the replay gives way
+    rt.config.source.mode = "replay"  # type: ignore[assignment]
+    games.games = [scheduled("g4", "ore", "bif", "live")]
+    assert await rt.follow_my_team() == "g4"  # and when it is under way
+    rt.config.source.mode = "live"  # type: ignore[assignment]
+    games.games = [scheduled("g5", "ore", "bif", "live")]
+    assert await rt.follow_my_team() is None  # never over a live game the user chose
     games.games = [scheduled("g2", "ore", "bif", "post-game")]
     rt._source_task = None
     rt.config.source.mode = "none"  # type: ignore[assignment]
@@ -512,3 +530,40 @@ async def test_league_refreshes_as_soon_as_it_opens(setup: Any) -> None:
         assert len(calls) == 2  # then every 10 min
     finally:
         task.cancel()
+
+
+async def test_tv_start_goes_back_to_the_defaults(tmp_path: Path) -> None:
+    """The TV app starts where the day is, not where it was left (2026-10-31)."""
+    clock = FakeClock(T)
+    settings = Settings(
+        web_dir=tmp_path, config_dir=tmp_path, data_dir=tmp_path, fixtures_dir=FIXTURES
+    )
+    store = StateStore(tmp_path / "state.json")
+    store.config.my_team_uuid = "ore"
+    games = TodaysGames([scheduled("g2", "ore", "bif")])
+    rt = Runtime(clock, settings, store, Collector(), schedule=games)  # type: ignore[arg-type]
+    started: list[tuple[str, str | None]] = []
+
+    async def fake_source(mode: str, uuid: str | None = None, *_: Any) -> None:
+        started.append((mode, uuid))
+        rt.config.source.mode, rt.config.source.uuid = mode, uuid  # type: ignore[assignment]
+
+    rt.set_source = fake_source  # type: ignore[method-assign]
+    # a test replay left running: my team plays today, so its game
+    rt.config.source.mode = "replay"  # type: ignore[assignment]
+    rt._source_task = asyncio.get_running_loop().create_future()  # type: ignore[assignment]
+    assert await rt.tv_start() == "my_team" and started[-1] == ("live", "g2")
+    # no game of mine today: the replay goes, idle with nothing selected
+    games.games = []
+    rt.config.source.mode = "replay"  # type: ignore[assignment]
+    rt.config.game_uuid = "old"
+    assert await rt.tv_start() == "idle" and started[-1] == ("none", None)
+    assert rt.config.game_uuid is None
+    # another live game the user chose today, still running: kept
+    rt.config.source.mode = "live"  # type: ignore[assignment]
+    assert await rt.tv_start() == "kept"
+    # "follow my team" off: idle even on my team's day
+    games.games = [scheduled("g2", "ore", "bif")]
+    rt.config.follow_my_team = False
+    rt.config.source.mode = "replay"  # type: ignore[assignment]
+    assert await rt.tv_start() == "idle"

@@ -250,6 +250,11 @@ async function settingsSheet() {
   const shell = d.host.info();
   const rows = [
     { label: `TV-profil: ${caps(active ?? "")}`, note: profiles.length > 1 ? `OK byter till ${caps(next)}` : "", run: () => d.api("profile", { profile: next }).then(again) },
+    {
+      label: `Följ mitt lag automatiskt: ${state.config?.follow_my_team ? "på" : "av"}`,
+      note: "mitt lags match idag följs av sig själv",
+      run: () => d.api("follow", { enabled: !state.config?.follow_my_team }).then(again),
+    },
     { label: "Server och HDMI", note: "skalets inställningar", run: () => (close(), d.host.openSetup()) },
     { label: "Testsidan", note: "kontroll av TV:n", run: () => d.api("tv/probe-mode", { enabled: true }) },
   ];

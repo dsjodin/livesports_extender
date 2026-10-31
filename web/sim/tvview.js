@@ -108,7 +108,8 @@ export function show(on) {
 export function reload(debugOn = debug) {
   debug = debugOn;
   placePicture(null);
-  iframe.src = `/tv/${debug ? "?debug=1" : ""}`;
+  // sim=1: the TV page keeps the simulator's source (no defaults at start)
+  iframe.src = `/tv/?sim=1${debug ? "&debug=1" : ""}`;
 }
 
 export const visible = () => view && !view.classList.contains("hidden");
