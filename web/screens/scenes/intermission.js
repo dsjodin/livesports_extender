@@ -4,7 +4,7 @@
 // countdown is an estimate: the period's end on TV (the scene's play_at) plus the break,
 // scaled by the replay speed.
 import { compareRow, shotMap } from "../../shared/components.js";
-import { caps, countdown, esc, html, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
+import { caps, countdown, esc, html, penaltyTime, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
 import { barPage, every, plainLogo, play, shortName, slideshow, standingsTable, statsLine, stopTimers } from "./common.js";
 import { gameStatus, ticker } from "./ticker.js";
 
@@ -123,7 +123,7 @@ function penaltyLine(pen) {
   const p = pen.player;
   const shot = pen.data?.offence_code === "P-SHOT"; // a penalty shot awarded, no minutes
   const who = shot ? "STRAFFSLAG" : p ? `#${p.number ?? ""} ${lastName(p)}` : "LAGSTRAFF";
-  const minutes = pen.data?.minutes ? `${pen.data.minutes} MIN` : "";
+  const minutes = caps(penaltyTime(pen.data?.kind, pen.data?.minutes).text);
   const what = shot ? "" : ` · ${pen.data?.offence_text ?? ""}`;
   return html`<div class="row3" style="--c: var(--${pen.side})"><div class="r3-main"><span class="r3-name">${who}</span><span class="r3-score">${minutes}</span></div>
     <div class="r3-meta">P${pen.period} ${pen.time ?? ""} · ${pen.team_code ?? ""}${what}</div></div>`;

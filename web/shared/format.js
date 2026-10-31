@@ -97,3 +97,21 @@ export function needsOutline(hex) {
   const l = luminance(hex);
   return l > 0.7 || contrast(hex, "#070A10") < 1.6;
 }
+
+const SHORTHANDED = { minor: "2", bench_minor: "2", double_minor: "2+2", major: "5", match: "5" };
+
+/** A penalty's minutes as hockey says them, from its ``kind`` (offences.py): the time on
+ * the clock ("2", "2+2", "5") and what comes on top ("matchstraff", "10 min personligt").
+ * The PIM total would read a major and game misconduct as 25 min (the user 2026-10-31). */
+export function penaltyTime(kind, minutes) {
+  const parts = String(kind ?? "").split("+");
+  const extra = [];
+  if (parts.includes("game_misconduct") || parts.includes("match")) extra.push("matchstraff");
+  let min = parts.filter((k) => SHORTHANDED[k]).map((k) => SHORTHANDED[k]).join("+");
+  if (parts.includes("misconduct")) {
+    if (min) extra.push("10 min personligt");
+    else min = "10";
+  }
+  if (!min && !extra.length && minutes) min = String(minutes);
+  return { min, extra, text: [min ? `${min} min` : "", ...extra].filter(Boolean).join(" + ") };
+}

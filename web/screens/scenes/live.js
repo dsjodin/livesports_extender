@@ -1,7 +1,7 @@
 // live (mockup scene 2), with the penalty, timeout and disallowed-goal overlays as
 // data.overlay (docs/SCREENS.md, Scenes).
 import { shotLegend, shotMap, tile } from "../../shared/components.js";
-import { caps, html, periodName, raw, score } from "../../shared/format.js";
+import { caps, html, penaltyTime, periodName, raw, score } from "../../shared/format.js";
 import { barPage, fitText, other, periodLabel, play, shortName, statsLine, stopTimers, team, teamHead, venueLine, who } from "./common.js";
 import { ticker } from "./ticker.js";
 
@@ -73,7 +73,7 @@ function bar(tv, ov) {
     const pen = (tv.penalties ?? []).find((e) => e.key === ov.event_key);
     if (pen) {
       const name = pen.player ? `#${pen.player.number} ${pen.player.last}` : "LAGSTRAFF";
-      strip = `UTVISNING ${pen.team_code ?? ""} ${name} · ${pen.data?.offence_text ?? ""} ${pen.data?.minutes ?? ""} MIN`;
+      strip = `UTVISNING ${pen.team_code ?? ""} ${name} · ${pen.data?.offence_text ?? ""} ${caps(penaltyTime(pen.data?.kind, pen.data?.minutes).text)}`;
       stripClass = "alert";
     }
   } else if (ov?.overlay === "timeout") {
@@ -108,15 +108,15 @@ function bottom(tv, side, ov) {
     const p = theirs[0];
     const count = st.home - st.away === 2 || st.away - st.home === 2 ? ` · ${st[side]} MOT ${st[other(side)]}` : "";
     return html`<div class="pp-banner"><div class="pp-title"><span class="dot"></span>POWERPLAY${count}</div>
-      <div class="pp-detail">${p.number ? `#${p.number} ${lastName(p.name)}` : "Lagstraff"} · ${p.offence_text ?? ""} ${p.minutes} min</div></div>`;
+      <div class="pp-detail">${p.number ? `#${p.number} ${lastName(p.name)}` : "Lagstraff"} · ${p.offence_text ?? ""} ${penaltyTime(p.kind, p.minutes).text}</div></div>`;
   }
   if (mine.length) {
     const emphKey = ov?.overlay === "penalty" ? ov.event_key : null;
     const [p, ...rest] = [...mine].sort((a, b) => (b.key === emphKey) - (a.key === emphKey));
-    const more = rest.map((r) => `#${r.number ?? ""} ${r.name ?? "Lagstraff"} · ${r.offence_text ?? ""} ${r.minutes} min`).join(", ");
+    const more = rest.map((r) => `#${r.number ?? ""} ${r.name ?? "Lagstraff"} · ${r.offence_text ?? ""} ${penaltyTime(r.kind, r.minutes).text}`).join(", ");
     return html`<div class="pen-card ${p.key === emphKey ? "emph" : ""}"><div class="label">UTVISNING</div>
       <div class="pen-name">${p.number ? `#${p.number} ${p.name ?? ""}` : "Lagstraff"}</div>
-      <div class="pen-detail">${p.offence_text ?? ""} · ${p.minutes} min · ${p.started}</div>
+      <div class="pen-detail">${p.offence_text ?? ""} · ${penaltyTime(p.kind, p.minutes).text} · ${p.started}</div>
       ${raw(more ? html`<div class="pen-detail">Även: ${more}</div>` : "")}</div>`;
   }
   return latest(tv);
@@ -142,7 +142,7 @@ function latest(tv) {
     const p = (tv.penalties ?? []).find((e) => e.key === last.key);
     title = `SENASTE · UTVISNING ${code}`;
     text = who(p?.player) || "Lagstraff";
-    detail = `${p?.data?.offence_text ?? ""} · ${p?.data?.minutes ?? ""} min · ${when}`;
+    detail = `${p?.data?.offence_text ?? ""} · ${penaltyTime(p?.data?.kind, p?.data?.minutes).text} · ${when}`;
   } else if (last.type === "period_start") {
     text = `${periodName(last.period)} är igång`;
     detail = "";

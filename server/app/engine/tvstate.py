@@ -148,6 +148,7 @@ def build(
                 "name": p.player.name if p.player else None,
                 "offence_text": p.offence_text,
                 "minutes": p.minutes,
+                "kind": p.kind,
                 "started": f"P{p.period} {p.time}",
                 "expires_game_seconds": p.expires_at,
             }
