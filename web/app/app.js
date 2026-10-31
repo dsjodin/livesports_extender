@@ -386,7 +386,7 @@ function renderSettings() {
     <div class="card"><div class="label">Dimning i vila</div>
       <div class="row"><input class="grow" type="range" min="0" max="90" step="10" value="${Math.round((st.idle_dim ?? 0.5) * 100)}" data-act="idle-dim" aria-label="Dimning i vila">
         <span id="idle-dim-value">${Math.round((st.idle_dim ?? 0.5) * 100)} %</span></div>
-      <div class="muted">Hur mycket mörkare skärmarna blir när ingen match visas (klocka, tabell, kvällens matcher). 0 % är ingen dimning.</div></div>
+      <div class="muted">Hur mycket mörkare skärmarna och TV-appens grafik blir när ingen match visas (klocka, tabell, kvällens matcher). TV-bilden dimmas aldrig. 0 % är ingen dimning.</div></div>
     ${raw(haCard())}
     <div class="card"><div class="label">Lagfärger</div>${raw(teamRows)}</div>
     <div class="card"><div class="label">Felsökning</div>

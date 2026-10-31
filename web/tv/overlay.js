@@ -27,7 +27,8 @@ const FADE_S = 0.3;
 const SCENE_FADE_S = 0.4;
 
 const store = new Store();
-const debug = new URLSearchParams(location.search).get("debug") === "1";
+const params = new URLSearchParams(location.search);
+const debug = params.get("debug") === "1";
 const url = (path) => new URL(path, import.meta.url).href;
 let connection = "connecting";
 let current = null; // {name, mod, root, ctx}
@@ -175,6 +176,7 @@ function show(scene, at, animate) {
   if (animate && current?.name === "pregame" && name === "live") intro(store.tv, at);
   if (name !== current?.name) {
     full = false; // a new scene starts in its own layout
+    resting = false;
     root.classList.remove("full");
   }
   // a panel lies over the picture in play and in the column in an L-frame: not across that
@@ -198,6 +200,8 @@ function show(scene, at, animate) {
       old.root.remove();
     }
   }
+  look();
+  restLater();
   placePicture(animate);
   if (animate) note(`${name} start delta=${late.toFixed(1)}ms`);
 }
@@ -206,6 +210,12 @@ function show(scene, at, animate) {
 
 host.onKey((key) => {
   note(`key ${key}`);
+  restLater();
+  if (resting) {
+    // the first key only wakes the resting idle L-frame
+    resting = false;
+    return setFull(false);
+  }
   // play/pause is the remote's one free physical key (2026-10-31): a puck-drop sync on one
   // press, at the moment the drop shows on TV
   if (key === "playpause") return menu.syncNow();
@@ -224,9 +234,46 @@ host.onKey((key) => {
 /** The full picture in an L-frame scene (the menu's "Helbild"), until Back or the next scene. */
 function setFull(on) {
   full = on;
-  root.classList.toggle("full", on); // the L-frame's column and band step aside (tv.css)
+  root.classList.toggle("full", on);
   panels.close(); // it sat in the column, or over the picture: neither holds now
+  look();
   placePicture(true);
+}
+
+// ---- dimming and the OLED (docs/TV_APP.md, Dimming and the OLED) -------------------------
+
+/** How bright our graphics are, never the TV picture: hidden with the full picture in an
+ * L-frame scene, dimmed in idle (config idle_dim, the wall's setting), else full. */
+function look() {
+  const dim = current?.name === "idle" ? Math.min(Math.max(store.config.idle_dim ?? 0.5, 0), 0.9) : 0;
+  const to = full ? 0 : 1 - dim;
+  const from = Number(getComputedStyle(scenes).opacity);
+  gsap.killTweensOf(scenes);
+  gsap.to(scenes, { opacity: to, duration: full ? 0.25 : to < from ? 1.5 : 0.4, ease: "power1.inOut" });
+}
+
+/** Idle on an OLED: after 10 min without a key the graphics step aside and the TV gets the
+ * whole picture; any key brings the L-frame back (asked for by the user 2026-10-31). */
+const REST_MS = (Number(params.get("rest")) || 600) * 1000; // ?rest=<s> to try it
+let restTimer = null;
+let resting = false;
+function restLater() {
+  clearTimeout(restTimer);
+  if (current?.name !== "idle") return;
+  restTimer = setTimeout(() => {
+    resting = true;
+    setFull(true);
+    note("vila: helbild (OLED)");
+  }, REST_MS);
+}
+
+/** Our graphics move a few pixels every 2 min, so no edge sits on the same pixels for hours. */
+const SHIFT = [[0, 0], [3, 0], [3, 3], [0, 3], [-3, 3], [-3, 0], [-3, -3], [0, -3]];
+let shiftAt = 0;
+function pixelShift() {
+  shiftAt = (shiftAt + 1) % SHIFT.length;
+  root.style.setProperty("--sx", `${SHIFT[shiftAt][0]}px`);
+  root.style.setProperty("--sy", `${SHIFT[shiftAt][1]}px`);
 }
 
 // ---- connection and debug ---------------------------------------------------------------
@@ -284,6 +331,7 @@ store.on("hello", (m) => {
 store.on("config", (config) => {
   if (config.tv_probe) location.reload(); // the test page was asked for (tv.js)
   if (store.tv) current?.mod.update?.(current.ctx, store.tv, {});
+  if (current) look(); // a new idle_dim
   feedDot();
 });
 
@@ -332,6 +380,7 @@ async function main() {
       feedDot();
     },
   });
+  setInterval(pixelShift, (Number(params.get("shift")) || 120) * 1000); // ?shift=<s> to try it
   if (debug) setInterval(debugLoop, 200);
 }
 
