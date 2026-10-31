@@ -1,33 +1,227 @@
-/* The TV overlay (overlay.js), 1920×1080 over the HDMI picture, sized for a 77" TV at 4 m:
-   --fs-floor 23 px and --fs-text 38 px (stage.applyType("tv"), docs/TV_APP.md). Nothing is
-   drawn where the TV picture shows, except the graphics meant to lie over it. */
+/* The TV overlay (overlay.js and scenes/), 1920×1080 over the HDMI picture, sized for a
+   77" TV at 4 m: --fs-floor 23 px and --fs-text 38 px (stage.applyType("tv"),
+   docs/TV_APP.md). Nothing is drawn where the TV picture shows except graphics meant to lie
+   over it. The L-frame's areas match layout.js: picture 40,40 1152×648; column 1232,40
+   608×1000; band 40,728 1152×312. Over the full picture, the top left (the broadcaster's
+   bug) and the bottom 8 % (its tickers) stay free. */
 html, body { margin: 0; background: transparent; overflow: hidden; color-scheme: normal; }
 .tv { position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden;
-  font-family: var(--font-body); color: var(--text); font-size: var(--fs-text); line-height: 1.2; }
+  font-family: var(--font-body); color: var(--text); font-size: var(--fs-text); line-height: 1.2;
+  font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+.tv-scenes, .tv-scene, .tv-fx { position: absolute; inset: 0; pointer-events: none; }
+.hidden { display: none !important; }
+.gold { color: var(--gold); }
 
-/* the L-frame: the backdrop is a hole the size of the picture, painting all around it */
+/* --- the L-frame ------------------------------------------------------------------------ */
 .tv-backdrop { position: absolute; opacity: 0; border-radius: 6px; box-shadow: 0 0 0 2200px var(--bg-screen); pointer-events: none; }
-.tv-column, .tv-band { position: absolute; opacity: 0; box-sizing: border-box; padding: 36px 40px; overflow: hidden;
-  background: var(--panel); border-radius: 14px; }
-.tv-column { display: flex; flex-direction: column; gap: 22px; }
-.tv-brand { font: 800 var(--fs-floor)/1 var(--font-condensed); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
-.tv-column h1 { margin: 0; font: 800 96px/1 var(--font-condensed); text-transform: uppercase; }
-.tv-match { font: 700 var(--fs-text)/1.15 var(--font-condensed); }
-.tv-note { margin: auto 0 0; font-size: var(--fs-floor); color: var(--text-muted); }
-.tv-band { display: flex; align-items: center; }
+.tv-col, .tv-band { position: absolute; box-sizing: border-box; overflow: hidden; background: var(--panel); border-radius: 14px; }
+.tv-col { left: 1232px; top: 40px; width: 648px; height: 1000px; padding: 34px 36px 28px; display: flex; flex-direction: column; gap: 18px; }
+.tv-band { left: 40px; top: 728px; width: 1152px; height: 312px; padding: 28px 36px; display: flex; align-items: center; gap: 40px; }
 
-/* over the full picture: lower thirds keep clear of the broadcaster's ticker (bottom 8 %) */
-.tv-play { position: absolute; inset: 0; pointer-events: none; }
-.tv-lower { position: absolute; left: 120px; bottom: 140px; display: flex; align-items: center; gap: 24px;
-  padding: 18px 32px; background: rgba(7, 10, 16, 0.88); border-left: 10px solid var(--gold); border-radius: 10px;
-  font: 700 var(--fs-text)/1 var(--font-condensed); }
-.tv-chip { padding: 6px 16px; background: var(--gold); color: var(--on-gold); border-radius: 6px; font-weight: 800; }
+.tv-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
+.tv-label { font: 700 var(--fs-floor)/1.1 var(--font-condensed); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.tv-label.quiet { letter-spacing: 0.06em; text-transform: none; }
+.tv-title { font: 800 64px/1 var(--font-condensed); text-transform: uppercase; letter-spacing: 0.01em; }
+.tv-empty { font-size: var(--fs-text); color: var(--text-muted); padding: 12px 0; }
 
+.slides { position: relative; flex: 1; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 12px; opacity: 0; }
+.dots { display: flex; justify-content: center; gap: 16px; min-height: 18px; }
+.dots span { width: 18px; height: 18px; border-radius: 50%; background: var(--divider); }
+.dots span.on { background: var(--gold); }
+
+/* rows: a name and a value, a quieter line under; an edge in the team's colour */
+.tv-row { padding: 8px 0 8px 18px; border-bottom: 2px solid var(--panel-raised); }
+.tv-row.edged { box-shadow: inset 8px 0 0 var(--c); padding-left: 26px; }
+.tvr-main { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.tvr-name { font: 700 var(--fs-text)/1.1 var(--font-condensed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tvr-value { font: 800 var(--fs-text)/1.1 var(--font-condensed); white-space: nowrap; }
+.tvr-meta { font-size: var(--fs-floor); color: var(--text-secondary); margin-top: 2px; }
+
+/* logos and the scoreboard */
+.tv-logo { width: 72px; height: 72px; object-fit: contain; flex: none; }
+.tv-logo-sm { width: 44px; height: 44px; object-fit: contain; flex: none; vertical-align: middle; }
+.tv-code { display: inline-grid; place-items: center; border-radius: 50%; background: var(--c); color: var(--on);
+  font: 800 var(--fs-floor)/1 var(--font-condensed); }
+.tv-board { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; flex: 1; min-width: 0; }
+.tvb-team { display: flex; align-items: center; gap: 18px; min-width: 0; }
+.tvb-team.away { justify-content: flex-end; }
+.tvb-name { font: 800 56px/1 var(--font-condensed); white-space: nowrap; overflow: hidden; min-width: 0; }
+.tvb-team .tv-logo { width: 88px; height: 88px; }
+.tvb-mid { font: 800 104px/1 var(--font-condensed); }
+.tvb-vs { color: var(--text-muted); }
+
+/* --- idle -------------------------------------------------------------------------------- */
+.tv-band.idle { align-items: stretch; }
+.ib-left { display: flex; flex-direction: column; justify-content: center; gap: 8px; width: 380px; flex: none; }
+.ib-clock { font: 800 130px/0.9 var(--font-condensed); }
+.ib-next { font-size: var(--fs-floor); color: var(--text-secondary); }
+.ib-next-game { font: 700 var(--fs-text)/1 var(--font-condensed); }
+.ib-right { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.ib-game { display: grid; grid-template-columns: 110px 44px auto 44px 1fr; align-items: center; gap: 12px;
+  font: 700 var(--fs-text)/1.2 var(--font-condensed); }
+.ib-when { color: var(--text-secondary); }
+.ib-res { text-align: right; }
+.ib-res small, .t3-row small { font-size: var(--fs-floor); color: var(--text-muted); }
+
+/* the standings (the wall's markup: common.js standingsTable) */
+.table3 { display: flex; flex-direction: column; }
+.t3-row { position: relative; display: grid; grid-template-columns: 42px 30px 44px 1fr 92px 64px; align-items: center; gap: 10px;
+  padding: 3px 8px 3px 20px; border-bottom: 2px solid var(--panel-raised); font: 700 var(--fs-text)/1.15 var(--font-condensed); }
+.t3-row.t3-head { font: 700 var(--fs-floor)/1.2 var(--font-condensed); letter-spacing: 0.1em; color: var(--text-muted); border-bottom-width: 3px; }
+.t3-row .logo3 { width: 40px; height: 40px; object-fit: contain; }
+.t3-row .num { text-align: right; }
+.t3-team { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.t3-live { color: var(--gold); }
+.t3-pts { font-weight: 800; }
+.t3-row.playing { background: var(--panel-raised); border-radius: 8px; }
+.mv { font-size: var(--fs-floor); text-align: center; }
+.mv.up { color: #34d399; }
+.mv.down { color: var(--penalty); }
+.t3-row.zone-playoff, .t3-row.zone-playin, .t3-row.zone-qualdown { box-shadow: inset 8px 0 0 var(--zc); }
+.zone-playoff { --zc: var(--zone-playoff); }
+.zone-playin { --zc: var(--zone-playin); }
+.zone-qualdown { --zc: var(--zone-qualdown); }
+.t3-row.zone-end { border-bottom: 4px solid var(--text-muted); }
+.t3-row.mine .t3-team { color: var(--gold); }
+.zone-legend { display: flex; justify-content: center; gap: 24px; margin-top: 12px; font: 700 var(--fs-floor)/1 var(--font-condensed);
+  letter-spacing: 0.1em; color: var(--text-secondary); }
+.zl { display: flex; align-items: center; gap: 8px; }
+.zl i { width: 14px; height: 28px; border-radius: 3px; background: var(--zc); }
+
+/* --- pregame ------------------------------------------------------------------------------- */
+.tv-band.pregame, .tv-band.intermission, .tv-band.postgame { flex-direction: column; align-items: stretch; justify-content: center; gap: 22px; }
+.pg-when, .im-next { display: flex; align-items: baseline; justify-content: center; gap: 22px; }
+.pg-time, .im-count { font: 800 72px/1 var(--font-condensed); }
+.pg-arena { font-size: var(--fs-floor); color: var(--text-secondary); }
+.pg-final { font: 800 72px/1 var(--font-condensed); color: var(--gold); }
+.st-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.st-team { background: var(--panel-raised); border-radius: 12px; padding: 18px 20px; box-shadow: inset 0 6px 0 var(--c); display: flex; flex-direction: column; gap: 8px; }
+.st-name { font: 800 var(--fs-text)/1 var(--font-condensed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.st-big { font: 800 96px/1 var(--font-condensed); }
+.st-line { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--fs-floor); color: var(--text-secondary); }
+.st-line b { font: 800 var(--fs-text)/1 var(--font-condensed); color: var(--text); }
+.st-form { display: flex; gap: 6px; margin-top: 6px; }
+.form-chip { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; font: 800 30px/1 var(--font-condensed); }
+.form-chip.won { background: var(--text); color: var(--bg-screen); }
+.form-chip.lost { box-shadow: inset 0 0 0 3px var(--text-muted); color: var(--text-secondary); }
+.ld-card { position: relative; display: flex; gap: 20px; align-items: flex-end; min-height: 300px; background: var(--panel-raised);
+  border-radius: 12px; overflow: hidden; box-shadow: inset 0 6px 0 var(--c); }
+.ld-img { width: 230px; height: 300px; object-fit: cover; object-position: top; flex: none; }
+.ld-text { padding: 20px 20px 22px 0; min-width: 0; flex: 1; }
+.ld-card:not(:has(.ld-img)) .ld-text { padding-left: 24px; }
+.ld-first { font-size: var(--fs-floor); color: var(--text-secondary); }
+.ld-last { font: 800 64px/1 var(--font-condensed); white-space: nowrap; overflow: hidden; }
+.ld-value { font: 800 80px/1 var(--font-condensed); color: var(--gold); margin-top: 6px; }
+.ld-value span { font-size: var(--fs-floor); color: var(--text-secondary); letter-spacing: 0.1em; }
+.h2h-wins { display: flex; justify-content: space-between; align-items: center; font: 700 var(--fs-text)/1 var(--font-condensed); padding: 6px 0 10px; }
+.h2h-wins b { font-size: 64px; color: var(--gold); }
+
+/* --- intermission and postgame: compare bars, shot maps ------------------------------------ */
+.cmp-teams { display: flex; justify-content: space-between; font: 800 var(--fs-text)/1 var(--font-condensed); }
+.cmp-teams span { display: flex; align-items: center; gap: 10px; }
+.cmp-list { display: flex; flex-direction: column; gap: 16px; }
+.cmp { display: flex; flex-direction: column; gap: 6px; }
+.cmp-values { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
+.cmp-values .label { font: 700 var(--fs-floor)/1 var(--font-condensed); letter-spacing: 0.12em; color: var(--text-muted); text-align: center; }
+.cmp-home, .cmp-away { font: 800 52px/1 var(--font-condensed); }
+.cmp-away { text-align: right; }
+.cmp-bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 4px; }
+.cmp-bar div { height: 100%; }
+.im-maps { display: flex; flex-direction: column; gap: 16px; }
+.im-map { display: flex; flex-direction: column; gap: 6px; }
+.shotmap { width: 100%; max-height: 360px; display: block; }
+.shotmap .rink { fill: var(--ice); stroke: var(--rink-board); stroke-width: 1.6; }
+.shotmap .rink-red { stroke: var(--rink-red); stroke-width: 1.2; }
+.shotmap .rink-blue { stroke: var(--rink-blue); stroke-width: 3.6; }
+.shotmap .crease { fill: rgba(63, 111, 224, 0.28); stroke: var(--rink-red); stroke-width: 0.8; }
+.shotmap .net { fill: none; stroke: var(--text-muted); stroke-width: 1; }
+.shotmap .faceoff { fill: none; stroke: var(--rink-red); stroke-width: 0.9; opacity: 0.8; }
+.shotmap .faceoff-dot { fill: var(--rink-red); }
+.shotmap .shot { stroke: rgba(0, 0, 0, 0.65); stroke-width: 0.7; }
+.shotmap .shot-wide { stroke-width: 2.2; fill: none; }
+.shot-goal { fill: var(--gold); stroke: var(--on-gold); stroke-width: 0.8; }
+
+/* --- live: lower thirds and the power-play pill, over the full picture --------------------- */
+.tv-lower-slot { position: absolute; left: 100px; bottom: 130px; }
+.tv-penalty { display: flex; align-items: center; gap: 24px; padding: 22px 34px 22px 26px; background: rgba(7, 10, 16, 0.9);
+  border-left: 12px solid var(--c); border-radius: 12px; }
+.pc-logo { width: 96px; height: 96px; object-fit: contain; }
+.pc-body { display: flex; flex-direction: column; gap: 6px; }
+.pc-name { font: 800 60px/1 var(--font-condensed); }
+.pc-detail { font-size: var(--fs-text); color: var(--text-secondary); }
+.pc-pp { display: flex; align-items: center; gap: 12px; font: 800 var(--fs-text)/1 var(--font-condensed); color: var(--gold); margin-top: 4px; }
+.dot { width: 18px; height: 18px; border-radius: 50%; background: currentColor; display: inline-block; }
+.tv-banner { padding: 22px 40px; border-radius: 12px; font: 800 72px/1 var(--font-condensed); letter-spacing: 0.04em; }
+.tv-banner.gold { background: var(--gold); color: var(--on-gold); }
+.tv-banner.alert { background: var(--penalty); color: #1A0507; }
+.tv-pill-slot { position: absolute; right: 100px; bottom: 130px; }
+.tv-pp-pill { display: flex; align-items: center; gap: 14px; padding: 14px 26px; background: rgba(7, 10, 16, 0.88); border-radius: 999px;
+  box-shadow: inset 0 0 0 4px var(--gold); font: 800 var(--fs-text)/1 var(--font-condensed); color: var(--gold); }
+
+/* --- goal: the sweep and the lower third --------------------------------------------------- */
+.gl-sweep { position: absolute; left: 0; right: 0; bottom: 120px; height: 360px;
+  background: linear-gradient(100deg, transparent 0%, var(--gold) 20%, var(--gold-flash) 50%, var(--gold) 80%, transparent 100%); }
+.tv-goal { position: absolute; left: 100px; right: 100px; bottom: 120px; height: 330px; background: rgba(7, 10, 16, 0.92);
+  border-radius: 14px; box-shadow: inset 0 -8px 0 var(--c); }
+.gl-head { position: absolute; left: 0; right: 0; top: 0; height: 84px; display: flex; align-items: center; gap: 30px; padding: 0 36px;
+  background: var(--gold); color: var(--on-gold); border-radius: 14px 14px 0 0; }
+.tv-goal:has(.gl-portrait) .gl-head { padding-left: 350px; } /* the portrait stands in front of the band */
+.gl-mal { font: 800 76px/1 var(--font-condensed); }
+.gl-team { font: 800 var(--fs-text)/1 var(--font-condensed); letter-spacing: 0.06em; }
+.gl-portrait { position: absolute; left: 30px; bottom: 8px; height: 380px; width: 290px; object-fit: contain; object-position: bottom; z-index: 1; }
+.gl-body { position: absolute; left: 36px; right: 36px; top: 84px; bottom: 8px; display: flex; align-items: center; gap: 30px; }
+.gl-body.with-portrait { left: 350px; }
+.gl-who { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.gl-first { font-size: var(--fs-text); color: var(--text-secondary); }
+.gl-last { font: 800 84px/0.95 var(--font-condensed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gl-chips { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.chip { background: var(--panel-raised); border-radius: 999px; padding: 6px 20px; font: 700 var(--fs-floor)/1.2 var(--font-condensed); letter-spacing: 0.06em; }
+.chip.gold { background: var(--gold); color: var(--on-gold); }
+.gl-assist { font-size: var(--fs-floor); color: var(--text-secondary); }
+.gl-score { display: flex; align-items: center; gap: 20px; font: 800 104px/1 var(--font-condensed); flex: none; }
+.gl-logo { width: 84px; height: 84px; object-fit: contain; }
+
+/* --- panels over the picture in play (panels.js) -------------------------------------------- */
+.tv-panel { position: absolute; right: 60px; top: 60px; bottom: 120px; width: 640px; box-sizing: border-box; padding: 30px 34px;
+  background: rgba(15, 20, 32, 0.92); border-radius: 14px; display: flex; flex-direction: column; gap: 14px; opacity: 0; overflow: hidden; }
+.tv-panel .dots { margin-top: auto; }
+
+/* the full picture in an L-frame scene (the menu's "Helbild"): column and band step aside */
+.tv-scenes { transition: opacity 0.25s; }
+.tv.full .tv-scenes { opacity: 0; } /* the scene's own fades set inline opacity on col and band */
+
+/* --- the menu on OK and its sheets (menu.js), low on the left over the picture ------------- */
+.tv-menu, .tv-sheet { position: absolute; bottom: 130px; box-sizing: border-box; padding: 18px; background: rgba(7, 10, 16, 0.94);
+  border-radius: 14px; display: flex; flex-direction: column; gap: 6px; opacity: 0; pointer-events: none; }
+.tv-menu { left: 60px; width: 520px; }
+.tv-menu.on { opacity: 1; }
+.tv-sheet { left: 600px; width: 760px; max-height: 860px; overflow: hidden; display: none; gap: 12px; }
+.tv-sheet.on { display: flex; opacity: 1; }
+.tv-item { position: relative; padding: 10px 22px; border: 4px solid transparent; border-radius: 10px;
+  font: 700 var(--fs-text)/1.1 var(--font-condensed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tv-item.on { border-color: var(--gold); background: rgba(245, 197, 66, 0.14); }
+.tv-item.goal { box-shadow: inset 10px 0 0 var(--c); padding-left: 32px; }
+.tv-item.goal.on { background: var(--gold); color: var(--on-gold); }
+.tv-item.more::after { content: "›"; position: absolute; right: 20px; color: var(--text-muted); }
+.tv-item small { display: block; font: 600 var(--fs-floor)/1.2 var(--font-body); color: var(--text-secondary); }
+.tv-item.on small { color: inherit; }
+.tv-sheet-title { font: 800 56px/1 var(--font-condensed); margin-bottom: 4px; }
+.tv-sheet-text { font-size: var(--fs-floor); line-height: 1.45; color: var(--text-secondary); }
+.tv-sheet-text b { color: var(--text); }
+.tv-sheet-text.quiet { color: var(--text-muted); }
+.tv-sheet-rows { display: flex; flex-direction: column; gap: 6px; overflow: hidden; }
+
+/* --- the team animations (anim.js): the goal over the frame, intro and power play as bands -- */
+.tv-anim { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: contain; opacity: 0; }
+.tv-anim-tvpp, .tv-anim-tvintro { top: 600px; height: 360px; } /* bands low in the picture */
+
+/* --- status ---------------------------------------------------------------------------------- */
 .tv-feed-dot { position: absolute; right: 40px; top: 40px; width: 34px; height: 34px; border-radius: 50%; background: #ff2d3a;
   box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); opacity: 0; }
 .tv-feed-dot.on { animation: tv-pulse 1.4s ease-in-out infinite; }
 @keyframes tv-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
 .tv-toast { position: absolute; right: 60px; bottom: 120px; padding: 18px 28px; background: rgba(7, 10, 16, 0.92);
-  border: 3px solid var(--gold); border-radius: 10px; font: 700 var(--fs-text)/1 var(--font-condensed); opacity: 0; }
+  border: 3px solid var(--gold); border-radius: 10px; font: 700 var(--fs-text)/1 var(--font-condensed); opacity: 0; z-index: 50; }
 .tv-debug { position: absolute; left: 10px; bottom: 10px; margin: 0; padding: 8px 12px; background: rgba(0, 0, 0, 0.82);
   color: #9ef; font: 20px/1.3 monospace; white-space: pre; z-index: 100; }

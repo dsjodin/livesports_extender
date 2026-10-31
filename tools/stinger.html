@@ -29,6 +29,14 @@ html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; backgroun
   background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); }
 .chev { position: absolute; top: 90px; width: 120px; height: 180px;
   clip-path: polygon(0 0, 45% 0, 100% 50%, 45% 100%, 0 100%, 55% 50%); }
+/* the TV's goal, 1920x1080 over the live picture: a short sweep that ends empty */
+.tv-band { position: absolute; left: -40%; width: 180%; height: 440px; transform-origin: 50% 50%; }
+.tv-logo { position: absolute; left: 230px; top: 330px; width: 420px; height: 420px; object-fit: contain;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, .45)); }
+.tv-mal { position: absolute; left: 720px; top: 300px; font-family: "Barlow Condensed"; font-weight: 800;
+  font-size: 360px; line-height: .9; white-space: nowrap; }
+.tv-name { position: absolute; left: 732px; top: 660px; font-family: "Barlow Condensed"; font-weight: 700;
+  font-size: 100px; letter-spacing: .06em; white-space: nowrap; }
 </style></head><body><div id="stage"></div>
 <script>@@gsap@@</script>
 <script>
@@ -86,35 +94,66 @@ function intro() {
   tl.to(fill, { clipPath: "inset(0 0 100% 0)", duration: 0.45, ease: "power3.in" }, 3.85);
   return tl;
 }
-function pp() {
+/** The bar's power play, and on the TV the same band for the intro at puck drop. */
+function band(word_ = "POWERPLAY", { chevrons = true, out = 3.3 } = {}) {
   const tl = gsap.timeline({ paused: true });
   const slashes = [T.gold, T.color, T.accent, T.gold].map((c, i) => el("slash", { left: `${-400 - i * 170}px`, background: c }));
   const fill = el("panel", { background: T.color });
-  const chevs = [0, 1, 2].map((i) => el("chev", { left: `${1530 + i * 110}px`, background: T.gold }));
+  const chevs = chevrons ? [0, 1, 2].map((i) => el("chev", { left: `${1530 + i * 110}px`, background: T.gold })) : [];
   const logo = T.logo ? el("pp-logo", {}, "img") : null;
   const word = el("pp-word", { color: T.on });
-  word.innerHTML = [..."POWERPLAY"].map((c) => `<span>${c}</span>`).join("");
+  word.innerHTML = [...word_].map((c) => `<span>${c}</span>`).join("");
   const letters = [...word.children];
   const rule = el("pp-rule", { background: T.gold });
   const name = el("pp-name", { color: T.on }, T.name.toUpperCase());
   const shine = el("shine", { left: "-200px" });
   gsap.set(slashes, { skewX: -24 });
-  slashes.forEach((b, i) => tl.to(b, { x: 2900, duration: 0.55, ease: "power2.in" }, i * 0.06));
+  // far enough that the skewed slashes leave the frame entirely
+  slashes.forEach((b, i) => tl.to(b, { x: 3300, duration: 0.55, ease: "power2.in" }, i * 0.06));
   tl.fromTo(fill, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.4, ease: "power3.out" }, 0.18);
   if (logo) tl.fromTo(logo, { scale: 0.2, rotation: -25, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: "back.out(2.2)" }, 0.4);
   tl.fromTo(letters, { yPercent: -120, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.32, ease: "back.out(2.4)", stagger: 0.045 }, 0.45);
   tl.fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 0.85);
   tl.fromTo(name, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.95);
   tl.fromTo(shine, { x: 0 }, { x: 2300, duration: 0.7, ease: "power1.inOut" }, 1.35);
-  tl.fromTo(shine, { x: 0 }, { x: 2300, duration: 0.7, ease: "power1.inOut" }, 2.5);
+  if (out > 2.6) tl.fromTo(shine, { x: 0 }, { x: 2300, duration: 0.7, ease: "power1.inOut" }, 2.5);
   gsap.set(chevs, { opacity: 0 });
   chevs.forEach((c, i) => tl.fromTo(c, { opacity: 0.15 }, { opacity: 1, duration: 0.18, repeat: 7, yoyo: true, ease: "none", immediateRender: false }, 0.9 + i * 0.12));
-  if (logo) tl.to(logo, { scale: 1.06, duration: 2.0, ease: "none" }, 0.95);
+  if (logo) tl.to(logo, { scale: 1.06, duration: out - 1.3, ease: "none" }, 0.95);
   // out: everything leaves to the right; the last frame is empty
-  tl.to([logo, ...letters, rule, name, ...chevs].filter(Boolean), { x: 300, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.015 }, 3.3);
-  tl.to(fill, { clipPath: "inset(0 0 0 100%)", duration: 0.4, ease: "power3.in" }, 3.5);
+  tl.to([logo, ...letters, rule, name, ...chevs].filter(Boolean), { x: 300, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.015 }, out);
+  tl.to(fill, { clipPath: "inset(0 0 0 100%)", duration: 0.4, ease: "power3.in" }, out + 0.2);
   return tl;
 }
-window.tl = ({ goal, intro, pp })[T.kind]();
+const pp = () => band();
+/** The TV's intro at puck drop: a band low in the picture, not the whole of it (the drop
+ * itself is on the TV). */
+const tvintro = () => band("MATCHSTART", { chevrons: false, out: 2.3 });
+/** The TV's goal: bands sweep over the picture, the logo and MÅL! pop, all sweeps out by
+ * 1.8 s, leaving the picture and the lower third underneath. */
+function tvgoal() {
+  const tl = gsap.timeline({ paused: true });
+  const bands = [
+    el("tv-band", { top: "-80px", background: T.color }),
+    el("tv-band", { top: "320px", background: T.gold }),
+    el("tv-band", { top: "720px", background: T.accent }),
+  ];
+  const fill = el("panel", { background: T.color });
+  const logo = T.logo ? el("tv-logo", {}, "img") : null;
+  const mal = el("tv-mal", { color: T.on }, "MÅL!");
+  const name = el("tv-name", { color: T.on }, T.name.toUpperCase());
+  gsap.set(bands, { rotation: -10 });
+  bands.forEach((b, i) => tl.fromTo(b, { xPercent: 70 }, { xPercent: 0, duration: 0.3, ease: "power3.out" }, i * 0.05));
+  tl.fromTo(fill, { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 0.28);
+  if (logo) tl.fromTo(logo, { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 0.3);
+  tl.fromTo(mal, { scale: 1.5, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, 0.4);
+  tl.fromTo(name, { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 0.52);
+  if (logo) tl.to(logo, { scale: 1.06, duration: 0.6, ease: "none" }, 0.7);
+  tl.to([logo, mal, name].filter(Boolean), { x: -300, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.04 }, 1.25);
+  tl.to(fill, { opacity: 0, duration: 0.2, ease: "none" }, 1.3);
+  bands.slice().reverse().forEach((b, i) => tl.to(b, { xPercent: -115, duration: 0.35, ease: "power3.in" }, 1.38 + i * 0.05));
+  return tl;
+}
+window.tl = ({ goal, intro, pp, tvgoal, tvintro, tvpp: pp })[T.kind]();
 window.seek = (t) => { window.tl.seek(t, false); };
 </script></body></html>

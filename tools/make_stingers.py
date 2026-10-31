@@ -5,7 +5,8 @@ Usage (from the repo root):
     uv run --project server python tools/make_stingers.py                 # all teams
     uv run --project server python tools/make_stingers.py --team 3db0-3db09jXTE --kind goal
 
-Needs Playwright's Chromium (or ``--chromium /path/to/chrome``) and ffmpeg with libvpx-vp9.
+Needs Playwright's Chromium (or ``--chromium /path/to/chrome``) and ffmpeg with libvpx-vp9 and
+libwebp (the TV kinds).
 
 Each frame is drawn by Chromium on a transparent background (GSAP timeline, seeked frame
 by frame, so the result does not depend on how fast the machine renders) and the frames
@@ -20,6 +21,15 @@ decided 2026-10-21):
 - ``web/media/pp/<team uuid>.webm``: 4 s, 1920×360, for the bar when my team gets a power
   play: slashes sweep across, the team colour wipes in, logo, "POWERPLAY" letter by
   letter, the team name, a light sweep and pulsing arrows, then out to the right.
+
+For the Samsung TV app (docs/TV_APP.md, Videos) the same frames are encoded as animated
+WebP with alpha, since a <video> on the TV takes the HDMI picture away:
+
+- ``web/media/tvgoal/<team uuid>.webp``: 2 s, 1920×1080, bands sweep over the picture,
+  logo, "MÅL!" and the team name, all gone by 1.8 s (the goal's lower third is underneath).
+- ``web/media/tvintro/<team uuid>.webp``: 3 s, 1920×360, the power-play band with
+  "MATCHSTART", low in the picture at puck drop (never over the whole of it).
+- ``web/media/tvpp/<team uuid>.webp``: the bar's power-play band, 4 s, 1920×360.
 
 Colours come from ``config/teams.json`` (home jersey first, away jersey as the accent),
 logos from ``data/cache/teams/<uuid>.svg`` (the service's logo cache; a team without one
@@ -41,9 +51,17 @@ from playwright.async_api import Browser, async_playwright
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FPS = 30
-KINDS = ("goal", "intro", "pp")
-SIZE = {"goal": (1080, 1920), "intro": (1080, 1920), "pp": (1920, 360)}
-DURATION_S = {"goal": 2.2, "intro": 4.5, "pp": 4.0}
+KINDS = ("goal", "intro", "pp", "tvgoal", "tvintro", "tvpp")
+SIZE = {
+    "goal": (1080, 1920),
+    "intro": (1080, 1920),
+    "pp": (1920, 360),
+    "tvgoal": (1920, 1080),
+    "tvintro": (1920, 360),
+    "tvpp": (1920, 360),
+}
+DURATION_S = {"goal": 2.2, "intro": 4.5, "pp": 4.0, "tvgoal": 2.0, "tvintro": 3.0, "tvpp": 4.0}
+WEBP_QUALITY = 70  # libwebp 0-100; the TV kinds
 GOLD = "#F5C542"
 
 PAGE = Path(__file__).with_name("stinger.html")  # the animation, filled in per team
@@ -109,6 +127,22 @@ def page_html(kind: str, team: dict[str, Any]) -> str:
     return html
 
 
+def encode_cmd(kind: str, frames: str, out: Path, crf: int) -> list[str]:
+    """ffmpeg for the frames: VP9 with alpha for the wall, animated WebP for the TV (played
+    once, no loop)."""
+    if kind.startswith("tv"):
+        return [
+            "ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", frames,
+            "-c:v", "libwebp_anim", "-lossless", "0", "-q:v", str(WEBP_QUALITY),
+            "-compression_level", "4", "-loop", "1", "-an", str(out),
+        ]  # fmt: skip
+    return [
+        "ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", frames,
+        "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", "-b:v", "0", "-crf", str(crf),
+        "-auto-alt-ref", "0", "-row-mt", "1", "-an", str(out),
+    ]  # fmt: skip
+
+
 async def render(browser: Browser, kind: str, team: dict[str, Any], out: Path, crf: int) -> None:
     # a fresh page per video: set_content writes into the same document otherwise
     width, height = SIZE[kind]
@@ -125,12 +159,7 @@ async def render(browser: Browser, kind: str, team: dict[str, Any], out: Path, c
             await page.evaluate("t => window.seek(t)", i / (frames - 1) * DURATION_S[kind])
             await page.screenshot(path=f"{tmp}/f{i:04d}.png", omit_background=True)
         out.parent.mkdir(parents=True, exist_ok=True)
-        cmd = [
-            "ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", f"{tmp}/f%04d.png",
-            "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", "-b:v", "0", "-crf", str(crf),
-            "-auto-alt-ref", "0", "-row-mt", "1", "-an", str(out),
-        ]  # fmt: skip
-        proc = await asyncio.create_subprocess_exec(*cmd)
+        proc = await asyncio.create_subprocess_exec(*encode_cmd(kind, f"{tmp}/f%04d.png", out, crf))
         if await proc.wait() != 0:
             raise RuntimeError(f"ffmpeg failed for {out}")
     await page.close()
@@ -162,7 +191,8 @@ async def main() -> int:
             logo = logo_uri(args.logos, uuid)
             team = {**t, "on": on_color(t["color"]), "gold": GOLD, "logo": logo}
             for kind in kinds:
-                out = args.out / kind / f"{uuid}.webm"
+                ext = "webp" if kind.startswith("tv") else "webm"
+                out = args.out / kind / f"{uuid}.{ext}"
                 await render(browser, kind, team, out, args.crf)
                 note = "" if logo else " (no logo)"
                 print(f"{kind:5} {t['name']:16} {out.stat().st_size / 1024:6.0f} kB  {out}{note}")

@@ -1,34 +1,42 @@
 // The TV overlay (docs/TV_APP.md): the delayed TV state from the service, drawn over the
-// HDMI picture on the Samsung TV. This is its frame (task 9.2): the connection and synced
-// clock, scene changes at their play_at, the TV picture placed per scene (full screen in
-// play, the L-frame outside it) and the L-frame's backdrop around the picture. The scenes'
-// own graphics come in 9.3; until then each scene shows its name and the score.
+// HDMI picture on the Samsung TV. It switches scenes at their play_at (one module per
+// scene in scenes/), places the TV picture per scene (full screen in play, the L-frame
+// outside it, with a backdrop around the picture), plays the team animations (WebP), opens
+// the panels on ↑ ↓ in play and the menu on OK (menu.js: MÅL!, Synka, games, settings).
 import * as clock from "../shared/clock.js";
-import { html } from "../shared/format.js";
+import { teamVars } from "../shared/components.js";
+import { needsOutline, onColor } from "../shared/format.js";
 import * as stage from "../shared/stage.js";
 import { Store } from "../shared/store.js";
 import { connect } from "../shared/ws.js";
+import * as anim from "./anim.js";
 import * as host from "./host.js";
-import { BAND, COLUMN, H, W, windowFor } from "./layout.js";
+import { H, W, windowFor } from "./layout.js";
+import * as menu from "./menu.js";
+import * as panels from "./panels.js";
+import { fitText } from "./scenes/common.js";
+import * as goal from "./scenes/goal.js";
+import * as idle from "./scenes/idle.js";
+import * as intermission from "./scenes/intermission.js";
+import * as live from "./scenes/live.js";
+import * as postgame from "./scenes/postgame.js";
+import * as pregame from "./scenes/pregame.js";
 
-const TITLES = {
-  idle: "Vila",
-  pregame: "Före matchen",
-  live: "Live",
-  goal: "Mål",
-  intermission: "Periodpaus",
-  postgame: "Efter matchen",
-};
+const SCENES = { idle, pregame, live, goal, intermission, postgame };
 const FADE_S = 0.3;
+const SCENE_FADE_S = 0.4;
 
 const store = new Store();
 const debug = new URLSearchParams(location.search).get("debug") === "1";
 const url = (path) => new URL(path, import.meta.url).href;
 let connection = "connecting";
-let scene = null; // the scene shown
-let full = false; // the viewer asked for the full picture in an L-frame scene (9.4)
+let current = null; // {name, mod, root, ctx}
+let full = false; // the viewer asked for the full picture in an L-frame scene (menu)
 let rect; // where the TV picture is: unknown at start (the shell may keep it from before)
 let lastBack = 0;
+let ppSide = null;
+const goalEvents = new Map(); // goals seen as events at play_at, MÅL! presses included
+const introsPlayed = new Set(); // game uuids whose intro has run (once per game)
 const log = [];
 
 const el = (tag, cls) => {
@@ -37,10 +45,10 @@ const el = (tag, cls) => {
   return e;
 };
 const root = el("div", "tv");
+root.id = "app"; // tools/legibility.py measures the text under #app
 const backdrop = el("div", "tv-backdrop"); // paints around the picture, never over it
-const column = el("section", "tv-column");
-const band = el("section", "tv-band");
-const play = el("section", "tv-play");
+const scenes = el("div", "tv-scenes");
+const fx = el("div", "tv-fx"); // the team animations, over the scenes
 const dot = el("div", "tv-feed-dot");
 const toast = el("div", "tv-toast");
 const debugBox = el("pre", "tv-debug");
@@ -54,10 +62,6 @@ function include(tag, attrs) {
   });
 }
 
-function place(node, [x, y, w, h]) {
-  Object.assign(node.style, { left: `${x}px`, top: `${y}px`, width: `${w}px`, height: `${h}px` });
-}
-
 function fit() {
   root.style.transform = `scale(${Math.min(window.innerWidth / W, window.innerHeight / H)})`;
 }
@@ -68,72 +72,16 @@ function say(text) {
   gsap.fromTo(toast, { opacity: 1 }, { opacity: 0, delay: 2.5, duration: 0.5 });
 }
 
-// ---- the TV picture -------------------------------------------------------------------
-
-/** Move the TV picture for the scene now due; the backdrop follows the same moment. */
-async function placePicture(animate) {
-  const next = windowFor(scene, full);
-  const lframe = !!next;
-  gsap.killTweensOf([backdrop, column, band]);
-  const to = { opacity: lframe ? 1 : 0, duration: animate ? FADE_S : 0 };
-  if (lframe) place(backdrop, next);
-  // Going to full screen the backdrop must be gone by the time the picture has grown
-  // (45–120 ms on the TV): it would cover it.
-  gsap.to([backdrop, column, band], lframe ? to : { ...to, duration: animate ? 0.1 : 0 });
-  if (JSON.stringify(next) === JSON.stringify(rect)) return;
-  rect = next;
-  const result = await host.placeWindow(next);
-  if (!result.ok) note(`TV-bilden: ${result.error}`);
-}
-
-// ---- scenes (placeholders until 9.3) ----------------------------------------------------
-
-function teamName(side) {
-  const t = store.tv?.teams?.[side] ?? {};
-  return t.short ?? t.code ?? (side === "home" ? "Hemma" : "Borta");
-}
-
-function matchLine() {
-  const tv = store.tv;
-  if (!tv?.teams?.home?.uuid) return "Ingen match vald";
-  const s = tv.score;
-  return s ? `${teamName("home")}  ${s.home}–${s.away}  ${teamName("away")}` : `${teamName("home")} – ${teamName("away")}`;
-}
-
-function render() {
-  const title = TITLES[scene] ?? scene ?? "–";
-  column.innerHTML = html`<div class="tv-brand">SHL live!</div><h1>${title}</h1>
-    <div class="tv-match">${matchLine()}</div>
-    <p class="tv-note">Grafiken för den här scenen kommer i nästa steg (9.3).</p>`;
-  band.innerHTML = html`<div class="tv-match">${matchLine()}</div>`;
-  play.innerHTML = scene === "goal" ? html`<div class="tv-lower"><span class="tv-chip">MÅL!</span> ${matchLine()}</div>` : "";
-}
-
-function show(next, at, animate) {
-  if (!TITLES[next?.name]) console.warn("tv: unknown scene", next?.name);
-  const name = next?.name ?? "idle";
-  if (name !== scene) full = false; // a new scene starts in its own layout
-  scene = name;
-  render();
-  placePicture(animate);
-  if (animate) note(`${name} start delta=${(clock.now() - at).toFixed(1)}ms`);
-}
-
-// ---- keys (the menu comes in 9.4) ---------------------------------------------------------
-
-host.onKey((key) => {
-  note(`key ${key}`);
-  if (key === "back") {
-    if (Date.now() - lastBack < 2000) return host.exit();
-    lastBack = Date.now();
-    say("Tryck Back igen för att avsluta");
-  }
-});
-
-// ---- connection and debug ---------------------------------------------------------------
-
-function feedDot() {
-  dot.classList.toggle("on", connection !== "open" || store.config.feed_ok === false);
+/** The service's REST API (docs/PROTOCOL.md); throws with its error detail. */
+async function api(path, body, method = "POST") {
+  const r = await fetch(`${host.base}/api/${path}`, {
+    method,
+    headers: body ? { "content-type": "application/json" } : undefined,
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.detail ?? `HTTP ${r.status}`);
+  return data;
 }
 
 function note(text) {
@@ -141,20 +89,183 @@ function note(text) {
   if (log.length > 6) log.shift();
 }
 
+// ---- teams and animations ---------------------------------------------------------------
+
+const myTeam = (tv) => (tv?.game?.my_side ? tv.teams?.[tv.game.my_side] : null);
+
+function decorate(tv) {
+  for (const side of ["home", "away"]) {
+    const t = tv.teams?.[side];
+    if (!t) continue;
+    t.on = onColor(t.color);
+    t.outline = needsOutline(t.color);
+  }
+  teamVars(root, tv.teams);
+  for (const side of ["home", "away"]) anim.preload(tv.teams?.[side]?.uuid, ["tvgoal", "tvintro"]);
+  anim.preload(myTeam(tv)?.uuid, ["tvpp"]);
+}
+
+/** My team's power play has just begun: its animation, in play only (as the wall's bar). */
+function powerPlay(tv, playAt) {
+  const side = tv?.strength?.pp_side ?? null;
+  const started = side && side !== ppSide;
+  ppSide = side;
+  if (started && side === tv.game?.my_side && ["live", "goal"].includes(current?.name)) {
+    anim.play("tvpp", myTeam(tv)?.uuid, playAt, fx, note);
+  }
+}
+
+/** Puck drop (pregame → live): my team's intro, or the home team's, once per game. */
+function intro(tv, playAt) {
+  const game = tv.game?.uuid;
+  if (!game || introsPlayed.has(game)) return;
+  introsPlayed.add(game);
+  anim.play("tvintro", (myTeam(tv) ?? tv.teams?.home)?.uuid, playAt, fx, note);
+}
+
+// ---- the TV picture -------------------------------------------------------------------
+
+/** Move the TV picture for the scene now due; the backdrop follows the same moment. */
+async function placePicture(animate) {
+  const next = windowFor(current?.name, full);
+  const lframe = !!next;
+  gsap.killTweensOf(backdrop);
+  if (lframe) Object.assign(backdrop.style, { left: `${next[0]}px`, top: `${next[1]}px`, width: `${next[2]}px`, height: `${next[3]}px` });
+  // Going to full screen the backdrop must be gone by the time the picture has grown
+  // (45–120 ms on the TV), or it would cover it.
+  gsap.to(backdrop, { opacity: lframe ? 1 : 0, duration: animate ? (lframe ? FADE_S : 0.1) : 0 });
+  if (rect !== undefined && JSON.stringify(next) === JSON.stringify(rect)) return;
+  rect = next;
+  const result = await host.placeWindow(next);
+  if (!result.ok) note(`TV-bilden: ${result.error}`);
+}
+
+// ---- scenes -------------------------------------------------------------------------------
+
+function makeCtx(sceneRoot) {
+  return {
+    kind: "tv",
+    root: sceneRoot,
+    get tv() {
+      return store.tv;
+    },
+    get config() {
+      return store.config;
+    },
+    now: clock.now,
+    goalEvent: (key) => goalEvents.get(key),
+    anim: (kind, side, playAt) => anim.play(kind, store.tv?.teams?.[side]?.uuid, playAt, fx, note),
+  };
+}
+
+function show(scene, at, animate) {
+  const name = SCENES[scene?.name] ? scene.name : "idle";
+  if (!SCENES[scene?.name]) console.warn("tv: unknown scene", scene?.name);
+  const late = clock.now() - at;
+  if (current?.name === "goal" && name === "goal" && scene.data?.linked_from === current.ctx.data?.event_key) {
+    current.mod.relink(current.ctx, scene.data); // the feed goal behind a MÅL! press
+    return;
+  }
+  if (current && current.name === name && current.mod.overlay && animate) {
+    current.mod.overlay(current.ctx, scene.data ?? {}, at); // a penalty, timeout, …
+    note(`${name}/${scene.data?.overlay ?? "-"} delta=${late.toFixed(1)}ms`);
+    return;
+  }
+  if (animate && current?.name === "pregame" && name === "live") intro(store.tv, at);
+  if (name !== current?.name) {
+    full = false; // a new scene starts in its own layout
+    root.classList.remove("full");
+  }
+  if (!["live", "goal"].includes(name)) panels.close();
+  menu.close();
+  const old = current;
+  const sceneRoot = el("div", `tv-scene scene-${name}`);
+  scenes.appendChild(sceneRoot);
+  const ctx = makeCtx(sceneRoot);
+  ctx.animate = animate;
+  ctx.previous = old?.name ?? null;
+  current = { name, mod: SCENES[name], root: sceneRoot, ctx };
+  current.mod.enter(ctx, scene?.data ?? {}, at);
+  fitText(sceneRoot);
+  if (old) {
+    old.mod.exit?.(old.ctx, at);
+    if (animate) {
+      gsap.to(old.root, { opacity: 0, duration: SCENE_FADE_S, onComplete: () => old.root.remove() });
+      gsap.fromTo(sceneRoot, { opacity: 0 }, { opacity: 1, duration: SCENE_FADE_S });
+    } else {
+      old.root.remove();
+    }
+  }
+  placePicture(animate);
+  if (animate) note(`${name} start delta=${late.toFixed(1)}ms`);
+}
+
+// ---- keys: the menu on OK, panels on ↑ ↓, Back (docs/TV_APP.md, Remote) -----------------
+
+host.onKey((key) => {
+  note(`key ${key}`);
+  if (menu.key(key)) return;
+  const inPlay = ["live", "goal"].includes(current?.name);
+  if (key === "ok") return menu.open();
+  if ((key === "up" || key === "down") && inPlay) return panels.step(key === "down" ? 1 : -1);
+  if (key === "back") {
+    if (panels.isOpen()) return panels.close();
+    if (full) return setFull(false);
+    if (Date.now() - lastBack < 2000) return host.exit();
+    lastBack = Date.now();
+    say("Tryck Back igen för att avsluta");
+  }
+});
+
+/** The full picture in an L-frame scene (the menu's "Helbild"), until Back or the next scene. */
+function setFull(on) {
+  full = on;
+  root.classList.toggle("full", on); // the L-frame's column and band step aside (tv.css)
+  placePicture(true);
+}
+
+// ---- connection and debug ---------------------------------------------------------------
+
+function feedDot() {
+  dot.classList.toggle("on", connection !== "open" || store.config.feed_ok === false);
+}
+
 function debugLoop() {
   const c = clock.stats();
   debugBox.textContent = [
     `tv  ${host.mode}  ws ${connection}  offset ${c.offset} ms  rtt ${c.rtt ?? "-"} ms`,
-    `rev ${store.tv?.rev ?? "-"}  scene ${scene ?? "-"}  window ${rect ? rect.join(",") : "full"}`,
+    `rev ${store.tv?.rev ?? "-"}  scene ${current?.name ?? "-"}  window ${rect ? rect.join(",") : "full"}`,
     ...log,
   ].join("\n");
 }
 
-store.on("state", (tv) => show(tv.scene, clock.now(), false));
-store.on("scene", (next, playAt) => show(next, playAt, true));
-store.on("patch", () => render());
+store.on("state", (tv) => {
+  anim.hide(); // a seek or a reconnect: whatever was playing is no longer due
+  introsPlayed.clear();
+  ppSide = tv.strength?.pp_side ?? null; // a power play already on is not announced
+  decorate(tv);
+  show(tv.scene, clock.now(), false);
+});
+store.on("patch", (patch, playAt) => {
+  if (patch.teams || patch.game) decorate(store.tv);
+  if (patch.strength) powerPlay(store.tv, playAt);
+  current?.mod.update?.(current.ctx, store.tv, patch);
+  if (current) fitText(current.root);
+  panels.refresh();
+});
+store.on("scene", (scene, playAt) => show(scene, playAt, true));
+store.on("event", (event, playAt, late) => {
+  if (event.type === "goal") goalEvents.set(event.key, event);
+  current?.mod.onEvent?.(current.ctx, event, playAt, late);
+});
+store.on("event_update", (event) => current?.mod.onEventUpdate?.(current.ctx, event));
+store.on("preload", (event) => {
+  // the scorer's portrait before play_at, so the goal scene has it at once
+  if (event.type === "goal" && event.player?.id) new Image().src = `${host.base}/assets/players/${event.player.id}.png`;
+});
 store.on("config", (config) => {
   if (config.tv_probe) location.reload(); // the test page was asked for (tv.js)
+  if (store.tv) current?.mod.update?.(current.ctx, store.tv, {});
   feedDot();
 });
 
@@ -164,13 +275,26 @@ async function main() {
     include("link", { rel: "stylesheet", href: url("tv.css") }),
     include("script", { src: url("../vendor/gsap/gsap.min.js") }),
   ]);
+  gsap.ticker.lagSmoothing(0); // GSAP time equal to wall time, so timelines stay in sync
+  gsap.config({ nullTargetWarn: false });
   await stage.load(host.base);
-  root.append(backdrop, column, band, play, dot, toast);
+  anim.setBase(host.base);
+  root.append(backdrop, scenes, fx, dot, toast);
+  panels.create(root, () => store.tv);
+  menu.create(root, {
+    tv: () => store.tv,
+    scene: () => current?.name,
+    api,
+    panels,
+    say,
+    host,
+    full: () => full,
+    setFull,
+    lframe: () => windowFor(current?.name) != null,
+  });
   if (debug) root.append(debugBox);
   document.body.appendChild(root);
   stage.applyType("tv", root);
-  place(column, COLUMN);
-  place(band, BAND);
   fit();
   window.addEventListener("resize", fit);
   host.onInfo(() => host.ready());
