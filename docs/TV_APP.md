@@ -249,14 +249,22 @@ The TV counts an app nobody presses keys in as idle and starts its screen saver 
 while, which it never does on a TV input (the user, 2026-10-31). The shell turns it off
 while the app is shown and on again when the app is hidden or exits:
 `webapis.appcommon.setScreenSaver(SCREEN_SAVER_OFF)` (Samsung's AppCommon API, from
-`$WEBAPIS/webapis/webapis.js`). Shell 1.3.0 says it again every minute and on every key;
-with shell 1.0.0 (one call at start) Samsung's own screen saver came back after about
-4 min (2026-10-31; the TV had kept 1.0.0 because the new builds never installed). It also
-tries `tizen.power.request("SCREEN", "SCREEN_NORMAL")` (privilege `power`), but the TV
-has no `tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of
-undefined (reading 'request')", 2026-10-31), so only AppCommon holds it off. Both results
-show in the menu (Inställningar: "Skärmsläckare: av · skärmlås …") and in the test page's
-report (`shell.screen_saver`).
+`$WEBAPIS/webapis/webapis.js`). Samsung's guide: the saver comes "after a defined amount
+of time with no activity" (the TV's setting "Auto Protection Time"; with that setting off
+the API has no effect), and it says nothing about how long one "off" holds.
+
+On the S95HF one "off" did not hold: Samsung's saver came after about 4 min with shell
+1.0.0 (one call at start) and with 1.3.0 (the same call every minute and on keys),
+2026-10-31. Shell 1.4.0 switches it on and straight off again every minute and on keys,
+a change the TV should notice and count from anew. The menu (Inställningar) shows
+"Skärmsläckare: av · växlad 12 gånger, senast 20:41", and the test page's report
+`shell.screen_saver`. If that does not hold it either, the fallback is the TV's own
+setting (Auto Protection Time longer, or off: our graphics dim and rest by themselves,
+see Dimming and the OLED).
+
+1.3.0 also tried `tizen.power.request("SCREEN", "SCREEN_NORMAL")`, but the TV has no
+`tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of undefined
+(reading 'request')"); 1.4.0 dropped it and its privilege.
 
 ## Development and install
 
@@ -272,8 +280,8 @@ report (`shell.screen_saver`).
   `--fs-text` 38 px.
 - The `.wgt` is built and installed with `deploy/tv/package.sh` (the Tizen CLI and a
   Samsung certificate for the TV); the steps are in `docs/DEPLOY.md`, section 3.
-- `config.xml` (shell 1.1.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
-  `power` (the screen saver), `tv.audio` (volume and mute for the graphics, which ask
+- `config.xml` (shell 1.4.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
+  `tv.audio` (volume and mute for the graphics, which ask
   with `{t: "audio", op: "get"|"volume"|"mute"}`) and Samsung's `productinfo`; `<access origin="*"
   subdomains="true"/>` for the service on the LAN (no content security policy is needed:
   the iframe, HTTP and WebSocket to the server work as is); `icon.png` 512×423.

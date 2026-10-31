@@ -189,7 +189,7 @@ are in the menu (OK) → Inställningar → Server och HDMI.
 | "Grafiken svarar inte" | The graphics stopped answering (the service went away). The shell waits for the service and loads them again by itself. |
 | "Ingen bild från HDMI 1 · är boxen på?" | The box is off or on another input. The shell looks again when the TV's sources change, and every 10 s. |
 | Black picture, graphics fine | Menu → Inställningar → Server och HDMI: the right HDMI number. |
-| The screen saver starts | Menu → Inställningar shows "Skärmsläckare: av · skärmlås på" from shell 1.3.0 (it turns the saver off again every minute and holds the screen on). Only "Skärmsläckare: av" means an older shell is installed: Samsung's saver came back after about 4 min with 1.0.0 (2026-10-31). |
+| The screen saver starts | Menu → Inställningar shows "Skärmsläckare: av · växlad N gånger, senast hh:mm" from shell 1.4.0 (it switches the saver on and off again every minute). Only "av" or "av · skärmlås …" means an older shell. If it still starts, set the TV's Auto Protection Time longer (`docs/TV_APP.md`, Screen saver). |
 | Something else | Menu → Inställningar → Testsidan: checks the TV and reports to `http://<server>:8010/api/tv/probe`. |
 
 ## 4. Where things were verified (2026-10-21)

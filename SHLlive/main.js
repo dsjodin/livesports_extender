@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '1.3.0';
+  const VERSION = '1.4.0';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -220,7 +220,7 @@
     try { out.platform = api.systeminfo.getCapability('http://tizen.org/feature/platform.version'); } catch (err) { /* computer */ }
     try { out.model = window.webapis.productinfo.getModel(); } catch (err) { /* computer or no webapis */ }
     try { out.firmware = window.webapis.productinfo.getFirmware(); } catch (err) { /* computer or no webapis */ }
-    out.screen_saver = screenSaver + ' · skärmlås ' + powerLock;
+    out.screen_saver = screenSaver;
     return out;
   }
   function toOverlay(message) {
@@ -325,28 +325,20 @@
   // ---- screen saver ---------------------------------------------------------------------
   // The TV counts an app nobody presses keys in as idle and starts its screen saver after a
   // while; on a TV input it never does (seen 2026-10-31). Off while the app is shown, back
-  // on when it is hidden or exits. Samsung's AppCommon API first, Tizen's power lock as well.
+  // on when it is hidden or exits (Samsung's AppCommon API; it follows the TV's "Auto
+  // Protection Time"). One "off" did not hold on the S95HF (the saver came after about
+  // 4 min with shell 1.0.0 and 1.3.0, 2026-10-31), so while the app is shown it is switched
+  // on and straight off again every minute and on keys, which should start the TV's count
+  // anew. The TV has no tizen.power (shell 1.3.0 found), so there is no screen lock.
   let screenSaver = realTV ? 'okänd' : 'dator';
-  let powerLock = realTV ? 'okänd' : 'dator';
   let saverSaidAt = 0;
-  function setScreenSaver(off) {
-    if (!realTV) return;
-    saverSaidAt = Date.now();
-    try {
-      if (off) api.power.request('SCREEN', 'SCREEN_NORMAL');
-      else api.power.release('SCREEN');
-      powerLock = off ? 'på' : 'släppt';
-    } catch (err) {
-      powerLock = 'fel: ' + (err.message || err);
-      log('power: ' + err);
-    }
+  let nudges = 0;
+  function saver(state, done) {
     const common = window.webapis && window.webapis.appcommon;
     if (!common) { screenSaver = 'appcommon saknas'; log('Skärmsläckare: appcommon saknas'); return; }
     const states = common.AppCommonScreenSaverState;
     try {
-      common.setScreenSaver(off ? states.SCREEN_SAVER_OFF : states.SCREEN_SAVER_ON, function () {
-        screenSaver = off ? 'av' : 'på';
-      }, function (err) {
+      common.setScreenSaver(state === 'on' ? states.SCREEN_SAVER_ON : states.SCREEN_SAVER_OFF, done, function (err) {
         screenSaver = 'fel: ' + (err.message || err);
         log('setScreenSaver: ' + (err.message || err));
       });
@@ -354,6 +346,19 @@
       screenSaver = 'fel: ' + err;
       log('setScreenSaver: ' + err);
     }
+  }
+  /** off: keep it off (on, then off again: a change the TV notices); else let it run. */
+  function setScreenSaver(off) {
+    if (!realTV) return;
+    saverSaidAt = Date.now();
+    if (!off) { saver('on', function () { screenSaver = 'på'; }); return; }
+    saver('on', function () {
+      saver('off', function () {
+        nudges++;
+        screenSaver = 'av · växlad ' + nudges + (nudges === 1 ? ' gång' : ' gånger') + ', senast ' + new Date().toTimeString().slice(0, 5);
+        if (overlayReady) toOverlay(info()); // the menu shows the latest
+      });
+    });
   }
 
   function exit() {
@@ -485,8 +490,7 @@
   registerKeys();
   watchSources();
   setScreenSaver(true);
-  // said again every minute and on keys (below), in case the TV forgets it (still seen
-  // 2026-10-31 with every 5 min; no harm when it holds)
+  // switched again every minute and on keys (below): one "off" did not hold (2026-10-31)
   setInterval(function () { if (!document.hidden) setScreenSaver(true); }, 60 * 1000);
   scan();
   connect();
