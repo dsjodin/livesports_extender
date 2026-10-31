@@ -133,7 +133,10 @@ def compute_state(
     current = next((p for p in reversed(period_list) if p.started), None)
     running = current is not None and not current.finished
 
-    ended = game_state == "GameEnded" or "game_end" in by_type
+    # an overtime goal or the shootout's end decides the game before shl.se says so
+    shootout_over = any(p.period == "shootout" and p.finished for p in period_list)
+    ot_goal = any(isinstance(g.period, int) and g.period > 3 for g in goals)
+    ended = game_state == "GameEnded" or "game_end" in by_type or ot_goal or shootout_over
     if game_state in PHASE_FOR_STATE:
         phase: Phase = PHASE_FOR_STATE[game_state]
     elif current is None:

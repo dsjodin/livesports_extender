@@ -47,6 +47,7 @@ class SceneDirector:
         self._temp: tuple[Scene, int] | None = None  # scene, until
         self._override: tuple[Scene, int | None] | None = None
         self._postgame_until: int | None = None
+        self._game_over = False  # shl.se's game_end came (an overtime goal alone may be undone)
         self.current = Scene("idle", at_ms)
 
     # --- inputs ---------------------------------------------------------------------
@@ -58,6 +59,7 @@ class SceneDirector:
             self.base = "pregame" if selected else "idle"
         if not selected:
             self.base, self._temp, self._postgame_until = "idle", None, None
+            self._game_over = False
         return out + self._emit(at)
 
     def reset(self, selected: bool, at: int) -> list[Scene]:
@@ -65,6 +67,7 @@ class SceneDirector:
         self.base = "pregame" if selected else "idle"
         self._temp = None
         self._postgame_until = None
+        self._game_over = False
         return self._emit(at)
 
     def on_event(self, event: NormalizedEvent, at: int) -> list[Scene]:
@@ -74,17 +77,31 @@ class SceneDirector:
             self.base = "live"
             self._temp = None
         elif t == "period_end":
-            self.base = "intermission"
-            if self._temp and self._temp[0].name == "live":
-                self._temp = None
+            if event.period == "shootout":
+                self._end(at)  # the shootout decides the game; game_end follows minutes later
+            elif self.base != "postgame":
+                self.base = "intermission"
+                if self._temp and self._temp[0].name == "live":
+                    self._temp = None
         elif t == "game_end":
-            self.base = "postgame"
-            self._postgame_until = at + POSTGAME_HOLD_MS
-            if self._temp and self._temp[0].name == "live":
-                self._temp = None
+            self._end(at)
+            self._game_over = True
         elif t == "goal" and isinstance(event.period, int):
             self._goal({"event_key": event.key, "side": event.side}, at)
+            if event.period > 3:
+                # sudden death: an overtime goal ends the game (shl.se's game_end came
+                # minutes later, and the period's end showed a break before more overtime
+                # in between; the user 2026-10-31)
+                self._end(at)
         elif t in OVERLAY_MS:
+            overtime = isinstance(event.period, int) and event.period > 3
+            if (
+                t == "goal_disallowed"
+                and overtime
+                and self.base == "postgame"
+                and not self._game_over
+            ):
+                self.base, self._postgame_until = "live", None  # the overtime goes on
             overlay_ok = self.base == "live" and (
                 self._temp is None or self._temp[0].name == "live" or t == "goal_disallowed"
             )
@@ -93,6 +110,13 @@ class SceneDirector:
                 data = {"overlay": t, "event_key": event.key, "side": event.side}
                 self._temp = (Scene("live", at, hold, data), at + hold)
         return out + self._emit(at)
+
+    def _end(self, at: int) -> None:
+        if self.base != "postgame":
+            self._postgame_until = at + POSTGAME_HOLD_MS
+        self.base = "postgame"
+        if self._temp and self._temp[0].name == "live":
+            self._temp = None
 
     def _goal(self, data: dict[str, Any], at: int) -> None:
         self._temp = (Scene("goal", at, GOAL_HOLD_MS, data), at + GOAL_HOLD_MS)

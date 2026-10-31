@@ -85,3 +85,47 @@ def test_reset_and_no_game() -> None:
     d.on_event(ev("period_start"), T + 1)
     assert names(d.reset(True, T + 2)) == [("pregame", 2, None)]
     assert names(d.set_game(False, T + 3)) == [("idle", 3, None)]
+
+
+def test_overtime_goal_ends_the_game_at_once() -> None:
+    """The OT period's end came before shl.se's game_end and showed a break (2026-10-31)."""
+    d = SceneDirector(T)
+    d.set_game(True, T)
+    d.on_event(ev("period_start", period=4), T)
+    assert names(d.on_event(ev("goal", "e9", period=4), T + 100)) == [("goal", 100, None)]
+    assert d.on_event(ev("period_end", period=4), T + 2_000) == []  # no break
+    assert names(d.advance(T + 100 + GOAL_HOLD_MS)) == [("postgame", 100 + GOAL_HOLD_MS, None)]
+    assert d.on_event(ev("game_end"), T + 180_000) == []  # still the postgame, its hold unchanged
+    assert names(d.advance(T + 100 + POSTGAME_HOLD_MS)) == [("idle", 100 + POSTGAME_HOLD_MS, None)]
+
+
+def test_shootout_end_ends_the_game() -> None:
+    d = SceneDirector(T)
+    d.set_game(True, T)
+    d.on_event(ev("period_start", period="shootout"), T)
+    assert names(d.on_event(ev("period_end", period="shootout"), T + 1_000)) == [
+        ("postgame", 1_000, None)
+    ]
+
+
+def test_playoff_overtime_without_goal_is_a_break() -> None:
+    d = SceneDirector(T)
+    d.set_game(True, T)
+    d.on_event(ev("period_start", period=4), T)
+    assert names(d.on_event(ev("period_end", period=4), T + 1_000)) == [
+        ("intermission", 1_000, None)
+    ]
+
+
+def test_disallowed_overtime_goal_resumes_the_game() -> None:
+    d = SceneDirector(T)
+    d.set_game(True, T)
+    d.on_event(ev("period_start", period=4), T)
+    d.on_event(ev("goal", "e9", period=4), T + 100)
+    out = d.on_event(ev("goal_disallowed", "e9-disallowed", period=4), T + 30_000)
+    # the goal's hold ran out first (postgame), then the review took the goal back
+    assert names(out) == [
+        ("postgame", 100 + GOAL_HOLD_MS, None),
+        ("live", 30_000, "goal_disallowed"),
+    ]
+    assert names(d.advance(T + 30_000 + 8_000)) == [("live", 38_000, None)]
