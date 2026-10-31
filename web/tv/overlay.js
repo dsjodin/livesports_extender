@@ -47,7 +47,7 @@ const el = (tag, cls) => {
 };
 const root = el("div", "tv");
 
-/** How much the boxes over the full picture cover it (menu: Inställningar). The TV blends
+/** How much the boxes over the full picture cover it, text and all (menu: Inställningar). The TV blends
  * them its own way: 90 % looked see-through, 100 % too solid (the user 2026-10-31); this
  * TV's choice stays in its browser storage. */
 const COVER = [0.97, 0.94, 0.9, 0.85, 0.8, 0.7, 0.6, 1];
@@ -59,8 +59,7 @@ try {
   /* no storage: the default */
 }
 function applyCover() {
-  root.style.setProperty("--ov-bg", `rgba(7, 10, 16, ${cover})`);
-  root.style.setProperty("--ov-bg-panel", `rgba(15, 20, 32, ${cover})`);
+  root.style.setProperty("--ov-cover", String(cover)); // the whole box, its text included
 }
 function nextCover() {
   cover = COVER[(COVER.indexOf(cover) + 1) % COVER.length];

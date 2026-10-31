@@ -203,7 +203,7 @@ its last frame is empty anyway (checked in Chromium for the defaults). They play
 Boxes over the full picture (penalty, power-play pill, goal, panels, menu): with a
 88–94 % background they looked see-through and hard to read on the S95HF, though a
 browser draws them nearly solid, and at 100 % too solid (the user 2026-10-31). The TV
-blends our layer over its picture its own way, so the cover is a choice in the menu
+blends our layer over its picture its own way, so the cover (the whole box, text included, as `filter: opacity()`) is a choice in the menu
 (Inställningar → "Rutor över bilden": 97 % by default, then 94, 90, 85, 80, 70, 60 and 100 %), kept in the TV
 browser's storage (`shllive.cover`); `--ov-bg` in `tv.css`.
 

@@ -5,10 +5,13 @@
    648×1000; band 40,728 1152×312. Over the full picture, the top left (the broadcaster's
    bug) and the bottom 8 % (its tickers) stay free. */
 html, body { margin: 0; background: transparent; overflow: hidden; color-scheme: normal; }
-/* Boxes over the TV picture are opaque: on the TV (S95HF) a 90 % background over the full
-   picture looked see-through and hard to read, although a browser draws it nearly solid
-   (the user 2026-10-31); the TV blends our layer with its picture its own way. */
-.tv { --ov-bg: #070A10; --ov-bg-panel: #0F1420; }
+/* Boxes over the TV picture: opaque backgrounds, and the whole box (text included) at the
+   cover the user picks (default 97 %): a 90 % background alone looked see-through and the
+   text did not fade with it, 100 % too solid (the user 2026-10-31). */
+.tv { --ov-bg: #070A10; --ov-bg-panel: #0F1420; --ov-cover: 0.97; }
+/* the cover (overlay.js, menu: Inställningar) fades a whole box, its text with it; as a
+   filter, so GSAP's opacity for coming and going stays its own */
+.tv-goal, .tv-pp-pill, .tv-banner, .tv-panel:not(.in-column), .tv-menu, .tv-sheet { filter: opacity(var(--ov-cover)); }
 .tv { position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden;
   font-family: var(--font-body); color: var(--text); font-size: var(--fs-text); line-height: 1.2;
   font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
