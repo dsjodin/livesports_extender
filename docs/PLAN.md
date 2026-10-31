@@ -496,3 +496,36 @@ Verified: other games and the live table by tests (a replay of 2026-10-17 with a
 other games in step); ticker, slides and videos in the browser (`/sim`). The live table
 only shows on a live evening (a replay of a past evening has no `league.tonight`), so on
 screen it is still to be seen on the first live evening.
+
+---
+
+## Phase 9: TV app on the Samsung TV (asked for by the user 2026-10-31)
+
+Our graphics drawn over the TV picture by an app on the Samsung TV (Tizen), built from
+the user's HDMI overlay demo in `SHLlive/`. Design and decisions: `docs/TV_APP.md`. The TV
+app replaces the wall for whoever has no wall; the wall stays supported.
+
+Tasks:
+
+1. **Probe build.** The shell from the demo plus a setup screen (server address), and a
+   probe page `/tv/probe.html` from the service in a transparent iframe that checks the
+   list in `docs/TV_APP.md` (To verify on the real TV first): transparency steps, HTTP and
+   WebSocket to the service, synced clock statistics, a VP9 alpha test video, L-frame
+   moves of the TV picture, a key log. The user installs it and reports; the answers go
+   into `docs/TV_APP.md`.
+2. **Service.** Screen id `tv` (state, scenes and play_at as for the other screens), the
+   TV's size and viewing distance in config, video kinds `tvgoal`, `tvintro`, `tvpp`,
+   CORS for `/tv/` and `/shared/` if the fallback is needed, a TV view in `/sim`.
+3. **Overlay page** `web/tv/`: scene modules for 16:9 (live overlays, goal, penalty and
+   power play, panels, L-frame for idle, pregame, intermission and postgame), window
+   requests to the shell at `play_at`, the 3 m pass with `tools/legibility.py`.
+4. **Remote and menu:** MÅL! keys, Synka, panels, menu with today's games, sync samples,
+   HDMI and server settings.
+5. **Videos** in 16:9 from `tools/make_stingers.py`; `docs/VIDEOS.md`.
+6. **Shell release:** `SHLlive/` becomes the real app (config.xml privileges and access,
+   icon, version), install steps in `docs/DEPLOY.md`.
+
+Acceptance: on the TV, a replayed game in step with `/sim` shows the goal celebration,
+penalties, panels on the remote and the L-frame in intermissions; puck-drop sync and MÅL!
+work from the remote; the app recovers by itself when the service or HDMI goes away and
+comes back.

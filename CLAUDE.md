@@ -15,6 +15,7 @@ Read these before working on a phase:
 - `docs/DEPLOY.md`: Docker host and display box installation.
 - `docs/SCREENS.md`: wall geometry, design tokens, scenes per screen, simulator and phone app.
 - `docs/VIDEOS.md`: team videos (goal, intro, power play): format and how to make your own.
+- `docs/TV_APP.md`: the Samsung TV app (Tizen): overlay on the HDMI picture, shell and remote.
 - `config/wall.json`: physical screen layout (single source of truth for geometry).
 
 ## Architecture
@@ -57,6 +58,8 @@ server/tests/          pytest; fixtures in server/tests/fixtures/
 web/screens/           left.html, bar.html, right.html + shared js/css
 web/sim/               simulator page
 web/app/               phone web app (PWA)
+web/tv/                overlay page for the Samsung TV app (Phase 9)
+SHLlive/               the Samsung TV app's shell (Tizen .wgt: HDMI, remote, settings)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
 web/media/             default team videos (goal/, intro/; own ones go in data/media/)
 config/wall.json       screen geometry
