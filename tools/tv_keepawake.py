@@ -42,9 +42,10 @@ def token_file() -> Path:
     return root / "tv_remote_token.txt"
 
 
-def url(tv: str, token: str | None) -> str:
+def url(tv: str, port: int, token: str | None) -> str:
     name = base64.b64encode(NAME.encode()).decode()
-    out = f"wss://{tv}:8002/api/v2/channels/samsung.remote.control?name={name}"
+    scheme = "ws" if port == 8001 else "wss"  # 8001: the older, unencrypted remote
+    out = f"{scheme}://{tv}:{port}/api/v2/channels/samsung.remote.control?name={name}"
     return out + (f"&token={token}" if token else "")
 
 
@@ -66,7 +67,7 @@ def stamp() -> str:
     return time.strftime("%H:%M:%S")
 
 
-async def run(tv: str, key: str, every: float, minutes: float) -> int:
+async def run(tv: str, port: int, key: str, every: float, minutes: float) -> int:
     tokens = token_file()
     token = tokens.read_text().strip() if tokens.exists() else None
     # the TV's certificate is its own, self-signed: no check (the LAN, our own TV)
@@ -74,11 +75,11 @@ async def run(tv: str, key: str, every: float, minutes: float) -> int:
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
     print(
-        f"{stamp()} connecting to {tv}:8002",
+        f"{stamp()} connecting to {tv}:{port}",
         "(with a saved token)" if token else "(answer Allow on the TV)",
     )
     async with websockets.connect(
-        url(tv, token), ssl=context, open_timeout=10, max_size=None
+        url(tv, port, token), ssl=context if port != 8001 else None, open_timeout=10, max_size=None
     ) as ws:
         while True:
             reply = json.loads(await asyncio.wait_for(ws.recv(), timeout=60))
@@ -94,8 +95,9 @@ async def run(tv: str, key: str, every: float, minutes: float) -> int:
                 # seen on the S95HF at once, with no question on screen (2026-10-31)
                 print(
                     f"{stamp()} the TV timed out without asking: leave the TV app (plain TV),",
-                    "run this again and answer Allow; or allow SHL Arena in the TV's Device",
-                    "Connection Manager (Device List)",
+                    "run this again and answer Allow. The TV's Device Connection Manager:",
+                    "Access Notification 'First time only' (with 'Off' it never asks and",
+                    "refuses), no denied SHL Arena in its Device List. Or try --port 8001",
                     file=sys.stderr,
                 )
                 return 1
@@ -123,17 +125,19 @@ def main() -> int:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument("tv", help="the TV's IP address")
+    parser.add_argument("--port", type=int, default=8002, help="8002 (wss, default) or 8001 (ws)")
     parser.add_argument("--key", default="KEY_RED", help="the key to send (default KEY_RED)")
     parser.add_argument("--every", type=float, default=60, help="seconds between keys (default 60)")
     parser.add_argument("--minutes", type=float, default=15, help="how long to go on (default 15)")
     args = parser.parse_args()
     try:
-        return asyncio.run(run(args.tv, args.key, args.every, args.minutes))
+        return asyncio.run(run(args.tv, args.port, args.key, args.every, args.minutes))
     except KeyboardInterrupt:
         return 0
     except (OSError, TimeoutError, websockets.WebSocketException) as err:
         print(
-            f"{stamp()} no contact with the TV's remote on {args.tv}:8002: {err!r}", file=sys.stderr
+            f"{stamp()} no contact with the TV's remote on {args.tv}:{args.port}: {err!r}",
+            file=sys.stderr,
         )
         return 1
 
