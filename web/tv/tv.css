@@ -166,12 +166,6 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 
 /* --- live: lower thirds and the power-play pill, over the full picture --------------------- */
 .tv-lower-slot { position: absolute; left: 100px; bottom: 130px; }
-.tv-penalty { display: flex; align-items: center; gap: 24px; padding: 22px 34px 22px 26px; background: var(--ov-bg);
-  border-left: 12px solid var(--c); border-radius: 12px; }
-.pc-logo { width: 96px; height: 96px; object-fit: contain; }
-.pc-body { display: flex; flex-direction: column; gap: 6px; }
-.pc-name { font: 800 60px/1 var(--font-condensed); }
-.pc-detail { font-size: var(--fs-text); color: var(--text-secondary); }
 .pc-pp { display: flex; align-items: center; gap: 12px; font: 800 var(--fs-text)/1 var(--font-condensed); color: var(--gold); margin-top: 4px; }
 .dot { width: 18px; height: 18px; border-radius: 50%; background: currentColor; display: inline-block; }
 .tv-banner { padding: 22px 40px; border-radius: 12px; font: 800 72px/1 var(--font-condensed); letter-spacing: 0.04em; }
@@ -193,7 +187,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 .gl-team { font: 800 var(--fs-text)/1 var(--font-condensed); letter-spacing: 0.06em; }
 .gl-portrait { position: absolute; left: 30px; bottom: 8px; height: 380px; width: 290px; object-fit: contain; object-position: bottom; z-index: 1; }
 .gl-body { position: absolute; left: 36px; right: 36px; top: 84px; bottom: 8px; display: flex; align-items: center; gap: 30px; }
-.gl-body.with-portrait { left: 350px; }
+.tv-goal:has(.gl-portrait) .gl-body { left: 350px; } /* a missing portrait removes itself, and the room with it */
 .gl-who { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
 .gl-first { font-size: var(--fs-text); color: var(--text-secondary); }
 .gl-last { font: 800 84px/0.95 var(--font-condensed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -203,6 +197,10 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 .gl-assist { font-size: var(--fs-floor); color: var(--text-secondary); }
 .gl-score { display: flex; align-items: center; gap: 20px; font: 800 104px/1 var(--font-condensed); flex: none; }
 .gl-logo { width: 84px; height: 84px; object-fit: contain; }
+/* the penalty's lower third (live.js) is the goal's in the penalty colour */
+.tv-goal.pen .gl-head { background: var(--penalty); color: #1A0507; }
+.tv-goal.pen .pc-pp { color: var(--gold); font: 800 var(--fs-text)/1 var(--font-condensed); }
+.gl-unit { font-size: 48px; margin-left: 10px; color: var(--text-secondary); }
 
 /* --- panels over the picture in play (panels.js) -------------------------------------------- */
 .tv-panel { position: absolute; right: 60px; top: 60px; bottom: 120px; width: 640px; box-sizing: border-box; padding: 30px 34px;

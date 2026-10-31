@@ -212,7 +212,7 @@ function otherSlides(tv) {
     slides.push(goalsSlide(tv, "MATCHEN"), penaltiesSlide(tv, "MATCHEN"));
   }
   const groupings = tv.league?.groupings ?? [];
-  if (tv.live_table) slides.push(tableSlide(tv.live_table, "OM MATCHERNA SLUTADE NU", groupings, true));
+  if (tv.live_table) slides.push(tableSlide(tv.live_table, "LIVETABELL", groupings, true));
   else if (tv.league?.standings?.length) slides.push(tableSlide(tv.league.standings, "TABELL", groupings, false));
   slides.push(...goalsElsewhere(others));
   return slides;

@@ -298,7 +298,7 @@ divided by the replay speed (`config.speed`). Before overtime the break is taken
   per team with save % and saves, power play goals/chances, penalty minutes). Assists
   are left out of the lists (the goal scene has them).
 - Right: "KVÄLLENS ANDRA MATCHER": RESULTAT (up to six games: logos, codes, score,
-  status); the live table "OM MATCHERNA SLUTADE NU" (or plain TABELL when no other game
+  status); the live table "LIVETABELL" (renamed by the user 2026-10-31) (or plain TABELL when no other game
   has started, see `docs/PROTOCOL.md`, live table): rank, movement arrow, logo, team,
   tonight's score, points; MÅLSKYTTAR (three games a slide, the last four goals each:
   "P2 14:17 LHF JUUSTOVAARA 3–2"). With no other games the right screen shows our goals

@@ -108,7 +108,7 @@ function goalies(tv) {
 
 export function tableSlide(tv) {
   const groupings = tv.league?.groupings ?? [];
-  if (tv.live_table) return html`${raw(head("SHL", "OM MATCHERNA SLUTADE NU"))}${raw(standingsTable(tv.live_table, groupings, { live: true }))}`;
+  if (tv.live_table) return html`${raw(head("SHL", "LIVETABELL"))}${raw(standingsTable(tv.live_table, groupings, { live: true }))}`;
   if (tv.league?.standings?.length) return html`${raw(head("SHL", "TABELL"))}${raw(standingsTable(tv.league.standings, groupings))}`;
   return null;
 }
