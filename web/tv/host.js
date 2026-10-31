@@ -97,8 +97,8 @@ export function placeWindow(rect) {
   });
 }
 
-/** The TV's volume ("volume", 0–100) or mute ("mute", true/false), or just how they stand
- * ("get"). Resolves with {ok, volume, muted, error?}; a shell older than 1.1.0 does not
+/** The TV's volume ("volume", 0–100), mute ("mute", true/false), one step "up" or "down"
+ * as the remote's keys (shell 1.2.0), or just how they stand ("get"). Resolves with {ok, volume, muted, error?}; a shell older than 1.1.0 does not
  * answer. Both act on the whole TV, the HDMI sound included. */
 export function audio(op, value) {
   if (mode === "browser") return Promise.resolve({ ok: false, error: "inget skal (webbläsare)" });

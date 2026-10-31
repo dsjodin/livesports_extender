@@ -228,6 +228,10 @@ For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
   the TV's own speakers, not on a soundbar over eARC. So the app cannot lower or mute the
   broadcast. That would go through Home Assistant, which already gets the goal webhook
   at `play_at` and can turn the soundbar down and back.
+- The remote's volume keys do reach the soundbar (the TV passes them on over HDMI-CEC).
+  So the shell (1.2.0) can also step the volume as those keys do (`setVolumeUp`,
+  `setVolumeDown`); the test page's "Ljud: volym 3 steg ner och upp (som fjärren)" shows
+  whether that reaches the soundbar too.
 - What the app does with sound is still open (the user has ideas, 2026-10-31).
 
 ## Screen saver

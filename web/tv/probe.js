@@ -19,6 +19,7 @@ const RECTS = {
 const RECT_NAMES = { full: "helbild", lframe: "L-ram", small: "liten bild" };
 const RECT_ORDER = ["lframe", "small", "full"];
 const QUESTIONS = {
+  volume_steps: "Sänktes soundbarens volym tre steg och kom sedan tillbaka?",
   sound_heard: "Hördes hornet (Web Audio)?",
   sound_hdmi: "Hördes TV-sändningens ljud samtidigt, och låg bilden kvar?",
   audio_heard: "Hördes hornet (<audio>)?",
@@ -31,7 +32,7 @@ const QUESTIONS = {
   hdmi_back: "Kom TV-bilden och ljudet tillbaka efter videon?",
   flash: "Blev bilden svart eller blinkade den när den flyttades?",
 };
-const REPEATABLE = ["webp", "video", "hdmi_back", "flash", "sound_heard", "sound_hdmi", "audio_heard", "volume", "mute_heard"];
+const REPEATABLE = ["volume_steps", "webp", "video", "hdmi_back", "flash", "sound_heard", "sound_hdmi", "audio_heard", "volume", "mute_heard"];
 
 const url = (path) => new URL(path, import.meta.url).href;
 const el = (tag, cls, text) => {
@@ -121,6 +122,7 @@ const MENU = [
   ["sound_el", "Ljud: horn via <audio> (kan bryta HDMI)"],
   ["sound_vol", "Ljud: sänk TV:ns volym en stund"],
   ["sound_mute", "Ljud: tysta TV:n och spela horn"],
+  ["sound_steps", "Ljud: volym 3 steg ner och upp (som fjärren)"],
   ["send", "Skicka rapport"],
   ["setup", "Inställningar"],
   ["hide", "Dölj testbilden"],
@@ -443,6 +445,31 @@ async function volumeTest() {
   send();
 }
 
+/** Three steps down, 3 s, three steps up, as the remote's volume keys (shell 1.2.0): the
+ * remote reaches the soundbar over HDMI-CEC; perhaps these do too. */
+async function stepsTest() {
+  const run = { down: [], up: [] };
+  report.sound.steps = run;
+  const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  for (let i = 0; i < 3; i++) {
+    run.down.push(await host.audio("down"));
+    await pause(400);
+  }
+  const first = run.down[0];
+  if (!first?.ok) {
+    set("sound", `Volymsteg: ${first?.error ?? "inget svar"}`, "bad");
+    return send();
+  }
+  set("sound", `Volym 3 steg ner (${first.volume} → ${run.down.at(-1).volume}), upp om 3 s`, "ask");
+  await pause(3000);
+  for (let i = 0; i < 3; i++) {
+    run.up.push(await host.audio("up"));
+    await pause(400);
+  }
+  askAgain("volume_steps");
+  send();
+}
+
 /** The TV muted, the horn through Web Audio, then the mute back as it was. */
 async function muteTest() {
   const run = {};
@@ -566,6 +593,7 @@ function run(id) {
   if (id === "sound_el") return playAudioElement();
   if (id === "sound_vol") return volumeTest();
   if (id === "sound_mute") return muteTest();
+  if (id === "sound_steps") return stepsTest();
   if (id === "send") return send(true);
   if (id === "setup") return host.openSetup();
   if (id === "graphics") return leave();

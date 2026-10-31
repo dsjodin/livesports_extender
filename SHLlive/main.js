@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '1.1.0';
+  const VERSION = '1.2.0';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -171,7 +171,8 @@
   }
 
   /** The overlay asks for the TV's volume or mute (Tizen tvaudiocontrol, privilege
-   * tv.audio; 1.1.0, for the sound tests of 2026-10-31). Both act on the whole TV. */
+   * tv.audio; 1.1.0, for the sound tests of 2026-10-31): set, mute, or one step up or down
+   * as the remote's keys (1.2.0: setVolume and setMute did not reach an eARC soundbar). */
   function audioControl(m) {
     const reply = function (extra) {
       toOverlay(Object.assign({ t: 'audio_done', id: m.id, ok: true }, extra));
@@ -181,6 +182,9 @@
     try {
       if (m.op === 'volume') a.setVolume(Math.max(0, Math.min(100, Math.round(m.value))));
       else if (m.op === 'mute') a.setMute(!!m.value);
+      // one step, as the remote's volume key: perhaps passed on to a soundbar over HDMI-CEC
+      else if (m.op === 'up') a.setVolumeUp();
+      else if (m.op === 'down') a.setVolumeDown();
       reply({ volume: a.getVolume(), muted: a.isMute() });
     } catch (err) {
       reply({ ok: false, error: String(err.message || err) });
