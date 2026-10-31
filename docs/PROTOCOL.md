@@ -120,15 +120,20 @@ goals excluded) and has `pulled`. `shots` skips coordinates outside 0–300 dm. 
 ### League block
 
 `league` holds what the pregame and idle scenes show. It is fetched (standings cached
-1 h, schedule 1 h) only while the applied phase is `idle` or `pregame` and every 10 min
-then, so tonight's results cannot reach a screen during or after the game; it stays as it
-was from puck drop on.
+1 h, schedule 1 h) every 10 min, but only while the applied phase is `idle` or `pregame`,
+or once the game is over on TV (the postgame hold has passed, the scene is `idle`) and
+no other game of the evening is still being played on TV time. So tonight's results
+cannot reach a screen early, and the morning after, the next game, the standings and
+"tonight" move on (fixed 2026-10-23: they used to stay on the evening before). It is
+refreshed at once when it opens again.
 
 ```json
 {"updated_ms": 1792567865804,
  "standings": [{"rank": 1, "uuid": "752c-752c12zB7Z", "code": "FBK", "short": "Färjestad",
                 "gp": 10, "w": 8, "l": 0, "otw": 1, "otl": 1, "points": 27, "gf": 40, "ga": 11,
-                "diff": 29, "logo": "/assets/teams/752c-752c12zB7Z.svg"}, "..."],
+                "diff": 29, "zone": "playoff", "logo": "/assets/teams/752c-752c12zB7Z.svg"}, "..."],
+ "groupings": [{"zone": "playoff", "first": 1, "last": 6}, {"zone": "playin", "first": 7, "last": 10},
+               {"zone": "out", "first": 11, "last": 12}, {"zone": "qualdown", "first": 13, "last": 14}],
  "teams": {"home": {"rank": 2, "points": 25, "gp": 11, "diff": 14, "gf_per_game": 3.5,
                     "ga_per_game": 2.2,
                     "form": [{"uuid": "mtn5yq64mp", "date": "2026-10-20", "result": "V",
@@ -157,6 +162,8 @@ was from puck drop on.
 `result` is `V` (won) or `F` (lost) from that team's view, `home_away` `H` or `B`; the
 score is always home–away of that game.
 
+`zone` (each standings row, and each `live_table` row by its new place) and `groupings`
+come from SHL's standings groupings; an unknown grouping is logged and kept raw.
 `leaders` (Phase 8, pregame slides): the team's top three this season by points and by
 goals, from shl.se's statistics (cached 1 h per team, fetched like the rest of the block
 only before puck drop); missing when shl.se has none. `head_to_head`: the two teams' last
@@ -210,7 +217,7 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
  "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false,
-            "feed_ok": true}}
+            "feed_ok": true, "idle_dim": 0.5}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -251,6 +258,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   game, with a poll a minute, 3 min). Replays and recordings are always true. It is
   sent at once, not at a `play_at` (it is about the connection, not the game), and is
   also in `status`. The bar shows it as a red dot (`docs/SCREENS.md`, Feed warning).
+- `idle_dim` (0–0.9) is how much darker the screens are in the `idle` scene: a black layer
+  of that opacity (`docs/SCREENS.md`, Idle dimming). Set in the phone app; also in `status`.
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
   a second: source mode, uuid, speed, running, paused, replay position (`feed_ms`), error,
   selected game, my side (`my_side`, and `my_side_choice` as set), profile, offset,
@@ -261,6 +270,11 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   `debug_subscribe` (CLAUDE.md rule 1): first `{"t": "raw_backlog", "raw": [...],
   "released": [...]}`, then `{"t": "raw", "entry": {"change", "key", "type", "label",
   "event_ms", "first_seen_ms", "received_ms", "at_ms"}}` per change.
+- The same subscribers get the DelayQueue about once a second (it spoils the TV too):
+  `{"t": "queue", "queue": {"now_ms", "offset_ms", "held": [...], "released": [...]}}`,
+  each row `{"key", "label", "event_ms", "received_ms", "play_at_ms", "late",
+  "late_by_ms"}`. `held`: events waiting for their `play_at`, soonest first (up to 25);
+  `released`: the last released, newest first (up to 25). `key` is the raw events' key.
 
 ### Client to server
 
@@ -278,6 +292,11 @@ offset of the 5 samples with the lowest RTT.
 
 All under `/api`. JSON in and out. No authentication (LAN only; put a reverse proxy with
 auth in front if it is ever exposed).
+
+Cross-origin reads (CORS) are allowed for one origin only: `null` (and `file://`,
+`app://`), which is what the Samsung TV app's shell has on the TV. It needs them in its
+fallback mode, where it imports `/tv/tv.js` into itself (`docs/TV_APP.md`). Pages served by
+the service are same-origin and need none; other websites get no CORS headers.
 
 | Method and path | Body / query | Purpose |
 |---|---|---|
@@ -297,6 +316,9 @@ auth in front if it is ever exposed).
 | `POST /api/calibrate/goal-button` | `{"enabled": true}` | "Använd målknapp för synk": a linked MÅL! press is a `goal` sample |
 | `DELETE /api/calibrate` | | Clear samples |
 | `DELETE /api/calibrate/{id}` | | Remove one sample |
+| `POST /api/idle-dim` | `{"level": 0.5}` | "Dimning i vila": how much darker the screens are while idle, 0–0.9 (422 outside) |
+| `POST /api/tv/probe` | the test report (JSON, at most 64 kB) | The TV app's test page reports what works on the TV (`docs/TV_APP.md`); kept in `data/tv_probe.json` |
+| `GET /api/tv/probe` | | The latest report, `{"received_ms", "report"}`, or 404 |
 | `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag": follow my team's game of the day live when nothing else runs (checked every 10 min) |
 | `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |

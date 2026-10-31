@@ -225,7 +225,7 @@ def _live_table(
             )
     if not games:
         return None
-    return league_engine.live_table(league["standings"], games)
+    return league_engine.live_table(league["standings"], games, league.get("groupings"))
 
 
 def diff(old: dict[str, Any], new: dict[str, Any]) -> dict[str, Any]:

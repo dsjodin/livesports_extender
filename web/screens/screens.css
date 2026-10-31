@@ -382,6 +382,8 @@ body.bar .banner-overlay { bottom: 98px; }
    top of the bar's centre, about 12 mm; nothing while all is well */
 #feed-dot { position: absolute; left: 50%; top: 16px; width: 34px; height: 34px; margin-left: -17px; border-radius: 50%;
   background: #ff2d3a; box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); z-index: 60; opacity: 0; pointer-events: none; }
+/* idle dimming (config idle_dim): above the scene, videos and fx, below the feed dot */
+#dim { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 55; pointer-events: none; }
 #feed-dot.on { animation: feed-pulse 1.4s ease-in-out infinite; }
 @keyframes feed-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
 
@@ -422,3 +424,30 @@ body.bar .banner-overlay { bottom: 98px; }
 .scene-pregame .row3 { padding: 8px 34px 8px 50px; }
 .scene-pregame .r3-meta { margin-top: 2px; }
 .pre-page .slides { margin-bottom: 8px; }
+
+/* standings zones (common.js standingsTable): edge per zone, heavier line where one ends */
+.t3-row { position: relative; }
+.t3-row.zone-playoff, .t3-row.zone-playin, .t3-row.zone-qualdown { box-shadow: inset 12px 0 0 var(--zc); padding-left: 22px; }
+.zone-playoff { --zc: var(--zone-playoff); }
+.zone-playin { --zc: var(--zone-playin); }
+.zone-qualdown { --zc: var(--zone-qualdown); }
+.t3-row.zone-end { border-bottom: 5px solid var(--text-muted); }
+.t3-row.mine .t3-team { color: var(--gold); }
+.zone-legend { display: flex; justify-content: center; gap: 36px; margin-top: 18px; font-family: var(--font-condensed); font-weight: 700;
+  font-size: var(--fs-floor); letter-spacing: 0.04em; color: var(--text-secondary); }
+.zl { display: flex; align-items: center; gap: 12px; }
+.zl i { width: 22px; height: 44px; border-radius: 4px; background: var(--zc); }
+.idle-page { padding: 56px 60px 50px; gap: 30px; }
+.idle-page .label { font-size: var(--fs-floor); font-weight: 700; letter-spacing: 0.08em; }
+.idle-page .slide-title { font-size: 120px; }
+.table3 .t3-row { padding-left: 22px; }
+.zone-legend { white-space: nowrap; margin-top: 12px; gap: 44px; }
+.scene-intermission .table3 .t3-row { font-size: 58px; padding-top: 3px; padding-bottom: 3px; }
+/* idle, right: tonight's games or the latest results at 3 m */
+.ig-row { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 20px; background: var(--panel); border-radius: 22px;
+  padding: 16px 30px; font-family: var(--font-condensed); }
+.ig-when { font-size: var(--fs-floor); font-weight: 700; color: var(--text-secondary); }
+.ig-teams { display: flex; align-items: center; gap: 16px; font-size: 72px; font-weight: 800; line-height: 1; }
+.ig-teams .logo3 { width: 70px; height: 70px; }
+.ig-res { font-size: 80px; font-weight: 800; line-height: 1; }
+.ig-res small { font-size: var(--fs-floor); color: var(--text-secondary); font-weight: 700; }

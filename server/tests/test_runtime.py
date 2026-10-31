@@ -437,3 +437,78 @@ async def test_lost_contact_goes_out_as_feed_ok(setup: Any) -> None:
     rt.source = None
     rt._check_feed()
     assert rt.feed_ok  # a replay or no source: never lost
+
+
+async def test_queue_view_shows_held_and_released(setup: Any) -> None:
+    rt, hub, clock = setup  # offset 80 s
+    on_ice = T + 10 * S
+    await at(clock, rt, on_ice + 48 * S)
+    feed(rt, clock, [goal(7, on_ice, 1, 0), period(T)])
+    view = rt.queue_view(clock.now_ms())
+    [held] = [r for r in view["held"] if r["key"] == "e7"]
+    assert held["play_at_ms"] == on_ice + 80 * S and not held["late"]
+    assert held["event_ms"] == on_ice and held["received_ms"] == on_ice + 48 * S
+    assert held["label"] and view["offset_ms"] == 80 * S
+    assert all(r["key"] != "e7" for r in view["released"])
+    await at(clock, rt, on_ice + 80 * S + 500)
+    view = rt.queue_view(clock.now_ms())
+    assert all(r["key"] != "e7" for r in view["held"])
+    assert view["released"][0]["key"] == "e7"
+    # only for raw subscribers: it spoils the TV
+    assert not any(m["t"] == "queue" for m in hub.messages)
+
+
+def test_league_opens_again_after_the_game(setup: Any, monkeypatch: pytest.MonkeyPatch) -> None:
+    rt, _, _ = setup
+    rt.applied["phase"], rt.applied["scene"] = "pregame", {"name": "pregame"}
+    assert rt.league_open()  # before puck drop
+    rt.applied["phase"], rt.applied["scene"] = "live", {"name": "live"}
+    assert not rt.league_open()  # tonight's results must not leak
+    rt.applied["phase"], rt.applied["scene"] = "postgame", {"name": "postgame"}
+    assert not rt.league_open()  # the final score is on screen, the hold is running
+    rt.applied["scene"] = {"name": "idle"}  # the hold is over: next morning, say
+    assert rt.league_open()
+    # but not while another game of the evening is still being played on TV time
+    playing = {"ended": False, "phase": "live"}
+    monkeypatch.setattr(rt.others, "summaries", lambda: [playing])
+    assert not rt.league_open()
+    playing["ended"] = True
+    assert rt.league_open()
+
+
+async def test_league_refreshes_as_soon_as_it_opens(setup: Any) -> None:
+    from app.feed.client import ShlError
+
+    rt, _, clock = setup
+    calls: list[int] = []
+
+    class League:
+        async def snapshot(self) -> Any:
+            calls.append(clock.now_ms())
+            raise ShlError("offline in this test")  # refresh_league stops here
+
+    rt.league = League()
+    rt.applied["phase"], rt.applied["scene"] = "live", {"name": "live"}
+    task = asyncio.get_running_loop().create_task(rt._league_loop())
+
+    async def run(ms: int) -> None:  # let the loop run between small steps of the clock
+        for _ in range(ms // 10_000):
+            for _ in range(3):
+                await asyncio.sleep(0)
+            await clock.advance(10_000)
+        for _ in range(3):
+            await asyncio.sleep(0)
+
+    try:
+        await run(5 * 60_000)
+        assert calls == []  # closed during the game
+        rt.applied["phase"], rt.applied["scene"] = "postgame", {"name": "idle"}
+        opened = clock.now_ms()
+        await run(60_000)
+        assert len(calls) == 1 and calls[0] - opened <= 30_000  # at once, not in 10 min
+        await run(9 * 60_000)
+        assert len(calls) == 1
+        await run(2 * 60_000)
+        assert len(calls) == 2  # then every 10 min
+    finally:
+        task.cancel()

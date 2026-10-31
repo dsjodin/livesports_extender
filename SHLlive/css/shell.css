@@ -1,0 +1,41 @@
+/* The shell's own screens (start, settings, diagnostics), 1920×1080, sized for 77" at 4 m.
+   The page stays transparent: the TV picture (HDMI) lies behind it. */
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: transparent !important; }
+body { color: #F2F4F8; font-family: Arial, sans-serif; font-size: 32px; }
+#stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.hidden { display: none !important; }
+
+/* on a computer: a striped stand-in for the TV picture, where the overlay asked for it */
+#preview-video { display: none; position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; box-sizing: border-box;
+  background: repeating-linear-gradient(135deg, #233748 0, #233748 80px, #344c5d 80px, #344c5d 160px); }
+#preview-video span { position: absolute; left: 0; right: 0; top: 46%; text-align: center; font-size: 28px; color: #c7d6e2; }
+body.preview #preview-video { display: block; }
+body.preview { background: #05080c !important; }
+
+#overlay { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; border: 0; background: transparent;
+  pointer-events: none; }
+
+#status { position: absolute; right: 60px; bottom: 60px; display: flex; align-items: center; gap: 28px;
+  max-width: 1300px; padding: 22px 30px; background: rgba(7, 10, 16, 0.88); border-left: 8px solid #F5C542; border-radius: 12px; }
+#status img { width: 120px; height: 120px; border-radius: 10px; }
+#status-text { font-size: 36px; font-weight: 700; }
+#status-hint { font-size: 28px; color: #C9D0DD; }
+#status > div { flex: 1; }
+
+#setup { position: absolute; left: 50%; top: 50%; width: 1100px; margin-left: -550px; transform: translateY(-50%);
+  padding: 40px 50px; background: rgba(7, 10, 16, 0.94); border-left: 8px solid #F5C542; border-radius: 14px; }
+#setup h1 { margin: 0 0 30px; font-size: 48px; }
+.field { display: flex; align-items: center; gap: 24px; padding: 14px 20px; margin: 8px 0; border: 4px solid transparent; border-radius: 10px; }
+.field label { width: 200px; color: #C9D0DD; }
+.field.focus { border-color: #F5C542; background: rgba(245, 197, 66, 0.1); }
+.field input { flex: 1; font-size: 36px; padding: 10px 14px; color: #F2F4F8; background: #1A2130; border: 2px solid #4A5366; border-radius: 8px; }
+.choice { font-size: 36px; font-weight: 700; }
+.choice::before { content: "‹  "; color: #F5C542; }
+.choice::after { content: "  ›"; color: #F5C542; }
+.field.button { justify-content: center; margin-top: 20px; background: #1A2130; font-size: 38px; font-weight: 700; }
+.field.button.focus { background: #F5C542; color: #1A1405; }
+.hint { font-size: 28px; color: #A3ACBE; margin: 18px 0 0; }
+#setup-error { color: #FF8A8F; }
+
+#diag { position: absolute; left: 60px; right: 60px; bottom: 220px; padding: 18px 24px; background: rgba(5, 12, 20, 0.9); border-radius: 10px; }
+#log { margin: 0; white-space: pre-wrap; overflow-wrap: break-word; font-size: 26px; line-height: 1.35; }

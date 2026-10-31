@@ -2,32 +2,38 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SHLlive HDMI-test</title>
-  <link rel="stylesheet" href="css/overlay-test.css">
+  <meta name="viewport" content="width=1920">
+  <title>SHL live!</title>
+  <link rel="stylesheet" href="css/shell.css">
+  <!-- Samsung's TV APIs (model name); missing on a computer, which is fine -->
+  <script src="$WEBAPIS/webapis/webapis.js"></script>
   <script defer src="main.js"></script>
 </head>
 <body>
-  <div id="preview-label">FÖRHANDSVISNING PÅ DATOR · INGEN HDMI-BILD</div>
-  <section id="overlay">
-    <div class="eyebrow">SHL LIVE · OVERLAYTEST · DEMODATA</div>
-    <div class="score">HEMMA <strong>2 – 1</strong> BORTA</div>
-    <div>Period 2 · 12:34</div>
-  </section>
-  <section id="alpha-test">
-    <div class="alpha-title">VIT GRAFIK · OPACITET</div>
-    <div class="alpha">
-      <div><label>0 %</label><span></span></div>
-      <div><label>25 %</label><span></span></div>
-      <div><label>50 %</label><span></span></div>
-      <div><label>75 %</label><span></span></div>
-      <div><label>100 %</label><span></span></div>
-    </div>
-  </section>
-  <section id="diagnostics">
-    <h1>HDMI-test <span id="source">Ingen källa vald</span></h1>
-    <p>← / → Välj HDMI · OK Visa/dölj overlay · ↑ Visa/dölj denna ruta · ↓ Sök igen · Back Avsluta</p>
-    <pre id="log" aria-live="polite"></pre>
-  </section>
+  <div id="stage">
+    <div id="preview-video"><span>FÖRHANDSVISNING · HÄR LIGGER TV-BILDEN</span></div>
+    <iframe id="overlay" class="hidden" title="SHL live!" allowtransparency="true" tabindex="-1"></iframe>
+
+    <section id="status">
+      <img src="SHL live! på mörk bakgrund.png" alt="SHL live!">
+      <div id="status-text">Startar…</div>
+      <div id="status-hint"></div>
+    </section>
+
+    <section id="setup" class="hidden">
+      <h1>SHL live! · Inställningar</h1>
+      <div class="field" data-field="server">
+        <label for="server">Server</label>
+        <input id="server" type="text" inputmode="url" placeholder="192.168.1.20:8010" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="field" data-field="hdmi"><label>HDMI</label><span class="choice" id="hdmi"></span></div>
+      <div class="field" data-field="mode"><label>Läge</label><span class="choice" id="mode"></span></div>
+      <div class="field button" data-field="connect"><span>Anslut</span></div>
+      <p class="hint">↑ ↓ välj · ← → ändra · OK skriv eller anslut · Back tillbaka</p>
+      <p class="hint" id="setup-error"></p>
+    </section>
+
+    <section id="diag" class="hidden"><pre id="log" aria-live="polite"></pre></section>
+  </div>
 </body>
 </html>

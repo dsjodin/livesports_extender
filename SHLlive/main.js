@@ -1,126 +1,362 @@
+// SHL live! shell for the Samsung TV (docs/TV_APP.md). It shows the HDMI picture (the
+// Telia box) behind its transparent page, registers the remote's keys and loads the
+// overlay from the SHL Arena service on the LAN: in an iframe (/tv/), or, in the fallback
+// mode, by importing /tv/tv.js into this page. The overlay never calls Tizen itself; it
+// asks the shell over postMessage ({to: "shell"}) and gets keys back ({to: "overlay"}).
+// On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  var sources = [], index = -1, busy = false, lines = [], operation = 0, timer;
-  var api = window.tizen;
-  var realTV = !!(api && api.tvwindow && api.systeminfo);
+  const VERSION = '0.3.0';
+  const W = 1920, H = 1080;
+  const STORE = 'shllive.settings';
+  const api = window.tizen;
+  const realTV = !!(api && api.tvwindow && api.systeminfo);
+  const $ = (id) => document.getElementById(id);
 
+  // remote key codes (after registerKey) and the computer's stand-ins
+  const KEYS = {
+    13: 'ok', 37: 'left', 38: 'up', 39: 'right', 40: 'down', 10009: 'back', 27: 'back', 8: 'back',
+    403: 'red', 404: 'green', 405: 'yellow', 406: 'blue', 10252: 'playpause', 415: 'play', 19: 'pause',
+    82: 'red', 71: 'green', 89: 'yellow', 66: 'blue', 32: 'playpause',
+  };
+  for (let d = 0; d <= 9; d++) { KEYS[48 + d] = String(d); KEYS[96 + d] = String(d); }
+  const REGISTER = ['ColorF0Red', 'ColorF1Green', 'ColorF2Yellow', 'ColorF3Blue', 'MediaPlayPause',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const IME_DONE = 65376, IME_CANCEL = 65385;
+
+  let settings = loadSettings();
+  let lines = [];
+  let base = null;           // http://host:port of the service
+  let overlayReady = false;
+  let retryTimer = null;
+  let readyTimer = null;
+  const iframe = $('overlay');
+
+  // ---- small helpers --------------------------------------------------------------------
+
+  function loadSettings() {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (err) { saved = {}; }
+    return { server: saved.server || '', hdmi: Number(saved.hdmi) || 1, mode: saved.mode === 'direct' ? 'direct' : 'iframe' };
+  }
+  function saveSettings() {
+    try { localStorage.setItem(STORE, JSON.stringify(settings)); } catch (err) { log('Kunde inte spara inställningar: ' + err); }
+  }
   function log(message) {
     lines.push(message);
-    if (lines.length > 8) lines.shift();
-    document.getElementById('log').textContent = lines.join('\n');
-    console.log(message);
+    if (lines.length > 10) lines.shift();
+    $('log').textContent = lines.join('\n');
+    console.log('[shell] ' + message);
   }
-  function error(where, err) {
-    document.getElementById('diagnostics').classList.remove('hidden');
-    log(where + ': ' + (err.name || 'Error') + ' – ' + (err.message || String(err)));
+  function status(text, hint) {
+    $('status').classList.remove('hidden');
+    $('status-text').textContent = text;
+    $('status-hint').textContent = hint || '';
   }
-  function start() {
-    busy = true;
-    var token = ++operation;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      if (token !== operation) return;
-      operation++;
-      busy = false;
-      error('Timeout', {message: 'Inget svar inom 10 s. Tryck ↓ för att försöka igen.'});
+  function fit() {
+    const scale = Math.min(window.innerWidth / W, window.innerHeight / H);
+    $('stage').style.transform = 'scale(' + scale + ')';
+  }
+  function serverBase(server) {
+    const s = server.trim().replace(/\/+$/, '');
+    return /^https?:\/\//.test(s) ? s : 'http://' + s;
+  }
+
+  // ---- HDMI (from the demo) ----------------------------------------------------------------
+
+  const tv = { sources: [], index: -1, busy: false, op: 0, timer: null, shown: false, rect: null };
+  let source = { hdmi: settings.hdmi, ok: false, error: realTV ? 'söker' : 'ingen HDMI på dator' };
+
+  function setSource(next) {
+    source = Object.assign({ hdmi: settings.hdmi }, next);
+    toOverlay({ t: 'source', hdmi: source.hdmi, ok: source.ok, error: source.error || null });
+  }
+  function begin() {
+    tv.busy = true;
+    const token = ++tv.op;
+    clearTimeout(tv.timer);
+    tv.timer = setTimeout(function () {
+      if (token !== tv.op) return;
+      tv.op++;
+      tv.busy = false;
+      log('HDMI: inget svar inom 10 s');
+      setSource({ ok: false, error: 'inget svar inom 10 s' });
     }, 10000);
     return token;
   }
   function done(token) {
-    if (token !== operation) return false;
-    clearTimeout(timer);
-    busy = false;
+    if (token !== tv.op) return false;
+    clearTimeout(tv.timer);
+    tv.busy = false;
     return true;
   }
   function fail(token, where, err) {
-    if (done(token)) error(where, err);
+    if (!done(token)) return;
+    const text = where + ': ' + (err.name || 'Error') + ' – ' + (err.message || String(err));
+    log(text);
+    setSource({ ok: false, error: text });
   }
-  function show(token) {
-    if (token !== operation || document.hidden) return;
+  function percent(rect) {
+    if (!rect) return ['0%', '0%', '100%', '100%'];
+    return [rect[0] / W, rect[1] / H, rect[2] / W, rect[3] / H].map(function (v) { return (v * 100).toFixed(3) + '%'; });
+  }
+  function showWindow(token) {
+    if (token !== tv.op || document.hidden) return;
     try {
       api.tvwindow.show(function () {
         if (!done(token)) return;
-        log('show(BEHIND) OK. Kontrollera att HDMI-bild och ljud faktiskt fungerar.');
-      }, function (err) { fail(token, 'show(BEHIND)', err); },
-      ['0%', '0%', '100%', '100%'], 'MAIN', 'BEHIND');
-    } catch (err) { fail(token, 'show(BEHIND)', err); }
+        tv.shown = true;
+        log('HDMI ' + source.hdmi + ' visas');
+        setSource({ ok: true });
+      }, function (err) { fail(token, 'show', err); }, percent(tv.rect), 'MAIN', 'BEHIND');
+    } catch (err) { fail(token, 'show', err); }
   }
-  function select(next) {
-    if (busy || !sources.length) return;
-    var selected = (next + sources.length) % sources.length;
-    var source = sources[selected];
-    var token = start();
-    log('Väljer HDMI ' + source.number + '…');
+  function select(i) {
+    if (tv.busy || !tv.sources.length) return;
+    const chosen = (i + tv.sources.length) % tv.sources.length;
+    const s = tv.sources[chosen];
+    const token = begin();
+    log('Väljer HDMI ' + s.number + '…');
     try {
-      api.tvwindow.setSource(source, function () {
-        if (token !== operation) return;
-        index = selected;
-        document.getElementById('source').textContent = 'HDMI ' + source.number;
-        log('setSource OK');
-        show(token);
+      api.tvwindow.setSource(s, function () {
+        if (token !== tv.op) return;
+        tv.index = chosen;
+        source.hdmi = Number(s.number);
+        showWindow(token);
       }, function (err) { fail(token, 'setSource', err); }, 'MAIN');
     } catch (err) { fail(token, 'setSource', err); }
   }
   function scan() {
-    if (!realTV) { log('Datorläge: HDMI kan bara testas på TV:n.'); return; }
-    if (busy) return;
-    var token = start();
-    log('Söker bildkällor…');
+    if (!realTV || tv.busy) return;
+    const token = begin();
+    tv.shown = false;
     try {
       api.systeminfo.getPropertyValue('VIDEOSOURCE', function (result) {
         if (!done(token)) return;
-        sources = (result.connected || []).filter(function (s) { return s.type === 'HDMI'; });
-        index = -1;
-        document.getElementById('source').textContent = 'Ingen källa vald';
-        log('Rapporterade källor: ' + (result.connected || []).map(function (s) {
-          return s.type + ' ' + s.number;
-        }).join(', '));
-        if (!sources.length) { log('Ingen HDMI hittades. Slå på boxen och tryck ↓ för att söka igen.'); return; }
-        var chosen = -1;
-        sources.forEach(function (s, i) {
-          if (Number(s.number) === 1) chosen = i;
-        });
-        if (chosen < 0) {
-          log('HDMI 1 hittades inte. Slå på Telia-boxen och tryck ↓, eller välj annan HDMI med ← / →.');
+        const connected = result.connected || [];
+        tv.sources = connected.filter(function (s) { return s.type === 'HDMI'; });
+        log('Källor: ' + connected.map(function (s) { return s.type + ' ' + s.number; }).join(', '));
+        const i = tv.sources.findIndex(function (s) { return Number(s.number) === settings.hdmi; });
+        if (i < 0) {
+          setSource({ ok: false, error: 'HDMI ' + settings.hdmi + ' hittades inte, är boxen på?' });
           return;
         }
-        select(chosen);
+        select(i);
       }, function (err) { fail(token, 'VIDEOSOURCE', err); });
     } catch (err) { fail(token, 'VIDEOSOURCE', err); }
   }
-  function exit() {
-    operation++;
-    clearTimeout(timer);
-    if (!realTV) { log('På TV:n avslutar Back appen.'); return; }
-    try { api.application.getCurrentApplication().exit(); }
-    catch (err) { error('exit', err); }
+
+  /** The overlay asks to move the TV picture; answer when it has moved. */
+  function placeWindow(rect, id) {
+    tv.rect = rect || null;
+    const t0 = performance.now();
+    const reply = function (ok, error) {
+      toOverlay({ t: 'window_done', id: id, ok: ok, ms: performance.now() - t0, error: error || null, preview: !realTV });
+    };
+    if (!realTV) {
+      const r = rect || [0, 0, W, H];
+      const box = $('preview-video').style;
+      box.left = r[0] + 'px'; box.top = r[1] + 'px'; box.width = r[2] + 'px'; box.height = r[3] + 'px';
+      return reply(true);
+    }
+    if (!tv.shown) return reply(false, 'ingen HDMI-bild visas ännu');
+    try {
+      api.tvwindow.show(function () { reply(true); }, function (err) {
+        reply(false, (err.name || 'Error') + ' – ' + (err.message || String(err)));
+      }, percent(tv.rect), 'MAIN', 'BEHIND');
+    } catch (err) { reply(false, String(err)); }
   }
+
+  // ---- the overlay -----------------------------------------------------------------------
+
+  function info() {
+    const out = { t: 'info', version: VERSION, tv: realTV, mode: settings.mode, hdmi: source.hdmi, server: base,
+      source: { hdmi: source.hdmi, ok: source.ok, error: source.error || null } };
+    try { out.platform = api.systeminfo.getCapability('http://tizen.org/feature/platform.version'); } catch (err) { /* computer */ }
+    try { out.model = window.webapis.productinfo.getModel(); } catch (err) { /* computer or no webapis */ }
+    try { out.firmware = window.webapis.productinfo.getFirmware(); } catch (err) { /* computer or no webapis */ }
+    return out;
+  }
+  function toOverlay(message) {
+    message.to = 'overlay';
+    if (settings.mode === 'direct') window.postMessage(message, '*');
+    else if (overlayOrigin() && iframe.contentWindow) iframe.contentWindow.postMessage(message, overlayOrigin());
+  }
+  function overlayOrigin() {
+    try { return base ? new URL(base).origin : null; } catch (err) { return null; }
+  }
+
+  window.addEventListener('message', function (event) {
+    const m = event.data;
+    if (!m || m.to !== 'shell') return;
+    if (settings.mode === 'direct' ? event.source !== window
+      : event.source !== iframe.contentWindow || event.origin !== overlayOrigin()) return;
+    if (m.t === 'hello') toOverlay(info());
+    else if (m.t === 'ready') {
+      overlayReady = true;
+      clearTimeout(readyTimer);
+      $('status').classList.add('hidden');
+      $('diag').classList.add('hidden');
+    } else if (m.t === 'window') placeWindow(m.rect, m.id);
+    else if (m.t === 'exit') exit();
+    else if (m.t === 'setup') openSetup();
+  });
+
+  function connect() {
+    clearTimeout(retryTimer);
+    if (!settings.server) { openSetup(); return; }
+    base = serverBase(settings.server);
+    status('Ansluter till ' + settings.server + '…', 'OK: inställningar');
+    const controller = 'AbortController' in window ? new AbortController() : null;
+    const timeout = setTimeout(function () { if (controller) controller.abort(); }, 5000);
+    fetch(base + '/api/health', { cache: 'no-store', signal: controller ? controller.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (body) {
+        clearTimeout(timeout);
+        log('Servern svarar, version ' + body.version);
+        loadOverlay();
+      })
+      .catch(function (err) {
+        clearTimeout(timeout);
+        log('Ingen kontakt med ' + base + ': ' + err);
+        status('Ingen kontakt med ' + settings.server, 'Försöker igen om 5 s · OK: inställningar · Back: avsluta');
+        retryTimer = setTimeout(connect, 5000);
+      });
+  }
+
+  function loadOverlay() {
+    status('Laddar grafiken från servern…', settings.mode === 'direct' ? 'Läge: direkt' : 'Läge: iframe');
+    if (settings.mode === 'direct') {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = base + '/tv/tv.js';
+      script.onerror = function () { status('Kunde inte ladda ' + script.src, 'Prova läge iframe · OK: inställningar'); };
+      document.body.appendChild(script);
+    } else {
+      iframe.src = base + '/tv/';
+      iframe.classList.remove('hidden');
+    }
+    readyTimer = setTimeout(function () {
+      if (!overlayReady) status('Grafiken startar inte', 'Prova det andra läget · OK: inställningar · Back: avsluta');
+    }, 15000);
+  }
+
+  function exit() {
+    tv.op++;
+    clearTimeout(tv.timer);
+    if (!realTV) { log('På TV:n avslutar detta appen.'); return; }
+    try { api.application.getCurrentApplication().exit(); } catch (err) { log('exit: ' + err); }
+  }
+
+  // ---- settings screen ------------------------------------------------------------------
+
+  const FIELDS = ['server', 'hdmi', 'mode', 'connect'];
+  const MODES = { iframe: 'Iframe', direct: 'Direkt (reserv)' };
+  let focus = 0;
+  let draft = null;
+
+  function openSetup() {
+    draft = Object.assign({}, settings);
+    $('server').value = draft.server;
+    focus = draft.server ? FIELDS.indexOf('connect') : 0;
+    $('setup-error').textContent = '';
+    renderSetup();
+    $('setup').classList.remove('hidden');
+  }
+  function closeSetup() {
+    $('server').blur();
+    $('setup').classList.add('hidden');
+  }
+  function renderSetup() {
+    $('hdmi').textContent = 'HDMI ' + draft.hdmi;
+    $('mode').textContent = MODES[draft.mode];
+    document.querySelectorAll('.field').forEach(function (f) {
+      f.classList.toggle('focus', f.dataset.field === FIELDS[focus]);
+    });
+  }
+  function setupKey(key) {
+    const field = FIELDS[focus];
+    if (key === 'up' || key === 'down') {
+      $('server').blur();
+      focus = (focus + (key === 'up' ? FIELDS.length - 1 : 1)) % FIELDS.length;
+    } else if (key === 'left' || key === 'right') {
+      const step = key === 'left' ? -1 : 1;
+      if (field === 'hdmi') draft.hdmi = ((draft.hdmi - 1 + step + 4) % 4) + 1;
+      if (field === 'mode') draft.mode = draft.mode === 'iframe' ? 'direct' : 'iframe';
+    } else if (key === 'ok') {
+      if (field === 'server') $('server').focus();
+      else if (field === 'connect') return apply();
+      else focus = FIELDS.indexOf('connect');
+    } else if (key === 'back') {
+      if (settings.server) closeSetup();
+      else exit();
+      return;
+    }
+    renderSetup();
+  }
+  function apply() {
+    draft.server = $('server').value.trim();
+    if (!draft.server) { $('setup-error').textContent = 'Skriv in serverns adress, t.ex. 192.168.1.20:8010'; return; }
+    const changed = draft.server !== settings.server || draft.mode !== settings.mode || draft.hdmi !== settings.hdmi;
+    settings = draft;
+    saveSettings();
+    closeSetup();
+    if (changed && (overlayReady || base)) { location.reload(); return; }
+    if (!overlayReady) connect();
+  }
+
+  // ---- keys -------------------------------------------------------------------------------
+
+  function registerKeys() {
+    if (!realTV || !api.tvinputdevice) return;
+    REGISTER.forEach(function (name) {
+      try { api.tvinputdevice.registerKey(name); } catch (err) { log('registerKey ' + name + ': ' + err); }
+    });
+  }
+
   document.addEventListener('keydown', function (event) {
-    var key = event.keyCode;
-    if ([13,37,38,39,40,10009,27].indexOf(key) < 0) return;
+    const code = event.keyCode;
+    const typing = document.activeElement === $('server');
+    if (typing) {
+      // the input has the keyboard: only leave it on Enter, Done, Cancel or up/down
+      if (code === 13 || code === IME_DONE || code === IME_CANCEL || code === 38 || code === 40 || code === 27) {
+        event.preventDefault();
+        $('server').blur();
+        draft.server = $('server').value.trim();
+        if (code === 38 || code === 40) setupKey(code === 38 ? 'up' : 'down');
+        else { focus = FIELDS.indexOf('hdmi'); renderSetup(); }
+      }
+      return;
+    }
+    const key = KEYS[code];
+    if (!key) return;
     event.preventDefault();
     if (event.repeat) return;
-    if (key === 13) {
-      document.getElementById('overlay').classList.toggle('hidden');
-      document.getElementById('alpha-test').classList.toggle('hidden');
-    }
-    if (key === 38) document.getElementById('diagnostics').classList.toggle('hidden');
-    if (key === 37) select(index < 0 ? sources.length - 1 : index - 1);
-    if (key === 39) select(index + 1);
-    if (key === 40) scan();
-    if (key === 10009 || key === 27) exit();
+    if (!$('setup').classList.contains('hidden')) return setupKey(key);
+    if (overlayReady) return toOverlay({ t: 'key', key: key, code: code });
+    if (key === 'ok') openSetup();
+    else if (key === 'back') exit();
   });
+
   document.addEventListener('visibilitychange', function () {
     if (!realTV) return;
     if (document.hidden) {
-      operation++;
-      clearTimeout(timer);
-      busy = false;
-      try { api.tvwindow.hide(function () {}, function (err) { error('hide', err); }, 'MAIN'); }
-      catch (err) { error('hide', err); }
-    } else { scan(); }
+      tv.op++;
+      clearTimeout(tv.timer);
+      tv.busy = false;
+      tv.shown = false;
+      try { api.tvwindow.hide(function () {}, function (err) { log('hide: ' + err.message); }, 'MAIN'); }
+      catch (err) { log('hide: ' + err); }
+    } else scan();
   });
+
+  // ---- start ------------------------------------------------------------------------------
+
   if (!realTV) document.body.classList.add('preview');
-  log(realTV ? 'Tizen TVWindow finns. Startar HDMI-test.' : 'Förhandsvisning: ingen anslutning till TV eller HDMI.');
+  fit();
+  window.addEventListener('resize', fit);
+  log('SHL live! ' + VERSION + (realTV ? ' på TV:n' : ' (förhandsvisning på dator)'));
+  registerKeys();
   scan();
+  connect();
 }());

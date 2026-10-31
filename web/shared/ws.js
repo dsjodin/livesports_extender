@@ -1,7 +1,9 @@
 // WebSocket with reconnect (backoff 0.5 s doubling to 8 s) and clock pings.
 import * as clock from "./clock.js";
 
-export function connect({ role, id, onMessage, onStatus = () => {} }) {
+// ``base``: the service's origin when the page runs elsewhere (the TV app's shell on
+// file://, docs/TV_APP.md); default the page's own.
+export function connect({ role, id, onMessage, onStatus = () => {}, base = location.origin }) {
   let socket = null;
   let retry = 500;
   let pingTimers = [];
@@ -20,8 +22,9 @@ export function connect({ role, id, onMessage, onStatus = () => {} }) {
   }
 
   function open() {
-    const scheme = location.protocol === "https:" ? "wss" : "ws";
-    socket = new WebSocket(`${scheme}://${location.host}/ws?role=${role}&id=${encodeURIComponent(id)}`);
+    const server = new URL(base);
+    const scheme = server.protocol === "https:" ? "wss" : "ws";
+    socket = new WebSocket(`${scheme}://${server.host}/ws?role=${role}&id=${encodeURIComponent(id)}`);
     socket.onopen = () => {
       retry = 500;
       onStatus("open");

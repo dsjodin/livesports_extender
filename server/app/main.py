@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, WebSocket
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
@@ -110,6 +111,16 @@ def create_app(
     app.state.runtime = runtime
     app.state.hub = hub
     app.state.schedule = schedule
+    # The TV app's shell runs from file:// on the TV (Origin "null"). Only it may read the
+    # service cross-origin, for the fallback that imports /tv/tv.js into the shell itself
+    # (docs/TV_APP.md); the pages here are same-origin and need no CORS.
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["null"],
+        allow_origin_regex=r"(file|app)://.*",
+        allow_methods=["GET", "POST"],
+        allow_headers=["content-type"],
+    )
     app.include_router(router)
     app.include_router(assets_router)
     app.include_router(media_router)
@@ -122,6 +133,10 @@ def create_app(
     async def index() -> str:
         return render_index(list_pages(settings.web_dir))
 
+    if settings.tv_app_dir and settings.tv_app_dir.is_dir():
+        app.mount(
+            "/tvapp", RevalidatedStaticFiles(directory=settings.tv_app_dir, html=True), name="tvapp"
+        )
     app.mount("/", RevalidatedStaticFiles(directory=settings.web_dir, html=True), name="web")
     return app
 

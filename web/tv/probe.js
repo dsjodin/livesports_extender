@@ -1,0 +1,423 @@
+// The TV app's test page (docs/TV_APP.md, task 9.1): checks on the real TV what the
+// overlay needs (transparency over HDMI, the service over HTTP and WebSocket, the synced
+// clock, smooth animation, VP9 with alpha, moving the TV picture, the remote's keys) and
+// reports it to the service (POST /api/tv/probe; read it at GET /api/tv/probe). Questions
+// only a person can answer are asked on screen: ← nej, → ja.
+import * as clock from "../shared/clock.js";
+import { connect } from "../shared/ws.js";
+import * as host from "./host.js";
+
+const W = 1920;
+const H = 1080;
+const MY_TEAM = "82eb-82ebmgaJ8"; // the video's team when no game is selected
+const RECTS = {
+  full: null,
+  lframe: [0, 0, 1152, 648], // 60 % top left, the L-frame of docs/TV_APP.md
+  small: [1220, 60, 640, 360],
+};
+const RECT_NAMES = { full: "helbild", lframe: "L-ram", small: "liten bild" };
+const QUESTIONS = {
+  transparent: "Syns TV-bilden genom rutorna 0–75 % till höger?",
+  smooth: "Glider pucken mjukt, utan hack?",
+  video: "Var videon genomskinlig, syntes TV-bilden runt den?",
+  flash: "Blev bilden svart eller blinkade den när den flyttades?",
+};
+
+const url = (path) => new URL(path, import.meta.url).href;
+const el = (tag, cls, text) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+};
+
+const report = {
+  probe: 1,
+  started_ms: null,
+  mode: null,
+  shell: null,
+  source: null,
+  env: {},
+  http: null,
+  ws: { state: "connecting", opens: 0, closes: 0 },
+  clock: null,
+  fps: null,
+  video: { can_play_vp9: null, runs: [] },
+  moves: [],
+  answers: {},
+  keys: {},
+  errors: [],
+};
+let state = null; // the TV state from the service, for a team uuid
+const asked = [];
+let question = null;
+let lastBack = 0;
+
+window.addEventListener("error", (e) => report.errors.push(String(e.message).slice(0, 200)));
+
+function load(tag, attrs) {
+  return new Promise((resolve, reject) => {
+    const node = Object.assign(document.createElement(tag), attrs);
+    node.onload = resolve;
+    node.onerror = () => reject(new Error(`kunde inte ladda ${attrs.href ?? attrs.src}`));
+    document.head.appendChild(node);
+  });
+}
+
+// ---- layout ----------------------------------------------------------------------------
+
+const root = el("div", "tvp");
+root.id = "tv-root";
+const outline = el("div", "tvp-outline");
+const panel = el("section", "tvp-panel");
+const rows = el("div", "tvp-rows");
+const keylog = el("div", "tvp-keys");
+const side = el("section", "tvp-side");
+const bottom = el("section", "tvp-bottom");
+const prompt = el("div", "tvp-question");
+const legend = el("div", "tvp-legend",
+  "1 video · 2 helbild · 3 L-ram · 4 liten bild · 5 skicka rapport · 9 inställningar · OK dölj · Back avsluta");
+const toast = el("div", "tvp-toast");
+const video = el("video", "tvp-video");
+video.muted = true;
+video.playsInline = true;
+
+const ROWS = [
+  ["shell", "Skal"],
+  ["source", "HDMI"],
+  ["http", "Server (HTTP)"],
+  ["ws", "WebSocket"],
+  ["clock", "Klocka"],
+  ["fps", "Animation"],
+  ["video", "Video VP9 alfa"],
+  ["move", "Flytta TV-bilden"],
+  ["keys", "Fjärrkontroll"],
+  ["env", "Skärm"],
+];
+const cells = {};
+
+function build() {
+  panel.append(el("h1", null, "SHL live! · Test av TV:n"));
+  for (const [key, label] of ROWS) {
+    const row = el("div", "tvp-row");
+    const dot = el("span", "tvp-dot");
+    const value = el("span", "tvp-value", "…");
+    row.append(dot, el("span", "tvp-label", label), value);
+    rows.append(row);
+    cells[key] = { row, value };
+  }
+  panel.append(rows, el("h2", null, "Senaste knappar"), keylog);
+
+  // transparency: white, black and gold at 0–100 %
+  const alpha = el("div", "tvp-alpha");
+  alpha.append(el("div", "tvp-alpha-head", "Genomskinlighet"));
+  for (const [name, rgb] of [["Vit", "255,255,255"], ["Svart", "0,0,0"], ["Guld", "245,197,66"]]) {
+    const line = el("div", "tvp-alpha-line");
+    line.append(el("span", "tvp-alpha-name", name));
+    for (const a of [0, 25, 50, 75, 100]) {
+      const cell = el("span", "tvp-alpha-cell", `${a} %`);
+      cell.style.background = `rgba(${rgb},${a / 100})`;
+      if (name !== "Svart" && a >= 50) cell.style.color = "#111";
+      line.append(cell);
+    }
+    alpha.append(line);
+  }
+  alpha.append(el("div", "tvp-gradient"));
+
+  const lane = el("div", "tvp-lane");
+  lane.append(el("div", "tvp-puck"));
+  const time = el("div", "tvp-clock");
+  time.append(el("span", "tvp-time", "--:--:--.---"), el("span", "tvp-second"));
+  side.append(alpha, lane, time);
+
+  bottom.append(prompt, legend);
+  root.append(outline, video, panel, side, bottom, toast);
+  document.body.appendChild(root);
+}
+
+function fit() {
+  const scale = Math.min(window.innerWidth / W, window.innerHeight / H);
+  root.style.transform = `scale(${scale})`;
+}
+
+function set(key, text, status = "ok") {
+  cells[key].value.textContent = text;
+  cells[key].row.dataset.status = status; // ok | bad | wait | ask
+}
+
+function say(text) {
+  toast.textContent = text;
+  gsap.killTweensOf(toast);
+  gsap.fromTo(toast, { opacity: 1 }, { opacity: 0, delay: 3, duration: 0.6 });
+}
+
+// ---- questions (← nej, → ja) -------------------------------------------------------------
+
+function ask(id) {
+  if (report.answers[id] !== undefined && id !== "video" && id !== "flash") return;
+  if (!asked.includes(id)) asked.push(id);
+  next();
+}
+
+function next() {
+  question = asked.find((id) => report.answers[id] === undefined) ?? null;
+  prompt.textContent = question ? `${QUESTIONS[question]}   ← Nej · Ja →` : "";
+  prompt.classList.toggle("on", !!question);
+}
+
+function answer(yes) {
+  if (!question) return;
+  report.answers[question] = yes;
+  say(`Svar sparat: ${yes ? "ja" : "nej"}`);
+  next();
+  send();
+}
+
+// ---- checks ---------------------------------------------------------------------------
+
+function env() {
+  const ua = navigator.userAgent;
+  report.env = {
+    user_agent: ua,
+    chromium: ua.match(/Chrome\/([\d.]+)/)?.[1] ?? null,
+    inner: [window.innerWidth, window.innerHeight],
+    screen: [screen.width, screen.height],
+    dpr: window.devicePixelRatio,
+  };
+  set("env", `${window.innerWidth}×${window.innerHeight}, dpr ${window.devicePixelRatio}, Chromium ${report.env.chromium ?? "?"}`);
+}
+
+async function http() {
+  const t0 = performance.now();
+  try {
+    const r = await fetch(`${host.base}/api/health`, { cache: "no-store" });
+    const body = await r.json();
+    const ms = Math.round(performance.now() - t0);
+    report.http = { ok: r.ok, ms, version: body.version };
+    set("http", `${host.base} svarar på ${ms} ms (version ${body.version})`);
+  } catch (err) {
+    report.http = { ok: false, error: String(err) };
+    set("http", `${host.base}: ${err}`, "bad");
+  }
+}
+
+function socket() {
+  connect({
+    role: "screen",
+    id: "tv",
+    base: host.base,
+    onMessage: (m) => {
+      if (m.t === "state") state = m.state;
+    },
+    onStatus: (s) => {
+      report.ws.state = s;
+      if (s === "open") report.ws.opens++;
+      else report.ws.closes++;
+      set("ws", s === "open" ? `ansluten (${report.ws.opens} gånger)` : "frånkopplad, försöker igen", s === "open" ? "ok" : "bad");
+    },
+  });
+}
+
+const offsets = [];
+function clockCheck() {
+  const s = clock.stats();
+  if (s.samples) offsets.push(s.offset);
+  if (offsets.length > 30) offsets.shift();
+  const drift = offsets.length ? Math.max(...offsets) - Math.min(...offsets) : null;
+  report.clock = { ...s, drift_ms: drift };
+  if (!s.samples) return set("clock", "väntar på svar", "wait");
+  const good = s.rtt != null && s.rtt < 60 && (drift ?? 0) < 20;
+  set("clock", `avvikelse ${s.offset} ms · rtt ${s.rtt} ms · drift ${drift} ms (${s.samples} prov)`, good ? "ok" : "bad");
+}
+
+// frame times over the last 5 s while the puck glides
+const frames = [];
+let lastFrame = null;
+function frame(t) {
+  if (lastFrame != null) frames.push([t, t - lastFrame]);
+  lastFrame = t;
+  while (frames.length && frames[0][0] < t - 5000) frames.shift();
+  const now = clock.now();
+  const d = new Date(now);
+  const pad = (n, w = 2) => String(n).padStart(w, "0");
+  root.querySelector(".tvp-time").textContent =
+    `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}.${pad(d.getMilliseconds(), 3)}`;
+  root.querySelector(".tvp-second").style.opacity = now % 1000 < 120 ? "1" : "0";
+  requestAnimationFrame(frame);
+}
+function fpsCheck() {
+  if (frames.length < 10) return set("fps", "mäter…", "wait");
+  const deltas = frames.map((f) => f[1]);
+  const fps = (deltas.length / deltas.reduce((a, b) => a + b, 0)) * 1000;
+  const worst = Math.max(...deltas);
+  report.fps = { fps: Math.round(fps * 10) / 10, worst_ms: Math.round(worst) };
+  set("fps", `${report.fps.fps} bilder/s, längsta paus ${report.fps.worst_ms} ms`, fps >= 55 && worst < 50 ? "ok" : "bad");
+}
+
+function keysCheck(key, code) {
+  report.keys[key] = code ?? true;
+  const line = el("div", null, `${key}${code ? ` (${code})` : ""}`);
+  keylog.prepend(line);
+  while (keylog.children.length > 6) keylog.lastChild.remove();
+  const colours = ["red", "green", "yellow", "blue"].map((c) => (report.keys[c] ? c[0].toUpperCase() : "·")).join(" ");
+  const digits = [..."0123456789"].filter((d) => report.keys[d]).length;
+  set("keys", `färg ${colours} · siffror ${digits}/10`, colours.includes("·") ? "wait" : "ok");
+}
+
+async function playVideo() {
+  const uuid = state?.teams?.home?.uuid ?? MY_TEAM;
+  const run = { team: uuid, kind: "pp" };
+  report.video.runs.push(run);
+  set("video", "hämtar video…", "wait");
+  try {
+    const r = await fetch(`${host.base}/media/pp/${uuid}.webm`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const blob = await r.blob();
+    if (video.dataset.blob) URL.revokeObjectURL(video.dataset.blob);
+    video.dataset.blob = URL.createObjectURL(blob);
+    video.src = video.dataset.blob;
+    video.style.opacity = "1";
+    await video.play();
+    run.started = true;
+    set("video", "spelar…", "wait");
+  } catch (err) {
+    run.error = String(err);
+    video.style.opacity = "0";
+    set("video", `fel: ${err}`, "bad");
+    send();
+  }
+}
+
+video.addEventListener("ended", () => {
+  const run = report.video.runs.at(-1);
+  const q = video.getVideoPlaybackQuality?.();
+  if (q) Object.assign(run, { frames: q.totalVideoFrames, dropped: q.droppedVideoFrames });
+  run.duration_s = Math.round(video.duration * 100) / 100;
+  video.style.opacity = "0";
+  set("video", `spelad: ${run.frames ?? "?"} bilder, ${run.dropped ?? "?"} tappade`, (run.dropped ?? 0) < 5 ? "ask" : "bad");
+  report.answers.video = undefined;
+  ask("video");
+  send();
+});
+video.addEventListener("error", () => {
+  const run = report.video.runs.at(-1);
+  if (run) run.error = `media error ${video.error?.code}`;
+  video.style.opacity = "0";
+  set("video", `kan inte spela: fel ${video.error?.code}`, "bad");
+});
+
+async function move(name) {
+  const rect = RECTS[name];
+  set("move", `flyttar till ${RECT_NAMES[name]}…`, "wait");
+  drawOutline(rect);
+  const result = await host.placeWindow(rect);
+  report.moves.push({ to: name, ok: result.ok, ms: Math.round(result.ms ?? 0), error: result.error ?? null });
+  if (!result.ok) set("move", `${RECT_NAMES[name]}: ${result.error}`, "bad");
+  else set("move", `${RECT_NAMES[name]} på ${Math.round(result.ms)} ms${result.preview ? " (förhandsvisning)" : ""}`, "ask");
+  if (result.ok && name !== "full") {
+    report.answers.flash = undefined;
+    ask("flash");
+  }
+  send();
+}
+
+function drawOutline(rect) {
+  const [x, y, w, h] = rect ?? [0, 0, W, H];
+  Object.assign(outline.style, { left: `${x}px`, top: `${y}px`, width: `${w}px`, height: `${h}px` });
+  outline.classList.toggle("full", !rect);
+}
+
+// ---- report ---------------------------------------------------------------------------
+
+let sendTimer = null;
+function send(now = false) {
+  clearTimeout(sendTimer);
+  sendTimer = setTimeout(async () => {
+    try {
+      const r = await fetch(`${host.base}/api/tv/probe`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...report, sent_ms: clock.now() }),
+      });
+      if (now) say(r.ok ? "Rapport skickad till servern" : `Rapporten gick inte fram: HTTP ${r.status}`);
+    } catch (err) {
+      if (now) say(`Rapporten gick inte fram: ${err}`);
+    }
+  }, now ? 0 : 500);
+}
+
+// ---- keys -----------------------------------------------------------------------------
+
+host.onKey((key, code) => {
+  keysCheck(key, code);
+  if (key === "left") return answer(false);
+  if (key === "right") return answer(true);
+  if (key === "1") return playVideo();
+  if (key === "2") return move("full");
+  if (key === "3") return move("lframe");
+  if (key === "4") return move("small");
+  if (key === "5") return send(true);
+  if (key === "9" || key === "0") return host.openSetup();
+  if (key === "ok") return root.classList.toggle("hidden");
+  if (key === "back") {
+    if (Date.now() - lastBack < 2000) return host.exit();
+    lastBack = Date.now();
+    say("Tryck Back igen för att avsluta");
+  }
+});
+
+host.onInfo((info) => {
+  report.mode = host.mode;
+  report.shell = info;
+  const names = { iframe: "iframe", direct: "direkt (reservläge)", browser: "webbläsare utan skal" };
+  if (!info) set("shell", names.browser, "wait");
+  else set("shell", `${names[host.mode]} · skal ${info.version} · ${info.tv ? `TV ${info.model ?? ""} Tizen ${info.platform ?? "?"}` : "förhandsvisning på dator"}`);
+  if (!info?.tv) set("source", info ? "ingen HDMI på dator" : "-", "wait");
+  if (info?.source) showSource(info.source);
+  host.ready();
+  send();
+});
+
+function showSource(s) {
+  report.source = s;
+  if (s.ok) set("source", `HDMI ${s.hdmi} visas`);
+  else set("source", `HDMI ${s.hdmi ?? "?"}: ${s.error ?? "ingen bild"}`, "bad");
+}
+host.onSource(showSource);
+
+// ---- start ----------------------------------------------------------------------------
+
+async function main() {
+  await Promise.all([
+    load("link", { rel: "stylesheet", href: url("../shared/tokens.css") }),
+    load("link", { rel: "stylesheet", href: url("probe.css") }),
+    load("script", { src: url("../vendor/gsap/gsap.min.js") }),
+  ]);
+  report.started_ms = Date.now();
+  build();
+  fit();
+  window.addEventListener("resize", fit);
+  drawOutline(null);
+  env();
+  host.start();
+  report.video.can_play_vp9 = video.canPlayType('video/webm; codecs="vp9"') || "nej";
+  set("video", `stöd: ${report.video.can_play_vp9} · tryck 1 för att spela`, "wait");
+  set("move", "tryck 2, 3 eller 4", "wait");
+  set("keys", "tryck på färgknapparna och 0–9", "wait");
+  gsap.to(".tvp-puck", { x: 700, duration: 2, ease: "sine.inOut", repeat: -1, yoyo: true });
+  requestAnimationFrame(frame);
+  await http();
+  socket();
+  setInterval(() => {
+    clockCheck();
+    fpsCheck();
+  }, 1000);
+  setInterval(send, 30000);
+  ask("transparent");
+  ask("smooth");
+}
+
+main().catch((err) => {
+  document.body.textContent = `Testsidan kunde inte starta: ${err}`;
+  document.body.style.cssText = "color:#fff;background:#300;font:32px sans-serif;padding:60px";
+});

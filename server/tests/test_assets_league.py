@@ -273,3 +273,38 @@ async def test_athlete_portrait_by_uuid(tmp_path: Path) -> None:
         assert path is not None and path.read_bytes() == b"PNG-jp"
     finally:
         del ROSTER[0]["players"][0]["uuid"]
+
+
+def test_table_zones_from_the_groupings() -> None:
+    raw = load_fixture("standings_qa98unlbd6.json")
+    table_zones = league.zones(raw)
+    assert table_zones == [
+        {"zone": "playoff", "first": 1, "last": 6},
+        {"zone": "playin", "first": 7, "last": 10},
+        {"zone": "out", "first": 11, "last": 12},
+        {"zone": "qualdown", "first": 13, "last": 14},
+    ]
+    rows = league.standings_rows(raw)
+    assert [r["zone"] for r in rows] == ["playoff"] * 6 + ["playin"] * 4 + ["out"] * 2 + [
+        "qualdown"
+    ] * 2
+    # the live table: the zone follows the new place
+    seventh, sixth = rows[6], rows[5]
+    game = {
+        "home_uuid": seventh["uuid"],
+        "away_uuid": sixth["uuid"],
+        "home": 5,
+        "away": 0,
+        "ended": True,
+    }
+    live = league.live_table(rows, [game], table_zones)
+    moved = next(r for r in live if r["uuid"] == seventh["uuid"])
+    if moved["rank"] <= 6:
+        assert moved["zone"] == "playoff"
+    assert all(r["zone"] == league.zone_for(r["rank"], table_zones) for r in live)
+
+
+def test_unknown_grouping_is_kept_raw(caplog: Any) -> None:
+    raw = {"groupings": [{"description": "Superfinal", "first": 1, "last": 2}]}
+    assert league.zones(raw) == [{"zone": "Superfinal", "first": 1, "last": 2}]
+    assert "Superfinal" in caplog.text

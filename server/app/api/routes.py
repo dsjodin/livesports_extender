@@ -4,7 +4,7 @@ import json
 from typing import Any, Literal
 
 from fastapi import APIRouter, HTTPException, Request
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app import __version__
 from app.engine import webhooks as webhook_payloads
@@ -75,6 +75,10 @@ class TestVideoIn(BaseModel):
 
 class EnabledIn(BaseModel):
     enabled: bool
+
+
+class DimIn(BaseModel):
+    level: float = Field(ge=0, le=0.9)
 
 
 class SceneIn(BaseModel):
@@ -234,6 +238,14 @@ async def goal_button_sync(body: EnabledIn, request: Request) -> dict[str, Any]:
     return ok(rt)
 
 
+@router.post("/idle-dim")
+async def idle_dim(body: DimIn, request: Request) -> dict[str, Any]:
+    """How much darker the screens are while idle (0 = not at all, 0.9 = nearly black)."""
+    rt = runtime(request)
+    rt.set_idle_dim(body.level)
+    return ok(rt)
+
+
 @router.delete("/calibrate")
 async def clear_calibration(request: Request) -> dict[str, Any]:
     rt = runtime(request)
@@ -351,6 +363,33 @@ async def reset_team_colors(uuid: str, request: Request) -> dict[str, Any]:
     rt = runtime(request)
     rt.reset_team_colors(uuid)
     return {"team": next((t for t in rt.colors.listing() if t["uuid"] == uuid), None)}
+
+
+TV_PROBE_MAX_BYTES = 64_000
+
+
+@router.post("/tv/probe")
+async def tv_probe_save(body: dict[str, Any], request: Request) -> dict[str, Any]:
+    """The TV app's test page reports what works on the TV (docs/TV_APP.md, task 9.1)."""
+    rt = runtime(request)
+    text = json.dumps(
+        {"received_ms": rt.clock.now_ms(), "report": body}, indent=2, ensure_ascii=False
+    )
+    if len(text.encode()) > TV_PROBE_MAX_BYTES:
+        raise HTTPException(413, "report too large")
+    path = request.app.state.settings.data_dir / "tv_probe.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text + "\n", encoding="utf-8")
+    return {"ok": True}
+
+
+@router.get("/tv/probe")
+async def tv_probe_get(request: Request) -> dict[str, Any]:
+    """The latest report from the TV app's test page, or 404."""
+    path = request.app.state.settings.data_dir / "tv_probe.json"
+    if not path.exists():
+        raise HTTPException(404, "no report from the TV yet")
+    return json.loads(path.read_text(encoding="utf-8"))  # type: ignore[no-any-return]
 
 
 @router.get("/wall")

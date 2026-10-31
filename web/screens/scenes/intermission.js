@@ -5,7 +5,7 @@
 // scaled by the replay speed.
 import { compareRow, shotMap } from "../../shared/components.js";
 import { caps, countdown, esc, html, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
-import { barPage, every, plainLogo, play, shortName, slideshow, statsLine, stopTimers } from "./common.js";
+import { barPage, every, plainLogo, play, shortName, slideshow, standingsTable, statsLine, stopTimers } from "./common.js";
 import { gameStatus, ticker } from "./ticker.js";
 
 const BREAK_MS = 18 * 60_000;
@@ -181,16 +181,8 @@ function otherCard(o) {
     <div class="og3-status">${status}</div></div>`;
 }
 
-function tableSlide(rows, title) {
-  const body = rows
-    .map((r) => {
-      const move = r.move > 0 ? `<span class="mv up">▲</span>` : r.move < 0 ? `<span class="mv down">▼</span>` : `<span class="mv"></span>`;
-      const tonight = r.live ? `${r.live.for}–${r.live.against}` : "";
-      return html`<div class="t3-row ${r.live ? "playing" : ""}"><span class="num">${r.rank}</span>${raw(move)}${raw(logo({ logo: r.logo }))}
-        <span class="t3-team">${r.short ?? r.code}</span><span class="num t3-live">${tonight}</span><span class="num t3-pts">${r.points}</span></div>`;
-    })
-    .join("");
-  return html`${raw(head("SHL", title))}<div class="table3"><div class="t3-row t3-head label"><span class="num">#</span><span></span><span></span><span>LAG</span><span class="num">IKVÄLL</span><span class="num">P</span></div>${raw(body)}</div>`;
+function tableSlide(rows, title, groupings, live) {
+  return html`${raw(head("SHL", title))}${raw(standingsTable(rows, groupings, { live }))}`;
 }
 
 /** Goals in the other games, three games a slide, the last four goals each. */
@@ -219,8 +211,9 @@ function otherSlides(tv) {
     // nobody else plays tonight: our goals and penalties instead
     slides.push(goalsSlide(tv, "MATCHEN"), penaltiesSlide(tv, "MATCHEN"));
   }
-  if (tv.live_table) slides.push(tableSlide(tv.live_table, "OM MATCHERNA SLUTADE NU"));
-  else if (tv.league?.standings?.length) slides.push(tableSlide(tv.league.standings, "TABELL"));
+  const groupings = tv.league?.groupings ?? [];
+  if (tv.live_table) slides.push(tableSlide(tv.live_table, "OM MATCHERNA SLUTADE NU", groupings, true));
+  else if (tv.league?.standings?.length) slides.push(tableSlide(tv.league.standings, "TABELL", groupings, false));
   slides.push(...goalsElsewhere(others));
   return slides;
 }

@@ -111,8 +111,8 @@ height). Rules:
   (30 %) behind the team name on the portraits, free-standing on the bar (the user's
   call, 2026-10-21). Badges stay in lists.
 - `tools/legibility.py` (service running) measures every text of every scene; a scene
-  is done when nothing is under the floor. Done so far: `live`, `intermission`, `pregame`
-  and the bar in every scene. Still to do: goal, postgame and idle portraits.
+  is done when nothing is under the floor. Done so far: `live`, `intermission`, `pregame`,
+  `idle` and the bar in every scene. Still to do: goal and postgame portraits.
 
 Native sizes before the 3 m pass (the scenes not yet redone), portrait screens (1080 wide):
 
@@ -214,6 +214,7 @@ Holds are in real time, so in a fast replay a goal scene can span a whole interm
 - Bar: centred clock (HH:MM) and "Nästa match: <dag> <tid> <HEMMA>–<BORTA>" for my team.
 - Left: standings table (14 teams: placering, lag, matcher, poäng, målskillnad).
 - Right: "Kvällens matcher" or "Senaste resultat".
+- All three are dimmed (below, Idle dimming).
 
 ### pregame (mockup scene 1)
 
@@ -313,6 +314,27 @@ shown after a 5 s grace period at page load). Nothing shows while all is well, a
 goes out by itself when contact is back. The phone app says "Kontakt med shl.se: OK /
 Borta, försöker igen" in its status, `/sim` "NO CONTACT WITH SHL.SE" in its readout.
 
+### Idle dimming (asked for by the user 2026-10-23)
+
+While the scene is `idle`, each screen lays a black layer over everything but the feed dot
+and the debug overlay, at the opacity `config.idle_dim` (default 0.5; 0 is off, 0.9 the
+most). It fades in over 1.5 s when idle starts and lifts in 0.4 s when another scene takes
+over; a new level from the phone app ("Inställningar", "Dimning i vila", 0–90 % in steps
+of 10) applies at once. It only darkens the picture: the LCD backlight stays on, so black
+is not as black as a screen that is off. Turning the screens off at night is the display
+box's job (`SCREENS_ON_FROM`/`SCREENS_ON_UNTIL`, `docs/DEPLOY.md`).
+
+### Standings table (idle left, intermission right)
+
+One table (`standingsTable` in `scenes/common.js`), sized for 3 m: rank, logo, team,
+goal difference (the live table: tonight's score and a movement arrow), points. SHL's
+zones from `league.groupings` (asked for by the user 2026-10-23): a coloured left edge
+for SLUTSPEL (green, 1–6), PLAY IN (blue, 7–10) and KVAL (red, 13–14), none for 11–12, a
+heavier line where a zone ends, and a legend "SLUTSPEL · PLAY IN · KVAL" under the
+table. In the live table the zone follows the team's place if the games ended now. My
+team's name is gold. Idle right ("KVÄLLENS MATCHER" or "SENASTE RESULTAT") is sized for 3
+m too.
+
 ### Bar ticker (Phase 8)
 
 The bar's bottom strip in `live` and `intermission` pages through our own line (shots,
@@ -402,6 +424,12 @@ A developer tool; its control panel may be in English.
   - System offset (TV profile) and **fake TV delay** (separate slider).
   - **Fake TV pane**: shows raw events as text at `event_ms + fake TV delay`, with a large
     "TV-klocka" (period and game time), so the calibration button can be tested.
+  - **Event queue** (toggle "Show event queue", it spoils the TV; asked for 2026-10-22):
+    the events held until their `play_at`, with a countdown, and the last ones released;
+    each row has the key (`e142`), the label, the on-ice time, how long after it the
+    event reached us, its `play_at`, and LATE (red) with how far after the TV when it
+    came too late. The raw events list shows the same keys, coloured held (amber),
+    released or late (red), so a raw event can be followed into the queue.
   - Webhook log: each call with time, event, status.
   - Toggles: debug overlay on all screens, show raw events.
   - "Open phone app" link (`/app`) and QR code for the phone (the QR code is not built

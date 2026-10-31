@@ -26,6 +26,8 @@ class Settings:
     config_dir: Path
     data_dir: Path
     fixtures_dir: Path
+    # the Samsung TV app's shell (SHLlive/), served at /tvapp/ for a preview in a browser
+    tv_app_dir: Path | None = None
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -36,6 +38,7 @@ class Settings:
             fixtures_dir=_path_env(
                 "ARENA_FIXTURES_DIR", REPO_ROOT / "server" / "tests" / "fixtures"
             ),
+            tv_app_dir=_path_env("ARENA_TV_APP_DIR", REPO_ROOT / "SHLlive"),
         )
 
 
@@ -81,6 +84,9 @@ class RuntimeConfig(BaseModel):
     follow_my_team: bool = False
     # A MÅL! press linked to a feed goal also counts as a "goal" sync sample.
     goal_button_sync: bool = True
+    # How much darker the screens are while idle (0 = not at all, 0.9 = nearly black);
+    # asked for by the user 2026-10-23.
+    idle_dim: float = 0.5
     webhooks: WebhookSettings = WebhookSettings()
     # Jersey colour overrides per team uuid: {"home": "röd" | "#rrggbb", "away": ...}.
     # Defaults are in config/teams.json.
