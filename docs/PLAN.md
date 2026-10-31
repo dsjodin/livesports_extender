@@ -574,3 +574,6 @@ Phase 9 notes (2026-10-31):
 - Fixes from the user (2026-10-31): panels in an L-frame scene take the column's place
   instead of lying over it; the shell (0.3.2) turns the TV's screen saver off while the
   app is shown (`docs/TV_APP.md`, Screen saver).
+- From the TV's report (2026-10-31): the screen saver is off in the app (shell 0.3.2);
+  play/pause reaches the app and is now the shortcut for Synka nedsläpp; the channel
+  rocker did not show up.

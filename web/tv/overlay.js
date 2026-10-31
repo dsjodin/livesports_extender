@@ -205,6 +205,9 @@ function show(scene, at, animate) {
 
 host.onKey((key) => {
   note(`key ${key}`);
+  // play/pause is the remote's one free physical key (2026-10-31): a puck-drop sync on one
+  // press, at the moment the drop shows on TV
+  if (key === "playpause") return menu.syncNow();
   if (menu.key(key)) return;
   if (key === "ok") return menu.open();
   if (key === "up" || key === "down") return panels.step(key === "down" ? 1 : -1);

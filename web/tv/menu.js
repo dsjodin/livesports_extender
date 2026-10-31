@@ -129,7 +129,9 @@ async function goal(side) {
   }
 }
 
-async function syncNow() {
+/** A puck-drop sync sample now (the menu, or play/pause straight away). */
+export async function syncNow() {
+  if (!d.tv()?.game?.uuid) return d.say("Ingen match vald");
   try {
     const r = await d.api("calibrate", { kind: "period_start" });
     const proposal = r.proposal_s != null ? ` · förslag ${decimal(r.proposal_s)} s` : "";
