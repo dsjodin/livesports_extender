@@ -289,6 +289,16 @@ once, giving a token, while the Docker host on another subnet (10.1.40.x) got
 needed `&token=…` in the URL. So the sender must be on the TV's own network (or be the
 TV app itself, if its local remote channel can be reached).
 
+**Built in (2026-10-31).** The service has the TV's address (`ARENA_TV_REMOTE`,
+`compose.yaml`) and a second address on its subnet (macvlan, `docs/DEPLOY.md`). Every
+minute while the L-frame is up (not over the full picture, not resting, the app shown)
+the overlay asks `POST /api/tv/keepawake` and the service sends KEY_RED over one kept
+connection (`app/api/tvremote.py`; a new token from the TV replaces
+`data/tv_remote_token.txt`). It stops after 3 h without a key from the viewer, so a TV
+left on still gets its own screen saver and power-off. The menu (Inställningar) shows
+"Väckknappar: N, senast hh:mm (red)" and, if the TV refuses, "Väckknapp: <fel>". The
+first time the server connects, the TV asks on screen whether to allow "SHL Arena".
+
 1.3.0 also tried `tizen.power.request("SCREEN", "SCREEN_NORMAL")`, but the TV has no
 `tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of undefined
 (reading 'request')"); 1.4.0 dropped it and its privilege.

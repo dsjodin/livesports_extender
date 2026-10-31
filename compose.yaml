@@ -9,10 +9,13 @@ services:
       - "8010:8010"
     volumes:
       - ./data:/data  # state.json, recordings, logo and portrait cache
+    environment:
+      ARENA_TV_REMOTE: 10.1.30.110  # the TV, for screen saver keys (app/api/tvremote.py)
     networks:
       default:
       tvnet:
         ipv4_address: 10.1.30.212  # on the TV's network (docs/DEPLOY.md, TV network)
+        mac_address: "02:5a:4c:1e:00:d4"  # fixed, so the TV knows "SHL Arena" again after a rebuild
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/api/health', timeout=3)"]
       interval: 30s

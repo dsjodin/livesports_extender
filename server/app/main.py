@@ -17,6 +17,7 @@ from app.api import ws
 from app.api.assets import media_router
 from app.api.assets import router as assets_router
 from app.api.routes import router
+from app.api.tvremote import TvRemote
 from app.clock import Clock, RealClock
 from app.config import Settings, StateStore
 from app.feed.assets import AssetCache
@@ -105,12 +106,17 @@ def create_app(
         finally:
             heartbeat.cancel()
             await runtime.stop()
+            if app.state.tv_remote is not None:
+                await app.state.tv_remote.close()
 
     app = FastAPI(title="SHL Arena", version=__version__, lifespan=lifespan)
     app.state.settings = settings
     app.state.runtime = runtime
     app.state.hub = hub
     app.state.schedule = schedule
+    app.state.tv_remote = (
+        TvRemote(settings.tv_remote_host, settings.data_dir) if settings.tv_remote_host else None
+    )
     # The TV app's shell runs from file:// on the TV (Origin "null"). Only it may read the
     # service cross-origin, for the fallback that imports /tv/tv.js into the shell itself
     # (docs/TV_APP.md); the pages here are same-origin and need no CORS.

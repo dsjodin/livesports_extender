@@ -28,6 +28,8 @@ class Settings:
     fixtures_dir: Path
     # the Samsung TV app's shell (SHLlive/), served at /tvapp/ for a preview in a browser
     tv_app_dir: Path | None = None
+    # the Samsung TV's address for its network remote (screen saver keys), e.g. 10.1.30.110
+    tv_remote_host: str | None = None
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -39,6 +41,7 @@ class Settings:
                 "ARENA_FIXTURES_DIR", REPO_ROOT / "server" / "tests" / "fixtures"
             ),
             tv_app_dir=_path_env("ARENA_TV_APP_DIR", REPO_ROOT / "SHLlive"),
+            tv_remote_host=os.environ.get("ARENA_TV_REMOTE") or None,
         )
 
 

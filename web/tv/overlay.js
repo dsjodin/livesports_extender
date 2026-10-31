@@ -255,7 +255,25 @@ function show(scene, at, animate) {
 // Samsung's screen saver away (tools/tv_keepawake.py), so they change nothing here, not even
 // wake the resting L-frame. Counted for the menu (Inställningar), to see they arrive.
 const NUDGE_KEYS = new Set(["red", "MediaFastForward", "MediaRewind", "MediaStop", "MediaRecord"]);
-const nudges = { count: 0, at: null, key: null };
+const nudges = { count: 0, at: null, key: null, asked: 0, error: null };
+let lastUserKey = Date.now();
+const KEEPAWAKE_MS = 60_000;
+const KEEPAWAKE_FOR_MS = 3 * 3600_000;
+
+/** Samsung's screen saver comes after about 2 min while the TV picture is shrunk (never
+ * over the full picture) and the app cannot turn it off; a remote key resets it. Every
+ * minute the L-frame is up, the service sends KEY_RED over the TV's network remote
+ * (app/api/tvremote.py; ignored above). Not after 3 h without a key from the viewer, so a
+ * TV left on still gets its own screen saver and power-off. */
+function keepAwake() {
+  if (!host.info()?.tv || document.hidden) return;
+  if (windowFor(current?.name) == null || full || resting) return;
+  if (Date.now() - lastUserKey > KEEPAWAKE_FOR_MS) return;
+  nudges.asked++;
+  api("tv/keepawake", {})
+    .then((r) => (nudges.error = r?.ok ? null : r?.error ?? "okänt fel"))
+    .catch((err) => (nudges.error = err.message));
+}
 
 host.onKey((key) => {
   if (NUDGE_KEYS.has(key)) {
@@ -264,6 +282,7 @@ host.onKey((key) => {
     nudges.key = key;
     return;
   }
+  lastUserKey = Date.now();
   note(`key ${key}`);
   restLater();
   if (resting) {
@@ -500,6 +519,7 @@ async function main() {
       feedDot();
     },
   });
+  setInterval(keepAwake, KEEPAWAKE_MS);
   setInterval(pixelShift, (Number(params.get("shift")) || 120) * 1000); // ?shift=<s> to try it
   // an hour before the drop the pregame stops being quiet: full brightness, out of rest
   let wasQuiet = null;

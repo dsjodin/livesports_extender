@@ -265,7 +265,9 @@ async function settingsSheet() {
   ];
   const saver = shell?.screen_saver ? `<br>Skärmsläckare: ${esc(shell.screen_saver)}` : "";
   const n = d.nudges?.();
-  const woken = n?.count ? `<br>Väckknappar: ${n.count}, senast ${hhmm(n.at)} (${esc(n.key)})` : "";
+  const woken =
+    (n?.count ? `<br>Väckknappar: ${n.count}, senast ${hhmm(n.at)} (${esc(n.key)})` : "") +
+    (n?.error ? `<br>Väckknapp: ${esc(n.error)}` : "");
   const about = `<div class="tv-sheet-text quiet">SHL live! · skal ${esc(shell?.version ?? "–")}${shell?.model ? ` · ${esc(shell.model)}` : ""}<br>${esc(d.host.base)}${saver}${woken}</div>`;
   showSheet("INSTÄLLNINGAR", about, rows);
 }

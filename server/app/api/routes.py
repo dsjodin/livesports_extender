@@ -394,6 +394,17 @@ async def tv_start(request: Request) -> dict[str, Any]:
     return {"did": did, **ok(rt)}
 
 
+@router.post("/tv/keepawake")
+async def tv_keepawake(request: Request) -> dict[str, Any]:
+    """One red key over the TV's network remote: Samsung's screen saver stays away while
+    the TV app shows the L-frame (app/api/tvremote.py)."""
+    remote = request.app.state.tv_remote
+    if remote is None:
+        return {"ok": False, "error": "ingen TV-adress (ARENA_TV_REMOTE)"}
+    result: dict[str, Any] = await remote.press()
+    return result
+
+
 @router.post("/tv/probe-mode")
 async def tv_probe_mode(body: EnabledIn, request: Request) -> dict[str, Any]:
     """Show the test page on the TV instead of the graphics (and back)."""
