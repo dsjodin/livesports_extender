@@ -113,6 +113,7 @@ const MENU = [
   ["send", "Skicka rapport"],
   ["setup", "Inställningar"],
   ["hide", "Dölj testbilden"],
+  ["graphics", "Tillbaka till grafiken"],
 ];
 
 function renderMenu() {
@@ -434,6 +435,21 @@ function send(now = false) {
   }, now ? 0 : 500);
 }
 
+/** Back to the graphics: the service's setting; the page reloads on its config message. */
+async function leave() {
+  send(true);
+  try {
+    const r = await fetch(`${host.base}/api/tv/probe-mode`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ enabled: false }),
+    });
+    if (!r.ok) say(`Gick inte: HTTP ${r.status}`);
+  } catch (err) {
+    say(`Gick inte: ${err}`);
+  }
+}
+
 // ---- keys -----------------------------------------------------------------------------
 
 function run(id) {
@@ -448,6 +464,7 @@ function run(id) {
   if (id === "hdmi") return host.restoreHdmi();
   if (id === "send") return send(true);
   if (id === "setup") return host.openSetup();
+  if (id === "graphics") return leave();
   if (id === "hide") root.classList.add("hidden");
 }
 

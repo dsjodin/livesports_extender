@@ -257,7 +257,14 @@ The TV: S95HF, Tizen 9.0, firmware T-RSMFDEUC-0090-1301.0, Chromium 120, page
    - "Flytta TV-bilden" moves the picture: L-frame, small, full screen in turn;
    - "Återställ HDMI-bilden" shows HDMI again if it is gone;
    - press every key the remote has (play/pause, channel, …): the page lists them;
-   - "Dölj testbilden" hides the page (any key brings it back); Back twice exits.
+   - "Dölj testbilden" hides the page (any key brings it back); Back twice exits;
+   - "Tillbaka till grafiken" turns the test page off (`tv_probe`) and the TV reloads
+     into the graphics.
+
+To check which of the remote's own keys reach the app (play/pause, the channel rocker,
+…): menu (OK) → Inställningar → Testsidan, press the keys, and read the "Fjärrkontroll"
+row ("andra: …") or `keys` in the report; then "Tillbaka till grafiken". The shell must be
+0.3.1 or later (it registers every key the TV lets an app have).
 4. The page sends its report every 30 s (and at once on "Skicka rapport"). Read it at
    `http://<server>:8010/api/tv/probe` (kept in `data/tv_probe.json`) and send it on.
 5. If the picture does not show through (or the page stays empty), choose Läge
