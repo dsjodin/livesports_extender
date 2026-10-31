@@ -57,12 +57,18 @@ function banner(text, kind) {
   return html`<div class="tv-banner ${kind}">${text}</div>`;
 }
 
-/** "5 MOT 4" from the penalties alone: a pulled goalie (a guess from the feed) does not
- * change a power play's count (the user 2026-10-31: "6 mot 4", "powerplay 5 mot 5"). */
-function count(st) {
-  const home = st.pen_home ?? st.home;
-  const away = st.pen_away ?? st.away;
-  return home && away && home !== away ? `${home} MOT ${away}` : "";
+/** "5 MOT 4", or "6 MOT 4 · TOM BUR VÄXJÖ" when a team has pulled its goalie on top of the
+ * penalties (the user 2026-10-31: a power play late in the game with the goalie out). A
+ * pull counts only late in the third or in overtime, and a goalie change is not one
+ * (state.py), after a stale pull once read "6 mot 4" all game. */
+function count(tv, st) {
+  const home = st.home ?? st.pen_home;
+  const away = st.away ?? st.pen_away;
+  if (!home || !away) return "";
+  const empty = ["home", "away"].filter((s) => st[`pen_${s}`] != null && st[s] > st[`pen_${s}`]);
+  const nets = empty.map((s) => `TOM BUR ${caps(shortName(tv, s))}`).join(" · ");
+  if (home === away && !nets) return "";
+  return [`${home} MOT ${away}`, nets].filter(Boolean).join(" · ");
 }
 
 /** The shorthanded side's penalties still running, soonest out first. */
@@ -88,7 +94,7 @@ function penaltyCard(tv, key) {
     active?.expires_game_seconds != null ? `TILL ${gameClock(active.expires_game_seconds)}` : null,
   ].filter(Boolean);
   const st = tv.strength ?? {};
-  const pp = st.pp_side === other(side) ? `POWERPLAY ${caps(shortName(tv, other(side)))}${count(st) ? ` · ${count(st)}` : ""}` : "";
+  const pp = st.pp_side === other(side) ? `POWERPLAY ${caps(shortName(tv, other(side)))}${count(tv, st) ? ` · ${count(tv, st)}` : ""}` : "";
   const portrait = p?.id ? `<img class="gl-portrait" src="/assets/players/${encodeURIComponent(p.id)}.png" alt="" onerror="this.remove()">` : "";
   const name = p
     ? html`<div class="gl-first">${p.number != null ? `#${p.number} ` : ""}${p.first ?? ""}</div><div class="gl-last">${caps(p.last ?? "")}</div>`
@@ -118,7 +124,7 @@ function pill(ctx) {
   }
   const first = running(tv, other(pp))[0];
   const until = first?.expires_game_seconds != null ? ` · TILL ${gameClock(first.expires_game_seconds)}` : "";
-  const text = `POWERPLAY ${caps(shortName(tv, pp))}${count(st) ? ` · ${count(st)}` : ""}${until}`;
+  const text = `POWERPLAY ${caps(shortName(tv, pp))}${count(tv, st) ? ` · ${count(tv, st)}` : ""}${until}`;
   if (slot.dataset.text === text) return;
   const fresh = !slot.dataset.text;
   slot.dataset.text = text;
