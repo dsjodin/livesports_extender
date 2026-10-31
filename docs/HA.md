@@ -89,6 +89,47 @@ over.
 Put the horn file in `/media/malhorn.mp3` (Media → Local media). Bulbs that support it can
 use `flash: long` on `light.turn_on` instead of the colour change.
 
+### The horn over the TV's sound on a Sonos Arc (the user's setup, 2026-10-31)
+
+The TV's sound goes to a Sonos Arc over HDMI eARC, and the TV app cannot lower it (its
+volume calls do not reach a soundbar). Sonos can: an **announcement** lowers whatever
+plays (the TV input too) while a clip plays, then brings it back by itself. Use it for
+the horn instead of `media_player.vardagsrum` above:
+
+```yaml
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.sonos_arc   # your Arc
+      data:
+        media_content_id: "media-source://media_source/local/malhorn.mp3"
+        media_content_type: music
+        announce: true          # the TV sound dips under the horn and comes back
+        extra:
+          volume: 0.6           # the horn's own volume, 0–1
+```
+
+`tts.speak` with the Arc as `media_player_entity_id` is an announcement too, so the
+scorer's name dips the TV sound the same way. To lower the TV sound for longer (say the
+whole celebration), take a snapshot and set the volume instead, and restore it after:
+
+```yaml
+    - action: sonos.snapshot
+      data:
+        entity_id: media_player.sonos_arc
+    - action: media_player.volume_set
+      target:
+        entity_id: media_player.sonos_arc
+      data:
+        volume_level: 0.15
+    - delay: "00:00:12"
+    - action: sonos.restore
+      data:
+        entity_id: media_player.sonos_arc
+```
+
+The webhook comes at the goal's `play_at`, as the TV shows it; Sonos needs a moment to
+fetch the clip (about half a second on a LAN).
+
 ### Blink instead (the user's setup)
 
 Three quick blinks in the team colour, then off. `mode: single` so a second press
