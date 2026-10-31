@@ -55,6 +55,7 @@ def test_websocket_hello_state_then_events_in_order(client: TestClient) -> None:
             "debug": False,
             "feed_ok": True,
             "idle_dim": 0.5,
+            "tv_probe": False,
         }
         state = ws.receive_json()
         assert state["t"] == "state" and state["state"]["score"] == {"home": 0, "away": 0}
@@ -230,3 +231,23 @@ def test_tv_app_shell_is_served_for_a_preview(tmp_path: Path) -> None:
         page = c.get("/tvapp/")
         assert page.status_code == 200 and "SHL live!" in page.text
         assert page.headers["cache-control"] == "no-cache"
+
+
+def test_tv_probe_mode_reaches_the_tv(client: TestClient) -> None:
+    with client.websocket_connect("/ws?role=screen&id=tv") as ws:
+        assert ws.receive_json()["config"]["tv_probe"] is False
+        r = client.post("/api/tv/probe-mode", json={"enabled": True})
+        assert r.json()["status"]["tv_probe"] is True
+        update = receive_until(ws, lambda m: m.get("t") == "config")[-1]
+        assert update["config"]["tv_probe"] is True
+    assert client.get("/api/state").json()["status"]["tv_probe"] is True
+
+
+def test_wall_has_the_tv(client: TestClient) -> None:
+    tv = client.get("/api/wall").json()["tv"]
+    assert tv["page"] == "/tv/" and tv["resolution"] == [1920, 1080]
+    assert tv["diagonal_in"] == 77 and tv["viewing"]["distance_m"] == 4
+    # 16:9 and a 77-inch diagonal
+    width, height = tv["physical_mm"]
+    assert abs(width / height - 16 / 9) < 0.01
+    assert abs((width**2 + height**2) ** 0.5 / 25.4 - 77) < 0.5

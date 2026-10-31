@@ -383,6 +383,14 @@ async def tv_probe_save(body: dict[str, Any], request: Request) -> dict[str, Any
     return {"ok": True}
 
 
+@router.post("/tv/probe-mode")
+async def tv_probe_mode(body: EnabledIn, request: Request) -> dict[str, Any]:
+    """Show the test page on the TV instead of the graphics (and back)."""
+    rt = runtime(request)
+    rt.set_tv_probe(body.enabled)
+    return ok(rt)
+
+
 @router.get("/tv/probe")
 async def tv_probe_get(request: Request) -> dict[str, Any]:
     """The latest report from the TV app's test page, or 404."""

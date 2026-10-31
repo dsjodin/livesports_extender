@@ -63,5 +63,22 @@
     "distance_m": 3,
     "floor_mm_per_m": 3.67,
     "text_mm_per_m": 6
+  },
+  "tv": {
+    "id": "tv",
+    "page": "/tv/",
+    "note": "The Samsung TV app (docs/TV_APP.md): a 77-inch 16:9 TV watched from 4 m (the user, 2026-10-31). Its page is 1920x1080 CSS pixels whatever the panel; text sizes use the wall's viewing rule at this distance.",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "physical_mm": [
+      1705,
+      959
+    ],
+    "diagonal_in": 77,
+    "viewing": {
+      "distance_m": 4
+    }
   }
 }

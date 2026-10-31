@@ -217,7 +217,7 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
 ```json
 {"t": "hello", "server_ms": 1760000000000, "role": "screen", "id": "left",
  "config": {"offset_ms": 40000, "lead_ms": 1500, "profile": "iptv", "speed": 1.0, "debug": false,
-            "feed_ok": true, "idle_dim": 0.5}}
+            "feed_ok": true, "idle_dim": 0.5, "tv_probe": false}}
 
 {"t": "state", "state": { "... full TV state ..." }}
 
@@ -258,6 +258,8 @@ Endpoint: `/ws?role=screen|sim|phone|debug&id=<screen id or client name>`
   game, with a poll a minute, 3 min). Replays and recordings are always true. It is
   sent at once, not at a `play_at` (it is about the connection, not the game), and is
   also in `status`. The bar shows it as a red dot (`docs/SCREENS.md`, Feed warning).
+- `tv_probe` is true while the TV app shows its test page instead of the graphics
+  (`docs/TV_APP.md`); the TV page reloads itself when it changes. Also in `status`.
 - `idle_dim` (0–0.9) is how much darker the screens are in the `idle` scene: a black layer
   of that opacity (`docs/SCREENS.md`, Idle dimming). Set in the phone app; also in `status`.
 - Non-screen clients (sim, phone, debug) get `{"t": "status", "status": {...}}` about once
@@ -319,6 +321,7 @@ the service are same-origin and need none; other websites get no CORS headers.
 | `POST /api/idle-dim` | `{"level": 0.5}` | "Dimning i vila": how much darker the screens are while idle, 0–0.9 (422 outside) |
 | `POST /api/tv/probe` | the test report (JSON, at most 64 kB) | The TV app's test page reports what works on the TV (`docs/TV_APP.md`); kept in `data/tv_probe.json` |
 | `GET /api/tv/probe` | | The latest report, `{"received_ms", "report"}`, or 404 |
+| `POST /api/tv/probe-mode` | `{"enabled": true}` | The TV app shows its test page (true) or the graphics |
 | `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag": follow my team's game of the day live when nothing else runs (checked every 10 min) |
 | `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |
@@ -454,6 +457,7 @@ with `Cache-Control: max-age=86400`; 404 when the feed has none.
 | `GET /assets/players/<isa id>.png` | the portrait in `athletes/by-team-uuid` (team roster cached 24 h), matched by name, then jersey number; the smallest signed `srcset` entry at least 480 px wide |
 
 | `GET /media/<goal\|intro\|pp>/<team uuid>.webm` | not from shl.se: `data/media/<kind>/<uuid>.webm` (your own) or the default in `web/media/` (`tools/make_stingers.py`); `Cache-Control: no-cache`; see `docs/VIDEOS.md` |
+| `GET /media/<tvgoal\|tvintro\|tvpp>/<team uuid>.webp` | the TV app's animated WebP (`docs/TV_APP.md`, Videos), found the same way; `image/webp` |
 
 A player is known once an event names them (scorer, assists, players on the ice). A
 player who has left the team since the game (old fixtures) has no portrait.

@@ -43,3 +43,24 @@ a { color: var(--rink-blue); }
 .queue ol li { white-space: normal; overflow: visible; padding: 2px 0; border-bottom: 1px solid var(--panel-raised); }
 .queue ol li .q-main { display: block; }
 .queue ol li .q-meta { display: block; color: var(--text-muted); padding-left: 2ch; }
+
+/* the TV app view (tvview.js): the overlay over a stand-in for the HDMI picture */
+#wall.tv-mode .frame { display: none; }
+#tvview.hidden { display: none; }
+#tvview { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+.tv-screen { position: relative; overflow: hidden; background: #000; border: 10px solid #000; border-radius: 6px; box-sizing: content-box;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); }
+.tv-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.tv-stage iframe { position: absolute; left: 0; top: 0; border: 0; background: transparent; }
+.tv-picture { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49.6%, rgba(229, 72, 77, 0.75) 49.6% 50.4%, transparent 50.4%),
+    linear-gradient(90deg, transparent 32%, rgba(63, 111, 224, 0.7) 32% 33%, transparent 33% 67%, rgba(63, 111, 224, 0.7) 67% 68%, transparent 68%),
+    radial-gradient(ellipse at 50% 45%, #eef3f7, #b9c8d3); }
+.tv-picture-label { position: absolute; left: 0; right: 0; top: 46%; text-align: center; font: 800 60px var(--font-condensed);
+  letter-spacing: 0.1em; color: rgba(11, 15, 23, 0.35); }
+.tv-bug { position: absolute; left: 4%; top: 5%; padding: 10px 18px; background: rgba(11, 15, 23, 0.85); color: #fff;
+  font: 700 40px var(--font-condensed); border-radius: 6px; }
+.tv-bug b { color: var(--gold); font-variant-numeric: tabular-nums; }
+.tv-remote { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.tv-remote button { min-width: 44px; }
