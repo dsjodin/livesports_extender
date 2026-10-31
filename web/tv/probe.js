@@ -246,6 +246,8 @@ function socket() {
     base: host.base,
     onMessage: (m) => {
       if (m.t === "state") state = m.state;
+      // the graphics were asked for again (tv.js picks the page)
+      if ((m.t === "hello" || m.t === "config") && m.config.tv_probe === false) location.reload();
     },
     onStatus: (s) => {
       report.ws.state = s;
@@ -474,6 +476,7 @@ host.onInfo((info) => {
   else set("shell", `${names[host.mode]} · skal ${info.version} · ${info.tv ? `TV ${info.model ?? ""} Tizen ${info.platform ?? "?"}` : "förhandsvisning på dator"}`);
   if (!info?.tv) set("source", info ? "ingen HDMI på dator" : "-", "wait");
   if (info?.source) showSource(info.source);
+  if (info) host.placeWindow(null); // the full picture, wherever the graphics had put it
   host.ready();
   send();
 });

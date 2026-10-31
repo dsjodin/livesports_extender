@@ -546,3 +546,10 @@ Phase 9 notes (2026-10-31):
   HTTP, WebSocket, clock, 60 fps, L-frame moves without a flash (45–120 ms) and animated
   WebP with alpha all work; `<video>` is out. Open: whether play/pause and the channel
   rocker reach the app, and the TV's own HDMI delay (with Synka on a live game).
+- 9.2 done (2026-10-31): the TV in `config/wall.json` (`tv`: 77", 4 m, fonts 23/38 px),
+  `/tv/` is the overlay's frame (`web/tv/overlay.js`: screen `tv`, scenes at play_at, the
+  TV picture placed per scene with the L-frame backdrop, feed dot, debug overlay; scene
+  placeholders until 9.3), the test page behind `tv_probe` (`POST /api/tv/probe-mode`),
+  `/media/tv*/<uuid>.webp`, and the TV view in `/sim` playing the shell. Verified in
+  `/sim`: scene changes 1–11 ms after play_at, L-frame and full picture, the test page
+  and back.

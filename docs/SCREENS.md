@@ -416,6 +416,8 @@ A developer tool; its control panel may be in English.
 - Background `--wall`. The three screens laid out from `wall.json` at one millimetre scale
   that fits the window, each an iframe of the real page at native resolution scaled with
   `transform: scale()`, with a 10 mm black bezel drawn around each.
+- View: the wall, or the TV app (`/tv/` over a stand-in for the HDMI picture, with a
+  remote; `docs/TV_APP.md`, Development).
 - Control panel (below or beside the wall):
   - Source: replay (fixture list plus any finished game uuid), recording, live (today's
     games from the schedule, or a typed uuid; "Follow live").

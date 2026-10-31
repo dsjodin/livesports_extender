@@ -35,6 +35,9 @@ async def player_portrait(player_id: str, request: Request) -> FileResponse:
 media_router = APIRouter(prefix="/media")
 
 MEDIA_KINDS = ("goal", "intro", "pp")
+# The TV app's versions (docs/TV_APP.md, Videos): animated WebP, since a <video> on the TV
+# takes its media player from the HDMI picture.
+TV_MEDIA_KINDS = ("tvgoal", "tvintro", "tvpp")
 # revalidated on every page load, so a replaced video shows after a reload (docs/VIDEOS.md)
 MEDIA_HEADERS = {"Cache-Control": "no-cache"}
 
@@ -50,11 +53,25 @@ async def team_video(kind: str, uuid: str, request: Request) -> FileResponse:
     return FileResponse(path, media_type="video/webm", headers=MEDIA_HEADERS)
 
 
-def media_path(data_dir: Path, web_dir: Path, kind: str, uuid: str) -> Path | None:
-    if kind not in MEDIA_KINDS or not SAFE_ID.match(uuid):
+@media_router.get("/{kind}/{uuid}.webp")
+async def team_animation(kind: str, uuid: str, request: Request) -> FileResponse:
+    """The TV app's animated WebP of a team's goal, intro or power play, found as the
+    videos are."""
+    settings = request.app.state.settings
+    path = media_path(settings.data_dir, settings.web_dir, kind, uuid, ext="webp")
+    if path is None:
+        raise HTTPException(404, "no animation")
+    return FileResponse(path, media_type="image/webp", headers=MEDIA_HEADERS)
+
+
+def media_path(
+    data_dir: Path, web_dir: Path, kind: str, uuid: str, ext: str = "webm"
+) -> Path | None:
+    kinds = TV_MEDIA_KINDS if ext == "webp" else MEDIA_KINDS
+    if kind not in kinds or not SAFE_ID.match(uuid):
         return None
     for root in (data_dir / "media", web_dir / "media"):
-        path = root / kind / f"{uuid}.webm"
+        path = root / kind / f"{uuid}.{ext}"
         if path.is_file():
             return path
     return None

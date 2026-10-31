@@ -201,6 +201,7 @@ class Runtime:
             "debug": False,
             "feed_ok": self.feed_ok,
             "idle_dim": self.config.idle_dim,
+            "tv_probe": self.config.tv_probe,
         }
 
     # --- messages -------------------------------------------------------------------
@@ -942,6 +943,12 @@ class Runtime:
         self.store.save()
         self.out.broadcast({"t": "config", "config": self.config_message()})
 
+    def set_tv_probe(self, enabled: bool) -> None:
+        """The TV app shows its test page (true) or the graphics; it reloads on the change."""
+        self.config.tv_probe = enabled
+        self.store.save()
+        self.out.broadcast({"t": "config", "config": self.config_message()})
+
     def nudge_offset(self, delta: float) -> None:
         self.set_offset(self.config.active_profile, self.config.offset_s + delta)
 
@@ -1160,6 +1167,7 @@ class Runtime:
             "goal_button_sync": self.config.goal_button_sync,
             "follow_my_team": self.config.follow_my_team,
             "idle_dim": self.config.idle_dim,
+            "tv_probe": self.config.tv_probe,
             "webhooks": {
                 "enabled": self.config.webhooks.enabled,
                 "url_set": bool(self.config.webhooks.url),

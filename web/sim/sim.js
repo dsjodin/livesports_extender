@@ -4,6 +4,7 @@ import { esc, hhmm } from "../shared/format.js";
 import * as stage from "../shared/stage.js";
 import { Store } from "../shared/store.js";
 import { connect } from "../shared/ws.js";
+import * as tvview from "./tvview.js";
 
 const $ = (id) => document.getElementById(id);
 const SPEEDS = [1, 2, 5, 20, 50];
@@ -85,6 +86,17 @@ function layout() {
 function setDebug(on) {
   debug = on;
   for (const { s, iframe } of frames) iframe.src = `${s.page}${on ? "?debug=1" : ""}`;
+  if (tvview.visible()) tvview.reload(on);
+}
+
+function setView(view) {
+  const tv = view === "tv";
+  $("wall").classList.toggle("tv-mode", tv);
+  $("view-wall").classList.toggle("on", !tv);
+  $("view-tv").classList.toggle("on", tv);
+  tvview.show(tv);
+  if (!tv) layout();
+  storageSet("sim.view", view);
 }
 
 // --- controls -----------------------------------------------------------------------
@@ -169,6 +181,7 @@ function bindControls() {
 }
 
 function showConfig(config) {
+  $("tv-probe").checked = config.tv_probe === true;
   if (config.offset_ms == null) return;
   $("profile").textContent = config.profile;
   if (document.activeElement !== $("offset")) {
@@ -308,6 +321,11 @@ function renderTv() {
 async function main() {
   await stage.load();
   buildWall();
+  tvview.build($("wall"), debug);
+  $("view-wall").onclick = () => setView("wall");
+  $("view-tv").onclick = () => setView("tv");
+  $("tv-probe").onchange = () => api("tv/probe-mode", { enabled: $("tv-probe").checked });
+  setView(storageGet("sim.view", "wall"));
   bindControls();
   fillGames();
   fillLive();

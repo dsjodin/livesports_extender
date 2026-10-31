@@ -82,10 +82,14 @@ at the least and 24 mm (27 px, a **38 px** font) for reading. Checked with
 | `intermission` | L-frame | The intermission slides (period stats, shots, special teams, save %, live table, other games) |
 | `postgame` | L-frame | Final, top players, standings movement |
 
-- **L-frame:** the TV picture moves to the top left at about 60 % (1152×648), our
-  graphics fill the right column and the band below. The overlay asks the shell to
-  move the picture at the scene's `play_at`, so the change lands with the broadcast.
-  OK toggles full-screen TV in any L-frame scene; the next scene change resets it.
+- **L-frame:** the TV picture moves to the top left at 60 % (1152×648, 40 px from the
+  edges), our graphics fill the column right of it (608×1000) and the band below it
+  (1152×312); a backdrop in `--bg-screen` paints everything around the picture
+  (`web/tv/layout.js`). The overlay asks the shell to move the picture at the scene's
+  `play_at`, so the change lands with the broadcast; going back to full screen the
+  backdrop fades out in 0.1 s, before the picture has grown (45–120 ms on the TV).
+  The viewer can ask for the full picture in any L-frame scene (9.4); the next scene
+  change resets it.
 - **Panels** (live, on a key): Statistik (shots, power plays, special teams, shot map),
   Tabell (live table), Kvällens matcher. Lower half or right third, semi-transparent,
   over the full picture; they close themselves after 20 s or on Back. Every number in
@@ -129,16 +133,24 @@ from the HDMI input, so the TV picture and its sound go while it plays (2026-10-
 TV versions are **animated WebP with alpha** instead: an image, decoded without the
 media player. Tried on the TV with the 1920×360 power-play video (895 kB, 4 s): ready in
 155 ms, transparent and smooth to the eye (one 67 ms frame in the measurement), HDMI
-picture and sound stay. `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
+picture and sound stay. They are served at `/media/<kind>/<team uuid>.webp` (your own
+in `data/media/` first, as the videos). `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
 `tvintro`, `tvpp`, 1920×1080 or a band of it, about 1 MB for 4 s). Over a live picture
 they should be short sweeps that end transparent, leaving the middle of the ice clear
 as quickly as possible. If WebP stutters on the TV, the GSAP animations stay alone.
 
 ## Development and install
 
-- `/sim` gets a TV view: 1920×1080 scaled, with a still from a broadcast as the HDMI
-  picture, the L-frame drawn, and the keyboard standing in for the remote
-  (Enter, arrows, Backspace).
+- `/sim` has a TV view ("View: TV app"): `/tv/` in a 16:9 frame over a stand-in for the
+  HDMI picture (a rink, with the Fake TV clock as the broadcast's bug). `/sim` plays the
+  shell (`web/sim/tvview.js`): it answers the overlay's messages, moves the stand-in
+  picture 60 ms after a window request, as the TV does, and sends the remote's keys
+  (buttons, or arrows, Enter, Backspace, space for play/pause, PgUp/PgDn for the
+  channel rocker). "Test page on the TV" switches the TV to the test page and back
+  (`POST /api/tv/probe-mode`, setting `tv_probe`); the TV reloads itself, no reinstall.
+- The TV's size and distance are in `config/wall.json` under `tv` (the TV is not part of
+  the wall's geometry); `stage.applyType("tv")` gives `--fs-floor` 23 px and
+  `--fs-text` 38 px.
 - The `.wgt` is built and installed with the Tizen CLI (Tizen Studio or the VS Code
   extension): developer mode on the TV with the PC's IP, `sdb connect <tv>`,
   `tizen package -t wgt -s <certificate profile>`, `tizen install -n SHLlive.wgt -t <tv>`.
