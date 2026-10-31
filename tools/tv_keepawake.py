@@ -90,6 +90,15 @@ async def run(tv: str, key: str, every: float, minutes: float) -> int:
                     tokens.write_text(new)
                     print(f"{stamp()} allowed; token saved in {tokens}")
                 break
+            if event == "ms.channel.timeOut":
+                # seen on the S95HF at once, with no question on screen (2026-10-31)
+                print(
+                    f"{stamp()} the TV timed out without asking: leave the TV app (plain TV),",
+                    "run this again and answer Allow; or allow SHL Arena in the TV's Device",
+                    "Connection Manager (Device List)",
+                    file=sys.stderr,
+                )
+                return 1
             if event == "ms.channel.unauthorized":
                 print(
                     f"{stamp()} the TV said no (unauthorized): allow SHL Arena on the TV,",
