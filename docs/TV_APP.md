@@ -18,6 +18,8 @@ HDMI 1 `BEHIND` the page, and transparent and half-transparent graphics work ove
 | Remote | Sync (puck drop), MÅL! buttons, panels, choosing the game on the TV. |
 | Server address | Typed in once in the app (setup screen), stored on the TV. |
 | Videos | Team videos remade for 16:9 (1920×1080, VP9 with alpha), if the TV plays VP9 alpha (to be verified). |
+| TV and distance | 77" (16:9, 1705×959 mm), watched from 4 m (the user, 2026-10-31). |
+| MÅL! on the remote | Two presses within 2 s, to be tried (the user, 2026-10-31). |
 
 ## How it fits together
 
@@ -64,8 +66,11 @@ The shell checks the origin of every message against the server address it was g
 
 ## Scenes on the TV
 
-All text Swedish (hockey terms in English as on the wall). Sized for 3 m on the TV's real
-width (the size is still to be given, see Open questions), checked with
+All text Swedish (hockey terms in English as on the wall). Sized for the TV: 77" at 4 m.
+The page is 1920×1080 CSS pixels over 1705 mm, so 0.888 mm a pixel. With the wall's
+rule (`config/wall.json` `viewing`: cap height 3.67 mm per metre at least, 6 mm per metre
+for text meant to be read) that is a cap height of 14.7 mm (16.5 px, a **23 px** font)
+at the least and 24 mm (27 px, a **38 px** font) for reading. Checked with
 `tools/legibility.py`.
 
 | Scene | TV picture | Our graphics |
@@ -102,8 +107,8 @@ width (the size is still to be given, see Open questions), checked with
 | Back | Close panel or menu | Back; at the top level "Avsluta?" |
 
 - The MÅL! keys fire lights and horn in Home Assistant at once, so they need a second
-  press within 2 s ("MÅL! HEMMA? Tryck igen") to keep a stray press quiet (to confirm
-  with the user). With "Använd målknapp för synk" on, a linked press is also a goal
+  press within 2 s ("MÅL! HEMMA? Tryck igen") to keep a stray press quiet (decided to
+  try, 2026-10-31). With "Använd målknapp för synk" on, a linked press is also a goal
   sample, as in the phone app.
 - Colour and digit keys must be registered with `tizen.tvinputdevice.registerKey`
   (privilege `tv.inputdevice`); the shell does that and passes them on.
@@ -143,7 +148,30 @@ left out on the TV.
 8. How much the TV's HDMI path delays the picture compared with the TV's own input
    (the `iptv` TV profile may need a small nudge).
 
-## Open questions
+## The test build (task 9.1)
 
-- The TV's size (inches) and the viewing distance, for the type scale.
-- MÅL! on the remote: double press to confirm, or a single press like the phone app.
+`SHLlive/` is the shell (version 0.3.0); its overlay `/tv/` is, for now, the test page
+`web/tv/probe.js`. It checks the list above and reports to the service.
+
+1. Build and install `SHLlive/` on the TV as with the demo (Tizen Studio or the Tizen
+   CLI, see Development and install). New privileges: `internet`, `tv.inputdevice`,
+   `productinfo`, and `<access origin="*">`.
+2. First start: "Inställningar". Type the Docker host's address, e.g.
+   `192.168.1.20:8010` (OK opens the TV's keyboard), keep HDMI 1 and Läge "Iframe",
+   choose Anslut. The settings stay on the TV; key 9 opens them again.
+3. The test page lies over the TV picture. A green dot means the check passed, red that it
+   failed, yellow that it waits for an answer. Questions in the gold box: ← nej, → ja.
+   - 1 plays a power-play video in the lower part of the picture;
+   - 2, 3 and 4 move the TV picture: full screen, L-frame, small top right;
+   - press all four colour keys and a few digits;
+   - OK hides the test page to look at the picture; Back twice exits.
+4. The page sends its report every 30 s (and at once on 5). Read it at
+   `http://<server>:8010/api/tv/probe` (kept in `data/tv_probe.json`) and send it on.
+5. If the picture does not show through (or the page stays empty), choose Läge
+   "Direkt (reserv)" in the settings and run it again: the same page, imported into the
+   shell itself.
+
+On a computer the shell runs as a preview at `http://<server>:8010/tvapp/` (striped
+stand-in for the TV picture; the keyboard is the remote: R, G, Y, B, Enter, arrows,
+digits, Backspace). Opening `SHLlive/index.html` from disk tries the fallback mode the
+way the TV does (Origin `null`, CORS). Both were run in Chromium on 2026-10-31.

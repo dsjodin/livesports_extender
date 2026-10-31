@@ -17,6 +17,7 @@ COPY server/app ./app
 COPY web /srv/web
 COPY config /srv/config
 COPY tools /srv/tools
+COPY SHLlive /srv/SHLlive
 
 EXPOSE 8010
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8010"]

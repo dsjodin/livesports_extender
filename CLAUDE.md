@@ -93,7 +93,8 @@ uv run --project server python tools/legibility.py         # text sizes in mm on
 shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 
-Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`.
+Pages once built: `/sim`, `/app`, `/screens/left.html`, `/screens/bar.html`, `/screens/right.html`,
+`/tv/` (the TV app's overlay) and `/tvapp/` (the TV app's shell as a preview on a computer).
 
 ## Hard rules
 

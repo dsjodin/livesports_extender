@@ -508,7 +508,7 @@ app replaces the wall for whoever has no wall; the wall stays supported.
 Tasks:
 
 1. **Probe build.** The shell from the demo plus a setup screen (server address), and a
-   probe page `/tv/probe.html` from the service in a transparent iframe that checks the
+   probe page (`/tv/`, for now `web/tv/probe.js`) from the service in a transparent iframe that checks the
    list in `docs/TV_APP.md` (To verify on the real TV first): transparency steps, HTTP and
    WebSocket to the service, synced clock statistics, a VP9 alpha test video, L-frame
    moves of the TV picture, a key log. The user installs it and reports; the answers go
@@ -529,3 +529,12 @@ Acceptance: on the TV, a replayed game in step with `/sim` shows the goal celebr
 penalties, panels on the remote and the L-frame in intermissions; puck-drop sync and MÅL!
 work from the remote; the app recovers by itself when the service or HDMI goes away and
 comes back.
+
+Phase 9 notes (2026-10-31):
+
+- 9.1 built: the shell `SHLlive/` 0.3.0 (settings on the TV, HDMI from the demo, keys,
+  iframe or direct mode, window moves), `web/tv/host.js` (the shell bridge) and
+  `web/tv/probe.js` (the checks), `POST`/`GET /api/tv/probe`, CORS for Origin `null`
+  only, `/tvapp/` preview. Run in Chromium in both modes (`docs/TV_APP.md`, The test
+  build); waiting for the report from the real TV before 9.2.
+- The TV is 77" at 4 m: fonts at least 23 px, 38 px for reading.

@@ -293,6 +293,11 @@ offset of the 5 samples with the lowest RTT.
 All under `/api`. JSON in and out. No authentication (LAN only; put a reverse proxy with
 auth in front if it is ever exposed).
 
+Cross-origin reads (CORS) are allowed for one origin only: `null` (and `file://`,
+`app://`), which is what the Samsung TV app's shell has on the TV. It needs them in its
+fallback mode, where it imports `/tv/tv.js` into itself (`docs/TV_APP.md`). Pages served by
+the service are same-origin and need none; other websites get no CORS headers.
+
 | Method and path | Body / query | Purpose |
 |---|---|---|
 | `GET /api/health` | | `{"status":"ok","version":...}` |
@@ -312,6 +317,8 @@ auth in front if it is ever exposed).
 | `DELETE /api/calibrate` | | Clear samples |
 | `DELETE /api/calibrate/{id}` | | Remove one sample |
 | `POST /api/idle-dim` | `{"level": 0.5}` | "Dimning i vila": how much darker the screens are while idle, 0–0.9 (422 outside) |
+| `POST /api/tv/probe` | the test report (JSON, at most 64 kB) | The TV app's test page reports what works on the TV (`docs/TV_APP.md`); kept in `data/tv_probe.json` |
+| `GET /api/tv/probe` | | The latest report, `{"received_ms", "report"}`, or 404 |
 | `POST /api/follow` | `{"enabled": true}` | "Följ mitt lag": follow my team's game of the day live when nothing else runs (checked every 10 min) |
 | `POST /api/goal` | `{"side": "home"\|"away"}` | MÅL! button: celebrate now (webhook in Phase 6); returns `{"press", "status"}` |
 | `POST /api/scene` | `{"name", "hold_s"?}` | Manual scene override |

@@ -365,6 +365,33 @@ async def reset_team_colors(uuid: str, request: Request) -> dict[str, Any]:
     return {"team": next((t for t in rt.colors.listing() if t["uuid"] == uuid), None)}
 
 
+TV_PROBE_MAX_BYTES = 64_000
+
+
+@router.post("/tv/probe")
+async def tv_probe_save(body: dict[str, Any], request: Request) -> dict[str, Any]:
+    """The TV app's test page reports what works on the TV (docs/TV_APP.md, task 9.1)."""
+    rt = runtime(request)
+    text = json.dumps(
+        {"received_ms": rt.clock.now_ms(), "report": body}, indent=2, ensure_ascii=False
+    )
+    if len(text.encode()) > TV_PROBE_MAX_BYTES:
+        raise HTTPException(413, "report too large")
+    path = request.app.state.settings.data_dir / "tv_probe.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text + "\n", encoding="utf-8")
+    return {"ok": True}
+
+
+@router.get("/tv/probe")
+async def tv_probe_get(request: Request) -> dict[str, Any]:
+    """The latest report from the TV app's test page, or 404."""
+    path = request.app.state.settings.data_dir / "tv_probe.json"
+    if not path.exists():
+        raise HTTPException(404, "no report from the TV yet")
+    return json.loads(path.read_text(encoding="utf-8"))  # type: ignore[no-any-return]
+
+
 @router.get("/wall")
 async def wall(request: Request) -> Any:
     path = request.app.state.settings.config_dir / "wall.json"

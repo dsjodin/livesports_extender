@@ -1,0 +1,48 @@
+/* The TV test page (probe.js), 1920×1080, sized for a 77" TV at 4 m (docs/TV_APP.md).
+   Everything outside the panels stays transparent: that is where the TV picture shows. */
+html, body { margin: 0; background: transparent; overflow: hidden; }
+.tvp { position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0;
+  font-family: var(--font-body); color: var(--text); font-size: 30px; line-height: 1.25; }
+.tvp.hidden > :not(.tvp-outline):not(.tvp-video):not(.tvp-toast) { visibility: hidden; }
+.tvp-outline { position: absolute; box-sizing: border-box; border: 6px dashed var(--gold); border-radius: 6px; }
+.tvp-outline.full { border-color: rgba(245, 197, 66, 0.35); }
+
+.tvp-panel { position: absolute; left: 60px; top: 120px; width: 900px; padding: 28px 34px;
+  background: rgba(7, 10, 16, 0.82); border-left: 8px solid var(--gold); border-radius: 12px; }
+.tvp-panel h1 { margin: 0 0 18px; font: 800 52px/1 var(--font-condensed); letter-spacing: 1px; }
+.tvp-panel h2 { margin: 22px 0 8px; font: 700 30px/1 var(--font-condensed); color: var(--text-muted);
+  letter-spacing: 2px; text-transform: uppercase; }
+.tvp-row { display: grid; grid-template-columns: 30px 250px 1fr; align-items: baseline; gap: 12px; padding: 5px 0; }
+.tvp-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--divider); align-self: center; }
+.tvp-row[data-status="ok"] .tvp-dot { background: #2FBF71; }
+.tvp-row[data-status="bad"] .tvp-dot { background: #E5484D; }
+.tvp-row[data-status="ask"] .tvp-dot { background: var(--gold); }
+.tvp-label { font-weight: 600; color: var(--text-secondary); }
+.tvp-value { font-size: 28px; overflow-wrap: anywhere; }
+.tvp-keys { display: flex; gap: 18px; flex-wrap: wrap; font: 600 30px/1.2 var(--font-condensed); color: var(--gold); min-height: 36px; }
+
+.tvp-side { position: absolute; right: 60px; top: 120px; width: 820px; display: flex; flex-direction: column; gap: 30px; }
+.tvp-alpha { display: flex; flex-direction: column; gap: 8px; }
+.tvp-alpha-head { font: 700 30px/1 var(--font-condensed); letter-spacing: 2px; text-transform: uppercase;
+  padding: 10px 14px; background: rgba(0, 0, 0, 0.8); align-self: flex-start; }
+.tvp-alpha-line { display: grid; grid-template-columns: 120px repeat(5, 1fr); }
+.tvp-alpha-name { padding: 28px 12px; background: rgba(0, 0, 0, 0.8); font-weight: 600; }
+.tvp-alpha-cell { display: grid; place-items: center; height: 90px; font-weight: 700; font-size: 28px;
+  text-shadow: 0 0 6px #000; }
+.tvp-gradient { height: 70px; background: linear-gradient(90deg, rgba(7, 10, 16, 0), rgba(7, 10, 16, 1)); }
+.tvp-lane { position: relative; height: 70px; background: rgba(0, 0, 0, 0.55); border-radius: 35px; }
+.tvp-puck { position: absolute; left: 25px; top: 10px; width: 50px; height: 50px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 20px rgba(245, 197, 66, 0.7); }
+.tvp-clock { display: flex; align-items: center; gap: 26px; align-self: flex-start;
+  padding: 14px 24px; background: rgba(0, 0, 0, 0.8); border-radius: 10px; }
+.tvp-time { font: 800 64px/1 var(--font-condensed); font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+.tvp-second { width: 46px; height: 46px; border-radius: 8px; background: var(--gold); opacity: 0; }
+
+.tvp-bottom { position: absolute; left: 60px; right: 60px; bottom: 50px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.tvp-question { display: none; padding: 18px 28px; background: var(--gold); color: var(--on-gold);
+  font: 700 40px/1.1 var(--font-condensed); border-radius: 10px; }
+.tvp-question.on { display: block; }
+.tvp-legend { padding: 12px 22px; background: rgba(0, 0, 0, 0.8); border-radius: 10px; font-size: 28px; color: var(--text-secondary); }
+.tvp-toast { position: absolute; right: 60px; bottom: 50px; padding: 18px 28px; background: rgba(7, 10, 16, 0.92);
+  border: 3px solid var(--gold); border-radius: 10px; font: 700 36px/1 var(--font-condensed); opacity: 0; }
+.tvp-video { position: absolute; left: 0; top: 600px; width: 1920px; height: 360px; opacity: 0; pointer-events: none; }
