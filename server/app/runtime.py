@@ -51,6 +51,7 @@ LOG_SIZE = 400
 LEAGUE_REFRESH_S = 600
 LEAGUE_CHECK_S = 30  # how often the league loop looks whether it may refresh
 FOLLOW_CHECK_S = 600  # "follow my team": look at today's schedule (cached 1 h) this often
+MY_GAME_LEAD_MS = 15 * 60_000  # my team's game takes over a replay this long before it starts
 MANUAL_LEAD_MS = 300  # a MÅL! press plays this soon: the clients need the message first
 MANUAL_LINK_BEFORE_MS = 150_000  # a feed goal links if its event_ms is this far before
 MANUAL_LINK_AFTER_MS = 5_000  # ... or at most this far after the press
@@ -371,7 +372,7 @@ class Runtime:
             "uuid"
         )
         start = (game or {}).get("start_ms") or self.meta.start_ms
-        history, leaders = await self._league_extras(home, away)
+        history, leaders = await self._league_extras(home, away, self.config.my_team_uuid)
         now = self.clock.now_ms()
         self.league_block = league_engine.build(
             league_engine.standings_rows(standings_raw),
@@ -385,7 +386,8 @@ class Runtime:
             leaders=leaders,
             groupings=league_engine.zones(standings_raw),
         )
-        for block in (self.league_block["teams"] or {}).values():
+        blocks = [*(self.league_block["teams"] or {}).values(), self.league_block["my_team"]]
+        for block in blocks:
             for row in [r for rows in ((block or {}).get("leaders") or {}).values() for r in rows]:
                 row["portrait"] = f"/assets/players/{row['athlete_uuid']}.png"
                 if self.assets is not None:
@@ -398,10 +400,11 @@ class Runtime:
         self._patch(now + self.lead_ms)
 
     async def _league_extras(
-        self, home: str | None, away: str | None
+        self, home: str | None, away: str | None, mine: str | None = None
     ) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
-        """Earlier seasons' games and both teams' scoring leaders for the pregame slides;
-        empty when shl.se cannot give them (the slides then leave them out)."""
+        """Earlier seasons' games and the scoring leaders of both teams (the pregame slides)
+        and of my team (the TV between games); empty when shl.se cannot give them (the
+        slides then leave them out). Leaders are cached an hour per team."""
         assert self.league is not None
         history: list[dict[str, Any]] = []
         leaders: dict[str, dict[str, Any]] = {}
@@ -409,7 +412,7 @@ class Runtime:
             history = await self.league.history()
         except Exception as exc:  # the rest of the block still updates without it
             log.warning("earlier seasons unavailable: %s", exc)
-        for uuid in (home, away):
+        for uuid in dict.fromkeys((home, away, mine)):
             if uuid:
                 try:
                     leaders[uuid] = await self.league.leaders(uuid)
@@ -703,34 +706,72 @@ class Runtime:
             await self.clock.sleep(FOLLOW_CHECK_S)
 
     async def follow_my_team(self) -> str | None:
-        """Start following my team's game today if that is on and nothing else runs: no
-        source, or a live source that has finished. Never interrupts a replay, a recording
-        or a live game in progress. Returns the uuid it started, if any."""
+        """Start following my team's game today if that is on: when nothing else runs (no
+        source, or a live source that has finished), and also over a replay or a
+        recording once my team's game is MY_GAME_LEAD_MS from its start or under way (the
+        user, 2026-10-31: my team's game is the default; a replay is a test). Never
+        interrupts a live game the user chose. Returns the uuid it started, if any."""
         team = self.config.my_team_uuid
         if not self.config.follow_my_team or not team or self.schedule is None:
             return None
         mode = self.config.source.mode
         running = self._source_task is not None and not self._source_task.done()
-        if mode in ("replay", "recording") and running:
-            return None
         if mode == "live" and running:
             return None
-        games = await self.schedule.upcoming(0)
-        mine = [
-            g
-            for g in games
-            if team in (g["home"]["uuid"], g["away"]["uuid"]) and g["state"] != "post-game"
-        ]
-        if not mine:
+        game = await self._my_game_today()
+        if game is None:
             return None
-        game = mine[0]["uuid"]
-        if mode == "live" and self.config.source.uuid == game:
+        if mode in ("replay", "recording") and running:
+            start = game.get("start_ms")
+            near = game["state"] == "live" or (
+                start is not None and start - self.clock.now_ms() <= MY_GAME_LEAD_MS
+            )
+            if not near:
+                return None
+            log.info("follow my team: its game is on, the %s stops", mode)
+        if mode == "live" and self.config.source.uuid == game["uuid"]:
             return None  # already followed today (finished, or stopped by the user)
-        log.info("follow my team: following %s", game)
-        await self.set_source("live", game)
+        log.info("follow my team: following %s", game["uuid"])
+        await self.set_source("live", game["uuid"])
         self.config.my_side = None  # my side follows my team
         self.store.save()
-        return game
+        return game["uuid"]
+
+    async def _my_game_today(self) -> dict[str, Any] | None:
+        """My team's game today that is not over, from the schedule (cached an hour)."""
+        team = self.config.my_team_uuid
+        if not team or self.schedule is None:
+            return None
+        games = await self.schedule.upcoming(0)
+        return next(
+            (
+                g
+                for g in games
+                if team in (g["home"]["uuid"], g["away"]["uuid"]) and g["state"] != "post-game"
+            ),
+            None,
+        )
+
+    async def tv_start(self) -> str:
+        """The TV app has started: begin from the defaults, not where it was left (the user,
+        2026-10-31). My team's game today when "follow my team" is on; else idle, closing a
+        replay, a recording or an old or finished game. A live game the user chose today
+        that is still running is kept. Returns what it did: "my_team", "kept" or "idle"."""
+        mode = self.config.source.mode
+        running = self._source_task is not None and not self._source_task.done()
+        mine = await self._my_game_today() if self.config.follow_my_team else None
+        if mine is not None:
+            if not (mode == "live" and running and self.config.source.uuid == mine["uuid"]):
+                await self.set_source("live", mine["uuid"])
+                self.config.my_side = None
+                self.store.save()
+            return "my_team"
+        if mode == "live" and running:
+            return "kept"
+        if mode != "none" or self.config.game_uuid is not None:
+            await self.set_source("none")
+            self.select_game(None, None)
+        return "idle"
 
     async def set_follow(self, enabled: bool) -> None:
         self.config.follow_my_team = enabled

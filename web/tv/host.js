@@ -29,7 +29,7 @@ window.addEventListener("message", (event) => {
     if (first) handlers.info.forEach((f) => f(m));
   } else if (m.t === "key") handlers.key.forEach((f) => f(m.key, m.code));
   else if (m.t === "source") handlers.source.forEach((f) => f(m));
-  else if (m.t === "window_done") {
+  else if (m.t === "window_done" || m.t === "audio_done") {
     pending.get(m.id)?.(m);
     pending.delete(m.id);
   }
@@ -94,5 +94,24 @@ export function placeWindow(rect) {
       resolve(m);
     });
     send({ t: "window", id, rect });
+  });
+}
+
+/** The TV's volume ("volume", 0–100) or mute ("mute", true/false), or just how they stand
+ * ("get"). Resolves with {ok, volume, muted, error?}; a shell older than 1.1.0 does not
+ * answer. Both act on the whole TV, the HDMI sound included. */
+export function audio(op, value) {
+  if (mode === "browser") return Promise.resolve({ ok: false, error: "inget skal (webbläsare)" });
+  const id = ++seq;
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      pending.delete(id);
+      resolve({ ok: false, error: "inget svar: skalet styr inte ljudet (äldre än 1.1.0)" });
+    }, 5000);
+    pending.set(id, (m) => {
+      clearTimeout(timer);
+      resolve(m);
+    });
+    send({ t: "audio", id, op, value });
   });
 }

@@ -46,7 +46,8 @@ html, body { margin: 0; background: transparent; overflow: hidden; }
 .tvp-toast { position: absolute; right: 60px; bottom: 50px; padding: 18px 28px; background: rgba(7, 10, 16, 0.92);
   border: 3px solid var(--gold); border-radius: 10px; font: 700 36px/1 var(--font-condensed); opacity: 0; }
 .tvp-video { position: absolute; left: 0; top: 600px; width: 1920px; height: 360px; opacity: 0; pointer-events: none; }
-.tvp-menu { display: flex; flex-direction: column; gap: 4px; padding: 10px; background: rgba(7, 10, 16, 0.85); border-radius: 12px; }
+.tvp-menu { display: flex; flex-direction: column; gap: 4px; padding: 10px; background: rgba(7, 10, 16, 0.85); border-radius: 12px;
+  max-height: 420px; overflow: hidden; } /* the chosen item scrolls into view */
 .tvp-item { padding: 3px 18px; border: 4px solid transparent; border-radius: 8px; font: 600 32px/1.1 var(--font-condensed); }
 .tvp-item.on { border-color: var(--gold); background: rgba(245, 197, 66, 0.15); }
 .tvp-anim { position: absolute; left: 0; top: 600px; width: 1920px; height: 360px; opacity: 0; pointer-events: none; }

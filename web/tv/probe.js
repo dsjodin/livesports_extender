@@ -19,6 +19,11 @@ const RECTS = {
 const RECT_NAMES = { full: "helbild", lframe: "L-ram", small: "liten bild" };
 const RECT_ORDER = ["lframe", "small", "full"];
 const QUESTIONS = {
+  sound_heard: "Hördes hornet (Web Audio)?",
+  sound_hdmi: "Hördes TV-sändningens ljud samtidigt, och låg bilden kvar?",
+  audio_heard: "Hördes hornet (<audio>)?",
+  volume: "Sänktes TV:ns volym en stund och kom sedan tillbaka?",
+  mute_heard: "Med TV:n tystad: hördes hornet ändå?",
   transparent: "Syns TV-bilden genom rutorna 0–75 % till höger?",
   smooth: "Glider pucken mjukt, utan hack?",
   webp: "Var animationen genomskinlig och mjuk, med TV-bilden kvar runt den?",
@@ -26,7 +31,7 @@ const QUESTIONS = {
   hdmi_back: "Kom TV-bilden och ljudet tillbaka efter videon?",
   flash: "Blev bilden svart eller blinkade den när den flyttades?",
 };
-const REPEATABLE = ["webp", "video", "hdmi_back", "flash"];
+const REPEATABLE = ["webp", "video", "hdmi_back", "flash", "sound_heard", "sound_hdmi", "audio_heard", "volume", "mute_heard"];
 
 const url = (path) => new URL(path, import.meta.url).href;
 const el = (tag, cls, text) => {
@@ -49,6 +54,7 @@ const report = {
   fps: null,
   video: { can_play_vp9: null, runs: [] },
   webp: { runs: [] },
+  sound: {},
   moves: [],
   answers: {},
   keys: {},
@@ -99,6 +105,7 @@ const ROWS = [
   ["clock", "Klocka"],
   ["fps", "Animation"],
   ["webp", "Animerad bild"],
+  ["sound", "Ljud"],
   ["video", "Video VP9 alfa"],
   ["move", "Flytta TV-bilden"],
   ["keys", "Fjärrkontroll"],
@@ -110,6 +117,10 @@ const MENU = [
   ["video", "Spela video (kan bryta HDMI)"],
   ["move", "Flytta TV-bilden"],
   ["hdmi", "Återställ HDMI-bilden"],
+  ["sound_web", "Ljud: horn via Web Audio"],
+  ["sound_el", "Ljud: horn via <audio> (kan bryta HDMI)"],
+  ["sound_vol", "Ljud: sänk TV:ns volym en stund"],
+  ["sound_mute", "Ljud: tysta TV:n och spela horn"],
   ["send", "Skicka rapport"],
   ["setup", "Inställningar"],
   ["hide", "Dölj testbilden"],
@@ -118,6 +129,7 @@ const MENU = [
 
 function renderMenu() {
   [...menu.children].forEach((item, i) => item.classList.toggle("on", i === menuAt));
+  menu.children[menuAt]?.scrollIntoView({ block: "nearest" });
   const move = menu.querySelector('[data-id="move"]');
   if (move) move.textContent = `Flytta TV-bilden: ${RECT_NAMES[RECT_ORDER[nextRect]]}`;
 }
@@ -360,6 +372,94 @@ function restoreHdmi() {
   ask("hdmi_back");
 }
 
+// ---- sound (2026-10-31): what the TV allows decides the user's ideas for sound ----------
+
+const askAgain = (...ids) => ids.forEach((id) => ((report.answers[id] = undefined), ask(id)));
+let audioCtx = null;
+
+/** The horn through Web Audio (the page's own mixer, perhaps beside the HDMI sound). */
+async function playWebAudio(label, questions) {
+  const run = { at_ms: Date.now() };
+  report.sound[label] = run;
+  try {
+    audioCtx ??= new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") await audioCtx.resume().catch(() => {});
+    run.state = audioCtx.state; // "suspended": the TV wants a user gesture first
+    const data = await (await fetch(url("test/horn.wav"))).arrayBuffer();
+    const buffer = await audioCtx.decodeAudioData(data);
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioCtx.destination);
+    source.start();
+    run.started = true;
+    set("sound", `Web Audio spelar (${audioCtx.state})`, "ask");
+    await new Promise((resolve) => setTimeout(resolve, buffer.duration * 1000 + 300));
+    run.state_after = audioCtx.state;
+    if (questions) askAgain(...questions);
+  } catch (err) {
+    run.error = String(err);
+    set("sound", `Web Audio: ${err}`, "bad");
+  }
+  send();
+  return run;
+}
+
+/** The horn through an <audio> element: may take the media player from HDMI, as <video>. */
+async function playAudioElement() {
+  const run = { at_ms: Date.now() };
+  report.sound.element = run;
+  const audio = new Audio(url("test/horn.wav"));
+  try {
+    await audio.play();
+    run.started = true;
+    set("sound", "<audio> spelar", "ask");
+    await new Promise((resolve) => audio.addEventListener("ended", resolve, { once: true }));
+  } catch (err) {
+    run.error = String(err);
+    set("sound", `<audio>: ${err}`, "bad");
+  }
+  audio.removeAttribute("src");
+  audio.load();
+  askAgain("audio_heard");
+  restoreHdmi(); // and asks whether picture and sound came back
+  send();
+}
+
+/** The TV's volume down 5 steps for 3 s, then back (the shell, 1.1.0). */
+async function volumeTest() {
+  const run = {};
+  report.sound.volume = run;
+  const before = await host.audio("get");
+  run.before = before;
+  if (!before.ok) {
+    set("sound", `Volym: ${before.error}`, "bad");
+    return send();
+  }
+  run.lowered = await host.audio("volume", Math.max(0, before.volume - 5));
+  set("sound", `Volym ${before.volume} → ${run.lowered.volume ?? "?"} i 3 s`, "ask");
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  run.restored = await host.audio("volume", before.volume);
+  askAgain("volume");
+  send();
+}
+
+/** The TV muted, the horn through Web Audio, then the mute back as it was. */
+async function muteTest() {
+  const run = {};
+  report.sound.mute = run;
+  const before = await host.audio("get");
+  run.before = before;
+  if (!before.ok) {
+    set("sound", `Tysta: ${before.error}`, "bad");
+    return send();
+  }
+  run.muted = await host.audio("mute", true);
+  await playWebAudio("muted", null);
+  run.restored = await host.audio("mute", before.muted);
+  askAgain("mute_heard");
+  send();
+}
+
 // Animated WebP: an image, so it should not need the TV's video player.
 async function playWebp() {
   const run = { file: "test/pp.webp" };
@@ -462,6 +562,10 @@ function run(id) {
     return move(name);
   }
   if (id === "hdmi") return host.restoreHdmi();
+  if (id === "sound_web") return playWebAudio("webaudio", ["sound_heard", "sound_hdmi"]);
+  if (id === "sound_el") return playAudioElement();
+  if (id === "sound_vol") return volumeTest();
+  if (id === "sound_mute") return muteTest();
   if (id === "send") return send(true);
   if (id === "setup") return host.openSetup();
   if (id === "graphics") return leave();
@@ -522,6 +626,7 @@ async function main() {
   host.start();
   report.video.can_play_vp9 = video.canPlayType('video/webm; codecs="vp9"') || "nej";
   set("webp", "välj i menyn till höger", "wait");
+  set("sound", "välj i menyn (Ljud: …)", "wait");
   set("video", `stöd: ${report.video.can_play_vp9} · välj i menyn (kan bryta HDMI)`, "wait");
   set("move", "välj i menyn", "wait");
   set("keys", "tryck på alla knappar fjärrkontrollen har", "wait");

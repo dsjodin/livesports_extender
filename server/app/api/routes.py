@@ -383,6 +383,17 @@ async def tv_probe_save(body: dict[str, Any], request: Request) -> dict[str, Any
     return {"ok": True}
 
 
+@router.post("/tv/start")
+async def tv_start(request: Request) -> dict[str, Any]:
+    """The TV app started: back to the defaults (my team's game today, else idle)."""
+    rt = runtime(request)
+    try:
+        did = await rt.tv_start()
+    except ShlError as exc:
+        raise HTTPException(502, f"shl.se: {exc}") from exc
+    return {"did": did, **ok(rt)}
+
+
 @router.post("/tv/probe-mode")
 async def tv_probe_mode(body: EnabledIn, request: Request) -> dict[str, Any]:
     """Show the test page on the TV instead of the graphics (and back)."""

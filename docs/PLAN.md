@@ -597,3 +597,13 @@ Phase 9 notes (2026-10-31):
   wall's `idle_dim`, step aside after 10 min of idle without a key (full picture; a key
   brings them back), and shift ±3 px every 2 min (`docs/TV_APP.md`, Dimming and the
   OLED). Tried in Chromium with `?rest=6&shift=2`.
+- Defaults (asked for by the user 2026-10-31): "follow my team" is on by default; my
+  team's game takes over a replay or a recording from 15 min before its start; the TV
+  app starts from the defaults (`POST /api/tv/start`: my team's game today, else idle)
+  rather than where it was left, says so for 6 s, and has the follow setting in its menu.
+  Idle on the TV pages through the standings, my team's next game, its form and leaders
+  (`league.my_team`: `team`, `leaders`) and the latest results.
+- Sound (2026-10-31): the user has ideas that depend on what the TV allows, so the test
+  page tries it first: a horn through Web Audio and through `<audio>`, the TV's volume
+  down and back, and the TV muted with the horn playing (shell 1.1.0: `tv.audio`).
+  Waiting for the report from the TV.

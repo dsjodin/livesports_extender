@@ -108,6 +108,9 @@ def test_replay_follows_the_evenings_other_games(tmp_path: Path) -> None:
     settings = Settings(
         web_dir=tmp_path, config_dir=REPO_ROOT / "config", data_dir=tmp_path, fixtures_dir=FIXTURES
     )
+    # the fixtures' schedule may hold my team's game today: keep "follow my team" (on by
+    # default) from taking over the replay
+    (tmp_path / "state.json").write_text('{"follow_my_team": false}', encoding="utf-8")
     transport = fixtures_transport()
     app = create_app(settings, client_factory=lambda: ShlClient(transport=transport))
     with TestClient(app) as client:
