@@ -29,6 +29,7 @@ log = logging.getLogger(__name__)
 NAME = "SHL Arena"
 TOKEN_FILE = "tv_remote_token.txt"
 TIMEOUT_S = 5.0
+ALLOW_S = 35.0  # the TV waits 30 s for "Allow" on screen the first time
 
 
 class TvRemoteError(Exception):
@@ -75,7 +76,7 @@ class TvRemote:
         ws = await websockets.connect(self._url(), ssl=context, open_timeout=TIMEOUT_S)
         try:
             while True:
-                reply: dict[str, Any] = json.loads(await asyncio.wait_for(ws.recv(), TIMEOUT_S))
+                reply: dict[str, Any] = json.loads(await asyncio.wait_for(ws.recv(), ALLOW_S))
                 event = reply.get("event")
                 if event == "ms.channel.connect":
                     token = (reply.get("data") or {}).get("token")
