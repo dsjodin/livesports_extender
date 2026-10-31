@@ -89,7 +89,7 @@ The delayed state every client renders. Sent in full on connect, then as patches
   "score": {"home": 1, "away": 1},
   "strength": {"home": 5, "away": 4, "pp_side": "home", "label": "5v4", "pen_home": 5, "pen_away": 4},
   "penalties_active": [{"key": "e94", "side": "away", "number": "8", "name": "Jonathan Myrenberg",
-                        "offence_text": "Holding", "minutes": 2, "started": "P3 07:39",
+                        "offence_text": "Holding", "minutes": 2, "kind": "minor", "started": "P3 07:39",
                         "expires_game_seconds": 2979}],
   "stats": {
     "home": {"shots_on_goal": 36, "shots_wide": 5, "shots_blocked": 7, "shot_attempts": 48, "shots_by_period": [16, 15, 5], "pim": 2,

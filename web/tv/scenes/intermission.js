@@ -3,7 +3,7 @@
 // a slide by the synced clock; the band holds the score and the time to the next period
 // (an estimate, as on the wall: the period's end on TV plus the break).
 import { compareRow, shotMap } from "../../shared/components.js";
-import { caps, countdown, html, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
+import { caps, countdown, html, penaltyTime, percent, periodWord, raw, score, strengthChip } from "../../shared/format.js";
 import { ends, savePct } from "../../screens/scenes/intermission.js";
 import { gameStatus } from "../../screens/scenes/ticker.js";
 import { empty, every, head, lframe, logo, play, row, scoreboard, shortName, slideshow, slides, standingsTable, stopTimers } from "./common.js";
@@ -67,7 +67,7 @@ function penaltiesList(tv) {
       const shot = pen.data?.offence_code === "P-SHOT";
       const name = shot ? "STRAFFSLAG" : pen.player ? `#${pen.player.number ?? ""} ${last(pen.player)}` : "LAGSTRAFF";
       const meta = `P${pen.period} ${pen.time ?? ""} · ${pen.team_code ?? ""}${shot ? "" : ` · ${pen.data?.offence_text ?? ""}`}`;
-      return row(name, pen.data?.minutes ? `${pen.data.minutes} MIN` : "", meta, pen.side);
+      return row(name, caps(penaltyTime(pen.data?.kind, pen.data?.minutes).text), meta, pen.side);
     })
     .join("");
 }

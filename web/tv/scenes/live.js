@@ -3,7 +3,7 @@
 // happens (the director's overlay), then a small power-play pill stays bottom right until
 // the power play is over; a timeout and a disallowed goal are short banners. Lower thirds
 // keep clear of the broadcaster's ticker (bottom 8 %) and its bug (top left).
-import { caps, html, raw } from "../../shared/format.js";
+import { caps, html, penaltyTime, raw } from "../../shared/format.js";
 import { gameClock, longName, other, periodTime, play, shortName } from "./common.js";
 
 export function enter(ctx, data, at) {
@@ -80,8 +80,10 @@ function penaltyCard(tv, key) {
   const p = pen.player;
   const d = pen.data ?? {};
   const active = (tv.penalties_active ?? []).find((x) => x.key === key);
+  const time = penaltyTime(d.kind, d.minutes);
   const chips = [
     d.offence_text,
+    ...time.extra.map(caps),
     pen.time ? periodTime(pen) : null,
     active?.expires_game_seconds != null ? `TILL ${gameClock(active.expires_game_seconds)}` : null,
   ].filter(Boolean);
@@ -97,7 +99,7 @@ function penaltyCard(tv, key) {
       <div class="gl-who">${raw(name)}
         <div class="gl-chips">${raw(chips.map((c) => html`<span class="chip">${c}</span>`).join(""))}</div>
         ${raw(pp ? html`<div class="gl-assist pc-pp"><span class="dot"></span>${pp}</div>` : "")}</div>
-      ${raw(d.minutes ? html`<div class="gl-score">${d.minutes}<span class="gl-unit">MIN</span></div>` : "")}
+      ${raw(time.min ? html`<div class="gl-score">${time.min}<span class="gl-unit">MIN</span></div>` : "")}
     </div></div>`;
 }
 

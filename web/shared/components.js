@@ -1,5 +1,5 @@
 // Shared building blocks for the scenes (docs/SCREENS.md, Components). They return HTML.
-import { caps, decimal, esc, html, percent, raw, score, strengthChip } from "./format.js";
+import { caps, decimal, esc, html, penaltyTime, percent, raw, score, strengthChip } from "./format.js";
 
 export function teamVars(root, teams) {
   for (const side of ["home", "away"]) {
@@ -54,7 +54,7 @@ export function penaltyRow(pen) {
   return html`<div class="pen-row" style="--c: var(--${pen.side})">
     <div class="pen-time">P${pen.period} ${pen.time}</div><div class="pen-team">${pen.team_code}</div>
     <div class="pen-who">${who}<span class="secondary"> · ${pen.data?.offence_text ?? ""}</span></div>
-    <div class="pen-min">${pen.data?.minutes ?? ""} min</div></div>`;
+    <div class="pen-min">${penaltyTime(pen.data?.kind, pen.data?.minutes).text}</div></div>`;
 }
 
 export function compareRow(label, home, away, homeText = home, awayText = away) {
