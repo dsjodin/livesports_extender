@@ -15,9 +15,9 @@ HDMI 1 `BEHIND` the page, and transparent and half-transparent graphics work ove
 | Role | The TV app **replaces the wall**: it must work without the three screens, so it shows more than the minimum (pauses, standings, tonight's games). The wall keeps working for whoever has one. |
 | Over the broadcast | Goal celebration, penalties and power play, a statistics panel on a key, intermissions in an L-frame (TV picture shrunk, our graphics around it). Our own score bug is not shown: the broadcast has its own. |
 | Outside a game | L-frame: the TV picture shrunk, pregame or idle graphics around it; one key gives full-screen TV. |
-| Remote | Sync (puck drop), MÅL! buttons, panels, choosing the game on the TV. |
+| Remote | Sync (puck drop), MÅL! buttons, panels, choosing the game on the TV. The remote has only arrows, OK and Back (digits and colours are on a virtual pad, too awkward, 2026-10-31), so everything goes through a menu on OK. |
 | Server address | Typed in once in the app (setup screen), stored on the TV. |
-| Videos | Team videos remade for 16:9 (1920×1080, VP9 with alpha), if the TV plays VP9 alpha (to be verified). |
+| Videos | Team videos remade for 16:9. Not as `<video>`: on the TV it takes the player from HDMI (picture and sound go, seen 2026-10-31). As animated WebP with alpha instead (an image), if it runs smoothly on the TV (to be verified), else GSAP only. |
 | TV and distance | 77" (16:9, 1705×959 mm), watched from 4 m (the user, 2026-10-31). |
 | MÅL! on the remote | Two presses within 2 s, to be tried (the user, 2026-10-31). |
 
@@ -95,37 +95,47 @@ at the least and 24 mm (27 px, a **38 px** font) for reading. Checked with
 
 ## Remote
 
-| Key | In a game | In the menu |
-|---|---|---|
-| Red | MÅL! for the home team | |
-| Blue | MÅL! for the away team | |
-| Green | Synka: puck drop now (a `period_start` sample) | |
-| Yellow | Next panel: Statistik → Tabell → Kvällens matcher → off | |
-| OK | Full-screen TV on/off (L-frame scenes) | Choose |
-| Arrows | | Move |
-| 0 | Menu: Matcher (today's games, follow or stop), Synk (samples, accept), HDMI, Server | |
-| Back | Close panel or menu | Back; at the top level "Avsluta?" |
+The remote (Samsung, 2026) has arrows, OK, Back, play/pause, volume and channel keys;
+digits and colour keys only on a virtual pad on screen. So the app works with **arrows,
+OK and Back** alone (proposal, 2026-10-31; play/pause and channel up/down as shortcuts if
+the test build shows they reach the app).
 
-- The MÅL! keys fire lights and horn in Home Assistant at once, so they need a second
-  press within 2 s ("MÅL! HEMMA? Tryck igen") to keep a stray press quiet (decided to
-  try, 2026-10-31). With "Använd målknapp för synk" on, a linked press is also a goal
-  sample, as in the phone app.
-- Colour and digit keys must be registered with `tizen.tvinputdevice.registerKey`
-  (privilege `tv.inputdevice`); the shell does that and passes them on.
+| Key | No menu open | Menu open |
+|---|---|---|
+| OK | Opens the menu with "MÅL! <my team>" chosen | Choose |
+| ← → | | Move along the menu |
+| ↑ ↓ | Next / previous panel: Statistik → Tabell → Kvällens matcher → off | |
+| Back | Close the panel; in an L-frame scene: full-screen TV on/off | Close the menu |
+| Back twice | "Avsluta?" at the top level | |
+
+The menu is a row along the bottom: MÅL! <my team>, MÅL! <the other team>, Synka
+nedsläpp, Statistik, Tabell, Kvällens matcher, Helbild, Matcher, Inställningar.
+
+- **MÅL!** is OK, OK: the first opens the menu on my team's goal, the second fires it. That
+  is the two presses decided on 2026-10-31, and the press time (for the celebration and
+  the goal sample) is the second. The other team: OK, →, OK. A menu left alone closes
+  after 5 s.
+- The MÅL! press fires lights and horn in Home Assistant at once. With "Använd målknapp
+  för synk" on, a linked press is also a goal sample, as in the phone app.
+- **Synka nedsläpp** in the menu registers a `period_start` sample at the moment of OK.
+- The shell registers every key the TV lets an app have (`tvinputdevice`, privilege
+  `tv.inputdevice`) except volume, power, source and home, and passes them on by name.
 
 ## Videos
 
-Separate 16:9 versions next to the wall's (`docs/VIDEOS.md`): `tvgoal`, `tvintro`, `tvpp`,
-1920×1080 VP9 with alpha, from `tools/make_stingers.py`. Over a live picture they should
-be short sweeps that end transparent, leaving the middle of the ice clear as quickly as
-possible. If the TV cannot play VP9 alpha, the GSAP animations stay and the videos are
-left out on the TV.
+Not as `<video>`: on this TV (S95HF, Tizen 9.0) an HTML video takes the media player
+from the HDMI input, so the TV picture and its sound go while it plays (2026-10-31). The
+TV versions are **animated WebP with alpha** instead: an image, decoded without the
+media player. `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
+`tvintro`, `tvpp`, 1920×1080 or a band of it, about 1 MB for 4 s). Over a live picture
+they should be short sweeps that end transparent, leaving the middle of the ice clear
+as quickly as possible. If WebP stutters on the TV, the GSAP animations stay alone.
 
 ## Development and install
 
 - `/sim` gets a TV view: 1920×1080 scaled, with a still from a broadcast as the HDMI
   picture, the L-frame drawn, and the keyboard standing in for the remote
-  (R, G, Y, B, Enter, arrows, 0, Backspace).
+  (Enter, arrows, Backspace).
 - The `.wgt` is built and installed with the Tizen CLI (Tizen Studio or the VS Code
   extension): developer mode on the TV with the PC's IP, `sdb connect <tv>`,
   `tizen package -t wgt -s <certificate profile>`, `tizen install -n SHLlive.wgt -t <tv>`.
@@ -137,20 +147,28 @@ left out on the TV.
 
 ## To verify on the real TV first (task 9.1)
 
+Results from the user's TV (Samsung S95HF, Tizen 9.0, 2026-10-31) after each item.
+
 1. A transparent iframe from the service draws over the HDMI picture (else the fallback).
+   **Yes**: iframe mode works, half-transparent panels show the picture through.
 2. The packaged app reaches `http://<server>:8010` (HTTP and WebSocket) on the LAN.
+   **Yes** (119 ms for the first HTTP request, WebSocket connected).
 3. ES modules and GSAP run smoothly at 1920×1080 (60 fps for transform and opacity).
-4. VP9 with alpha plays transparent in `<video>` over HDMI.
+   **Yes**: 60 frames a second, longest pause 17 ms.
+4. VP9 with alpha plays transparent in `<video>` over HDMI. **No**: the video plays, but
+   it takes the media player from HDMI (picture and sound go). Animated WebP to try.
 5. Moving the TV picture with `tvwindow.show` (L-frame) works without a black flash, and
    how long the move takes.
-6. The synced clock holds within a few ms, as on the display box.
-7. The colour and digit keys reach the shell.
+6. The synced clock holds within a few ms, as on the display box. **Yes**: round trip
+   1 ms, drift 1 ms (the TV's own clock is 130 ms off, which the sync takes care of).
+7. The colour and digit keys reach the shell. **Moot**: the remote has no such keys of its
+   own. Which keys it has that reach the app: the test build logs them.
 8. How much the TV's HDMI path delays the picture compared with the TV's own input
    (the `iptv` TV profile may need a small nudge).
 
 ## The test build (task 9.1)
 
-`SHLlive/` is the shell (version 0.3.0); its overlay `/tv/` is, for now, the test page
+`SHLlive/` is the shell (version 0.3.1); its overlay `/tv/` is, for now, the test page
 `web/tv/probe.js`. It checks the list above and reports to the service.
 
 1. Build and install `SHLlive/` on the TV as with the demo (Tizen Studio or the Tizen
@@ -158,20 +176,23 @@ left out on the TV.
    `productinfo`, and `<access origin="*">`.
 2. First start: "Inställningar". Type the Docker host's address, e.g.
    `192.168.1.20:8010` (OK opens the TV's keyboard), keep HDMI 1 and Läge "Iframe",
-   choose Anslut. The settings stay on the TV; key 9 opens them again.
+   choose Anslut. The settings stay on the TV; "Inställningar" in the menu opens them again.
 3. The test page lies over the TV picture. A green dot means the check passed, red that it
    failed, yellow that it waits for an answer. Questions in the gold box: ← nej, → ja.
-   - 1 plays a power-play video in the lower part of the picture;
-   - 2, 3 and 4 move the TV picture: full screen, L-frame, small top right;
-   - press all four colour keys and a few digits;
-   - OK hides the test page to look at the picture; Back twice exits.
-4. The page sends its report every 30 s (and at once on 5). Read it at
+   The menu on the right: ↑ ↓ to choose, OK to run.
+   - "Spela animerad bild (WebP)" plays the power-play animation as an image;
+   - "Spela video" plays it as a video (takes HDMI away; the page asks the shell to
+     show HDMI again afterwards, and asks whether picture and sound came back);
+   - "Flytta TV-bilden" moves the picture: L-frame, small, full screen in turn;
+   - "Återställ HDMI-bilden" shows HDMI again if it is gone;
+   - press every key the remote has (play/pause, channel, …): the page lists them;
+   - "Dölj testbilden" hides the page (any key brings it back); Back twice exits.
+4. The page sends its report every 30 s (and at once on "Skicka rapport"). Read it at
    `http://<server>:8010/api/tv/probe` (kept in `data/tv_probe.json`) and send it on.
 5. If the picture does not show through (or the page stays empty), choose Läge
    "Direkt (reserv)" in the settings and run it again: the same page, imported into the
    shell itself.
 
 On a computer the shell runs as a preview at `http://<server>:8010/tvapp/` (striped
-stand-in for the TV picture; the keyboard is the remote: R, G, Y, B, Enter, arrows,
-digits, Backspace). Opening `SHLlive/index.html` from disk tries the fallback mode the
+stand-in for the TV picture; the keyboard is the remote: Enter, arrows, Backspace). Opening `SHLlive/index.html` from disk tries the fallback mode the
 way the TV does (Origin `null`, CORS). Both were run in Chromium on 2026-10-31.

@@ -1,8 +1,9 @@
 // The TV app's test page (docs/TV_APP.md, task 9.1): checks on the real TV what the
 // overlay needs (transparency over HDMI, the service over HTTP and WebSocket, the synced
 // clock, smooth animation, VP9 with alpha, moving the TV picture, the remote's keys) and
-// reports it to the service (POST /api/tv/probe; read it at GET /api/tv/probe). Questions
-// only a person can answer are asked on screen: ← nej, → ja.
+// reports it to the service (POST /api/tv/probe; read it at GET /api/tv/probe). Run with
+// the arrows, OK and Back only (the remote has no digits, 2026-10-31): ↑ ↓ and OK in the
+// menu, ← nej / → ja to the questions only a person can answer.
 import * as clock from "../shared/clock.js";
 import { connect } from "../shared/ws.js";
 import * as host from "./host.js";
@@ -16,12 +17,16 @@ const RECTS = {
   small: [1220, 60, 640, 360],
 };
 const RECT_NAMES = { full: "helbild", lframe: "L-ram", small: "liten bild" };
+const RECT_ORDER = ["lframe", "small", "full"];
 const QUESTIONS = {
   transparent: "Syns TV-bilden genom rutorna 0–75 % till höger?",
   smooth: "Glider pucken mjukt, utan hack?",
+  webp: "Var animationen genomskinlig och mjuk, med TV-bilden kvar runt den?",
   video: "Var videon genomskinlig, syntes TV-bilden runt den?",
+  hdmi_back: "Kom TV-bilden och ljudet tillbaka efter videon?",
   flash: "Blev bilden svart eller blinkade den när den flyttades?",
 };
+const REPEATABLE = ["webp", "video", "hdmi_back", "flash"];
 
 const url = (path) => new URL(path, import.meta.url).href;
 const el = (tag, cls, text) => {
@@ -43,6 +48,7 @@ const report = {
   clock: null,
   fps: null,
   video: { can_play_vp9: null, runs: [] },
+  webp: { runs: [] },
   moves: [],
   answers: {},
   keys: {},
@@ -52,6 +58,8 @@ let state = null; // the TV state from the service, for a team uuid
 const asked = [];
 let question = null;
 let lastBack = 0;
+let menuAt = 0;
+let nextRect = 0;
 
 window.addEventListener("error", (e) => report.errors.push(String(e.message).slice(0, 200)));
 
@@ -75,8 +83,9 @@ const keylog = el("div", "tvp-keys");
 const side = el("section", "tvp-side");
 const bottom = el("section", "tvp-bottom");
 const prompt = el("div", "tvp-question");
-const legend = el("div", "tvp-legend",
-  "1 video · 2 helbild · 3 L-ram · 4 liten bild · 5 skicka rapport · 9 inställningar · OK dölj · Back avsluta");
+const legend = el("div", "tvp-legend", "↑ ↓ välj · OK kör · ← → svara på frågan · Back två gånger avslutar");
+const menu = el("div", "tvp-menu");
+const anim = el("img", "tvp-anim");
 const toast = el("div", "tvp-toast");
 const video = el("video", "tvp-video");
 video.muted = true;
@@ -89,12 +98,28 @@ const ROWS = [
   ["ws", "WebSocket"],
   ["clock", "Klocka"],
   ["fps", "Animation"],
+  ["webp", "Animerad bild"],
   ["video", "Video VP9 alfa"],
   ["move", "Flytta TV-bilden"],
   ["keys", "Fjärrkontroll"],
   ["env", "Skärm"],
 ];
 const cells = {};
+const MENU = [
+  ["webp", "Spela animerad bild (WebP)"],
+  ["video", "Spela video (kan bryta HDMI)"],
+  ["move", "Flytta TV-bilden"],
+  ["hdmi", "Återställ HDMI-bilden"],
+  ["send", "Skicka rapport"],
+  ["setup", "Inställningar"],
+  ["hide", "Dölj testbilden"],
+];
+
+function renderMenu() {
+  [...menu.children].forEach((item, i) => item.classList.toggle("on", i === menuAt));
+  const move = menu.querySelector('[data-id="move"]');
+  if (move) move.textContent = `Flytta TV-bilden: ${RECT_NAMES[RECT_ORDER[nextRect]]}`;
+}
 
 function build() {
   panel.append(el("h1", null, "SHL live! · Test av TV:n"));
@@ -122,16 +147,21 @@ function build() {
     }
     alpha.append(line);
   }
-  alpha.append(el("div", "tvp-gradient"));
 
   const lane = el("div", "tvp-lane");
   lane.append(el("div", "tvp-puck"));
   const time = el("div", "tvp-clock");
   time.append(el("span", "tvp-time", "--:--:--.---"), el("span", "tvp-second"));
-  side.append(alpha, lane, time);
+  for (const [id, label] of MENU) {
+    const item = el("div", "tvp-item", label);
+    item.dataset.id = id;
+    menu.append(item);
+  }
+  side.append(alpha, lane, time, menu);
+  renderMenu();
 
   bottom.append(prompt, legend);
-  root.append(outline, video, panel, side, bottom, toast);
+  root.append(outline, video, anim, panel, side, bottom, toast);
   document.body.appendChild(root);
 }
 
@@ -154,7 +184,7 @@ function say(text) {
 // ---- questions (← nej, → ja) -------------------------------------------------------------
 
 function ask(id) {
-  if (report.answers[id] !== undefined && id !== "video" && id !== "flash") return;
+  if (report.answers[id] !== undefined && !REPEATABLE.includes(id)) return;
   if (!asked.includes(id)) asked.push(id);
   next();
 }
@@ -175,16 +205,24 @@ function answer(yes) {
 
 // ---- checks ---------------------------------------------------------------------------
 
+/** "Chrome 141.0…"; Tizen writes its Chromium version bare ("… 120.0.6099.5/9.0 TV …"). */
+function browserName(ua) {
+  const named = ua.match(/(SamsungBrowser|Chrome|Chromium)\/([\d.]+)/);
+  if (named) return `${named[1]} ${named[2]}`;
+  const tizen = ua.match(/\b(\d{2,3}\.\d+\.\d+\.\d+)\/[\d.]+ TV\b/);
+  return tizen ? `Chromium ${tizen[1]}` : null;
+}
+
 function env() {
   const ua = navigator.userAgent;
   report.env = {
     user_agent: ua,
-    chromium: ua.match(/Chrome\/([\d.]+)/)?.[1] ?? null,
+    browser: browserName(ua),
     inner: [window.innerWidth, window.innerHeight],
     screen: [screen.width, screen.height],
     dpr: window.devicePixelRatio,
   };
-  set("env", `${window.innerWidth}×${window.innerHeight}, dpr ${window.devicePixelRatio}, Chromium ${report.env.chromium ?? "?"}`);
+  set("env", `${window.innerWidth}×${window.innerHeight}, dpr ${window.devicePixelRatio}, ${report.env.browser ?? "okänd webbläsare"}`);
 }
 
 async function http() {
@@ -254,14 +292,15 @@ function fpsCheck() {
   set("fps", `${report.fps.fps} bilder/s, längsta paus ${report.fps.worst_ms} ms`, fps >= 55 && worst < 50 ? "ok" : "bad");
 }
 
+const NAV = ["up", "down", "left", "right", "ok", "back"];
 function keysCheck(key, code) {
   report.keys[key] = code ?? true;
   const line = el("div", null, `${key}${code ? ` (${code})` : ""}`);
   keylog.prepend(line);
   while (keylog.children.length > 6) keylog.lastChild.remove();
-  const colours = ["red", "green", "yellow", "blue"].map((c) => (report.keys[c] ? c[0].toUpperCase() : "·")).join(" ");
-  const digits = [..."0123456789"].filter((d) => report.keys[d]).length;
-  set("keys", `färg ${colours} · siffror ${digits}/10`, colours.includes("·") ? "wait" : "ok");
+  const nav = NAV.filter((k) => report.keys[k]).length;
+  const other = Object.keys(report.keys).filter((k) => !NAV.includes(k));
+  set("keys", `pilar, OK, Back ${nav}/6 · andra: ${other.join(", ") || "inga än"}`, nav === 6 ? "ok" : "wait");
 }
 
 async function playVideo() {
@@ -297,6 +336,7 @@ video.addEventListener("ended", () => {
   set("video", `spelad: ${run.frames ?? "?"} bilder, ${run.dropped ?? "?"} tappade`, (run.dropped ?? 0) < 5 ? "ask" : "bad");
   report.answers.video = undefined;
   ask("video");
+  restoreHdmi();
   send();
 });
 video.addEventListener("error", () => {
@@ -304,7 +344,53 @@ video.addEventListener("error", () => {
   if (run) run.error = `media error ${video.error?.code}`;
   video.style.opacity = "0";
   set("video", `kan inte spela: fel ${video.error?.code}`, "bad");
+  restoreHdmi();
 });
+
+/** A <video> took the TV's player from HDMI (seen 2026-10-31): ask the shell to show
+ * HDMI again, then ask whether picture and sound came back. */
+function restoreHdmi() {
+  video.removeAttribute("src");
+  video.load();
+  host.restoreHdmi();
+  report.answers.hdmi_back = undefined;
+  ask("hdmi_back");
+}
+
+// Animated WebP: an image, so it should not need the TV's video player.
+async function playWebp() {
+  const run = { file: "test/pp.webp" };
+  report.webp.runs.push(run);
+  set("webp", "hämtar…", "wait");
+  const t0 = performance.now();
+  try {
+    const r = await fetch(url("test/pp.webp"));
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const blob = await r.blob();
+    run.kb = Math.round(blob.size / 1024);
+    if (anim.dataset.blob) URL.revokeObjectURL(anim.dataset.blob);
+    anim.dataset.blob = URL.createObjectURL(blob); // a new URL starts the animation over
+    anim.src = anim.dataset.blob;
+    await anim.decode();
+    run.decode_ms = Math.round(performance.now() - t0);
+    const start = performance.now();
+    anim.style.opacity = "1";
+    set("webp", `spelar (${run.kb} kB, klar på ${run.decode_ms} ms)…`, "wait");
+    setTimeout(() => {
+      anim.style.opacity = "0";
+      const deltas = frames.filter((f) => f[0] >= start).map((f) => f[1]);
+      run.worst_ms = deltas.length ? Math.round(Math.max(...deltas)) : null;
+      set("webp", `spelad: ${run.kb} kB, längsta paus ${run.worst_ms} ms`, "ask");
+      report.answers.webp = undefined;
+      ask("webp");
+      send();
+    }, 4200);
+  } catch (err) {
+    run.error = String(err);
+    set("webp", `fel: ${err}`, "bad");
+    send();
+  }
+}
 
 async function move(name) {
   const rect = RECTS[name];
@@ -348,17 +434,31 @@ function send(now = false) {
 
 // ---- keys -----------------------------------------------------------------------------
 
+function run(id) {
+  if (id === "webp") return playWebp();
+  if (id === "video") return playVideo();
+  if (id === "move") {
+    const name = RECT_ORDER[nextRect];
+    nextRect = (nextRect + 1) % RECT_ORDER.length;
+    renderMenu();
+    return move(name);
+  }
+  if (id === "hdmi") return host.restoreHdmi();
+  if (id === "send") return send(true);
+  if (id === "setup") return host.openSetup();
+  if (id === "hide") root.classList.add("hidden");
+}
+
 host.onKey((key, code) => {
   keysCheck(key, code);
+  if (root.classList.contains("hidden")) return root.classList.remove("hidden");
   if (key === "left") return answer(false);
   if (key === "right") return answer(true);
-  if (key === "1") return playVideo();
-  if (key === "2") return move("full");
-  if (key === "3") return move("lframe");
-  if (key === "4") return move("small");
-  if (key === "5") return send(true);
-  if (key === "9" || key === "0") return host.openSetup();
-  if (key === "ok") return root.classList.toggle("hidden");
+  if (key === "up" || key === "down") {
+    menuAt = (menuAt + (key === "up" ? MENU.length - 1 : 1)) % MENU.length;
+    return renderMenu();
+  }
+  if (key === "ok") return run(MENU[menuAt][0]);
   if (key === "back") {
     if (Date.now() - lastBack < 2000) return host.exit();
     lastBack = Date.now();
@@ -401,9 +501,10 @@ async function main() {
   env();
   host.start();
   report.video.can_play_vp9 = video.canPlayType('video/webm; codecs="vp9"') || "nej";
-  set("video", `stöd: ${report.video.can_play_vp9} · tryck 1 för att spela`, "wait");
-  set("move", "tryck 2, 3 eller 4", "wait");
-  set("keys", "tryck på färgknapparna och 0–9", "wait");
+  set("webp", "välj i menyn till höger", "wait");
+  set("video", `stöd: ${report.video.can_play_vp9} · välj i menyn (kan bryta HDMI)`, "wait");
+  set("move", "välj i menyn", "wait");
+  set("keys", "tryck på alla knappar fjärrkontrollen har", "wait");
   gsap.to(".tvp-puck", { x: 700, duration: 2, ease: "sine.inOut", repeat: -1, yoyo: true });
   requestAnimationFrame(frame);
   await http();
