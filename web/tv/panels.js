@@ -10,7 +10,7 @@ const ORDER = ["stats", "table", "games"];
 const CLOSE_MS = 20_000;
 
 let el = null;
-let open = null; // the panel shown, or null
+let shown = null; // the panel shown, or null
 let timer = null;
 let getTv = () => null;
 
@@ -21,11 +21,11 @@ export function create(parent, tvGetter) {
   parent.appendChild(el);
 }
 
-export const isOpen = () => open != null;
+export const isOpen = () => shown != null;
 
 /** Next (+1) or previous (−1) panel; past the last (or first) closes them. */
 export function step(dir) {
-  const i = open == null ? (dir > 0 ? 0 : ORDER.length - 1) : ORDER.indexOf(open) + dir;
+  const i = shown == null ? (dir > 0 ? 0 : ORDER.length - 1) : ORDER.indexOf(shown) + dir;
   show(i >= 0 && i < ORDER.length ? ORDER[i] : null);
 }
 
@@ -33,15 +33,20 @@ export function close() {
   show(null);
 }
 
+/** Open one panel by name (from the menu). */
+export function open(name) {
+  show(ORDER.includes(name) ? name : null);
+}
+
 /** Redraw the open panel (a patch arrived). */
 export function refresh() {
-  if (open) render();
+  if (shown) render();
 }
 
 function show(name) {
   clearTimeout(timer);
-  const was = open;
-  open = name;
+  const was = shown;
+  shown = name;
   if (!name) {
     gsap.to(el, { opacity: 0, x: 40, duration: 0.25, ease: "power1.in" });
     return;
@@ -54,8 +59,8 @@ function show(name) {
 function render() {
   const tv = getTv();
   if (!tv) return;
-  const dots = ORDER.map((n) => `<span class="${n === open ? "on" : ""}"></span>`).join("");
-  el.innerHTML = `${body(tv, open)}<div class="dots">${dots}</div>`;
+  const dots = ORDER.map((n) => `<span class="${n === shown ? "on" : ""}"></span>`).join("");
+  el.innerHTML = `${body(tv, shown)}<div class="dots">${dots}</div>`;
 }
 
 function teams(tv) {

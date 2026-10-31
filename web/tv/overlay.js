@@ -1,8 +1,8 @@
 // The TV overlay (docs/TV_APP.md): the delayed TV state from the service, drawn over the
 // HDMI picture on the Samsung TV. It switches scenes at their play_at (one module per
 // scene in scenes/), places the TV picture per scene (full screen in play, the L-frame
-// outside it, with a backdrop around the picture), plays the team animations (WebP), and
-// in play opens the panels on ↑ ↓. The menu on OK comes in 9.4.
+// outside it, with a backdrop around the picture), plays the team animations (WebP), opens
+// the panels on ↑ ↓ in play and the menu on OK (menu.js: MÅL!, Synka, games, settings).
 import * as clock from "../shared/clock.js";
 import { teamVars } from "../shared/components.js";
 import { needsOutline, onColor } from "../shared/format.js";
@@ -12,6 +12,7 @@ import { connect } from "../shared/ws.js";
 import * as anim from "./anim.js";
 import * as host from "./host.js";
 import { H, W, windowFor } from "./layout.js";
+import * as menu from "./menu.js";
 import * as panels from "./panels.js";
 import { fitText } from "./scenes/common.js";
 import * as goal from "./scenes/goal.js";
@@ -30,7 +31,7 @@ const debug = new URLSearchParams(location.search).get("debug") === "1";
 const url = (path) => new URL(path, import.meta.url).href;
 let connection = "connecting";
 let current = null; // {name, mod, root, ctx}
-let full = false; // the viewer asked for the full picture in an L-frame scene (9.4)
+let full = false; // the viewer asked for the full picture in an L-frame scene (menu)
 let rect; // where the TV picture is: unknown at start (the shell may keep it from before)
 let lastBack = 0;
 let ppSide = null;
@@ -69,6 +70,18 @@ function say(text) {
   toast.textContent = text;
   gsap.killTweensOf(toast);
   gsap.fromTo(toast, { opacity: 1 }, { opacity: 0, delay: 2.5, duration: 0.5 });
+}
+
+/** The service's REST API (docs/PROTOCOL.md); throws with its error detail. */
+async function api(path, body, method = "POST") {
+  const r = await fetch(`${host.base}/api/${path}`, {
+    method,
+    headers: body ? { "content-type": "application/json" } : undefined,
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.detail ?? `HTTP ${r.status}`);
+  return data;
 }
 
 function note(text) {
@@ -159,8 +172,12 @@ function show(scene, at, animate) {
     return;
   }
   if (animate && current?.name === "pregame" && name === "live") intro(store.tv, at);
-  if (name !== current?.name) full = false; // a new scene starts in its own layout
+  if (name !== current?.name) {
+    full = false; // a new scene starts in its own layout
+    root.classList.remove("full");
+  }
   if (!["live", "goal"].includes(name)) panels.close();
+  menu.close();
   const old = current;
   const sceneRoot = el("div", `tv-scene scene-${name}`);
   scenes.appendChild(sceneRoot);
@@ -183,19 +200,29 @@ function show(scene, at, animate) {
   if (animate) note(`${name} start delta=${late.toFixed(1)}ms`);
 }
 
-// ---- keys (the menu on OK comes in 9.4) ----------------------------------------------------
+// ---- keys: the menu on OK, panels on ↑ ↓, Back (docs/TV_APP.md, Remote) -----------------
 
 host.onKey((key) => {
   note(`key ${key}`);
+  if (menu.key(key)) return;
   const inPlay = ["live", "goal"].includes(current?.name);
+  if (key === "ok") return menu.open();
   if ((key === "up" || key === "down") && inPlay) return panels.step(key === "down" ? 1 : -1);
   if (key === "back") {
     if (panels.isOpen()) return panels.close();
+    if (full) return setFull(false);
     if (Date.now() - lastBack < 2000) return host.exit();
     lastBack = Date.now();
     say("Tryck Back igen för att avsluta");
   }
 });
+
+/** The full picture in an L-frame scene (the menu's "Helbild"), until Back or the next scene. */
+function setFull(on) {
+  full = on;
+  root.classList.toggle("full", on); // the L-frame's column and band step aside (tv.css)
+  placePicture(true);
+}
 
 // ---- connection and debug ---------------------------------------------------------------
 
@@ -254,6 +281,17 @@ async function main() {
   anim.setBase(host.base);
   root.append(backdrop, scenes, fx, dot, toast);
   panels.create(root, () => store.tv);
+  menu.create(root, {
+    tv: () => store.tv,
+    scene: () => current?.name,
+    api,
+    panels,
+    say,
+    host,
+    full: () => full,
+    setFull,
+    lframe: () => windowFor(current?.name) != null,
+  });
   if (debug) root.append(debugBox);
   document.body.appendChild(root);
   stage.applyType("tv", root);

@@ -111,28 +111,44 @@ layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md r
 
 The remote (Samsung, 2026) has arrows, OK, Back, play/pause, volume and channel keys;
 digits and colour keys only on a virtual pad on screen. So the app works with **arrows,
-OK and Back** alone (proposal, 2026-10-31). The remote also has a physical play/pause key
+OK and Back** alone (2026-10-31). The remote also has a physical play/pause key
 and a channel rocker; whether they reach the app (registered by the shell) is still to be
 seen in the key log, and if they do they can become shortcuts.
 
 | Key | No menu open | Menu open |
 |---|---|---|
-| OK | Opens the menu with "MÅL! <my team>" chosen | Choose |
-| ← → | | Move along the menu |
-| ↑ ↓ | Next / previous panel: Statistik → Tabell → Kvällens matcher → off | |
-| Back | Close the panel; in an L-frame scene: full-screen TV on/off | Close the menu |
-| Back twice | "Avsluta?" at the top level | |
+| OK | Opens the menu | Choose; on Matcher, Synk, Inställningar opens its sheet |
+| ↑ ↓ | In play: next / previous panel (Statistik → Tabell → Kvällens matcher → off) | Move |
+| → | | Opens a sheet, like OK |
+| ← / Back | Back: closes a panel, or the full picture back to the L-frame; twice in 2 s: exit | Closes the sheet, then the menu |
 
-The menu is a row along the bottom: MÅL! <my team>, MÅL! <the other team>, Synka
-nedsläpp, Statistik, Tabell, Kvällens matcher, Helbild, Matcher, Inställningar.
+The menu (`web/tv/menu.js`, task 9.4) is a list low on the left over the picture, 38 px
+text (nine items in a row along the bottom would not fit at a readable size):
+MÅL! <my team>, MÅL! <the other team>, Synka nedsläpp, Statistik, Tabell, Kvällens
+matcher, Helbild (in an L-frame scene; "Tillbaka till L-ram" when on), Matcher ›,
+Synk ›, Inställningar ›. The goal and sync items only while a game is selected. It closes
+after 30 s without a key, and when the scene changes.
 
-- **MÅL!** is OK, OK: the first opens the menu on my team's goal, the second fires it. That
-  is the two presses decided on 2026-10-31, and the press time (for the celebration and
-  the goal sample) is the second. The other team: OK, →, OK. A menu left alone closes
-  after 5 s.
-- The MÅL! press fires lights and horn in Home Assistant at once. With "Använd målknapp
-  för synk" on, a linked press is also a goal sample, as in the phone app.
-- **Synka nedsläpp** in the menu registers a `period_start` sample at the moment of OK.
+- **Where it opens**, so that OK, OK is always the useful thing and never a change of
+  game: on "MÅL! <my team>" in play (`live`, `goal`; the home team when no side is mine),
+  on "Synka nedsläpp" before the game and in the breaks (the next puck drop is what
+  comes), else on "Statistik".
+- **MÅL!** is OK, OK in play: the first opens the menu on my team's goal, the second
+  fires it (`POST /api/goal`), the two presses decided on 2026-10-31. The press time
+  is the second. The other team: OK, ↓, OK. Lights and horn fire in Home Assistant at
+  once; with "Använd målknapp för synk" on, a linked press is also a goal sample.
+- **Synka nedsläpp** registers a `period_start` sample at the moment of OK
+  (`POST /api/calibrate`) and says the proposal, if there is one.
+- **Matcher ›**: today's games with their start time, teams and PÅGÅR / SLUT, never a
+  score (the schedule's scores are live, CLAUDE.md rule 1). OK follows a game live
+  (`POST /api/source` live, then `POST /api/game` with my side following my team), a
+  finished one as a replay; "Sluta följa" stops.
+- **Synk ›**: the profile and its delay, the proposal and the last four samples; Synka
+  nedsläpp nu, Använd förslaget, +0,5 s, −0,5 s, Rensa proven.
+- **Inställningar ›**: the TV profile (OK switches to the next), Server och HDMI (the
+  shell's own settings screen), Testsidan (`tv_probe`), and the shell's version and model.
+- An active scene override (from the phone or `/sim`) wins over the goal scene, as on
+  the wall: the MÅL! press still fires, but the TV keeps the forced scene.
 - The shell registers every key the TV lets an app have (`tvinputdevice`, privilege
   `tv.inputdevice`) except volume, power, source and home, and passes them on by name.
 

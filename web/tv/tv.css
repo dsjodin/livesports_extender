@@ -187,6 +187,31 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
   background: rgba(15, 20, 32, 0.92); border-radius: 14px; display: flex; flex-direction: column; gap: 14px; opacity: 0; overflow: hidden; }
 .tv-panel .dots { margin-top: auto; }
 
+/* the full picture in an L-frame scene (the menu's "Helbild"): column and band step aside */
+.tv-scenes { transition: opacity 0.25s; }
+.tv.full .tv-scenes { opacity: 0; } /* the scene's own fades set inline opacity on col and band */
+
+/* --- the menu on OK and its sheets (menu.js), low on the left over the picture ------------- */
+.tv-menu, .tv-sheet { position: absolute; bottom: 130px; box-sizing: border-box; padding: 18px; background: rgba(7, 10, 16, 0.94);
+  border-radius: 14px; display: flex; flex-direction: column; gap: 6px; opacity: 0; pointer-events: none; }
+.tv-menu { left: 60px; width: 520px; }
+.tv-menu.on { opacity: 1; }
+.tv-sheet { left: 600px; width: 760px; max-height: 860px; overflow: hidden; display: none; gap: 12px; }
+.tv-sheet.on { display: flex; opacity: 1; }
+.tv-item { position: relative; padding: 10px 22px; border: 4px solid transparent; border-radius: 10px;
+  font: 700 var(--fs-text)/1.1 var(--font-condensed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tv-item.on { border-color: var(--gold); background: rgba(245, 197, 66, 0.14); }
+.tv-item.goal { box-shadow: inset 10px 0 0 var(--c); padding-left: 32px; }
+.tv-item.goal.on { background: var(--gold); color: var(--on-gold); }
+.tv-item.more::after { content: "›"; position: absolute; right: 20px; color: var(--text-muted); }
+.tv-item small { display: block; font: 600 var(--fs-floor)/1.2 var(--font-body); color: var(--text-secondary); }
+.tv-item.on small { color: inherit; }
+.tv-sheet-title { font: 800 56px/1 var(--font-condensed); margin-bottom: 4px; }
+.tv-sheet-text { font-size: var(--fs-floor); line-height: 1.45; color: var(--text-secondary); }
+.tv-sheet-text b { color: var(--text); }
+.tv-sheet-text.quiet { color: var(--text-muted); }
+.tv-sheet-rows { display: flex; flex-direction: column; gap: 6px; overflow: hidden; }
+
 /* --- the team animations (anim.js): full frame, the power play's band low in the picture ---- */
 .tv-anim { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: contain; opacity: 0; }
 .tv-anim-tvpp { top: 600px; height: 360px; }

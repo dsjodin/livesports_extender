@@ -559,3 +559,10 @@ Phase 9 notes (2026-10-31):
   in `/sim` with the replay of et9erhx0si: every scene, a feed goal with portrait, a MÅL!
   press, a penalty with its power play, the panels. `tools/legibility.py` now measures the
   TV too: no text under 13 mm at 4 m (smallest 15.1 mm).
+- 9.4 done (2026-10-31): the menu on OK (`web/tv/menu.js`; `docs/TV_APP.md`, Remote): MÅL!
+  as OK, OK in play, Synka nedsläpp, the panels, Helbild in L-frame scenes, and sheets
+  for today's games (no scores), sync (samples, proposal, ±0,5 s) and settings (profile,
+  the shell's settings, the test page). Verified in `/sim`: OK, OK fired a MÅL! press
+  and the goal scene, a sync sample with its proposal, the sheets, the full picture and
+  Back to the L-frame. Found on the way: OK, OK outside play must never change the game,
+  so the menu opens on the sync or Statistik there.
