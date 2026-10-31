@@ -250,6 +250,7 @@ async function settingsSheet() {
     { label: "Server och HDMI", note: "skalets inställningar", run: () => (close(), d.host.openSetup()) },
     { label: "Testsidan", note: "kontroll av TV:n", run: () => d.api("tv/probe-mode", { enabled: true }) },
   ];
-  const about = `<div class="tv-sheet-text quiet">SHL live! · skal ${esc(shell?.version ?? "–")}${shell?.model ? ` · ${esc(shell.model)}` : ""}<br>${esc(d.host.base)}</div>`;
+  const saver = shell?.screen_saver ? `<br>Skärmsläckare: ${esc(shell.screen_saver)}` : "";
+  const about = `<div class="tv-sheet-text quiet">SHL live! · skal ${esc(shell?.version ?? "–")}${shell?.model ? ` · ${esc(shell.model)}` : ""}<br>${esc(d.host.base)}${saver}</div>`;
   showSheet("INSTÄLLNINGAR", about, rows);
 }

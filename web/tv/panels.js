@@ -1,6 +1,8 @@
-// Panels over the full picture in play (docs/TV_APP.md, Scenes on the TV): Statistik,
-// Tabell, Kvällens matcher, in the right third, half see-through. ↑ ↓ page through them
-// and off; Back or 20 s without a key closes them. Every number comes from the delayed
+// Panels (docs/TV_APP.md, Scenes on the TV): Statistik, Tabell, Kvällens matcher. Over the
+// full picture in play they lie in the right third, half see-through; in an L-frame scene
+// they take the column's place, opaque, so nothing lies on top of the column's own
+// graphics (asked for by the user 2026-10-31). ↑ ↓ page through them and off; Back or 20 s
+// without a key closes them. Every number comes from the delayed
 // state (CLAUDE.md rule 1), and an open panel follows its patches.
 import { caps, html, raw } from "../shared/format.js";
 import { empty, head, logo, shortName } from "./scenes/common.js";
@@ -13,9 +15,12 @@ let el = null;
 let shown = null; // the panel shown, or null
 let timer = null;
 let getTv = () => null;
+let inColumn = () => false;
 
-export function create(parent, tvGetter) {
+/** ``columnGetter``: true while the scene is an L-frame (the panel goes in the column). */
+export function create(parent, tvGetter, columnGetter) {
   getTv = tvGetter;
+  inColumn = columnGetter;
   el = document.createElement("section");
   el.className = "tv-panel";
   parent.appendChild(el);
@@ -51,6 +56,7 @@ function show(name) {
     gsap.to(el, { opacity: 0, x: 40, duration: 0.25, ease: "power1.in" });
     return;
   }
+  el.classList.toggle("in-column", inColumn());
   render();
   if (!was) gsap.fromTo(el, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" });
   timer = setTimeout(close, CLOSE_MS);

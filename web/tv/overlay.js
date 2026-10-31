@@ -176,7 +176,8 @@ function show(scene, at, animate) {
     full = false; // a new scene starts in its own layout
     root.classList.remove("full");
   }
-  if (!["live", "goal"].includes(name)) panels.close();
+  // a panel lies over the picture in play and in the column in an L-frame: not across that
+  if ((windowFor(name) == null) !== (windowFor(current?.name) == null)) panels.close();
   menu.close();
   const old = current;
   const sceneRoot = el("div", `tv-scene scene-${name}`);
@@ -205,9 +206,8 @@ function show(scene, at, animate) {
 host.onKey((key) => {
   note(`key ${key}`);
   if (menu.key(key)) return;
-  const inPlay = ["live", "goal"].includes(current?.name);
   if (key === "ok") return menu.open();
-  if ((key === "up" || key === "down") && inPlay) return panels.step(key === "down" ? 1 : -1);
+  if (key === "up" || key === "down") return panels.step(key === "down" ? 1 : -1);
   if (key === "back") {
     if (panels.isOpen()) return panels.close();
     if (full) return setFull(false);
@@ -221,6 +221,7 @@ host.onKey((key) => {
 function setFull(on) {
   full = on;
   root.classList.toggle("full", on); // the L-frame's column and band step aside (tv.css)
+  panels.close(); // it sat in the column, or over the picture: neither holds now
   placePicture(true);
 }
 
@@ -280,7 +281,7 @@ async function main() {
   await stage.load(host.base);
   anim.setBase(host.base);
   root.append(backdrop, scenes, fx, dot, toast);
-  panels.create(root, () => store.tv);
+  panels.create(root, () => store.tv, () => windowFor(current?.name, full) != null);
   menu.create(root, {
     tv: () => store.tv,
     scene: () => current?.name,

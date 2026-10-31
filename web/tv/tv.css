@@ -2,7 +2,7 @@
    77" TV at 4 m: --fs-floor 23 px and --fs-text 38 px (stage.applyType("tv"),
    docs/TV_APP.md). Nothing is drawn where the TV picture shows except graphics meant to lie
    over it. The L-frame's areas match layout.js: picture 40,40 1152×648; column 1232,40
-   608×1000; band 40,728 1152×312. Over the full picture, the top left (the broadcaster's
+   648×1000; band 40,728 1152×312. Over the full picture, the top left (the broadcaster's
    bug) and the bottom 8 % (its tickers) stay free. */
 html, body { margin: 0; background: transparent; overflow: hidden; color-scheme: normal; }
 .tv { position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden;
@@ -186,6 +186,9 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 .tv-panel { position: absolute; right: 60px; top: 60px; bottom: 120px; width: 640px; box-sizing: border-box; padding: 30px 34px;
   background: rgba(15, 20, 32, 0.92); border-radius: 14px; display: flex; flex-direction: column; gap: 14px; opacity: 0; overflow: hidden; }
 .tv-panel .dots { margin-top: auto; }
+/* in an L-frame scene the panel takes the column's place: same box, opaque */
+.tv-panel.in-column { left: 1232px; top: 40px; right: auto; bottom: auto; width: 648px; height: 1000px; padding: 34px 36px 28px;
+  background: var(--panel); }
 
 /* the full picture in an L-frame scene (the menu's "Helbild"): column and band step aside */
 .tv-scenes { transition: opacity 0.25s; }
