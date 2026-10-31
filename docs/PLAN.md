@@ -542,3 +542,7 @@ Phase 9 notes (2026-10-31):
   clock within 1 ms; a `<video>` takes HDMI away (picture and sound), so TV videos become
   animated WebP; the remote has only arrows, OK and Back, so the remote design moved to a
   menu on OK (`docs/TV_APP.md`, Remote). Shell 0.3.1 and the probe were changed to match.
+- 9.1 done (2026-10-31), the report from the TV in `docs/TV_APP.md` (To verify): iframe,
+  HTTP, WebSocket, clock, 60 fps, L-frame moves without a flash (45–120 ms) and animated
+  WebP with alpha all work; `<video>` is out. Open: whether play/pause and the channel
+  rocker reach the app, and the TV's own HDMI delay (with Synka on a live game).

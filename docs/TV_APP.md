@@ -17,7 +17,7 @@ HDMI 1 `BEHIND` the page, and transparent and half-transparent graphics work ove
 | Outside a game | L-frame: the TV picture shrunk, pregame or idle graphics around it; one key gives full-screen TV. |
 | Remote | Sync (puck drop), MÅL! buttons, panels, choosing the game on the TV. The remote has only arrows, OK and Back (digits and colours are on a virtual pad, too awkward, 2026-10-31), so everything goes through a menu on OK. |
 | Server address | Typed in once in the app (setup screen), stored on the TV. |
-| Videos | Team videos remade for 16:9. Not as `<video>`: on the TV it takes the player from HDMI (picture and sound go, seen 2026-10-31). As animated WebP with alpha instead (an image), if it runs smoothly on the TV (to be verified), else GSAP only. |
+| Videos | Team videos remade for 16:9. Not as `<video>`: on the TV it takes the player from HDMI (picture and sound go, seen 2026-10-31). As animated WebP with alpha instead (an image): transparent and smooth on the TV (2026-10-31). |
 | TV and distance | 77" (16:9, 1705×959 mm), watched from 4 m (the user, 2026-10-31). |
 | MÅL! on the remote | Two presses within 2 s, to be tried (the user, 2026-10-31). |
 
@@ -97,8 +97,9 @@ at the least and 24 mm (27 px, a **38 px** font) for reading. Checked with
 
 The remote (Samsung, 2026) has arrows, OK, Back, play/pause, volume and channel keys;
 digits and colour keys only on a virtual pad on screen. So the app works with **arrows,
-OK and Back** alone (proposal, 2026-10-31; play/pause and channel up/down as shortcuts if
-the test build shows they reach the app).
+OK and Back** alone (proposal, 2026-10-31). The remote also has a physical play/pause key
+and a channel rocker; whether they reach the app (registered by the shell) is still to be
+seen in the key log, and if they do they can become shortcuts.
 
 | Key | No menu open | Menu open |
 |---|---|---|
@@ -126,7 +127,9 @@ nedsläpp, Statistik, Tabell, Kvällens matcher, Helbild, Matcher, Inställninga
 Not as `<video>`: on this TV (S95HF, Tizen 9.0) an HTML video takes the media player
 from the HDMI input, so the TV picture and its sound go while it plays (2026-10-31). The
 TV versions are **animated WebP with alpha** instead: an image, decoded without the
-media player. `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
+media player. Tried on the TV with the 1920×360 power-play video (895 kB, 4 s): ready in
+155 ms, transparent and smooth to the eye (one 67 ms frame in the measurement), HDMI
+picture and sound stay. `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
 `tvintro`, `tvpp`, 1920×1080 or a band of it, about 1 MB for 4 s). Over a live picture
 they should be short sweeps that end transparent, leaving the middle of the ice clear
 as quickly as possible. If WebP stutters on the TV, the GSAP animations stay alone.
@@ -156,15 +159,20 @@ Results from the user's TV (Samsung S95HF, Tizen 9.0, 2026-10-31) after each ite
 3. ES modules and GSAP run smoothly at 1920×1080 (60 fps for transform and opacity).
    **Yes**: 60 frames a second, longest pause 17 ms.
 4. VP9 with alpha plays transparent in `<video>` over HDMI. **No**: the video plays, but
-   it takes the media player from HDMI (picture and sound go). Animated WebP to try.
+   it takes the media player from HDMI (picture and sound go, and come back only when the
+shell shows HDMI again). Animated WebP works instead (see Videos).
 5. Moving the TV picture with `tvwindow.show` (L-frame) works without a black flash, and
-   how long the move takes.
+   how long the move takes. **Yes**: no flash, 45–120 ms a move (6 of 6 moves).
 6. The synced clock holds within a few ms, as on the display box. **Yes**: round trip
    1 ms, drift 1 ms (the TV's own clock is 130 ms off, which the sync takes care of).
 7. The colour and digit keys reach the shell. **Moot**: the remote has no such keys of its
-   own. Which keys it has that reach the app: the test build logs them.
+   own. Arrows, OK and Back reach the app; the remote's play/pause key and channel rocker
+   were not pressed in the test, so still open.
 8. How much the TV's HDMI path delays the picture compared with the TV's own input
-   (the `iptv` TV profile may need a small nudge).
+   (the `iptv` TV profile may need a small nudge). Open: shows with Synka on a live game.
+
+The TV: S95HF, Tizen 9.0, firmware T-RSMFDEUC-0090-1301.0, Chromium 120, page
+1920×1080 at dpr 1. Its clock is about 150 ms off; the synced clock absorbs it.
 
 ## The test build (task 9.1)
 
