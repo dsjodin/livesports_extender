@@ -277,6 +277,16 @@ time the TV asks to allow "SHL Arena", and the token is kept in
 (not even waking the resting L-frame), so nothing shows on screen. If the saver stays
 away, the service can do the same while the TV app is shown.
 
+**Result (2026-10-31): a network key works.** Samsung's saver comes only while the TV
+picture is shrunk (the L-frame), never over a full-screen game. KEY_RED sent every 60 s
+over the TV's network remote kept it away for 5 min in the L-frame, and the graphics
+counted the keys ("Väckknappar: 10, senast 17:46 (red)" in the menu, two senders) with
+nothing on screen. The TV let the user's Windows PC on its own subnet (10.1.30.x) in at
+once, giving a token, while the Docker host on another subnet (10.1.40.x) got
+`ms.channel.timeOut` with and without that token; after the token was issued, the PC too
+needed `&token=…` in the URL. So the sender must be on the TV's own network (or be the
+TV app itself, if its local remote channel can be reached).
+
 1.3.0 also tried `tizen.power.request("SCREEN", "SCREEN_NORMAL")`, but the TV has no
 `tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of undefined
 (reading 'request')"); 1.4.0 dropped it and its privilege.
