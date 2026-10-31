@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHLlive HDMI-test</title>
+  <link rel="stylesheet" href="css/overlay-test.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <div id="preview-label">FÖRHANDSVISNING PÅ DATOR · INGEN HDMI-BILD</div>
+  <section id="overlay">
+    <div class="eyebrow">SHL LIVE · OVERLAYTEST · DEMODATA</div>
+    <div class="score">HEMMA <strong>2 – 1</strong> BORTA</div>
+    <div>Period 2 · 12:34</div>
+  </section>
+  <section id="alpha-test">
+    <div class="alpha-title">VIT GRAFIK · OPACITET</div>
+    <div class="alpha">
+      <div><label>0 %</label><span></span></div>
+      <div><label>25 %</label><span></span></div>
+      <div><label>50 %</label><span></span></div>
+      <div><label>75 %</label><span></span></div>
+      <div><label>100 %</label><span></span></div>
+    </div>
+  </section>
+  <section id="diagnostics">
+    <h1>HDMI-test <span id="source">Ingen källa vald</span></h1>
+    <p>← / → Välj HDMI · OK Visa/dölj overlay · ↑ Visa/dölj denna ruta · ↓ Sök igen · Back Avsluta</p>
+    <pre id="log" aria-live="polite"></pre>
+  </section>
+</body>
+</html>
