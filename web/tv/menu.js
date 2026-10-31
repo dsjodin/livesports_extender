@@ -255,6 +255,11 @@ async function settingsSheet() {
       note: "mitt lags match idag följs av sig själv",
       run: () => d.api("follow", { enabled: !state.config?.follow_my_team }).then(again),
     },
+    {
+      label: `Rutor över bilden: ${Math.round(d.cover() * 100)} % täckning`,
+      note: "OK byter: 97, 94, 90, 100 %",
+      run: () => (d.nextCover(), again()),
+    },
     { label: "Server och HDMI", note: "skalets inställningar", run: () => (close(), d.host.openSetup()) },
     { label: "Testsidan", note: "kontroll av TV:n", run: () => d.api("tv/probe-mode", { enabled: true }) },
   ];

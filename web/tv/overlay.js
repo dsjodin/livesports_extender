@@ -46,6 +46,33 @@ const el = (tag, cls) => {
   return e;
 };
 const root = el("div", "tv");
+
+/** How much the boxes over the full picture cover it (menu: Inställningar). The TV blends
+ * them its own way: 90 % looked see-through, 100 % too solid (the user 2026-10-31); this
+ * TV's choice stays in its browser storage. */
+const COVER = [0.97, 0.94, 0.9, 1];
+let cover = COVER[0];
+try {
+  const saved = Number(localStorage.getItem("shllive.cover"));
+  if (COVER.includes(saved)) cover = saved;
+} catch {
+  /* no storage: the default */
+}
+function applyCover() {
+  root.style.setProperty("--ov-bg", `rgba(7, 10, 16, ${cover})`);
+  root.style.setProperty("--ov-bg-panel", `rgba(15, 20, 32, ${cover})`);
+}
+function nextCover() {
+  cover = COVER[(COVER.indexOf(cover) + 1) % COVER.length];
+  try {
+    localStorage.setItem("shllive.cover", String(cover));
+  } catch {
+    /* kept until the page reloads */
+  }
+  applyCover();
+  return cover;
+}
+applyCover();
 root.id = "app"; // tools/legibility.py measures the text under #app
 const backdrop = el("div", "tv-backdrop"); // paints around the picture, never over it
 const scenes = el("div", "tv-scenes");
@@ -438,6 +465,8 @@ async function main() {
   panels.create(root, () => store.tv, () => windowFor(current?.name, full) != null);
   menu.create(root, {
     nudges: () => nudges,
+    cover: () => cover,
+    nextCover,
     tv: () => store.tv,
     scene: () => current?.name,
     api,
