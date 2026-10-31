@@ -204,7 +204,7 @@ Boxes over the full picture (penalty, power-play pill, goal, panels, menu): with
 88–94 % background they looked see-through and hard to read on the S95HF, though a
 browser draws them nearly solid, and at 100 % too solid (the user 2026-10-31). The TV
 blends our layer over its picture its own way, so the cover is a choice in the menu
-(Inställningar → "Rutor över bilden": 97 % by default, 94, 90 or 100 %), kept in the TV
+(Inställningar → "Rutor över bilden": 97 % by default, then 94, 90, 85, 80, 70, 60 and 100 %), kept in the TV
 browser's storage (`shllive.cover`); `--ov-bg` in `tv.css`.
 
 The TV is an OLED (S95HF), so graphics that stand still for hours can burn in (the user,

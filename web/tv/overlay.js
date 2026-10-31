@@ -50,7 +50,7 @@ const root = el("div", "tv");
 /** How much the boxes over the full picture cover it (menu: Inställningar). The TV blends
  * them its own way: 90 % looked see-through, 100 % too solid (the user 2026-10-31); this
  * TV's choice stays in its browser storage. */
-const COVER = [0.97, 0.94, 0.9, 1];
+const COVER = [0.97, 0.94, 0.9, 0.85, 0.8, 0.7, 0.6, 1];
 let cover = COVER[0];
 try {
   const saved = Number(localStorage.getItem("shllive.cover"));

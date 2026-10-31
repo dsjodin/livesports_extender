@@ -257,7 +257,7 @@ async function settingsSheet() {
     },
     {
       label: `Rutor över bilden: ${Math.round(d.cover() * 100)} % täckning`,
-      note: "OK byter: 97, 94, 90, 100 %",
+      note: "OK byter: 97, 94, 90, 85, 80, 70, 60, 100 %",
       run: () => (d.nextCover(), again()),
     },
     { label: "Server och HDMI", note: "skalets inställningar", run: () => (close(), d.host.openSetup()) },
