@@ -203,6 +203,10 @@ its last frame is empty anyway (checked in Chromium for the defaults). They play
 The TV is an OLED (S95HF), so graphics that stand still for hours can burn in (the user,
 2026-10-31). `web/tv/overlay.js`:
 
+- **Quiet** is idle, or pregame while puck drop on TV is more than an hour away (a followed
+  game makes the whole game day pregame; the dimming did not show for it, 2026-10-31).
+  Dimming and rest apply when quiet; an hour before the drop the graphics come back to
+  full brightness by themselves.
 - **Dimming in idle**, the wall's setting (`idle_dim`, "Dimning i vila" in the phone app,
   `docs/SCREENS.md`): our graphics fade to `1 − idle_dim` over 1.5 s when idle starts and
   come back in 0.4 s; the TV picture is never dimmed. Panels opened by hand are not.
@@ -219,6 +223,26 @@ The TV is an OLED (S95HF), so graphics that stand still for hours can burn in (t
 
 For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
 
+## Sound (tried on the TV 2026-10-31)
+
+- The app's own sound plays, through Web Audio and through `<audio>`, and reaches the
+  soundbar with the broadcast's sound (the user's sound goes to a soundbar over HDMI
+  eARC).
+- The TV's volume and mute (`tvaudiocontrol`, shell 1.1.0) do nothing to it: they act on
+  the TV's own speakers, not on a soundbar over eARC. So the app cannot lower or mute the
+  broadcast. That would go through Home Assistant, which already gets the goal webhook
+  at `play_at` and can turn the soundbar down and back.
+- The remote's volume keys do reach the soundbar (the TV passes them on over HDMI-CEC).
+  So the shell (1.2.0) can also step the volume as those keys do (`setVolumeUp`,
+  `setVolumeDown`); the test page's "Ljud: volym 3 steg ner och upp (som fjärren)" shows
+  whether that reaches the soundbar too.
+- The soundbar is a Sonos Arc (2026-10-31). A Sonos announcement switches its input away
+  from the TV (lag, trouble getting back), so sound comes from the TV app: mixed into the
+  TV's own sound before eARC, the Arc stays on the TV input. The mix also means nothing
+  can lower the broadcast under our sound: the Arc's volume (HA, or the remote's steps)
+  turns both down alike. Our sound plays over the broadcast at its own level.
+- What the app does with sound is still open (the user has ideas, 2026-10-31).
+
 ## Screen saver
 
 The TV counts an app nobody presses keys in as idle and starts its screen saver after a
@@ -226,7 +250,9 @@ while, which it never does on a TV input (the user, 2026-10-31). The shell (0.3.
 it off while the app is shown and on again when the app is hidden or exits:
 `webapis.appcommon.setScreenSaver(SCREEN_SAVER_OFF)` (Samsung's AppCommon API, from
 `$WEBAPIS/webapis/webapis.js`), and also `tizen.power.request("SCREEN", "SCREEN_NORMAL")`
-(privilege `power`); it says it again every 5 minutes. The result shows in the menu
+(privilege `power`); it says it again every minute and on every key (shell 1.3.0: with
+every 5 minutes the TV still started it, 2026-10-31). Both results show in the menu
+("Skärmsläckare: av · skärmlås på"). The result shows in the menu
 (Inställningar: "Skärmsläckare: av") and in the test page's report (`shell.screen_saver`).
 
 ## Development and install
@@ -310,6 +336,12 @@ was the whole of `/tv/` in task 9.1; now it shows instead of the graphics while
      tysta TV:n och spela horn" (does the TV's mute silence the app too?). The report has
      `sound` (the AudioContext state, `suspended` meaning the TV wants a user gesture, and
      the volume before, lowered and restored);
+   - **highlights** (2026-10-31, a test before anything is built): "Video: målklipp FHC–SKE
+     (22 s)" and "Video: höjdpunkter FHC–SKE (5 min)" play shl.se's clips in the video
+     provider's public embed (`https://embed.staylive.tv/video/<id>?autoplay=1`, the URL
+     shl.se's `/api/media/videos-for-game?gameUuid=…` gives) in a full-screen iframe;
+     Back or the clip's length closes it and HDMI is asked back; then: did it start by
+     itself, was its sound heard, did the TV picture and sound come back;
    - "Dölj testbilden" hides the page (any key brings it back); Back twice exits;
    - "Tillbaka till grafiken" turns the test page off (`tv_probe`) and the TV reloads
      into the graphics.

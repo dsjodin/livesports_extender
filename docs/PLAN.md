@@ -606,4 +606,6 @@ Phase 9 notes (2026-10-31):
 - Sound (2026-10-31): the user has ideas that depend on what the TV allows, so the test
   page tries it first: a horn through Web Audio and through `<audio>`, the TV's volume
   down and back, and the TV muted with the horn playing (shell 1.1.0: `tv.audio`).
-  Waiting for the report from the TV.
+  Result: the app's own sound plays (both ways) and reaches the eARC soundbar with the
+  broadcast; the TV's volume and mute do not reach the soundbar. Lowering the broadcast
+  would go through Home Assistant. Next: the user's ideas for sound.

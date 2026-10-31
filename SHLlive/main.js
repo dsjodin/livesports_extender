@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '1.1.0';
+  const VERSION = '1.3.0';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -171,7 +171,8 @@
   }
 
   /** The overlay asks for the TV's volume or mute (Tizen tvaudiocontrol, privilege
-   * tv.audio; 1.1.0, for the sound tests of 2026-10-31). Both act on the whole TV. */
+   * tv.audio; 1.1.0, for the sound tests of 2026-10-31): set, mute, or one step up or down
+   * as the remote's keys (1.2.0: setVolume and setMute did not reach an eARC soundbar). */
   function audioControl(m) {
     const reply = function (extra) {
       toOverlay(Object.assign({ t: 'audio_done', id: m.id, ok: true }, extra));
@@ -181,6 +182,9 @@
     try {
       if (m.op === 'volume') a.setVolume(Math.max(0, Math.min(100, Math.round(m.value))));
       else if (m.op === 'mute') a.setMute(!!m.value);
+      // one step, as the remote's volume key: perhaps passed on to a soundbar over HDMI-CEC
+      else if (m.op === 'up') a.setVolumeUp();
+      else if (m.op === 'down') a.setVolumeDown();
       reply({ volume: a.getVolume(), muted: a.isMute() });
     } catch (err) {
       reply({ ok: false, error: String(err.message || err) });
@@ -216,7 +220,7 @@
     try { out.platform = api.systeminfo.getCapability('http://tizen.org/feature/platform.version'); } catch (err) { /* computer */ }
     try { out.model = window.webapis.productinfo.getModel(); } catch (err) { /* computer or no webapis */ }
     try { out.firmware = window.webapis.productinfo.getFirmware(); } catch (err) { /* computer or no webapis */ }
-    out.screen_saver = screenSaver;
+    out.screen_saver = screenSaver + ' · skärmlås ' + powerLock;
     return out;
   }
   function toOverlay(message) {
@@ -323,12 +327,19 @@
   // while; on a TV input it never does (seen 2026-10-31). Off while the app is shown, back
   // on when it is hidden or exits. Samsung's AppCommon API first, Tizen's power lock as well.
   let screenSaver = realTV ? 'okänd' : 'dator';
+  let powerLock = realTV ? 'okänd' : 'dator';
+  let saverSaidAt = 0;
   function setScreenSaver(off) {
     if (!realTV) return;
+    saverSaidAt = Date.now();
     try {
       if (off) api.power.request('SCREEN', 'SCREEN_NORMAL');
       else api.power.release('SCREEN');
-    } catch (err) { log('power: ' + err); }
+      powerLock = off ? 'på' : 'släppt';
+    } catch (err) {
+      powerLock = 'fel: ' + (err.message || err);
+      log('power: ' + err);
+    }
     const common = window.webapis && window.webapis.appcommon;
     if (!common) { screenSaver = 'appcommon saknas'; log('Skärmsläckare: appcommon saknas'); return; }
     const states = common.AppCommonScreenSaverState;
@@ -440,6 +451,7 @@
     }
     const key = KEYS[code] || supported[code];
     if (!key) return;
+    if (Date.now() - saverSaidAt > 10000) setScreenSaver(true); // a key: say it again
     event.preventDefault();
     if (event.repeat) return;
     if (!$('setup').classList.contains('hidden')) return setupKey(key);
@@ -473,8 +485,9 @@
   registerKeys();
   watchSources();
   setScreenSaver(true);
-  // said again now and then, in case the TV forgets it (no harm when it holds)
-  setInterval(function () { if (!document.hidden) setScreenSaver(true); }, 5 * 60 * 1000);
+  // said again every minute and on keys (below), in case the TV forgets it (still seen
+  // 2026-10-31 with every 5 min; no harm when it holds)
+  setInterval(function () { if (!document.hidden) setScreenSaver(true); }, 60 * 1000);
   scan();
   connect();
 }());
