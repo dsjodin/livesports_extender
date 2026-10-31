@@ -19,6 +19,8 @@ const RECTS = {
 const RECT_NAMES = { full: "helbild", lframe: "L-ram", small: "liten bild" };
 const RECT_ORDER = ["lframe", "small", "full"];
 const QUESTIONS = {
+  clip_started: "Startade videon av sig själv och syntes i helbild?",
+  clip_sound: "Hördes videons ljud (i soundbaren)?",
   volume_steps: "Sänktes soundbarens volym tre steg och kom sedan tillbaka?",
   sound_heard: "Hördes hornet (Web Audio)?",
   sound_hdmi: "Hördes TV-sändningens ljud samtidigt, och låg bilden kvar?",
@@ -32,7 +34,7 @@ const QUESTIONS = {
   hdmi_back: "Kom TV-bilden och ljudet tillbaka efter videon?",
   flash: "Blev bilden svart eller blinkade den när den flyttades?",
 };
-const REPEATABLE = ["volume_steps", "webp", "video", "hdmi_back", "flash", "sound_heard", "sound_hdmi", "audio_heard", "volume", "mute_heard"];
+const REPEATABLE = ["clip_started", "clip_sound", "volume_steps", "webp", "video", "hdmi_back", "flash", "sound_heard", "sound_hdmi", "audio_heard", "volume", "mute_heard"];
 
 const url = (path) => new URL(path, import.meta.url).href;
 const el = (tag, cls, text) => {
@@ -107,6 +109,7 @@ const ROWS = [
   ["fps", "Animation"],
   ["webp", "Animerad bild"],
   ["sound", "Ljud"],
+  ["clip", "Höjdpunkt (video)"],
   ["video", "Video VP9 alfa"],
   ["move", "Flytta TV-bilden"],
   ["keys", "Fjärrkontroll"],
@@ -123,6 +126,8 @@ const MENU = [
   ["sound_vol", "Ljud: sänk TV:ns volym en stund"],
   ["sound_mute", "Ljud: tysta TV:n och spela horn"],
   ["sound_steps", "Ljud: volym 3 steg ner och upp (som fjärren)"],
+  ["clip_goal", "Video: målklipp FHC–SKE (22 s)"],
+  ["clip_long", "Video: höjdpunkter FHC–SKE (5 min)"],
   ["send", "Skicka rapport"],
   ["setup", "Inställningar"],
   ["hide", "Dölj testbilden"],
@@ -445,6 +450,44 @@ async function volumeTest() {
   send();
 }
 
+// ---- highlights (2026-10-31): a test before anything is built ------------------------------
+// shl.se lists each game's clips (/api/media/videos-for-game) with a public embed of the
+// video provider's own player; these two are from Frölunda–Skellefteå (2026-10-17). The
+// player plays in an iframe over everything; its end cannot be seen from here, so it
+// closes after the clip's length (or on Back), and HDMI is asked back.
+const CLIPS = {
+  clip_goal: { id: "661877", seconds: 22, name: "målklipp" },
+  clip_long: { id: "661916", seconds: 307, name: "höjdpunkter" },
+};
+let clipFrame = null;
+let clipTimer = null;
+
+function playClip(key) {
+  const c = CLIPS[key];
+  closeClip(false);
+  const run = { id: c.id, at_ms: Date.now() };
+  (report.clips ??= []).push(run);
+  clipFrame = document.createElement("iframe");
+  clipFrame.className = "tvp-clip";
+  clipFrame.allow = "autoplay; fullscreen; encrypted-media";
+  clipFrame.src = `https://embed.staylive.tv/video/${c.id}?autoplay=1`;
+  clipFrame.onload = () => (run.loaded_ms = Date.now() - run.at_ms);
+  root.appendChild(clipFrame);
+  set("clip", `spelar ${c.name} · Back stänger`, "ask");
+  clipTimer = setTimeout(() => closeClip(true), (c.seconds + 3) * 1000);
+}
+
+function closeClip(asked) {
+  clearTimeout(clipTimer);
+  if (!clipFrame) return;
+  clipFrame.remove();
+  clipFrame = null;
+  set("clip", "spelad", "ask");
+  host.restoreHdmi(); // the video took the TV's player from HDMI
+  if (asked !== false) askAgain("clip_started", "clip_sound", "hdmi_back");
+  send();
+}
+
 /** Three steps down, 3 s, three steps up, as the remote's volume keys (shell 1.2.0): the
  * remote reaches the soundbar over HDMI-CEC; perhaps these do too. */
 async function stepsTest() {
@@ -594,6 +637,7 @@ function run(id) {
   if (id === "sound_vol") return volumeTest();
   if (id === "sound_mute") return muteTest();
   if (id === "sound_steps") return stepsTest();
+  if (id === "clip_goal" || id === "clip_long") return playClip(id);
   if (id === "send") return send(true);
   if (id === "setup") return host.openSetup();
   if (id === "graphics") return leave();
@@ -602,6 +646,7 @@ function run(id) {
 
 host.onKey((key, code) => {
   keysCheck(key, code);
+  if (clipFrame) return key === "back" ? closeClip(true) : undefined; // the video has the screen
   if (root.classList.contains("hidden")) return root.classList.remove("hidden");
   if (key === "left") return answer(false);
   if (key === "right") return answer(true);
@@ -655,6 +700,7 @@ async function main() {
   report.video.can_play_vp9 = video.canPlayType('video/webm; codecs="vp9"') || "nej";
   set("webp", "välj i menyn till höger", "wait");
   set("sound", "välj i menyn (Ljud: …)", "wait");
+  set("clip", "välj i menyn (Video: …)", "wait");
   set("video", `stöd: ${report.video.can_play_vp9} · välj i menyn (kan bryta HDMI)`, "wait");
   set("move", "välj i menyn", "wait");
   set("keys", "tryck på alla knappar fjärrkontrollen har", "wait");

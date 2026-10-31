@@ -261,23 +261,36 @@ function setFull(on) {
 
 /** How bright our graphics are, never the TV picture: hidden with the full picture in an
  * L-frame scene, dimmed in idle (config idle_dim, the wall's setting), else full. */
+const QUIET_BEFORE_DROP_MS = 60 * 60_000;
+
+/** Nothing happening: idle, or pregame while puck drop (on TV time) is more than an hour
+ * off; a followed game makes the whole game day pregame (2026-10-31). */
+function quiet() {
+  if (current?.name === "idle") return true;
+  if (current?.name !== "pregame") return false;
+  const start = store.tv?.game?.start_ms;
+  return start != null && start + (store.config.offset_ms ?? 0) - clock.now() > QUIET_BEFORE_DROP_MS;
+}
+
 function look() {
-  const dim = current?.name === "idle" ? Math.min(Math.max(store.config.idle_dim ?? 0.5, 0), 0.9) : 0;
+  const dim = quiet() ? Math.min(Math.max(store.config.idle_dim ?? 0.5, 0), 0.9) : 0;
   const to = full ? 0 : 1 - dim;
   const from = Number(getComputedStyle(scenes).opacity);
   gsap.killTweensOf(scenes);
   gsap.to(scenes, { opacity: to, duration: full ? 0.25 : to < from ? 1.5 : 0.4, ease: "power1.inOut" });
 }
 
-/** Idle on an OLED: after 10 min without a key the graphics step aside and the TV gets the
- * whole picture; any key brings the L-frame back (asked for by the user 2026-10-31). */
+/** Quiet on an OLED (idle, or long before the game): after 10 min without a key the
+ * graphics step aside and the TV gets the whole picture; any key brings the L-frame back
+ * (asked for by the user 2026-10-31). */
 const REST_MS = (Number(params.get("rest")) || 600) * 1000; // ?rest=<s> to try it
 let restTimer = null;
 let resting = false;
 function restLater() {
   clearTimeout(restTimer);
-  if (current?.name !== "idle") return;
+  if (!quiet()) return;
   restTimer = setTimeout(() => {
+    if (!quiet()) return;
     resting = true;
     setFull(true);
     note("vila: helbild (OLED)");
@@ -428,6 +441,20 @@ async function main() {
     },
   });
   setInterval(pixelShift, (Number(params.get("shift")) || 120) * 1000); // ?shift=<s> to try it
+  // an hour before the drop the pregame stops being quiet: full brightness, out of rest
+  let wasQuiet = null;
+  setInterval(() => {
+    const q = quiet();
+    if (q === wasQuiet) return;
+    wasQuiet = q;
+    if (!q && resting) {
+      resting = false;
+      setFull(false);
+    } else {
+      look();
+      restLater();
+    }
+  }, 30_000);
   if (debug) setInterval(debugLoop, 200);
 }
 
