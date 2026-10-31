@@ -114,9 +114,11 @@ layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md r
 
 The remote (Samsung, 2026) has arrows, OK, Back, play/pause, volume and channel keys;
 digits and colour keys only on a virtual pad on screen. So the app works with **arrows,
-OK and Back** alone (2026-10-31). The remote also has a physical play/pause key
-and a channel rocker; whether they reach the app (registered by the shell) is still to be
-seen in the key log, and if they do they can become shortcuts.
+OK and Back** alone (2026-10-31). Of the remote's other physical keys, **play/pause**
+reaches the app (key code 10252, the test page's report 2026-10-31) and is the shortcut
+for Synka nedsläpp: one press at the moment the drop shows on TV. The channel rocker did
+not show in the report: the TV may pass it on to the box over HDMI (CEC), so nothing
+depends on it.
 
 | Key | No menu open | Menu open |
 |---|---|---|
@@ -124,6 +126,7 @@ seen in the key log, and if they do they can become shortcuts.
 | ↑ ↓ | In play: next / previous panel (Statistik → Tabell → Kvällens matcher → off) | Move |
 | → | | Opens a sheet, like OK |
 | ← / Back | Back: closes a panel, or the full picture back to the L-frame; twice in 2 s: exit | Closes the sheet, then the menu |
+| ⏯ play/pause | Synka nedsläpp at once (a `period_start` sample, with a selected game) | The same |
 
 The menu (`web/tv/menu.js`, task 9.4) is a list low on the left over the picture, 38 px
 text (nine items in a row along the bottom would not fit at a readable size):
@@ -202,14 +205,18 @@ it off while the app is shown and on again when the app is hidden or exits:
 - The TV's size and distance are in `config/wall.json` under `tv` (the TV is not part of
   the wall's geometry); `stage.applyType("tv")` gives `--fs-floor` 23 px and
   `--fs-text` 38 px.
-- The `.wgt` is built and installed with the Tizen CLI (Tizen Studio or the VS Code
-  extension): developer mode on the TV with the PC's IP, `sdb connect <tv>`,
-  `tizen package -t wgt -s <certificate profile>`, `tizen install -n SHLlive.wgt -t <tv>`.
-  A Samsung certificate from the Certificate Manager is needed for a TV. Steps in
-  `docs/DEPLOY.md` once the app exists.
-- `config.xml` needs, besides `tv.window`: `internet`, `tv.inputdevice`,
-  `<access origin="*" subdomains="true"/>` (the service on the LAN) and the right
-  `tizen:content-security-policy` to allow the iframe and WebSocket to the server.
+- The `.wgt` is built and installed with `deploy/tv/package.sh` (the Tizen CLI and a
+  Samsung certificate for the TV); the steps are in `docs/DEPLOY.md`, section 3.
+- `config.xml` (shell 1.0.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
+  `power` (the screen saver) and Samsung's `productinfo`; `<access origin="*"
+  subdomains="true"/>` for the service on the LAN (no content security policy is needed:
+  the iframe, HTTP and WebSocket to the server work as is); `icon.png` 512×423.
+- **Recovery** (shell 1.0.0): the graphics say "ready" every 10 s; silent for 30 s (an
+  error page while the service was down, a hang), the shell waits for `/api/health` and
+  loads them again. HDMI that went away (the box off) is looked for again when the TV
+  reports a change of its sources and every 10 s; meanwhile the graphics say "Ingen bild
+  från HDMI 1 · är boxen på?". The service's hello carries a `boot` id new at each start;
+  the graphics reload themselves when it changes, so an update needs no reinstall.
 
 ## To verify on the real TV first (task 9.1)
 
@@ -229,8 +236,8 @@ shell shows HDMI again). Animated WebP works instead (see Videos).
 6. The synced clock holds within a few ms, as on the display box. **Yes**: round trip
    1 ms, drift 1 ms (the TV's own clock is 130 ms off, which the sync takes care of).
 7. The colour and digit keys reach the shell. **Moot**: the remote has no such keys of its
-   own. Arrows, OK and Back reach the app; the remote's play/pause key and channel rocker
-   were not pressed in the test, so still open.
+   own. Arrows, OK, Back and play/pause reach the app; the channel rocker did not (or was
+   not pressed) in the report of 2026-10-31.
 8. How much the TV's HDMI path delays the picture compared with the TV's own input
    (the `iptv` TV profile may need a small nudge). Open: shows with Synka on a live game.
 
@@ -239,8 +246,9 @@ The TV: S95HF, Tizen 9.0, firmware T-RSMFDEUC-0090-1301.0, Chromium 120, page
 
 ## The test build (task 9.1)
 
-`SHLlive/` is the shell (version 0.3.1); its overlay `/tv/` is, for now, the test page
-`web/tv/probe.js`. It checks the list above and reports to the service.
+The test page (`web/tv/probe.js`) checks the list above and reports to the service. It
+was the whole of `/tv/` in task 9.1; now it shows instead of the graphics while
+`tv_probe` is set (menu → Inställningar → Testsidan, or `/sim`).
 
 1. Build and install `SHLlive/` on the TV as with the demo (Tizen Studio or the Tizen
    CLI, see Development and install). New privileges: `internet`, `tv.inputdevice`,

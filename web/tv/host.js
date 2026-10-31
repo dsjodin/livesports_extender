@@ -68,7 +68,12 @@ export const onKey = (f) => handlers.key.push(f);
 export const onInfo = (f) => handlers.info.push(f);
 export const onSource = (f) => handlers.source.push(f);
 export const info = () => shell;
-export const ready = () => send({ t: "ready" });
+let heartbeat = null;
+/** "ready" now and every 10 s after: the shell reloads graphics that fall silent. */
+export function ready() {
+  send({ t: "ready" });
+  heartbeat ??= setInterval(() => send({ t: "ready" }), 10_000);
+}
 export const exit = () => send({ t: "exit" });
 export const openSetup = () => send({ t: "setup" });
 /** Show the HDMI picture again (a <video> on the TV takes its player from HDMI). */

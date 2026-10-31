@@ -463,7 +463,7 @@ Phase 7 notes (2026-10-21):
 - Windows are put on their outputs twice over: each starts on its own focused workspace
   (bound to an output), and a sway rule moves it there by its page title.
 - Verified in a Debian 13 container (install) and a headless sway (windows, checks); see
-  `docs/DEPLOY.md`, section 3. The real box is still to be tried.
+  `docs/DEPLOY.md`, section 4. The real box is still to be tried.
 
 ---
 
@@ -574,3 +574,22 @@ Phase 9 notes (2026-10-31):
 - Fixes from the user (2026-10-31): panels in an L-frame scene take the column's place
   instead of lying over it; the shell (0.3.2) turns the TV's screen saver off while the
   app is shown (`docs/TV_APP.md`, Screen saver).
+- From the TV's report (2026-10-31): the screen saver is off in the app (shell 0.3.2);
+  play/pause reaches the app and is now the shortcut for Synka nedsläpp; the channel
+  rocker did not show up.
+- 9.6 done (2026-10-31): the shell is 1.0.0: `icon.png` (512×423), recovery (a heartbeat
+  from the graphics; silent for 30 s, the shell hides them, gives the TV the whole
+  picture, waits for the service and loads them again; HDMI looked for again on a change
+  of the TV's sources and every 10 s, with "Ingen bild från HDMI 1" on screen; the
+  graphics reload themselves when the service's `boot` id changes, so an update needs no
+  reinstall). `deploy/tv/package.sh` and `docs/DEPLOY.md`, section 3 (install).
+- Phase 9 acceptance, checked in `/sim` and on the user's TV where marked: a replay of
+  et9erhx0si at 50× in the TV view went pregame → live → goal → intermission → … →
+  postgame, every scene change within 39 ms of its play_at, 4 goal animations, penalty
+  lower thirds, the picture full in play and in the L-frame outside it; panels on ↑ ↓;
+  MÅL! (OK, OK) and puck-drop sync from the menu and play/pause; recovery with the
+  shell from `file://` in Chromium: a restarted service reloaded the graphics, a service
+  down for 30 s and back had them again 3–4 s after it answered. On the TV (S95HF):
+  overlay over HDMI, 60 fps, L-frame moves without a flash, WebP, keys, screen saver off.
+  Still to see on the TV: a whole live game, and the shell 1.0.0's recovery and HDMI
+  watch (needs a reinstall).

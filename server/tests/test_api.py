@@ -251,3 +251,19 @@ def test_wall_has_the_tv(client: TestClient) -> None:
     width, height = tv["physical_mm"]
     assert abs(width / height - 16 / 9) < 0.01
     assert abs((width**2 + height**2) ** 0.5 / 25.4 - 77) < 0.5
+
+
+def test_hello_boot_is_new_per_start(client: TestClient, tmp_path: Path) -> None:
+    """The TV reloads its pages when the service has started again (docs/PROTOCOL.md)."""
+    with client.websocket_connect("/ws?role=screen&id=tv") as ws:
+        first = ws.receive_json()["boot"]
+    with client.websocket_connect("/ws?role=screen&id=tv") as ws:
+        assert ws.receive_json()["boot"] == first  # the same start
+    settings = Settings(
+        web_dir=tmp_path, config_dir=REPO_ROOT / "config", data_dir=tmp_path, fixtures_dir=FIXTURES
+    )
+    with (
+        TestClient(create_app(settings, fetch_league=False)) as again,
+        again.websocket_connect("/ws?role=screen&id=tv") as ws,
+    ):
+        assert ws.receive_json()["boot"] != first  # a new start

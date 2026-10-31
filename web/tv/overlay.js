@@ -51,6 +51,7 @@ const scenes = el("div", "tv-scenes");
 const fx = el("div", "tv-fx"); // the team animations, over the scenes
 const dot = el("div", "tv-feed-dot");
 const toast = el("div", "tv-toast");
+const notice = el("div", "tv-notice"); // the shell's own trouble: no HDMI picture
 const debugBox = el("pre", "tv-debug");
 
 function include(tag, attrs) {
@@ -205,6 +206,9 @@ function show(scene, at, animate) {
 
 host.onKey((key) => {
   note(`key ${key}`);
+  // play/pause is the remote's one free physical key (2026-10-31): a puck-drop sync on one
+  // press, at the moment the drop shows on TV
+  if (key === "playpause") return menu.syncNow();
   if (menu.key(key)) return;
   if (key === "ok") return menu.open();
   if (key === "up" || key === "down") return panels.step(key === "down" ? 1 : -1);
@@ -226,6 +230,13 @@ function setFull(on) {
 }
 
 // ---- connection and debug ---------------------------------------------------------------
+
+/** No HDMI picture (the box is off, the cable out): say so; the shell keeps looking. */
+function hdmi(s) {
+  const lost = host.info()?.tv && s && !s.ok;
+  notice.textContent = lost ? `Ingen bild från HDMI ${s.hdmi ?? ""} · är boxen på?` : "";
+  notice.classList.toggle("on", !!lost);
+}
 
 function feedDot() {
   dot.classList.toggle("on", connection !== "open" || store.config.feed_ok === false);
@@ -264,6 +275,12 @@ store.on("preload", (event) => {
   // the scorer's portrait before play_at, so the goal scene has it at once
   if (event.type === "goal" && event.player?.id) new Image().src = `${host.base}/assets/players/${event.player.id}.png`;
 });
+let boot = null;
+store.on("hello", (m) => {
+  // the service started again (an update, a restart): load the newest pages
+  if (boot && m.boot && m.boot !== boot) location.reload();
+  boot = m.boot ?? boot;
+});
 store.on("config", (config) => {
   if (config.tv_probe) location.reload(); // the test page was asked for (tv.js)
   if (store.tv) current?.mod.update?.(current.ctx, store.tv, {});
@@ -280,7 +297,7 @@ async function main() {
   gsap.config({ nullTargetWarn: false });
   await stage.load(host.base);
   anim.setBase(host.base);
-  root.append(backdrop, scenes, fx, dot, toast);
+  root.append(backdrop, scenes, fx, dot, toast, notice);
   panels.create(root, () => store.tv, () => windowFor(current?.name, full) != null);
   menu.create(root, {
     tv: () => store.tv,
@@ -298,7 +315,11 @@ async function main() {
   stage.applyType("tv", root);
   fit();
   window.addEventListener("resize", fit);
-  host.onInfo(() => host.ready());
+  host.onInfo((info) => {
+    host.ready();
+    if (info?.source) hdmi(info.source);
+  });
+  host.onSource(hdmi);
   host.start();
   setTimeout(feedDot, 5000); // the service may not answer at all
   connect({

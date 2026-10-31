@@ -21,6 +21,8 @@ export class Store {
   handle(m) {
     switch (m.t) {
       case "hello":
+        this.emit("hello", m); // then its config, below
+      // falls through
       case "config":
         this.config = m.config;
         this.emit("config", m.config);
