@@ -603,3 +603,7 @@ Phase 9 notes (2026-10-31):
   rather than where it was left, says so for 6 s, and has the follow setting in its menu.
   Idle on the TV pages through the standings, my team's next game, its form and leaders
   (`league.my_team`: `team`, `leaders`) and the latest results.
+- Sound (2026-10-31): the user has ideas that depend on what the TV allows, so the test
+  page tries it first: a horn through Web Audio and through `<audio>`, the TV's volume
+  down and back, and the TV muted with the horn playing (shell 1.1.0: `tv.audio`).
+  Waiting for the report from the TV.

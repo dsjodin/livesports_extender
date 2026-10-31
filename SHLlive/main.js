@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '1.0.0';
+  const VERSION = '1.1.0';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -170,6 +170,23 @@
     }, 10000);
   }
 
+  /** The overlay asks for the TV's volume or mute (Tizen tvaudiocontrol, privilege
+   * tv.audio; 1.1.0, for the sound tests of 2026-10-31). Both act on the whole TV. */
+  function audioControl(m) {
+    const reply = function (extra) {
+      toOverlay(Object.assign({ t: 'audio_done', id: m.id, ok: true }, extra));
+    };
+    const a = realTV && api.tvaudiocontrol;
+    if (!a) return reply({ ok: false, error: realTV ? 'tvaudiocontrol saknas' : 'dator' });
+    try {
+      if (m.op === 'volume') a.setVolume(Math.max(0, Math.min(100, Math.round(m.value))));
+      else if (m.op === 'mute') a.setMute(!!m.value);
+      reply({ volume: a.getVolume(), muted: a.isMute() });
+    } catch (err) {
+      reply({ ok: false, error: String(err.message || err) });
+    }
+  }
+
   /** The overlay asks to move the TV picture; answer when it has moved. */
   function placeWindow(rect, id) {
     tv.rect = rect || null;
@@ -229,6 +246,7 @@
     } else if (m.t === 'window') placeWindow(m.rect, m.id);
     else if (m.t === 'exit') exit();
     else if (m.t === 'setup') openSetup();
+    else if (m.t === 'audio') audioControl(m);
     else if (m.t === 'hdmi') { log('Visar HDMI igen'); tv.busy = false; scan(); }
   });
 

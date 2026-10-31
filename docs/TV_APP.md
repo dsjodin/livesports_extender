@@ -243,8 +243,9 @@ it off while the app is shown and on again when the app is hidden or exits:
   `--fs-text` 38 px.
 - The `.wgt` is built and installed with `deploy/tv/package.sh` (the Tizen CLI and a
   Samsung certificate for the TV); the steps are in `docs/DEPLOY.md`, section 3.
-- `config.xml` (shell 1.0.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
-  `power` (the screen saver) and Samsung's `productinfo`; `<access origin="*"
+- `config.xml` (shell 1.1.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
+  `power` (the screen saver), `tv.audio` (volume and mute for the graphics, which ask
+  with `{t: "audio", op: "get"|"volume"|"mute"}`) and Samsung's `productinfo`; `<access origin="*"
   subdomains="true"/>` for the service on the LAN (no content security policy is needed:
   the iframe, HTTP and WebSocket to the server work as is); `icon.png` 512×423.
 - **Recovery** (shell 1.0.0): the graphics say "ready" every 10 s; silent for 30 s (an
@@ -301,6 +302,14 @@ was the whole of `/tv/` in task 9.1; now it shows instead of the graphics while
    - "Flytta TV-bilden" moves the picture: L-frame, small, full screen in turn;
    - "Återställ HDMI-bilden" shows HDMI again if it is gone;
    - press every key the remote has (play/pause, channel, …): the page lists them;
+   - **sound** (shell 1.1.0 for the last two; 2026-10-31, before deciding what the app
+     does with sound): "Ljud: horn via Web Audio" (the page's own mixer: heard, and the
+     broadcast's sound and picture still there?), "Ljud: horn via <audio>" (may take the
+     media player from HDMI as `<video>` did; HDMI is restored after it), "Ljud: sänk
+     TV:ns volym en stund" (5 steps for 3 s through the shell's `tvaudiocontrol`), "Ljud:
+     tysta TV:n och spela horn" (does the TV's mute silence the app too?). The report has
+     `sound` (the AudioContext state, `suspended` meaning the TV wants a user gesture, and
+     the volume before, lowered and restored);
    - "Dölj testbilden" hides the page (any key brings it back); Back twice exits;
    - "Tillbaka till grafiken" turns the test page off (`tv_probe`) and the TV reloads
      into the graphics.
