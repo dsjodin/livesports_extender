@@ -86,6 +86,9 @@ layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md r
 | `intermission` | L-frame | Column, 12 s a slide: shots per period, both shot maps, goals, penalties, goalies and special teams (save % here only), the (live) table, the other games. Band: the score and "PERIOD 3 OM 14:22" |
 | `postgame` | L-frame | Column: final statistics, the goals (and the shootout), the table. Band: the final score, "SLUT", after overtime or a shootout |
 
+- **At start** a note shows for 6 s what the app does ("SHL live! · Följer FHC–SKE · live ·
+  OK öppnar menyn", or "Ingen match vald"), so a quiet full picture in play is not taken
+  for a dead app (the user, 2026-10-31).
 - **Power-play clock:** the service knows when each penalty runs out in game time
   (`expires_game_seconds`), not how much of it is left now (the game clock only reaches
   us with events), so the TV says "till P1 17:09" rather than a ticking countdown.

@@ -68,10 +68,22 @@ function fit() {
   root.style.transform = `scale(${Math.min(window.innerWidth / W, window.innerHeight / H)})`;
 }
 
-function say(text) {
+function say(text, seconds = 2.5) {
   toast.textContent = text;
   gsap.killTweensOf(toast);
-  gsap.fromTo(toast, { opacity: 1 }, { opacity: 0, delay: 2.5, duration: 0.5 });
+  gsap.fromTo(toast, { opacity: 1 }, { opacity: 0, delay: seconds, duration: 0.5 });
+}
+
+/** Once the app has started: what it is doing, so a quiet full picture (in play there is
+ * nothing of ours on it) is not taken for a dead app (the user, 2026-10-31). */
+const NOW = { pregame: "före matchen", live: "live", goal: "live", intermission: "paus", postgame: "slut", idle: "vila" };
+let welcomed = false;
+function welcome(tv) {
+  if (welcomed) return;
+  welcomed = true;
+  const t = tv.teams ?? {};
+  const game = tv.game?.uuid && t.home ? `Följer ${t.home.code ?? ""}–${t.away?.code ?? ""} · ${NOW[tv.scene?.name] ?? ""}` : "Ingen match vald";
+  say(`SHL live! · ${game} · OK öppnar menyn`, 6);
 }
 
 /** The service's REST API (docs/PROTOCOL.md); throws with its error detail. */
@@ -304,6 +316,7 @@ store.on("state", (tv) => {
   ppSide = tv.strength?.pp_side ?? null; // a power play already on is not announced
   decorate(tv);
   show(tv.scene, clock.now(), false);
+  welcome(tv);
 });
 store.on("patch", (patch, playAt) => {
   if (patch.teams || patch.game) decorate(store.tv);
