@@ -9,6 +9,10 @@ services:
       - "8010:8010"
     volumes:
       - ./data:/data  # state.json, recordings, logo and portrait cache
+    networks:
+      default:
+      tvnet:
+        ipv4_address: 10.1.30.212  # on the TV's network (docs/DEPLOY.md, TV network)
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/api/health', timeout=3)"]
       interval: 30s
@@ -20,3 +24,17 @@ services:
       options:
         max-size: "10m"
         max-file: "5"
+
+# The Samsung TV takes remote keys over its network only from its own subnet: the
+# container gets an address there (macvlan on the host's VLAN 30 interface), next to its
+# usual network for port 8010. The VMware port group needs MAC address changes, forged
+# transmits and promiscuous mode (or MAC learning) set to Accept. The host itself cannot
+# reach 10.1.30.212 (macvlan); the TV and the rest of VLAN 30 can.
+networks:
+  tvnet:
+    driver: macvlan
+    driver_opts:
+      parent: ens192.30
+    ipam:
+      config:
+        - subnet: 10.1.30.0/24  # no gateway: only the TV on this network is reached

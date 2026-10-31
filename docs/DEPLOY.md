@@ -169,6 +169,27 @@ the TV's Apps as **SHLlive**; it stays when developer mode is turned off again.
 TV's keyboard), HDMI 1, Läge **Iframe**, Anslut. The settings stay on the TV; later they
 are in the menu (OK) → Inställningar → Server och HDMI.
 
+### TV network (screen saver)
+
+Samsung's screen saver comes while the TV picture is shrunk (the L-frame), and a remote
+key every minute keeps it away (`docs/TV_APP.md`, Screen saver). The TV takes keys over
+its network remote only from its own subnet, so `compose.yaml` gives the container a
+second address there: macvlan on the host's VLAN 30 interface (`ens192.30`), 10.1.30.212,
+next to its usual network for port 8010. On VMware the port group (VLAN 4095, all VLANs
+tagged to the VM) needs MAC address changes, forged transmits and promiscuous mode set
+to Accept (or MAC learning on a distributed switch), else nothing gets through. The host
+itself cannot reach the container's macvlan address; the TV can. Another home: change
+`parent`, `subnet` and `ipv4_address`, or remove `tvnet` (then no screen saver keys).
+
+Check from the container, then pair once (the TV gave the token when the user's PC on
+its subnet first connected):
+
+```
+docker compose exec arena python -c "import socket; socket.create_connection(('10.1.30.110', 8002), 3); print('ok')"
+echo <token> > data/tv_remote_token.txt
+docker compose exec arena python /srv/tools/tv_keepawake.py 10.1.30.110
+```
+
 ### Updates
 
 - **Graphics** (everything under `web/`, the server): `git pull` and
