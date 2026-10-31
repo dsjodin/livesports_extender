@@ -485,6 +485,12 @@ client ──► Cloudflare ──► Varnish ──► Varnish ──► Expres
   event in the list changes (also `attendance` once, and `updatedTime`). The normalizer
   must ignore `gameState`, `attendance` and `updatedTime` when deciding whether an event
   was updated, or each intermission produces ~100 `updated` events.
+- After an overtime goal the overtime period is `finished` and `gameState` reads
+  `Intermission` for a few minutes before `GameEnded` (seen 2026-10-31: the screens showed
+  a break before more overtime for about 3 min). Overtime is sudden death, so the director
+  ends the game at the overtime goal itself and `state.py` counts it as ended; the same
+  for the shootout period's end. A goal taken back on review (a disallowed goal) before
+  `GameEnded` resumes the game.
 - Period objects appear when the period starts (`started: true, finished: false`) and get
   `finished: true` when it ends. Seen 22–31 s after `startedAt`, 14–26 s after `finishedAt`.
 
