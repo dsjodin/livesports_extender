@@ -60,7 +60,7 @@ function render(ctx, at) {
   ctx.root.innerHTML = html`<div class="gl-sweep"></div>
     <div class="tv-goal" style="--c: var(--${side}); --on: var(--on-${side})">${raw(portrait)}
       <div class="gl-head"><span class="gl-mal">MÅL!</span><span class="gl-team">${caps(longName(tv, side))}</span></div>
-      <div class="gl-body ${p?.id ? "with-portrait" : ""}">
+      <div class="gl-body">
         <div class="gl-who">${raw(name)}
           <div class="gl-chips">${raw(chips.map((c) => html`<span class="chip ${c === "PP" ? "gold" : ""}">${c}</span>`).join(""))}</div>
           <div class="gl-assist">${d.manual ? "" : assists.length ? `Assist: ${assists.join(", ")}` : "Utan assist"}</div></div>
