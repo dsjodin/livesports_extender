@@ -75,7 +75,7 @@ class RawState(BaseModel):
     penalties: list[PenaltyState]
     goalies: dict[Side, Player | None]
     goalie_pulled: dict[Side, bool]
-    strength: dict[str, Any]  # {"home": 5, "away": 4, "pp_side": "home", "label": "5v4"}
+    strength: dict[str, Any]  # {"home": 5, "away": 4, "pp_side": "home", "label": "5v4", pen_…}
     stats: dict[Side, TeamStats]
     periods: list[PeriodState]
     ended: bool
@@ -163,11 +163,23 @@ def compute_state(
     # goalies
     goalies: dict[Side, Player | None] = {"home": None, "away": None}
     pulled: dict[Side, bool] = {"home": False, "away": False}
-    for e in by_type.get("goalie_change", []):
-        if e.side is None:
-            continue
+    changes = [e for e in by_type.get("goalie_change", []) if e.side is not None]
+    # a goalie change is an exit and an entry at one second, in either feed order: MIF–LHC
+    # 2026-10-27 had the entry (eventId 76) before the exit (77) at P2 05:20, which left LHC
+    # "pulled" for the rest of the game (6 on 4 in a power play; seen on the TV 2026-10-31)
+    swaps = {(e.side, e.period, e.time) for e in changes if e.data.get("entering")}
+    for e in changes:
+        assert e.side is not None
         if e.data.get("entering"):
             goalies[e.side], pulled[e.side] = e.player, False
+        elif (e.side, e.period, e.time) in swaps:
+            continue
+        elif isinstance(e.period, int) and e.period < 3:
+            # an exit in period 1 or 2 is a goalie change whose entry has not come yet (the
+            # feed may bring it a poll later), not a pull: teams pull for an extra skater late
+            # in the third or in overtime, and the feed has no exits for delayed penalties
+            # (14 games 2026-10-24 to 29)
+            continue
         elif not _is_end_exit(e, all_goals):
             goalies[e.side], pulled[e.side] = None, True
     if not running or ended:
@@ -258,6 +270,9 @@ def compute_state(
         "home": home,
         "away": away,
         "pp_side": pp.strength.pp_side,
+        # from penalties alone, without a pulled goalie: the power play's "5 MOT 4"
+        "pen_home": pp.strength.home,
+        "pen_away": pp.strength.away,
         "label": f"{home}v{away}",
     }
 

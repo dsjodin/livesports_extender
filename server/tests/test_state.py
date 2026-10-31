@@ -238,3 +238,65 @@ async def test_power_play_counts_match_shl_team_stats(game: str) -> None:
         shl = {s["key"]: s["value"] for s in total["parsedTotalStatistics"]}
         assert (st.stats[side].pp_goals, st.stats[side].pp_chances) == (shl["PPG"], shl["NumPP"])
         assert st.stats[side].pim == shl["PIM"] or game == "et9erhx0si"  # bench minor
+
+
+def _goalie(
+    key: str, event_id: int, side: str, time: str, entering: bool, number: str, period: int = 2
+) -> Any:
+    from app.engine.events import NormalizedEvent, Player
+
+    minutes, seconds = (int(x) for x in time.split(":"))
+    return NormalizedEvent(
+        key=key,
+        type="goalie_change",
+        raw_type="goalkeeper",
+        event_id=event_id,
+        period=period,
+        time=time,
+        game_seconds=(period - 1) * 1200 + minutes * 60 + seconds,
+        side=side,  # type: ignore[arg-type]
+        player=Player(id=number, number=number),
+        data={"entering": entering},
+        first_seen_ms=0,
+        received_ms=0,
+    )
+
+
+def _period_start(period: int = 2) -> Any:
+    from app.engine.events import NormalizedEvent
+
+    return NormalizedEvent(
+        key=f"period-{period}-start",
+        type="period_start",
+        raw_type="period",
+        period=period,
+        first_seen_ms=0,
+        received_ms=0,
+    )
+
+
+def test_goalie_change_in_either_feed_order_is_not_a_pull() -> None:
+    """MIF–LHC 2026-10-27: LHC's new goalie in (id 76) before the old one out (id 77)."""
+    for first_in in (True, False):
+        swap = [
+            _goalie("e76", 76, "away", "05:20", True, "30"),
+            _goalie("e77", 77, "away", "05:20", False, "1"),
+        ]
+        if not first_in:
+            swap = [
+                _goalie("e76", 77, "away", "05:20", True, "30"),
+                _goalie("e77", 76, "away", "05:20", False, "1"),
+            ]
+        st = compute_state([_period_start(), *swap], "ongoing")
+        assert st.period_running
+        assert st.goalie_pulled == {"home": False, "away": False}
+        assert st.goalies["away"] and st.goalies["away"].number == "30"
+        assert st.strength["label"] == "5v5"
+    # an exit alone in period 2 waits for its entry (a change); in period 3 it is a pull
+    st = compute_state(
+        [_period_start(), _goalie("e90", 90, "away", "05:20", False, "1")], "ongoing"
+    )
+    assert st.goalie_pulled == {"home": False, "away": False}
+    late = _goalie("e90", 90, "away", "18:40", False, "30", period=3)
+    st = compute_state([_period_start(3), late], "ongoing")
+    assert st.goalie_pulled == {"home": False, "away": True}
