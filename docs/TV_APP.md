@@ -246,14 +246,35 @@ For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
 ## Screen saver
 
 The TV counts an app nobody presses keys in as idle and starts its screen saver after a
-while, which it never does on a TV input (the user, 2026-10-31). The shell (0.3.2) turns
-it off while the app is shown and on again when the app is hidden or exits:
+while, which it never does on a TV input (the user, 2026-10-31). The shell turns it off
+while the app is shown and on again when the app is hidden or exits:
 `webapis.appcommon.setScreenSaver(SCREEN_SAVER_OFF)` (Samsung's AppCommon API, from
-`$WEBAPIS/webapis/webapis.js`), and also `tizen.power.request("SCREEN", "SCREEN_NORMAL")`
-(privilege `power`); it says it again every minute and on every key (shell 1.3.0: with
-every 5 minutes the TV still started it, 2026-10-31). Both results show in the menu
-("Skärmsläckare: av · skärmlås på"). The result shows in the menu
-(Inställningar: "Skärmsläckare: av") and in the test page's report (`shell.screen_saver`).
+`$WEBAPIS/webapis/webapis.js`). Samsung's guide: the saver comes "after a defined amount
+of time with no activity" (the TV's setting "Auto Protection Time"; with that setting off
+the API has no effect), and it says nothing about how long one "off" holds.
+
+On the S95HF one "off" did not hold: Samsung's saver came after about 4 min with shell
+1.0.0 (one call at start) and with 1.3.0 (the same call every minute and on keys),
+2026-10-31. Shell 1.4.0 switches it on and straight off again every minute and on keys,
+a change the TV should notice and count from anew. The menu (Inställningar) shows
+"Skärmsläckare: av · växlad 12 gånger, senast 20:41", and the test page's report
+`shell.screen_saver`. If that does not hold it either, the fallback is the TV's own
+setting (Auto Protection Time longer, or off: our graphics dim and rest by themselves,
+see Dimming and the OLED).
+
+Shell 1.3.0 still let it come after about 2 min, and what the user found about Samsung's
+OLED TVs says the saver cannot be turned off there (2026-10-31). A key press does reset
+it, so the next test (before anything is built in) is a key sent over the network:
+`tools/tv_keepawake.py <TV's IP>` sends KEY_RED every 60 s through the TV's own network
+remote (the remote-control WebSocket on port 8002 that phone remote apps use; the first
+time the TV asks to allow "SHL Arena", and the token is kept in
+`data/tv_remote_token.txt`). The remote has no red key and the graphics ignore "red"
+(not even waking the resting L-frame), so nothing shows on screen. If the saver stays
+away, the service can do the same while the TV app is shown.
+
+1.3.0 also tried `tizen.power.request("SCREEN", "SCREEN_NORMAL")`, but the TV has no
+`tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of undefined
+(reading 'request')"); 1.4.0 dropped it and its privilege.
 
 ## Development and install
 
@@ -269,8 +290,8 @@ every 5 minutes the TV still started it, 2026-10-31). Both results show in the m
   `--fs-text` 38 px.
 - The `.wgt` is built and installed with `deploy/tv/package.sh` (the Tizen CLI and a
   Samsung certificate for the TV); the steps are in `docs/DEPLOY.md`, section 3.
-- `config.xml` (shell 1.1.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
-  `power` (the screen saver), `tv.audio` (volume and mute for the graphics, which ask
+- `config.xml` (shell 1.4.0): privileges `internet`, `tv.window`, `tv.inputdevice`,
+  `tv.audio` (volume and mute for the graphics, which ask
   with `{t: "audio", op: "get"|"volume"|"mute"}`) and Samsung's `productinfo`; `<access origin="*"
   subdomains="true"/>` for the service on the LAN (no content security policy is needed:
   the iframe, HTTP and WebSocket to the server work as is); `icon.png` 512×423.

@@ -259,6 +259,8 @@ async function settingsSheet() {
     { label: "Testsidan", note: "kontroll av TV:n", run: () => d.api("tv/probe-mode", { enabled: true }) },
   ];
   const saver = shell?.screen_saver ? `<br>Skärmsläckare: ${esc(shell.screen_saver)}` : "";
-  const about = `<div class="tv-sheet-text quiet">SHL live! · skal ${esc(shell?.version ?? "–")}${shell?.model ? ` · ${esc(shell.model)}` : ""}<br>${esc(d.host.base)}${saver}</div>`;
+  const n = d.nudges?.();
+  const woken = n?.count ? `<br>Väckknappar: ${n.count}, senast ${hhmm(n.at)} (${esc(n.key)})` : "";
+  const about = `<div class="tv-sheet-text quiet">SHL live! · skal ${esc(shell?.version ?? "–")}${shell?.model ? ` · ${esc(shell.model)}` : ""}<br>${esc(d.host.base)}${saver}${woken}</div>`;
   showSheet("INSTÄLLNINGAR", about, rows);
 }

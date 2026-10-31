@@ -65,7 +65,7 @@ web/media/             default team videos (goal/, intro/; own ones go in data/m
 config/wall.json       screen geometry
 tools/                 fetch_fixtures.py, record_game.py, analyze_recording.py,
                        synth_recording.py, snapshot.py, check_phone.py, make_stingers.py,
-                       legibility.py
+                       legibility.py, tv_keepawake.py
                        (shared: shl_http.py)
 deploy/                display box files (sway config, kiosk script, systemd units)
 docs/                  plan and specs
@@ -90,6 +90,7 @@ uv run --project server python tools/snapshot.py --flow    # whole replay at 5x,
 uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
 uv run --project server python tools/make_stingers.py      # default goal/intro/pp videos per team
 uv run --project server python tools/legibility.py         # text sizes in mm on the wall and TV (service running)
+uv run --project server python tools/tv_keepawake.py <TV IP>  # test: a network key every 60 s vs the screen saver
 shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 

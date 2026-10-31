@@ -225,7 +225,19 @@ function show(scene, at, animate) {
 
 // ---- keys: the menu on OK, panels on ↑ ↓, Back (docs/TV_APP.md, Remote) -----------------
 
+// Keys the user's remote does not have: sent over the TV's network remote only to keep
+// Samsung's screen saver away (tools/tv_keepawake.py), so they change nothing here, not even
+// wake the resting L-frame. Counted for the menu (Inställningar), to see they arrive.
+const NUDGE_KEYS = new Set(["red", "MediaFastForward", "MediaRewind", "MediaStop", "MediaRecord"]);
+const nudges = { count: 0, at: null, key: null };
+
 host.onKey((key) => {
+  if (NUDGE_KEYS.has(key)) {
+    nudges.count++;
+    nudges.at = Date.now();
+    nudges.key = key;
+    return;
+  }
   note(`key ${key}`);
   restLater();
   if (resting) {
@@ -425,6 +437,7 @@ async function main() {
   root.append(backdrop, scenes, fx, dot, toast, notice);
   panels.create(root, () => store.tv, () => windowFor(current?.name, full) != null);
   menu.create(root, {
+    nudges: () => nudges,
     tv: () => store.tv,
     scene: () => current?.name,
     api,
