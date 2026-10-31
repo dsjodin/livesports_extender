@@ -232,9 +232,11 @@ For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
   So the shell (1.2.0) can also step the volume as those keys do (`setVolumeUp`,
   `setVolumeDown`); the test page's "Ljud: volym 3 steg ner och upp (som fjärren)" shows
   whether that reaches the soundbar too.
-- The soundbar is a Sonos Arc (2026-10-31): Home Assistant's Sonos integration lowers
-  the TV sound under an announcement (the horn, the scorer's name) and brings it back, or
-  sets the volume and restores it (`docs/HA.md`, section 2).
+- The soundbar is a Sonos Arc (2026-10-31). A Sonos announcement switches its input away
+  from the TV (lag, trouble getting back), so sound comes from the TV app: mixed into the
+  TV's own sound before eARC, the Arc stays on the TV input. The mix also means nothing
+  can lower the broadcast under our sound: the Arc's volume (HA, or the remote's steps)
+  turns both down alike. Our sound plays over the broadcast at its own level.
 - What the app does with sound is still open (the user has ideas, 2026-10-31).
 
 ## Screen saver

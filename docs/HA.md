@@ -91,6 +91,12 @@ use `flash: long` on `light.turn_on` instead of the colour change.
 
 ### The horn over the TV's sound on a Sonos Arc (the user's setup, 2026-10-31)
 
+**Not on the user's Arc:** there an announcement switches the Arc's input away from the
+TV, with a lag and trouble getting back (the user, 2026-10-31). So the horn comes from the
+TV app instead (`docs/TV_APP.md`, Sound), mixed into the TV's sound; keep the examples
+below for a Sonos that overlays announcements on the TV input. `media_player.volume_set`
+does not switch input, but it turns the TV app's sound down with the broadcast.
+
 The TV's sound goes to a Sonos Arc over HDMI eARC, and the TV app cannot lower it (its
 volume calls do not reach a soundbar). Sonos can: an **announcement** lowers whatever
 plays (the TV input too) while a clip plays, then brings it back by itself. Use it for
