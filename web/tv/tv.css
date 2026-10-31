@@ -131,6 +131,11 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 .im-maps { display: flex; flex-direction: column; gap: 16px; }
 .im-map { display: flex; flex-direction: column; gap: 6px; }
 .shotmap { width: 100%; max-height: 360px; display: block; }
+.tv-panel .shotmap { max-height: 290px; }
+.legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 26px; font: 700 var(--fs-floor)/1 var(--font-condensed);
+  color: var(--text-secondary); }
+.legend span { display: flex; align-items: center; gap: 8px; }
+.legend svg { width: 30px; height: 30px; }
 .shotmap .rink { fill: var(--ice); stroke: var(--rink-board); stroke-width: 1.6; }
 .shotmap .rink-red { stroke: var(--rink-red); stroke-width: 1.2; }
 .shotmap .rink-blue { stroke: var(--rink-blue); stroke-width: 3.6; }

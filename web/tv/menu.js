@@ -49,6 +49,7 @@ function build() {
     out.push({ id: "sync", label: "Synka nedsläpp", run: syncNow });
   }
   out.push({ id: "stats", label: "Statistik", run: () => d.panels.open("stats") });
+  out.push({ id: "shots", label: "Skottkarta", run: () => d.panels.open("shots") });
   out.push({ id: "table", label: "Tabell", run: () => d.panels.open("table") });
   out.push({ id: "games", label: "Kvällens matcher", run: () => d.panels.open("games") });
   if (d.lframe()) out.push({ id: "full", label: d.full() ? "Tillbaka till L-ram" : "Helbild", run: () => d.setFull(!d.full()) });

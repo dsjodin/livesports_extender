@@ -1,4 +1,4 @@
-// Panels (docs/TV_APP.md, Scenes on the TV): Statistik, Tabell, Kvällens matcher. Over the
+// Panels (docs/TV_APP.md, Scenes on the TV): Statistik, Skottkarta, Tabell, Kvällens matcher. Over the
 // full picture in play they lie in the right third, half see-through; in an L-frame scene
 // they take the column's place, opaque, so nothing lies on top of the column's own
 // graphics (asked for by the user 2026-10-31). ↑ ↓ page through them and off; Back or 20 s
@@ -6,9 +6,10 @@
 // state (CLAUDE.md rule 1), and an open panel follows its patches.
 import { caps, html, raw } from "../shared/format.js";
 import { empty, head, logo, shortName } from "./scenes/common.js";
-import { othersSlide, shotsCompare, specialTeams, tableSlide } from "./scenes/intermission.js";
+import { othersSlide, shotMaps, shotsCompare, specialTeams, tableSlide } from "./scenes/intermission.js";
+import { shotLegend } from "../shared/components.js";
 
-const ORDER = ["stats", "table", "games"];
+const ORDER = ["stats", "shots", "table", "games"];
 const CLOSE_MS = 20_000;
 
 let el = null;
@@ -76,6 +77,9 @@ function teams(tv) {
 
 function body(tv, name) {
   if (name === "stats") return html`${raw(head("MATCHEN", "STATISTIK"))}${raw(teams(tv))}<div class="cmp-list">${raw(shotsCompare(tv))}${raw(specialTeams(tv))}</div>`;
+  if (name === "shots") {
+    return html`${raw(head("MATCHEN", "SKOTTKARTA"))}<div class="im-maps">${raw(shotMaps(tv))}</div>${raw(shotLegend("text"))}`; // neutral: two teams' maps
+  }
   if (name === "table") return tableSlide(tv) ?? html`${raw(head("SHL", "TABELL"))}${raw(empty("Tabellen hämtas…"))}`;
   return othersSlide(tv) ?? html`${raw(head("IKVÄLL", "KVÄLLENS MATCHER"))}${raw(empty("Inga andra matcher ikväll"))}`;
 }

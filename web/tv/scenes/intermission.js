@@ -123,10 +123,15 @@ export function othersSlide(tv) {
   return html`${raw(head("KVÄLLENS ANDRA MATCHER", "RESULTAT"))}${raw(rows)}`;
 }
 
-function statSlides(tv, label) {
-  const maps = ["home", "away"]
-    .map((side) => html`<div class="im-map"><div class="tv-label">${caps(shortName(tv, side))} · ${tv.stats?.[side]?.shots_on_goal ?? 0} SKOTT</div>${raw(shotMap(tv.shots?.[side], side))}</div>`)
+/** Both teams' shot maps, each with its shots on goal (the intermission, the panel). */
+export function shotMaps(tv) {
+  return ["home", "away"]
+    .map((side) => html`<div class="im-map"><div class="tv-label">${caps(shortName(tv, side))} · ${tv.stats?.[side]?.shots_on_goal ?? 0} SKOTT PÅ MÅL</div>${raw(shotMap(tv.shots?.[side], side))}</div>`)
     .join("");
+}
+
+function statSlides(tv, label) {
+  const maps = shotMaps(tv);
   return [
     html`${raw(head(label, "SKOTT"))}${raw(teams(tv))}<div class="cmp-list">${raw(shotsCompare(tv))}</div>`,
     html`${raw(head(label, "SKOTTKARTOR"))}<div class="im-maps">${raw(maps)}</div>`,
