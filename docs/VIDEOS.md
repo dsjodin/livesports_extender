@@ -10,6 +10,13 @@ for that team.
 | `goal` | the scoring team's portrait screen (left = home, right = away) | at the goal's `play_at`, as the goal scene starts | 1080×1920 | 2.2 s |
 | `intro` | both portrait screens, each its own team | once per game: the scheduled start on TV time, or else at puck drop | 1080×1920 | 4.5 s |
 | `pp` | the bar | when **my team's** power play begins | 1920×360 | 4.0 s |
+| `tvgoal` | the TV app, over the whole picture | as `goal` | 1920×1080 | 2.0 s |
+| `tvintro` | the TV app, a band low in the picture | puck drop, my team (or the home team) | 1920×360 | 3.0 s |
+| `tvpp` | the TV app, a band low in the picture | as `pp` | 1920×360 | 4.0 s |
+
+The TV kinds are **animated WebP**, not video: on the Samsung TV a `<video>` takes the
+media player from the HDMI picture, so the broadcast and its sound would go (section
+"On the TV" below, `docs/TV_APP.md`).
 
 ## The format
 
@@ -123,9 +130,35 @@ Team uuids (`config/teams.json`):
 | Växjö Lakers | `fe02-fe02mf1FN` |
 | Örebro Hockey | `82eb-82ebmgaJ8` |
 
+## On the TV (animated WebP)
+
+The TV app's three kinds are the same idea as animated WebP with alpha, played once:
+
+| Property | Value |
+|---|---|
+| Format | animated WebP (`.webp`), lossy with alpha, loop count **1** (played once) |
+| Size | `tvgoal` 1920×1080; `tvintro` and `tvpp` 1920×360 (shown as a band at y 600 of the 1080) |
+| Length | `tvgoal` at most 3 s, `tvintro` at most 6 s, `tvpp` at most 5 s (they are hidden after that) |
+| Frame rate | 30 fps (the defaults); frames that do not change are merged by the encoder |
+| File size | keep it under about 2 MB; the defaults are 0.5–0.9 MB |
+| End | an empty, fully transparent last frame: an image cannot be stopped at its end |
+
+Over a live picture, keep the middle of the ice clear as briefly as you can: the goal is
+already on the TV, the viewer wants the replay.
+
+```
+# from a PNG sequence with alpha (frame0000.png, ...) at 30 fps
+ffmpeg -framerate 30 -i frame%04d.png -c:v libwebp_anim -lossless 0 -q:v 70 \
+  -compression_level 4 -loop 1 -an out.webp
+```
+
+`-loop 1` plays it once (0 would loop for ever); `-q:v` 60–80 is the useful range. Put it
+in `data/media/tvgoal/<team uuid>.webp` (or `tvintro/`, `tvpp/`) and restart the app on the TV
+(it fetches the animations once, when it starts).
+
 ## The defaults
 
-`tools/make_stingers.py` draws every frame in Chromium on a transparent page (a GSAP
+`tools/make_stingers.py` draws every frame (wall and TV kinds) in Chromium on a transparent page (a GSAP
 timeline in `tools/stinger.html`, seeked frame by frame, so the result does not depend on
 the machine's speed) with the team's colours from `config/teams.json` and its logo from
 the logo cache, and encodes the frames with the ffmpeg command above (`-crf 36`). They
@@ -135,4 +168,5 @@ colours:
 ```
 uv run --project server python tools/make_stingers.py                      # all
 uv run --project server python tools/make_stingers.py --kind pp --team 82eb-82ebmgaJ8
+uv run --project server python tools/make_stingers.py --kind tvgoal --kind tvintro --kind tvpp
 ```

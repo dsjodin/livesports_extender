@@ -159,15 +159,23 @@ from the HDMI input, so the TV picture and its sound go while it plays (2026-10-
 TV versions are **animated WebP with alpha** instead: an image, decoded without the
 media player. Tried on the TV with the 1920×360 power-play video (895 kB, 4 s): ready in
 155 ms, transparent and smooth to the eye (one 67 ms frame in the measurement), HDMI
-picture and sound stay. They are served at `/media/<kind>/<team uuid>.webp` (your own
-in `data/media/` first, as the videos). `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
-`tvintro`, `tvpp`, 1920×1080 or a band of it, about 1 MB for 4 s). `web/tv/anim.js`
-fetches them ahead as blobs and shows one at its `play_at`: `tvgoal` and `tvintro` over the
-whole frame, `tvpp` as a 1920×360 band at y 600. An animated image cannot be started part
-way, so a late one plays from its start, and one later than its length (goal 3 s, intro
-6 s, power play 5 s) is skipped; it is hidden after that length. Over a live picture
-they should be short sweeps that end transparent, leaving the middle of the ice clear
-as quickly as possible. If WebP stutters on the TV, the GSAP animations stay alone.
+picture and sound stay.
+
+`tools/make_stingers.py` makes them from the same drawing as the wall's (task 9.5,
+2026-10-31), in `web/media/<kind>/<team uuid>.webp`, 0.5–0.9 MB each:
+
+| Kind | Size | Length | What |
+|---|---|---|---|
+| `tvgoal` | 1920×1080 | 2.0 s | Bands sweep over the picture, logo, "MÅL!" and the team; all gone by 1.8 s, the goal's lower third underneath |
+| `tvintro` | 1920×360 | 3.0 s | The band with logo and "MATCHSTART" at puck drop, low in the picture: never over the whole of it, the drop itself is on the TV |
+| `tvpp` | 1920×360 | 4.0 s | The bar's power-play band, for my team's power play |
+
+`web/tv/anim.js` fetches them ahead as blobs and shows one at its `play_at`: `tvgoal`
+over the whole frame, `tvintro` and `tvpp` as a band at y 600. An animated image cannot be
+started part way, so a late one plays from its start, and one later than its length
+(goal 3 s, intro 6 s, power play 5 s) is skipped; it is hidden after that length, and
+its last frame is empty anyway (checked in Chromium for the defaults). They play once
+(WebP loop count 1). Your own go in `data/media/<kind>/<uuid>.webp` (`docs/VIDEOS.md`).
 
 ## Development and install
 

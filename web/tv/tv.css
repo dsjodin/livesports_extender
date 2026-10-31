@@ -212,9 +212,9 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 .tv-sheet-text.quiet { color: var(--text-muted); }
 .tv-sheet-rows { display: flex; flex-direction: column; gap: 6px; overflow: hidden; }
 
-/* --- the team animations (anim.js): full frame, the power play's band low in the picture ---- */
+/* --- the team animations (anim.js): the goal over the frame, intro and power play as bands -- */
 .tv-anim { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: contain; opacity: 0; }
-.tv-anim-tvpp { top: 600px; height: 360px; }
+.tv-anim-tvpp, .tv-anim-tvintro { top: 600px; height: 360px; } /* bands low in the picture */
 
 /* --- status ---------------------------------------------------------------------------------- */
 .tv-feed-dot { position: absolute; right: 40px; top: 40px; width: 34px; height: 34px; border-radius: 50%; background: #ff2d3a;
