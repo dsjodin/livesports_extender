@@ -73,15 +73,24 @@ for text meant to be read) that is a cap height of 14.7 mm (16.5 px, a **23 px**
 at the least and 24 mm (27 px, a **38 px** font) for reading. Checked with
 `tools/legibility.py`.
 
+One module per scene in `web/tv/scenes/` (task 9.3, 2026-10-31); they reuse the wall's
+helpers (`web/screens/scenes/common.js`: slideshow, standings table, names) with their own
+layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md rule 1).
+
 | Scene | TV picture | Our graphics |
 |---|---|---|
-| `idle` | L-frame | Standings with zones, tonight's games or latest results, next game, clock |
-| `pregame` | L-frame | The pregame slideshow (team form, leaders, head-to-head), countdown to puck drop; intro video at puck drop |
-| `live` | full screen | Nothing by default. Penalty card with power-play countdown (lower third, small), power-play video for my team, panels on a key |
-| `goal` | full screen | Goal video, the MÅL! band, then a lower third: scorer with portrait, assists, EQ/PP/SH, score |
-| `intermission` | L-frame | The intermission slides (period stats, shots, special teams, save %, live table, other games) |
-| `postgame` | L-frame | Final, top players, standings movement |
+| `idle` | L-frame | Column: the standings with zones (my team in gold). Band: clock, my team's next game, tonight's games (or the latest results) |
+| `pregame` | L-frame | Column, 12 s a slide: both teams' place, points, goal difference, goals a game and form; each team's points leaders (the leader with a portrait); the last meetings. Band: the matchup, the start time, then "NEDSLÄPP OM" counting down the last hour on TV time. My team's intro (`tvintro`) at puck drop |
+| `live` | full screen | Nothing by default (the broadcast has its own bug). A penalty: a lower third for the director's overlay (who, offence, minutes, "till P1 17:09", the power play it gives); then a pill bottom right while the power play runs ("POWERPLAY FRÖLUNDA · 5 MOT 4 · TILL P1 17:09"). Timeout and a disallowed goal: short banners. My team's power play: its animation (`tvpp`). Panels on ↑ ↓ |
+| `goal` | full screen | A gold sweep, then the lower third: "MÅL!" and the team on a gold band, the scorer large with portrait, EQ/PP/SH, the time, "2:A MÅLET IKVÄLL" or "HATTRICK", assists, the score with logos. The scoring team's animation (`tvgoal`). A MÅL! press shows the team and "Väntar på SHL" until the feed's goal is linked |
+| `intermission` | L-frame | Column, 12 s a slide: shots per period, both shot maps, goals, penalties, goalies and special teams (save % here only), the (live) table, the other games. Band: the score and "PERIOD 3 OM 14:22" |
+| `postgame` | L-frame | Column: final statistics, the goals (and the shootout), the table. Band: the final score, "SLUT", after overtime or a shootout |
 
+- **Power-play clock:** the service knows when each penalty runs out in game time
+  (`expires_game_seconds`), not how much of it is left now (the game clock only reaches
+  us with events), so the TV says "till P1 17:09" rather than a ticking countdown.
+- **Lower thirds** sit 120–130 px above the bottom, clear of the broadcaster's tickers,
+  and from the left edge, clear of its bug top left.
 - **L-frame:** the TV picture moves to the top left at 60 % (1152×648, 40 px from the
   edges), our graphics fill the column right of it (608×1000) and the band below it
   (1152×312); a backdrop in `--bg-screen` paints everything around the picture
@@ -90,10 +99,11 @@ at the least and 24 mm (27 px, a **38 px** font) for reading. Checked with
   backdrop fades out in 0.1 s, before the picture has grown (45–120 ms on the TV).
   The viewer can ask for the full picture in any L-frame scene (9.4); the next scene
   change resets it.
-- **Panels** (live, on a key): Statistik (shots, power plays, special teams, shot map),
-  Tabell (live table), Kvällens matcher. Lower half or right third, semi-transparent,
-  over the full picture; they close themselves after 20 s or on Back. Every number in
-  them comes from the delayed state, never raw.
+- **Panels** (live and goal, on ↑ ↓, `web/tv/panels.js`): Statistik (shots per period,
+  power plays, penalty minutes, save %), Tabell (the live table or the standings),
+  Kvällens matcher. The right third, half see-through, over the full picture; past the
+  last (or first) they close, as do Back and 20 s without a key. An open panel follows
+  the delayed patches.
 - Kept out of the broadcast's own graphics: the top left (the broadcaster's score bug)
   and the bottom 8 % (its tickers) stay free in `live` and `goal`.
 
@@ -135,7 +145,11 @@ media player. Tried on the TV with the 1920×360 power-play video (895 kB, 4 s):
 155 ms, transparent and smooth to the eye (one 67 ms frame in the measurement), HDMI
 picture and sound stay. They are served at `/media/<kind>/<team uuid>.webp` (your own
 in `data/media/` first, as the videos). `tools/make_stingers.py` makes them from the same frames (`tvgoal`,
-`tvintro`, `tvpp`, 1920×1080 or a band of it, about 1 MB for 4 s). Over a live picture
+`tvintro`, `tvpp`, 1920×1080 or a band of it, about 1 MB for 4 s). `web/tv/anim.js`
+fetches them ahead as blobs and shows one at its `play_at`: `tvgoal` and `tvintro` over the
+whole frame, `tvpp` as a 1920×360 band at y 600. An animated image cannot be started part
+way, so a late one plays from its start, and one later than its length (goal 3 s, intro
+6 s, power play 5 s) is skipped; it is hidden after that length. Over a live picture
 they should be short sweeps that end transparent, leaving the middle of the ice clear
 as quickly as possible. If WebP stutters on the TV, the GSAP animations stay alone.
 

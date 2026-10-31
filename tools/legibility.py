@@ -5,13 +5,15 @@ Usage (from the repo root, with the service running):
     uv run --project server python tools/legibility.py [--distance 3] [--game et9erhx0si]
 
 Plays ``--game`` to its end (a replay, so every list is full), then shows each scene in
-turn (pregame, live, goal, intermission, postgame, idle) and, on each screen, measures every
+turn (pregame, live, goal, intermission, postgame, idle) and, on each screen (the wall's
+three and the TV app's overlay, ``tv`` in config/wall.json), measures every
 element that holds text: its font, the cap height of that font (the height of an "H",
 measured in the page) and so its cap height on the glass, from ``config/wall.json``
 (millimetres per pixel). Text hidden for now (another intermission slide, a ticker page)
 is measured too.
 
-Thresholds, from the viewing distance (default 3 m, the far end of the sofa):
+Thresholds, from the viewing distance (default 3 m, the far end of the sofa; the TV uses
+its own, ``tv.viewing.distance_m``):
 
 - minimum: 3.3 mm cap height per metre (10 mm at 3 m), the size below which text on a
   wall screen stops being readable at a glance (10-foot UI guidance for TVs);
@@ -77,9 +79,14 @@ async def main() -> int:
 
     wall = json.loads((REPO_ROOT / "config" / "wall.json").read_text(encoding="utf-8"))
     screens = {s["id"]: s for s in wall["screens"]}
+    if wall.get("tv"):
+        screens["tv"] = wall["tv"]
     mm_per_px = {i: s["physical_mm"][1] / s["resolution"][1] for i, s in screens.items()}
-    minimum = 3.3 * args.distance
-    comfortable = 5.0 * args.distance
+    distance = {
+        i: s.get("viewing", {}).get("distance_m", args.distance) for i, s in screens.items()
+    }
+    minimum = {i: 3.3 * d for i, d in distance.items()}
+    comfortable = {i: 5.0 * d for i, d in distance.items()}
 
     rows: list[dict[str, Any]] = []
     async with httpx.AsyncClient(base_url=args.base + "/api/", timeout=10) as api:
@@ -110,12 +117,17 @@ async def main() -> int:
         else:
             await api.post("source", json={"mode": "none"})
 
-    small = [r for r in rows if r["mm"] < minimum]
-    medium = [r for r in rows if minimum <= r["mm"] < comfortable]
+    small = [r for r in rows if r["mm"] < minimum[r["screen"]]]
+    medium = [r for r in rows if minimum[r["screen"]] <= r["mm"] < comfortable[r["screen"]]]
+    limits = ", ".join(
+        f"{i} at {distance[i]:g} m: minimum {minimum[i]:.0f} mm, "
+        f"comfortable {comfortable[i]:.0f} mm"
+        for i in screens
+    )
     lines = [
-        f"# Legibility at {args.distance:g} m",
+        "# Legibility",
         "",
-        f"Cap height on the glass. Minimum {minimum:.0f} mm, comfortable {comfortable:.0f} mm.",
+        f"Cap height on the glass. {limits}.",
         f"Text elements measured: {len(rows)}; below the minimum: {len(small)}; "
         f"between minimum and comfortable: {len(medium)}.",
         "",
@@ -127,7 +139,7 @@ async def main() -> int:
         grouped[(r["scene"], r["screen"], r["cls"], r["size"])].append(r)
     for (scene, sid, cls, size), items in sorted(grouped.items(), key=lambda kv: kv[1][0]["mm"]):
         mm = items[0]["mm"]
-        flag = " ⚠" if mm < minimum else ""
+        flag = " ⚠" if mm < minimum[sid] else ""
         example = items[0]["text"].replace("|", "/")
         lines.append(f"| {scene} | {sid} | `{cls}` | {size:g} | {mm:.1f}{flag} | {example} |")
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -135,10 +147,10 @@ async def main() -> int:
 
     for sid in screens:
         mine = [r for r in rows if r["screen"] == sid]
-        under = [r for r in mine if r["mm"] < minimum]
+        under = [r for r in mine if r["mm"] < minimum[sid]]
         sizes = sorted({round(r["mm"], 1) for r in mine})
         print(
-            f"{sid:6} {len(mine):4} texts, {len(under):4} under {minimum:.0f} mm, "
+            f"{sid:6} {len(mine):4} texts, {len(under):4} under {minimum[sid]:.0f} mm, "
             f"caps {sizes[:6]} … {sizes[-3:]}"
         )
     print(f"report: {args.out}")

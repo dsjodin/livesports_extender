@@ -553,3 +553,9 @@ Phase 9 notes (2026-10-31):
   `/media/tv*/<uuid>.webp`, and the TV view in `/sim` playing the shell. Verified in
   `/sim`: scene changes 1–11 ms after play_at, L-frame and full picture, the test page
   and back.
+- 9.3 done (2026-10-31): the TV scenes (`web/tv/scenes/`: idle, pregame, live, goal,
+  intermission, postgame; `docs/TV_APP.md`, Scenes on the TV), the panels on ↑ ↓
+  (`web/tv/panels.js`) and the WebP animations (`web/tv/anim.js`, files in 9.5). Verified
+  in `/sim` with the replay of et9erhx0si: every scene, a feed goal with portrait, a MÅL!
+  press, a penalty with its power play, the panels. `tools/legibility.py` now measures the
+  TV too: no text under 13 mm at 4 m (smallest 15.1 mm).

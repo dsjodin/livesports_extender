@@ -58,7 +58,7 @@ server/tests/          pytest; fixtures in server/tests/fixtures/
 web/screens/           left.html, bar.html, right.html + shared js/css
 web/sim/               simulator page
 web/app/               phone web app (PWA)
-web/tv/                overlay page for the Samsung TV app (Phase 9)
+web/tv/                overlay page for the Samsung TV app (Phase 9): scenes/, panels, anim
 SHLlive/               the Samsung TV app's shell (Tizen .wgt: HDMI, remote, settings)
 web/vendor/            gsap, fonts (vendored, no CDN at runtime)
 web/media/             default team videos (goal/, intro/; own ones go in data/media/)
@@ -89,7 +89,7 @@ uv run --project server python tools/snapshot.py           # screen snapshots (s
 uv run --project server python tools/snapshot.py --flow    # whole replay at 5x, scene order + sync
 uv run --project server python tools/check_phone.py        # phone app: Synka + MÅL! in a browser
 uv run --project server python tools/make_stingers.py      # default goal/intro/pp videos per team
-uv run --project server python tools/legibility.py         # text sizes in mm on the wall (service running)
+uv run --project server python tools/legibility.py         # text sizes in mm on the wall and TV (service running)
 shellcheck deploy/display-box/*.sh                         # display box scripts (docs/DEPLOY.md)
 ```
 
