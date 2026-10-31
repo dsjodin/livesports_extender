@@ -258,6 +258,13 @@ player sums: `et9erhx0si` SKE has 2 PIM in the boxscore plus a 2 min bench minor
 
 **goalkeeper**: `{"type": "goalkeeper", "isEntering": true|false}`. `false` mid-game means the
 goalie was pulled (or left); the game also ends with `isEntering: false` events at 20:00.
+A goalie change is an exit and an entry at the same second, **in either eventId order**:
+VLH–FBK 2026-10-31 (P1 12:06, entry 25 before exit 26) and MIF–LHC 2026-10-27 (P2 05:20,
+76 before 77). Read in eventId order the exit comes last and the team looks pulled for the
+rest of the game. In 14 games (2026-10-24 to 29) exits without an entry came only late in
+the third or in overtime (pulls for an extra skater); delayed penalties have no exit
+events. So `state.py` takes an exit and an entry at one second as a change, and ignores an
+exit in period 1 or 2 until its entry comes.
 
 **timeout**: no player, only `eventTeam`.
 

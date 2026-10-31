@@ -46,6 +46,14 @@ function banner(text, kind) {
   return html`<div class="tv-banner ${kind}">${text}</div>`;
 }
 
+/** "5 MOT 4" from the penalties alone: a pulled goalie (a guess from the feed) does not
+ * change a power play's count (the user 2026-10-31: "6 mot 4", "powerplay 5 mot 5"). */
+function count(st) {
+  const home = st.pen_home ?? st.home;
+  const away = st.pen_away ?? st.away;
+  return home && away && home !== away ? `${home} MOT ${away}` : "";
+}
+
 /** The shorthanded side's penalties still running, soonest out first. */
 function running(tv, side) {
   return (tv.penalties_active ?? []).filter((p) => p.side === side).sort((a, b) => (a.expires_game_seconds ?? 1e9) - (b.expires_game_seconds ?? 1e9));
@@ -60,7 +68,7 @@ function penaltyCard(tv, key) {
   const active = (tv.penalties_active ?? []).find((p) => p.key === key);
   const until = active?.expires_game_seconds != null ? `till ${gameClock(active.expires_game_seconds)}` : "";
   const st = tv.strength ?? {};
-  const pp = st.pp_side === other(side) ? html`<div class="pc-line pc-pp"><span class="dot"></span>POWERPLAY ${caps(shortName(tv, other(side)))}${st.home && st.away ? ` · ${st.home} MOT ${st.away}` : ""}</div>` : "";
+  const pp = st.pp_side === other(side) ? html`<div class="pc-line pc-pp"><span class="dot"></span>POWERPLAY ${caps(shortName(tv, other(side)))}${count(st) ? ` · ${count(st)}` : ""}</div>` : "";
   return html`<div class="tv-penalty" style="--c: var(--${side})">${raw(logo(tv, side, "pc-logo"))}
     <div class="pc-body"><div class="pc-line tv-label">UTVISNING · ${caps(shortName(tv, side))}</div>
       <div class="pc-line pc-name">${name}</div>
@@ -82,7 +90,7 @@ function pill(ctx) {
   }
   const first = running(tv, other(pp))[0];
   const until = first?.expires_game_seconds != null ? ` · TILL ${gameClock(first.expires_game_seconds)}` : "";
-  const text = `POWERPLAY ${caps(shortName(tv, pp))} · ${st.home} MOT ${st.away}${until}`;
+  const text = `POWERPLAY ${caps(shortName(tv, pp))}${count(st) ? ` · ${count(st)}` : ""}${until}`;
   if (slot.dataset.text === text) return;
   const fresh = !slot.dataset.text;
   slot.dataset.text = text;

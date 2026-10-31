@@ -5,6 +5,10 @@
    648×1000; band 40,728 1152×312. Over the full picture, the top left (the broadcaster's
    bug) and the bottom 8 % (its tickers) stay free. */
 html, body { margin: 0; background: transparent; overflow: hidden; color-scheme: normal; }
+/* Boxes over the TV picture are opaque: on the TV (S95HF) a 90 % background over the full
+   picture looked see-through and hard to read, although a browser draws it nearly solid
+   (the user 2026-10-31); the TV blends our layer with its picture its own way. */
+.tv { --ov-bg: #070A10; --ov-bg-panel: #0F1420; }
 .tv { position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden;
   font-family: var(--font-body); color: var(--text); font-size: var(--fs-text); line-height: 1.2;
   font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
@@ -162,7 +166,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 
 /* --- live: lower thirds and the power-play pill, over the full picture --------------------- */
 .tv-lower-slot { position: absolute; left: 100px; bottom: 130px; }
-.tv-penalty { display: flex; align-items: center; gap: 24px; padding: 22px 34px 22px 26px; background: rgba(7, 10, 16, 0.9);
+.tv-penalty { display: flex; align-items: center; gap: 24px; padding: 22px 34px 22px 26px; background: var(--ov-bg);
   border-left: 12px solid var(--c); border-radius: 12px; }
 .pc-logo { width: 96px; height: 96px; object-fit: contain; }
 .pc-body { display: flex; flex-direction: column; gap: 6px; }
@@ -174,13 +178,13 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 .tv-banner.gold { background: var(--gold); color: var(--on-gold); }
 .tv-banner.alert { background: var(--penalty); color: #1A0507; }
 .tv-pill-slot { position: absolute; right: 100px; bottom: 130px; }
-.tv-pp-pill { display: flex; align-items: center; gap: 14px; padding: 14px 26px; background: rgba(7, 10, 16, 0.88); border-radius: 999px;
+.tv-pp-pill { display: flex; align-items: center; gap: 14px; padding: 14px 26px; background: var(--ov-bg); border-radius: 999px;
   box-shadow: inset 0 0 0 4px var(--gold); font: 800 var(--fs-text)/1 var(--font-condensed); color: var(--gold); }
 
 /* --- goal: the sweep and the lower third --------------------------------------------------- */
 .gl-sweep { position: absolute; left: 0; right: 0; bottom: 120px; height: 360px;
   background: linear-gradient(100deg, transparent 0%, var(--gold) 20%, var(--gold-flash) 50%, var(--gold) 80%, transparent 100%); }
-.tv-goal { position: absolute; left: 100px; right: 100px; bottom: 120px; height: 330px; background: rgba(7, 10, 16, 0.92);
+.tv-goal { position: absolute; left: 100px; right: 100px; bottom: 120px; height: 330px; background: var(--ov-bg);
   border-radius: 14px; box-shadow: inset 0 -8px 0 var(--c); }
 .gl-head { position: absolute; left: 0; right: 0; top: 0; height: 84px; display: flex; align-items: center; gap: 30px; padding: 0 36px;
   background: var(--gold); color: var(--on-gold); border-radius: 14px 14px 0 0; }
@@ -202,7 +206,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
 
 /* --- panels over the picture in play (panels.js) -------------------------------------------- */
 .tv-panel { position: absolute; right: 60px; top: 60px; bottom: 120px; width: 640px; box-sizing: border-box; padding: 30px 34px;
-  background: rgba(15, 20, 32, 0.92); border-radius: 14px; display: flex; flex-direction: column; gap: 14px; opacity: 0; overflow: hidden; }
+  background: var(--ov-bg-panel); border-radius: 14px; display: flex; flex-direction: column; gap: 14px; opacity: 0; overflow: hidden; }
 .tv-panel .dots { margin-top: auto; }
 /* in an L-frame scene the panel takes the column's place: same box, opaque */
 .tv-panel.in-column { left: 1232px; top: 40px; right: auto; bottom: auto; width: 648px; height: 1000px; padding: 34px 36px 28px;
@@ -216,7 +220,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
   translate: var(--sx, 0) var(--sy, 0); transition: translate 3s ease-in-out; }
 
 /* --- the menu on OK and its sheets (menu.js), low on the left over the picture ------------- */
-.tv-menu, .tv-sheet { position: absolute; bottom: 130px; box-sizing: border-box; padding: 18px; background: rgba(7, 10, 16, 0.94);
+.tv-menu, .tv-sheet { position: absolute; bottom: 130px; box-sizing: border-box; padding: 18px; background: var(--ov-bg);
   border-radius: 14px; display: flex; flex-direction: column; gap: 6px; opacity: 0; pointer-events: none; }
 .tv-menu { left: 60px; width: 520px; }
 .tv-menu.on { opacity: 1; }
@@ -245,10 +249,10 @@ html, body { margin: 0; background: transparent; overflow: hidden; color-scheme:
   box-shadow: 0 0 18px 4px rgba(255, 45, 58, 0.55); opacity: 0; }
 .tv-feed-dot.on { animation: tv-pulse 1.4s ease-in-out infinite; }
 @keyframes tv-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
-.tv-toast { position: absolute; right: 60px; bottom: 120px; padding: 18px 28px; background: rgba(7, 10, 16, 0.92);
+.tv-toast { position: absolute; right: 60px; bottom: 120px; padding: 18px 28px; background: var(--ov-bg);
   border: 3px solid var(--gold); border-radius: 10px; font: 700 var(--fs-text)/1 var(--font-condensed); opacity: 0; z-index: 50; }
 .tv-notice { position: absolute; left: 50%; top: 40px; transform: translateX(-50%); padding: 14px 28px; border-radius: 10px;
-  background: rgba(7, 10, 16, 0.92); border: 3px solid var(--penalty); font: 700 var(--fs-text)/1 var(--font-condensed); display: none; }
+  background: var(--ov-bg); border: 3px solid var(--penalty); font: 700 var(--fs-text)/1 var(--font-condensed); display: none; }
 .tv-notice.on { display: block; }
 .tv-notice.old { top: 120px; border-color: var(--gold); white-space: nowrap; } /* below the HDMI notice */
 .tv-debug { position: absolute; left: 10px; bottom: 10px; margin: 0; padding: 8px 12px; background: rgba(0, 0, 0, 0.82);

@@ -200,6 +200,11 @@ its last frame is empty anyway (checked in Chromium for the defaults). They play
 
 ## Dimming and the OLED
 
+Boxes over the full picture (penalty, power-play pill, goal, panels, menu) are opaque:
+with a 88–94 % background they looked see-through and hard to read on the S95HF, though
+a browser draws them nearly solid (the user 2026-10-31). The TV blends our layer over its
+picture its own way; `--ov-bg` in `tv.css`.
+
 The TV is an OLED (S95HF), so graphics that stand still for hours can burn in (the user,
 2026-10-31). `web/tv/overlay.js`:
 
