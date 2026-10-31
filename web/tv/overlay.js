@@ -226,6 +226,10 @@ function show(scene, at, animate) {
 // ---- keys: the menu on OK, panels on ↑ ↓, Back (docs/TV_APP.md, Remote) -----------------
 
 host.onKey((key) => {
+  // red: the remote has none; the server may send it over the TV's network remote only to
+  // keep Samsung's screen saver away (tools/tv_keepawake.py), so it must change nothing
+  // here, not even wake the resting L-frame
+  if (key === "red") return;
   note(`key ${key}`);
   restLater();
   if (resting) {

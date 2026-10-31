@@ -262,6 +262,16 @@ a change the TV should notice and count from anew. The menu (Inställningar) sho
 setting (Auto Protection Time longer, or off: our graphics dim and rest by themselves,
 see Dimming and the OLED).
 
+Shell 1.3.0 still let it come after about 2 min, and what the user found about Samsung's
+OLED TVs says the saver cannot be turned off there (2026-10-31). A key press does reset
+it, so the next test (before anything is built in) is a key sent over the network:
+`tools/tv_keepawake.py <TV's IP>` sends KEY_RED every 60 s through the TV's own network
+remote (the remote-control WebSocket on port 8002 that phone remote apps use; the first
+time the TV asks to allow "SHL Arena", and the token is kept in
+`data/tv_remote_token.txt`). The remote has no red key and the graphics ignore "red"
+(not even waking the resting L-frame), so nothing shows on screen. If the saver stays
+away, the service can do the same while the TV app is shown.
+
 1.3.0 also tried `tizen.power.request("SCREEN", "SCREEN_NORMAL")`, but the TV has no
 `tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of undefined
 (reading 'request')"); 1.4.0 dropped it and its privilege.
