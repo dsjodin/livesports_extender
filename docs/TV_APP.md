@@ -246,14 +246,17 @@ For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
 ## Screen saver
 
 The TV counts an app nobody presses keys in as idle and starts its screen saver after a
-while, which it never does on a TV input (the user, 2026-10-31). The shell (0.3.2) turns
-it off while the app is shown and on again when the app is hidden or exits:
+while, which it never does on a TV input (the user, 2026-10-31). The shell turns it off
+while the app is shown and on again when the app is hidden or exits:
 `webapis.appcommon.setScreenSaver(SCREEN_SAVER_OFF)` (Samsung's AppCommon API, from
-`$WEBAPIS/webapis/webapis.js`), and also `tizen.power.request("SCREEN", "SCREEN_NORMAL")`
-(privilege `power`); it says it again every minute and on every key (shell 1.3.0: with
-every 5 minutes the TV still started it, 2026-10-31). Both results show in the menu
-("Skärmsläckare: av · skärmlås på"). The result shows in the menu
-(Inställningar: "Skärmsläckare: av") and in the test page's report (`shell.screen_saver`).
+`$WEBAPIS/webapis/webapis.js`). Shell 1.3.0 says it again every minute and on every key;
+with shell 1.0.0 (one call at start) Samsung's own screen saver came back after about
+4 min (2026-10-31; the TV had kept 1.0.0 because the new builds never installed). It also
+tries `tizen.power.request("SCREEN", "SCREEN_NORMAL")` (privilege `power`), but the TV
+has no `tizen.power` (S95HF, Tizen 9.0: "skärmlås fel: cannot read properties of
+undefined (reading 'request')", 2026-10-31), so only AppCommon holds it off. Both results
+show in the menu (Inställningar: "Skärmsläckare: av · skärmlås …") and in the test page's
+report (`shell.screen_saver`).
 
 ## Development and install
 
