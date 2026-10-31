@@ -92,18 +92,21 @@ layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md r
 - **Lower thirds** sit 120–130 px above the bottom, clear of the broadcaster's tickers,
   and from the left edge, clear of its bug top left.
 - **L-frame:** the TV picture moves to the top left at 60 % (1152×648, 40 px from the
-  edges), our graphics fill the column right of it (608×1000) and the band below it
+  edges), our graphics fill the column right of it (648×1000) and the band below it
   (1152×312); a backdrop in `--bg-screen` paints everything around the picture
   (`web/tv/layout.js`). The overlay asks the shell to move the picture at the scene's
   `play_at`, so the change lands with the broadcast; going back to full screen the
   backdrop fades out in 0.1 s, before the picture has grown (45–120 ms on the TV).
   The viewer can ask for the full picture in any L-frame scene (9.4); the next scene
   change resets it.
-- **Panels** (live and goal, on ↑ ↓, `web/tv/panels.js`): Statistik (shots per period,
+- **Panels** (on ↑ ↓ or from the menu, `web/tv/panels.js`): Statistik (shots per period,
   power plays, penalty minutes, save %), Tabell (the live table or the standings),
-  Kvällens matcher. The right third, half see-through, over the full picture; past the
-  last (or first) they close, as do Back and 20 s without a key. An open panel follows
-  the delayed patches.
+  Kvällens matcher. In play they lie in the right third over the full picture, half see-through;
+  in an L-frame scene they take the column's place, opaque, so nothing lies on top of the
+  column's own graphics (the user, 2026-10-31: "overlay på overlay"), and the column's
+  slideshow is back when they close. Past the last (or first) they close, as do Back and
+  20 s without a key; a change between full picture and L-frame closes them too. An open
+  panel follows the delayed patches.
 - Kept out of the broadcast's own graphics: the top left (the broadcaster's score bug)
   and the bottom 8 % (its tickers) stay free in `live` and `goal`.
 
@@ -177,6 +180,16 @@ started part way, so a late one plays from its start, and one later than its len
 its last frame is empty anyway (checked in Chromium for the defaults). They play once
 (WebP loop count 1). Your own go in `data/media/<kind>/<uuid>.webp` (`docs/VIDEOS.md`).
 
+## Screen saver
+
+The TV counts an app nobody presses keys in as idle and starts its screen saver after a
+while, which it never does on a TV input (the user, 2026-10-31). The shell (0.3.2) turns
+it off while the app is shown and on again when the app is hidden or exits:
+`webapis.appcommon.setScreenSaver(SCREEN_SAVER_OFF)` (Samsung's AppCommon API, from
+`$WEBAPIS/webapis/webapis.js`), and also `tizen.power.request("SCREEN", "SCREEN_NORMAL")`
+(privilege `power`); it says it again every 5 minutes. The result shows in the menu
+(Inställningar: "Skärmsläckare: av") and in the test page's report (`shell.screen_saver`).
+
 ## Development and install
 
 - `/sim` has a TV view ("View: TV app"): `/tv/` in a 16:9 frame over a stand-in for the
@@ -244,7 +257,14 @@ The TV: S95HF, Tizen 9.0, firmware T-RSMFDEUC-0090-1301.0, Chromium 120, page
    - "Flytta TV-bilden" moves the picture: L-frame, small, full screen in turn;
    - "Återställ HDMI-bilden" shows HDMI again if it is gone;
    - press every key the remote has (play/pause, channel, …): the page lists them;
-   - "Dölj testbilden" hides the page (any key brings it back); Back twice exits.
+   - "Dölj testbilden" hides the page (any key brings it back); Back twice exits;
+   - "Tillbaka till grafiken" turns the test page off (`tv_probe`) and the TV reloads
+     into the graphics.
+
+To check which of the remote's own keys reach the app (play/pause, the channel rocker,
+…): menu (OK) → Inställningar → Testsidan, press the keys, and read the "Fjärrkontroll"
+row ("andra: …") or `keys` in the report; then "Tillbaka till grafiken". The shell must be
+0.3.1 or later (it registers every key the TV lets an app have).
 4. The page sends its report every 30 s (and at once on "Skicka rapport"). Read it at
    `http://<server>:8010/api/tv/probe` (kept in `data/tv_probe.json`) and send it on.
 5. If the picture does not show through (or the page stays empty), choose Läge

@@ -566,3 +566,11 @@ Phase 9 notes (2026-10-31):
   and the goal scene, a sync sample with its proposal, the sheets, the full picture and
   Back to the L-frame. Found on the way: OK, OK outside play must never change the game,
   so the menu opens on the sync or Statistik there.
+- 9.5 done (2026-10-31): `tools/make_stingers.py` draws `tvgoal` (1920×1080, 2 s),
+  `tvintro` (a 1920×360 band, 3 s) and `tvpp` (the bar's band, 4 s) as animated WebP for
+  all 14 teams (`web/media/tv*/`, 38 MB in all, 0.5–1.3 MB each). Checked: played once,
+  no longer than `anim.js` shows them, an empty last frame in Chromium for all 42, and
+  the goal sweep 16 ms after play_at in `/sim`.
+- Fixes from the user (2026-10-31): panels in an L-frame scene take the column's place
+  instead of lying over it; the shell (0.3.2) turns the TV's screen saver off while the
+  app is shown (`docs/TV_APP.md`, Screen saver).

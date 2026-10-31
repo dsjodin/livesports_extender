@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '0.3.1';
+  const VERSION = '0.3.2';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -177,6 +177,7 @@
     try { out.platform = api.systeminfo.getCapability('http://tizen.org/feature/platform.version'); } catch (err) { /* computer */ }
     try { out.model = window.webapis.productinfo.getModel(); } catch (err) { /* computer or no webapis */ }
     try { out.firmware = window.webapis.productinfo.getFirmware(); } catch (err) { /* computer or no webapis */ }
+    out.screen_saver = screenSaver;
     return out;
   }
   function toOverlay(message) {
@@ -244,10 +245,38 @@
     }, 15000);
   }
 
+  // ---- screen saver ---------------------------------------------------------------------
+  // The TV counts an app nobody presses keys in as idle and starts its screen saver after a
+  // while; on a TV input it never does (seen 2026-10-31). Off while the app is shown, back
+  // on when it is hidden or exits. Samsung's AppCommon API first, Tizen's power lock as well.
+  let screenSaver = realTV ? 'okänd' : 'dator';
+  function setScreenSaver(off) {
+    if (!realTV) return;
+    try {
+      if (off) api.power.request('SCREEN', 'SCREEN_NORMAL');
+      else api.power.release('SCREEN');
+    } catch (err) { log('power: ' + err); }
+    const common = window.webapis && window.webapis.appcommon;
+    if (!common) { screenSaver = 'appcommon saknas'; log('Skärmsläckare: appcommon saknas'); return; }
+    const states = common.AppCommonScreenSaverState;
+    try {
+      common.setScreenSaver(off ? states.SCREEN_SAVER_OFF : states.SCREEN_SAVER_ON, function () {
+        screenSaver = off ? 'av' : 'på';
+      }, function (err) {
+        screenSaver = 'fel: ' + (err.message || err);
+        log('setScreenSaver: ' + (err.message || err));
+      });
+    } catch (err) {
+      screenSaver = 'fel: ' + err;
+      log('setScreenSaver: ' + err);
+    }
+  }
+
   function exit() {
     tv.op++;
     clearTimeout(tv.timer);
     if (!realTV) { log('På TV:n avslutar detta appen.'); return; }
+    setScreenSaver(false);
     try { api.application.getCurrentApplication().exit(); } catch (err) { log('exit: ' + err); }
   }
 
@@ -355,7 +384,11 @@
       tv.shown = false;
       try { api.tvwindow.hide(function () {}, function (err) { log('hide: ' + err.message); }, 'MAIN'); }
       catch (err) { log('hide: ' + err); }
-    } else scan();
+      setScreenSaver(false);
+    } else {
+      setScreenSaver(true);
+      scan();
+    }
   });
 
   // ---- start ------------------------------------------------------------------------------
@@ -365,6 +398,9 @@
   window.addEventListener('resize', fit);
   log('SHL live! ' + VERSION + (realTV ? ' på TV:n' : ' (förhandsvisning på dator)'));
   registerKeys();
+  setScreenSaver(true);
+  // said again now and then, in case the TV forgets it (no harm when it holds)
+  setInterval(function () { if (!document.hidden) setScreenSaver(true); }, 5 * 60 * 1000);
   scan();
   connect();
 }());
