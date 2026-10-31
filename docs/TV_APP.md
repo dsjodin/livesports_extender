@@ -219,6 +219,17 @@ The TV is an OLED (S95HF), so graphics that stand still for hours can burn in (t
 
 For trying them: `/tv/?rest=<s>&shift=<s>` shortens the rest and the shift.
 
+## Sound (tried on the TV 2026-10-31)
+
+- The app's own sound plays, through Web Audio and through `<audio>`, and reaches the
+  soundbar with the broadcast's sound (the user's sound goes to a soundbar over HDMI
+  eARC).
+- The TV's volume and mute (`tvaudiocontrol`, shell 1.1.0) do nothing to it: they act on
+  the TV's own speakers, not on a soundbar over eARC. So the app cannot lower or mute the
+  broadcast. That would go through Home Assistant, which already gets the goal webhook
+  at `play_at` and can turn the soundbar down and back.
+- What the app does with sound is still open (the user has ideas, 2026-10-31).
+
 ## Screen saver
 
 The TV counts an app nobody presses keys in as idle and starts its screen saver after a
