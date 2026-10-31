@@ -100,8 +100,9 @@ layout (`web/tv/tv.css`). Every number comes from the delayed state (CLAUDE.md r
   The viewer can ask for the full picture in any L-frame scene (9.4); the next scene
   change resets it.
 - **Panels** (on ↑ ↓ or from the menu, `web/tv/panels.js`): Statistik (shots per period,
-  power plays, penalty minutes, save %), Tabell (the live table or the standings),
-  Kvällens matcher. In play they lie in the right third over the full picture, half see-through;
+  power plays, penalty minutes, save %), Skottkarta (both teams' shot maps with their
+  shots on goal, asked for by the user 2026-10-31), Tabell (the live table or the
+  standings), Kvällens matcher. In play they lie in the right third over the full picture, half see-through;
   in an L-frame scene they take the column's place, opaque, so nothing lies on top of the
   column's own graphics (the user, 2026-10-31: "overlay på overlay"), and the column's
   slideshow is back when they close. Past the last (or first) they close, as do Back and
@@ -123,15 +124,15 @@ depends on it.
 | Key | No menu open | Menu open |
 |---|---|---|
 | OK | Opens the menu | Choose; on Matcher, Synk, Inställningar opens its sheet |
-| ↑ ↓ | In play: next / previous panel (Statistik → Tabell → Kvällens matcher → off) | Move |
+| ↑ ↓ | Next / previous panel (Statistik → Skottkarta → Tabell → Kvällens matcher → off) | Move |
 | → | | Opens a sheet, like OK |
 | ← / Back | Back: closes a panel, or the full picture back to the L-frame; twice in 2 s: exit | Closes the sheet, then the menu |
 | ⏯ play/pause | Synka nedsläpp at once (a `period_start` sample, with a selected game) | The same |
 
 The menu (`web/tv/menu.js`, task 9.4) is a list low on the left over the picture, 38 px
 text (nine items in a row along the bottom would not fit at a readable size):
-MÅL! <my team>, MÅL! <the other team>, Synka nedsläpp, Statistik, Tabell, Kvällens
-matcher, Helbild (in an L-frame scene; "Tillbaka till L-ram" when on), Matcher ›,
+MÅL! <my team>, MÅL! <the other team>, Synka nedsläpp, Statistik, Skottkarta, Tabell,
+Kvällens matcher, Helbild (in an L-frame scene; "Tillbaka till L-ram" when on), Matcher ›,
 Synk ›, Inställningar ›. The goal and sync items only while a game is selected. It closes
 after 30 s without a key, and when the scene changes.
 
