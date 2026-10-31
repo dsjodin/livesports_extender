@@ -73,11 +73,33 @@ def test_tv_animations_are_webp_only(tmp_path: Path) -> None:
 
 def test_default_videos_exist_for_every_team() -> None:
     teams = json.loads((REPO_ROOT / "config" / "teams.json").read_text(encoding="utf-8"))["teams"]
-    for kind in ("goal", "intro", "pp"):
+    kinds = [("goal", "webm"), ("intro", "webm"), ("pp", "webm")]
+    kinds += [("tvgoal", "webp"), ("tvintro", "webp"), ("tvpp", "webp")]  # the TV app's
+    for kind, ext in kinds:
         missing = [
-            u for u in teams if not (REPO_ROOT / "web" / "media" / kind / f"{u}.webm").is_file()
+            u for u in teams if not (REPO_ROOT / "web" / "media" / kind / f"{u}.{ext}").is_file()
         ]
         assert not missing, (kind, missing)
+
+
+def test_tv_animations_play_once_and_are_short() -> None:
+    """Animated WebP: played once (loop count 1) and no longer than anim.js shows them."""
+    max_ms = {"tvgoal": 3000, "tvintro": 6000, "tvpp": 5000}  # web/tv/anim.js MAX_S
+    for kind, limit in max_ms.items():
+        for path in (REPO_ROOT / "web" / "media" / kind).glob("*.webp"):
+            data = path.read_bytes()
+            assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", path
+            pos, loop, total = 12, None, 0
+            while pos + 8 <= len(data):
+                tag, size = data[pos : pos + 4], int.from_bytes(data[pos + 4 : pos + 8], "little")
+                body = data[pos + 8 : pos + 8 + size]
+                if tag == b"ANIM":
+                    loop = int.from_bytes(body[4:6], "little")
+                elif tag == b"ANMF":
+                    total += int.from_bytes(body[12:15], "little")
+                pos += 8 + size + (size & 1)
+            assert loop == 1, (path, loop)
+            assert 0 < total <= limit, (path, total)
 
 
 def test_pages_are_revalidated(tmp_path: Path) -> None:
