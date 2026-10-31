@@ -6,7 +6,7 @@
 // On a computer the page runs as a preview: no HDMI, the keyboard is the remote.
 (function () {
   'use strict';
-  const VERSION = '0.3.0';
+  const VERSION = '0.3.1';
   const W = 1920, H = 1080;
   const STORE = 'shllive.settings';
   const api = window.tizen;
@@ -20,8 +20,10 @@
     82: 'red', 71: 'green', 89: 'yellow', 66: 'blue', 32: 'playpause',
   };
   for (let d = 0; d <= 9; d++) { KEYS[48 + d] = String(d); KEYS[96 + d] = String(d); }
-  const REGISTER = ['ColorF0Red', 'ColorF1Green', 'ColorF2Yellow', 'ColorF3Blue', 'MediaPlayPause',
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  // Every key the TV lets an app have is registered, so the test page can show which of
+  // them the remote really has (it has no digits or colour keys of its own, 2026-10-31).
+  const KEEP_FOR_TV = /^(Volume|Power|Exit|Source|Home|Menu)/;
+  const supported = {}; // code -> name, from tvinputdevice
   const IME_DONE = 65376, IME_CANCEL = 65385;
 
   let settings = loadSettings();
@@ -200,6 +202,7 @@
     } else if (m.t === 'window') placeWindow(m.rect, m.id);
     else if (m.t === 'exit') exit();
     else if (m.t === 'setup') openSetup();
+    else if (m.t === 'hdmi') { log('Visar HDMI igen'); tv.busy = false; scan(); }
   });
 
   function connect() {
@@ -309,9 +312,14 @@
 
   function registerKeys() {
     if (!realTV || !api.tvinputdevice) return;
-    REGISTER.forEach(function (name) {
-      try { api.tvinputdevice.registerKey(name); } catch (err) { log('registerKey ' + name + ': ' + err); }
+    let keys = [];
+    try { keys = api.tvinputdevice.getSupportedKeys(); } catch (err) { log('getSupportedKeys: ' + err); }
+    keys.forEach(function (k) {
+      if (KEEP_FOR_TV.test(k.name)) return;
+      try { api.tvinputdevice.registerKey(k.name); supported[k.code] = k.name; }
+      catch (err) { log('registerKey ' + k.name + ': ' + err); }
     });
+    log(Object.keys(supported).length + ' knappar registrerade');
   }
 
   document.addEventListener('keydown', function (event) {
@@ -328,7 +336,7 @@
       }
       return;
     }
-    const key = KEYS[code];
+    const key = KEYS[code] || supported[code];
     if (!key) return;
     event.preventDefault();
     if (event.repeat) return;

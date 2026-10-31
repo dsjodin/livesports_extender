@@ -71,6 +71,8 @@ export const info = () => shell;
 export const ready = () => send({ t: "ready" });
 export const exit = () => send({ t: "exit" });
 export const openSetup = () => send({ t: "setup" });
+/** Show the HDMI picture again (a <video> on the TV takes its player from HDMI). */
+export const restoreHdmi = () => send({ t: "hdmi" });
 
 /** Place the TV picture: [x, y, w, h] in 1920×1080 pixels, or null for full screen.
  * Resolves with {ok, ms, error?} once the shell has moved it. */

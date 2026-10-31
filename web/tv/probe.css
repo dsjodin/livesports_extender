@@ -7,7 +7,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; }
 .tvp-outline { position: absolute; box-sizing: border-box; border: 6px dashed var(--gold); border-radius: 6px; }
 .tvp-outline.full { border-color: rgba(245, 197, 66, 0.35); }
 
-.tvp-panel { position: absolute; left: 60px; top: 120px; width: 900px; padding: 28px 34px;
+.tvp-panel { position: absolute; left: 60px; top: 60px; width: 900px; padding: 28px 34px;
   background: rgba(7, 10, 16, 0.82); border-left: 8px solid var(--gold); border-radius: 12px; }
 .tvp-panel h1 { margin: 0 0 18px; font: 800 52px/1 var(--font-condensed); letter-spacing: 1px; }
 .tvp-panel h2 { margin: 22px 0 8px; font: 700 30px/1 var(--font-condensed); color: var(--text-muted);
@@ -21,15 +21,15 @@ html, body { margin: 0; background: transparent; overflow: hidden; }
 .tvp-value { font-size: 28px; overflow-wrap: anywhere; }
 .tvp-keys { display: flex; gap: 18px; flex-wrap: wrap; font: 600 30px/1.2 var(--font-condensed); color: var(--gold); min-height: 36px; }
 
-.tvp-side { position: absolute; right: 60px; top: 120px; width: 820px; display: flex; flex-direction: column; gap: 30px; }
+.tvp-side { position: absolute; right: 60px; top: 60px; width: 820px; display: flex; flex-direction: column; gap: 22px; }
 .tvp-alpha { display: flex; flex-direction: column; gap: 8px; }
 .tvp-alpha-head { font: 700 30px/1 var(--font-condensed); letter-spacing: 2px; text-transform: uppercase;
   padding: 10px 14px; background: rgba(0, 0, 0, 0.8); align-self: flex-start; }
 .tvp-alpha-line { display: grid; grid-template-columns: 120px repeat(5, 1fr); }
-.tvp-alpha-name { padding: 28px 12px; background: rgba(0, 0, 0, 0.8); font-weight: 600; }
-.tvp-alpha-cell { display: grid; place-items: center; height: 90px; font-weight: 700; font-size: 28px;
+.tvp-alpha-name { padding: 18px 12px; background: rgba(0, 0, 0, 0.8); font-weight: 600; }
+.tvp-alpha-cell { display: grid; place-items: center; height: 70px; font-weight: 700; font-size: 28px;
   text-shadow: 0 0 6px #000; }
-.tvp-gradient { height: 70px; background: linear-gradient(90deg, rgba(7, 10, 16, 0), rgba(7, 10, 16, 1)); }
+.tvp-gradient { height: 50px; background: linear-gradient(90deg, rgba(7, 10, 16, 0), rgba(7, 10, 16, 1)); }
 .tvp-lane { position: relative; height: 70px; background: rgba(0, 0, 0, 0.55); border-radius: 35px; }
 .tvp-puck { position: absolute; left: 25px; top: 10px; width: 50px; height: 50px; border-radius: 50%;
   background: var(--gold); box-shadow: 0 0 20px rgba(245, 197, 66, 0.7); }
@@ -38,7 +38,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; }
 .tvp-time { font: 800 64px/1 var(--font-condensed); font-variant-numeric: tabular-nums; letter-spacing: 1px; }
 .tvp-second { width: 46px; height: 46px; border-radius: 8px; background: var(--gold); opacity: 0; }
 
-.tvp-bottom { position: absolute; left: 60px; right: 60px; bottom: 50px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.tvp-bottom { position: absolute; left: 60px; right: 920px; bottom: 50px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .tvp-question { display: none; padding: 18px 28px; background: var(--gold); color: var(--on-gold);
   font: 700 40px/1.1 var(--font-condensed); border-radius: 10px; }
 .tvp-question.on { display: block; }
@@ -46,3 +46,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; }
 .tvp-toast { position: absolute; right: 60px; bottom: 50px; padding: 18px 28px; background: rgba(7, 10, 16, 0.92);
   border: 3px solid var(--gold); border-radius: 10px; font: 700 36px/1 var(--font-condensed); opacity: 0; }
 .tvp-video { position: absolute; left: 0; top: 600px; width: 1920px; height: 360px; opacity: 0; pointer-events: none; }
+.tvp-menu { display: flex; flex-direction: column; gap: 4px; padding: 10px; background: rgba(7, 10, 16, 0.85); border-radius: 12px; }
+.tvp-item { padding: 3px 18px; border: 4px solid transparent; border-radius: 8px; font: 600 32px/1.1 var(--font-condensed); }
+.tvp-item.on { border-color: var(--gold); background: rgba(245, 197, 66, 0.15); }
+.tvp-anim { position: absolute; left: 0; top: 600px; width: 1920px; height: 360px; opacity: 0; pointer-events: none; }

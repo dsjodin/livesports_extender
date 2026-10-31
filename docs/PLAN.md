@@ -538,3 +538,7 @@ Phase 9 notes (2026-10-31):
   only, `/tvapp/` preview. Run in Chromium in both modes (`docs/TV_APP.md`, The test
   build); waiting for the report from the real TV before 9.2.
 - The TV is 77" at 4 m: fonts at least 23 px, 38 px for reading.
+- First run on the TV (S95HF, Tizen 9.0, 2026-10-31): iframe over HDMI works, 60 fps,
+  clock within 1 ms; a `<video>` takes HDMI away (picture and sound), so TV videos become
+  animated WebP; the remote has only arrows, OK and Back, so the remote design moved to a
+  menu on OK (`docs/TV_APP.md`, Remote). Shell 0.3.1 and the probe were changed to match.
